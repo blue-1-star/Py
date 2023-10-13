@@ -19,3 +19,8 @@ def symbs(m, n):
             res[i][j]=val
             val=chr(ord(val)+1)
     return res
+#  nested list creation
+A=[[(j+1)*10+i+1 for i in range(5)] for j in range(3)]
+print("List A")
+show(A)
+#print(A)
