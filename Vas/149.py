@@ -32,3 +32,8 @@ show(B)
 C=symbs(3,5)
 print("List C")
 show(C)
+# List defines the number of rows in a nested list
+size=[3,5,4,6]
+D=[['*' for k in range(s)] for s in size]
+print("List D")
+show(D)
