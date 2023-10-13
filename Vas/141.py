@@ -1,6 +1,8 @@
 # Листинг 3.4. Создание выборки
 A=tuple(k for k in range(1,21) if k%3!=0)
 print(A)
+#A1=A[0:-1:2]
+print("_",A[0:-1:2])
 B=[2**(k//2) if k%2==0 else 3**(k//2) for k in range(15)]
 print(B)
 #C=[k for k in range(7)]
