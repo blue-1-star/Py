@@ -1,0 +1,20 @@
+file = open("Names.txt", "w")
+file.write("Ben\n")
+file.write("John\n")
+file.write("Mari\n")
+file.write("Bob\n")
+file.write("Nik\n")
+file.close()
+file = open("Names.txt", "r")
+print(file.read())
+file.close()
+nn = input("Please, enter new name:")
+nn = nn + "\n"
+file = open("Names.txt","a")
+file.write(nn)
+file.close()
+file = open("Names.txt", "r")
+print(file.read())
+file.close()
+
+
