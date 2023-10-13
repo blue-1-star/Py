@@ -12,7 +12,8 @@ def rands(m, n):
     return res
 # function for creating a nested list of letters
 def symbs(m, n):
-    val='A'
+    #val='A'
+    val='А'
     res=[['' for i in range(n)] for j in range(m)]
     for i in range(m):
         for j in range(n):
@@ -24,3 +25,10 @@ A=[[(j+1)*10+i+1 for i in range(5)] for j in range(3)]
 print("List A")
 show(A)
 #print(A)
+seed(2019)
+B=rands(3,4)
+print("List B")
+show(B)
+C=symbs(3,5)
+print("List C")
+show(C)
