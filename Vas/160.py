@@ -25,8 +25,3 @@ print("A:", A)
 A.pop(-1)
 A.extend(B)
 print("A:", A)
-
-
-
-
-
