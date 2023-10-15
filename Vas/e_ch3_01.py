@@ -8,17 +8,21 @@ B=tuple(txt)
 #B=list(txt)
 
 n=-1
-m=-12
-print(B)
+m=-7
+#print(B)
 print("size of text =", len(B))
-C=B[-18:-1]
+C=B[-22:-1]
 C1=B[:7]
 #C=B(:6)
 print("C:",C)
 print("C1:",C1)
 C2=B[-7:]
 print("C2:",C2)
-#print("Last:",B[n:m])
-print("A last: ",A[-4:])
-
+print("Last 7 B:",B[m:n])
+#print("A last: ",A[-4:])
+# step
+s = 3
+B1=B[::s]
+print("--------------")
+print("Result:",B1)
 #print("Reverse:", tuple(reversed(B)))
