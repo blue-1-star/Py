@@ -11,10 +11,12 @@ def show(A):
         for s in a:
             print(s, end=" ")
         print()  
-def fill_snake_matrix(n):
-    matrix = [[0] * n for _ in range(n)]
+def fill_snake_matrix(n,m):
+    matrix = [[0] * m for _ in range(n)]
     num = 1
-    top, bottom, left, right = 0, n - 1, 0, n - 1
+    # top, bottom, left, right = 0, n - 1, 0, n - 1
+    top, bottom, left, right = 0, n - 1, 0, m - 1
+
 
     while top <= bottom and left <= right:
         for i in range(left, right + 1):
@@ -43,8 +45,10 @@ def print_matrix(matrix):
     for row in matrix:
         print(' '.join(map(str, row)))
 
-n = int(input("Введите размер матрицы: "))
-snake_matrix = fill_snake_matrix(n)
+n = int(input("Введите к-во строк    матрицы: "))
+m = int(input("Введите к-во столбцов матрицы: "))
+
+snake_matrix = fill_snake_matrix(n,m)
 print_matrix(snake_matrix)
 
 
