@@ -17,13 +17,8 @@ def sort_bubble(A):
         for i in range(n-1-k):
             if A[i]>A[i+1]: change(A,i) 
         k+=1
-
-
-
-
-
 seed(17)
-A = [randint(0,55) for i in range(9)]
+A = [randint(0,55) for i in range(16)]
 print(A)
 print("--------")
 sort_bubble(A)
