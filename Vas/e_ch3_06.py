@@ -1,8 +1,6 @@
 # ex 06 ch 03  p 170
 from  random import *
 from  copy import *
-
-
 def change(A,i):
     A.insert(i, A.pop(i+1))
 #     
