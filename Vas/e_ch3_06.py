@@ -2,15 +2,7 @@
 from  random import *
 from  copy import *
 
-seed(17)
-def rands(m, n):
-    res=[[randint(0,55) for i in range(n)] for j in range(m)]
-    return res
-def show(A):
-    for a in A:
-        for s in a:
-            print(s, end=" ")
-        print() 
+
 def change(A,i):
     A.insert(i, A.pop(i+1))
 #     
@@ -30,17 +22,9 @@ def sort_bubble(A):
 
 
 
-# A = rands(1,9)
+seed(17)
 A = [randint(0,55) for i in range(9)]
-# show(A)
 print(A)
-B=deepcopy(A)
 print("--------")
-# change(A,2)
-# swap_any_pair(B,2,3)
-# print(A)
-# print("------")
-# print("B=",B)
-# show(A)
 sort_bubble(A)
 print(A)
