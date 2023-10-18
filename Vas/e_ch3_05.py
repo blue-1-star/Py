@@ -24,13 +24,6 @@ dm, dn = 2, 3   # номера удаляемых строки и столбца
 m, n = 4,5
 A=rands(m,n) 
 show(A)
-
-
-# A.pop(dm-1)
-# print("-------")
-# show(A)
-# for i in range(m-1):
-#     A[i].pop(dn)
 print("-------")
 del_row_col(A,dm,dn)
 show(A)    
