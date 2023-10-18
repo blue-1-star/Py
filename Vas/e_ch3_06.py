@@ -11,14 +11,23 @@ def show(A):
         for s in a:
             print(s, end=" ")
         print() 
-def change(A,i,j):
-    A.insert(i, A.pop(j))
+def change(A,i):
+    A.insert(i, A.pop(i+1))
 #     
-def change_any_pair(A,i,j):
+def swap_any_pair(A,i,j):
     # swapping arbitrary list items i and j
     A.insert(i, A.pop(j))
-    A.insert(j+1, A.pop(i+1))
-    
+    A.insert(j, A.pop(i+1))
+def sort_bubble(A):
+    n = len(A)
+    k = 0
+    while k<n:
+        for i in range(n-1-k):
+            if A[i]>A[i+1]: change(A,i) 
+        k+=1
+
+
+
 
 
 # A = rands(1,9)
@@ -27,9 +36,9 @@ A = [randint(0,55) for i in range(9)]
 print(A)
 B=deepcopy(A)
 print("--------")
-change(A,2,8)
-change_any_pair(B,2,8)
+change(A,2,3)
+# swap_any_pair(B,2,3)
 print(A)
-print("------")
-print("B=",B)
+# print("------")
+# print("B=",B)
 # show(A)
