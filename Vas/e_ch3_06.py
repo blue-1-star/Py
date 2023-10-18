@@ -2,6 +2,7 @@
 from  random import *
 from  copy import *
 def change(A,i):
+    # меняем местами два смежных элемента списка  i and i+1
     A.insert(i, A.pop(i+1))
 #     
 def swap_any_pair(A,i,j):
