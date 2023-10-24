@@ -8,13 +8,13 @@ tx2 = "второй голос 2"
 # n = abs(-5)
 # print(n)
 n_str=""
-s=""
+s=""          
 # text length alignment
 N = len(tx1)-len(tx2)   
 M = max(len(tx1), len(tx2))
 
 if  N > 0:
-    tx2 = tx2 + N*"*" 
+    tx2 = tx2 + N*"*"   # to the short string add N "*"
 elif N < 0:
     tx1 = tx1 + abs(N)*"*"         
 for i in range(M):
