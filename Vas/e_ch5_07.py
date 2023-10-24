@@ -26,6 +26,6 @@ def dcr_m2(txt):
         tx+=ch
     return tx
 etxt = encr_m2(txt)
-print(etxt)
+print(etxt.lower())
 detxt = dcr_m2(etxt)
-print(detxt)
+print(detxt.lower())
