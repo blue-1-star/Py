@@ -15,6 +15,7 @@ cur_txt, c_txt = "",""
 #     cur_txt = swap_ch(txt,i,i+2) 
 #     c_txt += cur_txt[i:i+3]
 
+#  GPT enhancement
 c_txt = ''.join([swap_ch(txt, i, i+2)[i:i+3] for i in range(len(txt)) if i % 3 == 0])
 print(txt)    
 print(c_txt)
