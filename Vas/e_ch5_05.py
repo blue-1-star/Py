@@ -4,3 +4,20 @@
 используется «звездочка» *.    """
 tx1 = "первый текст 1"
 tx2 = "второй голос 2"
+# tx2 = "второй голос 21__!"
+# n = abs(-5)
+# print(n)
+n_str=""
+s=""
+# text length alignment
+N = len(tx1)-len(tx2)   
+M = max(len(tx1), len(tx2))
+
+if  N > 0:
+    tx2 = tx2 + N*"*" 
+elif N < 0:
+    tx1 = tx1 + abs(N)*"*"         
+for i in range(M):
+    s = tx1[i] + tx2[i]
+    n_str += s
+print(n_str)    
