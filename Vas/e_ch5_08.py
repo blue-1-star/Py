@@ -5,7 +5,8 @@ txt = "А роза упала на лапу Азора"
 
 Rb = 1040     #  Beginning of the Russian uppercase area in the encoding UTF-8
 Re = 1071     #   End of Russian uppercase area in encoding There are 32 letters in total
-vowels_r = {"А", "Е", "Ё", "И", "О", "У", "Ы", "Э", "Ю", "Я"}
+# vowels_r = {"А", "Е", "Ё", "И", "О", "У", "Ы", "Э", "Ю", "Я"}
+vowels_r = {"А", "Е", "И", "О", "У", "Ы", "Э", "Ю", "Я"}
 Alpha = list(chr(i) for i in range(Rb,Re+1))  # Capital russian
 # subtask  - function to create list consonants letters
 # consonants as a subtraction from all letters  vowels 
@@ -59,6 +60,28 @@ def norm_code_sym(Rb,s):   # character code reduced to the range 0-32
     return ord(s) - Rb 
 def denorm_code_sym(Rb,s):   # character code back to the range 1040 -....
     return s + Rb 
+def create_dic_on_subset(S):    # creation of a dictionary based on a given set
+    D = dict()                  # key is index of element in set S, value is UTF-8 code this element
+
+    # D={S.index(s): s  for s in S}
+    D = {ind:val for ind, val in enumerate(S) }
+    # D = {ind:ord(val) for ind, val in enumerate(S) }
+    return D
+
+
+def shift_in_subset(D, sm, shift):  # D - dict for shifting, sm - incoming char, shift. Output - shifting char  
+                                    # it is known that sm is already present in D as a value of some key
+    for k in D:
+        if D[k] == sm: 
+            b=k          # Found the key position in the dictionary from which the shift will be performed
+            break
+    b = (b+shift)% len(D) 
+    if shift < 0:
+        b = len(D) + shift
+    if shift == len(D):
+        b = 0
+    sym = D[b]
+    return sym
 
 def shift_n(S,sm,shift):
     #  S -  alphabet, sm -  incoming character, shift - specified shift
@@ -72,6 +95,9 @@ def shift_n(S,sm,shift):
         b=len(S)+shift
     if shift==N:
         b=0
+# ЧароАбетить надо - т. е. брать символ после сдвига в множестве  А  ( здесь мн-во С )  - а не в исходнои алфавите 
+#            
+    
     sym = chr(denorm_code_sym(Rb,b))
     return sym
 # bl=numb_pos(A)
@@ -99,19 +125,61 @@ def encrypt_mg(txu, cons_l,vowels_r):
         else: 
             tx+=c
     return tx
+def encrypt_mg1(txu, D,Dcons,shift):
+    txe = str()
+    tx=""
+    for c in txu:
+        if c in D.values():
+            A = D
+            tx+=shift_in_subset(A,c,shift)
+        elif c in Dcons.values():
+            A = Dcons
+            tx+=shift_in_subset(A,c,shift)
+        else: 
+            tx+=c
+    return tx
+def decrypt_mg1(txu,D,Dcons,shift):
+    txd = str()
+    tx=""
+    for c in txu:
+        if c in D.values():
+            A = D
+            tx+=shift_in_subset(A,c,shift)
+        elif c in Dcons.values():
+            A = Dcons
+            tx+=shift_in_subset(A,c,shift)
+        else: 
+            tx+=c
+    return tx
 
-txe=encrypt_mg(txu,cons_l,vowels_r)
-print(txe, " ", len(txe)," ",len(txt))
-st=""
-print(txu)
+# txe=encrypt_mg(txu,cons_l,vowels_r)
+# print(txe, " ", len(txe)," ",len(txt))
+# st=""
+# print(txu)
 
-for c in txu:
-    st+=str(ord(c))+" "
-# print(st)
-st1=""
+# for c in txu:
+#     st+=str(ord(c))+" "
+# # print(st)
+# st1=""
 # for c in tx:
     # st1+=str(ord(c))+" "
 # print(st1)
+vow_rsl = sorted(vowels_r)   # sorted set to list
+cons_rsl = sorted(consonants(vowels_r,Rb,Re))
+# D = dict()
+D = create_dic_on_subset(vow_rsl)
+Dcons  = create_dic_on_subset(cons_rsl)
+print(D)
+print(Dcons)
+shift = -1
+# s = shift_in_subset(D,"А",shift)
+# print(s)
+txe=encrypt_mg1(txu,D,Dcons,shift)
+print(txt)
+print(txe, " ", len(txe)," ",len(txt))
+shift=1
+txd=decrypt_mg1(txe,D,Dcons,shift)
+print(txd)
 
 
 
