@@ -76,8 +76,8 @@ def shift_in_subset(D, sm, shift):  # D - dict for shifting, sm - incoming char,
             b=k          # Found the key position in the dictionary from which the shift will be performed
             break
     b = (b+shift)% len(D) 
-    if shift < 0:
-        b = len(D) + shift
+    # if shift < 0:
+        # b = len(D) + shift
     if shift == len(D):
         b = 0
     sym = D[b]
@@ -172,14 +172,20 @@ Dcons  = create_dic_on_subset(cons_rsl)
 print(D)
 print(Dcons)
 shift = -1
-# s = shift_in_subset(D,"А",shift)
-# print(s)
+s = shift_in_subset(D,"А",shift)
+print(s)
 txe=encrypt_mg1(txu,D,Dcons,shift)
-print(txt)
-print(txe, " ", len(txe)," ",len(txt))
+print(txu)
+print(txe, " ", "shift= ",shift)
 shift=1
-txd=decrypt_mg1(txe,D,Dcons,shift)
+txd=decrypt_mg1(txe,D,Dcons,-shift)
 print(txd)
+def test_shift(shift):
+    N = 9
+    return [(i,(i+shift)%N) for i in range(-9,2*N+1) ]
+# print(test_shift(-1))
+
+
 
 
 
