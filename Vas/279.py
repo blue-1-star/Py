@@ -34,3 +34,11 @@ display(C,1,5)
 F=lambda f: lambda x: f(f(x))
 print("F(x->x*x)(5): ", F(lambda x: x*x)(5))
 print("F(x->2*x+1)(5):", F(lambda x: 2*x+1)(5))
+# p 286   recursive function
+def show(txt):
+    if len(txt)==0:
+        print("|")
+    else:
+        print("|", txt[-1], end="", sep="")
+        show(txt[:-1])
+show("Проба пера")        
