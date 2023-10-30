@@ -30,11 +30,17 @@ print(txl_key,"\n",len(txl_key))
 # method keys:
 txl_key1 = D.keys()
 print("Method keys\n",txl_key1,"\n",len(txl_key))
-def min_key(D):    #  returns the key of the minimum dictionary value
+def min_key(D):   
+    "returns the key of the minimum dictionary value"
     min_value = min(D.values())
     key_min = [key for key, value in D.items() if value == min_value][0]
     return key_min
-def max_key(D):    #  returns the key of the maximum dictionary value
+def max_key(D):    
+    "  returns the key of the maximum dictionary value "
     max_value = max(D.values())
     # key_max = [key for key, value in D.items() if value == max_value][0]
     return [key for key, value in D.items() if value == max_value][0]
+print(min_key.__doc__)
+print("min_key= ",min_key(D) )
+print(max_key.__doc__)
+print("max_key= ",max_key(D) )
