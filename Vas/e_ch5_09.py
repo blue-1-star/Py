@@ -36,5 +36,5 @@ def min_key(D):    #  returns the key of the minimum dictionary value
     return key_min
 def max_key(D):    #  returns the key of the maximum dictionary value
     max_value = max(D.values())
-    key_max = [key for key, value in D.items() if value == max_value][0]
-    return key_max
+    # key_max = [key for key, value in D.items() if value == max_value][0]
+    return [key for key, value in D.items() if value == max_value][0]
