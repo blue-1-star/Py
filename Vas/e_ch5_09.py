@@ -27,5 +27,14 @@ print("Number=", len(D))
 print(D)
 txl_key = [k for k in D]
 print(txl_key,"\n",len(txl_key))
-
-
+# method keys:
+txl_key1 = D.keys()
+print("Method keys\n",txl_key1,"\n",len(txl_key))
+def min_key(D):    #  returns the key of the minimum dictionary value
+    min_value = min(D.values())
+    key_min = [key for key, value in D.items() if value == min_value][0]
+    return key_min
+def max_key(D):    #  returns the key of the maximum dictionary value
+    max_value = max(D.values())
+    key_max = [key for key, value in D.items() if value == max_value][0]
+    return key_max
