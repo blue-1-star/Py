@@ -24,13 +24,19 @@ def f(X:"список",Y:"список"):
     return s    
 
 g = lambda X, Y: sum(x * y for x, y in zip(X + X[:abs(len(X) - len(Y))], Y + Y[:abs(len(Y) - len(X))]))
+# g = lambda X, Y: sum(x * y for x, y in zip(X + [X[i] for i in range(abs(len(X) - len(Y)))], Y))
+#  GPT  отжигает - лает третий вариант - но при этом все три рабоатают? 
+# f = lambda X, Y: sum(x * y for x, y in zip(X + [X[i] for i in range(abs(len(X) - len(Y)))]  if len(X) < len(Y)
+#                            else X, Y + [Y[i] for i in range(abs(len(Y) - len(X)))] if len(Y) < len(X) else Y))
 
 
 
-X=[1,2,3,4]
-Y=[2,4,6,1]
+X=[1,2,3]
+Y=[2,4,6,1,0,2]
 print("f=",f(X,Y))
 print(f.__doc__,"\n",f.__annotations__)
 print("--- Lambda")
+print("X =", X)
+print("Y = ", Y)
 print(g(X,Y))
 
