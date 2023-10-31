@@ -4,9 +4,8 @@
 из списков элементов меньше, чем в другом, то недостающие элементы
 получают путем циклического повторения содержимого списка.
 """
-#lambda X,Y : 
+# lambda X,Y : 
 def f(X:"список",Y:"список"):
-# def f(X,Y):
     " создается функция с двумя аргументами"
     s=0
     m = len(X) - len(Y)
@@ -23,9 +22,15 @@ def f(X:"список",Y:"список"):
     for i in range(mx):
         s += X[i]*Y[i] 
     return s    
-        
-X=[1,2,3]
+
+g = lambda X, Y: sum(x * y for x, y in zip(X + X[:abs(len(X) - len(Y))], Y + Y[:abs(len(Y) - len(X))]))
+
+
+
+X=[1,2,3,4]
 Y=[2,4,6,1]
 print("f=",f(X,Y))
 print(f.__doc__,"\n",f.__annotations__)
+print("--- Lambda")
+print(g(X,Y))
 
