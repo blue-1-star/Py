@@ -11,4 +11,4 @@ def ft(txt, *x):
     return tx
 print(ft(txt,1,2,3,14,15,16,17))    
 
-            
+ 
