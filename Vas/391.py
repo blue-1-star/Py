@@ -22,7 +22,7 @@ def create(fields, vals, name=None):
                         print(s,"=", self.__dict__[s])
                 print("Class", self.__class__.__name__)
     MyClass.__name__=name
-    return MyClass
+    return MyClass()
 A=create(["red","green","blue"],[1,2,3],"MyColors")
 A.show()
 # A.show()
