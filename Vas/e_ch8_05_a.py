@@ -9,44 +9,45 @@ class Acl:
         self.a2=2
         self.a3="c"
         self.b=3.14
-    def show(self):  
-        fields_origin=[]      
-        for f in dir(self):
-            if not f.startswith("_") and f!="show":
-                print(f,"=",self.__dict__[f]) 
-        print("Class:",self.__class__.__name__)
-
 A = Acl()
-# A.show()
 def get_numeric_fields(obj):
     numeric_fields = {}
     for key, value in obj.items():  # Предполагается, что obj - это словарь.
-        if isinstance(value, (int, float)):
+        # if isinstance(value, (int, float)):
+        if isinstance(value, (int)):
             numeric_fields[key] = value
     return numeric_fields;
-
-#get dict from object :   vars()  or .__dict__  
-# d = vars(A)
-# print("method vars:",d)
-# print("numeric_fields:",get_numeric_fields(vars(A)))
-
-
-
-
-
-#  GPT suggested 3 ways of constructing class B  1.  A - class 2. A - object    3. use function  setattr(self, name, value)
+#  GPT suggested 3 ways of constructing class B  1.  A - class,  2. A - object    3. use function  setattr(self, name, value)
 
 def corr_obj(A):
     nf=get_numeric_fields(vars(A))
-
     class Bcl:
         def __init__(self):
             for name, value in nf.items():
-                setattr(self,name,value)
-                        
-    Bcl.__name__= "new_class_on_Acl"
-    return Bcl
+                setattr(self,name,value)                        
+            Bcl.__name__= "new_class_on_Acl"
+        def show(self):
+            print("Class:", self.__class__.__name__)
+            for s in dir(self):
+                if not s.startswith("_") and s!="show":
+                    print(s,"=", self.__dict__[s])
+    return Bcl()
+def cr_subclass(class_name, A):
+    nf ={name:value for name, value in vars(A).items() if isinstance(value,(int, float))}
+    # create new class on base class A
+    class B(A):
+        def __init__(self):
+            super().__init__()
+            self.__dict__.update(nf)
+    B.__name__=class_name
+    return B()        
+
 B = corr_obj(A)
+B.show()
 print(vars(B))
+# b=cr_subclass("BonA",A)
+# print("version 1",vars(b))
+
+
 
 
