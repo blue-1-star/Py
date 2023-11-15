@@ -20,4 +20,34 @@ obj3 = MyClass(30)
 for instance in MyClass.instances:
     print(instance.value)
 # A = MyClass(11)
+# GPT VERSION
+class CustomObject:
+    def __init__(self, integer_value, text_value, float_value):
+        self.integer_value = integer_value
+        self.text_value = text_value
+        self.float_value = float_value
 
+    def __int__(self):
+        return int(self.integer_value)
+
+    def __str__(self):
+        return str(self.text_value)
+
+    def __float__(self):
+        return float(self.float_value)
+
+
+# Пример использования класса
+obj = CustomObject(42, "Hello, world!", 3.14)
+
+# Приведение к целочисленному типу
+integer_result = int(obj)
+print(f"Integer representation: {integer_result}")
+
+# Приведение к текстовому типу
+text_result = str(obj)
+print(f"Text representation: {text_result}")
+
+# Приведение к действительному числовому типу
+float_result = float(obj)
+print(f"Float representation: {float_result}")
