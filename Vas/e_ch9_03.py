@@ -15,6 +15,7 @@ class e_ch9_03:
         else:
             val=0
         return e_ch9_03(val)
+# GPT Version 
 class MyClass:
     def __init__(self, my_list):
         self.my_list = my_list
