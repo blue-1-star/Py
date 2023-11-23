@@ -1,5 +1,6 @@
 import os
 cd = os.getcwd()
+print("Current directory:",cd)
 filename = "readFileDefault.py" # этот код
 file_path = os.path.join(cd, filename)
 f = open(file_path)
