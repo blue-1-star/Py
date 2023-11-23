@@ -1,6 +1,8 @@
-
+import os
+cd = os.getcwd()
 filename = "readFileDefault.py" # этот код
-f = open(filename)
+file_path = os.path.join(cd, filename)
+f = open(file_path)
 lines = []
 for line in f:
  lines.append(line.strip())
