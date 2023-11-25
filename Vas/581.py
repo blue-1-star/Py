@@ -37,6 +37,7 @@ class MyApp:
         # self.imgFiles=["exit.png","bold.png","italic.png", "normal.png"]
         # size icons exit_01a.png ...   30x30 px
         self.imgFiles=["exit_01a.png","bold_01a.png","italic_01a.png", "normal_01a.png"]
+        #  https://www.flaticon.com/free-icons/button  -  icons for buttons
         # path to files directory
         # self.path="D:\\Books\\Python\\Pictures\\"
         self.path="G:\\Programming\\Py\\Vas\\picture\\" 
