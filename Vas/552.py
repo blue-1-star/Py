@@ -11,7 +11,7 @@ def change(evt):
 path="G:\\Programming\\Py\\Vas\\picture\\"        
 names=["lion","tiger","cat" ]
 # files=["tiger1.jpg","lion.jpg","koala.jpg"]
-# cats_embrace_01.png  600x659
+# cats_embrace_01.png  600x659,  Born_Wild_01.png 322x700
 files=["cats_embrace_01.png","tiger1.png","Born_Wild_01.png"]
 wnd=Tk()
 wnd.title("Predators")
