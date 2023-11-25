@@ -37,7 +37,7 @@ class MyApp:
         self.imgFiles=["exit.png","bold.png","italic.png", "normal.png"]
         # path to files directory
         # self.path="D:\\Books\\Python\\Pictures\\"
-        self.path="G:\\Programming\\Py\\Vas\\picture" 
+        self.path="G:\\Programming\\Py\\Vas\\picture\\" 
         # main font
         self.font=("Courier New",10,"bold")
         # Creation Main Window
@@ -199,7 +199,7 @@ class MyApp:
         self.bi[0].set(False)
         self.bi[1].set(False)
     def showDialog(self):
-        showinfo("About program", "very smply program")
+        showinfo("About program", "very simply program")
 MyApp()       
 
 
