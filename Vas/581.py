@@ -35,7 +35,7 @@ class MyApp:
         self.style=[["bold","bold"],["italic","italic"]]
         # list files with pictures
         # self.imgFiles=["exit.png","bold.png","italic.png", "normal.png"]
-        self.imgFiles=["exit_01.png","bold_01.png","italic_01.png", "normal_01.png"]
+        self.imgFiles=["exit_01a.png","bold_01a.png","italic_01a.png", "normal_01a.png"]
         # path to files directory
         # self.path="D:\\Books\\Python\\Pictures\\"
         self.path="G:\\Programming\\Py\\Vas\\picture\\" 
