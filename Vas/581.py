@@ -152,6 +152,65 @@ class MyApp:
                     menu.add_radiobutton(label=self.colors[r], value=r,
                     variable=self.color)
                 self.color.set("blue")
+            # Define font parameters and template text
+            def apply(self,*args):
+                clr=self.color.get()
+                # name font
+                nm=self.name.get()
+                # size font
+                sz=self.size.get()
+                # apply colr to label
+                self.lblText.configure(fg=clr)
+                # list parameters of font
+                fnt=[nm, sz]
+                # generation of template text and definition of font parameters
+                txt=self.colors[clr]+" font "+nm+"\n"
+                for k in range(len(self.style)):
+                    if self.bi[k].get():
+                        fnt.append(self.style[k][0])
+                        txt+=self.style[k][1].lower()+" "
+                    txt+="size "+str(sz)
+                    # apply font to label
+                    self.lblText.configure(font=fnt)
+                    # setting text to label
+                    self.text.set(txt)
+            #   Creation variables for processing events      
+            def setVars(self):
+                self.text=StringVar()
+                self.name=StringVar()
+                self.bi=[BooleanVar(), BooleanVar()]
+                self.size=IntVar()
+                self.color=StringVar()
+            # variable value tracking mode
+            def traceVars(self):               
+                mt=self.apply
+                self.name.trace("w", mt)
+                self.color.trace("w", mt)
+                for k in range(len(self.bi)):
+                    self.bi[k].trace("w", mt)
+                self.size.trace("w", mt)
+            def clExit(self):
+                self.wnd.destroy()
+            def clBold(self):
+                self.bi[0].set(not self.bi[0].get())
+            def clItalic(self):
+                self.bi[1].set(not self.bi[1].get())
+            def clNormal(self):
+                self.bi[0].set(False)
+                self.bi[1].set(False)
+            def showDialog(self):
+                showinfo("","About program", "very smply program")
+            MyApp()    
+            
+
+            
+
+            
+
+
+
+
+
 
 
 
