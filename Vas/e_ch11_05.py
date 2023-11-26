@@ -73,8 +73,10 @@ button_frame = Frame(wnd)
 button_frame.pack(pady=10)
 btn_1=Button(button_frame, text="+")
 btn_2=Button(button_frame, text="-")
-btn_1.configure(command=lambda: increase(lbl))
-btn_2.configure(command=lambda: decrease(lbl))
+# лямбда-выражение используется для создания анонимной функции, которая
+#  вызывает increase(lbl) с текущей меткой lbl в качестве аргумента.
+btn_1.configure(command=lambda: increase(lbl))  
+btn_2.configure(command=lambda: decrease(lbl))  
 btn_1.pack(side=LEFT,padx=5)
 btn_2.pack(side=LEFT,padx=5)
 # get_fnt(lbl)
