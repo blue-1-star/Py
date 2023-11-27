@@ -52,14 +52,6 @@ class MyApp:
     # Show Main Window
     def showMainWindow(self):
         self.wnd.mainloop()
-    # Creation Main Menu
-    def makeMainWindow(self):
-        self.wnd=Tk()
-        self.wnd.title("Define font")
-        self.wnd.geometry(self.position)
-        self.wnd.resizable(False, False)
-    def showMainWindow(self):
-        self.wnd.mainloop()  
     # Creation Main Menu            
     def makeMainMenu(self):
         self.menubar=Menu(self.wnd)                      
