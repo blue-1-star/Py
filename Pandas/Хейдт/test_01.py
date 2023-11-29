@@ -14,4 +14,6 @@ pd.set_option('display.width', 80)
 s = pd.Series([1,2,3,4])
 print(s)
 print(s[[1,3]])
-
+# p 84 Series
+s1 = pd.Series(np.arange(0, 5), index=list('abcde'))
+print("s1=\n", s1)
