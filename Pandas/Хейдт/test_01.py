@@ -17,3 +17,21 @@ print(s[[1,3]])
 # p 84 Series
 s1 = pd.Series(np.arange(0, 5), index=list('abcde'))
 print("s1=\n", s1)
+logical_results = s1 >= 3
+# print(logical_results)
+# print(s1[logical_results])
+print(s1[s1>5])
+print(s1[(s1 >=2) & (s1 < 5)])
+# p 86
+# 
+np.random.seed(123456)
+s2 = pd.Series(np.random.randn(5))
+print(s2)
+s2.index = ['a', 'b', 'c', 'd', 'e']
+print(s2)
+# p 88
+s3 = pd.Series([0, 1, 2], index=[0, 1, 2])
+s4 = pd.Series([3, 4, 5], index=['0', '1', '2'])
+print(s3 + s4)
+s4.index = s4.index.values.astype(int)
+print(s3 + s4)
