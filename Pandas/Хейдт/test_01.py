@@ -29,7 +29,7 @@ s2 = pd.Series(np.random.randn(5))
 print(s2)
 s2.index = ['a', 'b', 'c', 'd', 'e']
 print(s2)
-# p 88
+# p 88 --------------------------------
 s3 = pd.Series([0, 1, 2], index=[0, 1, 2])
 s4 = pd.Series([3, 4, 5], index=['0', '1', '2'])
 print(s3 + s4)
