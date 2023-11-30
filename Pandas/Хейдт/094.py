@@ -76,4 +76,75 @@ sp500_copy = sp500.copy()
 # добавляем столбец
 sp500_copy['RoundedPrice'] = sp500.Price.round()
 print(sp500_copy[:2])
+#  p 112
+# возвращаем новый объект DataFrame со столбцами,
+# расположенными в обратном порядке
+reversed_column_names = sp500.columns[::-1]
+print(sp500[reversed_column_names][:5])
+# операция выполняется на месте, поэтому создадим копию
+#
+# создаем объект DataFrame с единственным
+# столбцом Price
+rounded_price = pd.DataFrame({'Price': sp500.Price.round()})
+print(rounded_price[:5])
+copy = sp500.copy()
+# заменяем данные в столбце Price новыми значениями
+# вместо добавления нового столбца
+copy.Price = rounded_price.Price
+print(copy[:5])
+# 113
+# операция выполняется на месте, поэтому создадим копию
+copy = sp500.copy()
+# заменяем данные в столбце Price округленными значениями
+copy.loc[:,'Price'] = rounded_price.Price
+print(copy[:5])
+# пример использования del для удаления столбца
+# делаем копию, потому что операция выполняется на месте
+copy = sp500.copy()
+print(copy.columns)
+del copy['Book Value']
+copy[:2]
+print(copy[:2])
+# 114
+# пример использования pop для удаления столбца из датафрейма
+# делаем копию, потому что операция выполняется на месте
+copy = sp500.copy()
+# эта строка удалит столбец Sector и возвратит его как серию
+popped = copy.pop('Sector')
+# столбец Sector удален на месте
+print(copy[:2])
+# 115
+# копируем первые три строки датафрейма sp500
+df1 = sp500.iloc[0:3].copy()
+# копируем строки в позициях 10, 11 и 2
+df2 = sp500.iloc[[10, 11, 2]]
+# присоединяем к датафрейму df1 датафрейм df2
+#appended = df1.append(df2)   # !!! 235 As of pandas 2.0, append (previously deprecated) was removed.
+# pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+appended = pd.concat([df1,df2])
+# a = df1.append(df2)
+# в результате к строкам первого датафрейма
+# будут присоединены строки второго датафрейма
+print(appended)
+# print(a)
+# 
+# p 119
+# получаем копию первых 5 строк датафрейма sp500
+ss = sp500[:5]
+print(ss)
+# удаляем строки с метками ABT и ACN
+afterdrop = ss.drop(['ABT', 'ACN'])
+print(afterdrop[:5])
+#
+# определяем строки, в которых Price > 300
+selection = sp500.Price > 300
+# выводим информацию о количестве строк и
+# количестве строк, которые будут удалены
+print((len(selection), selection.sum()))
+# для отбора применим побитовое отрицание
+# к выражению selection
+price_less_than_300 = sp500[~selection]
+print(price_less_than_300)
+
+
 
