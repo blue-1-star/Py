@@ -145,6 +145,30 @@ print((len(selection), selection.sum()))
 # к выражению selection
 price_less_than_300 = sp500[~selection]
 print(price_less_than_300)
+# p 149
+# 10 учеников со случайными оценками
+np.random.seed(123456)
+names = ['Ivana', 'Norris', 'Ruth', 'Lane', 'Skye', 'Sol',
+'Dylan', 'Katina', 'Alissa', "Marc"]
+grades = np.random.randint(50, 101, len(names))
+scores = pd.DataFrame({'Name': names, 'Grade': grades})
+print(scores)
+# задаем группы и соответствующие буквенные оценки
+score_bins = [ 0, 59, 62, 66, 69, 72, 76, 79, 82,
+86, 89, 92, 99, 100]
+letter_grades = ['F', 'D-', 'D', 'D+', 'C-', 'C', 'C+', 'B-', 'B',
+'B+', 'A-', 'A', 'A+']
+# разбиваем на основе групп и присваиваем буквенные оценки
+letter_cats = pd.cut(scores.Grade, score_bins, labels=letter_grades)
+scores['Letter'] = letter_cats
+print(scores)
+# исследуем интересующую категориальную переменную
+print(letter_cats)
+# сколько наблюдений имеет каждая оценка?
+print(scores.Letter.value_counts())
+# сортируем по буквенным оценкам, а не числовым
+print(scores.sort_values(by=['Letter'], ascending=False))
+
 
 
 
