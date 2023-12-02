@@ -12,6 +12,7 @@ email TEXT NOT NULL,
 age INTEGER
 )
 ''')
+
 cursor.execute('CREATE INDEX IF NOT EXISTS idx_email ON Users (email)')
 # cursor.execute('INSERT INTO Users (username, email, age) VALUES (?, ?, ?)', ('newuser', 'newuser@example.com', 28))
 # cursor.execute('INSERT INTO Users (username, email, age) VALUES (?, ?, ?)', ('barbos', 'barbos@example.com', 43))
@@ -26,8 +27,20 @@ for user in users:
 cursor.execute('SELECT username, age FROM Users WHERE age < ?', (25,))
 results = cursor.fetchall()
 
+
 for row in results:
     print(row)
 connection.commit()
 connection.close()
+
+sql_str = '''
+CREATE TABLE IF NOT EXISTS Users (
+id INTEGER PRIMARY KEY,
+username TEXT NOT NULL,
+email TEXT NOT NULL,
+age INTEGER
+)
+'''
+cursor.execute(sql_str)
+
 
