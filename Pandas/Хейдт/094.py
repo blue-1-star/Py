@@ -128,7 +128,7 @@ appended = pd.concat([df1,df2])
 print(appended)
 # print(a)
 # 
-# p 119
+# -------------------------------------------------    119
 # получаем копию первых 5 строк датафрейма sp500
 ss = sp500[:5]
 print(ss)
@@ -145,7 +145,7 @@ print((len(selection), selection.sum()))
 # к выражению selection
 price_less_than_300 = sp500[~selection]
 print(price_less_than_300)
-# p 149
+# -------------------------------------------------    149
 # 10 учеников со случайными оценками
 np.random.seed(123456)
 names = ['Ivana', 'Norris', 'Ruth', 'Lane', 'Skye', 'Sol',
