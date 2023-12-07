@@ -1,6 +1,7 @@
 """
 Энтони Молинаро Роберт де Грааф Сборник рецептов   Санкт-Петербург « БХВ-Петербург»
 2022 2-е издание
+Глава 1
 """
 import sqlite3
 import pandas as pd
@@ -19,19 +20,59 @@ df_emp = pd.io.sql.read_sql(str0, connection)
 #df_emp = pd.io.sql.read_sql(str0, connection, index_col='empno')
 print(df_emp)
 # p 41  
+print("-----------------  1.03---------------------------")
 str_1_03 = "select * from emp \
     where ( deptno = 10 \
     or comm is not null \
     or sal <= 2000) \
     and deptno=20"
-cursor.execute(str_1_03)
-results = cursor.fetchall()
-print(results)
-df_emp1_03 = pd.io.sql.read_sql(str_1_03, connection, index_col='empno')
-# print(df_emp1_03)  
+# cursor.execute(str_1_03)
+# results = cursor.fetchall()
+# print(results)
+# df_emp1_03 = pd.io.sql.read_sql(str_1_03, connection, index_col='empno')
+df_emp1_03 = pd.io.sql.read_sql(str_1_03, connection)
+print(df_emp1_03)
+# df_emp1_03d = df_emp[(df_emp['deptno'] == 10) | (~df_emp['comm'].isnull() ) | ((df_emp['sal']<=2000) & df_emp['deptno']==20)])
+df_emp1_03d = df_emp[((df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | (df_emp['sal'] <= 2000)) & (df_emp['deptno'] == 20)]
+# first_part = "(df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | (df_emp['sal'] <= 2000)"
+# sec_part = "& (df_emp['deptno'] == 20)"
+first_part = (df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | (df_emp['sal'] <= 2000)
+sec_part = (df_emp['deptno'] == 20)
+df_emp1_03d = df_emp[first_part & sec_part]
+# df_emp1_03d = df_emp[first_part + sec_part]
+# df_emp1_03d = df_emp[(df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | ((df_emp['sal'] <= 2000) & (df_emp['deptno'] == 20))] # GPT
+print("dataFrame___")
+print(df_emp1_03d)  
+"""
+В этом запросе строки будут выбраны, если они удовлетворяют любому из следующих условий:
+1) deptno = 10
+2) comm is not null
+3) sal <= 2000
+И при этом также должны соответствовать условию deptno = 20.
+версия GPT:
+df_emp1_03d = df_emp[(df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | ((df_emp['sal'] <= 2000) & (df_emp['deptno'] == 20))]
+!!!   in error, by the way.   Last my version is OK!
+"""
+# ----------------
+print("-----------------  1.04---------------------------")
+str1_04 = 'select ename,deptno,sal from emp'
+df_emp1_04 = pd.io.sql.read_sql(str1_04, connection)
+print(df_emp1_04)
+df_emp_1_04d=df_emp[['ename','deptno','sal']]
+print(df_emp_1_04d)
+# ----------------
+print("-----------------  1.05---------------------------")
+str1_05 = 'select sal as salary, comm as commission from emp where salary < 5000'
+df_emp1_05 = pd.io.sql.read_sql(str1_05, connection)
+print(df_emp1_05)
+# df_emp_1_04d = df_emp.rename(columns={'sal':'salary','comm':'comission'})
+# df_emp_1_04d = pd.io.sql.read_sql(str1_04, connection).rename(columns={'sal':'salary','comm':'comission'})
+df_emp_1_05d = df_emp[['sal', 'comm']].rename(columns={'sal': 'salary', 'comm': 'commission'})
+print(df_emp_1_05d[df_emp_1_05d.salary < 5000])
 #-----------------
 # perform the same operation in terms of a dataframe 
 # rename  columns and filter 
+print("-----------------  1.06---------------------------")
 str_1_06 ="select sal as salary, comm as commission from emp where salary < 3000"
 df_emp1_06 = pd.io.sql.read_sql(str_1_06, connection)
 print(df_emp1_06)
@@ -41,6 +82,7 @@ df_emp_n=df_emp_n[['salary','comission']]
 print(df_emp_n[df_emp_n.salary < 3000])
 # print(df_emp_n)
 # ----------------------------------------------------
+print("-----------------  1.07---------------------------")
 str_1_07 = "select ename || ' WORKS AS A ' || job as msg  from emp  where deptno=10"
 df_emp1_07 = pd.io.sql.read_sql(str_1_07, connection)
 print(df_emp1_07)
@@ -65,7 +107,7 @@ str_1_08 = "select ename,sal,  \
     end as status \
  from emp"
 df_emp1_08 = pd.io.sql.read_sql(str_1_08, connection)
-
+print(df_emp1_08)
 # df_emp 
 # df_emp['status'] 
 # df_emp[df_emp['sal']<=2000], df_emp[df_emp['sal']>=4000]     
@@ -79,7 +121,8 @@ def get_status(row):
         return 'OVERPAID'
     else:
         return 'OK'
-# df_emp['status'] = df_emp.apply(lambda row: get_status(row), axis=1)
+# df_emp['status'] = df_emp.apply(lambda row: get_status(row), axis=1) 
+# axis {0 or ‘index’, 1 or ‘columns’}”, default 0
 print("-----------------  1.08---------------------------")
 df_emp1_08d = df_emp.copy()
 df_emp1_08d['status'] = df_emp.apply(lambda row: get_status(row), axis=1)
