@@ -22,5 +22,5 @@ class Mol:
             f_1_09()
         else:
             print('Not in range')                   
-st='1.09'
+st='1.08'
 mol = Mol(st)
