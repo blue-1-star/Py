@@ -234,9 +234,92 @@ ORDER BY REPLACE(data, '0', '#') || REPLACE(data, '1', '#') || REPLACE(data, '2'
     df_print = df_emp2_04d[['data','ename']].sort_values(by='ename')
     print("dataFrame->\n",df_print[['data']].reset_index(drop=True))
 def f_2_05():
-    str_2_05 = "select ename,sal,comm  from emp  order by 3 desc"
+    # str_2_05 = "select ename,sal,comm  from emp  order by 3 desc"
+    str_2_05 = """select ename,sal,comm  from (select ename,sal,comm, 
+                case when comm is null then 0 else 1 end as is_null 
+                from emp ) x  
+                order by is_null desc,comm"""
+# /* ЗНАЧЕНИЯ HE-NULL СТОЛБЦА СОММ СОРТИРУЮТСЯ ПО ВОЗРАСТАНИЮ,
+# ВСЕ ЗНАЧЕНИЯ NULL РАЗМЕШАЮТСЯ В КОНЦЕ СПИСКА */                
     df_emp2_05 = pd.io.sql.read_sql(str_2_05, connection)
     print('SQL ->\n',df_emp2_05)
+    df_emp2_05d = df_emp[['ename','sal', 'comm']]
+    def null_to_flag(value):
+        if pd.isnull(value):  # Проверяем, является ли значение None или NaN
+            return 0
+        else:
+            return 1
+    # df_emp2_05d[['is_null']] = df_emp['comm'].apply(null_to_flag())
+    #df_emp2_05d['is_null'] = df_emp['comm'].apply(null_to_flag)   # pandas выдыл предупреждение:
+    """
+    SettingWithCopyWarning:
+        A value is trying to be set on a copy of a slice from a DataFrame.
+        Try using .loc[row_indexer,col_indexer] = value instead
+    """
+    df_emp2_05d.loc[:,'is_null'] = df_emp['comm'].apply(null_to_flag)  # it still doesn't eliminate the warning
+    # df_emp2_05d['is_null'] = df_emp['comm'].apply(null_to_flag)    
+    df_emp2_05d = df_emp2_05d.sort_values(by=['is_null', 'comm'], \
+        ascending=[False, True]) 
+    print("dataFrame->\n",df_emp2_05d[['ename','sal','comm']].reset_index(drop=True))
+
+def f_2_06():
+    str_2_06 = "select ename,sal,job,comm from emp \
+     order by case when job = 'SALESMAN' then comm else sal end"
+    df_emp2_06 = pd.io.sql.read_sql(str_2_06, connection)
+    print('SQL ->\n',df_emp2_06)
+    # df_emp2_06d = df_emp.sort_values(by=['job','comm' if 'salesman' in df_emp['job'].values else 'sal'])
+    #condition = 'salesman' in df_emp['job'].values
+    #df_emp2_06d = df_emp.sort_values(by=np.where(condition, 'comm', 'sal'))
+    # df_emp2_06d = df_emp.sort_values(by=['job','comm' if 'salesman' in df_emp['job'].values else 'sal'], na_position='last')
+    # print("dataFrame->\n",df_emp2_06d[['ename','sal','job','comm']].reset_index(drop=True))
+    #
+    # Условие для сортировки
+    condition = 'salesman' in df_emp['job'].str.lower().values
+
+    # Создаем столбец для сортировки
+    df_emp2_06d = df_emp.copy()
+    df_emp2_06d['sort_column'] = df_emp.apply(lambda row: row['comm'] if condition else row['sal'], axis=1)
+    # Сортируем DataFrame
+    df_emp2_06d = df_emp2_06d.sort_values(by='sort_column').drop(columns=['sort_column']).reset_index(drop=True)
+    print("dataFrame->\n",df_emp2_06d[['ename','sal','job','comm']].reset_index(drop=True))
+def f_3_01():
+    str_3_01 = """
+    select ename as ename_and_dname, deptno  from emp 
+    where deptno = 10 
+    union all 
+    select '----------' null  from t1 
+    union all 
+    select dname, deptno from dept
+    """
+    # df_emp3_01 = pd.io.sql.read_sql(str_3_01, connection)
+    # print('SQL ->\n',df_emp3_01)
+    
+    # Создаем DataFrame для виртуальной таблицы t1
+    t1_data = {'ename_and_dname': ['----------'], 'deptno': [None]}
+    df_t1 = pd.DataFrame(t1_data)
+
+    # Создаем DataFrame для таблицы emp (замените этот блок на ваш запрос SQL)
+    str_3_01 = "select ename as ename_and_dname, deptno from emp where deptno = 10"
+    df_emp3_01 = pd.io.sql.read_sql(str_3_01, connection)
+
+    # Создаем DataFrame для таблицы dept (замените этот блок на ваш запрос SQL)
+    str_dept = "select dname, deptno from dept"
+    df_dept = pd.io.sql.read_sql(str_dept, connection)
+
+    # Объединяем DataFrames
+    result_df = pd.concat([df_emp3_01, df_t1, df_dept], ignore_index=True)
+
+    # Выводим результат
+    print(result_df)
+def f_3_02():
+    str_3_02 = "select e.ename, d.location  from emp e, dept d  where e.deptno = d.deptno  and e.deptno = 10"
+    df_emp3_02 = pd.io.sql.read_sql(str_3_02, connection)
+    print('SQL ->\n',df_emp3_02)
+    
+    
+
+
+
 
 
     

@@ -1,6 +1,6 @@
 import Mol_Mod as mm
 from Mol_Mod import f_1_03, f_1_04, f_1_05, f_1_06, f_1_07, f_1_08, f_1_09, f_1_10, f_1_11, f_1_12, f_1_13, f_2_01, f_2_02, \
-    f_2_03, f_2_04, f_2_05
+    f_2_03, f_2_04, f_2_05, f_2_06, f_3_01, f_3_02
 class Mol:   
     def set(self,st):
         self.st = st
@@ -39,13 +39,15 @@ class Mol:
             f_2_04()
         elif self.st == '2.05':
             f_2_05()
-        elif self.st == '2.02':
-            f_2_02()
-        elif self.st == '2.02':
-            f_2_02()    
+        elif self.st == '2.06':
+            f_2_06()
+        elif self.st == '3.01':
+            f_3_01()    
+        elif self.st == '3.02':
+            f_3_02()                
         else:
             print('Not in range')                   
-st='2.05'
+st='3.02'
 mol = Mol(st)
 #st='1.12'
 # mol = Mol(st)
