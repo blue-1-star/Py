@@ -315,8 +315,15 @@ def f_3_02():
     str_3_02 = "select e.ename, d.location  from emp e, dept d  where e.deptno = d.deptno  and e.deptno = 10"
     df_emp3_02 = pd.io.sql.read_sql(str_3_02, connection)
     print('SQL ->\n',df_emp3_02)
+    str_dept =   "select deptno, location from dept"
+    df_dept = pd.io.sql.read_sql(str_dept, connection)
+    df_emp3_02 = pd.io.sql.read_sql(str_3_02, connection)
+    df_emp3_02d = df_emp[df_emp['deptno']==10]
+    # df_emp1_03d = df_emp[((df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | (df_emp['sal'] <= 2000)) & (df_emp['deptno'] == 20)]
+    result = pd.merge(df_emp3_02d, df_dept, on='deptno')
+    print("dataFrame->\n",result[['ename','location']])
     
-    
+
 
 
 
