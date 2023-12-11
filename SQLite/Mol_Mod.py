@@ -385,6 +385,82 @@ def f_3_05():
     merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
     res = merged[merged['_merge']=='right_only'][['deptno','dname','location']].reset_index(drop=True)
     print("dataFrame ->\n", res)
+def f_3_06():
+    # 3.6. Добавление в запрос независимых объединений
+    str_="select e.ename, d.location from emp e, dept d where e.deptno=d.deptno"
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print('SQL ->\n',df_)
+    str_a = "select e.ename, d.location,eb.received from emp e, dept d, emp_bonus eb where e.deptno=d.deptno and e.empno=eb.empno"
+    str_a1 = """
+    select e.ename, d.location, eb.received 
+        from emp e join dept d
+        on (e.deptno=d.deptno)
+        left join emp_bonus eb
+        on (e.empno=eb.empno)
+        order by 2
+    """
+    df_a = pd.io.sql.read_sql(str_a, connection)
+    df_a1 = pd.io.sql.read_sql(str_a1, connection)
+    print('SQL ->\n',df_a)
+    print("Independent Union:\n") 
+    print('SQL ->\n',df_a1)
+    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
+    # merged_df = pd.merge(df_emp, df_dpt[['deptno', 'location']], on='deptno', how='outer', indicator=True)
+    # res_df = merged_df[merged_df['_merge'] == 'both'][['ename', 'location']].reset_index(drop=True)
+    res = merged[merged['_merge']=='both'][['ename','location']].reset_index(drop=True)
+    print("dataFrame ->\n", res)
+    # print("dataFrame ->\n",df_a)
+    # Сначала соединяем emp и dept
+    merged_df = pd.merge(df_emp, df_dpt[['deptno', 'location']], on='deptno')
+    # Затем левое соединение с emp_bonus
+    merged_df = pd.merge(merged_df, df_emp_bonus, on='empno', how='left')
+    # Выбираем нужные столбцы и сортируем результат
+    result_df = merged_df[['ename', 'location', 'received']].sort_values(by='location').reset_index(drop=True)
+
+"""
+Фактически, при использовании метода pd.merge, слева стоит первый датафрейм, а справа — второй.
+Таким образом, при указании how='left' мы выполняем левое соединение, то есть сохраняются все строки
+ из первого (левого) датафрейма (df_emp и df_dpt), а соответствующие строки из второго (правого) датафрейма (df_emp_bonus) добавляются,
+ если есть соответствие.
+В вашем конкретном случае, после первого соединения (df_emp и df_dpt), мы сохраняем все строки из него и добавляем соответствующие
+ строки из df_emp_bonus. Это может быть понято как "левое соединение", потому что мы берем все из "левого" датафрейма и добавляем
+ соответствующие из "правого".
+User
+да, задача решена, но как для меня слова в SQL :
+ left join emp_bonus eb  -  немного сбивают с толку - речь идет о третьем датафрейме emp_bonus  который как бы добавляется справа
+ - но называем мы это левым ( ха-ха!) 
+ChatGPT
+Да, в терминологии SQL левое соединение (left join) подразумевает сохранение всех записей из левой (первой) таблицы и добавление
+соответствующих записей из правой (второй) таблицы. Это относится к порядку указания таблиц в запросе SQL. 
+Таким образом, когда вы пишете FROM emp LEFT JOIN emp_bonus, emp считается "левой" таблицей.
+В pandas, метод merge использует схожую концепцию, где первый переданный датафрейм считается "левым", а второй - "правым".
+Поэтому, когда мы пишем pd.merge(df_emp, df_emp_bonus, on='empno', how='left'), df_emp считается "левым" датафреймом,
+и все записи из df_emp сохраняются, а соответствующие записи из df_emp_bonus добавляются, если они есть.
+Это может быть немного запутывающим, когда вы сначала сталкиваетесь с этими терминами, но главное помнить,
+что важно сохранить все записи из "левой" таблицы, а "правая" таблица просто добавляет соответствующие записи.
+"""
+def f_3_07():
+    # 3.7. Проверка двух таблиц на идентичность
+    str_= """create view if not exists  V2
+    as
+    select * from emp where deptno != 10
+    union all
+    select * from emp where ename = 'WARD'
+"""
+    cursor.execute(str_)
+    str_1 = "select * from V2"
+    df_v2 = pd.io.sql.read_sql(str_1, connection)
+    print("SQL->\n", df_v2)
+    df_emp1 = df_emp.reset_index(drop=True)
+    df_v2 = df_v2.reset_index(drop=True)
+    if df_emp1.equals(df_v2, check_index=False):
+        print(" Equals dataframes")
+    else:
+        differ = df_emp1.compare(df_v2)
+        print("differeces:\n",differ)
+
+
+
 
 
 

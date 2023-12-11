@@ -93,8 +93,8 @@ insert into emp_bonus values
 # cursor.execute(str_sql_dept_ins)
 # cursor.execute(str_sql_sal_tbl)
 # cursor.execute(str_sql_sal_ins)
-cursor.execute(str_sql_emp_bonus_tbl)
-cursor.execute(str_sql_emp_bonus_ins)
+# cursor.execute(str_sql_emp_bonus_tbl)
+# cursor.execute(str_sql_emp_bonus_ins)
 
 # Ex 1.2
 
