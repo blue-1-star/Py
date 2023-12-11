@@ -74,14 +74,16 @@ str_sql_emp_bonus_tbl="""
 CREATE TABLE IF NOT EXISTS emp_bonus(
 empno int(4) not null primary key,
 bonus decimal(10,2),
-dat TEXT);
+received TEXT,
+type integer 
+);  
 """
 
 str_sql_emp_bonus_ins="""
 insert into emp_bonus values
-(7369,1200,'2005/3/14'),
-(7788,2400,'2005/3/14'),
-(7900,1890,'2005/3/14');
+(7369,1200,'2005/3/14',1),
+(7788,2400,'2005/3/14',2),
+(7900,1890,'2005/3/14',3);
 """
 
 
