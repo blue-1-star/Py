@@ -70,6 +70,20 @@ insert into salgrade values
 (4,2001,3000),
 (5,3001,99999);
 """
+str_sql_emp_bonus_tbl="""
+CREATE TABLE IF NOT EXISTS emp_bonus(
+empno int(4) not null primary key,
+bonus decimal(10,2),
+dat TEXT);
+"""
+
+str_sql_emp_bonus_ins="""
+insert into emp_bonus values
+(7369,1200,'2005/3/14'),
+(7788,2400,'2005/3/14'),
+(7900,1890,'2005/3/14');
+"""
+
 
 # cursor.execute(str_sql_cr)
 # cursor.execute(str_sql_ins)
@@ -77,6 +91,8 @@ insert into salgrade values
 # cursor.execute(str_sql_dept_ins)
 # cursor.execute(str_sql_sal_tbl)
 # cursor.execute(str_sql_sal_ins)
+cursor.execute(str_sql_emp_bonus_tbl)
+cursor.execute(str_sql_emp_bonus_ins)
 
 # Ex 1.2
 
@@ -84,16 +100,21 @@ str_1_2= "select *  from emp"
 str_1_3= "select *  from emp where deptno = 10 \
 or comm is not null \
 or sal <= 2000 and deptno=20"
+str_eb =  "select *  from emp_bonus"
 # cursor.execute(str_1_2)
 cursor.execute(str_1_3)
 results = cursor.fetchall()
-print(results)
+# print(results)
 df_emp = pd.io.sql.read_sql(str_1_2, connection, index_col='empno')
 df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
+df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
 print(df_emp)  
+
 # print(f"-----------------",df_emp.count(), "----------------------------")
 # print("\nrecords=", df_emp.count())
-print(df_emp_f)  
+cursor.execute(str_eb)
+df_empb = pd.io.sql.read_sql(str_eb, connection,index_col='empno') #, index_col='empno')
+print(df_empb)  
 # print("\nrecords=", df_emp_f.count())
 connection.commit()
 connection.close()

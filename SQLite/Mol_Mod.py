@@ -1,6 +1,6 @@
 import sqlite3
 import pandas as pd
-from pandas import Series, DataFrame
+from pandas import Series, DataFrame, concat, merge
 import numpy as np
 import datetime
 from datetime import datetime, date
@@ -10,8 +10,10 @@ fi = "my_dbase.db"
 pafi = pa + fi
 connection = sqlite3.connect(pafi)
 cursor = connection.cursor()
-str0= "select * from emp"
-df_emp = pd.io.sql.read_sql(str0, connection) 
+str_emp= "select * from emp"
+str_dpt =   "select * from dept"
+df_emp = pd.io.sql.read_sql(str_emp, connection) 
+df_dpt = pd.io.sql.read_sql(str_dpt, connection)
 def f_1_03():
     print("-----------------  1.03---------------------------")
     str_1_03 = "select * from emp \
@@ -322,7 +324,75 @@ def f_3_02():
     # df_emp1_03d = df_emp[((df_emp['deptno'] == 10) | (~df_emp['comm'].isnull()) | (df_emp['sal'] <= 2000)) & (df_emp['deptno'] == 20)]
     result = pd.merge(df_emp3_02d, df_dept, on='deptno')
     print("dataFrame->\n",result[['ename','location']])
-    
+def f_3_03():
+    # str_3_03 = "create view V as select ename,job,sal from emp where job = 'CLERK'"
+    str_3_03a = "create view if not exists V1 as select ename,job,sal from emp where job = 'CLERK'"
+    connection.execute(str_3_03a)
+    str_3_03 = "select * from V1"
+    df_emp3_03 = pd.io.sql.read_sql(str_3_03, connection)
+    print('SQL ->\n',df_emp3_03)
+    str_3_03b = """ select e.empno,e.ename,e.job,e.sal,e.deptno  from emp e, V1
+         where e.ename = v1.ename  and e.job = v1.job  and e.sal = v1.sal """
+    df_emp3_03b = pd.io.sql.read_sql(str_3_03b, connection)    
+    print('SQL ->\n',df_emp3_03b)
+    # res = df_emp[['empno','deptno']],(df_emp['job'] == 'CLERK')    
+    # res = df_emp[df_emp['job'] == 'CLERK'][['empno', 'deptno']]
+    # С использованием .loc
+    # res = df_emp.loc[df_emp['job'] == 'CLERK', ['empno', 'deptno']]
+    # С использованием синтаксиса квадратных скобок
+    # res = df_emp[df_emp['job'] == 'CLERK'][['empno', 'deptno']]
+    # print("dataFrame->\n",res[['ename']].reset_index(drop=True))
+    # res = concat([df_emp3_03, res], axis=1)
+
+    """
+    смысл оператора  res = df_emp[df_emp['job'] == 'CLERK'][['empno', 'deptno']]
+        в том, чтобы получить 2 столбца, отсутствующих в представлении V1  и
+        затем объединить ( или слить)  столбцы V1 с res для требуемого результата.  
+    """
+    # result_df = pd.merge(df_emp3_03, res, on=['ename', 'job', 'sal'], how='left')
+    # res = concat([df_emp3_03,res], ignore_index=True)
+    res = df_emp[df_emp['job'] == 'CLERK'][['empno', 'ename','job','sal','deptno']]
+    print("dataFrame->\n",res.reset_index(drop=True))
+def f_3_04():
+    str_3_04 = " select deptno from dept  except  select deptno from emp"
+    str_3_04a ="select deptno from dept"
+    str_3_04b ="select deptno from emp"
+    df_emp3_04 = pd.io.sql.read_sql(str_3_04, connection)
+    print('SQL ->\n',df_emp3_04)
+    df_dpt_04a = pd.io.sql.read_sql(str_3_04a, connection)
+    df_dpt_04b = pd.io.sql.read_sql(str_3_04b, connection)
+    merged = pd.merge(df_dpt_04a, df_dpt_04b, on='deptno', how='outer', indicator=True)
+    result_df = merged[merged['_merge'] == 'left_only'][['deptno']].reset_index(drop=True)
+    # result_df = merged[merged['_merge'] == 'both'][['deptno']].reset_index(drop=True)
+    # result_df = df_dpt_04a[~df_dpt_04a.isin(df_dpt_04b)].reset_index(drop=True)  -  не работает! 
+    print("dataFrame ->\n", result_df)
+def f_3_05():    
+    """
+    Из одной из двух таблиц с общим ключом нужно извлечь строки, в которых нет совпадающих данных в другой таблице.
+    Например, нам нужно узнать, в каких отделах нет служащих. 
+    """
+    str_3_05 = """
+    select d.*  from dept d left outer join emp e
+    on (d.deptno = e.deptno)
+    where e.deptno is null
+    """
+    df_emp3_05 = pd.io.sql.read_sql(str_3_05, connection)
+    print('SQL ->\n',df_emp3_05)   
+    # df_dpt_04a = pd.io.sql.read_sql(str_3_04a, connection)
+    # df_dpt_04b = pd.io.sql.read_sql(str_3_04b, connection)
+    # merged = pd.merge(df_dpt_04a, df_dpt_04b, on='deptno', how='outer', indicator=True)
+    # result_df = merged[merged['_merge'] == 'left_only'][['deptno']].reset_index(drop=True)
+    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
+    res = merged[merged['_merge']=='right_only'][['deptno','dname','location']].reset_index(drop=True)
+    print("dataFrame ->\n", res)
+
+
+
+
+
+
+
+
 
 
 
