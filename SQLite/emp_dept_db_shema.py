@@ -33,7 +33,7 @@ insert into emp values (7369,'SMITH','CLERK',7902,'93/6/13',800,null,20),
  (7698,'BLAKE','MANAGER',7839,'92/6/11',2850,null,30),
  (7782,'CLARK','MANAGER',7839,'93/5/14',2450,null,10),
  (7788,'SCOTT','ANALYST',7566,'96/3/5',3000,null,20),
- (7839,'KING','PRESIDENT',null,'90/6/9',5000,null,10),
+ (7839,'KING','PRESIDENT',0,'90/6/9',5000,null,10),
  (7844,'TURNER','SALESMAN',7698,'95/6/4',1500,null,30),
  (7876,'ADAMS','CLERK',7788,'99/6/4',1100,null,20),
  (7900,'JAMES','CLERK',7698,'00/6/23',950,null,30),
@@ -87,8 +87,8 @@ insert into emp_bonus values
 """
 
 
-# cursor.execute(str_sql_cr)
-# cursor.execute(str_sql_ins)
+cursor.execute(str_sql_emp_tbl)
+cursor.execute(str_sql_emp_ins)
 # cursor.execute(str_sql_dept_tbl)
 # cursor.execute(str_sql_dept_ins)
 # cursor.execute(str_sql_sal_tbl)
@@ -103,14 +103,18 @@ str_1_3= "select *  from emp where deptno = 10 \
 or comm is not null \
 or sal <= 2000 and deptno=20"
 str_eb =  "select *  from emp_bonus"
-# cursor.execute(str_1_2)
+cursor.execute(str_1_2)
+
 cursor.execute(str_1_3)
 results = cursor.fetchall()
 # print(results)
-df_emp = pd.io.sql.read_sql(str_1_2, connection, index_col='empno')
+# df_emp = pd.io.sql.read_sql(str_1_2, connection, index_col='empno')
+
+df_emp = pd.io.sql.read_sql(str_1_2, connection, dtype={'mgr': 'Int64'})
 df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
-df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
-print(df_emp)  
+# print(df_emp)  
+# print(df_emp.info())
+
 
 # print(f"-----------------",df_emp.count(), "----------------------------")
 # print("\nrecords=", df_emp.count())
