@@ -18,3 +18,4 @@ print(lines)
 '',
 'print(lines)']
 """
+# G:\Programming\Py\Mayer\readFileDefault.py

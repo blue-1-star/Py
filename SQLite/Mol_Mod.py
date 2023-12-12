@@ -10,9 +10,16 @@ fi = "my_dbase.db"
 pafi = pa + fi
 connection = sqlite3.connect(pafi)
 cursor = connection.cursor()
+# update value null in table emp.mgr for KING
+# str_upd_King = "UPDATE emp SET mgr = 0 WHERE  ename = 'KING';"
+# cursor.execute(str_upd_King)
 str_emp= "select * from emp"
 str_dpt =   "select * from dept"
+# df_emp = pd.io.sql.read_sql(str_emp, connection, dtype={'mgr': 'Int64'}) 
 df_emp = pd.io.sql.read_sql(str_emp, connection) 
+# print("First appearаnce df_emp:") 
+# print(df_emp.info())
+# print(df_emp)
 df_dpt = pd.io.sql.read_sql(str_dpt, connection)
 def f_1_03():
     print("-----------------  1.03---------------------------")
@@ -450,13 +457,34 @@ def f_3_07():
     cursor.execute(str_)
     str_1 = "select * from V2"
     df_v2 = pd.io.sql.read_sql(str_1, connection)
-    print("SQL->\n", df_v2)
-    df_emp1 = df_emp.reset_index(drop=True)
-    df_v2 = df_v2.reset_index(drop=True)
-    if df_emp1.equals(df_v2, check_index=False):
+    # print("SQL->\n", df_v2)
+    df_emp1 = df_emp.copy()
+    # df_emp1 = df_emp.reset_index(drop=True)
+    # df_v2 = df_v2.reset_index(drop=True)
+    # df_emp3_02d = df_emp[df_emp['deptno']==10]
+    df_v2a = df_emp1.copy()
+    # df_v2a = df_emp1[df_emp1['deptno']!=10]
+    df_v2a.loc['15'] = ['8888','FIRST','ROBOT','8887','99/7/20','11111','0','10']
+    # print(df_v2a)
+    # ss.loc['FOO'] = ['the sector', 100, 110]
+    # print(df_v2a)
+    # print(df_emp1.columns)
+    # print(df_v2.columns)
+    # print("Original emp:")
+    # print(df_emp.info())
+    # print("Copy emp:")
+    # print(df_emp1.info())
+    # print("From view V2:")
+    # print(df_v2.info())
+    print(df_emp1.info())     
+    print(df_v2a.info()) 
+    df_emp1 = df_emp1.reset_index(drop=True)
+    df_v2a = df_v2a.reset_index(drop=True)      
+    print(df_v2a)
+    if df_emp1.equals(df_v2a):
         print(" Equals dataframes")
     else:
-        differ = df_emp1.compare(df_v2)
+        differ = df_emp1.compare(df_v2a)
         print("differeces:\n",differ)
 
 
