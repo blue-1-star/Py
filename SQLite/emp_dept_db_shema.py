@@ -78,24 +78,40 @@ received TEXT,
 type integer 
 );  
 """
-
-str_sql_emp_bonus_ins="""
-insert into emp_bonus values
-(7369,1200,'2005/3/14',1),
-(7788,2400,'2005/3/14',2),
-(7900,1890,'2005/3/14',3);
+# modified structure for the table emp_bonus     
+str_sql_emp_bon_tbl="""
+CREATE TABLE IF NOT EXISTS emp_bonus(
+id_b integer primary key autoincrement,   
+empno integer,
+bonus decimal(10,2),
+received TEXT,
+type integer 
+);  
 """
 
 
-cursor.execute(str_sql_emp_tbl)
-cursor.execute(str_sql_emp_ins)
+
+str_sql_emp_bon_ins="""
+insert into emp_bonus(empno, bonus, received, type) values
+(7369,1200,'2005/3/14',1),
+(7788,2400,'2005/3/14',2),
+(7900,1890,'2005/3/14',3),
+(7934,2400,'2005/3/17',1),
+(7934,2400,'2005/2/15',2),
+(7839,2400,'2005/2/15',3),
+(7782,2400,'2005/2/15',1);
+"""
+
+# cursor.execute(str_sql_emp_tbl)
+# cursor.execute(str_sql_emp_ins)
 # cursor.execute(str_sql_dept_tbl)
 # cursor.execute(str_sql_dept_ins)
 # cursor.execute(str_sql_sal_tbl)
 # cursor.execute(str_sql_sal_ins)
 # cursor.execute(str_sql_emp_bonus_tbl)
 # cursor.execute(str_sql_emp_bonus_ins)
-
+# cursor.execute(str_sql_emp_bon_tbl)
+cursor.execute(str_sql_emp_bon_ins)
 # Ex 1.2
 
 str_1_2= "select *  from emp"

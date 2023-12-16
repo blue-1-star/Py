@@ -486,30 +486,40 @@ def f_3_07():
     else:
         differ = df_emp1.compare(df_v2a)
         print("differeces:\n",differ)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def f_3_08():
+    # 3.8. Выявление и устранение проблемы декартовых произведений 
+    str_ =""" select e.ename, d.location
+    from emp e, dept d
+    where e.deptno = 10"""
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print(df_)    
+    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
+    merged= merged[merged['deptno']==10].reset_index(drop=True)
+    print(merged[['ename','location']])
+    # merged = merge(df_emp[df_emp['deptno'] == 10], df_dpt, on='deptno', how='outer', indicator=True)
+    # print(merged[['ename', 'location']])
+def f_3_09():
+    """ 
+    вычислить суммы зарплат и премий всех служащих отдела 1О. Но некоторые служащие получили несколько премий,
+    и объединение таблицы ЕМР с таблицей ЕМР_BONUS, содержащей данные о премиях сотрудников для этой задачи,
+    вызывает возвращение неправильных значений агрегатной функцией suм. 
+    """ 
+    str_="""
+    select e.empno,
+    e.ename,
+    e.sal,
+    e.deptno,
+    e.sal*case when eb.type = 1 then .1
+    when eb.type = 2 then .2
+    else .3
+    end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno
+    and e.deptno = 10
+    """
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print(df_)    
     
-
-
-
-
-
-
 
 
 
