@@ -15,12 +15,15 @@ cursor = connection.cursor()
 # cursor.execute(str_upd_King)
 str_emp= "select * from emp"
 str_dpt =   "select * from dept"
+str_bon =   "select * from emp_bonus"
 # df_emp = pd.io.sql.read_sql(str_emp, connection, dtype={'mgr': 'Int64'}) 
 df_emp = pd.io.sql.read_sql(str_emp, connection) 
 # print("First appearаnce df_emp:") 
 # print(df_emp.info())
 # print(df_emp)
 df_dpt = pd.io.sql.read_sql(str_dpt, connection)
+df_bon = pd.io.sql.read_sql(str_bon, connection)
+# print("emp_bonus:\n",df_bon)
 def f_1_03():
     print("-----------------  1.03---------------------------")
     str_1_03 = "select * from emp \
@@ -495,6 +498,7 @@ def f_3_08():
     print(df_)    
     merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
     merged= merged[merged['deptno']==10].reset_index(drop=True)
+    # merged_filtered = merged.query('deptno == 10')
     print(merged[['ename','location']])
     # merged = merge(df_emp[df_emp['deptno'] == 10], df_dpt, on='deptno', how='outer', indicator=True)
     # print(merged[['ename', 'location']])
@@ -519,7 +523,80 @@ def f_3_09():
     """
     df_ = pd.io.sql.read_sql(str_, connection)
     print(df_)    
+    str_1 = """
+    select deptno,
+        sum(sal) as total_sal,
+        sum(bonus) as total_bonus
+    from (
+    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type = 1 then .1
+                                                        when eb. type = 2 then .2
+                                                        else .3 end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno and e.deptno = 10) x
+    group by deptno
+"""
+    df_1 = pd.io.sql.read_sql(str_1, connection)
+    print(df_1)    
+    str_2 = "select sum(sal) from emp where deptno=10"
+    df_2 = pd.io.sql.read_sql(str_2, connection)
+    print(df_2)    
+    str_3 = """select e.ename, e.sal
+        from emp e, emp_bonus eb 
+        where e.empno = eb.empno and e.deptno = 10"""
+    df_3 = pd.io.sql.read_sql(str_3, connection)
+    print(df_3)    
+    str_1a = """
+    select deptno,
+        sum(distinct sal) as total_sal,
+        sum(bonus) as total_bonus
+    from (
+    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type = 1 then .1
+                                                        when eb. type = 2 then .2
+                                                        else .3 end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno and e.deptno = 10) x
+    group by deptno
+    """   
+    df_1a = pd.io.sql.read_sql(str_1a, connection)
+    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
+    print(df_1a)        
+    # dataframes
+    merg_df = pd.merge(df_emp, df_bon, on='empno', how='inner')
+    # print("df_emp merge with df_bon:")
+    merg_df = merg_df[merg_df['deptno']==10]
+    merg_df['bonus'] = merg_df['sal']*merg_df['type'].map({1:0.1, 2: 0.2, 3:0.3})
+    # print(merg_df['bonus'])    
+    # print(merg_df)
+    res = merg_df.groupby('deptno').agg({'sal':'sum','bonus':'sum'}).reset_index()
+    res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': 'nunique', 'bonus': 'sum'}).reset_index()
+    res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()   
+    res = merg_df.groupby('deptno').agg({'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()   
+    res.columns=['deptno','total_sal','total_bonus']
+    print(res)
+    """ 
+    требуется ещё одно уточнение:  уникальность должна быть не по столбцу 'sal'
+    а по другому - скажем 'empno' но сумма должна вычисляться по столбцу 'sal'  
+    ( сумма элементов 'sal с  уникальными 'empno' . 
     
+    Понял, вы хотите суммировать значения столбца 'sal', уникальные для каждого 'empno'.
+    В таком случае, вам нужно использовать группировку по 'empno' и затем суммировать 'sal' для каждой группы. Пример кода:
 
+    res = merg_df.groupby('deptno').agg({'sal': lambda x: x.groupby('empno').unique().sum(), 'bonus': 'sum'}).reset_index()
+    res.columns = ['deptno', 'total_sal', 'total_bonus']
+
+    Этот код использует groupby('empno') для создания групп для каждого уникального 'empno', 
+    а затем применяет unique() и sum() для суммирования уникальных значений 'sal' в каждой группе.
+
+    """
+    str_ins = "insert into emp values (7935,'NORTON','CLERK',7902,'93/6/13',2450,null,10)"
+    str_del = "DELETE FROM emp WHERE empno = '7935'"
+    # cursor.execute(str_ins)
+    # connection.commit()
+    df_1a = pd.io.sql.read_sql(str_1a, connection)
+    print(df_1a)        
+    # cursor.execute(str_del)
+    # connection.commit()
+    df_1a = pd.io.sql.read_sql(str_1a, connection)
+    print(df_1a)        
 
 
