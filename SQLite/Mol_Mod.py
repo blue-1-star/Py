@@ -539,12 +539,12 @@ def f_3_09():
     print(df_1)    
     str_2 = "select sum(sal) from emp where deptno=10"
     df_2 = pd.io.sql.read_sql(str_2, connection)
-    print(df_2)    
+    print("df_2=\n",df_2)    
     str_3 = """select e.ename, e.sal
         from emp e, emp_bonus eb 
         where e.empno = eb.empno and e.deptno = 10"""
     df_3 = pd.io.sql.read_sql(str_3, connection)
-    print(df_3)    
+    print("df_3=\n",df_3)    
     str_1a = """
     select deptno,
         sum(distinct sal) as total_sal,
@@ -558,18 +558,19 @@ def f_3_09():
     group by deptno
     """   
     df_1a = pd.io.sql.read_sql(str_1a, connection)
-    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
     print(df_1a)        
+    merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
     # dataframes
     merg_df = pd.merge(df_emp, df_bon, on='empno', how='inner')
     # print("df_emp merge with df_bon:")
     merg_df = merg_df[merg_df['deptno']==10]
     merg_df['bonus'] = merg_df['sal']*merg_df['type'].map({1:0.1, 2: 0.2, 3:0.3})
     # print(merg_df['bonus'])    
-    # print(merg_df)
+    print("DataFrame:")
+    print(merg_df)
     res = merg_df.groupby('deptno').agg({'sal':'sum','bonus':'sum'}).reset_index()
-    res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': 'nunique', 'bonus': 'sum'}).reset_index()
-    res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()   
+    # res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': 'nunique', 'bonus': 'sum'}).reset_index()
+    # res = merg_df.groupby('deptno').agg({'sal': 'sum', 'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()   
     res = merg_df.groupby('deptno').agg({'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()   
     res.columns=['deptno','total_sal','total_bonus']
     print(res)
@@ -590,13 +591,15 @@ def f_3_09():
     """
     str_ins = "insert into emp values (7935,'NORTON','CLERK',7902,'93/6/13',2450,null,10)"
     str_del = "DELETE FROM emp WHERE empno = '7935'"
+    str_upd = "UPDATE emp SET sal = 247  WHERE empno = 7935"
     # cursor.execute(str_ins)
+    # cursor.execute(str_upd)
     # connection.commit()
-    df_1a = pd.io.sql.read_sql(str_1a, connection)
+    df_1a = pd.io.sql.read_sql(str_1a, connection) # table emp was change but df_1a - not
     print(df_1a)        
     # cursor.execute(str_del)
     # connection.commit()
-    df_1a = pd.io.sql.read_sql(str_1a, connection)
-    print(df_1a)        
+    # df_1a = pd.io.sql.read_sql(str_1a, connection)
+    # print(df_1a)        
 
 
