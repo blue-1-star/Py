@@ -111,7 +111,7 @@ insert into emp_bonus(empno, bonus, received, type) values
 # cursor.execute(str_sql_emp_bonus_tbl)
 # cursor.execute(str_sql_emp_bonus_ins)
 # cursor.execute(str_sql_emp_bon_tbl)
-cursor.execute(str_sql_emp_bon_ins)
+# cursor.execute(str_sql_emp_bon_ins)
 # Ex 1.2
 
 str_1_2= "select *  from emp"
@@ -138,6 +138,8 @@ cursor.execute(str_eb)
 df_empb = pd.io.sql.read_sql(str_eb, connection,index_col='empno') #, index_col='empno')
 print(df_empb)  
 # print("\nrecords=", df_emp_f.count())
+str_copy = "CREATE TABLE emp_bonus_c AS SELECT * FROM  emp_bonus"
+cursor.execute(str_copy)
 connection.commit()
 connection.close()
 

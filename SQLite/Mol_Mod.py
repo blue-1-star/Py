@@ -558,7 +558,7 @@ def f_3_09():
     group by deptno
     """   
     df_1a = pd.io.sql.read_sql(str_1a, connection)
-    print(df_1a)        
+    print("distinct \n",df_1a)        
     merged = merge(df_emp, df_dpt, on='deptno', how='outer', indicator=True)
     # dataframes
     merg_df = pd.merge(df_emp, df_bon, on='empno', how='inner')
@@ -601,5 +601,75 @@ def f_3_09():
     # connection.commit()
     # df_1a = pd.io.sql.read_sql(str_1a, connection)
     # print(df_1a)        
-
-
+def f_3_10():
+    # Постановка задачи та же, что и для рецепта 3.9, с тем отличием, что не все служащие отдела 1О получили премии,
+    #  что отражено должным образом в таблице ЕМР BONUS:
+    str_1 = """
+    select deptno,
+        sum(sal) as total_sal,
+        sum(bonus) as total_bonus
+    from (
+    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type = 1 then .1
+                                                        when eb. type = 2 then .2
+                                                        else .3 end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno and e.deptno = 10) 
+    group by deptno
+    """   
+    df_1 = pd.io.sql.read_sql(str_1, connection)
+    print(df_1)  
+    str_="""
+    select e.empno,
+    e.ename,
+    e.sal,
+    e.deptno,
+    e.sal*case when eb.type = 1 then .1
+    when eb.type = 2 then .2
+    else .3
+    end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno
+    and e.deptno = 10
+    """
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print(df_)    
+    # выполняется внешнее объединение с таблицей ЕМР BONUS, чтобы обеспечить включение всех служащих отдела 10.
+    # Answer GPT about inner and outer 
+    """
+    Выбор между внутренним и внешним соединением зависит от вашей задачи и того, какие данные вы хотите получить.
+    Вот основные различия между ними: 
+    Внутреннее соединение (how='inner'):
+    Возвращает только те строки, которые имеют соответствующие значения в обеих таблицах по ключу (условию объединения).
+    Используется, когда вас интересуют только те строки, которые имеют соответствие в обеих таблицах.
+    Внешнее соединение (how='outer'):
+    Возвращает все строки из обеих таблиц, дополняя отсутствующие значения в одной из таблиц нулями или NaN.
+    Используется, когда вам нужны все строки из обеих таблиц, независимо от того, есть ли соответствие или нет.
+    """
+    str_1a = """
+    select deptno,
+        sum(distinct sal) as total_sal,
+        sum(bonus) as total_bonus
+    from (
+    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type = 1 then .1
+                                                        when eb. type = 2 then .2
+                                                        else .3 end as bonus
+    from emp e left outer join emp_bonus eb
+    on (e.empno = eb.empno)
+    where  e.deptno = 10) 
+    group by deptno
+    """   
+    df_1a = pd.io.sql.read_sql(str_1a, connection)
+    print(df_1a)
+    # Dataframes   - df_emp, df_bon  Defined in the header 
+    merg_df = pd.merge(df_emp, df_bon, on='empno', how='inner')  
+    merg_df = merg_df[merg_df['deptno']==10]
+    merg_df['bonus'] = merg_df['sal']*merg_df['type'].map({1:0.1, 2: 0.2, 3:0.3})
+    res = merg_df.groupby('deptno').agg({'sal':'sum','bonus':'sum'}).reset_index()
+    print("dataframe:\n",res)
+    # Выполнение left outer join
+    merged_df = pd.merge(df_emp[df_emp['deptno'] == 10], df_bon, how='left', on='empno')
+    merged_df['bonus'] = merged_df['sal'] * merged_df['type'].map({1: 0.1, 2: 0.2, 3: 0.3})
+    result_df = merged_df.groupby('deptno').agg({'sal': 'sum', 'bonus': 'sum'}).reset_index()
+    result_df.columns = ['deptno', 'total_sal', 'total_bonus']
+    print("left outer join:\n",result_df)
+    
