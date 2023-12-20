@@ -683,4 +683,23 @@ def f_3_10():
     # result_df.columns = ['deptno', 'total_sal', 'total_bonus', 'unique_empno']
     result_df.columns = ['deptno', 'total_sal', 'total_bonus']
     print("left outer join:\n",result_df)
+def f_3_11():      # p 102
+    str_left = """select d.deptno,d.dname,e.ename
+    from dept d left outer join emp e
+    on (d.deptno=e.deptno)"""
+    df_left = pd.io.sql.read_sql(str_left, connection)
+    res = pd.merge(df_dpt, df_emp, how='left', on='deptno')
+    print(df_left)
+    print(f"dataframe \n {res[['deptno','dname','ename','empno']].sort_values(by='empno')}")
+    str_ins_emp = """insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno)
+        select 1111, 'YODA', 'JEDI', null, hiredate, sal, comm, null
+        from emp
+        where ename = 'KING'"""
+    cursor.execute(str_ins_emp)
+    connection.commit()
+    str_right = """select d.deptno,d.dname,e.ename
+    from dept d right outer join emp e
+    on (d.deptno=e.deptno)"""
+    df_right = pd.io.sql.read_sql(str_right, connection)
+    print(df_right)
     
