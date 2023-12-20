@@ -632,7 +632,7 @@ def f_3_10():
     and e.deptno = 10
     """
     df_ = pd.io.sql.read_sql(str_, connection)
-    print(df_)    
+    print("without -group by deptno\n",df_)    
     # выполняется внешнее объединение с таблицей ЕМР BONUS, чтобы обеспечить включение всех служащих отдела 10.
     # Answer GPT about inner and outer 
     """
@@ -650,7 +650,8 @@ def f_3_10():
         sum(distinct sal) as total_sal,
         sum(bonus) as total_bonus
     from (
-    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type = 1 then .1
+    select e.empno, e.ename, e.sal, e.deptno, e.sal*case when eb.type is null then 0 
+                                                        when eb.type = 1 then .1
                                                         when eb. type = 2 then .2
                                                         else .3 end as bonus
     from emp e left outer join emp_bonus eb
@@ -659,7 +660,12 @@ def f_3_10():
     group by deptno
     """   
     df_1a = pd.io.sql.read_sql(str_1a, connection)
-    print(df_1a)
+    print(f"with distinct in sum and left outer join emp_bonus eb\n {df_1a}") 
+    # error - 2 records in emp_bonus sum = 390 but here total_bonus = 2625 ? 
+    # !!  was missing a condition !!when eb.type is null then 0 !!
+    # At first glance, though emp_bonus and does not contain the values of null
+    # but it is not about the original emp_bonus but the  left outer join 
+    # print(f'check only emp_bonus->\n {pd.io.sql.read_sql("select * from emp_bonus", connection)}')
     # Dataframes   - df_emp, df_bon  Defined in the header 
     merg_df = pd.merge(df_emp, df_bon, on='empno', how='inner')  
     merg_df = merg_df[merg_df['deptno']==10]
@@ -668,8 +674,13 @@ def f_3_10():
     print("dataframe:\n",res)
     # Выполнение left outer join
     merged_df = pd.merge(df_emp[df_emp['deptno'] == 10], df_bon, how='left', on='empno')
+    print(f'all records lefr outer join:\n{merged_df}')
     merged_df['bonus'] = merged_df['sal'] * merged_df['type'].map({1: 0.1, 2: 0.2, 3: 0.3})
+    merged_df_unique = merged_df.drop_duplicates(subset=['empno'])
     result_df = merged_df.groupby('deptno').agg({'sal': 'sum', 'bonus': 'sum'}).reset_index()
+    result_df = merged_df.groupby('deptno').agg({'sal': lambda x: x.unique().sum(), 'bonus': 'sum'}).reset_index()
+    # result_df = merged_df.groupby('deptno').agg({'sal': 'sum', 'bonus': 'sum','empno':'nunique'}).reset_index()
+    # result_df.columns = ['deptno', 'total_sal', 'total_bonus', 'unique_empno']
     result_df.columns = ['deptno', 'total_sal', 'total_bonus']
     print("left outer join:\n",result_df)
     
