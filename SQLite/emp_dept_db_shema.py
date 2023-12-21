@@ -119,10 +119,10 @@ str_1_3= "select *  from emp where deptno = 10 \
 or comm is not null \
 or sal <= 2000 and deptno=20"
 str_eb =  "select *  from emp_bonus"
-cursor.execute(str_1_2)
+# cursor.execute(str_1_2)
 
-cursor.execute(str_1_3)
-results = cursor.fetchall()
+# cursor.execute(str_1_3)
+# results = cursor.fetchall()
 # print(results)
 # df_emp = pd.io.sql.read_sql(str_1_2, connection, index_col='empno')
 
@@ -134,12 +134,47 @@ df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
 
 # print(f"-----------------",df_emp.count(), "----------------------------")
 # print("\nrecords=", df_emp.count())
-cursor.execute(str_eb)
-df_empb = pd.io.sql.read_sql(str_eb, connection,index_col='empno') #, index_col='empno')
-print(df_empb)  
+# cursor.execute(str_eb)
+# df_empb = pd.io.sql.read_sql(str_eb, connection,index_col='empno') #, index_col='empno')
+# print(df_empb)  
 # print("\nrecords=", df_emp_f.count())
-str_copy = "CREATE TABLE emp_bonus_c AS SELECT * FROM  emp_bonus"
-cursor.execute(str_copy)
+# str_copy = "CREATE TABLE emp_bonus_c AS SELECT * FROM  emp_bonus"
+# cursor.execute(str_copy)
+
+def change_type_colunm(con):
+#     import pandas as pd
+#     import sqlite3
+
+# # Подключение к базе данных SQLite
+# connection = sqlite3.connect("my_dbase")
+
+# Добавление нового столбца
+    cursor = connection.cursor()
+    strSQL_add_column = "ALTER TABLE emp ADD COLUMN deptno_new INTEGER;"
+    # pd.read_sql_query(strSQL_add_column, con)
+    cursor.execute(strSQL_add_column)
+
+
+# Копирование данных из старого столбца в новый
+    strSQL_copy_data = "UPDATE emp SET deptno_new = deptno;"
+    # pd.read_sql_query(strSQL_copy_data, con)
+    cursor.execute(strSQL_copy_data)
+
+
+
+# Удаление старого столбца
+    strSQL_drop_column = "ALTER TABLE emp DROP COLUMN deptno;"
+    # pd.read_sql_query(strSQL_drop_column, con)
+    cursor.execute(strSQL_drop_column)
+
+
+# Переименование нового столбца
+    strSQL_rename_column = "ALTER TABLE emp RENAME COLUMN deptno_new TO deptno;"
+    # pd.read_sql_query(strSQL_rename_column, con)
+    cursor.execute(strSQL_rename_column)
+    print(f'change type column->')    
+change_type_colunm(connection)
+
 connection.commit()
 connection.close()
 
