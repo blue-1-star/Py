@@ -140,7 +140,9 @@ df_emp_f = pd.io.sql.read_sql(str_1_3, connection, index_col='empno')
 # print("\nrecords=", df_emp_f.count())
 # str_copy = "CREATE TABLE emp_bonus_c AS SELECT * FROM  emp_bonus"
 # cursor.execute(str_copy)
-
+# strSQL_drop_column = "ALTER TABLE emp DROP COLUMN deptno_new;"
+# cursor.execute(strSQL_drop_column)
+# print(f'Delete column deptno_new:')
 def change_type_colunm(con):
 #     import pandas as pd
 #     import sqlite3
@@ -174,6 +176,13 @@ def change_type_colunm(con):
     cursor.execute(strSQL_rename_column)
     print(f'change type column->')    
 change_type_colunm(connection)
+# тянется цепочка - если уничтожить deptno - тогда ошибка в view V  
+# CREATE VIEW V as select ename || ' ' || deptno as data from emp
+"""CREATE VIEW V2
+    as
+    select * from emp where deptno != 10
+    union all
+    select * from emp where ename = 'WARD'"""
 
 connection.commit()
 connection.close()
