@@ -695,11 +695,38 @@ def f_3_11():      # p 102
         select 1111, 'YODA', 'JEDI', null, hiredate, sal, comm, null
         from emp
         where ename = 'KING'"""
-    cursor.execute(str_ins_emp)
-    connection.commit()
+    # cursor.execute(str_ins_emp)
+    # connection.commit()
     str_right = """select d.deptno,d.dname,e.ename
     from dept d right outer join emp e
     on (d.deptno=e.deptno)"""
     df_right = pd.io.sql.read_sql(str_right, connection)
     print(df_right)
+    # str_f = """ select d.deptno,d.dname,e.ename
+            # from dept d full outer join emp e
+            # on (d.deptno=e.deptno)"""
+    str_f_gpt = """
+    SELECT d.deptno, d.dname, e.ename
+    FROM dept d
+    LEFT JOIN emp e ON d.deptno = e.deptno
+
+    UNION
+
+    SELECT d.deptno, d.dname, e.ename
+    FROM emp e
+    LEFT JOIN dept d ON d.deptno = e.deptno
+    WHERE d.deptno IS NULL;
+    """
+    str_f = """
+    select d.deptno,d.dname,e.ename
+        from dept d right outer join emp e
+        on (d.deptno=e.deptno)
+        union
+        select d.deptno,d.dname,e.ename
+        from dept d left outer join emp e
+        on (d.deptno=e.deptno) """
+    df_full = pd.io.sql.read_sql(str_f, connection)
+    # df_full = pd.io.sql.read_sql(str_f_gpt, connection)
+    print(df_full)
+
     
