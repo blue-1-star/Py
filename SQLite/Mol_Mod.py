@@ -728,5 +728,140 @@ def f_3_11():      # p 102
     df_full = pd.io.sql.read_sql(str_f, connection)
     # df_full = pd.io.sql.read_sql(str_f_gpt, connection)
     print(df_full)
+    df_right = pd.merge(df_emp, df_dpt, how="right", on = 'deptno' )
+    df_left = pd.merge(df_emp, df_dpt, how="left", on = 'deptno')
+    # df_union = pd.concat([df_right, df_left], ignore_index=True)
+    df_union = pd.concat([df_right, df_left]).drop_duplicates().reset_index(drop=True)
+    df_union[['empno', 'deptno']] = df_union[['empno', 'deptno']].astype('Int64') 
+    print(f'DataFrame->\n {df_union}')
+def f_3_12():
+    str_="""
+     select ename,comm
+     from emp
+     where coalesce(comm,0) < ( select comm from emp where ename='WARD')
+    """
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print(df_)
+def f_4_05():
+    str_ = """
+        CREATE TABLE  IF NOT EXISTS  dept_east AS
+        SELECT * FROM dept WHERE 1 = 0;
+    """
+    str_1 = """
+        CREATE TABLE  IF NOT EXISTS  dept_mid AS
+        SELECT * FROM dept WHERE 1 = 0;
+    """
+    
+    # cursor.execute(str_)
+    cursor.execute(str_1)
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall() # create list of tuples with names tables
+    # create from list of tuples list of items of each tuples
+    # result_list = [item[0] for item in tables]
+    """
+    there was only one element in the tuple. If we needed all of them (i.e. there was more than one) then 
+    result_list = [element for tup in list_of_tuples for element in tup]
+    """
+    print([item[0] for item in tables])   # 
+    # 
+    # for table in tables:
+        # print(table[0])
+def f_4_06():
+# 4.6. Вставка строк одновременно в несколько таблиц p 113    
+    str_1 = """
+    INSERT INTO dept_east (deptno, dname, location)
+SELECT deptno, dname, location
+FROM dept
+WHERE location IN ('New York', 'Boston');"""
+
+    str_2 = """
+INSERT INTO dept_mid (deptno, dname, location)
+SELECT deptno, dname, location
+FROM dept
+WHERE location = 'Chicago';"""
+    # cursor.execute(str_1)
+    # cursor.execute(str_2)
+    # connection.commit()
+# Создаем целевые датафреймы
+    df_dept_east = pd.DataFrame(columns=['deptno', 'dname', 'location'])
+    df_dept_mid = pd.DataFrame(columns=['deptno', 'dname', 'location'])
+    print(f'df_dept_east ->\n{df_dept_east.info()}')
+    print(f'df_dept_mid ->\n{df_dept_mid.info()}')
+    # in table dept.location  the words are in capital letters 
+    # convert them through  capitalize 
+    # c_str = " ".join(word.capitalize() for word in df_dpt['location'].split())
+    # Условия для вставки в различные датафреймы
+    condition_east = df_dpt['location'].isin(['New York', 'Boston'])
+    condition_mid = df_dpt['location'] == 'Chicago'
+    # Вставляем данные в соответствующие датафреймы
+    #  !!!!   - однако у меня совершенно непредсказуемо вылетатет эта ошибка и найти причину не удается
+    #  AttributeError: 'DataFrame' object has no attribute 'append'. Did you mean: '_append'?
+    """
+     Нет необходимости использовать _append, это была неправильная интерпретация ошибки.
+     На самом деле, метод должен быть append, а не _append. Если у вас была такая ошибка, скорее всего, 
+     это связано с другими аспектами кода или среды выполнения.
+    """
+    df_dept_east = df_dept_east._append(df_dpt[condition_east], ignore_index=True)
+    df_dept_mid = df_dept_mid._append(df_dpt[condition_mid], ignore_index=True)
+    print(f'dept_east->\n {df_dept_east} \n dept_mid\n {df_dept_mid}')
+def f_4_07():
+    print(f'under construction')
+def f_4_08():
+    str_= """
+    select deptno,ename,sal from emp
+    where deptno = 20
+    order by 1,3
+    """
+    
+    df_ = pd.io.sql.read_sql(str_, connection)
+    print(df_)
+    str_f = """
+    update emp  set sal = sal*1.10 where deptno = 20
+    """
+    # cursor.execute(str_f)
+    # connection.commit()
+    df_f = pd.io.sql.read_sql(str_, connection)
+    # print(df_f)
+    print(f'change sal->\n {df_f}')
+    # condition_east = df_dpt['location'].isin(['New York', 'Boston'])
+    condition_sal = df_emp['deptno'] == 20
+    # df_emp.sal = df_emp[condition_sal]*1.1  # увеличение зарплаты 10%
+    df_emp.loc[condition_sal, 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
+    print(f"Dataframe ->\n {df_emp[['deptno', 'ename', 'sal', ]].reset_index(drop=True)}")
+
+    # revert the data state back
+    str_b = """
+    update emp  set sal = sal/1.10 where deptno = 20
+    """
+    cursor.execute(str_b)
+    connection.commit()
+    df_b = pd.io.sql.read_sql(str_, connection)
+    print(f'initial state->\n{df_b}')
+    str_v = """
+    select deptno , ename, sal as orig_sal, 
+        sal*.10 as amt_to_add,
+        sal*1.10 as new_sal
+        from emp
+        where deptno=20
+        order by 1,5
+    """
+    df_v = pd.io.sql.read_sql(str_v, connection)
+    print(f'preview->\n {df_v}')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
