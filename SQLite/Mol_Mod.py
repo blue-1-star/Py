@@ -818,23 +818,35 @@ def f_4_08():
     str_f = """
     update emp  set sal = sal*1.10 where deptno = 20
     """
-    # cursor.execute(str_f)
+    cursor.execute(str_f)
     # connection.commit()
     df_f = pd.io.sql.read_sql(str_, connection)
     # print(df_f)
     print(f'change sal->\n {df_f}')
     # condition_east = df_dpt['location'].isin(['New York', 'Boston'])
+    df_emp['deptno'] = df_emp['deptno'].astype('Int64')
     condition_sal = df_emp['deptno'] == 20
     # df_emp.sal = df_emp[condition_sal]*1.1  # увеличение зарплаты 10%
-    df_emp.loc[condition_sal, 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
+    # df_emp.loc[condition_sal, 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
+    df_emp1= df_emp[df_emp['deptno'] == 20]
+    print(f'df_emp1->\n {df_emp1}')
+    # df_emp.sal = df_emp.loc[df_emp['deptno'] == 20, 'sal'] * 1.1  # Увеличение зарплаты 10%
+    # df_emp.loc[df_emp['deptno'] == 20, 'sal'] *= 1.1
+    # df_emp.loc[df_emp['deptno'] == 20, 'sal'] = df_emp.loc[df_emp['deptno'] == 20, 'sal'] * 1.1
+    # df_emp1.sal = df_emp1[['sal']]*1.1
+    # df_emp1[df_emp1['sal']] *= 1.1
+    df_emp.loc[(df_emp['deptno'] == 20), 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
     print(f"Dataframe ->\n {df_emp[['deptno', 'ename', 'sal', ]].reset_index(drop=True)}")
-
+    # print(f"Dataframe(df_emp1) ->\n {df_emp1[['deptno', 'ename', 'sal', ]].reset_index(drop=True)}")
+    # df_emp_increased_salary = df_emp[condition_sal][['deptno', 'ename', 'sal']].sort_column(by = 'deptno','sal').reset_index(drop=True)
+    df_emp_increased_salary = df_emp[condition_sal][['deptno', 'ename', 'sal']].sort_values(by=['deptno', 'sal']).reset_index(drop=True)
+    print(f'DF - increased salary->\n {df_emp_increased_salary}')
     # revert the data state back
     str_b = """
     update emp  set sal = sal/1.10 where deptno = 20
     """
     cursor.execute(str_b)
-    connection.commit()
+    # connection.commit()
     df_b = pd.io.sql.read_sql(str_, connection)
     print(f'initial state->\n{df_b}')
     str_v = """
