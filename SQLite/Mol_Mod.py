@@ -806,6 +806,7 @@ WHERE location = 'Chicago';"""
     print(f'dept_east->\n {df_dept_east} \n dept_mid\n {df_dept_mid}')
 def f_4_07():
     print(f'under construction')
+# ---------------------------       f_4_08    
 def f_4_08():
     str_= """
     select deptno,ename,sal from emp
@@ -818,35 +819,25 @@ def f_4_08():
     str_f = """
     update emp  set sal = sal*1.10 where deptno = 20
     """
-    cursor.execute(str_f)
-    # connection.commit()
-    df_f = pd.io.sql.read_sql(str_, connection)
-    # print(df_f)
+    cursor.execute(str_f)   # increase salary and modify database
+    connection.commit()
+    df_f = pd.io.sql.read_sql(str_, connection)   # show result
     print(f'change sal->\n {df_f}')
-    # condition_east = df_dpt['location'].isin(['New York', 'Boston'])
     df_emp['deptno'] = df_emp['deptno'].astype('Int64')
     condition_sal = df_emp['deptno'] == 20
-    # df_emp.sal = df_emp[condition_sal]*1.1  # увеличение зарплаты 10%
+    df_emp.loc[condition_sal, 'sal'] *= 1.1
+    df_emp['sal'] = df_emp['sal'].astype(float)
     # df_emp.loc[condition_sal, 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
-    df_emp1= df_emp[df_emp['deptno'] == 20]
-    print(f'df_emp1->\n {df_emp1}')
-    # df_emp.sal = df_emp.loc[df_emp['deptno'] == 20, 'sal'] * 1.1  # Увеличение зарплаты 10%
-    # df_emp.loc[df_emp['deptno'] == 20, 'sal'] *= 1.1
-    # df_emp.loc[df_emp['deptno'] == 20, 'sal'] = df_emp.loc[df_emp['deptno'] == 20, 'sal'] * 1.1
-    # df_emp1.sal = df_emp1[['sal']]*1.1
-    # df_emp1[df_emp1['sal']] *= 1.1
-    df_emp.loc[(df_emp['deptno'] == 20), 'sal'] = df_emp.loc[condition_sal, 'sal'] * 1.1  # Увеличение зарплаты 10%
+    # df_emp.loc[condition_sal, 'sal'] = df_emp.loc[condition_sal, 'sal'].astype(float) * 1.1
     print(f"Dataframe ->\n {df_emp[['deptno', 'ename', 'sal', ]].reset_index(drop=True)}")
-    # print(f"Dataframe(df_emp1) ->\n {df_emp1[['deptno', 'ename', 'sal', ]].reset_index(drop=True)}")
-    # df_emp_increased_salary = df_emp[condition_sal][['deptno', 'ename', 'sal']].sort_column(by = 'deptno','sal').reset_index(drop=True)
     df_emp_increased_salary = df_emp[condition_sal][['deptno', 'ename', 'sal']].sort_values(by=['deptno', 'sal']).reset_index(drop=True)
     print(f'DF - increased salary->\n {df_emp_increased_salary}')
-    # revert the data state back
+    # revert the data state back 
     str_b = """
     update emp  set sal = sal/1.10 where deptno = 20
     """
-    cursor.execute(str_b)
-    # connection.commit()
+    cursor.execute(str_b)    # resetting the database
+    connection.commit()
     df_b = pd.io.sql.read_sql(str_, connection)
     print(f'initial state->\n{df_b}')
     str_v = """
@@ -857,8 +848,32 @@ def f_4_08():
         where deptno=20
         order by 1,5
     """
-    df_v = pd.io.sql.read_sql(str_v, connection)
-    print(f'preview->\n {df_v}')
+    # df_v = pd.io.sql.read_sql(str_v, connection)
+    # print(f'preview->\n {df_v}')
+
+def f_4_09():
+    # .9. Обновление при условии наличия соответствующих строк
+    str_f = """
+    update emp set sal=sal*1.20 where empno in ( select empno from emp_bonus) 
+    """ 
+    cursor.execute(str_f)   # increase salary and modify database
+    str_r = "select empno, ename, sal  from emp where empno in ( select empno from emp_bonus)"
+    df_r = pd.io.sql.read_sql(str_r, connection)
+    print(f'update salary->\n {df_r} ')    
+    print(f'emp_bonus->\n{df_bon}')
+    mrg = pd.merge(df_emp, df_bon, on = 'empno', how = 'inner')
+    print(f"merg bon and emp\n{mrg[['empno','ename']]}")
+    #condition_sal =     #condition_sal = df_emp['deptno'] == 20
+    df_emp.loc[condition_sal,'sal'] *= 1.2
+    connection.commit()
+    str_b = """
+    update emp set sal=sal/1.20 where empno in ( select empno from emp_bonus) 
+    """ 
+    # df_emp.loc[condition_sal, 'sal'] *= 1.1
+    cursor.execute(str_b)   # reset database to initial state
+    connection.commit()
+
+
 
 
 
