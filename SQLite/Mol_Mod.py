@@ -860,20 +860,42 @@ def f_4_09():
     str_r = "select empno, ename, sal  from emp where empno in ( select empno from emp_bonus)"
     df_r = pd.io.sql.read_sql(str_r, connection)
     print(f'update salary->\n {df_r} ')    
-    print(f'emp_bonus->\n{df_bon}')
+    # print(f'emp_bonus->\n{df_bon}')
     mrg = pd.merge(df_emp, df_bon, on = 'empno', how = 'inner')
     print(f"merg bon and emp\n{mrg[['empno','ename']]}")
-    #condition_sal =     #condition_sal = df_emp['deptno'] == 20
+    # condition_sal =  mrg[['empno']] == df_emp[['empno']]
+    # df_emp.loc[condition_sal,'sal'] *= 1.2
+    condition_sal = df_emp['empno'].isin(mrg['empno'])
+    mrg['sal'] *= 1.2
+    # df_emp.loc[df_emp['empno'].isin(mrg['empno']), 'sal'] = mrg['sal']
+    # df_emp.loc[df_emp['empno'].isin(mrg['empno']), 'sal'] *= 1.2
     df_emp.loc[condition_sal,'sal'] *= 1.2
+    """
+    df_emp['empno'].isin(mrg['empno']): This part creates a boolean Series where each element is True
+    if the corresponding 'empno' value in df_emp is present in the 'empno' column of the merged DataFrame mrg.
+    It essentially checks if an employee in df_emp has a corresponding entry in mrg.
+    """
+    # res = mrg[['empno','ename', 'sal']].sort_values(by=['sal']).reset_index(drop=True)
+    res = df_emp[condition_sal][['empno','ename','sal']].sort_values(by=['sal']).reset_index(drop=True)
+    print(f"result dataFrame->\n{res}")
+    print(f"modify salary df_emp->\n{df_emp[['empno','ename','sal']]}")
     connection.commit()
     str_b = """
     update emp set sal=sal/1.20 where empno in ( select empno from emp_bonus) 
     """ 
-    # df_emp.loc[condition_sal, 'sal'] *= 1.1
     cursor.execute(str_b)   # reset database to initial state
     connection.commit()
 
+"""
+а чем отличаются df_emp[['empno']]   и  df_emp['empno'] ? 
+df_emp['empno'] returns a Series:
+This operation returns a Series, which is a one-dimensional labeled array. It is essentially a single column
+of the DataFrame.
+df_emp['empno'] returns a Series:
+This operation returns a Series, which is a one-dimensional labeled array. 
+It is essentially a single column of the DataFrame.
 
+"""
 
 
 
