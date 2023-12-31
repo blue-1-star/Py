@@ -5,7 +5,7 @@
 # %timeit my_arr2 = my_arr * 2
 import numpy as np
 import time
-
+import matplotlib.pyplot as plt
 # Создаем массивы
 my_arr = np.arange(1_000_000)
 my_list = list(range(1_000_000))
@@ -49,5 +49,41 @@ result = [(x if c else y) for x, y, c in zip(xarr, yarr, cond)]
 print(result)
 res_np = np.where(cond, xarr, yarr)
 print(f'NumPy->\n{res_np}')
+# -------------  p 131
+arr = np.arange(10)
+arr1 = np.arange(12)
+np.save("G:\Programming\Py\McKinney\some_array", arr)
+arr_l = np.load("G:\Programming\Py\McKinney\some_array.npy")
+print(f'arr load ->  {arr_l}')
+np.savez_compressed("G:\Programming\Py\McKinney\\arrays_compressed.npz", a=arr, b=arr1)
+arch = np.load("G:\Programming\Py\McKinney\\arrays_compressed.npz")
+print(f'arch[a] ->\n{arch["a"]} \narch[b] ->\n{arch["b"]}')
+
+#
+#! blockstart
+import random
+position = 0
+walk = [position]
+nsteps = 1000
+for _ in range(nsteps):
+    step = 1 if random.randint(0, 1) else -1    #  random.randint(a, b) returns a random integer N such that a <= N <= b
+    position += step
+    walk.append(position)
+#! blockend
+# plt.plot(walk[:100])
+# plt.show()
+
+# ------------  p 134 
+nsteps = 1000
+rng = np.random.default_rng(seed=12345) # Новый генератор случайных чисел
+draws = rng.integers(0, 2, size=nsteps)
+steps = np.where(draws == 0, 1, -1)
+walk = steps.cumsum()
+wmin = walk.min()
+wmax = walk.max()
+print(f'wmin = {wmin}, wmax = {wmax} ')
+print(f'argmax= {(np.abs(walk) >= 10).argmax()}')
+
+
 
 
