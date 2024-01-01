@@ -83,6 +83,30 @@ wmin = walk.min()
 wmax = walk.max()
 print(f'wmin = {wmin}, wmax = {wmax} ')
 print(f'argmax= {(np.abs(walk) >= 10).argmax()}')
+# ------------  p 134 
+import pandas as pd
+data = {"state": ["Ohio", "Ohio", "Ohio", "Nevada", "Nevada", "Nevada"],
+"year": [2000, 2001, 2002, 2001, 2002, 2003],
+"pop": [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+print(frame)
+
+# ------------  p 147  Словарь словарей
+populations = {"Ohio": {2000: 1.5, 2001: 1.7, 2002: 3.6},
+"Nevada": {2001: 2.4, 2002: 2.9}}
+frame3 = pd.DataFrame(populations)
+print(f'frame3->\n{frame3}')
+pdata = {"Ohio": frame3["Ohio"][:-1],
+"Nevada": frame3["Nevada"][:2]}
+frm = pd.DataFrame(pdata)
+print(frm)
+# ------------  p 146  
+obj1 = pd.Series([1, 2, 3], index=[2, 0, 1])
+obj2 = pd.Series([1, 2, 3], index=["a", "b", "c"])
+print(obj1)
+print(obj2)
+print(obj1[[0, 1, 2]])
+print(obj2[[0, 1, 2]])
 
 
 
