@@ -107,6 +107,49 @@ print(obj1)
 print(obj2)
 print(obj1[[0, 1, 2]])
 print(obj2[[0, 1, 2]])
+# ------------  p 167
+df1 = pd.DataFrame(np.arange(12.).reshape((3, 4)),
+columns=list("abcd"))
+df2 = pd.DataFrame(np.arange(20.).reshape((4, 5)),
+columns=list("abcde"))
+df2.loc[1, "b"] = np.nan
+print(df1)
+print(df2)
+print(df1+df2)
+print(df1.add(df2, fill_value=0))
+print(1/df1)
+# ------------  p 167
+arr = np.arange(12.).reshape((3, 4))
+print(arr)
+print(arr - arr[0])
+# 169
+frame = pd.DataFrame(np.arange(12.).reshape((4, 3)),
+columns=list("bde"),
+index=["Utah", "Ohio", "Texas", "Oregon"])
+series = frame.iloc[0]
+print(frame)
+print(series)
+print(frame - series)
+# ------------  p 170
+frame = pd.DataFrame(np.random.standard_normal((4, 3)),
+columns=list("bde"),
+index=["Utah", "Ohio", "Texas", "Oregon"])
+print(frame)
+def f1(x):
+    return x.max() - x.min()
+print(np.abs(frame))
+print(f'scope ->\n{frame.apply(f1)}')
+print(f'axis->\n{frame.apply(f1, axis="columns")}')
+def f2(x):
+    return pd.Series([x.min(), x.max()], index=["min", "max"])
+# frame.apply(f2)
+print(frame.apply(f2))
+def my_format(x):
+    return f"{x:.2f}"
+print(frame.applymap(my_format))
+
+
+
 
 
 
