@@ -147,6 +147,28 @@ print(frame.apply(f2))
 def my_format(x):
     return f"{x:.2f}"
 print(frame.applymap(my_format))
+# ------------  p 180
+import pickle
+import pandas  as pd
+price = pd.read_pickle("McKinney\yahoo_price.pkl")
+volume = pd.read_pickle("McKinney\yahoo_volume.pkl")
+print(f'pickle pd \n{price}')
+# with open("McKinney/yahoo_price.pkl", 'rb') as file:
+    # price1 = pickle.load(file)
+# print(f'pickle \n{price1}')
+returns = price.pct_change()
+print(returns.tail())
+print(returns["MSFT"].corr(returns["IBM"]))
+print(returns["MSFT"].cov(returns["IBM"]))
+print(returns.corr())
+print(returns.corrwith(returns["IBM"]))
+print(returns.corrwith(volume))
+
+
+
+
+
+
 
 
 
