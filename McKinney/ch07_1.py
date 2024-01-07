@@ -113,8 +113,47 @@ dummies = pd.get_dummies(df["key"], prefix="key")
 df_with_dummy = df[["data1"]].join(dummies)
 print(df_with_dummy)
 # p 230
+ph_d = "McKinney/datasets/movielens/"
 mnames = ["movie_id", "title", "genres"]
-movies = pd.read_table("datasets/movielens/movies.dat", sep="::",
+movies = pd.read_table(ph_d+"movies.dat", sep="::",
 header=None, names=mnames, engine="python")
+print(movies[:10])
+dummies = movies["genres"].str.get_dummies("|")
+print(dummies.iloc[:10, :6])
+movies_windic = movies.join(dummies.add_prefix("Genre_"))
+print(movies_windic.iloc[0])
+# p 231
+np.random.seed(12345)
+values = np.random.uniform(size=10)
+print(values)
+bins = [0, 0.2, 0.4, 0.6, 0.8, 1]
+print(pd.get_dummies(pd.cut(values, bins)))
+# 7.3. Расширение типов данных 
+s = pd.Series([1, 2, 3, None])
+print(s)
+s = pd.Series([1, 2, 3, None], dtype=pd.Int64Dtype())
+print(s)
+s = pd.Series(['one', 'two', None, 'three'], dtype=pd.StringDtype())
+print(s)
+# 7.4. Манипуляции со строками   p 235
+val = "a,b, guido"
+vals = val.split(",")
+print(vals)
+pieces = [x.strip() for x in val.split(",")]
+print(pieces)
+first, second, third = pieces 
+print(first + "::" + second + "::" + third)
+print("::".join(pieces))
+print(val.count(","))
+print(val.replace(",", "::"))
+# Регулярные выражения   p 238
+
+
+
+
+
+
+
+
 
 
