@@ -40,6 +40,15 @@ df2 = pd.DataFrame({"key": ["a", "b", "a", "b", "d"],
 "data2": pd.Series(range(5), dtype="Int64")})
 print(pd.merge(df1, df2, on="key", how="left"))
 print(pd.merge(df1, df2, on="key", how="inner"))
+#  p 276
+data = pd.DataFrame(np.arange(6).reshape((2, 3)),
+index=pd.Index(["Ohio", "Colorado"], name="state"),
+columns=pd.Index(["one", "two", "three"],
+name="number"))
+print(data)
+result = data.stack()
+print(result)
+print(result.unstack())
 
 
 
