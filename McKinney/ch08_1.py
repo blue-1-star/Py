@@ -49,6 +49,25 @@ print(data)
 result = data.stack()
 print(result)
 print(result.unstack())
-
+ph = "McKinney/examples/"
+data = pd.read_csv("McKinney/examples/macrodata.csv")
+data = data.loc[:, ["year", "quarter", "realgdp", "infl", "unemp"]]
+print(data.head())
+periods = pd.PeriodIndex(year=data.pop("year"),
+quarter=data.pop("quarter"),
+name="date")
+print(periods)
+data.index = periods.to_timestamp("D")
+print(data.head())
+data = data.reindex(columns=["realgdp", "infl", "unemp"])
+data.columns.name = "item"
+print(data.head())
+long_data = (data.stack()
+.reset_index()
+.rename(columns={0: "value"}))
+print(long_data[:10])
+pivoted = long_data.pivot(index="date", columns="item",
+values="value")
+print(pivoted)
 
 
