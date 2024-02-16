@@ -68,6 +68,6 @@ long_data = (data.stack()
 print(long_data[:10])
 pivoted = long_data.pivot(index="date", columns="item",
 values="value")
-print(pivoted)
+print(pivoted.head())
 
 
