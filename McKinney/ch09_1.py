@@ -41,5 +41,37 @@ rotation=30, fontsize=8)
 ax.set_xlabel("Stages")
 # Text(0.5, 6.666666666666652, 'Stages')
 ax.set_title("My first matplotlib plot")
+df = pd.DataFrame(np.random.standard_normal((10, 4)).cumsum(0),
+columns=["A", "B", "C", "D"],
+index=np.arange(0, 100, 10))
+# plt.style.use('grayscale')
+df.plot()
+# p 302
+fig, axes = plt.subplots(2, 1)
+data = pd.Series(np.random.uniform(size=16), index=list("abcdefghijklmnop"))
+data.plot.bar(ax=axes[0], color="black", alpha=0.7)
+data.plot.barh(ax=axes[1], color="black", alpha=0.7)
+df = pd.DataFrame(np.random.uniform(size=(6, 4)),
+index=["one", "two", "three", "four", "five", "six"],
+columns=pd.Index(["A", "B", "C", "D"], name="Genus"))
+df.plot.bar()
+df.plot.barh(stacked=True, alpha=0.5)
+# p 305
+tips = pd.read_csv("McKinney/examples/tips.csv")
+print(tips.head())
+party_counts = pd.crosstab(tips["day"], tips["size"])
+party_counts = party_counts.reindex(index=["Thur", "Fri", "Sat", "Sun"])
+party_counts = party_counts.loc[:,2:5]
+# Нормировка на сумму 1
+# print(party_counts)
+party_pcts = party_counts.div(party_counts.sum(axis="columns"),
+axis="index")
+# print(party_pcts)
+party_pcts.plot.bar(stacked=True)
+import seaborn as sns
+tips["tip_pct"] = tips["tip"] / (tips["total_bill"] - tips["tip"])
+tips.head()
+sns.barplot(x="tip_pct", y="day", data=tips, orient="h")
 plt.show()
+
 
