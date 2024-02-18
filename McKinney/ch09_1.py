@@ -70,8 +70,7 @@ axis="index")
 party_pcts.plot.bar(stacked=True)
 import seaborn as sns
 tips["tip_pct"] = tips["tip"] / (tips["total_bill"] - tips["tip"])
-tips.head()
+print(tips.head())
 sns.barplot(x="tip_pct", y="day", data=tips, orient="h")
 plt.show()
-
 
