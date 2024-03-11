@@ -40,7 +40,11 @@ trans_data = np.log(data).diff().dropna()
 # ax = sns.regplot(x="m1", y="unemp", data=trans_data)
 # sns.pairplot(trans_data, diag_kind="kde", plot_kws={"alpha": 0.2})
 # ax.title("Changes in log(m1) versus log(unemp)")
-sns.catplot(x="day", y="tip_pct", hue="time", col="smoker",
-kind="bar", data=tips[tips.tip_pct < 1])
+# sns.catplot(x="day", y="tip_pct", hue="time", col="smoker",
+# kind="bar", data=tips[tips.tip_pct < 1])
+# sns.catplot(x="day", y="tip_pct", row="time", col="smoker",
+# kind="bar", data=tips[tips.tip_pct < 1])
+sns.catplot(x="tip_pct", y="day", kind="box",
+data=tips[tips.tip_pct < 0.5])
 plt.show()
 
