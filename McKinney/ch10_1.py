@@ -90,6 +90,22 @@ def normalize(x):
 print(g.transform(normalize))    
 print(g.apply(normalize))
 
+# p 350
+from io import StringIO
+data = """Sample Nationality Handedness
+1 USA Right-handed
+2 Japan Left-handed
+3 USA Right-handed
+4 Japan Right-handed
+5 Japan Left-handed
+6 Japan Right-handed
+7 USA Right-handed
+8 USA Left-handed
+9 Japan Right-handed
+10 USA Right-handed"""
+data = pd.read_table(StringIO(data), sep="\s+")
+print(data)
+print(pd.crosstab(data["Nationality"], data["Handedness"], margins=True))
 
 
 
