@@ -1,3 +1,9 @@
+
+# p 30
+print([2, 2, 4, 2].index(2))
+print([2, 2, 4, 2].index(2,1))
+print([2, 2, 4, 2].index(2,2))
+
 # p 44  Listing 2.1 
 employees = {'Alice' : 100000,
 'Bob' : 99817,
