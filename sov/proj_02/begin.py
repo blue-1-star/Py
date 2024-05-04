@@ -31,9 +31,10 @@ dfh = df1['TF'][b:e]
 # n_bins = dfh.max() - dfh.min() + 1
 n_bins = 3
 # print(dfh)
-print([x for x in range(1,11)])
+# print([x for x in range(1,11)])
 
 plt.bar([x for x in range(1,11)],dfh)
+# plt.bar([1-10],dfh)
 # dfh.hist(bins=n_bins)
 plt.show()
 
