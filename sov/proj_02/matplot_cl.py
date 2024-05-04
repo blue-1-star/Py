@@ -1,5 +1,6 @@
 import matplot as mp
-from matplot import f_1_03, f_1_04, f_1_05, f_1_06 #, f_1_07, f_1_08, f_1_09, f_1_10, f_1_11, f_1_12, f_1_13, f_2_01, f_2_02, 
+from matplot import f_1_03, f_1_04, f_1_05, f_1_06, f_1_07, f_2_4_2, f_3_2_1
+#, f_1_07, f_1_08, f_1_09, f_1_10, f_1_11, f_1_12, f_1_13, f_2_01, f_2_02, 
     #f_2_03, f_2_04, f_2_05, f_2_06, f_3_01, f_3_02, f_3_03, f_3_04, f_3_05, f_3_06, f_3_07, f_3_08, f_3_09, f_3_10, f_3_11, \
     #f_3_12, f_4_05, f_4_06, f_4_07,f_4_08, f_4_09        
 class Matplot:   
@@ -18,10 +19,10 @@ class Matplot:
             f_1_06()
         elif self.st == '1.07':
             f_1_07() 
-        elif self.st == '1.08':
-            f_1_08()
-        elif self.st == '1.09':
-            f_1_09()
+        elif self.st == '2.4.2':
+            f_2_4_2()
+        elif self.st == '3.2.1':
+            f_3_2_1()
         elif self.st == '1.10':
             f_1_10()    
         elif self.st == '1.11':
@@ -78,7 +79,8 @@ class Matplot:
             f_4_09()
         else:
             print('Not in range')                   
-st='1.04'
-Matplot('1.06')
+st='3.2.1'
+# st='1.07'
+Matplot(st)
 
 
