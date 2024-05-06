@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 import matplotlib.gridspec as gridspec
+import matplotlib.colors as mcolors
+bc = mcolors.BASE_COLORS
 # plt.plot([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])
 
 def f_1_03():
@@ -221,3 +223,98 @@ def f_3_3_3():
     # plt.text(0, 7, 'HELLO!', fontsize=15)
     plt.plot(range(0,10), range(0,10))
     plt.show()
+
+def f_4_1():
+    # Линейный график p 77
+    # plt.figure(figsize=(7, 7))
+    x = [1, 5, 10, 15, 20]
+    y1 = [1, 7, 3, 5, 11]
+    y2 = [4, 3, 1, 8, 12]
+    plt.figure(figsize=(12, 7))
+    plt.plot(x, y1, 'o-r', alpha=0.7, label='first', lw=5, mec='b', mew=2,
+    ms=10)
+    plt.plot(x, y2, 'v-.g', label='second', mec='r', lw=2, mew=2, ms=12)
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+def f_4_2():
+    # график с заливкой: p 78
+    # plt.figure(figsize=(7, 7))
+    x = np.arange(0.0, 5, 0.01)
+    y = np.cos(x*np.pi)
+    plt.plot(x, y, c = 'r')
+    # plt.fill_between(x, y)
+    # plt.fill_between(x, y, where = (y > 0.75) | (y < -0.75))
+    plt.fill_between(x, y, where=y>=0, color='g', alpha=0.3)
+    plt.fill_between(x, y, where=y<=0, color='r', alpha=0.3)
+    plt.show()
+def f_4_3():
+    # график с заливкой: p 78
+    np.random.seed(123)
+    groups = [f'P{i}' for i in range(7)]
+    counts = np.random.randint(3, 10, len(groups))
+    plt.bar(groups, counts)
+    plt.show()    
+
+def f_4_3_1():
+    # Пример, демонстрирующий работу с параметрами bar(): p  98
+    np.random.seed(123)
+    groups = [f'P{i}' for i in range(7)]
+    counts = np.random.randint(0, len(bc), len(groups))
+    width = counts*0.1
+    colors = [['r', 'b', 'g'][int(np.random.randint(0, 3, 1))] for _ in
+    counts]
+    plt.bar(groups, counts, width=width, alpha=0.6, bottom=2, color=colors,
+    edgecolor='k', linewidth=2)
+    plt.show()    
+def f_4_3_1_1():
+    # Пример, демонстрирующий работу с параметрами bar(): p  98
+    cat_par = [f'P{i}' for i in range(5)]
+    g1 = [10, 21, 34, 12, 27]
+    g2 = [17, 15, 25, 21, 26]
+    width = 0.3
+    x = np.arange(len(cat_par))
+    fig, ax = plt.subplots()
+    rects1 = ax.bar(x - width/2, g1, width, label='g1')
+    rects2 = ax.bar(x + width/2, g2, width, label='g2')
+    ax.set_title('Пример групповой диаграммы')
+    ax.set_xticks(x)
+    ax.set_xticklabels(cat_par)
+    ax.legend()
+    plt.show()        
+
+def f_4_3_1_2():
+    # 4.3.1.2 Диаграмма с errorbar-элементом p  99
+    np.random.seed(123)
+    rnd = np.random.randint
+    cat_par = [f'P{i}' for i in range(5)]
+    g1 = [10, 21, 34, 12, 27]
+    error = np.array([[rnd(2,7),rnd(2,7)] for _ in range(len(cat_par))]).T
+    fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+    axs[0].bar(cat_par, g1, yerr=5, ecolor='r', alpha=0.5, edgecolor='b',
+    linewidth=2)
+    axs[1].bar(cat_par, g1, yerr=error, ecolor='r', alpha=0.5, edgecolor='b',
+    linewidth=2)
+    plt.show()        
+def f_4_3_2_1():
+    # 4.3.2.1 Классическая круговая диаграмма  p  100
+    vals = [24, 17, 53, 21, 35]
+    labels = ['Ford', 'Toyota', 'BMW', 'AUDI', 'Jaguar']
+    explode = [0, 0, 0.1, 0, 0]
+    fig, ax = plt.subplots()
+    ax.pie(vals, labels=labels,  explode=explode, autopct='%1.1f%%', shadow=True)
+    ax.axis('equal')
+    plt.show()        
+def f_4_3_2_2():
+    # 4.3.2.2 Вложенные круговые диаграммы  p  104
+    fig, ax = plt.subplots()
+    offset=0.4
+    data = np.array([[5, 10, 7], [8, 15, 5], [11, 9, 7]])
+    cmap = plt.get_cmap('tab20b')
+    b_colors = cmap(np.array([0, 8, 12]))
+    sm_colors = cmap(np.array([1, 2, 3, 9, 10, 11, 13, 14, 15]))
+    ax.pie(data.sum(axis=1), radius=1, colors=b_colors,
+    wedgeprops=dict(width=offset, edgecolor='w'))
+    ax.pie(data.flatten(), radius=1-offset, colors=sm_colors,
+    wedgeprops=dict(width=offset, edgecolor='w'))
+    plt.show()        
