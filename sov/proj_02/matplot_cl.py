@@ -1,9 +1,8 @@
 import matplot as mp
+import seab as sb
 from matplot import f_1_03, f_1_04, f_1_05, f_1_06, f_1_07, f_2_4_2, f_3_2_1, f_3_2_1a, f_3_9, f_3_11, f_3_3_1,\
 f_3_3_2, f_3_3_3, f_4_1, f_4_2, f_4_3_1, f_4_3_1_1, f_4_3_1_2, f_4_3_2_1, f_4_3_2_2
-#, f_1_07, f_1_08, f_1_09, f_1_10, f_1_11, f_1_12, f_1_13, f_2_01, f_2_02, 
-    #f_2_03, f_2_04, f_2_05, f_2_06, f_3_01, f_3_02, f_3_03, f_3_04, f_3_05, f_3_06, f_3_07, f_3_08, f_3_09, f_3_10, f_3_11, \
-    #f_3_12, f_4_05, f_4_06, f_4_07,f_4_08, f_4_09        
+from seab import f_6_2_1
 class Matplot:   
     def set(self,st):
         self.st = st
@@ -104,8 +103,11 @@ class Matplot:
             f_4_3_2_1()
         elif self.st == '4.3.2.2':
             f_4_3_2_2()                        
+        elif self.st == '6.2.1':
+            f_6_2_1()                        
         else:
             print('Not in range')                   
-st='4.3.2.2'
+st='6.2.1'
 # st='1.07'
 Matplot(st)
+ 
