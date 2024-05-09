@@ -2,7 +2,7 @@ import matplot as mp
 import seab as sb
 from matplot import f_1_03, f_1_04, f_1_05, f_1_06, f_1_07, f_2_4_2, f_3_2_1, f_3_2_1a, f_3_9, f_3_11, f_3_3_1,\
 f_3_3_2, f_3_3_3, f_4_1, f_4_2, f_4_3_1, f_4_3_1_1, f_4_3_1_2, f_4_3_2_1, f_4_3_2_2
-from seab import f_6_2_1, f_6_2_2, f_6_2_3, f_7_1,  f_7_3_1, f_8_2_1
+from seab import f_6_2_1, f_6_2_2, f_6_2_3, f_7_1,  f_7_3_1, f_8_2_1, f_8_2_1a, f_8_3, f_8_5
 class Matplot:   
     def set(self,st):
         self.st = st
@@ -114,9 +114,15 @@ class Matplot:
         elif self.st == '7.3.1':
             f_7_3_1()
         elif self.st == '8.2.1':
-            f_8_2_1()                                
+            f_8_2_1()
+        elif self.st == '8.2.1a':
+            f_8_2_1a()
+        elif self.st == '8.3':
+            f_8_3()
+        elif self.st == '8.5':
+            f_8_5()                                                      
         else:
             print('Not in range')                   
-st='8.2.1'
+st='8.5'
 # st='1.07'
 Matplot(st)
