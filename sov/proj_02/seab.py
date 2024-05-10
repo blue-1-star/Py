@@ -5,6 +5,7 @@ from scipy import stats
 import matplotlib.gridspec as gridspec
 import matplotlib.colors as mcolors
 import seaborn as sns
+sns.set_palette("bright")
 def f_6_2_1():
     # 6.2.1 Построение точечного графика  p  124
     # file_data =r"G:\Programming\Py\sov\proj_02\data_learn\auto_mpg_dataset.csv"
@@ -159,6 +160,133 @@ def f_8_5():
     # fig, axes = plt.subplots(nrows=2, ncols=4, figsize=(12, 5))
     # sns.catplot(x="species", y="sepal_length", kind="swarm", data=iris, ax=axes[0])
     sns.relplot(x='sepal_length', y='petal_length', data=iris, kind ='scatter')
+    sns.relplot(x='sepal_length', y='petal_length', hue='species',
+    kind='scatter', data=iris, col='species')
+    sns.relplot(x='sepal_length', y='petal_length', hue='species',
+    kind='scatter', data=iris, row='species', height=3, aspect=3)
     # sns.scatterplot(x='sepal_length', y='petal_length', data=iris, ax=axes[0, 0])
     plt.tight_layout()
     plt.show()         
+def f_9_2():
+    # 9.2 Визуализация категориальных данных в виде точечных диаграмм p 192
+    iris = sns.load_dataset("iris")
+    # fig, axes = plt.subplots(nrows=2, ncols=4, figsize=(12, 5))
+    # sns.catplot(x="species", y="sepal_length", kind="swarm", data=iris, ax=axes[0])
+    sns.stripplot(x='species', y='sepal_length', data=iris)
+    np.random.seed(321)
+    x_vals = np.random.randint(3, size=200)
+    y_vals = np.random.randn(1, len(x_vals))[0]
+    plt.figure()
+    sns.stripplot(x=x_vals, y=y_vals)
+    tips = sns.load_dataset("tips")
+    plt.figure()
+    sns.stripplot(x="size", y='tip', data=tips)
+    plt.title('Tip Amount by Party Size')
+    plt.figure()
+    sns.stripplot(x="size", y='tip', hue="sex", data=tips)
+    plt.title('Color Sex')
+    plt.figure()
+    sns.stripplot(x="time", y='tip', size=10, edgecolor="gray", linewidth=1,
+    data=tips.sample(frac=1, random_state=123)[:30])
+    plt.title('размер маркеров, цвет и ширина границы')
+    plt.figure()
+    sns.stripplot(x="time", y='tip', hue="sex", dodge=True, data=tips)
+    plt.title('Dodge')
+    plt.tight_layout()
+    plt.show() 
+def f_9_3():
+    # 9.3 Визуализации распределений категориальных данныхp p 205
+    mpg = sns.load_dataset("mpg")
+    mpg_mod = mpg[mpg["origin"] != "japan"]
+    # sns.boxplot(x="origin", y="mpg", data=mpg_mod)
+    # sns.boxplot(x="origin", y="mpg", color='g', data=mpg_mod)
+    plt.figure(figsize=(15, 5))
+    sat_list = [1, 0.75, 0.5, 0.25]
+    for i, s in enumerate(sat_list):
+        plt.subplot(1, len(sat_list), i+1)
+        sns.boxplot(x="origin", y="mpg", saturation=s, data=mpg_mod)
+    plt.tight_layout()
+    plt.show() 
+def f_9_4_2():
+    # 9.4.2 Функция barplot()  p 228
+    sns.set_palette("Set2")
+    mpg = sns.load_dataset("mpg")
+    mpg_mod = mpg[mpg["origin"] != "japan"]
+    # sns.barplot(x='origin', y='horsepower', data=mpg, palette='bright')
+    sns.barplot(x='origin', y='horsepower', data=mpg)
+    plt.figure()
+    order=['europe', 'usa', 'japan']
+    sns.barplot(x='origin', y='horsepower', hue='cylinders', data=mpg, palette='bright')
+    plt.figure()
+    sns.barplot(x='origin', y='horsepower', hue='cylinders', data=mpg, palette='bright', order=order)
+    plt.tight_layout()
+    plt.show() 
+def f_9_55():
+    # Построим диаграммы с различными способами расчёта оценки  p 231
+    # sns.set_palette("Set2")
+    mpg = sns.load_dataset("mpg")
+    mpg_mod = mpg[mpg["origin"] != "japan"]
+    estimator = ['mean', 'median', 'min', 'max']
+    plt.figure(figsize=(15, 5))
+    for i, es in enumerate(estimator):
+        plt.subplot(1, len(estimator), i+1)
+        plt.title(es)
+        sns.barplot(x='origin', y='horsepower', estimator=es, data=mpg, palette='bright')
+    plt.tight_layout()
+    plt.show() 
+def f_9_5():
+    # 9.5 Работа на уровне фигуры. Функция catplot()  p 236
+    # sns.set_palette("Set2")
+    sns.set_style("whitegrid")
+    sns.set_context("notebook")
+    tips = sns.load_dataset("tips")
+    # sns.catplot(x='day', y='total_bill', kind='strip', data=tips)
+    sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')
+    sns.catplot(x='day', y='total_bill', row='sex', kind='strip', data=tips, palette='bright')
+    sns.catplot(x='day', y='total_bill', col='sex', height=5, aspect=0.5,
+    kind='strip', data=tips, palette='bright')
+    # ширина диаграммы вычисляется следующим образом: aspect * height
+    sns.catplot(x='day', y='total_bill', col='sex', height=5, aspect=1.5,
+    kind='strip', data=tips, palette='bright')
+    sns.catplot(x='day', y='total_bill', col='sex', hue='smoker',
+    legend_out=False, kind='strip', data=tips, palette='bright' )
+    sns.catplot(x='day', y='total_bill', col='sex', row='smoker',
+    margin_titles=False, height=3, kind='strip', data=tips, palette='bright')
+    plt.tight_layout()
+    plt.show() 
+def f_9_55():
+    # Построим диаграммы с различными способами расчёта оценки  p 231
+    # sns.set_palette("Set2")
+    mpg = sns.load_dataset("mpg")
+    mpg_mod = mpg[mpg["origin"] != "japan"]
+    estimator = ['mean', 'median', 'min', 'max']
+    plt.figure(figsize=(15, 5))
+    for i, es in enumerate(estimator):
+        plt.subplot(1, len(estimator), i+1)
+        plt.title(es)
+        sns.barplot(x='origin', y='horsepower', estimator=es, data=mpg, palette='bright')
+    plt.tight_layout()
+    plt.show() 
+def f_10_1():
+    # Глава 10. Визуализация распределений в данных p 246
+    # 10.1 Функция distplot()
+    np.random.seed(123)
+    x = np.random.chisquare(2,500)
+    # sns.distplot(x)
+    s = pd.Series(x)
+    # sns.distplot(s, kde=True)
+    tips = sns.load_dataset("tips")
+    mpg = sns.load_dataset("mpg")
+    # sns.kdeplot(mpg["displacement"])
+    # plt.figure()
+    # sns.kdeplot(x =tips["total_bill"], y=tips["tip"])
+    # plt.figure()
+    # sns.kdeplot(data=tips["total_bill"])
+    # plt.figure()
+    # sns.kdeplot(data=tips["tip"])
+    # plt.show()   
+    sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')
+        # sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')    
+    # x = mpg["cylinders"]
+    # y = mpg["displacement"]
+    # sns.kdeplot(x=x, y=y) 
