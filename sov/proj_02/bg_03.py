@@ -43,7 +43,7 @@ def transform(df1, cod):
             if   key == cod:
                 cond_cod = True
                 v1 = df1.loc[df1['code'] == cod, 'TF'].values[0]
-                print(v1)
+                # print(v1)
                 break            
         if cond_cod: 
             codex[key][3]=v1
