@@ -31,8 +31,8 @@ def print_groups (group_object):
 # b, e = 20, 30
 # dfh = df1['TF'][b:e]
 # print( df1['code'].head(12))
-print(transform(10))
-# df1[['Source', 'Factor', 'Day', 'Val']] = pd.DataFrame(df1['code'].apply(transform).tolist(), index=df1.index)
+print(transform(df1,10))
+df1[['Source', 'Factor', 'Day', 'Val']] = pd.DataFrame(df1['code'].apply(transform).tolist(), index=df1.index)
 # print(tdf) 
 # n_bins = dfh.max() - dfh.min() + 1
 # n_bins = 3
