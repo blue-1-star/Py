@@ -270,23 +270,47 @@ def f_9_55():
 def f_10_1():
     # Глава 10. Визуализация распределений в данных p 246
     # 10.1 Функция distplot()
+    # print(sns.__version__)
     np.random.seed(123)
     x = np.random.chisquare(2,500)
-    # sns.distplot(x)
+    sns.displot(x)
     s = pd.Series(x)
-    # sns.distplot(s, kde=True)
+    sns.displot(s, kind="kde", rug=True)
+    bs = [None, 1, 3, 5, 15]
+    plt.figure(figsize=(15, 5))
+    # plt.subplots_adjust(top=0.5)
+    # for i, b in enumerate(bs):
+    #     plt.subplot(1, len(bs), i+1)
+    #     if b is not None:
+    #         plt.title(f"bins = {b}", pad=10)
+    #         sns.displot(s, bins=b)
+    #     else:
+    #         plt.title("No bins specified")
+    #         sns.histplot(s)
+
     tips = sns.load_dataset("tips")
     mpg = sns.load_dataset("mpg")
-    # sns.kdeplot(mpg["displacement"])
-    # plt.figure()
-    # sns.kdeplot(x =tips["total_bill"], y=tips["tip"])
+    sns.kdeplot(mpg["displacement"])
+    plt.figure()
+    sns.kdeplot(x =tips["total_bill"], y=tips["tip"])
     # plt.figure()
     # sns.kdeplot(data=tips["total_bill"])
     # plt.figure()
     # sns.kdeplot(data=tips["tip"])
-    # plt.show()   
-    sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')
+    # sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')
         # sns.catplot(x='day', y='total_bill', col='sex', kind='strip', data=tips, palette='bright')    
-    # x = mpg["cylinders"]
-    # y = mpg["displacement"]
-    # sns.kdeplot(x=x, y=y) 
+    x = mpg["cylinders"]
+    y = mpg["displacement"]
+    # sns.kdeplot(x, y) 
+    h_kws={"alpha": 0.3, "color": "r"}
+    k_kws={"shade": True, "color": "g"}
+    r_kws={"height":0.1}
+    # sns.displot(s, bins=10, rug=True, hist_kws=h_kws, kde_kws=k_kws,
+    # rug_kws=r_kws)
+    # sns.histplot(s, bins=10, rug=True, hist_kws=h_kws, kde_kws=k_kws,
+    # rug_kws=r_kws)
+    penguins = sns.load_dataset("penguins")
+    plt.figure()
+    sns.histplot(data=penguins, x="flipper_length_mm", hue="species", multiple="stack")
+    plt.tight_layout()
+    plt.show()   
