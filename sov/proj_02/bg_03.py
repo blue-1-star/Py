@@ -38,11 +38,13 @@ def transform(df1, cod):
         43:['U2','H',14,0],
         44:['C0','H',14,0],        
     }
-        cond_cod = False
+        cond_cod, k = False, 0
+
         for key, val in codex.items():
             if   key == cod:
-                cond_cod = True
-                v1 = df1.loc[df1['code'] == cod, 'TF'].values[0]
+                cond_cod  = True
+                v1 = df1.loc[df1['code'] == cod, 'TF'].values[k]
+                k += 1
                 # print(v1)
                 break            
         if cond_cod: 
