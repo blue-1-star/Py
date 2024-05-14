@@ -40,18 +40,23 @@ order = {
     'Source': ['U0', 'U1', 'U2', 'C0'],
     'Factor': ['N', 'F', 'H']
 }
-def order_index(column, value):
-    return order[column].index(value)
+# def order_index(column, value):
+    # return order[column].index(value)
+def order_index(column, value, column_name):
+    return order[column_name].index(value)
 
 # grouped = df1.groupby(['Source', 'Factor', 'Day'])
 # for name, group in grouped:
-grouped = df1.groupby(['Day', 'Source', 'Factor'], 
-sort=True, group_keys=False).apply(lambda x: x.sort_values(by=['Day', 'Source', 'Factor'], 
-key=lambda x: x.map(lambda x: order_index(x.name, x))))
+# grouped = df1.groupby(['Day', 'Source', 'Factor'], 
+# sort=True, group_keys=False).apply(lambda x: x.sort_values(by=['Day', 'Source', 'Factor'], 
+# key=lambda x: x.map(lambda x: order_index(x.name, x))))
 
+# grouped = df1.groupby(['Day', 'Source', 'Factor'],
+#  sort=True, group_keys=False).apply(lambda x: x.sort_values(by=['Day', 'Source', 'Factor'],
+#   key=lambda x: x.apply(lambda col: order_index(col.name, col.iloc[0]))))
 grouped = df1.groupby(['Day', 'Source', 'Factor'],
- sort=True, group_keys=False).apply(lambda x: x.sort_values(by=['Day', 'Source', 'Factor'],
-  key=lambda x: x.apply(lambda col: order_index(col.name, col.iloc[0]))))
+sort=True, group_keys=False).apply(lambda x: x.sort_values(by=['Day', 'Source', 'Factor'],
+ key=lambda x: x.apply(lambda col: order_index(col.name, col.iloc[0], x.name))))
 # for (source, factor, day), group in grouped:
     # Создаем новое имя группы, объединяя значения из трех столбцов
     # new_name = f"{source}_{factor}_{day}"
