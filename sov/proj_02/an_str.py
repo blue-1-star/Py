@@ -27,13 +27,15 @@ def analyze_string(input_str):
     num2 = int(words[3]) % 10 if prefix != "C0" else ""
 
     # Формируем результат
-    result = f"{prefix}{num2}_{symbol}_{num1:02d}"
+    # result = f"{prefix}{num2}_{symbol}_{num1:02d}"
+    result = [f"{prefix}{num2}",f"{symbol}", f"{num1:02d}"]
     return result
 
 # Примеры использования
 print(analyze_string("Day 7 UGAN 11 N"))  # Вывод: U1_N_07
 print(analyze_string("Day 10 Control 1 F"))  # Вывод: C0_F_10
 print(analyze_string("Day 14 UGAN 12 H"))  # Вывод: U2_H_14
+
 
 """
 можешь предложить функцию - анализатор текстовой строки 
