@@ -95,7 +95,7 @@ plt.errorbar(index, stats_df['Mean'], yerr=stats_df['Std'], fmt='o', color='r', 
 # Добавляем максимальные и минимальные значения
 for i in range(len(stats_df)):
     plt.text(index[i], stats_df['Max'][i], f'{stats_df["Max"][i]:.2f}', ha='center', va='bottom', color='green')
-    plt.text(index[i], stats_df['Min'][i], f'{stats_df["Min"][i]:.2f}', ha='center', va='top', color='blue')
+    plt.text(index[i]-0.1, stats_df['Min'][i], f'{stats_df["Min"][i]:.2f}', ha='center', va='top', color='blue')
 
 # Настраиваем оси и заголовки
 plt.xlabel('Code')
