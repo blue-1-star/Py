@@ -72,8 +72,8 @@ for i in range(len(stats_df)):
 
 
 # Настраиваем оси и заголовки
-ax.set_xlabel('Code')
-ax.set_ylabel('TF')
+ax.set_xlabel('Treatment_code')
+ax.set_ylabel('Fv/Fm')
 ax.set_title('Statistics by Code')
 ax.set_xticks(index)
 ax.set_xticklabels(stats_df['Source'] + '_' + stats_df['Factor'], rotation=45, ha='right')
