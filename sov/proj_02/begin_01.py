@@ -18,14 +18,14 @@ grouped = df2.groupby(['D','Source', 'Factor', ])
 for (day, source, factor), group in grouped:
     print(f"Day: {day}, Source: {source}, Factor: {factor}")
     print(group)
-gr_code = df2.groupby([code])
+# gr_code = df2.groupby([code])
 # df2.to_excel(file)
-# plt.plot(df2['TF'])
-# plt.title("bird's eye view")
-# plt.ylabel('Fv/Fm')
-# plt.xlabel('all experimental data')
+plt.plot(df2['TF'])
+plt.title("bird's eye view")
+plt.ylabel('Fv/Fm')
+plt.xlabel('all experimental data')
 
-# plt.show()
+plt.show()
 """
 Необходимо вычислив статистики группировки по столбцу df2[code]  построить столбчатые диаграммы
 по столбцам Source и Factor, показав на графике средние значения величин для столбца df2[code] и отметив
