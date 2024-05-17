@@ -26,6 +26,9 @@ file = r"G:\Programming\R\sov\proj_02\df2_.xlsx"
 # Группируем данные по столбцу 'code'
 grouped = df2.groupby('code')
 
+# Словарь для хранения статистик
+statistics = {'Source': [], 'Factor': [], 'Mean': [], 'Max': [], 'Min': [], 'Std': []}
+
 # Рассчитываем статистики для каждой группы
 for code, group in grouped:
     mean_tf = group['TF'].mean()
@@ -42,25 +45,28 @@ for code, group in grouped:
 
 # Преобразуем статистики в DataFrame
 stats_df = pd.DataFrame(statistics)
+print(stats_df)
 # Создаем графики для каждой группы 'code'
 for code, data in grouped:
-    fig, axes = plt.subplots(nrows=1, ncols=len(data['Source'].unique()), figsize=(16, 6), sharey=True)
-    
+    # fig, axes = plt.subplots(nrows=1, ncols=len(data['Source'].unique()), figsize=(16, 6), sharey=True)
+    cd =0
     # Разбиваем данные по уникальным значениям 'Source'
     for i, source in enumerate(data['Source'].unique()):
-        ax = axes[i] if len(data['Source'].unique()) > 1 else axes
+        # ax = axes[i] if len(data['Source'].unique()) > 1 else axes
         source_data = data[data['Source'] == source]
         
         # Создаем подграфик для каждого значения 'Source'
         for factor, factor_data in source_data.groupby('Factor'):
             for day, day_data in factor_data.groupby('Day'):
-                ax.plot(day_data['D'], day_data['TF'], label=f"Factor: {factor}, Day: {day}")
+                # ax.plot(day_data['D'], day_data['TF'], label=f"Factor: {factor}, Day: {day}")
+                # print(day_data['D'], day_data['TF'])
+                cd=+1
+
         
-        ax.set_title(f'Source: {source}')
-        ax.set_xlabel('Day')
-        ax.set_ylabel('TF')
-        ax.legend()
+        # ax.set_title(f'Source: {source}')
+        # ax.set_xlabel('Day')
+        # ax.set_ylabel('TF')
+        # ax.legend()
 
-    plt.tight_layout()
-    plt.show()
-
+    # plt.tight_layout()
+    # plt.show()
