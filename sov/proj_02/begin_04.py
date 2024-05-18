@@ -98,15 +98,15 @@ plt.figure(figsize=(12, 6))
 # Важность факторов (Random Forest)
 plt.subplot(1, 2, 1)
 sns.barplot(x='Importance', y='Feature', data=importances_df.sort_values(by='Importance', ascending=False))
-plt.title('Важность факторов (Random Forest)')
-plt.xlabel('Важность')
-plt.ylabel('Фактор')
+plt.title('Importance of factors (Random Forest)')
+plt.xlabel('Importance')
+plt.ylabel('Factors')
 
 # Box plot для каждого фактора
 plt.subplot(1, 2, 2)
 sns.boxplot(x='Mean', y='Source', data=stats_df, palette='Set3')
-plt.title('Box plot по источникам')
-plt.xlabel('Mean')
+plt.title('Box plot by Source')
+plt.xlabel('Fm/Fv')
 plt.ylabel('Source')
 
 plt.tight_layout()
@@ -115,3 +115,10 @@ plt.show()
 # Печать таблицы ANOVA
 print(anova_table)
 
+"""
+Для определения наиболее весомого фактора роста для целевой функции F(Source, Factor, Day)  использовались статистические методы
+ и методы машинного обучения. Одним из подходов является использование анализа дисперсии (ANOVA) для оценки значимости каждого фактора.
+ Также можно использовать регрессионный анализ или методы машинного обучения,
+ такие как случайный лес (Random Forest) для оценки важности признаков.
+
+"""
