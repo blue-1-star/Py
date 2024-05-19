@@ -11,7 +11,7 @@ df = gen_data(dir_dat + file)
 print(df.columns)
 # Пполучаем статистики в сгруппированных по столбцу 'code' данных
 stats_df = stats_group(df, 'code')
-
+# print(stats_df.head())
 # Уникальные значения для Day
 unique_days = stats_df['Day'].unique()
 
@@ -23,7 +23,7 @@ sources = stats_df['Source'].unique()
 fig, axes = plt.subplots(2, 1, figsize=(16, 12))
 
 # Ширина столбцов
-width = 0.4
+width = 0.5
 
 # График 1: Влияние факторов на источники
 colors = ['b', 'g', 'r', 'c']  # Задаем цвета для каждого источника
@@ -33,9 +33,11 @@ for i, day in enumerate(unique_days):
     x = np.arange(len(factors)) + i * (len(factors) + 1) * len(sources)  # добавляем промежуток между днями
     for j, source in enumerate(sources):
         means = pivot_df[source]
-        bars = axes[0].bar(x + j * width, means, width, label=source if i == 0 else "", color=colors[j], alpha=0.7)
+        # bars = axes[0].bar(x + j * width, means, width, label=source if i == 0 else "", color=colors[j], alpha=0.7)
+        bars = axes[0].bar(x + j * width *1.3, means, width, label=source if i == 0 else "", color=colors[j], alpha=0.7)
     # Добавляем метки для каждого дня
-    axes[0].text(np.mean(x) + (len(sources) - 1) * width / 2, max(means) + 0.1, f'Day {day}', ha='center', va='bottom')
+    # axes[0].text(np.mean(x) + (len(sources) - 1) * width / 2, max(means) + 0.1, f'Day {day}', ha='center', va='bottom')
+    axes[0].text(np.mean(x) + (len(sources) - 1) * width / 2, max(means), f'Day {day}', ha='center', va='bottom')
 
 # Добавляем подписи для факторов на оси X
 xticks = []
