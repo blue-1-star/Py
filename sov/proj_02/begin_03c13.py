@@ -48,9 +48,9 @@ for i in range(len(unique_days)):
 xticks = [tick + width * (len(sources) - 1) / 2 for tick in xticks]
 axes[0].set_xticks(xticks)
 axes[0].set_xticklabels(np.tile(factors, len(unique_days)))
-axes[0].set_title('Влияние факторов на источники')
+axes[0].set_title('Influence of factors on sources')
 axes[0].set_xlabel('Factor')
-axes[0].set_ylabel('Mean')
+axes[0].set_ylabel('Fv/Fm')
 axes[0].legend(title='Source', bbox_to_anchor=(1.05, 1), loc='upper left')
 
 # График 2: Влияние источников на факторы
@@ -71,9 +71,9 @@ for i in range(len(unique_days)):
 xticks = [tick + width * (len(factors) - 1) / 2 for tick in xticks]
 axes[1].set_xticks(xticks)
 axes[1].set_xticklabels(np.tile(sources, len(unique_days)))
-axes[1].set_title('Влияние источников на факторы')
+axes[1].set_title('Influence of sources on factors')
 axes[1].set_xlabel('Source')
-axes[1].set_ylabel('Mean')
+axes[1].set_ylabel('Fv/Fm')
 axes[1].legend(title='Factor', bbox_to_anchor=(1.05, 1), loc='upper left')
 
 plt.tight_layout()
