@@ -137,6 +137,6 @@ class Matplot:
             f_10_1()
         else:
             print('Not in range')                   
-st='10.1'
+st='4.3.2.2'
 # st='9.55'
 Matplot(st)
