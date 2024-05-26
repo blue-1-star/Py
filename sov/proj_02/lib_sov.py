@@ -235,3 +235,33 @@ def create_nested_pie_charts(stats_df):
         axs[1].set_title(f'Day {day}: External area - Factors, Internal - Sources')
 
         plt.show()
+
+def create_line_charts(stats_df):
+    # Уникальные значения для Day
+    unique_days = stats_df['Day'].unique()
+
+    # Уникальные факторы и источники
+    factors = stats_df['Factor'].unique()
+    sources = stats_df['Source'].unique()
+
+    # Создаем фигуру и оси
+    fig, axes = plt.subplots(len(factors), 1, figsize=(12, len(factors) * 4), sharex=True)
+
+    if len(factors) == 1:
+        axes = [axes]  # Ensure axes is always a list
+
+    colors = ['b', 'g', 'r', 'c']  # Colors for each source
+
+    for i, factor in enumerate(factors):
+        ax = axes[i]
+        for j, source in enumerate(sources):
+            source_data = stats_df[(stats_df['Factor'] == factor) & (stats_df['Source'] == source)]
+            ax.plot(source_data['Day'], source_data['Mean'], marker='o', color=colors[j], label=source)
+        
+        ax.set_title(f'Factor: {factor}')
+        ax.set_xlabel('Day')
+        ax.set_ylabel('Mean')
+        ax.legend(title='Source')
+
+    plt.tight_layout()
+    plt.show()

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 # from scipy import stats
-from lib_sov import gen_data, stats_group, create_bar_charts, create_nested_pie_charts
+from lib_sov import gen_data, stats_group, create_bar_charts, create_nested_pie_charts, create_line_charts
 
 # Ваш существующий код для создания stats_df
 dir_dat = "G:/Programming/Py/sov/proj_02/"
@@ -12,7 +12,8 @@ print(df.columns)
 # Получаем статистики в сгруппированных по столбцу 'code' данных
 stats_df = stats_group(df, 'code')
 # create_bar_charts(stats_df)
-create_nested_pie_charts(stats_df)
+#create_nested_pie_charts(stats_df)
+create_line_charts(stats_df)
 
 
 
