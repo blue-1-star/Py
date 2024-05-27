@@ -13,8 +13,8 @@ print(df.columns)
 stats_df = stats_group(df, 'code')
 # create_bar_charts(stats_df)
 #create_nested_pie_charts(stats_df)
-# create_line_charts(stats_df, dir_dat + 'data_learn/line_chart.png')
-create_line_charts(stats_df)
+create_line_charts(stats_df, dir_dat + 'data_learn/line_chart.png')
+# create_line_charts(stats_df)
 
 
 

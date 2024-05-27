@@ -236,7 +236,7 @@ def create_nested_pie_charts(stats_df):
 
         plt.show()
 
-def create_line_charts(stats_df, file = 'line_charts.png' ):
+def create_line_charts1(stats_df, file = 'line_charts.png' ):
     # Уникальные значения для Day
     unique_days = stats_df['Day'].unique()
 
@@ -263,6 +263,76 @@ def create_line_charts(stats_df, file = 'line_charts.png' ):
         ax.set_ylabel('Fv/Fm')
         ax.legend(title='Source')
 
+    for i, source in enumerate(sources):
+        ax = axes[i]
+        for j, factor in enumerate(factors):
+            source_data = stats_df[(stats_df['Factor'] == factor) & (stats_df['Source'] == source)]
+            ax.plot(source_data['Day'], source_data['Mean'], marker='o', color=colors[j], label=source)
+        
+        ax.set_title(f'Source: {source}')
+        ax.set_xlabel('Day')
+        ax.set_ylabel('Fv/Fm')
+        ax.legend(title='Factor')
+
     plt.tight_layout()
     plt.savefig(file)
     plt.show()
+# import matplotlib.pyplot as plt
+
+def create_line_charts(stats_df, file='line_charts.png'):
+    # Уникальные значения для Day
+    unique_days = stats_df['Day'].unique()
+
+    # Уникальные факторы и источники
+    factors = stats_df['Factor'].unique()
+    sources = stats_df['Source'].unique()
+
+    # Создаем первую фигуру и оси для факторов
+    fig1, axes1 = plt.subplots(len(factors), 1, figsize=(12, len(factors) * 4), sharex=True)
+
+    if len(factors) == 1:
+        axes1 = [axes1]  # Ensure axes is always a list
+
+    colors = ['b', 'g', 'r', 'c']  # Colors for each source
+
+    for i, factor in enumerate(factors):
+        ax = axes1[i]
+        for j, source in enumerate(sources):
+            source_data = stats_df[(stats_df['Factor'] == factor) & (stats_df['Source'] == source)]
+            ax.plot(source_data['Day'], source_data['Mean'], marker='o', color=colors[j], label=source)
+        
+        ax.set_title(f'Factor: {factor}')
+        ax.set_xlabel('Day')
+        ax.set_ylabel('Fv/Fm')
+        ax.legend(title='Source')
+
+    fig1.tight_layout()
+    ff = file.split('.')
+    fa = ff[0] +'_factor.'+ff[1]
+    fig1.savefig(fa)
+    
+    # Создаем вторую фигуру и оси для источников
+    fig2, axes2 = plt.subplots(len(sources), 1, figsize=(12, len(sources) * 4), sharex=True)
+
+    if len(sources) == 1:
+        axes2 = [axes2]  # Ensure axes is always a list
+
+    for i, source in enumerate(sources):
+        ax = axes2[i]
+        for j, factor in enumerate(factors):
+            factor_data = stats_df[(stats_df['Factor'] == factor) & (stats_df['Source'] == source)]
+            ax.plot(factor_data['Day'], factor_data['Mean'], marker='o', color=colors[j], label=factor)
+        
+        ax.set_title(f'Source: {source}')
+        ax.set_xlabel('Day')
+        ax.set_ylabel('Fv/Fm')
+        ax.legend(title='Factor')
+
+    fig2.tight_layout()
+
+    ff = file.split('.')
+    fa = ff[0] +'_source.'+ff[1]
+    fig2.savefig(fa)
+    
+    plt.show()
+
