@@ -236,7 +236,7 @@ def create_nested_pie_charts(stats_df):
 
         plt.show()
 
-def create_line_charts(stats_df):
+def create_line_charts(stats_df, file = 'line_charts.png' ):
     # Уникальные значения для Day
     unique_days = stats_df['Day'].unique()
 
@@ -260,8 +260,9 @@ def create_line_charts(stats_df):
         
         ax.set_title(f'Factor: {factor}')
         ax.set_xlabel('Day')
-        ax.set_ylabel('Mean')
+        ax.set_ylabel('Fv/Fm')
         ax.legend(title='Source')
 
     plt.tight_layout()
+    plt.savefig(file)
     plt.show()
