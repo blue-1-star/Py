@@ -16,9 +16,6 @@ stats_df = stats_group(df, 'code')
 create_line_charts(stats_df, dir_dat + 'data_learn/line_chart.png')
 # create_line_charts(stats_df)
 
-
-
-
 """
 import matplotlib.pyplot as plt
 import numpy as np

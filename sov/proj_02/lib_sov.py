@@ -307,9 +307,10 @@ def create_line_charts(stats_df, file='line_charts.png'):
         ax.legend(title='Source')
 
     fig1.tight_layout()
-    ff = file.split('.')
-    fa = ff[0] +'_factor.'+ff[1]
-    fig1.savefig(fa)
+    # ff = file.split('.')
+    # fa = ff[0] +'_factor.'+ff[1]
+    # fig1.savefig(fa)
+    fig1.savefig(file.replace('.','_factor.'))
     
     # Создаем вторую фигуру и оси для источников
     fig2, axes2 = plt.subplots(len(sources), 1, figsize=(12, len(sources) * 4), sharex=True)
@@ -330,9 +331,10 @@ def create_line_charts(stats_df, file='line_charts.png'):
 
     fig2.tight_layout()
 
-    ff = file.split('.')
-    fa = ff[0] +'_source.'+ff[1]
-    fig2.savefig(fa)
+    # ff = file.split('.')
+    # fa = ff[0] +'_source.'+ff[1]
+    # file = file.replace('.','_source.')
+    fig2.savefig(file.replace('.','_source.'))
     
     plt.show()
 
