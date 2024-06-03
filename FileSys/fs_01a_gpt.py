@@ -12,7 +12,8 @@ def copy_photos_by_date(source_directory, target_directory):
     total_files = len(all_files)
     
     # Лог-файл
-    log_file = 'copy_log.txt'
+    # log_file = 'copy_log.txt'
+    log_file = 'g:/test/copy_log.txt'
     with open(log_file, 'w') as log:
         log.write(f"Дата: {datetime.datetime.now()}\n")
         log.write(f"Источник: {source_directory}\n")
@@ -75,6 +76,6 @@ def copy_photos_by_date(source_directory, target_directory):
     print(f"Время обработки: {processing_time:.2f} секунд")
 
 # Пример использования
-source_directory = 'path_to_source_directory'
-target_directory = 'path_to_target_directory'
+source_directory = 'g:/test'
+target_directory = 'g:/test/imvers'
 copy_photos_by_date(source_directory, target_directory)
