@@ -63,7 +63,7 @@ def copy_photos_by_date(source_directory, target_directory):
         with open(log_file, 'a') as log:
             log.write(f"Источник: {source_path}\n")
             log.write(f"Целевой файл: {target_path}\n")
-            log.write(f"Дата создания: {datetime.datetime.fromtimestamp(creation_time)}\n\n")
+            log.write(f"Дата создания: {dtt}\n\n")
     
     end_time = time.time()
     processing_time = end_time - start_time
@@ -85,3 +85,42 @@ def copy_photos_by_date(source_directory, target_directory):
 source_directory = 'g:/test'
 target_directory = 'g:/test/imvers'
 copy_photos_by_date(source_directory, target_directory)
+
+
+
+"""
+Извлечь дату создания видеофайла из его метаданных можно с помощью библиотеки exiftool, которая способна обрабатывать метаданные множества различных форматов медиафайлов.
+Вот пример использования библиотеки exiftool для извлечения даты создания видеофайла:
+
+Установите exiftool:
+Для Windows скачайте исполняемый файл с официального сайта ExifTool и добавьте его в PATH или используйте его как есть.
+Для Linux и macOS используйте пакетный менеджер (apt, brew, и т.д.) для установки exiftool.
+Используйте exiftool в Python для извлечения метаданных. Для этого вам потребуется библиотека subprocess для выполнения командной строки.
+
+Вот пример кода на Python:
+
+import subprocess
+
+def get_video_creation_date(video_path):
+    try:
+        result = subprocess.run(
+            ['exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
+            capture_output=True,
+            text=True
+        )
+        output = result.stdout.strip()
+        if output:
+            # exiftool возвращает строку вида "Create Date : 2023-05-27 13:34:45"
+            creation_date = output.split(':', 1)[1].strip()
+            return creation_date
+        else:
+            return "Дата создания не найдена"
+    except Exception as e:
+        return str(e)
+
+video_path = 'g:/test/VID_20230527_133445.mp4'
+creation_date = get_video_creation_date(video_path)
+print(f'Дата создания видеофайла: {creation_date}')
+
+
+"""
