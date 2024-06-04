@@ -5,7 +5,7 @@ import pytz
 def get_video_creation_date(video_path):
     try:
         result = subprocess.run(
-            ['exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
+            ['G:/Soft/PORTABLE/exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
             capture_output=True,
             text=True
         )
