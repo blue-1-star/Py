@@ -26,13 +26,4 @@ def get_creation_date(image_path):
         return None
 
     return datetime.datetime.strptime(creation_date, '%Y:%m:%d %H:%M:%S')
-
-source_path = r"G:\test\imvers\2024-06-02\IMG_20240529_120918.jpg"
-creation_date = get_creation_date(source_path)
-if creation_date:
-    # date_folder = creation_date.strftime('%Y-%m-%d')
-    date_folder = creation_date.strftime('%Y_%m')
-    # print(f"{date.year}_{date.month:02d}")
-    print(f'Date folder: {date_folder}')
-else:
-    print('Creation date not found in EXIF data')
+    

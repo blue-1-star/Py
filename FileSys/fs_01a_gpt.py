@@ -2,7 +2,8 @@ import os
 import shutil
 import datetime
 import time
-
+import lib_photos 
+from lib_photos import get_creation_date, get_exif_data 
 def copy_photos_by_date(source_directory, target_directory):
     # Фильтр файлов по расширениям
     extensions = ['.jpg', '.jpeg', '.png', '.mp4']
@@ -13,7 +14,10 @@ def copy_photos_by_date(source_directory, target_directory):
     
     # Лог-файл
     # log_file = 'copy_log.txt'
-    log_file = 'g:/test/copy_log.txt'
+    # log_file = 'g:/test/copy_log.txt'
+    dtt = datetime.datetime.now()
+    name = dtt.strftime('%d_%m_%Y')
+    log_file = 'g:/test/'+ 'copy_log_'+name + '.txt' 
     with open(log_file, 'w') as log:
         log.write(f"Дата: {datetime.datetime.now()}\n")
         log.write(f"Источник: {source_directory}\n")
@@ -31,8 +35,10 @@ def copy_photos_by_date(source_directory, target_directory):
         source_path = os.path.join(source_directory, filename)
         
         # Определение целевого пути на основе даты создания файла
-        creation_time = os.path.getctime(source_path)
-        date_folder = datetime.datetime.fromtimestamp(creation_time).strftime('%Y-%m-%d')
+        # creation_time = os.path.getctime(source_path)
+        creation_date = get_creation_date(source_path)
+        date_folder = creation_date.strftime('%Y_%m')
+        # date_folder = datetime.datetime.fromtimestamp(creation_time).strftime('%Y-%m-%d')
         target_path = os.path.join(target_directory, date_folder, filename)
         
         # Создание целевой папки, если она не существует
