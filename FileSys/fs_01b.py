@@ -2,26 +2,8 @@ import os
 import shutil
 import datetime
 import time
-import subprocess
-from lib_photos import get_creation_date
-
-def get_video_creation_date(video_path):
-    try:
-        result = subprocess.run(
-            ['G:/Soft/PORTABLE/exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
-            capture_output=True,
-            text=True
-        )
-        output = result.stdout.strip()
-        if output:
-            creation_date_str = output.split(':', 1)[1].strip()
-            creation_date = datetime.datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
-            return creation_date
-        else:
-            return None
-    except Exception as e:
-        print(f"Ошибка при получении даты создания для {video_path}: {e}")
-        return None
+# import subprocess
+from lib_photos import get_creation_date, get_video_creation_date
 
 def copy_photos_by_date(source_directory, target_directory):
     # Фильтр файлов по расширениям
