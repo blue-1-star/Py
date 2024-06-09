@@ -13,11 +13,20 @@ image = Image.open(image_path)
 # Преобразуем изображение в оттенки серого
 gray_image = image.convert('L')
 
-# Преобразуем изображение в массив numpy
-image_array = np.array(gray_image)
+# Усилим контраст изображения
+enhanced_image = cv2.convertScaleAbs(np.array(gray_image), alpha=2.0, beta=0)
+
+# Применим размытие по Гауссу для уменьшения шума
+blurred_image = cv2.GaussianBlur(enhanced_image, (5, 5), 0)
 
 # Применим пороговое значение для улучшения контраста
-_, thresh_image = cv2.threshold(image_array, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+_, thresh_image = cv2.threshold(blurred_image, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+# Отобразим предобработанное изображение
+plt.figure(figsize=(10, 10))
+plt.imshow(thresh_image, cmap='gray')
+plt.title('Предобработанное изображение')
+plt.show()
 
 # Используем pytesseract для распознавания текста
 custom_config = r'--oem 3 --psm 6 outputbase digits'
@@ -42,7 +51,7 @@ for digit_info in recognized_digits:
     print(f"Цифра: {digit_info['digit']}, Координаты: (x={digit_info['x']}, y={digit_info['y']}), Ширина: {digit_info['w']}, Высота: {digit_info['h']}")
 
 # Создаем копию исходного изображения для рисования
-image_with_boxes = cv2.cvtColor(image_array, cv2.COLOR_GRAY2BGR)
+image_with_boxes = cv2.cvtColor(np.array(gray_image), cv2.COLOR_GRAY2BGR)
 
 # Рисуем прямоугольники вокруг распознанных цифр и добавляем текстовые аннотации
 for digit_info in recognized_digits:
