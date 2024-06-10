@@ -9,7 +9,8 @@ import pytesseract
 # Extract text from the image
 im_path ="G:/Programming/Py/Image/data/"
 # filename = "id_cod_e.bmp"
-filename = "test.jpg"
+# filename = "test.jpg"
+filename = "p0002.png"
 image_path = im_path + filename 
 image = Image.open(image_path)
 # image.show()
@@ -19,5 +20,6 @@ extracted_text = pytesseract.image_to_string(image, lang='ukr+eng')
 txt_path = im_path + filename[:-3]+'txt' 
 with open(txt_path, 'w') as f:
     f.write(extracted_text)
-# print(f)
+print(extracted_text)
+
 
