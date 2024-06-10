@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 # Загрузка изображения
 im_path = "G:/Programming/Py/Image/data/"
-filename = "id_cod.bmp"
+# filename = "id_cod.bmp"
+filename ="processed_image.png"
 image_path = im_path + filename
 image = Image.open(image_path)
 
