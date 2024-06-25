@@ -20,7 +20,7 @@ df2[['Source', 'Factor', 'Day']] = pd.DataFrame(df2.apply(lambda row: analyze_st
 
 # Проверяем максимальное значение кода
 max_code = df2['code'].max()
-Max_Code = 44  # Установите ваше максимальное значение кода
+Max_Code = 50  # Установите ваше максимальное значение кода
 
 if max_code <= Max_Code:
     new_data = []
@@ -80,6 +80,9 @@ for code, group in grouped:
 # Преобразуем статистики в DataFrame
 stats_df = pd.DataFrame(statistics)
 
+# Проверка и замена NaN значений
+stats_df.fillna(0, inplace=True)
+
 # Создаем графики
 fig, ax = plt.subplots(figsize=(16, 8))
 
@@ -94,11 +97,12 @@ ax.errorbar(index, stats_df['Mean'], yerr=stats_df['Std'], fmt='o', color='r', l
 
 # Добавляем максимальные и минимальные значения
 for i in range(len(stats_df)):
-    ax.text(index[i], stats_df['Max'][i] + 0.001, f'{stats_df["Max"][i]:.2f}', ha='center', va='bottom', color='green')
-    ax.text(index[i] - 0.2, stats_df['Min'][i], f'{stats_df["Min"][i]:.2f}', ha='right', va='top', color='m', fontsize=8)
-    
-    ax.scatter(index[i], stats_df['Max'][i], color='green', s=50, zorder=5, marker='^', label='Max' if i == 0 else "")
-    ax.scatter(index[i], stats_df['Min'][i], color='m', s=50, zorder=5, marker='v', label='Min' if i == 0 else "")
+    if np.isfinite(stats_df['Max'][i]) and np.isfinite(stats_df['Min'][i]):
+        ax.text(index[i], stats_df['Max'][i] + 0.001, f'{stats_df["Max"][i]:.2f}', ha='center', va='bottom', color='green')
+        ax.text(index[i] - 0.2, stats_df['Min'][i], f'{stats_df["Min"][i]:.2f}', ha='right', va='top', color='m', fontsize=8)
+        
+        ax.scatter(index[i], stats_df['Max'][i], color='green', s=50, zorder=5, marker='^', label='Max' if i == 0 else "")
+        ax.scatter(index[i], stats_df['Min'][i], color='m', s=50, zorder=5, marker='v', label='Min' if i == 0 else "")
 
 # Настраиваем оси и заголовки
 ax.set_xlabel('Treatment_code')
@@ -113,25 +117,8 @@ ax.set_ylim([stats_df['Mean'].min() - 1.4 * stats_df['Std'].max(), stats_df['Max
 
 plt.tight_layout()
 plt.show()
-
 """
-теперь есть потребность в его модификации
-в связи с тем что идет подготовка экспериментальных данных  для новых значений в  группе Source
-( она будет  содержать ещё  три источника  U3, U4, U5 ) необходимо заполнить датафрейм df2
-строками, с модельными данными по такому алгоритму  
-Пока df2['code'].max() <= Max_Code  
-10 строк с одинаковым кодом в столбце 
-df2[['code']] = Max_Code 
-и далее в цикле увеличиваем 
-df2[['code']] =+  1
-и с десятью случайных нормально - распределенных 
-вещественных значений со средним как у столбца  df2[[Source]] == N0 для столбца df2[[Source]] == N3
-df2[[Source]] == N1 для столбца df2[[Source]] == N4
-df2[[Source]] == N2 для столбца df2[[Source]] == N5
-- эти модельные данные имитирует имеющиеся данные для N0, N1, N2 только изменяя их случайностью генератора
-Всего будет построено ( добавлено в df2 - 390 новых строк с повторяющимся df2[[code]]  
- по 10 раз, а уникальных комбинаций по столбцам  df2[['Source', 'Factor', 'Day']] 
- будет 39 ( DAY  = 7, 10, 14)  (Source  = U3,U4,U5) ( Factor = N,H,F )  
- Если df2['code'].max() > Max_Code   - исходные данные уже заполнены в файле 
- file = "data_02.xlsx" , функцию генератор не применять. 
+из-за увеличения количества групп по кодам ( вместо 36 их стало на 27 больше) отображение по оси x
+ превратилось в нечитаемое нагромождение.
+Надо уменьшать толщину баро, расстояния между ними и все что возможночтобы поместить данные
 """
