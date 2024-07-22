@@ -17,4 +17,7 @@ sl =  str.split()
 print(sl)
 file_path = r'D:\Programming\Py\Tax\data\test.xlsx'
 # wb.save(file_path)
+nr = 3
+fill_row = str.split()
+
 
