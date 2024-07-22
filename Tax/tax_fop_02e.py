@@ -66,13 +66,6 @@ def add_data():
         messagebox.showerror("Ошибка", "Некорректный доход")
         return
 
-    # Заполняем ячейки
-    # income_col = get_column_letter(ord(target_column) + 1)
-    # total_inc_col = get_column_letter(ord(target_column) + 2)
-    # total_tax_col = get_column_letter(ord(target_column) + 3)
-    # prev_tax_col = get_column_letter(ord(target_column) + 4)
-    # tax_pay_col = get_column_letter(ord(target_column) + 5)
-
     if current_quarter.startswith("01"):  # Первый квартал
         total_income = quarterly_income
         total_tax = total_income * tax_rate
