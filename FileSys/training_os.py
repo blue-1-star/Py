@@ -1,8 +1,9 @@
+# Метод datetime.strftime() в Python   https://acode.com.ua/method-strftime-python/
+# Метод datetime.strptime() в Python   https://acode.com.ua/method-strptime-python/
 import os
 from datetime import datetime
 # import locale 
 # locale.setlocale(locale.LC_TIME, 'uk_UA.UTF-8')
-
 path = '/home/User/Desktop/file.txt'
 root_ext = os.path.splitext(path) 
 print("root part of '% s':" % path, root_ext[0]) 
