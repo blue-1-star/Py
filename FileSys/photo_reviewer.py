@@ -93,7 +93,8 @@ class PhotoStorageObserver:
 
 # Пример использования
 if __name__ == "__main__":
-    observer = PhotoStorageObserver(root_directory="photos")
+    rd = 'g:/test/'
+    observer = PhotoStorageObserver(root_directory=rd)
 
     # Сканировать и записать изменения
     changes = observer.log_changes()
