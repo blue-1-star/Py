@@ -7,11 +7,11 @@ from pathlib import Path
 import pytz
 import lib_photos
 
-def get_creation_date(file_path):
-    """Определяет дату создания файла на основе EXIF-данных или файловой системы."""
-    # Реализация функции get_creation_date (для изображений) остаётся здесь
-    # Пример из вашего lib_photos
-    return datetime.datetime.fromtimestamp(os.path.getctime(file_path))
+# def get_creation_date(file_path):
+#     """Определяет дату создания файла на основе EXIF-данных или файловой системы."""
+#     # Реализация функции get_creation_date (для изображений) остаётся здесь
+#     # Пример из вашего lib_photos
+#     return datetime.datetime.fromtimestamp(os.path.getctime(file_path))
 
 
 # def get_video_creation_date(video_path):
