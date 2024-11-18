@@ -5,7 +5,7 @@ import time
 import subprocess
 from pathlib import Path
 import pytz
-
+import lib_photos
 
 def get_creation_date(file_path):
     """Определяет дату создания файла на основе EXIF-данных или файловой системы."""
@@ -14,28 +14,28 @@ def get_creation_date(file_path):
     return datetime.datetime.fromtimestamp(os.path.getctime(file_path))
 
 
-def get_video_creation_date(video_path):
-    """Определяет дату создания видеофайла с использованием exiftool."""
-    try:
-        # Запуск exiftool для получения даты создания
-        result = subprocess.run(
-            ['G:/Soft/PORTABLE/exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
-            capture_output=True,
-            text=True
-        )
-        output = result.stdout.strip()
-        if output:
-            # Извлечение строки даты из вывода
-            creation_date_str = output.split(':', 1)[1].strip()
-            # Парсинг даты
-            creation_date = datetime.datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
-            # Установка временной зоны UTC
-            creation_date_utc = pytz.utc.localize(creation_date)
-            return creation_date_utc
-        else:
-            return None  # Если дата не найдена
-    except Exception as e:
-        return None  # Ошибки игнорируем, возвращаем None
+# def get_video_creation_date(video_path):
+#     """Определяет дату создания видеофайла с использованием exiftool."""
+#     try:
+#         # Запуск exiftool для получения даты создания
+#         result = subprocess.run(
+#             ['G:/Soft/PORTABLE/exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', video_path],
+#             capture_output=True,
+#             text=True
+#         )
+#         output = result.stdout.strip()
+#         if output:
+#             # Извлечение строки даты из вывода
+#             creation_date_str = output.split(':', 1)[1].strip()
+#             # Парсинг даты
+#             creation_date = datetime.datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
+#             # Установка временной зоны UTC
+#             creation_date_utc = pytz.utc.localize(creation_date)
+#             return creation_date_utc
+#         else:
+#             return None  # Если дата не найдена
+#     except Exception as e:
+#         return None  # Ошибки игнорируем, возвращаем None
 
 
 def copy_photos_by_date(source_directory, target_directory):
