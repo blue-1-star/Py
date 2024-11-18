@@ -1,16 +1,20 @@
 import os
 import json
 from datetime import datetime
+from pathlib import Path
 
 class PhotoStorageObserver:
-    def __init__(self, root_directory, log_file="storage_log.json"):
-        self.root_directory = root_directory
-        self.log_file = log_file
+    # def __init__(self, root_directory, log_file="storage_log.json"):
+    #     self.root_directory = root_directory
+    #     self.log_file = log_file
+    def __init__(self, root_directory):
+        self.root_directory = Path(root_directory)
+        self.log_file = self.root_directory / "storage_log.json"  # Лог-файл в этой папке
         self.current_state = {}
 
         # Загружаем существующий журнал, если он есть
-        if os.path.exists(log_file):
-            with open(log_file, "r") as f:
+        if os.path.exists(self.log_file):
+            with open(self.log_file, "r") as f:
                 self.journal = json.load(f)
         else:
             self.journal = {}
