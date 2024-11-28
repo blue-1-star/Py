@@ -59,12 +59,54 @@ def moon_phase(date):
 #     lunar_day = int(moon_age) + 1  # Лунный день начинается с 1
 #     return phase, lunar_day
 
-def moon_phase_and_day(date):
-    from datetime import datetime
+# def moon_phase_and_day(date):
+#     from datetime import datetime
+
+#     # Константы
+#     SYNODIC_MONTH = 29.53058867  # Средняя продолжительность лунного месяца
+#     KNOWN_NEW_MOON = datetime(2000, 1, 6, 18, 14)  # Известное новолуние
+
+#     # Разница в днях между заданной датой и известным новолунием
+#     delta = (date - KNOWN_NEW_MOON).total_seconds() / (24 * 3600)
+
+#     # Текущая фаза Луны (дробная часть)
+#     phase_fraction = (delta % SYNODIC_MONTH) / SYNODIC_MONTH
+
+#     # Лунный день (целая часть)
+#     lunar_day = int(phase_fraction * 29.53058867) + 1
+
+#     # Определение текущей фазы Луны
+#     if phase_fraction < 0.03 or phase_fraction > 0.97:
+#         phase = "New Moon"
+#     elif 0.03 <= phase_fraction < 0.25:
+#         phase = "Waxing Crescent"
+#     elif 0.25 <= phase_fraction < 0.27:
+#         phase = "First Quarter"
+#     elif 0.27 <= phase_fraction < 0.50:
+#         phase = "Waxing Gibbous"
+#     elif 0.50 <= phase_fraction < 0.53:
+#         phase = "Full Moon"
+#     elif 0.53 <= phase_fraction < 0.75:
+#         phase = "Waning Gibbous"
+#     elif 0.75 <= phase_fraction < 0.77:
+#         phase = "Last Quarter"
+#     else:
+#         phase = "Waning Crescent"
+
+#     return phase, lunar_day
+def moon_phase_and_day_with_coordinates(date):
+    from datetime import datetime, timedelta
+    import math
 
     # Константы
     SYNODIC_MONTH = 29.53058867  # Средняя продолжительность лунного месяца
     KNOWN_NEW_MOON = datetime(2000, 1, 6, 18, 14)  # Известное новолуние
+
+    # Средние значения для расчёта эклиптических координат
+    MEAN_LONGITUDE_MOON = 218.316  # Средняя долгота Луны (градусы)
+    MEAN_ELONGATION = 297.850  # Среднее удаление Луны от Солнца (градусы)
+    MEAN_ANOMALY = 134.963  # Средняя аномалия Луны (градусы)
+    MEAN_DISTANCE = 93.272  # Среднее расстояние Луны от восходящего узла орбиты (градусы)
 
     # Разница в днях между заданной датой и известным новолунием
     delta = (date - KNOWN_NEW_MOON).total_seconds() / (24 * 3600)
@@ -93,7 +135,31 @@ def moon_phase_and_day(date):
     else:
         phase = "Waning Crescent"
 
-    return phase, lunar_day
+    # Расчёт эклиптической долготы Луны (приближённый метод)
+    mean_longitude = MEAN_LONGITUDE_MOON + 13.176396 * delta
+    mean_anomaly = MEAN_ANOMALY + 13.064993 * delta
+    elongation = MEAN_ELONGATION + 12.190749 * delta
+
+    longitude = mean_longitude + 6.289 * math.sin(math.radians(mean_anomaly))
+    longitude -= 1.274 * math.sin(math.radians(2 * elongation - mean_anomaly))
+    longitude += 0.658 * math.sin(math.radians(2 * elongation))
+    longitude -= 0.214 * math.sin(math.radians(2 * mean_anomaly))
+    longitude -= 0.11 * math.sin(math.radians(elongation))
+    longitude = longitude % 360
+
+    # Эклиптическая широта
+    latitude = 5.128 * math.sin(math.radians(MEAN_DISTANCE))
+
+    # Расстояние до Луны
+    eccentricity = 0.0549  # Эксцентриситет орбиты Луны
+    distance = 385000 * (1 - eccentricity**2) / (1 + eccentricity * math.cos(math.radians(mean_anomaly)))
+
+    # Возвращение результатов
+    return phase, lunar_day, longitude, latitude, distance
+
+
+
+
 
 # Пример использования:
 date = datetime(1952, 7, 30)  # Задайте нужную дату
@@ -104,8 +170,10 @@ date = datetime(1952, 7, 30)  # Задайте нужную дату
 current_date = datetime.now()
 
 # Получаем фазу Луны и лунный день
-phase, lunar_day = moon_phase_and_day(current_date)
-
+# phase, lunar_day, longitude, latitude = moon_phase_and_day(current_date)
+phase, lunar_day, longitude, latitude, distance = moon_phase_and_day_with_coordinates(current_date)
 print(f"Фаза Луны: {phase}")
 print(f"лунный день: {lunar_day}")
+print(f"долгота: {longitude}  широта: {latitude} ")
+print(f"distance: {distance}")
 
