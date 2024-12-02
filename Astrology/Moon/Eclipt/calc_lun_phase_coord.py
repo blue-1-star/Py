@@ -117,3 +117,46 @@ results = calculate_lunar_phase_and_coordinates(current_time)
 save_results_to_file(results)
 
 print(f"Результаты сохранены в файл. Фаза Луны: {results['phase']:.2f}%, Расстояние: {results['distance']:.2f} км.")
+
+import csv
+import re
+
+def parse_lunar_txt_to_csv(input_file="lunar_data.txt", output_file="test_data.csv"):
+    """Преобразует текстовый файл с данными Луны в CSV."""
+    inp_file_path = get_full_file_path(input_file)
+    out_file_path = get_full_file_path(output_file)
+    data = []
+    with open(inp_file_path, "r") as file:
+        lines = file.readlines()
+    
+    # Парсинг данных из файла
+    record = {}
+    for line in lines:
+        if line.startswith("Время расчёта:"):
+            record["timestamp"] = line.split(": ")[1].strip()
+        elif line.startswith("Фаза Луны:"):
+            record["phase"] = float(line.split(": ")[1].replace("%", "").strip())
+        elif line.startswith("Лунный день:"):
+            record["day"] = float(line.split(": ")[1].strip())
+        elif line.startswith("Эклиптическая долгота:"):
+            record["longitude"] = float(line.split(": ")[1].replace("°", "").strip())
+        elif line.startswith("Эклиптическая широта:"):
+            record["latitude"] = float(line.split(": ")[1].replace("°", "").strip())
+        elif line.startswith("Расстояние до Луны:"):
+            record["distance"] = float(line.split(": ")[1].replace("км", "").strip())
+        elif line.strip() == "----------------------------------------":
+            if record:  # Сохраняем запись, если она заполнена
+                data.append(record)
+                record = {}
+
+    # Запись данных в CSV
+    with open(out_file_path, "w", newline="") as csvfile:
+        fieldnames = ["timestamp", "phase", "longitude", "latitude", "distance", "day"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(data)
+
+    print(f"Данные успешно сохранены в файл {output_file}.")
+
+# Пример использования
+parse_lunar_txt_to_csv()
