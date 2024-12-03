@@ -1,7 +1,7 @@
 import math
 import os
 from datetime import datetime
-
+from FileSys.lib_files import get_full_file_path
 # Константы для вычислений
 SYNODIC_MONTH = 29.53058867  # Средняя продолжительность лунного месяца в днях
 OBLIQUITY = 23.44  # Наклон эклиптики (в градусах)
@@ -81,13 +81,13 @@ def calculate_lunar_phase_and_coordinates(current_time):
         "distance": distance,
     }
 
-def get_full_file_path(filename):
-    """
-    Возвращает полный путь к файлу данных, находящемуся в той же директории,
-    что и текущий скрипт, или в указанной поддиректории.
-    """
-    script_dir = os.path.dirname(os.path.abspath(__file__))  # Путь к директории скрипта
-    return os.path.join(script_dir, filename)
+# def get_full_file_path(filename):
+#     """
+#     Возвращает полный путь к файлу данных, находящемуся в той же директории,
+#     что и текущий скрипт, или в указанной поддиректории.
+#     """
+#     script_dir = os.path.dirname(os.path.abspath(__file__))  # Путь к директории скрипта
+#     return os.path.join(script_dir, filename)
 def save_results_to_file(data, filename="lunar_data.txt"):
     """Сохраняет результаты вычислений в файл."""
 
