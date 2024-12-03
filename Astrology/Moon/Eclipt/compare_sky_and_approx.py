@@ -3,6 +3,7 @@ from datetime import datetime
 from math import degrees
 from skyfield.api import load
 import math
+import csv
 
 
 # --- Приближённые расчёты ---
@@ -56,7 +57,9 @@ def skyfield_moon(date=None):
     ecliptic = astrometric.ecliptic_latlon()
 
     sun = eph['sun']
-    elongation = degrees(earth.at(t).observe(moon).apparent().separation_from(earth.at(t).observe(sun).apparent()))
+    # elongation = degrees(earth.at(t).observe(moon).apparent().separation_from(earth.at(t).observe(sun).apparent()))
+    elongation = earth.at(t).observe(moon).apparent().separation_from(earth.at(t).observe(sun).apparent()).degrees
+
     moon_phase = (1 - math.cos(math.radians(elongation))) / 2
     lunar_day = (elongation % 360) / 12.2
 
