@@ -147,38 +147,111 @@ def get_full_file_path(filename):
     script_dir = os.path.dirname(os.path.abspath(__file__))  # Путь к директории скрипта
     return os.path.join(script_dir, filename)
 # --- Формирование таблицы сравнений ---
-def compare_results(dates):
-    filename = 'comparison_results.csv'
-    file_path = get_full_file_path(filename)
-    with open(file_path, 'w', newline='') as csvfile:
-        fieldnames = [
-            'Date',
-            'Approx Longitude', 'Skyfield Longitude',
-            'Approx Latitude', 'Skyfield Latitude',
-            'Approx Distance (km)', 'Skyfield Distance (km)',
-            'Approx Moon Phase', 'Skyfield Moon Phase',
-            'Approx Lunar Day', 'Skyfield Lunar Day'
-        ]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+# def compare_results(dates):
+#     filename = 'comparison_results.csv'
+#     file_path = get_full_file_path(filename)
+#     with open(file_path, 'a', newline='') as csvfile:
+#         fieldnames = [
+#             'Date',
+#             'Approx Longitude', 'Skyfield Longitude',
+#             'Approx Latitude', 'Skyfield Latitude',
+#             'Approx Distance (km)', 'Skyfield Distance (km)',
+#             'Approx Moon Phase', 'Skyfield Moon Phase',
+#             'Approx Lunar Day', 'Skyfield Lunar Day'
+#         ]
+#         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#         writer.writeheader()
 
-        for date in dates:
-            approx = approx_moon(date)
-            skyfield = skyfield_moon(date)
+#         for date in dates:
+#             approx = approx_moon(date)
+#             skyfield = skyfield_moon(date)
 
-            writer.writerow({
-                'Date': date,
-                'Approx Longitude': approx['longitude'],
-                'Skyfield Longitude': skyfield['longitude'],
-                'Approx Latitude': approx['latitude'],
-                'Skyfield Latitude': skyfield['latitude'],
-                'Approx Distance (km)': approx['distance_km'],
-                'Skyfield Distance (km)': skyfield['distance_km'],
-                'Approx Moon Phase': approx['moon_phase'],
-                'Skyfield Moon Phase': skyfield['moon_phase'],
-                'Approx Lunar Day': approx['lunar_day'],
-                'Skyfield Lunar Day': skyfield['lunar_day']
-            })
+#             writer.writerow({
+#                 'Date': date,
+#                 'Approx Longitude': approx['longitude'],
+#                 'Skyfield Longitude': skyfield['longitude'],
+#                 'Approx Latitude': approx['latitude'],
+#                 'Skyfield Latitude': skyfield['latitude'],
+#                 'Approx Distance (km)': approx['distance_km'],
+#                 'Skyfield Distance (km)': skyfield['distance_km'],
+#                 'Approx Moon Phase': approx['moon_phase'],
+#                 'Skyfield Moon Phase': skyfield['moon_phase'],
+#                 'Approx Lunar Day': approx['lunar_day'],
+#                 'Skyfield Lunar Day': skyfield['lunar_day']
+#             })
+import os
+from datetime import datetime
+import openpyxl
+from openpyxl.styles import Alignment
+from skyfield.api import load
+from math import radians, degrees
+
+# Предполагается, что функция approx_moon уже определена
+# и возвращает данные в виде словаря с ключами:
+# "longitude", "latitude", "distance_km", "moon_phase", "lunar_day"
+
+def compare_results(dates, filename="moon_comparison.xlsx"):
+    """
+    Сравнивает результаты между approx_moon и Skyfield для указанных дат.
+    Результаты сохраняются в Excel-файл.
+
+    :param dates: Список дат (datetime), для которых выполняется сравнение.
+    :param filename: Имя Excel-файла для сохранения результатов.
+    """
+    # Загрузка Skyfield данных
+    eph = load("de421.bsp")  # Используем планетарные данные Skyfield
+    earth = eph["earth"]
+    moon = eph["moon"]
+    sun = eph["sun"]
+
+    # Проверяем, существует ли файл, и если да, то загружаем его
+    if os.path.exists(filename):
+        workbook = openpyxl.load_workbook(filename)
+        sheet = workbook.active
+    else:
+        # Создаем новый файл, если его нет
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        sheet.title = "Comparison Results"
+        sheet.append([
+            "Date",
+            "Approx Longitude", "Skyfield Longitude",
+            "Approx Latitude", "Skyfield Latitude",
+            "Approx Distance (km)", "Skyfield Distance (km)",
+            "Approx Moon Phase", "Skyfield Moon Phase",
+            "Approx Lunar Day", "Skyfield Lunar Day"
+        ])
+
+    for date in dates:
+        # Approx Moon
+        approx = approx_moon(date)
+
+        # Skyfield Moon
+        t = load.timescale().from_datetime(date)
+        skyfield_moon = earth.at(t).observe(moon).apparent()
+        skyfield_sun = earth.at(t).observe(sun).apparent()
+
+        skyfield_longitude, skyfield_latitude, _ = skyfield_moon.ecliptic_latlon()
+        skyfield_distance = skyfield_moon.distance().km
+        skyfield_phase_angle = skyfield_moon.separation_from(skyfield_sun)
+        skyfield_moon_phase = (1 - degrees(skyfield_phase_angle) / 180) / 2
+        skyfield_lunar_day = degrees(skyfield_phase_angle) / 12.2
+
+        # Добавляем строку в файл
+        sheet.append([
+            date.strftime("%Y-%m-%d %H:%M:%S"),
+            approx["longitude"], degrees(skyfield_longitude),
+            approx["latitude"], degrees(skyfield_latitude),
+            approx["distance_km"], skyfield_distance,
+            approx["moon_phase"], skyfield_moon_phase,
+            approx["lunar_day"], skyfield_lunar_day
+        ])
+
+    # Выравниваем текст в заголовках и сохраняем файл
+    for cell in sheet[1]:
+        cell.alignment = Alignment(horizontal="center", vertical="center")
+    workbook.save(filename)
+    print(f"Results saved to {filename}")
 
 
 # --- Основная логика ---
