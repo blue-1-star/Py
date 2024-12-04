@@ -5,6 +5,192 @@ from skyfield.api import load
 import math
 import csv
 
+"""
+# --- Приближённые расчёты ---
+def approx_moon(date=None):
+    if date is None:
+        date = datetime.now()
+    julian_date = (date - datetime(2000, 1, 1)).days + 2451545.0
+
+    MEAN_LONGITUDE_MOON = 218.316
+    MEAN_ELONGATION = 297.850
+    MEAN_ANOMALY = 134.963
+    MEAN_DISTANCE = 93.272
+
+    days_since_epoch = julian_date - 2451545.0
+    mean_longitude = MEAN_LONGITUDE_MOON + 13.176396 * days_since_epoch
+    mean_anomaly = MEAN_ANOMALY + 13.064993 * days_since_epoch
+    elongation = MEAN_ELONGATION + 13.176396 * days_since_epoch
+
+    longitude = mean_longitude + 6.289 * math.sin(math.radians(mean_anomaly))
+    latitude = 5.128 * math.sin(math.radians(MEAN_DISTANCE))
+    distance = 385000 * (1 - 0.0549**2) / (1 + 0.0549 * math.cos(math.radians(mean_anomaly)))
+
+    longitude %= 360
+    latitude %= 360
+
+    moon_phase = (1 - math.cos(math.radians(elongation))) / 2
+    lunar_day = (elongation % 360) / 12.2
+
+    return {
+        "longitude": longitude,
+        "latitude": latitude,
+        "distance_km": distance,
+        "moon_phase": moon_phase,
+        "lunar_day": lunar_day
+    }
+"""
+# def approx_moon(date=None):
+#     import math
+#     from datetime import datetime
+
+#     if date is None:
+#         date = datetime.now()
+#     julian_date = (date - datetime(2000, 1, 1)).days + 2451545.0
+
+#     MEAN_LONGITUDE_MOON = 218.316
+#     MEAN_ELONGATION = 297.850
+#     MEAN_ANOMALY = 134.963
+#     MEAN_DISTANCE = 93.272
+#     INCLINATION = 5.145  # Средний наклон лунной орбиты
+
+#     days_since_epoch = julian_date - 2451545.0
+#     mean_longitude = MEAN_LONGITUDE_MOON + 13.176396 * days_since_epoch
+#     mean_anomaly = MEAN_ANOMALY + 13.064993 * days_since_epoch
+#     elongation = MEAN_ELONGATION + 13.176396 * days_since_epoch
+
+#     # Истинная долгота Луны с учётом аномалии
+#     longitude = mean_longitude + 6.289 * math.sin(math.radians(mean_anomaly))
+
+#     # Истинная широта Луны
+#     latitude = INCLINATION * math.sin(math.radians(elongation))
+
+#     # Расстояние
+#     distance = 385000 * (1 - 0.0549**2) / (1 + 0.0549 * math.cos(math.radians(mean_anomaly)))
+
+#     # Приведение долготы в диапазон [0, 360)
+#     longitude %= 360
+
+#     # Фаза Луны
+#     moon_phase = (1 - math.cos(math.radians(elongation))) / 2
+
+#     # Лунный день
+#     lunar_day = (elongation % 360) / 12.2
+
+#     return {
+#         "longitude": longitude,
+#         "latitude": latitude,  # Значение в пределах [-5.145, 5.145]
+#         "distance_km": distance,
+#         "moon_phase": moon_phase,
+#         "lunar_day": lunar_day
+#     }
+
+# def approx_moon(date=None):
+#     import math
+#     from datetime import datetime
+
+#     if date is None:
+#         date = datetime.now()
+#     julian_date = (date - datetime(2000, 1, 1)).days + 2451545.0
+
+#     MEAN_LONGITUDE_MOON = 218.316
+#     MEAN_ELONGATION = 297.850
+#     MEAN_ANOMALY = 134.963
+#     MEAN_DISTANCE = 93.272
+#     ASCENDING_NODE = 125.044  # Средняя долгота восходящего узла
+#     INCLINATION = 5.145  # Средний наклон лунной орбиты
+
+#     days_since_epoch = julian_date - 2451545.0
+#     mean_longitude = MEAN_LONGITUDE_MOON + 13.176396 * days_since_epoch
+#     mean_anomaly = MEAN_ANOMALY + 13.064993 * days_since_epoch
+#     elongation = MEAN_ELONGATION + 13.176396 * days_since_epoch
+#     ascending_node = ASCENDING_NODE - 0.0529539 * days_since_epoch
+
+#     # Истинная долгота Луны
+#     longitude = mean_longitude + 6.289 * math.sin(math.radians(mean_anomaly))
+
+#     # Аргумент широты
+#     argument_of_latitude = longitude - ascending_node
+
+#     # Истинная широта Луны
+#     latitude = INCLINATION * math.sin(math.radians(argument_of_latitude))
+
+#     # Расстояние
+#     distance = 385000 * (1 - 0.0549**2) / (1 + 0.0549 * math.cos(math.radians(mean_anomaly)))
+
+#     # Приведение долготы в диапазон [0, 360)
+#     longitude %= 360
+
+#     # Фаза Луны
+#     moon_phase = (1 - math.cos(math.radians(elongation))) / 2
+
+#     # Лунный день
+#     lunar_day = (elongation % 360) / 12.2
+
+#     return {
+#         "longitude": longitude,
+#         "latitude": latitude,  # Значение в пределах [-5.145, 5.145]
+#         "distance_km": distance,
+#         "moon_phase": moon_phase,
+#         "lunar_day": lunar_day
+#     }
+
+# def approx_moon(date=None):
+#     import math
+#     from datetime import datetime
+
+#     if date is None:
+#         date = datetime.now()
+#     julian_date = (date - datetime(2000, 1, 1)).days + 2451545.0
+
+#     MEAN_LONGITUDE_MOON = 218.316
+#     MEAN_ELONGATION = 297.850
+#     MEAN_ANOMALY = 134.963
+#     MEAN_DISTANCE = 93.272
+#     ASCENDING_NODE = 125.044  # Средняя долгота восходящего узла
+#     INCLINATION = 5.145  # Средний наклон лунной орбиты
+
+#     days_since_epoch = julian_date - 2451545.0
+#     mean_longitude = MEAN_LONGITUDE_MOON + 13.176396 * days_since_epoch
+#     mean_anomaly = MEAN_ANOMALY + 13.064993 * days_since_epoch
+#     elongation = MEAN_ELONGATION + 13.176396 * days_since_epoch
+#     ascending_node = ASCENDING_NODE - 0.0529539 * days_since_epoch
+
+#     # Истинная долгота Луны
+#     longitude = mean_longitude + 6.289 * math.sin(math.radians(mean_anomaly))
+
+#     # Аргумент широты
+#     argument_of_latitude = longitude - ascending_node
+
+#     # Истинная широта Луны
+#     latitude = INCLINATION * math.sin(math.radians(argument_of_latitude))
+
+#     # Расстояние
+#     distance = 385000 * (1 - 0.0549**2) / (1 + 0.0549 * math.cos(math.radians(mean_anomaly)))
+
+#     # Приведение долготы в диапазон [0, 360)
+#     longitude %= 360
+
+#     # Долгота Солнца (упрощённо)
+#     sun_longitude = (280.460 + 0.9856474 * days_since_epoch) % 360
+
+#     # Разница долготы Луны и Солнца
+#     phase_angle = longitude - sun_longitude
+
+#     # Фаза Луны (с поправкой на широту)
+#     moon_phase = (1 - math.cos(math.radians(phase_angle))) / 2
+
+#     # Лунный день
+#     lunar_day = (elongation % 360) / 12.2
+
+#     return {
+#         "longitude": longitude,
+#         "latitude": latitude,  # Значение в пределах [-5.145, 5.145]
+#         "distance_km": distance,
+#         "moon_phase": moon_phase,
+#         "lunar_day": lunar_day
+#     }
+
 def approx_moon(date=None):
     import math
     from datetime import datetime
