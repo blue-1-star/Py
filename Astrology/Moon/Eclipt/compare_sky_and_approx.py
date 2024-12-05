@@ -146,41 +146,7 @@ def get_full_file_path(filename):
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))  # Путь к директории скрипта
     return os.path.join(script_dir, filename)
-# --- Формирование таблицы сравнений ---
-# def compare_results(dates):
-#     filename = 'comparison_results.csv'
-#     file_path = get_full_file_path(filename)
-#     with open(file_path, 'a', newline='') as csvfile:
-#         fieldnames = [
-#             'Date',
-#             'Approx Longitude', 'Skyfield Longitude',
-#             'Approx Latitude', 'Skyfield Latitude',
-#             'Approx Distance (km)', 'Skyfield Distance (km)',
-#             'Approx Moon Phase', 'Skyfield Moon Phase',
-#             'Approx Lunar Day', 'Skyfield Lunar Day'
-#         ]
-#         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-#         writer.writeheader()
 
-#         for date in dates:
-#             approx = approx_moon(date)
-#             skyfield = skyfield_moon(date)
-
-#             writer.writerow({
-#                 'Date': date,
-#                 'Approx Longitude': approx['longitude'],
-#                 'Skyfield Longitude': skyfield['longitude'],
-#                 'Approx Latitude': approx['latitude'],
-#                 'Skyfield Latitude': skyfield['latitude'],
-#                 'Approx Distance (km)': approx['distance_km'],
-#                 'Skyfield Distance (km)': skyfield['distance_km'],
-#                 'Approx Moon Phase': approx['moon_phase'],
-#                 'Skyfield Moon Phase': skyfield['moon_phase'],
-#                 'Approx Lunar Day': approx['lunar_day'],
-#                 'Skyfield Lunar Day': skyfield['lunar_day']
-#             })
-import os
-from datetime import datetime
 import openpyxl
 from openpyxl.styles import Alignment
 from skyfield.api import load
@@ -255,9 +221,9 @@ def compare_results(dates, filename="moon_comparison.xlsx"):
 
 
 # --- Основная логика ---
-file_path_ld = 'lunar_data.txt'
-dates = extract_timestamps(file_path_ld)
-
+# file_path_ld = 'lunar_data.txt'
+# dates = extract_timestamps(file_path_ld)
+dates = []
 if not dates:
     dates = [datetime.now()]
 
