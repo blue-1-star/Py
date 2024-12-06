@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from math import degrees
 from skyfield.api import load
 import math
@@ -10,8 +10,10 @@ def approx_moon(date=None):
     from datetime import datetime
 
     if date is None:
-        date = datetime.now()
-    julian_date = (date - datetime(2000, 1, 1)).days + 2451545.0
+        date = datetime.now(timezone.utc)
+    base_date = datetime(2000, 1, 1, tzinfo=timezone.utc)
+    delta = date - base_date  # Разница между датами, результат - timedelta
+    julian_date = delta.total_seconds()/86400 + 2451545.0
 
     MEAN_LONGITUDE_MOON = 218.316
     MEAN_ELONGATION = 297.850
@@ -156,23 +158,92 @@ from math import radians, degrees
 # и возвращает данные в виде словаря с ключами:
 # "longitude", "latitude", "distance_km", "moon_phase", "lunar_day"
 
+# def compare_results(dates, filename="moon_comparison.xlsx"):
+#     """
+#     Сравнивает результаты между approx_moon и Skyfield для указанных дат.
+#     Результаты сохраняются в Excel-файл.
+
+#     :param dates: Список дат (datetime), для которых выполняется сравнение.
+#     :param filename: Имя Excel-файла для сохранения результатов.
+#     """
+#     file_path = get_full_file_path(filename)
+#     # Загрузка Skyfield данных
+#     eph = load("de421.bsp")  # Используем планетарные данные Skyfield
+#     earth = eph["earth"]
+#     moon = eph["moon"]
+#     sun = eph["sun"]
+
+#     # Проверяем, существует ли файл, и если да, то загружаем его
+#     if os.path.exists(filename):
+#         workbook = openpyxl.load_workbook(file_path)
+#         sheet = workbook.active
+#     else:
+#         # Создаем новый файл, если его нет
+#         workbook = openpyxl.Workbook()
+#         sheet = workbook.active
+#         sheet.title = "Comparison Results"
+#         sheet.append([
+#             "Date",
+#             "Approx Longitude", "Skyfield Longitude",
+#             "Approx Latitude", "Skyfield Latitude",
+#             "Approx Distance (km)", "Skyfield Distance (km)",
+#             "Approx Moon Phase", "Skyfield Moon Phase",
+#             "Approx Lunar Day", "Skyfield Lunar Day"
+#         ])
+
+#     for date in dates:
+#         # Approx Moon
+#         date_with_timezone = date.replace(tzinfo=timezone.utc)
+#         approx = approx_moon(date_with_timezone)
+
+#         # Skyfield Moon
+#         t = load.timescale().from_datetime(date_with_timezone)
+#         skyfield_moon = earth.at(t).observe(moon).apparent()
+#         skyfield_sun = earth.at(t).observe(sun).apparent()
+
+#         skyfield_longitude, skyfield_latitude, _ = skyfield_moon.ecliptic_latlon()
+#         skyfield_distance = skyfield_moon.distance().km
+#         skyfield_phase_angle = skyfield_moon.separation_from(skyfield_sun)
+#         skyfield_phase_angle_degrees = skyfield_phase_angle.degrees
+#         skyfield_moon_phase = (1 - skyfield_phase_angle_degrees) / 180 / 2
+#         skyfield_lunar_day = degrees(skyfield_phase_angle_degrees) / 12.2
+
+#         # Добавляем строку в файл
+#         sheet.append([
+#             date.strftime("%Y-%m-%d %H:%M:%S"),
+#             approx["longitude"], skyfield_longitude.degrees,
+#             approx["latitude"], skyfield_latitude.degrees,
+#             approx["distance_km"], skyfield_distance,
+#             approx["moon_phase"], skyfield_moon_phase,
+#             approx["lunar_day"], skyfield_lunar_day
+#         ])
+
+#     # Выравниваем текст в заголовках и сохраняем файл
+#     for cell in sheet[1]:
+#         cell.alignment = Alignment(horizontal="center", vertical="center")
+#     workbook.save(file_path)
+#     print(f"Results saved to {file_path}")
+
+
+import openpyxl
+from openpyxl.styles import Alignment, PatternFill, Border, Side
+from datetime import datetime
+from skyfield.api import load
+from datetime import timezone
+
 def compare_results(dates, filename="moon_comparison.xlsx"):
     """
-    Сравнивает результаты между approx_moon и Skyfield для указанных дат.
+    Сравнивает результаты между approx_moon и skyfield_moon для указанных дат.
     Результаты сохраняются в Excel-файл.
 
     :param dates: Список дат (datetime), для которых выполняется сравнение.
     :param filename: Имя Excel-файла для сохранения результатов.
     """
-    # Загрузка Skyfield данных
-    eph = load("de421.bsp")  # Используем планетарные данные Skyfield
-    earth = eph["earth"]
-    moon = eph["moon"]
-    sun = eph["sun"]
+    file_path = get_full_file_path(filename)
 
     # Проверяем, существует ли файл, и если да, то загружаем его
-    if os.path.exists(filename):
-        workbook = openpyxl.load_workbook(filename)
+    if os.path.exists(file_path):
+        workbook = openpyxl.load_workbook(file_path)
         sheet = workbook.active
     else:
         # Создаем новый файл, если его нет
@@ -180,45 +251,80 @@ def compare_results(dates, filename="moon_comparison.xlsx"):
         sheet = workbook.active
         sheet.title = "Comparison Results"
         sheet.append([
-            "Date",
-            "Approx Longitude", "Skyfield Longitude",
+            "Date", "Approx Longitude", "Skyfield Longitude",
             "Approx Latitude", "Skyfield Latitude",
             "Approx Distance (km)", "Skyfield Distance (km)",
             "Approx Moon Phase", "Skyfield Moon Phase",
             "Approx Lunar Day", "Skyfield Lunar Day"
         ])
 
+    # Заполнение данных для каждой даты
     for date in dates:
-        # Approx Moon
-        approx = approx_moon(date)
+        date_with_timezone = date.replace(tzinfo=timezone.utc)
 
-        # Skyfield Moon
-        t = load.timescale().from_datetime(date)
-        skyfield_moon = earth.at(t).observe(moon).apparent()
-        skyfield_sun = earth.at(t).observe(sun).apparent()
+        # Получение результатов из approx_moon
+        approx = approx_moon(date_with_timezone)
 
-        skyfield_longitude, skyfield_latitude, _ = skyfield_moon.ecliptic_latlon()
-        skyfield_distance = skyfield_moon.distance().km
-        skyfield_phase_angle = skyfield_moon.separation_from(skyfield_sun)
-        skyfield_moon_phase = (1 - degrees(skyfield_phase_angle) / 180) / 2
-        skyfield_lunar_day = degrees(skyfield_phase_angle) / 12.2
+        # Получение результатов из skyfield_moon
+        skyfield = skyfield_moon(date_with_timezone)
 
         # Добавляем строку в файл
-        sheet.append([
+        # sheet.append([
+        #     date.strftime("%Y-%m-%d %H:%M:%S"),
+        #     approx["longitude"], skyfield["longitude"],
+        #     approx["latitude"], skyfield["latitude"],
+        #     approx["distance_km"], skyfield["distance_km"],
+        #     approx["moon_phase"], skyfield["moon_phase"],
+        #     approx["lunar_day"], skyfield["lunar_day"]
+        # ])
+        row = [
             date.strftime("%Y-%m-%d %H:%M:%S"),
-            approx["longitude"], degrees(skyfield_longitude),
-            approx["latitude"], degrees(skyfield_latitude),
-            approx["distance_km"], skyfield_distance,
-            approx["moon_phase"], skyfield_moon_phase,
-            approx["lunar_day"], skyfield_lunar_day
-        ])
+            round(approx["longitude"], 3), round(skyfield["longitude"], 3),
+            round(approx["latitude"], 3), round(skyfield["latitude"], 3),
+            round(approx["distance_km"], 2), round(skyfield["distance_km"], 2),
+            round(approx["moon_phase"], 4), round(skyfield["moon_phase"], 4),
+            round(approx["lunar_day"], 3), round(skyfield["lunar_day"], 3)
+        ]
+        sheet.append(row)
+           # Применение стилей
+    border = Border(
+        left=Side(border_style="thin"),
+        right=Side(border_style="thin"),
+        top=Side(border_style="thin"),
+        bottom=Side(border_style="thin")
+    )
 
-    # Выравниваем текст в заголовках и сохраняем файл
-    for cell in sheet[1]:
-        cell.alignment = Alignment(horizontal="center", vertical="center")
-    workbook.save(filename)
-    print(f"Results saved to {filename}")
+    # Выравнивание текста в заголовках и настройка ширины столбцов
+    for row in sheet.iter_rows(min_row=1, max_row=sheet.max_row, max_col=sheet.max_column):
+        for cell in row:
+            cell.border = border
+            cell.alignment = Alignment(horizontal="center", vertical="center")
 
+    for column in sheet.columns:
+        max_length = 0
+        for cell in column:
+            try:
+                if len(str(cell.value)) > max_length:
+                    max_length = len(str(cell.value))
+            except:
+                pass
+        adjusted_width = (max_length + 1)
+        sheet.column_dimensions[column[0].column_letter].width = adjusted_width
+
+    # Применение попарного выделения для столбцов
+        colors = ["FFFFCC", "CCFFFF"]  # Цвета для выделения
+              
+    for col_idx in range(2, len(sheet[1]), 2):  # Попарно по 2 столбца (начиная со второго столбца)
+        color_fill = PatternFill(start_color=colors[(col_idx // 2) % len(colors)],
+                                 end_color=colors[(col_idx // 2) % len(colors)],
+                                 fill_type="solid")
+        for row in sheet.iter_rows(min_row=2, max_col=col_idx + 1, min_col=col_idx, max_row=sheet.max_row):
+            for cell in row:
+                cell.fill = color_fill
+
+    # Сохранение файла
+    workbook.save(file_path)
+    print(f"Results saved to {file_path}")
 
 # --- Основная логика ---
 # file_path_ld = 'lunar_data.txt'
