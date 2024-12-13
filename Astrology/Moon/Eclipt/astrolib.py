@@ -82,8 +82,8 @@ def julian_date_with_tz(year, month, day, hour=0, minute=0, second=0, timezone='
     return julian_date
 
 # Пример использования
-print(julian_date_with_tz(2024, 12, 8, 20, 28, 48, timezone='Europe/Moscow'))
-print(julian_date_with_tz(1582, 10, 4, timezone='Europe/Moscow'))
+# print(julian_date_with_tz(2024, 12, 8, 20, 28, 48, timezone='Europe/Moscow'))
+# print(julian_date_with_tz(1582, 10, 4, timezone='Europe/Moscow'))
 
 
 from datetime import datetime
@@ -156,18 +156,18 @@ def calendar_date(julian_date, timezone='UTC'):
         return f"Ошибка: {str(e)}"
 
 # Пример использования
-print(calendar_date(2460403.3533333334, timezone='Europe/Moscow'))  # Москва
-print(calendar_date(2460403.3533333334, timezone='America/New_York'))  # Нью-Йорк
-print(calendar_date(2460403.3533333334, timezone='UTC'))  # UTC
+# print(calendar_date(2460403.3533333334, timezone='Europe/Moscow'))  # Москва
+# print(calendar_date(2460403.3533333334, timezone='America/New_York'))  # Нью-Йорк
+# print(calendar_date(2460403.3533333334, timezone='UTC'))  # UTC
 
 
-print(julian_date(2024, 12, 8, 20, 28, 48))  
-# Результат: 2460403.3533333334
-print(julian_date(1000, 3, 1))  
-# Результат: 2086315.5
-print(julian_date(1582, 10, 4))  
-# Результат: 2299159.5 (последний день Юлианского календаря)
-print(julian_date(1582, 10, 10))  
+# print(julian_date(2024, 12, 8, 20, 28, 48))  
+# # Результат: 2460403.3533333334
+# print(julian_date(1000, 3, 1))  
+# # Результат: 2086315.5
+# print(julian_date(1582, 10, 4))  
+# # Результат: 2299159.5 (последний день Юлианского календаря)
+# print(julian_date(1582, 10, 10))  
 # ValueError: Дата находится в периоде перехода между календарями (5–14 октября 1582 года).
 
 """
@@ -192,6 +192,65 @@ print(julian_date(1582, 10, 10))
 
 
 # Пример использования
-print(julian_date(2024, 12, 8, 20, 28, 48, timezone='Europe/Moscow'))  # Москва
-print(julian_date(2024, 12, 8, 20, 28, 48, timezone='America/New_York'))  # Нью-Йорк
-print(julian_date(2024, 12, 8, 20, 28, 48, timezone='UTC'))  # UTC
+# print(julian_date(2024, 12, 8, 20, 28, 48, timezone='Europe/Moscow'))  # Москва
+# print(julian_date(2024, 12, 8, 20, 28, 48, timezone='America/New_York'))  # Нью-Йорк
+# print(julian_date(2024, 12, 8, 20, 28, 48, timezone='UTC'))  # UTC
+
+
+# Zodiac Sign By Date
+
+# from datetime import datetime
+import random
+
+def get_zodiac_sign(date):
+    """
+    Определяет знак зодиака по дате.
+
+    :param date: объект datetime или строка в формате 'YYYY-MM-DD'.
+    :return: строка с названием знака зодиака.
+    """
+    if isinstance(date, str):
+        date = datetime.strptime(date, '%Y-%m-%d')
+
+    zodiac_dates = [
+        # Каждый элемент содержит три части: начало периода, конец периода и название знака зодиака
+        ((1, 20), (2, 18), 'Водолей'),  # Водолей: с 20 января по 18 февраля
+        ((2, 19), (3, 20), 'Рыбы'),     # Рыбы: с 19 февраля по 20 марта
+        ((3, 21), (4, 19), 'Овен'),     # Овен: с 21 марта по 19 апреля
+        ((4, 20), (5, 20), 'Телец'),    # Телец: с 20 апреля по 20 мая
+        ((5, 21), (6, 20), 'Близнецы'), # Близнецы: с 21 мая по 20 июня
+        ((6, 21), (7, 22), 'Рак'),      # Рак: с 21 июня по 22 июля
+        ((7, 23), (8, 22), 'Лев'),      # Лев: с 23 июля по 22 августа
+        ((8, 23), (9, 22), 'Дева'),     # Дева: с 23 августа по 22 сентября
+        ((9, 23), (10, 22), 'Весы'),    # Весы: с 23 сентября по 22 октября
+        ((10, 23), (11, 21), 'Скорпион'),# Скорпион: с 23 октября по 21 ноября
+        ((11, 22), (12, 21), 'Стрелец'),# Стрелец: с 22 ноября по 21 декабря
+        ((12, 22), (1, 19), 'Козерог'), # Козерог: с 22 декабря по 19 января
+    ]
+
+    for start, end, sign in zodiac_dates:
+        start_date = datetime(date.year, start[0], start[1])
+        end_date = datetime(date.year, end[0], end[1])
+
+        if start_date <= date <= end_date:
+            return sign
+
+        # Для Козерога нужно учитывать переход через Новый год
+        if start[0] == 12 and end[0] == 1 and (date >= start_date or date <= end_date):
+            return sign
+
+    return None
+
+def get_random_date():
+    """
+    Возвращает случайную дату в формате 'YYYY-MM-DD'.
+    """
+    year = random.randint(1900, 2100)
+    month = random.randint(1, 12)
+    day = random.randint(1, 28 if month == 2 else (30 if month in [4, 6, 9, 11] else 31))
+    return f"{year:04d}-{month:02d}-{day:02d}"
+
+# Пример использования
+random_date = get_random_date()
+zodiac_sign = get_zodiac_sign(random_date)
+print(f"Случайная дата: {random_date}, Знак зодиака: {zodiac_sign}")
