@@ -16,8 +16,8 @@ source_directory = r"G:\Photo\OnePlus\Photo"
 # r"G:\Photo\OnePlus\Photo"
 target_directory = r"G:\Photo\OnePlus\Photo"
 # copy_photos_by_date(source_directory, target_directory)
-start_date = datetime.date(2024, 10, 1 )
+start_date = datetime.date(2024, 10, 30 )
 end_date = datetime.date(2024, 10, 30)
-copy_photos_by_date_st_end(source_directory, target_directory, start_date, end_date)
-# copy_photos_by_date_st_end(source_directory, target_directory, start_date)
+# copy_photos_by_date_st_end(source_directory, target_directory, start_date, end_date)
+copy_photos_by_date_st_end(source_directory, target_directory, start_date)
 # copy_and_delete_photos_by_date(source_directory, target_directory)
