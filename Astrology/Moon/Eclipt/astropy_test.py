@@ -20,8 +20,6 @@ from astropy.time import Time
 from astropy.coordinates import solar_system_ephemeris
 import numpy as np
 from geopy.geocoders import Nominatim
-from astropy.coordinates import EarthLocation
-from geopy.geocoders import Nominatim
 
 def get_earth_location(city_name):
     """
