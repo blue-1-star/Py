@@ -114,9 +114,9 @@ def create_brightness_plots(df):
     fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
     plot_brightness(orf_data, 'Brightness for ORF Files', axs[0])
     plot_brightness(jpg_data, 'Brightness for JPG Files', axs[1])
-    plt.show()
     output_path = os.path.join(image_dir, "brightness_graph.pdf")
     plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight')  # Рекомендується встановити високий dpi для якості
+    plt.show()
     plt.close()
     # Третій графік: порівняння середньої яскравості
     mean_brightness = df.groupby('Format')['Brightness_PIL'].mean()
@@ -129,9 +129,9 @@ def create_brightness_plots(df):
     ax.set_title('Average Brightness: ORF vs JPG')
     ax.set_ylabel('Average Brightness (PIL)')
     ax.set_xlabel('File Format')
-    plt.show()
     output_path = os.path.join(image_dir, "comparision_orf.pdf")
     plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight')  # Рекомендується встановити високий dpi для якості
+    plt.show()
     plt.close()
 # Виконання коду
 if __name__ == "__main__":
