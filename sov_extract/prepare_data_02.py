@@ -1,5 +1,6 @@
 import pandas as pd
-
+import numpy as np
+import string
 def read_excel_custom(
     file_path,
     sheet_name=0,
@@ -31,24 +32,18 @@ def read_excel_custom(
       
     # Загружаем данные с листа
     header_row = 0 if header else None
-    data = pd.read_excel(xls, sheet_name=sheet_name, header=header_row)
+    data = pd.read_excel(xls, sheet_name=sheet_name, header=header_row) 
+ 
+    if col_numbers:
+        # Если col_numbers - индексы, преобразуем в имена
+        if isinstance(col_numbers[0], int):
+            col_numbers = [data.columns[i] for i in col_numbers if i < len(data.columns)]
+            print("Удаляемые столбцы:", col_numbers)
+        # Удаляем столбцы
+        df = drop_columns(data, col_numbers)
+        return df
+        # return drop_columns(data, col_numbers)
     
-    # print(f"Форма до фильтрации: {data.shape}")
-    # print(data.head())
-
-    
-    # # Фильтрация строк
-    # if row_numbers is not None:
-    #     data = data.iloc[row_numbers]
-
-    # # Фильтрация столбцов
-    # if col_numbers is not None:
-    #     data = data.iloc[:, col_numbers]
-
-    # print(f"Форма после фильтрации: {data.shape}")
-    # print(data.head())
-    return data.drop(data,col_numbers)
-    # return data
 def drop_columns(df, col_numbers):
     """
     Удаляет указанные столбцы из датафрейма.
@@ -57,7 +52,16 @@ def drop_columns(df, col_numbers):
     :param columns_to_drop: list - список столбцов для удаления
     :return: pd.DataFrame - датафрейм без указанных столбцов
     """
-    return df.drop(columns=columns_to_drop, errors='ignore')
+    if col_numbers is None:
+        return df  # Если список столбцов пуст, возвращаем исходный датафрейм
+    # Удаляем по именам, если переданы строки
+    if isinstance(col_numbers[0], str):
+        return df.drop(columns=col_numbers, errors='ignore')
+    # Удаляем по индексам, если переданы числа
+    elif isinstance(col_numbers[0], int):
+        return df.drop(df.columns[col_numbers], axis=1, errors='ignore')
+    else:
+        raise ValueError("col_numbers должен содержать либо имена столбцов, либо их индексы.")
 
 def print_dataframe(df):
     """
@@ -71,8 +75,8 @@ def print_dataframe(df):
 
 file_path = r"G:\My\sov\extract\NEW weights.xlsx"
 sheet_name = "Sheet8"
-# col_numbers = [1,4,7,10]
-col_numbers = [0,3,6,9]
-df = read_excel_custom(file_path,sheet_name,col_numbers)
-# df = read_excel_custom(file_path,sheet_name)
+col_numbers = [1,4,7,10]
+
+df = read_excel_custom(file_path,sheet_name, col_numbers)
 print(df)
+
