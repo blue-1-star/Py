@@ -78,13 +78,17 @@ def merge_rows_by_fraction(df):
     # Преобразуем столбец n в целочисленный тип
     df['n'] = df['n'].astype(int)
     
+    # Если дробная часть отсутствует, присваиваем ей значение 1
+    df['i'] = df['i'].replace({None: '1', '0': '1'}).astype(int)
     # Группируем по целой части и суммируем значения w_part
     # summed = df.groupby('n', as_index=False)['w_part'].sum().rename(columns={'w_part': 'w_sum'})
-    # Группируем по целой части и суммируем значения w_part, записываем в w_sum
-    df['w_sum'] = df.groupby('n')['w_part'].transform('sum')
+    # # Группируем по целой части и суммируем значения w_part, записываем в w_sum
+    # df['w_sum'] = df.groupby('n')['w_part'].transform('sum')
+    # Группируем по n и Treat_N и суммируем значения w_part, записываем в w_sum
+    df['w_sum'] = df.groupby(['n', 'Treat_N'])['w_part'].transform('sum')
     # Оставляем только строки с минимальной дробной частью для каждой группы
-    df['i'] = df['i'].fillna(0).astype(int)  # обрабатываем NaN как i1
-    df = df.loc[df.groupby('n')['i'].idxmin()]
+    # df['i'] = df['i'].fillna(0).astype(int)  # обрабатываем NaN как i1
+    df = df.loc[df.groupby(['n', 'Treat_N'])['i'].idxmin()]
     
     # Добавляем суммарное значение обратно в датафрейм
     # df = df.merge(summed, on='n', how='left')
@@ -143,8 +147,8 @@ strf, strr  = 'ethanol 80%', 'et_80'
 replace_list = [('ethanol 80%', 'et_80'), ('HCl 0.1 M', 'HCl')]
 df1 = replace_text_in_columns(df1, [2,3], replace_list)
 print(f"data = {df1.iloc[:, [0,2,3,5]]}")
-# df2 = merge_rows_by_fraction(df1)
-# print(f"df2 = {df2.iloc[:, [0,2,3,5]]}")
+df2 = merge_rows_by_fraction(df1)
+print(f"df2 = {df2.iloc[:, [0,2,3,5]]}")
 
 #
 #
@@ -155,9 +159,6 @@ print(f"data = {df1.iloc[:, [0,2,3,5]]}")
     сумма заносится в столбец 5 ( w_sum)
     строки со значениями n.i2, ... в столбце 1 (Num_in) удаляются. Из группы n остается только одна строка n.i1  
 Проход по всем строкам столбца 1  (w_part)
-
-
-
 
 
 """
