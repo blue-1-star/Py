@@ -90,6 +90,9 @@ def merge_rows_by_fraction(df):
     # df['i'] = df['i'].fillna(0).astype(int)  # обрабатываем NaN как i1
 
      # Функция для суммирования с учетом прекращения при невозрастании i
+    # Сохраняем индекс как столбец
+    df['original_index'] = df.index
+
     def cumulative_sum_with_stop(group):
         sum_part = 0
         w_sum = []
@@ -107,7 +110,8 @@ def merge_rows_by_fraction(df):
 
     # Оставляем только строки с минимальной дробной частью для каждой группы
     df = df.loc[df.groupby(['n', 'Treat_N'])['i'].idxmin()]
-    
+    # Восстанавливаем порядок строк по оригинальному индексу
+    df = df.sort_values(by='original_index').drop(columns=['original_index'])
     # Добавляем суммарное значение обратно в датафрейм
     # df = df.merge(summed, on='n', how='left')
     
