@@ -146,7 +146,39 @@ def replace_text_in_columns_m(df, col_nums, replace_dicts):
             df[col_name] = df[col_name].str.replace(strf, strr, regex=False)
     
     return df
+# -------------
+def merge_rows_by_fraction1(df):
+    df = df.copy()
+    df[['n', 'i']] = df['Num_in'].astype(str).str.split('.', expand=True)
+    df['n'] = df['n'].astype(int)
+    df['i'] = df['i'].replace({None: '1', '0': '1'}).astype(int)
+    df['original_index'] = df.index
 
+    # Кумулятивное суммирование с учётом остановки при уменьшении i
+    def cumulative_sum_with_stop(group):
+        sum_part = 0
+        w_sum = []
+        for idx in range(len(group)):
+            sum_part += group['w_part'].iloc[idx]
+            w_sum.append(sum_part)
+        return w_sum
+
+    # Применяем группировку и суммируем w_part для каждой группы
+    df['w_sum'] = df.groupby(['n', 'Treat_N'], group_keys=False).apply(
+        lambda x: x.assign(w_sum=cumulative_sum_with_stop(x)))['w_sum']
+
+    # Удаляем все строки с i > 1, оставляя только первую строку каждой группы
+    df = df[df['i'] == 1]
+
+    # Восстанавливаем порядок строк по исходному индексу
+    df = df.sort_values(by='original_index').drop(columns=['original_index'])
+    df.drop(columns=['n', 'i'], inplace=True)
+
+    return df
+
+
+
+# -------------------
 
 
 
@@ -169,7 +201,8 @@ strf, strr  = 'ethanol 80%', 'et_80'
 replace_list = [('ethanol 80%', 'et_80'), ('HCl 0.1 M', 'HCl')]
 df1 = replace_text_in_columns(df1, [2,3], replace_list)
 print(f"data = {df1.iloc[:, [0,2,3,5]]}")
-df2 = merge_rows_by_fraction(df1)
+# df2 = merge_rows_by_fraction(df1)
+df2 = merge_rows_by_fraction1(df1)
 print(f"df2 = {df2.iloc[:, [0,2,3,5]]}")
 
 #
