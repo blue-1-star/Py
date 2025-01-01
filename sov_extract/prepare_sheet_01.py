@@ -85,9 +85,27 @@ def merge_rows_by_fraction(df):
     # # Группируем по целой части и суммируем значения w_part, записываем в w_sum
     # df['w_sum'] = df.groupby('n')['w_part'].transform('sum')
     # Группируем по n и Treat_N и суммируем значения w_part, записываем в w_sum
-    df['w_sum'] = df.groupby(['n', 'Treat_N'])['w_part'].transform('sum')
+    # df['w_sum'] = df.groupby(['n', 'Treat_N'])['w_part'].transform('sum')
     # Оставляем только строки с минимальной дробной частью для каждой группы
     # df['i'] = df['i'].fillna(0).astype(int)  # обрабатываем NaN как i1
+
+     # Функция для суммирования с учетом прекращения при невозрастании i
+    def cumulative_sum_with_stop(group):
+        sum_part = 0
+        w_sum = []
+        for idx in range(len(group)):
+            if idx == 0 or group['i'].iloc[idx] > group['i'].iloc[idx - 1]:
+                sum_part += group['w_part'].iloc[idx]
+            else:
+                sum_part = group['w_part'].iloc[idx]
+            w_sum.append(sum_part)
+        return w_sum
+    
+    # Применяем группировку и кумулятивное суммирование
+    df['w_sum'] = df.groupby(['n', 'Treat_N'], group_keys=False).apply(
+        lambda x: x.assign(w_sum=cumulative_sum_with_stop(x)))['w_sum']
+
+    # Оставляем только строки с минимальной дробной частью для каждой группы
     df = df.loc[df.groupby(['n', 'Treat_N'])['i'].idxmin()]
     
     # Добавляем суммарное значение обратно в датафрейм
