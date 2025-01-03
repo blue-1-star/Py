@@ -2,6 +2,8 @@ import sys
 from pathlib import Path
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
 def read_excel_custom(
     file_path,
     sheet_name=0,
@@ -40,7 +42,7 @@ def read_excel_custom(
       
     # Загружаем данные с листа
     header_row = find_header_row(file_path, sheet_name)
-    print(f"Header row detected: {header_row}")
+    # print(f"Header row detected: {header_row}")
     data = pd.read_excel(xls, sheet_name=sheet_name, header=header_row)
     # print(data.head())
     # print(f"data is {type(data)}")
@@ -167,11 +169,70 @@ def fill_nan_with_previous(df: pd.DataFrame, column_index: int) -> pd.DataFrame:
         print(f"Ошибка: {e}")
         return df
 
+def plot_all_ingredients(stats):
+    stats_sorted = stats.sort_values(by='All_ingredients')
+    plt.figure(figsize=(8, 6))
+    plt.bar(stats_sorted['Treat_N'], stats_sorted['All_ingredients'], color='skyblue')
+    plt.xlabel('Treat_N')
+    plt.ylabel('All_ingredients')
+    plt.title('All_ingredients by Treat_N')
+    plt.xticks(stats_sorted['Treat_N'], rotation=45)
+    plt.show()
+
+# Функция для построения сложенной столбчатой диаграммы
+# def plot_all_ingredien_stack(stats, df):
+
+def plot_all_ingredien_stack(stats):
+    stats_sorted = stats.sort_values(by='All_ingredients')
+    
+    # Построение сложенной диаграммы
+    plt.figure(figsize=(10, 7))
+    colors = ['#ff9999', '#66b3ff', '#99ff99', '#c2c2f0']  # цвета для компонентов
+    bright_colors = ['#ff4d4d', '#3385ff']  # яркие цвета для Fuc_Lam и Alg
+
+    plt.bar(stats_sorted['Treat_N'], stats_sorted['Residue_mean'], color=colors[2], label='Residue')
+    # plt.bar(stats_sorted['Treat_N'], stats_sorted['Solids_mean'], bottom=stats_sorted['Residue_mean'], color=colors[3], label='Solids')
+    # plt.bar(stats_sorted['Treat_N'], stats_sorted['Alg_mean'], bottom=stats_sorted['Residue_mean'] + stats_sorted['Solids_mean'], color=bright_colors[1], label='Alg')
+    plt.bar(stats_sorted['Treat_N'], stats_sorted['Alg_mean'], bottom=stats_sorted['Residue_mean'], color=bright_colors[1], label='Alg')
+    plt.bar(stats_sorted['Treat_N'], stats_sorted['Fuc_Lam_mean'], bottom=stats_sorted['Residue_mean'] +  stats_sorted['Alg_mean'], color=bright_colors[0], label='Fuc_Lam')
+
+    plt.xlabel('Treat_N')
+    plt.ylabel('All_ingredients')
+    plt.title('All_ingredients by Treat_N (Stacked)')
+    plt.xticks(stats_sorted['Treat_N'], rotation=45)
+    plt.legend()
+    # plt.savefig('./Data/stacked_bar_chart.pdf')
+    plt.show()
+    
+    # Построение тетрад
+    plt.figure(figsize=(10, 7))
+    bar_width = 0.3
+    index = range(len(stats_sorted['Treat_N']))
+
+    plt.bar([i - 1.5 * bar_width for i in index], stats_sorted['Fuc_Lam_mean'], bar_width, color=bright_colors[0], label='Fuc_Lam')
+    plt.bar([i - 0.5 * bar_width for i in index], stats_sorted['Alg_mean'], bar_width, color=bright_colors[1], label='Alg')
+    plt.bar([i + 0.5 * bar_width for i in index], stats_sorted['Residue_mean'], bar_width, color=colors[2], label='Residue')
+    # plt.bar([i - 2.5 * bar_width for i in index], stats_sorted['Fuc_Lam_mean'], bar_width, color=bright_colors[0], label='Fuc_Lam')
+    # plt.bar([i - 0.5 * bar_width for i in index], stats_sorted['Alg_mean'], bar_width, color=bright_colors[1], label='Alg')
+    # plt.bar([i + 1.5 * bar_width for i in index], stats_sorted['Residue_mean'], bar_width, color=colors[2], label='Residue')
+    # plt.bar([i + 1.5 * bar_width for i in index], stats_sorted['Solids_mean'], bar_width, color=colors[3], label='Solids')
+
+    plt.xlabel('Treat_N')
+    plt.ylabel('Ingredient Levels')
+    plt.title('Ingredient Levels by Treat_N (Grouped)')
+    plt.xticks(index, stats_sorted['Treat_N'], rotation=45)
+    plt.legend()
+    # plt.savefig('./Data/grouped_bar_chart.pdf')
+    plt.show()
 
 
-file_path = r"G:\My\sov\extract\NEW weights.xlsx"
+
+file_path = r"G:\My\sov\extract\weights_1.xlsx"
 sheet_name = "Sheet8"
 col_numbers = [0,1,4,7,10]
+# columns_rename = ['Treat_N','Fuc_Lam', 'Alg', 'Residue','Solids']
+columns_rename = ['Treat_N','Fuc_Lam', 'Alg', 'Residue']
+columns_to_remove = [2,3,5,6,8,9,11,12]
 # col_numbers = [0,3,6,9]
 # col_numbers = ['0','3','6','9']
 # col_numbers = ['B','E','H','K']
@@ -181,17 +242,33 @@ col_numbers = [0,1,4,7,10]
 # df = read_excel_custom(file_path,sheet_name, col_numbers)
 df = read_excel_custom(file_path,sheet_name, col_numbers)
 # print(df.columns)
+# df = df.drop(df.columns[columns_to_remove], axis=1)
 # df = drop_columns(df, col_numbers)
 # print(df)
-sdf = select_columns_by_index(df, col_numbers)
+# sdf = select_columns_by_index(df, col_numbers)
 # print(sdf)
-filled_df = fill_nan_with_previous(sdf, 0)
-print(filled_df)
+filled_df = fill_nan_with_previous(df, 0)
+filled_df.columns = columns_rename
+df = filled_df
+# print(df)
 
-# df0 = pd.DataFrame(np.arange(12).reshape(3, 4),
-                #   columns=['A', 'B', 'C', 'D'])
-# print(df0)
-# df0_d = drop_columns(df0, ['B','C'])
-# df0_d = drop_columns(df0, [1,2])
-# print(df0_d)
+# df = pd.DataFrame(data)
+
+# Группировка по Treat_N и вычисление статистик
+stats = df.groupby('Treat_N').agg(['mean', 'std'])
+
+# Удаление мультииндекса для удобства
+stats.columns = ['_'.join(col) for col in stats.columns]
+
+# Суммирование средних значений по столбцам
+stats['All_ingredients'] = stats.filter(like='_mean').sum(axis=1)
+stats.reset_index(inplace=True)  # Сброс индекса и превращение Treat_N в столбец
+# df = df.merge(stats[['Treat_N', 'All_ingredients']], on='Treat_N', how='left')
+
+# df['All_ingredients'] = stats['All_ingredients']
+print(stats)  # Вывод результата
+plot_all_ingredients(stats)
+plot_all_ingredien_stack(stats)
+# print(df)
+
 
