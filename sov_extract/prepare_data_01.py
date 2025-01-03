@@ -203,6 +203,24 @@ def plot_all_ingredien_stack(stats):
     plt.legend()
     # plt.savefig('./Data/stacked_bar_chart.pdf')
     plt.savefig(Path(__file__).parent /'Data'/'stacked_bar_chart.pdf')
+    """
+
+    Давай разберём это выражение по частям:
+
+    Path(__file__).parent / 'Data' / 'stacked_bar_chart.pdf'
+    1. Path(__file__)
+    __file__ — это специальная переменная, которая содержит полный путь к файлу, в котором выполняется код.
+    Path(__file__) создает объект Path (из модуля pathlib), представляющий путь к этому файлу.
+    2. .parent
+    Path(__file__).parent возвращает родительскую директорию файла, т.е. директорию, в которой находится сам скрипт.
+    3. / 'Data'
+    Оператор / в контексте Path добавляет к пути поддиректорию Data.
+    Это аналогично os.path.join(), но синтаксис более лаконичен.
+    4. / 'stacked_bar_chart.pdf'
+    К пути добавляется имя файла stacked_bar_chart.pdf внутри папки Data.
+    Итог:
+    Полное выражение формирует путь к файлу stacked_bar_chart.pdf в папке Data, которая находится в директории, где расположен сам скрипт.
+    """
     plt.show()
     
     # Построение тетрад
