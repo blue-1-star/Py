@@ -202,6 +202,7 @@ def plot_all_ingredien_stack(stats):
     plt.xticks(stats_sorted['Treat_N'], rotation=45)
     plt.legend()
     # plt.savefig('./Data/stacked_bar_chart.pdf')
+    plt.savefig(Path(__file__).parent /'Data'/'stacked_bar_chart.pdf')
     plt.show()
     
     # Построение тетрад
@@ -223,6 +224,7 @@ def plot_all_ingredien_stack(stats):
     plt.xticks(index, stats_sorted['Treat_N'], rotation=45)
     plt.legend()
     # plt.savefig('./Data/grouped_bar_chart.pdf')
+    plt.savefig(Path(__file__).parent /'Data'/'grouped_bar_chart.pdf')
     plt.show()
 
 
