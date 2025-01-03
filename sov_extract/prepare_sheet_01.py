@@ -202,8 +202,9 @@ replace_list = [('ethanol 80%', 'et_80'), ('HCl 0.1 M', 'HCl')]
 df1 = replace_text_in_columns(df1, [2,3], replace_list)
 print(f"data = {df1.iloc[:, [0,2,3,5]]}")
 # df2 = merge_rows_by_fraction(df1)
-df2 = merge_rows_by_fraction1(df1)
-print(f"df2 = {df2.iloc[:, [0,2,3,5]]}")
+# df2 = merge_rows_by_fraction1(df1)
+# df2 = df1.dropna(subset=['w_sum'])
+# print(f"df2 = {df2.iloc[:, [0,2,3,5]]}")
 
 #
 #
