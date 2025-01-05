@@ -245,6 +245,46 @@ def plot_all_ingredien_stack(stats):
     plt.savefig(Path(__file__).parent /'Data'/'grouped_bar_chart.pdf')
     plt.show()
 
+# Функция для группировки
+def assign_group(treat):
+    num = int(treat.split('_')[1])  # Извлекаем число из Tr_XX
+    return 'SubG_1' if num % 2 != 0 else 'SubG_2'
+
+# Обобщение графики
+
+import matplotlib.pyplot as plt
+
+# 1. Столбчатая диаграмма (stacked bar chart)
+def plot_stack(stats, subgroups=None):
+    ax = stats.plot(kind='bar', stacked=True)
+    plt.title('Stacked Bar Chart')
+    plt.ylabel('Values')
+    plt.legend(title='Metrics')
+    plt.show()
+
+# 2. Boxplot (ящики с усами)
+def plot_box(stats, subgroups=None):
+    if subgroups:
+        for subgroup, data in stats.groupby(subgroups):
+            plt.figure()
+            data.boxplot()
+            plt.title(f'Boxplot for {subgroup}')
+            plt.show()
+    else:
+        stats.boxplot()
+        plt.title('Boxplot')
+        plt.show()
+
+# 3. Управляющая функция для выбора графика
+def plot_graphs(stats, graph_type='stack', subgroups=None):
+    if graph_type == 'stack':
+        plot_stack(stats, subgroups)
+    elif graph_type == 'box':
+        plot_box(stats, subgroups)
+    else:
+        raise ValueError("Unsupported graph type. Use 'stack' or 'box'.")
+
+
 
 
 file_path = r"G:\My\sov\extract\weights_1.xlsx"
@@ -272,23 +312,38 @@ filled_df.columns = columns_rename
 df = filled_df
 # print(df)
 
+df['SubGroup'] = df['Treat_N'].apply(assign_group)
+# Группировка по подгруппам
+grouped = df.groupby('SubGroup')
 # df = pd.DataFrame(data)
 
 # Группировка по Treat_N и вычисление статистик
-stats = df.groupby('Treat_N').agg(['mean', 'std'])
+# stats = df.groupby('Treat_N').agg(['mean', 'std'])
+# stats = df.groupby('SubGroup').agg(['mean', 'std'])
+stats = df.select_dtypes(include='number').groupby(df['SubGroup']).agg(['mean', 'std'])
 
+
+
+# Вывод результатов
+for name, group in grouped:
+    print(f"\n{name}:\n{group}")
 # Удаление мультииндекса для удобства
 stats.columns = ['_'.join(col) for col in stats.columns]
 
 # Суммирование средних значений по столбцам
-stats['All_ingredients'] = stats.filter(like='_mean').sum(axis=1)
+# stats['All_ingredients'] = stats.filter(like='_mean').sum(axis=1)
+stats['Two_Gr'] = stats.filter(like='_mean').sum(axis=1)
 stats.reset_index(inplace=True)  # Сброс индекса и превращение Treat_N в столбец
 # df = df.merge(stats[['Treat_N', 'All_ingredients']], on='Treat_N', how='left')
 
 # df['All_ingredients'] = stats['All_ingredients']
 print(stats)  # Вывод результата
-plot_all_ingredients(stats)
-plot_all_ingredien_stack(stats)
+stats.set_index('SubGroup', inplace=True)
+plot_graphs(stats, graph_type='stack')
+plot_graphs(stats, graph_type='box')
+
+# plot_all_ingredients(stats)
+# plot_all_ingredien_stack(stats)
 # print(df)
 
 
