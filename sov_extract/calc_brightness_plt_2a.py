@@ -123,8 +123,41 @@ def save_brightness_excel(df, output_file):
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_Color')
         summary_df.to_excel(writer, sheet_name='Sorted by Brightness_Color', index=False, startrow=len(df) + 2)
 
-     
-    print(f"Excel-файл '{output_file}' створено успішно!")
+     # Додаємо лист з діаграмою
+        workbook = writer.book
+        sheet = workbook.create_sheet('Chart')
+
+        # Запис даних для діаграми
+        for r_idx, row in enumerate(df[['Filename', 'Brightness_PIL', 'avg_color_hex']].values, 2):
+        # for r_idx, row in enumerate(df.loc[:, ['Filename', 'Brightness_PIL', 'avg_color_hex']].values, 2):
+            for c_idx, value in enumerate(row, 1):
+                sheet.cell(row=r_idx, column=c_idx, value=value)
+
+        # Створюємо стовпчикову діаграму
+        chart = BarChart()
+        chart.type = 'col'
+        chart.style = 10
+        chart.title = 'Brightness Analysis'
+        chart.y_axis.title = 'Brightness (PIL)'
+        chart.x_axis.title = 'Images'
+
+        # Діапазон даних для діаграми
+        data = Reference(sheet, min_col=2, min_row=1, max_row=len(df) + 1)
+        categories = Reference(sheet, min_col=1, min_row=2, max_row=len(df) + 1)
+        chart.add_data(data, titles_from_data=True)
+        chart.set_categories(categories)
+        sheet.add_chart(chart, 'E5')
+
+        # Наносимо кольори для кожного стовпчика
+        for idx, color in enumerate(df['avg_color_hex'], 0):
+            col = chart.series[0]
+            point = col.graphicalProperties.solidFill
+            point = PatternFill(start_color=color, end_color=color, fill_type='solid')
+            col.dPt.append({'idx': idx, 'spPr': {'solidFill': {'srgbClr': color[1:]}}})
+
+    print(f"Excel-файл '{output_file}' створено успішно з діаграмою!")
+   
+    # print(f"Excel-файл '{output_file}' створено успішно!")
     auto_adjust_column_width(output_file)
 def auto_adjust_column_width(output_file):
     workbook = load_workbook(output_file)
