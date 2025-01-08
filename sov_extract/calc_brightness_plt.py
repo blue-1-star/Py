@@ -114,7 +114,7 @@ def create_brightness_plots(df):
     fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
     plot_brightness(orf_data, 'Brightness for ORF Files', axs[0])
     plot_brightness(jpg_data, 'Brightness for JPG Files', axs[1])
-    output_path = os.path.join(image_dir, "brightness_graph.pdf")
+    output_path = os.path.join(image_dir, "brightness_graph1.pdf")
     plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight')  # Рекомендується встановити високий dpi для якості
     plt.show()
     plt.close()
