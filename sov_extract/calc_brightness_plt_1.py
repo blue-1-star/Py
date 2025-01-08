@@ -6,6 +6,9 @@ from PIL import Image, ImageStat
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from datetime import datetime
+from openpyxl import load_workbook
+
 
 # Функція обробки зображень (включно з ORF)
 def process_image(img_path):
@@ -151,20 +154,22 @@ def save_brightness_excel(df, output_file, lower_threshold):
         'files' : len(df),
         'lower_threshold' : lower_threshold
     }
+    summary_df = pd.DataFrame([summary])
+
     with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
         # Лист 1: Оригінальний порядок
         df.sort_values(['Filename'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Original Order')
-        summary.to_excel(writer, sheet_name='Original Order', index=False, startrow=len(df) + 2)
+        summary_df.to_excel(writer, sheet_name='Original Order', index=False, startrow=len(df) + 2)
         # Лист 2: Сортовані по яскравості всередині груп (PIL)
         df.sort_values(['Format', 'Rank_in_Group_PIL'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_PIL')
-        summary.to_excel(writer, sheet_name='Sorted by Brightness_PIL', index=False, startrow=len(df) + 2)
+        summary_df.to_excel(writer, sheet_name='Sorted by Brightness_PIL', index=False, startrow=len(df) + 2)
 
         # Лист 3: Сортовані по яскравості всередині груп (Color)
         df.sort_values(['Format', 'Rank_in_Group_Color'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_Color')
-        summary.to_excel(writer, sheet_name='Sorted by Brightness_Color', index=False, startrow=len(df) + 2)
+        summary_df.to_excel(writer, sheet_name='Sorted by Brightness_Color', index=False, startrow=len(df) + 2)
 
         # Лист 4: Глобальне сортування по яскравості (PIL)
         df.sort_values(['Rank_Global_PIL'], inplace=True)
@@ -187,7 +192,7 @@ def create_brightness_plots(df):
     fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
     plot_brightness(orf_data, 'Brightness for ORF Files', axs[0])
     plot_brightness(jpg_data, 'Brightness for JPG Files', axs[1])
-    output_path = os.path.join(image_dir, "brightness_graph.pdf")
+    output_path = os.path.join(image_dir, "brightness_graph1.pdf")
     plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight')  # Рекомендується встановити високий dpi для якості
     plt.show()
     plt.close()
@@ -210,7 +215,7 @@ def create_brightness_plots(df):
 if __name__ == "__main__":
     image_dir = r"G:\My\sov\extract"  # Твій шлях до папки зображень
     output_file = os.path.join(image_dir, "brightness_comparison_comb.xlsx")
-    lower_threshold = 1
+    lower_threshold = 20
     # Перевірка, чи існує збережений DataFrame
     cache_file = os.path.join(image_dir, "brightness_data.csv")
 
@@ -223,7 +228,7 @@ if __name__ == "__main__":
         print("Brightness calculations completed and cached.")
 
     # Збереження у файл Excel
-    save_brightness_excel(df, output_file)
+    save_brightness_excel(df, output_file, lower_threshold)
 
     # Створення графіків
     create_brightness_plots(df)
