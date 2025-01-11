@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from openpyxl import load_workbook
+from datetime import datetime
 
 # Функція обробки зображень (включно з ORF)
 def process_image(img_path):
@@ -17,11 +18,6 @@ def process_image(img_path):
     else:
         img = Image.open(img_path)
     return img
-from PIL import Image, ImageStat
-import numpy as np
-import os
-import pandas as pd
-from datetime import datetime
 
 def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255):
     # img = Image.open(image_path)
