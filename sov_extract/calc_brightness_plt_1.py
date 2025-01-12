@@ -34,7 +34,8 @@ def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255)
     dict: Середнє значення яскравості, кількість вилучених темних і світлих пікселів.
     """
     # Завантажуємо зображення
-    img = Image.open(image_path)
+    img = process_image(image_path) 
+    # img = Image.open(image_path)
     grayscale_img = img.convert('L')  # Перетворення в градації сірого
     
     # Перетворюємо зображення у numpy масив
@@ -71,7 +72,8 @@ def calculate_brightness_color(image_path, lower_threshold=0, upper_threshold=25
     dict: Середнє значення яскравості, кількість вилучених темних і світлих пікселів.
     """
     # Завантажуємо зображення
-    img = Image.open(image_path)
+    img = process_image(image_path) 
+    # img = Image.open(image_path)
     
     # Перетворюємо зображення у numpy масив
     pixel_values = np.array(img)
@@ -162,24 +164,24 @@ def save_brightness_excel(df, output_file, lower_threshold):
         df.to_excel(writer, index=False, sheet_name='Original Order')
         summary_df.to_excel(writer, sheet_name='Original Order', index=False, startrow=len(df) + 2)
         # Лист 2: Сортовані по яскравості всередині груп (PIL)
-        df.sort_values(['Format', 'Rank_in_Group_PIL'], inplace=True)
+        # df.sort_values(['Format', 'Rank_in_Group_PIL'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_PIL')
         summary_df.to_excel(writer, sheet_name='Sorted by Brightness_PIL', index=False, startrow=len(df) + 2)
 
         # Лист 3: Сортовані по яскравості всередині груп (Color)
-        df.sort_values(['Format', 'Rank_in_Group_Color'], inplace=True)
+        # df.sort_values(['Format', 'Rank_in_Group_Color'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_Color')
         summary_df.to_excel(writer, sheet_name='Sorted by Brightness_Color', index=False, startrow=len(df) + 2)
 
         # Лист 4: Глобальне сортування по яскравості (PIL)
-        df.sort_values(['Rank_Global_PIL'], inplace=True)
+        # df.sort_values(['Rank_Global_PIL'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Global Sorted by PIL')
-        summary.to_excel(writer, sheet_name='Global Sorted by PIL', index=False, startrow=len(df) + 2)
+        summary_df.to_excel(writer, sheet_name='Global Sorted by PIL', index=False, startrow=len(df) + 2)
         
         # Лист 5: Глобальне сортування по яскравості (Color)
-        df.sort_values(['Rank_Global_Color'], inplace=True)
+        # df.sort_values(['Rank_Global_Color'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Global Sorted by Color')
-        summary.to_excel(writer, sheet_name='Global Sorted by Color', index=False, startrow=len(df) + 2)
+        summary_df.to_excel(writer, sheet_name='Global Sorted by Color', index=False, startrow=len(df) + 2)
 
     print(f"Excel-файл '{output_file}' створено успішно!")
 
