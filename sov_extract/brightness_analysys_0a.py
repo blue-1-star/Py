@@ -199,7 +199,8 @@ def save_brightness_excel(df, output_file, lower_threshold):
         summary_df.to_excel(writer, sheet_name='Global Sorted by Color', index=False, startrow=len(df) + 2)
 
     # print(f"Excel-файл '{output_file}' створено успішно!")
-
+# графика
+import calc_brightness_plt_1, calc_brightness_plt_1a
 
 
 # Основной блок выполнения
