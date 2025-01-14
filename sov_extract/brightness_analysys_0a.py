@@ -92,6 +92,31 @@ def calculate_brightness_with_area(image_path, shape='square', size=100, lower_t
     finally:
         os.remove(temp_path)
 
+def calculate_color_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
+    """Calculates detailed color analysis for the selected area of the image."""
+    img = process_image(image_path)
+    cropped_img = crop_image(img, shape=shape, size=size)
+
+    # Convert cropped image to numpy array
+    pixel_values = np.array(cropped_img)
+
+    # Calculate brightness values
+    brightness_values = 0.299 * pixel_values[:, :, 0] + 0.587 * pixel_values[:, :, 1] + 0.114 * pixel_values[:, :, 2]
+
+    # Filter pixels based on brightness thresholds
+    mask = (brightness_values >= lower_threshold) & (brightness_values <= upper_threshold)
+    filtered_pixels = pixel_values[mask]
+
+    # Calculate average color if there are filtered pixels
+    if len(filtered_pixels) > 0:
+        avg_r = np.average(filtered_pixels[:, 0], weights=(0.299 * filtered_pixels[:, 0]))
+        avg_g = np.average(filtered_pixels[:, 1], weights=(0.587 * filtered_pixels[:, 1]))
+        avg_b = np.average(filtered_pixels[:, 2], weights=(0.114 * filtered_pixels[:, 2]))
+        return int(avg_r), int(avg_g), int(avg_b)
+    else:
+        return 0, 0, 0
+
+
 
 # Функция для создания DataFrame с результатами
 def calculate_brightness_dataframe(image_dir, lower_threshold, size):
