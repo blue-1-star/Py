@@ -83,11 +83,11 @@ def calculate_brightness_dataframe(image_dir, lower_threshold=0, upper_threshold
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold, upper_threshold)
         brightness_color = calculate_brightness_color(img_path, lower_threshold, upper_threshold)
         avg_color = brightness_color.get('avg_color', (0, 0, 0))
-        avg_color_hex = '#{:02x}{:02x}{:02x}'.format(avg_color[0], avg_color[1], avg_color[2])
+        # avg_color_hex = '#{:02x}{:02x}{:02x}'.format(avg_color[0], avg_color[1], avg_color[2])
 
         # avg_color = brightness_color['avg_color']  # Дістаємо середній колір
         # Формуємо HEX-код кольору
-        # avg_color_hex = f'#{avg_color[0]:02x}{avg_color[1]:02x}{avg_color[2]:02x}'
+        avg_color_hex = f'#{avg_color[0]:02x}{avg_color[1]:02x}{avg_color[2]:02x}'
 
         file_format = "ORF" if img_file.lower().endswith('.orf') else "JPEG"
         

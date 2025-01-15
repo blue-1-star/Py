@@ -112,9 +112,15 @@ def calculate_color_with_area(image_path, shape='square', size=100, lower_thresh
         avg_r = np.average(filtered_pixels[:, 0], weights=(0.299 * filtered_pixels[:, 0]))
         avg_g = np.average(filtered_pixels[:, 1], weights=(0.587 * filtered_pixels[:, 1]))
         avg_b = np.average(filtered_pixels[:, 2], weights=(0.114 * filtered_pixels[:, 2]))
-        return int(avg_r), int(avg_g), int(avg_b)
-    else:
-        return 0, 0, 0
+        avg_r = int(avg_r)
+        avg_g = int(avg_g)
+        avg_b = int(avg_b)
+        # return int(avg_r), int(avg_g), int(avg_b)
+        # avg_color_hex = f'#{avg_color[0]:02x}{avg_color[1]:02x}{avg_color[2]:02x}'
+        avg_color_hex = f'#{avg_r:02x}{avg_g:02x}{avg_b:02x}'
+        return avg_color_hex
+
+    
 
 
 
@@ -127,11 +133,13 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
     for img_file in image_files:
         img_path = os.path.join(image_dir, img_file)
         img = process_image(img_path)
-
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
         brightness_color = calculate_brightness_color(img_path, lower_threshold)
-        brightness_square = calculate_brightness_with_area(img_path, shape='square', size=100, lower_threshold=lower_threshold)
-        brightness_circle = calculate_brightness_with_area(img_path, shape='circle', size=100, lower_threshold=lower_threshold)
+        # brightness_square = calculate_brightness_with_area(img_path, shape='square', size, lower_threshold=lower_threshold)
+        brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
+        brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        avg_color_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
         file_format = "ORF" if img_file.lower().endswith('.orf') else "JPEG"
 
@@ -141,7 +149,9 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Brightness_PIL": brightness_pil['mean_brightness'],
             "Brightness_Color": brightness_color['mean_brightness'],
             "Brightness_Square": brightness_square['mean_brightness'],
-            "Brightness_Circle": brightness_circle['mean_brightness']
+            "avg_color_circle": avg_color_circle,
+            "avg_color_square": avg_color_square,
+
         })
 
     df = pd.DataFrame(results)
@@ -200,7 +210,7 @@ def save_brightness_excel(df, output_file, lower_threshold):
 
     with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
         # Лист 1: Оригінальний порядок
-        df.sort_values(['Filename'], inplace=True)
+        # df(['Filename'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Original Order')
         summary_df.to_excel(writer, sheet_name='Original Order', index=False, startrow=len(df) + 2)
         # Лист 2: Сортовані по яскравості всередині груп (PIL)
@@ -234,7 +244,7 @@ if __name__ == "__main__":
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
     output_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
-    lower_threshold = 20
+    lower_threshold = 0
     size = 2000
 
     # df = calculate_brightness_dataframe(image_dir, lower_threshold, size)
