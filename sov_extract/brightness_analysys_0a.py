@@ -139,7 +139,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
         brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
         avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
-        avg_color_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
+        avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
         file_format = "ORF" if img_file.lower().endswith('.orf') else "JPEG"
 
@@ -149,8 +149,8 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Brightness_PIL": brightness_pil['mean_brightness'],
             "Brightness_Color": brightness_color['mean_brightness'],
             "Brightness_Square": brightness_square['mean_brightness'],
-            "avg_color_circle": avg_color_circle,
-            "avg_color_square": avg_color_square,
+            "col_cir": avg_color_circle,
+            "col_sq": avg_color_square,
 
         })
 
