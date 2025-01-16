@@ -149,9 +149,9 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Brightness_PIL": brightness_pil['mean_brightness'],
             "Brightness_Color": brightness_color['mean_brightness'],
             "Brightness_Square": brightness_square['mean_brightness'],
+            "Brightness_Circle": brightness_circle['mean_brightness'],
             "col_cir": avg_color_circle,
-            "col_sq": avg_color_square,
-
+            "col_sq": avg_col_square,
         })
 
     df = pd.DataFrame(results)
@@ -211,8 +211,20 @@ def save_brightness_excel(df, output_file, lower_threshold):
     with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
         # Лист 1: Оригінальний порядок
         # df(['Filename'], inplace=True)
-        df.to_excel(writer, index=False, sheet_name='Original Order')
+        df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
+        df = df.sort_values(
+        by=['Format', 'Filename'], 
+        key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)        
+        df1 = df.drop(columns=['Format'])
+        rename_map = col_ren_bright_excel()
+        df1.rename(columns=rename_map, inplace=True) 
+        # df1 = df1.rename(columns={'Brightness_PIL': 'Bright_PIL'})
+        sheet_name = 'Original Order'
+        df1.to_excel(writer, index=False, sheet_name=sheet_name)
+        format_dataframe_columns_to_excel(writer,sheet_name, df1, ['Bright_PIL', 'Bright_Col', 'Bright_Sq', 'Bright_Sc'],\
+        [1, 1, 1, 1, 1])
         summary_df.to_excel(writer, sheet_name='Original Order', index=False, startrow=len(df) + 2)
+
         # Лист 2: Сортовані по яскравості всередині груп (PIL)
         df.sort_values(['Format', 'Rank_in_Group_PIL'], inplace=True)
         df.to_excel(writer, index=False, sheet_name='Sorted by Brightness_PIL')
@@ -236,6 +248,39 @@ def save_brightness_excel(df, output_file, lower_threshold):
     # print(f"Excel-файл '{output_file}' створено успішно!")
 # графика
 import calc_brightness_plt_1, calc_brightness_plt_1a
+def col_ren_bright_excel():
+    return {
+        'Brightness_PIL': 'Bright_PIL',
+        'Brightness_Color': 'Bright_Col',
+        'Brightness_Square': 'Bright_Sq',
+        'Brightness_Circle': 'Bright_Sc',        
+        'avg_color_circle': 'Col_Sc',
+        'avg_color_square': 'Col_sq',        
+        # Добавьте другие столбцы
+    }
+
+
+
+def format_dataframe_columns_to_excel(writer, sheet_name, df, columns, decimal_places):
+    # Применение стиля к указанным столбцам
+    sheet = writer.sheets[sheet_name]
+    for column, decimals in zip(columns, decimal_places):
+        if column in df.columns and df[column].dtype in ['float64', 'int64']:
+            number_format = f'0.{"0" * decimals}'
+            col_idx = df.columns.get_loc(column) + 1  # Индекс столбца (Excel 1-based)
+            for row_idx in range(2, len(df) + 2):  # Excel строки начинаются с 1, учитываем заголовок
+                cell = sheet.cell(row=row_idx, column=col_idx)
+                cell.number_format = number_format
+        else:
+            print(f"Столбец {column} не является числовым или отсутствует в DataFrame и не будет отформатирован.")
+
+# Пример использования функции
+# data = {
+#     'A': [1.12345, 2.54321, 3.6789],
+#     'B': [4.12345, 5.54321, 6.6789]
+# }
+# df = pd.DataFrame(data)
+# format_dataframe_column_to_excel(df, 'A', 2, 'пример.xlsx')
 
 
 # Основной блок выполнения
