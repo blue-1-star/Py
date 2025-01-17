@@ -9,6 +9,8 @@ import numpy as np
 from datetime import datetime
 from openpyxl import load_workbook
 import tempfile
+import calc_brightness_plt_1, calc_brightness_plt_1a
+from calc_brightness_plt_1a import shorten_filename, shorten_filename_list
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
     if img_path.lower().endswith('.orf'):
@@ -161,7 +163,10 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
     df['Rank_Global_PIL'] = df['Brightness_PIL'].rank(ascending=False).astype(int)
     df['Rank_in_Group_Color'] = df.groupby('Format')['Brightness_Color'].rank(ascending=False).astype(int)
     df['Rank_Global_Color'] = df['Brightness_Color'].rank(ascending=False).astype(int)
-
+    df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
+    df = df.sort_values(
+    by=['Format', 'Filename'], 
+    key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)    
     return df
 
 # Функция сохранения в Excel
@@ -212,10 +217,10 @@ def save_brightness_excel(df, output_file, lower_threshold):
         # Лист 1: Оригінальний порядок
         # df(['Filename'], inplace=True)
         df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
-        df = df.sort_values(
+        df1 = df.sort_values(
         by=['Format', 'Filename'], 
         key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)        
-        df1 = df.drop(columns=['Format'])
+        df1 = df1.drop(columns=['Format'])
         rename_map = col_ren_bright_excel()
         df1.rename(columns=rename_map, inplace=True) 
         # df1 = df1.rename(columns={'Brightness_PIL': 'Bright_PIL'})
@@ -247,7 +252,7 @@ def save_brightness_excel(df, output_file, lower_threshold):
 
     # print(f"Excel-файл '{output_file}' створено успішно!")
 # графика
-import calc_brightness_plt_1, calc_brightness_plt_1a
+
 def col_ren_bright_excel():
     return {
         'Brightness_PIL': 'Bright_PIL',
@@ -274,13 +279,114 @@ def format_dataframe_columns_to_excel(writer, sheet_name, df, columns, decimal_p
         else:
             print(f"Столбец {column} не является числовым или отсутствует в DataFrame и не будет отформатирован.")
 
-# Пример использования функции
-# data = {
-#     'A': [1.12345, 2.54321, 3.6789],
-#     'B': [4.12345, 5.54321, 6.6789]
-# }
-# df = pd.DataFrame(data)
-# format_dataframe_column_to_excel(df, 'A', 2, 'пример.xlsx')
+def create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__), 'Data')):
+    # Prepare data
+    df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
+    df = df.sort_values(
+    by=['Format', 'Filename'], 
+    key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)        
+    orf_data = df[df['Format'] == 'ORF']
+    jpg_data = df[df['Format'] == 'JPEG']
+
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Graph 1: Natural order of filenames
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6), sharey=True)
+
+    for ax, data, title in zip(axes, [orf_data, jpg_data], ['ORF Format', 'JPEG Format']):
+        x_labels = shorten_filename_list(data['Filename'])
+        x = range(len(x_labels))
+        brightness_values = [
+            data['Brightness_PIL'],
+            data['Brightness_Color'],
+            data['Brightness_Square'],
+            data['Brightness_Circle']
+        ]
+        # Установка ширины столбцов и вычисление позиций меток
+        bar_width = 0.2  # Ширина одного столбца
+        group_width = bar_width * 4  # Общая ширина группы из 4 столбцов
+        x_ticks = [pos + group_width / 2 - bar_width / 2 for pos in x]  # Смещение к середине группы
+        # Рисуем график
+        for i, brightness in enumerate(brightness_values):
+            ax.bar([pos + bar_width * i for pos in x], brightness, width=bar_width, label=brightness.name)
+        
+        ax.set_xticks(x_ticks)  # Устанавливаем середину группы как положение для меток
+        ax.set_xticklabels(x_labels, ha='center')  # Метки в центре и повернуты
+        # for i, brightness in enumerate(brightness_values):
+        #     ax.bar([pos + 0.2 * i for pos in x], brightness, width=0.2, label=brightness.name)
+
+
+
+        # ax.set_xticks([pos + 0.3 for pos in x])
+        # ax.set_xticklabels(x_labels, rotation=45, ha='right')
+        # ax.set_xticklabels(x_labels,  ha='right')
+        ax.set_title(title)
+        ax.legend(loc='upper left')
+
+    plt.tight_layout()
+    output_path = os.path.join(output_dir, f'brightness_graph_{datetime.now().strftime("%d_%m")}.pdf')
+    plt.savefig(output_path)
+    plt.show()
+
+    # Graph 2: Sorted by mean brightness
+    df['Mean_Brightness'] = (
+        df['Brightness_PIL'] + df['Brightness_Color'] + df['Brightness_Square'] + df['Brightness_Circle']
+    ) / 4
+    sorted_df = df.sort_values(by='Mean_Brightness', ascending=False)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    x_labels = shorten_filename_list(sorted_df['Filename'])
+    x = range(len(x_labels))
+    brightness_values = [
+        sorted_df['Brightness_PIL'],
+        sorted_df['Brightness_Color'],
+        sorted_df['Brightness_Square'],
+        sorted_df['Brightness_Circle']
+    ]
+    colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99']
+    bar_width = 0.2  # Ширина одного столбца
+    group_width = bar_width * 4  # Общая ширина группы из 4 столбцов
+    x_ticks = [pos + group_width / 2 - bar_width / 2 for pos in x]  # Смещение к середине группы
+    # Рисуем график
+    for i, brightness in enumerate(brightness_values):
+        ax.bar([pos + bar_width * i for pos in x], brightness, width=bar_width, label=brightness.name)
+    ax.set_xticks(x_ticks)  # Устанавливаем середину группы как положение для меток
+    ax.set_xticklabels(x_labels, ha='center')  # Метки в центре и повернуты
+
+    # for i, (brightness, color) in enumerate(zip(brightness_values, colors)):
+    #     ax.bar([pos + 0.2 * i for pos in x], brightness, width=0.2, color=color, label=brightness.name)
+
+    # ax.set_xticks([pos + 0.3 for pos in x])
+    # ax.set_xticklabels(x_labels,  ha='right')
+    ax.set_title('Sorted by Mean Brightness')
+    ax.legend()
+
+    output_path = os.path.join(output_dir, f'brightness_sorted_graph_{datetime.now().strftime("%d_%m")}.pdf')
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.show()
+
+    # Graph 3: Mean brightness for each format
+    mean_brightness_orf = orf_data[['Brightness_PIL', 'Brightness_Color', 'Brightness_Square', 'Brightness_Circle']].mean()
+    mean_brightness_jpg = jpg_data[['Brightness_PIL', 'Brightness_Color', 'Brightness_Square', 'Brightness_Circle']].mean()
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    x = range(4)
+    bar_width = 0.4
+
+    ax.bar([pos for pos in x], mean_brightness_orf, width=bar_width, label='ORF', color='#4caf50')
+    ax.bar([pos + bar_width for pos in x], mean_brightness_jpg, width=bar_width, label='JPEG', color='#2196f3')
+
+    ax.set_xticks([pos + bar_width / 2 for pos in x])
+    ax.set_xticklabels(mean_brightness_orf.index, rotation=45, ha='right')
+    ax.set_title('Mean Brightness by Format')
+    ax.legend()
+
+    output_path = os.path.join(output_dir, f'mean_brightness_graph_{datetime.now().strftime("%d_%m")}.pdf')
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.show()
 
 
 # Основной блок выполнения
@@ -307,4 +413,4 @@ if __name__ == "__main__":
     save_brightness_excel(df, output_file, lower_threshold)
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
-
+    create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__), 'Data'))
