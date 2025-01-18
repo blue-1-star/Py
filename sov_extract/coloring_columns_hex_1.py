@@ -94,21 +94,71 @@ def fill_color_columns_to_excel1(input_file, output_file, columns_with_hex):
     wb.save(output_file)
     print(f"Файл с добавленными цветами сохранен как '{output_file}'.")
 
-def fill_color_columns_to_excel(output_file, df, columns_with_hex):
+# def fill_color_columns_to_excel(output_file, df, columns_with_hex):
+#     """
+#     Заполняет цветами ячейки в Excel на основе HEX-кодов, содержащихся в указанных столбцах.
+
+#     :param output_file: str, путь к выходному Excel-файлу
+#     :param df: pd.DataFrame, датафрейм с данными
+#     :param columns_with_hex: list, список столбцов с HEX-кодами цветов
+#     """
+#     # Сохраняем DataFrame в Excel
+#     df.to_excel(output_file, index=False, engine='openpyxl')
+
+#     # Открываем Excel-файл для модификации
+#     wb = load_workbook(output_file)
+#     ws = wb.active
+
+#     for col in columns_with_hex:
+#         if col in df.columns:
+#             col_index = df.columns.get_loc(col) + 1  # Индекс столбца с HEX-кодами (1-based для Excel)
+#             empty_col_index = col_index + 1  # Индекс пустого столбца для раскрашивания
+
+#             for row_index, hex_code in enumerate(df[col], start=2):  # Начинаем с 2, т.к. 1 строка - заголовки
+#                 if pd.notna(hex_code):
+#                     try:
+#                         # Устанавливаем цвет ячейки в пустом столбце
+#                         fill = PatternFill(start_color=hex_code.lstrip('#'), end_color=hex_code.lstrip('#'), fill_type="solid")
+#                         ws.cell(row=row_index, column=empty_col_index).fill = fill
+#                     except Exception as e:
+#                         print(f"Ошибка при применении цвета {hex_code} в строке {row_index}: {e}")
+
+#     # Сохраняем изменения в Excel-файле
+#     wb.save(output_file)
+#     print(f"Цвета успешно применены и сохранены в файл: {output_file}")
+"""
+Чтобы интегрировать объект ExcelWriter в функцию fill_color_columns_to_excel, необходимо перестроить её логику.
+ Вместо сохранения и повторного открытия файла с использованием load_workbook,
+ можно сразу работать с объектом ExcelWriter для внесения изменений в лист Excel.
+"""    
+# модифицированный fill_color_columns_to_excel  с объектом Excel - writer
+
+def fill_color_columns_to_excel(writer, df, columns_with_hex, sheet_name):
     """
-    Заполняет цветами ячейки в Excel на основе HEX-кодов, содержащихся в указанных столбцах.
-
-    :param output_file: str, путь к выходному Excel-файлу
-    :param df: pd.DataFrame, датафрейм с данными
-    :param columns_with_hex: list, список столбцов с HEX-кодами цветов
+    Раскрашивает столбцы с указанными цветами и сохраняет в указанный лист через writer.
+    
+    writer: объект ExcelWriter
+    df: DataFrame для записи в Excel
+    columns_with_hex: словарь {имя столбца: HEX-цвет}, которые нужно закрасить
+    columns_with_hex: список столбцов, содержащих HEX-коды для закраск
+    sheet_name: название листа для записи
     """
-    # Сохраняем DataFrame в Excel
-    df.to_excel(output_file, index=False, engine='openpyxl')
+    # Сохраняем DataFrame на указанный лист через writer
+    df.to_excel(writer, index=False, sheet_name=sheet_name)
 
-    # Открываем Excel-файл для модификации
-    wb = load_workbook(output_file)
-    ws = wb.active
+    # Получаем объект листа Excel через writer
+    ws = writer.sheets[sheet_name]
 
+    # Применяем стили к нужным столбцам
+    # for col_name, hex_color in columns_with_hex.items():
+    #     # Найдём индекс столбца
+    #     if col_name in df.columns:
+    #         col_index = df.columns.get_loc(col_name) + 1  # Excel использует 1-индексацию
+    #         fill = PatternFill(start_color=hex_color.lstrip("#"), end_color=hex_color.lstrip("#"), fill_type="solid")
+
+    #         # Применяем заливку к каждой ячейке столбца
+    #         for row in range(2, len(df) + 2):  # С учётом заголовка
+    #             ws.cell(row=row, column=col_index).fill = fill
     for col in columns_with_hex:
         if col in df.columns:
             col_index = df.columns.get_loc(col) + 1  # Индекс столбца с HEX-кодами (1-based для Excel)
@@ -123,9 +173,6 @@ def fill_color_columns_to_excel(output_file, df, columns_with_hex):
                     except Exception as e:
                         print(f"Ошибка при применении цвета {hex_code} в строке {row_index}: {e}")
 
-    # Сохраняем изменения в Excel-файле
-    wb.save(output_file)
-    print(f"Цвета успешно применены и сохранены в файл: {output_file}")
 
 # Пример использования
 columns_with_hex = ['col_cir', 'col_sq']
@@ -133,17 +180,69 @@ current_date = datetime.now().strftime("%d_%m")
 yesterday_date = datetime.now() - timedelta(days=1)
 prev_d = yesterday_date.strftime("%d_%m")
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
-input_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
-# input_file = os.path.join(output_dir, f"brightness_analysis_{prev_d}.xlsx")
+# input_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
+input_file = os.path.join(output_dir, f"brightness_analysis_{prev_d}.xlsx")
 out_file_emp = os.path.join(output_dir, f"bright_analysis_{current_date}_emp.xlsx")
 output_file = os.path.join(output_dir, f"bright_analysis_{current_date}_color.xlsx")
-df = pd.read_excel(input_file)
-df = insert_empty_columns(df,columns_with_hex)
-df.to_excel(out_file_emp, index = False)
-print(f"Файл c добавленными столбцами успешно сохранён: {out_file_emp}")
-fill_color_columns_to_excel(output_file, df, columns_with_hex)
+# df = pd.read_excel(input_file)
+# df = insert_empty_columns(df,columns_with_hex)
+with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
+    # Обрабатываем каждый лист
+    # sheet_name = "Original Order"
+    all_sheets = pd.read_excel(input_file, sheet_name=None)
+    for sheet_name, df in all_sheets.items():
+        if sheet_name == "Original Order":
+            df = insert_empty_columns(df,columns_with_hex)
+            fill_color_columns_to_excel(writer, df, columns_with_hex, sheet_name)
+        else:
+            df.to_excel(writer, sheet_name=sheet_name, index=False)
+
+print(f"Файл успешно сохранён: {output_file}")
+# df.to_excel(out_file_emp, index = False)
+# print(f"Файл c добавленными столбцами успешно сохранён: {out_file_emp}")
+
+# fill_color_columns_to_excel(output_file, df, columns_with_hex)
 # fill_color_columns_to_excel(
 #     input_file=input_file,
 #     output_file=output_file,
 #     columns_with_hex=columns_with_hex
 # )
+"""
+Если параметр sheet_name не указан в функции pd.read_excel, он по умолчанию принимает значение 0.
+Это означает, что pandas загрузит только первый лист из файла Excel.
+
+Поведение sheet_name в зависимости от значения:
+Если sheet_name=None:
+
+Функция загружает все листы из файла.
+Результат возвращается в виде словаря, где ключи — это имена листов, а значения — соответствующие DataFrame
+ (данные каждого листа).
+
+all_sheets = pd.read_excel(input_file, sheet_name=None)
+# all_sheets -> {'Sheet1': DataFrame1, 'Sheet2': DataFrame2, ...}
+Если sheet_name не указан (или sheet_name=0):
+
+Загружается только первый лист (по порядку в книге Excel).
+Возвращается один DataFrame.
+
+first_sheet = pd.read_excel(input_file)
+# first_sheet -> DataFrame из первого листа
+Если sheet_name задан как строка:
+
+Загружается лист с указанным именем.
+Возвращается один DataFrame.
+
+specific_sheet = pd.read_excel(input_file, sheet_name="Sheet2")
+# specific_sheet -> DataFrame с данными из листа "Sheet2"
+Если sheet_name задан как список:
+
+Загружаются только листы из списка.
+Результат возвращается как словарь.
+
+some_sheets = pd.read_excel(input_file, sheet_name=["Sheet1", "Sheet3"])
+# some_sheets -> {'Sheet1': DataFrame1, 'Sheet3': DataFrame3}
+Итог
+Если параметр sheet_name=None не указан, загрузится только первый лист, а не весь файл.
+Чтобы гарантированно работать со всеми листами, нужно явно указывать sheet_name=None.
+
+"""
