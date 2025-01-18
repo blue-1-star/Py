@@ -173,9 +173,33 @@ def fill_color_columns_to_excel(writer, df, columns_with_hex, sheet_name):
                     except Exception as e:
                         print(f"Ошибка при применении цвета {hex_code} в строке {row_index}: {e}")
 
+# def form_float(df,columns_list,number):
+    
+#     df[columns_list]= df[columns_list].round(number)
+#     return df
+
+def form_float(df, columns_list, number):
+    """
+    Форматирует вещественные числа в указанных столбцах DataFrame с заданной точностью.
+
+    df: DataFrame
+    columns_list: список имен столбцов, которые нужно форматировать
+    number: количество знаков после запятой
+    """
+    for col in columns_list:
+        if col in df.columns:  # Проверяем, что столбец существует
+            if pd.api.types.is_numeric_dtype(df[col]):  # Проверяем, что столбец числовой
+                df[col] = df[col].round(number)
+            else:
+                print(f"Столбец '{col}' не числовой и был пропущен.")
+        else:
+            print(f"Столбец '{col}' отсутствует в DataFrame.")
+    return df
+
 
 # Пример использования
 columns_with_hex = ['col_cir', 'col_sq']
+columns_list = ['Bright_PIL','Bright_Col']
 current_date = datetime.now().strftime("%d_%m")
 yesterday_date = datetime.now() - timedelta(days=1)
 prev_d = yesterday_date.strftime("%d_%m")
@@ -194,10 +218,12 @@ with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
         if sheet_name == "Original Order":
             df = insert_empty_columns(df,columns_with_hex)
             fill_color_columns_to_excel(writer, df, columns_with_hex, sheet_name)
+            df = form_float(df, columns_list, 1)
         else:
             df.to_excel(writer, sheet_name=sheet_name, index=False)
 
 print(f"Файл успешно сохранён: {output_file}")
+
 # df.to_excel(out_file_emp, index = False)
 # print(f"Файл c добавленными столбцами успешно сохранён: {out_file_emp}")
 
