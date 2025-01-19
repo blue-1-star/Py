@@ -3,8 +3,26 @@ from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
 from datetime import datetime, timedelta
 import os
-from brightness_analysys_0a import auto_adjust_column_width 
-from coloring_columns_hex_2 import insert_empty_columns 
+from brightness_analysys_0a import auto_adjust_column_width, format_dataframe_columns_to_excel 
+# from coloring_columns_hex_2 import insert_empty_columns 
+
+def insert_empty_columns(df, columns_list):
+    """
+    Вставляет пустой столбец после каждого столбца из списка columns_list в датафрейм df.
+
+    :param df: pd.DataFrame, исходный датафрейм
+    :param columns_list: list, список имен столбцов, после которых нужно вставить пустые столбцы
+    :return: pd.DataFrame, новый датафрейм с добавленными пустыми столбцами
+    """
+    df = df.copy()  # Создаем копию датафрейма, чтобы избежать изменений оригинала
+    
+    for col in columns_list:
+        if col in df.columns:
+            empty_col_name = f"{col}_empty"
+            col_index = df.columns.get_loc(col) + 1  # Индекс столбца, после которого добавляем пустой
+            df.insert(col_index, empty_col_name, None)  # Вставляем пустой столбец
+
+    return df
 
 def add_color_columns_to_excel(input_file, output_file, columns_with_hex):
     # Читаем Excel файл в DataFrame
@@ -186,6 +204,7 @@ def form_float(df, columns_list, number):
     columns_list: список имен столбцов, которые нужно форматировать
     number: количество знаков после запятой
     """
+    df[columns_list] = df[columns_list].astype(float)
     for col in columns_list:
         if col in df.columns:  # Проверяем, что столбец существует
             if pd.api.types.is_numeric_dtype(df[col]):  # Проверяем, что столбец числовой
@@ -199,13 +218,15 @@ def form_float(df, columns_list, number):
 
 # Пример использования
 columns_with_hex = ['col_cir', 'col_sq']
-columns_list = ['Bright_PIL','Bright_Col']
+columns_list = ['Bright_PIL', 'Bright_Col', 'Bright_Sq', 'Bright_Sc']
+decimal_places = [1,1,1,1]
 current_date = datetime.now().strftime("%d_%m")
 yesterday_date = datetime.now() - timedelta(days=1)
 prev_d = yesterday_date.strftime("%d_%m")
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
-# input_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
-input_file = os.path.join(output_dir, f"brightness_analysis_{prev_d}.xlsx")
+input_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
+# input_file = os.path.join(output_dir, f"brightness_analysis_{prev_d}.xlsx")
+# input_file = os.path.join(output_dir, f"brightness_analysis_17_01.xlsx")
 out_file_emp = os.path.join(output_dir, f"bright_analysis_{current_date}_emp.xlsx")
 output_file = os.path.join(output_dir, f"bright_analysis_{current_date}_color.xlsx")
 # df = pd.read_excel(input_file)
@@ -216,12 +237,19 @@ with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
     all_sheets = pd.read_excel(input_file, sheet_name=None)
     for sheet_name, df in all_sheets.items():
         if sheet_name == "Original Order":
+            pd.options.display.float_format = "{:.1f}".format
             df = insert_empty_columns(df,columns_with_hex)
+             # Сначала записываем DataFrame в файл
+            df.to_excel(writer, sheet_name=sheet_name, index=False)
+            format_dataframe_columns_to_excel(writer,sheet_name, df, columns_list, decimal_places)
             fill_color_columns_to_excel(writer, df, columns_with_hex, sheet_name)
-            df = form_float(df, columns_list, 1)
+            # print(df1.columns)
+            # print(df1)
+            # df1 = form_float(df1, columns_list, 1)
         else:
             df.to_excel(writer, sheet_name=sheet_name, index=False)
 
+pd.reset_option("display.float_format")
 print(f"Файл успешно сохранён: {output_file}")
 
 # df.to_excel(out_file_emp, index = False)

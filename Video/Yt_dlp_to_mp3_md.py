@@ -41,4 +41,4 @@ def download_and_convert_to_mp3(url, output_directory='.'):
 
 # Пример использования
 output_directory = r"G:\Music\fav\2025_winter"
-download_and_convert_to_mp3('https://www.youtube.com/watch?v=BkCAp755xWI', output_directory)
+download_and_convert_to_mp3('https://www.youtube.com/watch?v=07lcIkYEK-g', output_directory)

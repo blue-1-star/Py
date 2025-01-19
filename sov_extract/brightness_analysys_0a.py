@@ -9,6 +9,7 @@ import numpy as np
 from datetime import datetime
 from openpyxl import load_workbook
 import tempfile
+import brightness_analysys_0a
 import calc_brightness_plt_1, calc_brightness_plt_1a
 from calc_brightness_plt_1a import shorten_filename, shorten_filename_list
 # Функция обработки изображений (включая ORF)
@@ -266,9 +267,18 @@ def col_ren_bright_excel():
 
 
 
-def format_dataframe_columns_to_excel(writer, sheet_name, df, columns, decimal_places):
-    # Применение стиля к указанным столбцам
-    sheet = writer.sheets[sheet_name]
+def format_dataframe_columns_to_excel(writer, target_sheet_name, df, columns, decimal_places):
+    """
+    Применяет форматирование столбцов в указанном листе Excel.
+    
+    writer: объект ExcelWriter
+    target_sheet_name: имя листа
+    df: DataFrame
+    columns: список столбцов для форматирования
+    decimal_places: количество знаков после запятой
+    """
+    # Получаем лист Excel
+    sheet = writer.sheets[target_sheet_name]
     for column, decimals in zip(columns, decimal_places):
         if column in df.columns and df[column].dtype in ['float64', 'int64']:
             number_format = f'0.{"0" * decimals}'
