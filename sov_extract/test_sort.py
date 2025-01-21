@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 # Пример данных
 data = {
@@ -17,3 +18,5 @@ df = pd.DataFrame(data)
 df = df.sort_values(by='Column', key=lambda x: x.str.extract(r'(\d+)')[0].astype(int))
 # Вывод результата
 print(df)
+# print(os.environ['PATH'].split(';'))
+
