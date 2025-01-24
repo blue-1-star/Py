@@ -1,0 +1,60 @@
+Необходимо спроектировать сверху вниз задачу анализа двух субстратов A, F 
+снимки на  двух камерах Kam, Sm
+Данные находятся в одном каталоге и кодируются следующим образом 
+Файлы имеют расширение .png
+Субстрат A - имя файла a_nnl.png  - где nn - числа,  l  - буква = k или  s  для камеры Kam или Sm
+Субстрат F - имя файла f_nnl.png  - где nn - числа,  l  - буква = k или  s  для камеры Kam или Sm
+
+Имеются следующие функции:
+# Функции расчёта яркости, цветности
+def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255):
+def calculate_brightness_color(image_path, lower_threshold=0, upper_threshold=255):
+def crop_image(image, shape='square', size=100):
+    """
+    Вырезает заданную область (квадрат или окружность) из изображения.
+    """
+def calculate_brightness_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
+def calculate_color_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
+def calculate_brightness_dataframe(image_dir, lower_threshold, size):
+
+имеющуюся функцию 
+def save_brightness_excel(df, output_file, lower_threshold):
+скорректировать для сохранения новой информации
+
+Sheet1 - A : для субстрата A
+columns  [ Bright_Kam, Bright_Sm, Hex_color_Kam, Color_Cell_Kam,  Hex_Colr_Sm, Color_Cell_Sm]
+столбцы - Color_Cell_Kam, Color_Cell_Sm - закрашиваются цветом из столбцов Hex_color_Kam, Hex_Colr_Sm
+
+
+Sheet2 - F: для субстрата F
+columns  [ Bright_Kam, Bright_Sm, Hex_color_Kam, Color_Cell_Kam,  Hex_Colr_Sm, Color_Cell_Sm]
+столбцы - Color_Cell_Kam, Color_Cell_Sm - закрашиваются цветом из столбцов Hex_color_Kam, Hex_Colr_Sm
+
+раздел Summary каждого листа содержит информацию:
+Субстрат - (A, или F)
+способ вычисления средних по цветности и яркости ( фигура, размер, границы фильтрации пикселей) 
+количество взятых пикселей для выбранной области
+Общее количество пикселей фотографии
+Дата и время вычисления 
+--------------
+
+сделай функцию для формирования списка файлов 
+image_files = [f for f in os.listdir(image_dir) ....  ]
+которая фозвращает также, кроме списка файлов его маркировку - 2 параметра - субстрат (A, F  камера - Kam, Sm)
+и дальше передается для формирования вывода в итоговый файл 
+согласно такой нотации их наименований
+Данные находятся в одном каталоге и кодируются следующим образом 
+Файлы имеют расширение .png
+Субстрат A - имя файла a_nnl.png  - где nn - числа,  l  - буква = k или  s  для камеры Kam или Sm
+Субстрат F - имя файла f_nnl.png  - где nn - числа,  l  - буква = k или  s  для камеры Kam или Sm
+
+
+
+
+
+
+
+
+
+
+ 
