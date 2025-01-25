@@ -12,6 +12,8 @@ import tempfile
 import brightness_analysys_0a
 import calc_brightness_plt_1, calc_brightness_plt_1a
 from calc_brightness_plt_1a import shorten_filename, shorten_filename_list
+from brightness_analysys_1b import get_image_files_with_metadata, get_elements_by_index, extract_number_from_filename
+
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
     if img_path.lower().endswith('.orf'):
@@ -60,6 +62,7 @@ def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255)
     mean_brightness = np.mean(filtered_pixels) if len(filtered_pixels) > 0 else 0
     return {
         'mean_brightness': mean_brightness,
+        'used_pixels' : len(filtered_pixels),
         'total_pixels': pixel_values.size
     }
 
@@ -129,45 +132,78 @@ def calculate_color_with_area(image_path, shape='square', size=100, lower_thresh
 
 # Функция для создания DataFrame с результатами
 def calculate_brightness_dataframe(image_dir, lower_threshold, size):
-    image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg' ))]
+    # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg' ))]
     # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg','.png' ))]
+    image_files_tupl_meta = get_image_files_with_metadata(image_dir)
+    image_files = get_elements_by_index(image_files_tupl_meta,0)  # filename 
+    subst= get_elements_by_index(image_files_tupl_meta,1)    #  substrat
+    cam = get_elements_by_index(image_files_tupl_meta,2)  # camera
+
     results = []
-    
-    for img_file in image_files:
+    low_list, upper_list = [20,40], [235,215]
+    for idx, img_file in enumerate(image_files):
+
         img_path = os.path.join(image_dir, img_file)
         img = process_image(img_path)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
-        brightness_color = calculate_brightness_color(img_path, lower_threshold)
+        # brightness_color = calculate_brightness_color(img_path, lower_threshold)
         # brightness_square = calculate_brightness_with_area(img_path, shape='square', size, lower_threshold=lower_threshold)
-        brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
-        brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
-        avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
-        avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
+        # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
+        # brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        # avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        # avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
-        file_format = "ORF" if img_file.lower().endswith('.orf') else "JPEG"
-
-        results.append({
+        # Основной словарь результатов
+        result_row = {
             "Filename": img_file,
-            "Format": file_format,
-            "Brightness_PIL": brightness_pil['mean_brightness'],
-            "Brightness_Color": brightness_color['mean_brightness'],
-            "Brightness_Square": brightness_square['mean_brightness'],
-            "Brightness_Circle": brightness_circle['mean_brightness'],
-            "col_cir": avg_color_circle,
-            "col_sq": avg_col_square,
-        })
+            "Substrate": subst[idx],
+            "Camera": cam[idx],
+            "Bright_P": brightness_pil['mean_brightness'],
+            "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
+        }
+        # Если списки не пустые, выполняем дополнительные расчеты
+        if low_list and upper_list:
+            for lower_threshold, upper_threshold in zip(low_list, upper_list):
+                # Выполняем расчет с заданными порогами
+                brightness_pil = calculate_brightness_pil(img_path, lower_threshold, upper_threshold)
+
+                # Добавляем результаты в словарь с нужными именами столбцов
+                l_column = f"L{lower_threshold}"
+                u_column = f"U{upper_threshold}"
+                result_row[l_column] = brightness_pil['mean_brightness']
+                result_row[f"us_pix{l_column}"] = brightness_pil['used_pixels'] / brightness_pil['total_pixels']
+                result_row[u_column] = brightness_pil['mean_brightness']
+                result_row[f"us_pix{u_column}"] = brightness_pil['used_pixels'] / brightness_pil['total_pixels']
+
+            results.append(result_row)
+
+        # results.append({
+        #     # "Filename": extract_number_from_filename(img_file),
+        #     "Filename": img_file,
+        #     "Substrate": subst[idx],
+        #     "Camera": cam[idx],
+        #     # "Format": file_format,
+        #     "Bright_P": brightness_pil['mean_brightness'],
+        #     "used pixels %" : brightness_pil['used_pixels']/brightness_pil['total_pixels'],
+        #     # "Brightness_Color": brightness_color['mean_brightness'],
+        #     # "Brightness_Circle": brightness_circle['mean_brightness'],
+        #     # "col_cir": avg_color_circle,
+        #     # "col_sq": avg_col_square,
+
+        # })
+
 
     df = pd.DataFrame(results)
 
     # Добавление рангов
-    df['Rank_in_Group_PIL'] = df.groupby('Format')['Brightness_PIL'].rank(ascending=False).astype(int)
-    df['Rank_Global_PIL'] = df['Brightness_PIL'].rank(ascending=False).astype(int)
-    df['Rank_in_Group_Color'] = df.groupby('Format')['Brightness_Color'].rank(ascending=False).astype(int)
-    df['Rank_Global_Color'] = df['Brightness_Color'].rank(ascending=False).astype(int)
-    df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
-    df = df.sort_values(
-    by=['Format', 'Filename'], 
-    key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)    
+    # df['Rank_in_Group_PIL'] = df.groupby('Format')['Brightness_PIL'].rank(ascending=False).astype(int)
+    # df['Rank_Global_PIL'] = df['Brightness_PIL'].rank(ascending=False).astype(int)
+    # df['Rank_in_Group_Color'] = df.groupby('Format')['Brightness_Color'].rank(ascending=False).astype(int)
+    # df['Rank_Global_Color'] = df['Brightness_Color'].rank(ascending=False).astype(int)
+    # df['Format'] = pd.Categorical(df['Format'], categories=['ORF', 'JPEG'], ordered=True)
+    # df = df.sort_values(
+    # by=['Format', 'Filename'], 
+    # key=lambda col: col.str.extract(r'(\d+)')[0].astype(int) if col.name == 'Filename' else col)    
     return df
 
 # Функция сохранения в Excel
@@ -401,15 +437,14 @@ def create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__
 
 # Основной блок выполнения
 if __name__ == "__main__":
-    image_dir = r"G:\My\sov\extract"  # Ваш путь к папке с изображениями
+    image_dir = r"G:\My\sov\extract\photo"  # Ваш путь к папке с изображениями
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
-    output_file = os.path.join(output_dir, f"brightness_analysis_{current_date}.xlsx")
+    output_file = os.path.join(output_dir, f"brightness_analys_5_{current_date}.xlsx")
     lower_threshold = 0
-    size = 2000
-
+    size = 200
     # df = calculate_brightness_dataframe(image_dir, lower_threshold, size)
-    cache_file = os.path.join(image_dir, "brightness_data_4.csv")
+    cache_file = os.path.join(image_dir, "brightness_data_5.csv")
 
     if os.path.exists(cache_file):
         df = pd.read_csv(cache_file)
@@ -420,7 +455,10 @@ if __name__ == "__main__":
         print("Brightness calculations completed and cached.")
 
 
-    save_brightness_excel(df, output_file, lower_threshold)
+    # save_brightness_excel(df, output_file, lower_threshold)
+    df = df.round(1)  # Округляем все числа до 1 знака
+    df.to_excel(output_file) 
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
-    create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__), 'Data'))
+
+    # create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__), 'Data'))
