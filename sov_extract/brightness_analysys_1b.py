@@ -4,32 +4,85 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
+import os
+import re
+
 def get_image_files_with_metadata(image_dir):
     """
-    Формирует список файлов в каталоге и возвращает их с метаданными о субстрате и камере.
+    Формирует список файлов в каталоге и возвращает их с метаданными:
+    имя файла, субстрат, камера и номер опыта.
 
     Аргументы:
         image_dir (str): Путь к каталогу с изображениями.
 
     Возвращает:
-        list: Список кортежей (file_name, substrate, camera), где:
+        list: Список кортежей (file_name, substrate, camera, experiment_number), где:
               - file_name: Имя файла.
               - substrate: Субстрат ('A' или 'F').
               - camera: Камера ('Kam' или 'Sm').
+              - experiment_number: Номер опыта (строка).
     """
     image_files = []
 
     for file_name in os.listdir(image_dir):
         if file_name.endswith(".png"):
-            parts = file_name.split('_')
-            if len(parts) == 2 and len(parts[1]) >= 2:
-                substrate = 'A' if parts[0] == 'a' else ('F' if parts[0] == 'f' else None)
-                camera = 'Kam' if parts[1][-1] == 'k' else ('Sm' if parts[1][-1] == 's' else None)
+            # Убираем расширение для анализа
+            base_name = file_name[:-4]
+            
+            # Ищем субстрат (A или F в начале имени)
+            substrate = None
+            if base_name[0].lower() == 'a':
+                substrate = 'A'
+            elif base_name[0].lower() == 'f':
+                substrate = 'F'
 
-                if substrate and camera:
-                    image_files.append((file_name, substrate, camera))
+            # Ищем номер опыта (первое число в имени файла)
+            experiment_number_match = re.search(r'\d+', base_name)
+            experiment_number = experiment_number_match.group(0) if experiment_number_match else None
 
+            # Ищем камеру ('k' или 's', рядом с разделителем или в конце)
+            camera = None
+            if 'k' in base_name.lower():
+                camera = 'Kam'
+            elif 's' in base_name.lower():
+                camera = 'Sm'
+
+            # Добавляем в список только файлы с валидными параметрами
+            if substrate and camera and experiment_number:
+                image_files.append((file_name, substrate, camera, experiment_number))
+            # else:
+            #     print(f"Файл {file_name} не соответствует ожидаемому формату (субстрат: {substrate}, камера: {camera}, номер опыта: {experiment_number}).")
+    
     return image_files
+
+def get_elements_by_index(input_list, i):
+    """
+    Возвращает список элементов из входного списка кортежей, которые находятся на позиции i.
+
+    :param input_list: Входной список кортежей
+    :param i: Индекс элемента в кортеже, который нужно извлечь
+    :return: Список элементов, находящихся на позиции i в каждом кортеже
+    """
+    if not input_list:
+        return []
+
+    # Проверка на допустимость индекса i
+    if not all(isinstance(item, tuple) for item in input_list):
+        raise ValueError("Все элементы входного списка должны быть кортежами.")
+    if not all(len(item) > i for item in input_list):
+        raise IndexError("Индекс i выходит за пределы длины одного или нескольких кортежей.")
+
+    return [item[i] for item in input_list]
+
+def extract_number_from_filename(filename):
+    """
+    Извлекает первую числовую строку из имени файла.
+
+    :param filename: Имя файла (строка)
+    :return: Числовая строка или None, если числа не найдены
+    """
+    match = re.search(r'\d+', filename)
+    return match.group(0) if match else None
 
 # Функция для сохранения яркости и цветности в Excel
 def save_brightness_excel(df_a, df_f, output_file, metadata):
@@ -161,8 +214,10 @@ if __name__ == "__main__":
 
     # df = calculate_brightness_dataframe(image_dir, lower_threshold, size)
     cache_file = os.path.join(image_dir, "brightness_data_4.csv")
-    image_files = get_image_files_with_metadata(image_dir)
-    print(image_files)  # Проверка работы функции
+    # image_files_tuple = get_image_files_with_metadata(image_dir)
+    # image_files = get_elements_by_index(image_files_tuple,0)
+    # print(image_files_tuple)  # Проверка работы функции
+    print(image_files)  #  список файлов
     # if os.path.exists(cache_file):
     #     df = pd.read_csv(cache_file)
     #     print("Data loaded from cache.")
