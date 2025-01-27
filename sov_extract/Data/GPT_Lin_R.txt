@@ -1,0 +1,54 @@
+Рассматривая задачу построения лин. регр. модели и перевода кода из R  в  Python
+мы получили некоторй результат 
+
+
+    # Регрессионная модель
+    formula = 'Q("carbs/mg") ~ C(Method) + C(Solvent_Type) + C(Extraction_Technique)'
+    model = ols(formula, data=dataTall).fit()
+Далее есть продолжение
+
+In a non-repeated measures dataset, the influence of solvent type on carbs/mg can be obtained by performing
+the following linear regression:
+
+carbs/mg ~ Solvent Type + Extraction technique + Method
+
+However, as we have three replicates for each sample, we can also account for the within sample variance.
+The within sample variance can be accounted for by performing a mixed effect linear regression.
+A mixed effect regression combines fixed and random effects on the dependent variable.
+
+The replicates will be added as a random effect. In contrast to fixed effects,
+random effects do not remain constant across measurements of a sample.
+Here, we will use the replicate number of the random effect and fit the following regression model:
+
+carbs/mg ~ Solvent Type + Extraction technique + (1|Replicate)
+
+Объясни как и чем будет отличаться новая регрессионная модель от нашей 
+
+ # Регрессионная модель
+    formula = 'Q("carbs/mg") ~ C(Method) + C(Solvent_Type) + C(Extraction_Technique)'
+    model = ols(formula, data=dataTall).fit()
+
+
+В R при реализации смешанной  модели был выполнен такой код:
+
+# Rename columns to ensure they can be used in the regression
+dataReg <- dataTall %>% 
+    rename(Solvent = 'Solvent Type',
+           Extraction = 'Extraction Technique',
+           Concentration = 'carbs/mg') %>% 
+  mutate(Measurement = as.factor(Measurement)) 
+
+
+ 
+# Fit the mixed-effects regression model
+fit <- lmerTest::lmer(
+  'Concentration ~ Solvent + Extraction + Method + (1 | Replicate)',
+  data = dataReg
+)
+
+и было  получено такое сообщение
+
+## fixed-effect model matrix is rank deficient so dropping 3 columns / coefficients
+
+# Inspect the regression results
+summary(fit)

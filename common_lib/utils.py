@@ -46,3 +46,8 @@ def fill_nan_with_previous(df: pd.DataFrame, column_indices: list) -> pd.DataFra
         print(f"Ошибка: {e}")
         return df
 
+def f_out(outfile):
+    current_date = datetime.now().strftime("%d_%m")
+    output_dir = os.path.join(os.path.dirname(__file__), 'Data')
+    output_file = os.path.join(output_dir, f"outfile_{current_date}.txt")
+    return output_file
