@@ -172,8 +172,8 @@ def sort_and_rank(df):
     столбец 'rank', где вычисляются ранги Bright_P по убыванию внутри каждой группы ['Substrate', 'Camera'].
     """
     # Сортировка по заданным столбцам
-    sorted_df = df.sort_values(by=['Substrate', 'Camera', 'Filename', 'Bright_P'], 
-                               ascending=[True, True, True, False])
+    sorted_df = df.sort_values(by=['Filename','Substrate', 'Camera'  ], 
+                               ascending=[True, True, True ])
 
     # Добавление рангов по убыванию Bright_P внутри подгрупп ['Substrate', 'Camera']
     sorted_df['rank'] = sorted_df.groupby(['Substrate', 'Camera'])['Bright_P'] \
@@ -558,7 +558,7 @@ def plot_bright_fixed(df, output_pdf_name="bright_barcharts_fixed.pdf"):
     # Уникальные значения и комбинации
     filenames = sorted(df['Filename'].unique())
     substrates = ['A', 'F']
-    cameras = ['Kam', 'Sm']
+    cameras = ['K', 'C']
     combinations = [f"{s}-{c}" for s in substrates for c in cameras]
 
     # Проверка и подготовка данных
@@ -593,8 +593,7 @@ def plot_bright_fixed(df, output_pdf_name="bright_barcharts_fixed.pdf"):
     # Настройка осей и легенды
     plt.xticks([pos + 1.5 * width for pos in x], filenames, fontsize=10)
     plt.xlabel("Filename", fontsize=12)
-    # plt.ylabel("Bright_P", fontsize=12)
-    plt.ylabel("L40", fontsize=12)
+    plt.ylabel("Bright_P", fontsize=12)
     plt.title("Яркость (Bright_P) по Filename с учетом Substrate и Camera", fontsize=14)
     plt.legend(title="Substrate-Camera", fontsize=10)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -722,7 +721,6 @@ if __name__ == "__main__":
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
     plot_bright_fixed(df,output_pdf_name=output_pdf)
-    # plot_bright_debug(df,output_pdf_name=output_pdf)
     
     # plot_bright(df, output_pdf_name=output_pdf)
     # create_brightness_plots(df, output_dir=os.path.join(os.path.dirname(__file__), 'Data'))
