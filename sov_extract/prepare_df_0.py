@@ -7,6 +7,7 @@ import tempfile
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
+from statsmodels.regression.mixed_linear_model import MixedLM
 
 def create_phase_col(df):
     df['Phase'] = 1 
@@ -33,6 +34,7 @@ def add_phase_column(df):
     return df
 
 file = r"G:\My\sov\extract\FL for permuations.xlsx"
+# file = r"G:\My\sov\extract\FL for mixed effect regression.xlsx"
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
 
 sheet_name = 0          #"Sheet1"
@@ -180,7 +182,38 @@ def plot_gr(dataTall,output_dir):
     plt.close()
 
 # import statsmodels.graphics.interaction_plot as ip
-
+# def f_out(outfile):
+#     current_date = datetime.now().strftime("%d_%m")
+#     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
+#     output_file = os.path.join(output_dir, f"{outfile}_{current_date}.txt")
+#     return output_file
+def f_out(outfile):
+    """
+    Формирует путь для файла в подкаталоге 'Data' текущего каталога,
+    добавляя текущую дату к имени файла перед расширением.
+    
+    Parameters:
+        outfile (str): Имя исходного файла (например, "output.pdf").
+    
+    Returns:
+        str: Полный путь к файлу в формате "Data/<имя>_<дата>.<расширение>".
+    """
+    # Получаем текущую дату
+    current_date = datetime.now().strftime("%d_%m")
+    
+    # Создаем директорию Data, если ее нет
+    # Определяем рабочую директорию (используем os.getcwd() вместо __file__)
+    # output_dir = os.path.join(os.getcwd(), 'Data')
+    output_dir = os.path.join(os.path.dirname(__file__), 'Data')
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Разделяем имя файла и расширение
+    base_name, ext = os.path.splitext(outfile)
+    
+    # Формируем новое имя файла с добавлением даты
+    output_file = os.path.join(output_dir, f"{base_name}_{current_date}{ext}")
+    
+    return output_file
 # ip.interaction_plot(
 #     dataTall['Method'],
 #     dataTall['Solvent_Type'],
@@ -197,5 +230,39 @@ def lin_r(dataTall):
     # print(model.summary())
     return(model.summary())
 res_lin_r = lin_r(dataTall)
-print( res_lin_r)
+
+# print( res_lin_r)
+with open(f_out("res_lin_r.txt"), "w") as file:
+    # Перенаправляем вывод в файл
+    print(res_lin_r, file=file)
 # plot_gr(dataTall,output_dir)
+formula = 'Q("carbs/mg") ~ C(Solvent_Type) + C(Extraction_Technique)'
+
+# Подготовка данных (аналог rename и mutate)
+# dataReg = dataTall.rename(
+#     columns={'Solvent_Type': 'Solvent', 
+#              'Extraction_Technique': 'Extraction', 
+#              'carbs/mg': 'Concentration'}
+# )
+# dataReg['Measurement'] = dataReg['Measurement'].astype('category')
+dataTall['Measurement'] = dataTall['Measurement'].astype('category')
+
+# Создание смешанной модели
+# formula = 'Concentration ~ C(Solvent) + C(Extraction) + C(Method)'
+mixed_model = MixedLM.from_formula(
+    formula,
+    groups=dataTall['Replicate'],  # Случайный эффект для Replicate
+    data=dataTall
+)
+# Подгонка модели
+result = mixed_model.fit()
+
+# Подгоняем модель с случайным эффектом по Replicate
+# mixed_model = MixedLM.from_formula(formula, groups=dataTall['Replicate'], data=dataTall)
+# mixed_result = mixed_model.fit()
+
+# Вывод результатов
+print(result.summary())
+with open(f_out("mix_lin_r.txt"), "w") as file:
+    # Перенаправляем вывод в файл
+    print(result.summary(), file=file)
