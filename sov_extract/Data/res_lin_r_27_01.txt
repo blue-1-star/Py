@@ -4,7 +4,7 @@ Dep. Variable:          Q("carbs/mg")   R-squared:                       0.945
 Model:                            OLS   Adj. R-squared:                  0.939
 Method:                 Least Squares   F-statistic:                     147.7
 Date:                Mon, 27 Jan 2025   Prob (F-statistic):           4.67e-73
-Time:                        16:51:27   Log-Likelihood:                -687.81
+Time:                        23:28:10   Log-Likelihood:                -687.81
 No. Observations:                 144   AIC:                             1408.
 Df Residuals:                     128   BIC:                             1455.
 Df Model:                          15                                         
