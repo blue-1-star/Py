@@ -1,0 +1,44 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          Q("carbs/mg")   R-squared:                       0.945
+Model:                            OLS   Adj. R-squared:                  0.939
+Method:                 Least Squares   F-statistic:                     147.7
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):           4.67e-73
+Time:                        12:31:48   Log-Likelihood:                -687.81
+No. Observations:                 144   AIC:                             1408.
+Df Residuals:                     128   BIC:                             1455.
+Df Model:                          15                                         
+Covariance Type:            nonrobust                                         
+=================================================================================================================
+                                                    coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------
+Intercept                                       671.1753      3.799    176.651      0.000     663.657     678.693
+C(Method)[T.method_10]                          130.3541      9.050     14.404      0.000     112.447     148.261
+C(Method)[T.method_11]                          128.0496      9.926     12.900      0.000     108.409     147.690
+C(Method)[T.method_12]                          167.3758      8.963     18.674      0.000     149.641     185.111
+C(Method)[T.method_13]                           47.0451      9.926      4.740      0.000      27.404      66.686
+C(Method)[T.method_14]                          221.9180      8.963     24.759      0.000     204.183     239.653
+C(Method)[T.method_15]                         -255.5733     14.359    -17.798      0.000    -283.986    -227.161
+C(Method)[T.method_16]                          114.9796     10.154     11.324      0.000      94.889     135.070
+C(Method)[T.method_2]                            87.5396     10.154      8.622      0.000      67.449     107.630
+C(Method)[T.method_3]                            73.1200     14.359      5.092      0.000      44.708     101.532
+C(Method)[T.method_4]                            34.2773     10.154      3.376      0.001      14.187      54.368
+C(Method)[T.method_5]                           -50.7733     14.359     -3.536      0.001     -79.186     -22.361
+C(Method)[T.method_6]                           106.5440     10.154     10.493      0.000      86.453     126.635
+C(Method)[T.method_7]                            60.3879      9.249      6.529      0.000      42.087      78.689
+C(Method)[T.method_8]                          -140.8726      9.050    -15.566      0.000    -158.780    -122.965
+C(Method)[T.method_9]                           -14.0832      9.249     -1.523      0.130     -32.384       4.217
+C(Solvent_Type)[T.Water]                        -50.9404      6.936     -7.344      0.000     -64.665     -37.216
+C(Extraction_Technique)[T.Pressurised liquid]    35.7861      4.470      8.007      0.000      26.942      44.630
+C(Extraction_Technique)[T.Water Bath]            71.0007      6.599     10.760      0.000      57.944      84.058
+==============================================================================
+Omnibus:                        3.114   Durbin-Watson:                   2.731
+Prob(Omnibus):                  0.211   Jarque-Bera (JB):                2.985
+Skew:                           0.155   Prob(JB):                        0.225
+Kurtosis:                       3.634   Cond. No.                     1.29e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 1.46e-30. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
