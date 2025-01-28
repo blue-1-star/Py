@@ -120,12 +120,12 @@ dataReg = dataTall.rename(
 dataReg['Measurement'] = dataReg['Measurement'].astype('category')
 
 # Создание смешанной модели
-formula = 'Concentration ~ C(Solvent) + C(Extraction) + C(Method)'
-mixed_model = MixedLM.from_formula(
-    formula,
-    groups=dataReg['Replicate'],  # Случайный эффект для Replicate
-    data=dataReg
-)
+# formula = 'Concentration ~ C(Solvent) + C(Extraction) + C(Method)'
+# mixed_model = MixedLM.from_formula(
+#     formula,
+#     groups=dataReg['Replicate'],  # Случайный эффект для Replicate
+#     data=dataReg
+# )
 # Отладочный вывод
 print(dataReg.describe())
 print(dataReg.info())
