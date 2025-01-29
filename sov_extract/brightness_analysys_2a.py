@@ -12,7 +12,9 @@ import tempfile
 import brightness_analysys_0a
 import calc_brightness_plt_1, calc_brightness_plt_1a
 from calc_brightness_plt_1a import shorten_filename, shorten_filename_list
-from brightness_analysys_1b import get_image_files_with_metadata, get_elements_by_index, extract_number_from_filename
+import brightness_analysys_1b
+from brightness_analysys_1b import get_image_files_with_metadata, get_elements_by_index, extract_number_from_filename,\
+    get_image_files_with_meta_se
 import re
 
 # Функция обработки изображений (включая ORF)
@@ -25,30 +27,59 @@ def process_image(img_path):
         img = Image.open(img_path)
     return img
 
-# Функция выделения области изображения
-def crop_image(image, shape='square', size=100):
+# # Функция выделения области изображения
+# def crop_image(image, shape='square', size=100):
+#     """
+#     Вырезает заданную область (квадрат или окружность) из изображения.
+#     """
+#     width, height = image.size
+#     center_x, center_y = width // 2, height // 2
+
+#     if shape == 'square':
+#         left = max(center_x - size // 2, 0)
+#         upper = max(center_y - size // 2, 0)
+#         right = min(center_x + size // 2, width)
+#         lower = min(center_y + size // 2, height)
+#         return image.crop((left, upper, right, lower))
+
+#     elif shape == 'circle':
+#         mask = Image.new("L", image.size, 0)
+#         draw = ImageDraw.Draw(mask)
+#         draw.ellipse(
+#             (center_x - size // 2, center_y - size // 2, 
+#              center_x + size // 2, center_y + size // 2),
+#             fill=255
+#         )
+#         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
+#         bbox = mask.getbbox()
+#         return result.crop(bbox)
+
+
+def crop_image(image, shape='square', size=(100, 100)):
     """
-    Вырезает заданную область (квадрат или окружность) из изображения.
+    Вырезает заданную область (прямоугольник или эллипс) из изображения.
     """
     width, height = image.size
     center_x, center_y = width // 2, height // 2
+    size_x, size_y = size
 
-    if shape == 'square':
-        left = max(center_x - size // 2, 0)
-        upper = max(center_y - size // 2, 0)
-        right = min(center_x + size // 2, width)
-        lower = min(center_y + size // 2, height)
+    if shape == 'square':  # Теперь обрабатывает прямоугольник
+        left = max(center_x - size_x // 2, 0)
+        upper = max(center_y - size_y // 2, 0)
+        right = min(center_x + size_x // 2, width)
+        lower = min(center_y + size_y // 2, height)
         return image.crop((left, upper, right, lower))
-
-    elif shape == 'circle':
+    
+    elif shape == 'circle':  # Теперь обрабатывает эллипс
         mask = Image.new("L", image.size, 0)
         draw = ImageDraw.Draw(mask)
         draw.ellipse(
-            (center_x - size // 2, center_y - size // 2, 
-             center_x + size // 2, center_y + size // 2),
+            (center_x - size_x // 2, center_y - size_y // 2, 
+             center_x + size_x // 2, center_y + size_y // 2),
             fill=255
         )
         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
+    
         bbox = mask.getbbox()
         return result.crop(bbox)
 
@@ -143,7 +174,7 @@ def group_and_extract(df):
     df['Filename'] = df['Filename'].apply(lambda x: int(re.search(r'\d+', x).group()) if re.search(r'\d+', x) else None)
 
     # Группировка по столбцам
-    grouped_df = df.groupby(['Filename', 'Substrate', 'Camera']).sum().reset_index()
+    grouped_df = df.groupby(['Filename', 'Substrate']).sum().reset_index()
 
     return grouped_df
 
@@ -162,7 +193,7 @@ def sort_dataframe(df):
     # sorted_df = df.sort_values(by=['Substrate','Camera',  'Filename',  'Bright_P'], 
     #                            ascending=[True, True, True, False])
     # sorted_df = df.sort_values(by=['Substrate', 'Filename'], ascending=[True, True])
-    sorted_df = df.sort_values(by=['Filename','Substrate', 'Camera'], ascending=[True, True, True])
+    sorted_df = df.sort_values(by=['Filename','Substrate'], ascending=[True, True, True])
     return sorted_df
 
 
@@ -172,11 +203,11 @@ def sort_and_rank(df):
     столбец 'rank', где вычисляются ранги Bright_P по убыванию внутри каждой группы ['Substrate', 'Camera'].
     """
     # Сортировка по заданным столбцам
-    sorted_df = df.sort_values(by=['Substrate', 'Camera', 'Filename', 'Bright_P'], 
-                               ascending=[True, True, True, False])
+    sorted_df = df.sort_values(by=['Substrate',  'Filename', 'Bright_P'], 
+                               ascending=[True, True, True])
 
     # Добавление рангов по убыванию Bright_P внутри подгрупп ['Substrate', 'Camera']
-    sorted_df['rank'] = sorted_df.groupby(['Substrate', 'Camera'])['Bright_P'] \
+    sorted_df['rank'] = sorted_df.groupby(['Substrate'])['Bright_P'] \
                                  .rank(method='dense', ascending=False).astype(int)
      # Перемещение столбца 'rank' сразу после 'Bright_P'
     bright_p_index = sorted_df.columns.get_loc('Bright_P')  # Индекс столбца 'Bright_P'
@@ -186,22 +217,25 @@ def sort_and_rank(df):
 
 # Функция для создания DataFrame с результатами
 def calculate_brightness_dataframe(image_dir, lower_threshold, size):
-    image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg' ))]
+    # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg' ))]
     # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg','.png' ))]
     # image_files_tupl_meta = get_image_files_with_metadata(image_dir)
-    # image_files = get_elements_by_index(image_files_tupl_meta,0)  # filename 
-    # subst= get_elements_by_index(image_files_tupl_meta,1)    #  substrat
+    image_files_tupl_meta = get_image_files_with_meta_se(image_dir)
+    image_files = get_elements_by_index(image_files_tupl_meta,0)  # filename 
+    subst= get_elements_by_index(image_files_tupl_meta,1)    #  substrat
+    expn =  get_elements_by_index(image_files_tupl_meta,2)    #  number experiment
     # cam = get_elements_by_index(image_files_tupl_meta,2)  # camera
 
     results = []
+    # low_list, upper_list = [], []
     low_list, upper_list = [20,40], [235,215]
+    
     for idx, img_file in enumerate(image_files):
-
         img_path = os.path.join(image_dir, img_file)
         img = process_image(img_path)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
+        brightness_square = calculate_brightness_with_area(img_path, shape='square', size, lower_threshold=lower_threshold)
         # brightness_color = calculate_brightness_color(img_path, lower_threshold)
-        # brightness_square = calculate_brightness_with_area(img_path, shape='square', size, lower_threshold=lower_threshold)
         # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
         # brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
         # avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
@@ -211,7 +245,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         result_row = {
             "Filename": img_file,
             "Substrate": subst[idx],
-            "Camera": cam[idx],
+            # "expnumb": expn[idx],
             "Bright_P": brightness_pil['mean_brightness'],
             "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
         }
@@ -229,7 +263,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
                 result_row[u_column] = brightness_pil['mean_brightness']
                 result_row[f"us_pix{u_column}"] = brightness_pil['used_pixels'] / brightness_pil['total_pixels']
 
-            results.append(result_row)
+        results.append(result_row)
 
         # results.append({
         #     # "Filename": extract_number_from_filename(img_file),
@@ -248,7 +282,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
 
 
     df = pd.DataFrame(results)
-
+    # print(df)
     # df['Rank_in_Group_PIL'] = df.groupby('Format')['Bright_P'].rank(ascending=False).astype(int)
     # df = df.sort_values(
     # by=['Substrate','Camera', 'Filename'], 
@@ -699,11 +733,11 @@ if __name__ == "__main__":
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
     output_file = os.path.join(output_dir, f"brightness_analys_6_{current_date}.xlsx")
-    output_pdf = os.path.join(output_dir, f"bright_analys_5_{current_date}.pdf")
+    output_pdf = os.path.join(output_dir, f"bright_analys_6_{current_date}.pdf")
     lower_threshold = 0
     size = 200
     # df = calculate_brightness_dataframe(image_dir, lower_threshold, size)
-    cache_file = os.path.join(image_dir, "brightness_data_5.csv")
+    cache_file = os.path.join(image_dir, "brightness_data_6.csv")
 
     if os.path.exists(cache_file):
         df = pd.read_csv(cache_file)
@@ -722,7 +756,7 @@ if __name__ == "__main__":
     df.to_excel(output_file) 
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
-    plot_bright_fixed(df,output_pdf_name=output_pdf)
+    # plot_bright_fixed(df,output_pdf_name=output_pdf)
     # plot_bright_debug(df,output_pdf_name=output_pdf)
     
     # plot_bright(df, output_pdf_name=output_pdf)
