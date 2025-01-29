@@ -7,6 +7,39 @@ from openpyxl.styles import PatternFill
 import os
 import re
 
+import os
+import re
+
+def get_image_files_with_meta_se(image_dir):
+    """
+    Формирует список файлов в каталоге и возвращает их с метаданными:
+    имя файла, субстрат и номер опыта.
+
+    Аргументы:
+        image_dir (str): Путь к каталогу с изображениями.
+
+    Возвращает:
+        list: Список кортежей (file_name, substrate,  experiment_number)
+    """
+    supported_extensions = ['.jpg', '.png', '.jpeg', '.bmp']  # Добавьте сюда нужные расширения
+    result = []
+    for filename in os.listdir(image_dir):
+        if filename.endswith(tuple(supported_extensions)):
+        # if filename.endswith('.jpg') or filename.endswith('.png'):  # Добавьте другие расширения по необходимости
+            match = re.match(r"([A|F])(\d+)", filename)
+            if match:
+                substrate, experiment_number = match.groups()
+                result.append((filename, substrate, experiment_number))
+    return result
+
+# Пример использования:
+# image_directory = "путь_к_вашему_каталогу"
+# files_with_meta = get_image_files_with_meta_se(image_directory)
+
+for file_info in files_with_meta:
+    print(file_info)
+
+
 def get_image_files_with_metadata(image_dir):
     """
     Формирует список файлов в каталоге и возвращает их с метаданными:
