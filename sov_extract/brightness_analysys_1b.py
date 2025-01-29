@@ -3,12 +3,8 @@ import pandas as pd
 from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
-
-import os
 import re
 
-import os
-import re
 
 def get_image_files_with_meta_se(image_dir):
     """
@@ -21,11 +17,10 @@ def get_image_files_with_meta_se(image_dir):
     Возвращает:
         list: Список кортежей (file_name, substrate,  experiment_number)
     """
-    supported_extensions = ['.jpg', '.png', '.jpeg', '.bmp']  # Добавьте сюда нужные расширения
+    supported_extensions = ['.jpg', '.png', '.jpeg', '.bmp','.orf']  # Добавьте сюда нужные расширения
     result = []
     for filename in os.listdir(image_dir):
-        if filename.endswith(tuple(supported_extensions)):
-        # if filename.endswith('.jpg') or filename.endswith('.png'):  # Добавьте другие расширения по необходимости
+        if filename.lower().endswith(tuple(supported_extensions)):
             match = re.match(r"([A|F])(\d+)", filename)
             if match:
                 substrate, experiment_number = match.groups()
@@ -36,8 +31,8 @@ def get_image_files_with_meta_se(image_dir):
 # image_directory = "путь_к_вашему_каталогу"
 # files_with_meta = get_image_files_with_meta_se(image_directory)
 
-for file_info in files_with_meta:
-    print(file_info)
+# for file_info in files_with_meta:
+#     print(file_info)
 
 
 def get_image_files_with_metadata(image_dir):
@@ -53,6 +48,52 @@ def get_image_files_with_metadata(image_dir):
               - file_name: Имя файла.
               - substrate: Субстрат ('A' или 'F').
               - camera: Камера ('Kam' или 'Sm').
+              - experiment_number: Номер опыта (строка).
+    """
+    image_files = []
+
+    for file_name in os.listdir(image_dir):
+        if file_name.endswith(".png"):
+            # Убираем расширение для анализа
+            base_name = file_name[:-4]
+            
+            # Ищем субстрат (A или F в начале имени)
+            substrate = None
+            if base_name[0].lower() == 'a':
+                substrate = 'A'
+            elif base_name[0].lower() == 'f':
+                substrate = 'F'
+
+            # Ищем номер опыта (первое число в имени файла)
+            experiment_number_match = re.search(r'\d+', base_name)
+            experiment_number = experiment_number_match.group(0) if experiment_number_match else None
+
+            # Ищем камеру ('k' или 's', рядом с разделителем или в конце)
+            camera = None
+            if 'k' in base_name.lower():
+                camera = 'Kam'
+            elif 's' in base_name.lower():
+                camera = 'Sm'
+
+            # Добавляем в список только файлы с валидными параметрами
+            if substrate and camera and experiment_number:
+                image_files.append((file_name, substrate, camera, experiment_number))
+            # else:
+            #     print(f"Файл {file_name} не соответствует ожидаемому формату (субстрат: {substrate}, камера: {camera}, номер опыта: {experiment_number}).")
+    
+    return image_files
+def get_image_files_with_metadata_se1(image_dir):
+    """
+    Формирует список файлов в каталоге и возвращает их с метаданными:
+    имя файла, субстрат, камера и номер опыта.
+
+    Аргументы:
+        image_dir (str): Путь к каталогу с изображениями.
+
+    Возвращает:
+        list: Список кортежей (file_name, substrate, camera, experiment_number), где:
+              - file_name: Имя файла.
+              - substrate: Субстрат ('A' или 'F').
               - experiment_number: Номер опыта (строка).
     """
     image_files = []
@@ -202,39 +243,68 @@ def save_brightness_excel(df_a, df_f, output_file, metadata):
 
     # Сохраняем файл
     wb.save(output_file)
+def calculate_brightness_dataframe(image_dir, lower_threshold, size):
+    # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg' ))]
+    # image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.orf', '.jpg', '.jpeg','.png' ))]
+    # image_files_tupl_meta = get_image_files_with_metadata(image_dir)
+    image_files = get_elements_by_index(image_files_tupl_meta,0)  # filename 
+    subst= get_elements_by_index(image_files_tupl_meta,1)    #  substrat
+    cam = get_elements_by_index(image_files_tupl_meta,2)  # camera
 
-# Пример вызова
-# if __name__ == "__main__":
-#     # Пример данных
-#     data_a = {
-#         "Bright_Kam": [120, 130],
-#         "Bright_Sm": [110, 125],
-#         "Hex_color_Kam": ["FF5733", "33FF57"],
-#         "Hex_color_Sm": ["3357FF", "FF33A1"]
-#     }
-#     df_a = pd.DataFrame(data_a)
+    results = []
+    low_list, upper_list = [20,40], [235,215]
+    for idx, img_file in enumerate(image_files):
 
-#     data_f = {
-#         "Bright_Kam": [115, 140],
-#         "Bright_Sm": [105, 135],
-#         "Hex_color_Kam": ["57FF33", "FF3357"],
-#         "Hex_color_Sm": ["FF5733", "5733FF"]
-#     }
-#     df_f = pd.DataFrame(data_f)
+        img_path = os.path.join(image_dir, img_file)
+        img = process_image(img_path)
+        brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
+        # brightness_color = calculate_brightness_color(img_path, lower_threshold)
+        # brightness_square = calculate_brightness_with_area(img_path, shape='square', size, lower_threshold=lower_threshold)
+        # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
+        # brightness_circle = calculate_brightness_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        # avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        # avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
-#     metadata = {
-#         "Субстрат": "A и F",
-#         "Способ вычисления": "квадрат, 100x100, [0, 255]",
-#         "Количество пикселей": 10000,
-#         "Общее количество пикселей": 1000000,
-#         "Дата и время": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#     }
+        # Основной словарь результатов
+        result_row = {
+            "Filename": img_file,
+            "Substrate": subst[idx],
+            "Camera": cam[idx],
+            "Bright_P": brightness_pil['mean_brightness'],
+            "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
+        }
+        # Если списки не пустые, выполняем дополнительные расчеты
+        if low_list and upper_list:
+            for lower_threshold, upper_threshold in zip(low_list, upper_list):
+                # Выполняем расчет с заданными порогами
+                brightness_pil = calculate_brightness_pil(img_path, lower_threshold, upper_threshold)
 
-#     image_dir = "./images"
-#     image_files = get_image_files_with_metadata(image_dir)
-#     print(image_files)  # Проверка работы функции
+                # Добавляем результаты в словарь с нужными именами столбцов
+                l_column = f"L{lower_threshold}"
+                u_column = f"U{upper_threshold}"
+                result_row[l_column] = brightness_pil['mean_brightness']
+                result_row[f"us_pix{l_column}"] = brightness_pil['used_pixels'] / brightness_pil['total_pixels']
+                result_row[u_column] = brightness_pil['mean_brightness']
+                result_row[f"us_pix{u_column}"] = brightness_pil['used_pixels'] / brightness_pil['total_pixels']
 
-#     save_brightness_excel(df_a, df_f, "output.xlsx", metadata)
+            results.append(result_row)
+
+        # results.append({
+        #     # "Filename": extract_number_from_filename(img_file),
+        #     "Filename": img_file,
+        #     "Substrate": subst[idx],
+        #     "Camera": cam[idx],
+        #     # "Format": file_format,
+        #     "Bright_P": brightness_pil['mean_brightness'],
+        #     "used pixels %" : brightness_pil['used_pixels']/brightness_pil['total_pixels'],
+        #     # "Brightness_Color": brightness_color['mean_brightness'],
+        #     # "Brightness_Circle": brightness_circle['mean_brightness'],
+        #     # "col_cir": avg_color_circle,
+        #     # "col_sq": avg_col_square,
+
+        # })
+
+
 
 
 if __name__ == "__main__":
@@ -250,7 +320,7 @@ if __name__ == "__main__":
     # image_files_tuple = get_image_files_with_metadata(image_dir)
     # image_files = get_elements_by_index(image_files_tuple,0)
     # print(image_files_tuple)  # Проверка работы функции
-    print(image_files)  #  список файлов
+    # print(image_files)  #  список файлов
     # if os.path.exists(cache_file):
     #     df = pd.read_csv(cache_file)
     #     print("Data loaded from cache.")

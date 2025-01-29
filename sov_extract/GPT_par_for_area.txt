@@ -1,0 +1,11 @@
+Функция
+def calculate_brightness_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255)
+выделяет область изображения для вычисления средних значений яркости 
+
+В контексте обработки каталога с изображениями хотелось бы передавать в эту функцию параметры size, shape,
+lower_threshold, upper_threshold для каждого обрабатываемого файла. Получается список кортежей 
+(image_path, shape, size,  lower_threshold, upper_threshold) 
+Должна быть функция формирующая этот список кортежей - по умолчанию прямоугольник по центру с размером 
+width, height = scale * size( image_path) - т.е размер исходного изображения по длине, высоте умноженный на коэффициент,
+lower_threshold=0, upper_threshold=255
+    
