@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image, ImageStat, ImageDraw, PngImagePlugin
 from datetime import datetime
 import tempfile
-
+import rawpy
 # from brightness_analysys_2a import process_image
 # def draw_brightness_area(image, shape='square', size=100):
 #     """
@@ -87,7 +87,7 @@ def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
     os.makedirs(contour_dir, exist_ok=True)
     # Извлекаем имя файла без расширения
     filename = os.path.splitext(os.path.basename(image_path))[0]
-    contour_path = os.path.join(contour_dir, f"{filename}_imp.png")
+    contour_path = os.path.join(contour_dir, f"{filename}_{shape}imp.png")
 
     # image.save(output_path)
 
@@ -97,7 +97,8 @@ def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
     metadata.add_text("center", f"{center_x},{center_y}")
     metadata.add_text("size", f"{size_x},{size_y}")
     
-    image_with_contour.save(contour_path, "PNG", pnginfo=metadata, optimize=True, quality=40)
+    # image_with_contour.save(contour_path, "PNG", pnginfo=metadata, optimize=True, quality=10)
+    image_with_contour.save(contour_path, "JPEG", quality=50)
     # img.save(output_file, optimize=True, quality=quality)
     
     # Обрезка изображения
@@ -119,6 +120,59 @@ def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
         bbox = mask.getbbox()
         return result.crop(bbox)
+
+# 
+# 
+# def crop_image_x(image, image_path, shape='rectangle', size=(100, 100)):
+#     """
+#     Вырезает заданную область (прямоугольник или эллипс) из изображения и сохраняет контур в подкаталог.
+#     """
+#     width, height = image.size
+#     center_x, center_y = width // 2, height // 2
+
+#     # Обработка аргумента size
+#     if isinstance(size, int):
+#         size_x, size_y = size, size
+#     else:
+#         size_x, size_y = size
+
+#     # Создаём путь для сохранения изображения с контуром
+#     image_dir = os.path.dirname(image_path)
+#     contour_dir = os.path.join(image_dir, "contour")
+#     os.makedirs(contour_dir, exist_ok=True)
+
+#     filename = os.path.splitext(os.path.basename(image_path))[0]
+#     contour_path = os.path.join(contour_dir, f"{filename}_contour.png")
+
+#     if shape == 'rectangle':
+#         left = max(center_x - size_x // 2, 0)
+#         upper = max(center_y - size_y // 2, 0)
+#         right = min(center_x + size_x // 2, width)
+#         lower = min(center_y + size_y // 2, height)
+#         cropped_img = image.crop((left, upper, right, lower))
+
+#     elif shape == 'ellipse':
+#         mask = Image.new("L", image.size, 0)
+#         draw = ImageDraw.Draw(mask)
+#         draw.ellipse(
+#             (center_x - size_x // 2, center_y - size_y // 2,
+#              center_x + size_x // 2, center_y + size_y // 2),
+#             fill=255
+#         )
+#         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
+#         bbox = mask.getbbox()
+#         cropped_img = result.crop(bbox)
+
+#     else:
+#         print(f"Warning: Unknown shape '{shape}', returning original image.")
+#         return image
+
+#     # Сохраняем вырезанный контур в каталог "contour"
+#     cropped_img.save(contour_path)
+#     print(f"Контур сохранён: {contour_path}")
+
+#     return cropped_img
+
 
 
 def draw_brightness_area(image, shape, center, size):

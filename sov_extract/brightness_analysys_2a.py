@@ -180,14 +180,14 @@ def sort_and_rank(df):
     столбец 'rank', где вычисляются ранги Bright_P по убыванию внутри каждой группы ['Substrate', 'Camera'].
     """
     # Сортировка по заданным столбцам
-    sorted_df = df.sort_values(by=['Substrate',  'Filename', 'Bright_P'],
+    sorted_df = df.sort_values(by=['Substrate',  'Filename', 'Bright_Sq_m'],
                                ascending=[True, True, True])
 
     # Добавление рангов по убыванию Bright_P внутри подгрупп ['Substrate', 'Camera']
-    sorted_df['rank'] = sorted_df.groupby(['Substrate'])['Bright_P'] \
+    sorted_df['rank'] = sorted_df.groupby(['Substrate'])['Bright_Sq_m'] \
                                  .rank(method='dense', ascending=False).astype(int)
      # Перемещение столбца 'rank' сразу после 'Bright_P'
-    bright_p_index = sorted_df.columns.get_loc('Bright_P')  # Индекс столбца 'Bright_P'
+    bright_p_index = sorted_df.columns.get_loc('Bright_Sq_m')  # Индекс столбца 'Bright_Sq_m'
     rank_column = sorted_df.pop('rank')  # Удаляем столбец 'rank' временно
     sorted_df.insert(bright_p_index + 1, 'rank', rank_column)  # Вставляем 'rank' после 'Bright_P'
     return sorted_df
@@ -212,14 +212,14 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         img_path = os.path.join(image_dir, img_file)
         img = process_image(img_path)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
-        brightness_square = calculate_brightness_with_area(img_path, shape ='square',  size = size, lower_threshold=lower_threshold)
+        brightness_square = calculate_brightness_with_area(img_path, shape ='rectangle',  size = size, lower_threshold=lower_threshold)
         # img =  draw_brightness_area(img, shape='square', size=size)
         # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
         # contour_paths.append(contour_path) 
 
         # brightness_color = calculate_brightness_color(img_path, lower_threshold)
         # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
-        brightness_circle = calculate_brightness_with_area(img_path, 'circle', size=size, lower_threshold=lower_threshold)
+        brightness_circle = calculate_brightness_with_area(img_path, shape ='ellipse', size=size, lower_threshold=lower_threshold)
         # img =  draw_brightness_area(img, shape='circle', size=size)
         # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
         # contour_paths.append(contour_path) 
@@ -232,10 +232,10 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Substrate": subst[idx],
             "Bright_P_mean": brightness_pil['mean_brightness'],
             "Bright_P_std": brightness_pil['stdv_brightness'],
-            "Bright_Sq": brightness_square['mean_brightness'],
-            "Bright_Sq": brightness_square['stdv_brightness'],
-            "Bright_Cl": brightness_circle['mean_brightness'],
-            "Bright_Cl": brightness_circle['stdv_brightness'],
+            "Bright_Sq_m": brightness_square['mean_brightness'],
+            "Bright_Sq_s": brightness_square['stdv_brightness'],
+            "Bright_Cl_m": brightness_circle['mean_brightness'],
+            "Bright_Cl_s": brightness_circle['stdv_brightness'],
             # "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
         }
         # Если списки не пустые, выполняем дополнительные расчеты
