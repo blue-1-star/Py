@@ -76,4 +76,10 @@ def draw_brightness_area(image, shape='square', size=100):
 3) сохраняет созданный рисунок в файл по адресу 
 f"{image_dir}\contour" - подкаталог contour каталога image_dir 
 
+2025-01-31 17:46:24
+функция  
+def draw_brightness_area(image, shape, center, size):  
+вызывается внутри 
+
+
 
