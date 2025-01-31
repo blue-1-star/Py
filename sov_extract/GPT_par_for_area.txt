@@ -24,3 +24,56 @@ img = process_image(img_path)  и навернеое  return Image.fromarray(ima
 в функции draw_brightness_area ? 
 
 
+
+2025-01-31 12:07:49
+Поскольку функция def crop_image_x(image, shape='square', size=(100, 100))
+работает в связке, в паре с draw_brightness_area(image, shape='square', size=100)
+было бы правильным объединить их, сделав необходимые модификации. 
+
+Необходимо скорректировать функцию 
+def crop_image_x(image, shape='square', size=(100, 100)):
+    """
+    Вырезает заданную область (прямоугольник или эллипс) из изображения.
+    """
+    width, height = image.size
+    center_x, center_y = width // 2, height // 2
+    size_x, size_y = size
+
+    if shape == 'square':  # Теперь обрабатывает прямоугольник
+        left = max(center_x - size_x // 2, 0)
+        upper = max(center_y - size_y // 2, 0)
+        right = min(center_x + size_x // 2, width)
+        lower = min(center_y + size_y // 2, height)
+        return image.crop((left, upper, right, lower))
+
+    elif shape == 'circle':  # Теперь обрабатывает эллипс
+        mask = Image.new("L", image.size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse(
+            (center_x - size_x // 2, center_y - size_y // 2,
+             center_x + size_x // 2, center_y + size_y // 2),
+            fill=255
+        )
+        result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
+
+        bbox = mask.getbbox()
+        return result.crop(bbox)
+
+в таких направлениях:
+1) Добавить в нее новую функцию - аналог или модификацию  
+def draw_brightness_area(image, shape='square', size=100):
+    """
+    Накладывает контур выделенной области на изображение.
+    Возвращает обработанное изображение.
+    """
+1а) в   crop_image_x  произвести модификацию: 
+     shape='square'  ( circle) - заменить на rectangle, ellipse
+
+которая вызывается  в теле  crop_image_x 
+решает свою задачу формирования и нанесения контура на исходное изображение
+2) создать функция записи необходимых  ( используемых) параметров - 
+ а именно - фигура ( rectangle or ellipse ), координаты центра фигуры,  size,   в  метаданные сформированного файла с контурами 
+3) сохраняет созданный рисунок в файл по адресу 
+f"{image_dir}\contour" - подкаталог contour каталога image_dir 
+
+
