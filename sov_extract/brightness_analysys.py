@@ -44,6 +44,30 @@ def process_images_to_pdf(image_paths, pdf_output='output/processed_images.pdf')
     images_to_pdf(processed_images, pdf_output)
     print(f'PDF сохранен: {pdf_output}')
 
+from PIL import Image
+
+def reduce_image_size(input_file, output_file, quality=90):
+    """
+    Уменьшает размер изображения.
+
+    Args:
+        input_file (str): Путь к исходному файлу.
+        output_file (str): Путь к выходному файлу.
+        quality (int, optional): Качество сжатия (от 1 до 95). По умолчанию 90.
+    """
+
+    try:
+        img = Image.open(input_file)
+        img.save(output_file, optimize=True, quality=quality)
+        print(f"Размер изображения успешно уменьшен: {input_file} -> {output_file}")
+    except Exception as e:
+        print(f"Ошибка при обработке файла: {e}")
+
+# Пример использования:
+# input_image = "image.jpg"
+# output_image = "image_compressed.jpg"
+# reduce_image_size(input_image, output_image, quality=85)
+
 
 image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
 current_date = datetime.now().strftime("%d_%m")

@@ -741,7 +741,9 @@ data = {
 # Основной блок выполнения
 if __name__ == "__main__":
     # image_dir = r"G:\My\sov\extract\photo"  # Ваш путь к папке с изображениями
-    image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
+    # image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
+    image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
+   
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
     output_file = os.path.join(output_dir, f"brightness_analys_6_{current_date}.xlsx")
