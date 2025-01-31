@@ -16,8 +16,7 @@ import brightness_analysys_1b
 from brightness_analysys_1b import get_image_files_with_metadata, get_elements_by_index, extract_number_from_filename,\
     get_image_files_with_meta_se
 import re
-import brightness_analysys
-from brightness_analysys import draw_brightness_area, save_image_with_contour
+from brightness_analysys import  draw_brightness_area, save_image_with_contour, crop_image_x 
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
     if img_path.lower().endswith('.orf'):
@@ -56,33 +55,7 @@ def crop_image(image, shape='square', size=100):
         return result.crop(bbox)
 
 
-def crop_image_x(image, shape='square', size=(100, 100)):
-    """
-    Вырезает заданную область (прямоугольник или эллипс) из изображения.
-    """
-    width, height = image.size
-    center_x, center_y = width // 2, height // 2
-    size_x, size_y = size
 
-    if shape == 'square':  # Теперь обрабатывает прямоугольник
-        left = max(center_x - size_x // 2, 0)
-        upper = max(center_y - size_y // 2, 0)
-        right = min(center_x + size_x // 2, width)
-        lower = min(center_y + size_y // 2, height)
-        return image.crop((left, upper, right, lower))
-
-    elif shape == 'circle':  # Теперь обрабатывает эллипс
-        mask = Image.new("L", image.size, 0)
-        draw = ImageDraw.Draw(mask)
-        draw.ellipse(
-            (center_x - size_x // 2, center_y - size_y // 2,
-             center_x + size_x // 2, center_y + size_y // 2),
-            fill=255
-        )
-        result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
-
-        bbox = mask.getbbox()
-        return result.crop(bbox)
 
 # Функции расчёта яркости
 def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255):
@@ -93,8 +66,10 @@ def calculate_brightness_pil(image_path, lower_threshold=0, upper_threshold=255)
     pixel_values = np.array(grayscale_img)
     filtered_pixels = pixel_values[(pixel_values >= lower_threshold) & (pixel_values <= upper_threshold)]
     mean_brightness = np.mean(filtered_pixels) if len(filtered_pixels) > 0 else 0
+    stdv_brightness = np.std(filtered_pixels) if len(filtered_pixels) > 0 else 0
     return {
         'mean_brightness': mean_brightness,
+        'stdv_brightness': stdv_brightness,
         'used_pixels' : len(filtered_pixels),
         'total_pixels': pixel_values.size
     }
@@ -118,9 +93,9 @@ def calculate_brightness_color(image_path, lower_threshold=0, upper_threshold=25
 #     return calculate_brightness_pil(cropped_img, lower_threshold, upper_threshold)
 
 
-def calculate_brightness_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
+def calculate_brightness_with_area(image_path, shape='square', size=(100,100), lower_threshold=0, upper_threshold=255):
     img = process_image(image_path)
-    cropped_img = crop_image(img, shape=shape, size=size)
+    cropped_img = crop_image_x(img, image_path, shape=shape, size=size)
 
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as temp_file:
         cropped_img.save(temp_file.name)
@@ -134,7 +109,8 @@ def calculate_brightness_with_area(image_path, shape='square', size=100, lower_t
 def calculate_color_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
     """Calculates detailed color analysis for the selected area of the image."""
     img = process_image(image_path)
-    cropped_img = crop_image(img, shape=shape, size=size)
+    # cropped_img = crop_image(img, shape=shape, size=size)
+    cropped_img = crop_image_x(img, image_path, shape=shape, size=size)
 
     # Convert cropped image to numpy array
     pixel_values = np.array(cropped_img)
@@ -237,16 +213,16 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         img = process_image(img_path)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
         brightness_square = calculate_brightness_with_area(img_path, shape ='square',  size = size, lower_threshold=lower_threshold)
-        img =  draw_brightness_area(img, shape='square', size=size)
-        contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
-        contour_paths.append(contour_path) 
+        # img =  draw_brightness_area(img, shape='square', size=size)
+        # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
+        # contour_paths.append(contour_path) 
 
         # brightness_color = calculate_brightness_color(img_path, lower_threshold)
         # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
         brightness_circle = calculate_brightness_with_area(img_path, 'circle', size=size, lower_threshold=lower_threshold)
-        img =  draw_brightness_area(img, shape='circle', size=size)
-        contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
-        contour_paths.append(contour_path) 
+        # img =  draw_brightness_area(img, shape='circle', size=size)
+        # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
+        # contour_paths.append(contour_path) 
         # avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
         # avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
@@ -254,12 +230,13 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         result_row = {
             "Filename": img_file,
             "Substrate": subst[idx],
-            # "expnumb": expn[idx],
-            "Bright_P": brightness_pil['mean_brightness'],
+            "Bright_P_mean": brightness_pil['mean_brightness'],
+            "Bright_P_std": brightness_pil['stdv_brightness'],
             "Bright_Sq": brightness_square['mean_brightness'],
+            "Bright_Sq": brightness_square['stdv_brightness'],
             "Bright_Cl": brightness_circle['mean_brightness'],
-            "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
-
+            "Bright_Cl": brightness_circle['stdv_brightness'],
+            # "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
         }
         # Если списки не пустые, выполняем дополнительные расчеты
         if low_list and upper_list:
@@ -749,7 +726,7 @@ if __name__ == "__main__":
     output_file = os.path.join(output_dir, f"brightness_analys_6_{current_date}.xlsx")
     output_pdf = os.path.join(output_dir, f"bright_analys_6_{current_date}.pdf")
     lower_threshold = 0
-    size = 500
+    size = (500,500)
     # df = calculate_brightness_dataframe(image_dir, lower_threshold, size)
     cache_file = os.path.join(image_dir, "brightness_data_6.csv")
 
