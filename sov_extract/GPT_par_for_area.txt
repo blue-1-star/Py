@@ -81,5 +81,17 @@ f"{image_dir}\contour" - подкаталог contour каталога image_dir
 def draw_brightness_area(image, shape, center, size):  
 вызывается внутри 
 
+2025-02-01 00:02:35
+
+у меня затирается файл с контуром прямоугольника потому что идет запись в файл одного и того же имени
+сначала контора прямоугольника а затем в этот же файл контура эллипса. 
+фторая запись затирает первую
+
+draw_brightness_area(image_with_contour, shape, (center_x, center_y), size)
+    
+       contour_path = os.path.join(contour_dir, f"{filename}_imp.png")
+
+Что ты можешь предложить? 
+
 
 
