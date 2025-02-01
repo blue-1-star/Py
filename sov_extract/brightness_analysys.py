@@ -28,7 +28,7 @@ def save_image_with_contour(image, image_path, output_folder='output'):
     """Сохраняет изображение с контуром."""
     os.makedirs(output_folder, exist_ok=True)
     filename = os.path.splitext(os.path.basename(image_path))[0]
-    output_path = os.path.join(output_folder, f"{filename}_imp.png")
+    output_path = os.path.join(output_folder, f"{filename}_.png")
     image.save(output_path)
     return output_path
 
@@ -87,7 +87,7 @@ def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
     os.makedirs(contour_dir, exist_ok=True)
     # Извлекаем имя файла без расширения
     filename = os.path.splitext(os.path.basename(image_path))[0]
-    contour_path = os.path.join(contour_dir, f"{filename}_{shape}imp.png")
+    contour_path = os.path.join(contour_dir, f"{filename}_{shape[0]}.png")
 
     # image.save(output_path)
 

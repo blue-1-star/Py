@@ -100,13 +100,17 @@ def calculate_brightness_with_area(image_path, shape='square', size=(100,100), l
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as temp_file:
         cropped_img.save(temp_file.name)
         temp_path = temp_file.name
-
+# изменить выдачу  
+# result =  calculate_brightness_pil(temp_path, lower_threshold, upper_threshold)
+# result{'shape'} = shape  
+# return result 
     try:
         return calculate_brightness_pil(temp_path, lower_threshold, upper_threshold)
     finally:
         os.remove(temp_path)
+# 
 
-def calculate_color_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
+def calculate_color_with_area(image_path, shape='rectangle', size=100, lower_threshold=0, upper_threshold=255):
     """Calculates detailed color analysis for the selected area of the image."""
     img = process_image(image_path)
     # cropped_img = crop_image(img, shape=shape, size=size)
@@ -207,7 +211,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
     contour_paths = []
     low_list, upper_list = [], []
     # low_list, upper_list = [20,40], [235,215]
-
+    sx, sy = size
     for idx, img_file in enumerate(image_files):
         img_path = os.path.join(image_dir, img_file)
         img = process_image(img_path)
@@ -223,7 +227,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         # img =  draw_brightness_area(img, shape='circle', size=size)
         # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
         # contour_paths.append(contour_path) 
-        # avg_color_circle = calculate_color_with_area(img_path, 'circle', size, lower_threshold=lower_threshold)
+        avg_color_ellipse = calculate_color_with_area(img_path, 'ellipse', size=size, lower_threshold=lower_threshold)
         # avg_col_square = calculate_color_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
 
         # Основной словарь результатов
@@ -236,6 +240,9 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Bright_Sq_s": brightness_square['stdv_brightness'],
             "Bright_Cl_m": brightness_circle['mean_brightness'],
             "Bright_Cl_s": brightness_circle['stdv_brightness'],
+            "color_ellips": avg_color_ellipse,
+            # "Size": f"{shape[0]}({sx} x {sy})"  #  для вывода фигуры - когда появится
+            "Size": f"fig({sx} x {sy})"
             # "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
         }
         # Если списки не пустые, выполняем дополнительные расчеты
@@ -718,8 +725,8 @@ data = {
 # Основной блок выполнения
 if __name__ == "__main__":
     # image_dir = r"G:\My\sov\extract\photo"  # Ваш путь к папке с изображениями
-    # image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
-    image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
+    image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
+    # image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
    
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
