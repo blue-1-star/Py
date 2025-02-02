@@ -737,41 +737,141 @@ data = {
 # plot_bright(df)
 
 #
-def visualize_data(data):
+# def visualize_data(data):
+#     """
+#     Визуализирует данные датафрейма в виде группированных столбцов с error bars.
+
+#     Параметры:
+#         data (pd.DataFrame): Датафрейм с колонками:
+#             - Filename: Числовые метки (например, 1, 2, 3).
+#             - Substrate: Группа (например, "A", "B").
+#             - Bright_P_mean, Bright_Sq_m, Bright_Cl_m: Средние значения.
+#             - Bright_P_std, Bright_Sq_s, Bright_Cl_s: Стандартные отклонения.
+#     """
+#     # Если Filename уже числовой, используем его как Label
+#     data['Label'] = data['Filename']
+
+#     # Уникальные метки и субстраты
+#     # labels = np.sort(data['Label'].unique())  # Сортировка в натуральном порядке
+#     labels = np.sort(data['Bright_Sq_m'].unique())  # Сортировка в натуральном порядке
+#     substrates = data['Substrate'].unique()
+
+#     # Сопоставление показателей и их стандартных отклонений
+#     metric_std_map = {
+#         # "Bright_P_mean": "Bright_P_std",
+#         "Bright_Sq_m": "Bright_Sq_s",
+#         "Bright_Cl_m": "Bright_Cl_s"
+#     }
+
+#     # Настройка графика
+#     fig, ax = plt.subplots(figsize=(16, 6))
+#     x = np.arange(len(labels))  # Позиции меток по оси X
+#     width = 0.12  # Ширина столбцов
+
+#     # Цвета для подгрупп Substrate
+#     substrate_colors = {
+#         "A": ["skyblue", "lightgreen", "lightcoral"],  # Цвета для Substrate A
+#         "F": ["blue", "green", "red"]  # Цвета для Substrate F
+#     }
+
+#     # Отображение данных
+#     for i, substrate in enumerate(substrates):
+#         for j, metric in enumerate(metric_std_map.keys()):
+#             # Фильтрация данных для текущего Substrate и метрики
+#             subset = data[data['Substrate'] == substrate]
+#             if subset.empty:  # Пропустить, если данных для этой подгруппы нет
+#                 continue
+#             means = subset[metric]
+#             stds = subset[metric_std_map[metric]]  # Соответствующее стандартное отклонение
+            
+#             # Позиция столбцов на графике
+#             pos = x + (i * len(metric_std_map) + j) * width
+#             ax.bar(
+#                 pos, means, width,
+#                 label=f'{substrate} {metric}', #if i == 0 else "",  # Легенда только для первой подгруппы
+#                 color=substrate_colors[substrate][j],  # Цвет для текущего Substrate и метрики
+#                 yerr=stds,
+#                 capsize=3,  # Уменьшенный размер "усиков"
+#                 error_kw={"elinewidth": 0.8, "ecolor": "gray"}  # Тонкие и светлые "усики"
+#             )
+
+#     # Настройка осей и легенды
+#     ax.set_xticks(x + width * (len(substrates) * len(metric_std_map) - 1) / 2)
+#     ax.set_xticklabels(labels)
+#     ax.set_xlabel('Filename (Label)')
+#     ax.set_ylabel('Brihtness')
+#     ax.legend(title='Substrate and Metric', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+#     # Добавление разделителей между группами Filename
+#     for label in x[1:]:
+#         ax.axvline(label - 0.5 + width * 2, color='gray', linestyle='--', linewidth=0.5)  # Сдвиг разделителя
+
+#     plt.tight_layout()
+#     plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.cm import get_cmap
+import os
+from datetime import datetime
+
+def visualize_data(data, sort_by="F", output_dir=os.path.join(os.path.dirname(__file__), 'Data')):
     """
     Визуализирует данные датафрейма в виде группированных столбцов с error bars.
 
     Параметры:
         data (pd.DataFrame): Датафрейм с колонками:
             - Filename: Числовые метки (например, 1, 2, 3).
-            - Substrate: Группа (например, "A", "B").
+            - Substrate: Группа (например, "A", "F").
             - Bright_P_mean, Bright_Sq_m, Bright_Cl_m: Средние значения.
             - Bright_P_std, Bright_Sq_s, Bright_Cl_s: Стандартные отклонения.
+        sort_by (str): Критерий сортировки:
+            - "A": Сортировка по убыванию Bright_Sq_m для субстрата A.
+            - "sum": Сортировка по убыванию суммы Bright_Sq_m для субстратов A и F.
+            - "F": Сортировка по убыванию Bright_Sq_m для субстрата F.
+        output_dir (str): Директория для сохранения графика.
     """
     # Если Filename уже числовой, используем его как Label
     data['Label'] = data['Filename']
 
     # Уникальные метки и субстраты
-    labels = np.sort(data['Label'].unique())  # Сортировка в натуральном порядке
+    labels = data['Label'].unique()
     substrates = data['Substrate'].unique()
 
-    # Сопоставление показателей и их стандартных отклонений
+    # Сопоставление показателей и их стандартных отклонений (исключаем Bright_P_mean)
     metric_std_map = {
-        # "Bright_P_mean": "Bright_P_std",
         "Bright_Sq_m": "Bright_Sq_s",
         "Bright_Cl_m": "Bright_Cl_s"
     }
+
+    # Сортировка данных
+    if sort_by == "A":
+        # Сортировка по убыванию Bright_Sq_m для субстрата A
+        sorted_labels = data[data['Substrate'] == 'A'].sort_values(by='Bright_Sq_m', ascending=False)['Label']
+        sort_info = "Сортировка по убыванию Bright_Sq_m для субстрата A"
+    elif sort_by == "sum":
+        # Сортировка по убыванию суммы Bright_Sq_m для субстратов A и F
+        sum_bright_sq = data.groupby('Label').apply(lambda x: x[x['Substrate'] == 'A']['Bright_Sq_m'].values[0] +
+                                                   x[x['Substrate'] == 'F']['Bright_Sq_m'].values[0])
+        sorted_labels = sum_bright_sq.sort_values(ascending=False).index
+        sort_info = "Сортировка по убыванию суммы Bright_Sq_m для субстратов A и F"
+    elif sort_by == "F":
+        sorted_labels = data[data['Substrate'] == 'F'].sort_values(by='Bright_Sq_m', ascending=False)['Label']
+        sort_info = "Сортировка по убыванию Bright_Sq_m для субстрата F"
+    else:
+        sorted_labels = labels  # Без сортировки
+        sort_info = "Без сортировки"
 
     # Настройка графика
     fig, ax = plt.subplots(figsize=(16, 6))
     x = np.arange(len(labels))  # Позиции меток по оси X
     width = 0.12  # Ширина столбцов
 
-    # Цвета для подгрупп Substrate
-    substrate_colors = {
-        "A": ["skyblue", "lightgreen", "lightcoral"],  # Цвета для Substrate A
-        "F": ["blue", "green", "red"]  # Цвета для Substrate F
-    }
+    # Автоматическое создание цветов для подгрупп Substrate
+    cmap = get_cmap('tab20')  # Цветовая палитра
+    substrate_colors = {substrate: [cmap(i * 3 + j) for j in range(len(metric_std_map))]
+                        for i, substrate in enumerate(substrates)}
 
     # Отображение данных
     for i, substrate in enumerate(substrates):
@@ -780,6 +880,9 @@ def visualize_data(data):
             subset = data[data['Substrate'] == substrate]
             if subset.empty:  # Пропустить, если данных для этой подгруппы нет
                 continue
+            
+            # Сортировка данных по sorted_labels
+            subset = subset.set_index('Label').loc[sorted_labels].reset_index()
             means = subset[metric]
             stds = subset[metric_std_map[metric]]  # Соответствующее стандартное отклонение
             
@@ -787,7 +890,7 @@ def visualize_data(data):
             pos = x + (i * len(metric_std_map) + j) * width
             ax.bar(
                 pos, means, width,
-                label=f'{substrate} {metric}', #if i == 0 else "",  # Легенда только для первой подгруппы
+                label=f'{substrate} {metric}',  # Легенда для всех подгрупп
                 color=substrate_colors[substrate][j],  # Цвет для текущего Substrate и метрики
                 yerr=stds,
                 capsize=3,  # Уменьшенный размер "усиков"
@@ -796,19 +899,25 @@ def visualize_data(data):
 
     # Настройка осей и легенды
     ax.set_xticks(x + width * (len(substrates) * len(metric_std_map) - 1) / 2)
-    ax.set_xticklabels(labels)
+    ax.set_xticklabels(sorted_labels)
     ax.set_xlabel('Filename (Label)')
-    ax.set_ylabel('Brihtness')
+    ax.set_ylabel('Brightness')
     ax.legend(title='Substrate and Metric', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Добавление пояснения о сортировке
+    ax.text(0.5, -0.2, sort_info, transform=ax.transAxes, fontsize=10, ha='center', va='center')
 
     # Добавление разделителей между группами Filename
     for label in x[1:]:
         ax.axvline(label - 0.5 + width * 2, color='gray', linestyle='--', linewidth=0.5)  # Сдвиг разделителя
 
     plt.tight_layout()
+
+    # Сохранение графика
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, f'brightness_graph_{datetime.now().strftime("%d_%m")}.jpg')
+    plt.savefig(output_path, bbox_inches='tight')  # bbox_inches='tight' для сохранения всего содержимого
     plt.show()
-
-
 
 
 
@@ -845,7 +954,7 @@ if __name__ == "__main__":
     df1.to_excel(output_file)
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
-    visualize_data(df)
+    visualize_data(df, sort_by="F")
     # plot_bright_fixed(df,output_pdf_name=output_pdf)
     # plot_bright_debug(df,output_pdf_name=output_pdf)
 

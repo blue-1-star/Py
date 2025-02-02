@@ -66,10 +66,11 @@ def copy_metadata(source_file, target_file):
 
 # Пример использования
 if __name__ == "__main__":
-    input_file1 = r"G:\Music\fav\2025_winter\Не люби меня CHEPIKK Премьера 2025 (Ochamchira Music) 0.mp3"
+    # input_file1 = r"G:\Music\fav\2025_winter\Не люби меня CHEPIKK Премьера 2025 (Ochamchira Music) 0.mp3"
+    input_file1 = r"G:\Music\fav\2025_winter\Ochamchira_Не люби меня.mp3"
     input_file2 = r"G:\Music\fav\2025_winter\Ochamchira не люби меня.mp3"
     # input_file1 = r"G:\Music\fav\2025_winter\Не люби меня CHEPIKK Премьера 2025 (Ochamchira Music) 0.mp3"
-    output_file = r"G:\Music\fav\2025_winter\Ochamchira_Не люби меня.mp3"
+    output_file = r"G:\Music\fav\2025_winter\Ochamchira_Не люби меня_5.mp3"
 
     concatenate_audio( input_file1, input_file2, output_file)
     # start_time = 10000  # Начало обрезки в миллисекундах (10 секунд)
