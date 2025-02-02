@@ -5,6 +5,7 @@ from openpyxl.styles import Font
 from PIL import Image, ImageStat, ImageDraw
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.cm import get_cmap
 import numpy as np
 from datetime import datetime
 from openpyxl import load_workbook
@@ -17,6 +18,7 @@ from brightness_analysys_1b import get_image_files_with_metadata, get_elements_b
     get_image_files_with_meta_se
 import re
 from brightness_analysys import  draw_brightness_area, save_image_with_contour, crop_image_x 
+
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
     if img_path.lower().endswith('.orf'):
@@ -379,6 +381,7 @@ def save_brightness_excel(df, output_file, lower_threshold):
 # графика
 
 def col_ren_bright_excel():
+    # возвращает словарь для переименования столбцов датафрейма 
     return {
         'Brightness_PIL': 'Bright_PIL',
         'Brightness_Color': 'Bright_Col',
@@ -389,7 +392,20 @@ def col_ren_bright_excel():
         # Добавьте другие столбцы
     }
 
-
+def col_rename():
+    # возвращает словарь для переименования столбцов датафрейма 
+    return {
+        "Filename": img_file,
+        "Substrate": subst[idx],
+        "Bright_P_mean": brightness_pil['mean_brightness'],
+        "Bright_P_std": brightness_pil['stdv_brightness'],
+        "Bright_Sq_m": brightness_square['mean_brightness'],
+        "Bright_Sq_s": brightness_square['stdv_brightness'],
+        "Bright_Cl_m": brightness_circle['mean_brightness'],
+        "Bright_Cl_s": brightness_circle['stdv_brightness'],
+        "color_ellips": avg_color_ellipse,
+        # Добавьте другие столбцы
+    }
 
 def format_dataframe_columns_to_excel(writer, target_sheet_name, df, columns, decimal_places):
     """
@@ -720,6 +736,81 @@ data = {
 # Вызов функции для примера
 # plot_bright(df)
 
+#
+def visualize_data(data):
+    """
+    Визуализирует данные датафрейма в виде группированных столбцов с error bars.
+
+    Параметры:
+        data (pd.DataFrame): Датафрейм с колонками:
+            - Filename: Числовые метки (например, 1, 2, 3).
+            - Substrate: Группа (например, "A", "B").
+            - Bright_P_mean, Bright_Sq_m, Bright_Cl_m: Средние значения.
+            - Bright_P_std, Bright_Sq_s, Bright_Cl_s: Стандартные отклонения.
+    """
+    # Если Filename уже числовой, используем его как Label
+    data['Label'] = data['Filename']
+
+    # Уникальные метки и субстраты
+    labels = np.sort(data['Label'].unique())  # Сортировка в натуральном порядке
+    substrates = data['Substrate'].unique()
+
+    # Сопоставление показателей и их стандартных отклонений
+    metric_std_map = {
+        # "Bright_P_mean": "Bright_P_std",
+        "Bright_Sq_m": "Bright_Sq_s",
+        "Bright_Cl_m": "Bright_Cl_s"
+    }
+
+    # Настройка графика
+    fig, ax = plt.subplots(figsize=(16, 6))
+    x = np.arange(len(labels))  # Позиции меток по оси X
+    width = 0.12  # Ширина столбцов
+
+    # Цвета для подгрупп Substrate
+    substrate_colors = {
+        "A": ["skyblue", "lightgreen", "lightcoral"],  # Цвета для Substrate A
+        "F": ["blue", "green", "red"]  # Цвета для Substrate F
+    }
+
+    # Отображение данных
+    for i, substrate in enumerate(substrates):
+        for j, metric in enumerate(metric_std_map.keys()):
+            # Фильтрация данных для текущего Substrate и метрики
+            subset = data[data['Substrate'] == substrate]
+            if subset.empty:  # Пропустить, если данных для этой подгруппы нет
+                continue
+            means = subset[metric]
+            stds = subset[metric_std_map[metric]]  # Соответствующее стандартное отклонение
+            
+            # Позиция столбцов на графике
+            pos = x + (i * len(metric_std_map) + j) * width
+            ax.bar(
+                pos, means, width,
+                label=f'{substrate} {metric}', #if i == 0 else "",  # Легенда только для первой подгруппы
+                color=substrate_colors[substrate][j],  # Цвет для текущего Substrate и метрики
+                yerr=stds,
+                capsize=3,  # Уменьшенный размер "усиков"
+                error_kw={"elinewidth": 0.8, "ecolor": "gray"}  # Тонкие и светлые "усики"
+            )
+
+    # Настройка осей и легенды
+    ax.set_xticks(x + width * (len(substrates) * len(metric_std_map) - 1) / 2)
+    ax.set_xticklabels(labels)
+    ax.set_xlabel('Filename (Label)')
+    ax.set_ylabel('Brihtness')
+    ax.legend(title='Substrate and Metric', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # Добавление разделителей между группами Filename
+    for label in x[1:]:
+        ax.axvline(label - 0.5 + width * 2, color='gray', linestyle='--', linewidth=0.5)  # Сдвиг разделителя
+
+    plt.tight_layout()
+    plt.show()
+
+
+
+
 
 
 # Основной блок выполнения
@@ -748,12 +839,13 @@ if __name__ == "__main__":
 
     # save_brightness_excel(df, output_file, lower_threshold)
     df = df.round(1)  # Округляем все числа до 1 знака
-    df = group_and_extract(df)
+    df1 = group_and_extract(df)
     # df = sort_dataframe(df)
-    df = sort_and_rank(df)
-    df.to_excel(output_file)
+    df1 = sort_and_rank(df1)
+    df1.to_excel(output_file)
     auto_adjust_column_width(output_file)
     print(f"Анализ яркости завершён. Результаты сохранены в {output_file}")
+    visualize_data(df)
     # plot_bright_fixed(df,output_pdf_name=output_pdf)
     # plot_bright_debug(df,output_pdf_name=output_pdf)
 
