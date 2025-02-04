@@ -1,0 +1,90 @@
+есть фотоснимок екстракта в .orf формате. Я его обрабатываю средствами rawpy и получаю массив 
+img = Image.fromarray(rgb)  который далее используется для анализа различных свойств изображения
+как  попиксельное вычисление стат характеристик изображения средней яркости, станд отклонения,
+и получаю также средние по трем каналам RGB для работы с цветовыми характеристиками. 
+Но, говорят что для изучения цвета лучше подходит цыетовое пространство  HSV.
+
+На следующем этапе есть потребность детальнее изучить цветовые характеристики изображения
+Вообще можно сформулировать цель так:
+получить корреляцию между весом извлеченного экстракта  ( два типа A, F ) и цветовой гистограммой 
+
+первый шаг 
+нужна функция получения из вышеуказанного img   его значения в HSV.
+ 
+2025-02-04 16:55:33
+
+Нужно удобно и понятно хранить набор разнородных данных, связанных с одним изображением
+1. Filename  - ключевое поле
+2. 
+
+
+
+2025-02-04 17:51:27
+
+Правильно ли представляю формирование  основного словаря для основного датафрейма 
+
+Фрагмент кода для вычислений гистограмм изображений
+ 
+hsv_array = rgb_to_hsv(rgb_array)
+hue_channel = hsv_array[:, :, 0]  # Оттенок
+saturation_channel = hsv_array[:, :, 1]  # Насыщенность
+value_channel = hsv_array[:, :, 2]  # Яркость
+# Вычисляем гистограммы
+hist_hue, hist_saturation, hist_value, bin_edges = get_hsv_histograms(hsv_array)
+
+# plot_hist(hue_channel)
+ 
+ # Основной словарь результатов
+        result_row = {
+            "Filename": img_file,
+            "Substrate": subst[idx],
+            "Bright_P_mean": brightness_pil['mean_brightness'],
+            "Bright_P_std": brightness_pil['stdv_brightness'],
+            "Bright_Sq_m": brightness_square['mean_brightness'],
+            "Bright_Sq_s": brightness_square['stdv_brightness'],
+            "Bright_Cl_m": brightness_circle['mean_brightness'],
+            "Bright_Cl_s": brightness_circle['stdv_brightness'],
+            "color_ellips": avg_color_ellipse,
+            "Hist_hue" :  [hist_hue],
+            "Hist_sat" :  [hist_saturation],
+            "Hist_value": [hist_value],
+            "Size": f"fig({sx} x {sy})"
+
+Как работають эти операторы
+"Hist_hue" :  [hist_hue],
+"Hist_sat" :  [hist_saturation],
+"Hist_value": [hist_value],
+
+и как мне получить например в терминах уже датафрейма значения hist_hue и вычислить например среднее?
+
+Отредактировать функцию
+
+def plot_hist(channel,  output_dir):
+
+    plt.hist(channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
+    plt.title("Гистограмма оттенков (Hue)") # изменять титул в зависимости от канала ( hue, saturation, values)
+    plt.xlabel("Hue")  # fyfkjubxyj
+    plt.ylabel("Частота")
+    plt.show()
+
+
+    # Вычисляем гистограммы
+    hist_hue, bin_edges = np.histogram(hue_channel, bins=180, range=(0, 180))
+    hist_saturation, _ = np.histogram(saturation_channel, bins=256, range=(0, 256))
+    hist_value, _ = np.histogram(value_channel, bins=256, range=(0, 256))
+    
+    return hist_hue, hist_saturation, hist_value, bin_edges
+
+согласно таким требованиям:
+1) созданные графики гистограмм размещаются в указанный каталог с именами 
+image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
+dir_output_pic =  f"{image_dir}\picture"  - подкаталог image_dir\picture
+имя файла  
+
+# Сохранение изображения с контуром
+    image_dir = os.path.dirname(image_path)
+    contour_dir = os.path.join(image_dir, "contour")
+    os.makedirs(contour_dir, exist_ok=True)
+    # Извлекаем имя файла без расширения
+    filename = os.path.splitext(os.path.basename(image_path))[0]
+    contour_path = os.path.join(contour_dir, f"{filename}_{shape[0]}.png")

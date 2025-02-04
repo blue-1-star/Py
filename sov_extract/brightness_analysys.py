@@ -121,59 +121,7 @@ def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
         bbox = mask.getbbox()
         return result.crop(bbox)
 
-# 
-# 
-# def crop_image_x(image, image_path, shape='rectangle', size=(100, 100)):
-#     """
-#     Вырезает заданную область (прямоугольник или эллипс) из изображения и сохраняет контур в подкаталог.
-#     """
-#     width, height = image.size
-#     center_x, center_y = width // 2, height // 2
-
-#     # Обработка аргумента size
-#     if isinstance(size, int):
-#         size_x, size_y = size, size
-#     else:
-#         size_x, size_y = size
-
-#     # Создаём путь для сохранения изображения с контуром
-#     image_dir = os.path.dirname(image_path)
-#     contour_dir = os.path.join(image_dir, "contour")
-#     os.makedirs(contour_dir, exist_ok=True)
-
-#     filename = os.path.splitext(os.path.basename(image_path))[0]
-#     contour_path = os.path.join(contour_dir, f"{filename}_contour.png")
-
-#     if shape == 'rectangle':
-#         left = max(center_x - size_x // 2, 0)
-#         upper = max(center_y - size_y // 2, 0)
-#         right = min(center_x + size_x // 2, width)
-#         lower = min(center_y + size_y // 2, height)
-#         cropped_img = image.crop((left, upper, right, lower))
-
-#     elif shape == 'ellipse':
-#         mask = Image.new("L", image.size, 0)
-#         draw = ImageDraw.Draw(mask)
-#         draw.ellipse(
-#             (center_x - size_x // 2, center_y - size_y // 2,
-#              center_x + size_x // 2, center_y + size_y // 2),
-#             fill=255
-#         )
-#         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
-#         bbox = mask.getbbox()
-#         cropped_img = result.crop(bbox)
-
-#     else:
-#         print(f"Warning: Unknown shape '{shape}', returning original image.")
-#         return image
-
-#     # Сохраняем вырезанный контур в каталог "contour"
-#     cropped_img.save(contour_path)
-#     print(f"Контур сохранён: {contour_path}")
-
-#     return cropped_img
-
-
+#
 
 def draw_brightness_area(image, shape, center, size):
     """
@@ -196,6 +144,61 @@ def draw_brightness_area(image, shape, center, size):
              center_x + size_x // 2, center_y + size_y // 2),
             outline="red", width=3
         )
+
+def rgb_to_hsv(rgb_array):
+    """
+    Преобразует массив RGB в HSV.
+
+    Параметры:
+        rgb_array (numpy.ndarray): Массив RGB с формой (height, width, 3).
+
+    Возвращает:
+        hsv_array (numpy.ndarray): Массив HSV с формой (height, width, 3).
+    """
+    # Преобразуем RGB в HSV с помощью OpenCV
+    hsv_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2HSV)
+    return hsv_array
+
+
+def get_hsv_histograms(hsv_array):
+    """
+    Вычисляет гистограммы для каналов HSV.
+
+    Параметры:
+        hsv_array (numpy.ndarray): Массив HSV с формой (height, width, 3).
+
+    Возвращает:
+        hist_hue (numpy.ndarray): Гистограмма для канала Hue.
+        hist_saturation (numpy.ndarray): Гистограмма для канала Saturation.
+        hist_value (numpy.ndarray): Гистограмма для канала Value.
+        bin_edges (numpy.ndarray): Границы бинов для гистограмм.
+    """
+    # Извлекаем каналы HSV
+    hue_channel = hsv_array[:, :, 0].flatten()  # Оттенок (0–179)
+    saturation_channel = hsv_array[:, :, 1].flatten()  # Насыщенность (0–255)
+    value_channel = hsv_array[:, :, 2].flatten()  # Яркость (0–255)
+     # Вычисляем гистограммы
+    hist_hue, bin_edges = np.histogram(hue_channel, bins=180, range=(0, 180))
+    hist_saturation, _ = np.histogram(saturation_channel, bins=256, range=(0, 256))
+    hist_value, _ = np.histogram(value_channel, bins=256, range=(0, 256))
+
+    return hist_hue, hist_saturation, hist_value, bin_edges
+
+def plot_hist(hue_channel, output_dir):
+
+    plt.hist(hue_channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
+    plt.title("Гистограмма оттенков (Hue)")
+    plt.xlabel("Hue")
+    plt.ylabel("Частота")
+    plt.show()
+
+
+    # Вычисляем гистограммы
+    hist_hue, bin_edges = np.histogram(hue_channel, bins=180, range=(0, 180))
+    hist_saturation, _ = np.histogram(saturation_channel, bins=256, range=(0, 256))
+    hist_value, _ = np.histogram(value_channel, bins=256, range=(0, 256))
+    
+    return hist_hue, hist_saturation, hist_value, bin_edges
 
 
 # Пример использования:

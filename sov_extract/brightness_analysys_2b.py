@@ -17,7 +17,8 @@ import brightness_analysys_1b
 from brightness_analysys_1b import get_image_files_with_metadata, get_elements_by_index, extract_number_from_filename,\
     get_image_files_with_meta_se
 import re
-from brightness_analysys import  draw_brightness_area, save_image_with_contour, crop_image_x 
+from brightness_analysys import  draw_brightness_area, save_image_with_contour, crop_image_x
+from brightness_analysys import   get_hsv_histograms, rgb_to_hsv, plot_hist
 
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
@@ -55,30 +56,9 @@ def crop_image(image, shape='square', size=100):
         result = Image.composite(image, Image.new("RGB", image.size, (0, 0, 0)), mask)
         bbox = mask.getbbox()
         return result.crop(bbox)
-import cv2
-
-def rgb_to_hsv(rgb_array):
-    """
-    Преобразует массив RGB в HSV.
-
-    Параметры:
-        rgb_array (numpy.ndarray): Массив RGB с формой (height, width, 3).
-
-    Возвращает:
-        hsv_array (numpy.ndarray): Массив HSV с формой (height, width, 3).
-    """
-    # Преобразуем RGB в HSV с помощью OpenCV
-    hsv_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2HSV)
-    return hsv_array
+# import cv2
 
 
-def plot_hist(hue_channel):
-
-    plt.hist(hue_channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
-    plt.title("Гистограмма оттенков (Hue)")
-    plt.xlabel("Hue")
-    plt.ylabel("Частота")
-    plt.show()
 
 
 
@@ -111,12 +91,6 @@ def calculate_brightness_color(image_path, lower_threshold=0, upper_threshold=25
         'mean_brightness': mean_brightness,
         'total_pixels': brightness_values.size
     }
-
-# def calculate_brightness_with_area(image_path, shape='square', size=100, lower_threshold=0, upper_threshold=255):
-#     img = process_image(image_path)
-#     # img = Image.open(image_path)
-#     cropped_img = crop_image(img, shape=shape, size=size)
-#     return calculate_brightness_pil(cropped_img, lower_threshold, upper_threshold)
 
 
 def calculate_brightness_with_area(image_path, shape='square', size=(100,100), lower_threshold=0, upper_threshold=255):
@@ -230,9 +204,7 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
     image_files_tupl_meta = get_image_files_with_meta_se(image_dir)
     image_files = get_elements_by_index(image_files_tupl_meta,0)  # filename
     subst= get_elements_by_index(image_files_tupl_meta,1)    #  substrat
-    # expn =  get_elements_by_index(image_files_tupl_meta,2)    #  number experiment
-    # cam = get_elements_by_index(image_files_tupl_meta,2)  # camera
-    cont_folder = f"{image_dir}_contour"
+    # cont_folder = f"{image_dir}_contour"
     results = []
     contour_paths = []
     low_list, upper_list = [], []
@@ -246,7 +218,10 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         hue_channel = hsv_array[:, :, 0]  # Оттенок
         saturation_channel = hsv_array[:, :, 1]  # Насыщенность
         value_channel = hsv_array[:, :, 2]  # Яркость
-        plot_hist(hue_channel)
+        # Вычисляем гистограммы
+        hist_hue, hist_saturation, hist_value, bin_edges = get_hsv_histograms(hsv_array)
+        
+        plot_hist(hue_channel, output_file)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
         brightness_square = calculate_brightness_with_area(img_path, shape ='rectangle',  size = size, lower_threshold=lower_threshold)
         # img =  draw_brightness_area(img, shape='square', size=size)
@@ -273,6 +248,13 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Bright_Cl_m": brightness_circle['mean_brightness'],
             "Bright_Cl_s": brightness_circle['stdv_brightness'],
             "color_ellips": avg_color_ellipse,
+            "Hist_hue_m" :  np.mean(hist_hue),
+            "Hist_sat_m" :  np.mean(hist_saturation),
+            "Hist_value_m": np.mean(hist_value),
+            "Hist_hue_s" :  np.std(hist_hue),
+            "Hist_sat_s" :  np.std(hist_saturation),
+            "Hist_value_s": np.std(hist_value),
+
             # "Size": f"{shape[0]}({sx} x {sy})"  #  для вывода фигуры - когда появится
             "Size": f"fig({sx} x {sy})"
             # "used pixels %": brightness_pil['used_pixels'] / brightness_pil['total_pixels'],
@@ -295,8 +277,9 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
 
         
 
-
+    
     df = pd.DataFrame(results)
+    # df = df.assign(hist_hue=hist_hue, hist_saturation=hist_saturation, hist_value=hist_value)
     # print(df)
     # df['Rank_in_Group_PIL'] = df.groupby('Format')['Bright_P'].rank(ascending=False).astype(int)
     # df = df.sort_values(
