@@ -18,7 +18,7 @@ from brightness_analysys_1b import get_image_files_with_metadata, get_elements_b
     get_image_files_with_meta_se
 import re
 from brightness_analysys import  draw_brightness_area, save_image_with_contour, crop_image_x
-from brightness_analysys import   get_hsv_histograms, rgb_to_hsv, plot_hist
+from brightness_analysys import   get_hsv_histograms, rgb_to_hsv, plot_hist, plot_hist_with_image
 
 # Функция обработки изображений (включая ORF)
 def process_image(img_path):
@@ -221,16 +221,21 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
         # Вычисляем гистограммы
         hist_hue, hist_saturation, hist_value, bin_edges = get_hsv_histograms(hsv_array)
         
-        plot_hist(hue_channel, output_file)
         brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
         brightness_square = calculate_brightness_with_area(img_path, shape ='rectangle',  size = size, lower_threshold=lower_threshold)
+        brightness_circle = calculate_brightness_with_area(img_path, shape ='ellipse', size=size, lower_threshold=lower_threshold)
+        plot_hist(hue_channel, img_path, shape='rectangle', size=size, channel_name='Hue')
+        plot_hist(hue_channel, img_path, shape='ellipse', size=size, channel_name='Hue')
+        plot_hist_with_image(hue_channel, img_path, shape='rectangle', size=(100, 100), channel_name='Hue')
+        plot_hist_with_image(hue_channel, img_path, shape='ellipse', size=(100, 100), channel_name='Hue')
+
+
         # img =  draw_brightness_area(img, shape='square', size=size)
         # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
         # contour_paths.append(contour_path) 
 
         # brightness_color = calculate_brightness_color(img_path, lower_threshold)
         # brightness_square = calculate_brightness_with_area(img_path, 'square', size, lower_threshold=lower_threshold)
-        brightness_circle = calculate_brightness_with_area(img_path, shape ='ellipse', size=size, lower_threshold=lower_threshold)
         # img =  draw_brightness_area(img, shape='circle', size=size)
         # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
         # contour_paths.append(contour_path) 
@@ -248,12 +253,12 @@ def calculate_brightness_dataframe(image_dir, lower_threshold, size):
             "Bright_Cl_m": brightness_circle['mean_brightness'],
             "Bright_Cl_s": brightness_circle['stdv_brightness'],
             "color_ellips": avg_color_ellipse,
-            "Hist_hue_m" :  np.mean(hist_hue),
-            "Hist_sat_m" :  np.mean(hist_saturation),
-            "Hist_value_m": np.mean(hist_value),
-            "Hist_hue_s" :  np.std(hist_hue),
-            "Hist_sat_s" :  np.std(hist_saturation),
-            "Hist_value_s": np.std(hist_value),
+            "Hist_hue_m" :  np.mean(hue_channel),
+            "Hist_sat_m" :  np.mean(saturation_channel),
+            "Hist_value_m": np.mean(value_channel),
+            "Hist_hue_s" :  np.std(hue_channel),
+            "Hist_sat_s" :  np.std(saturation_channel),
+            "Hist_value_s": np.std(value_channel),
 
             # "Size": f"{shape[0]}({sx} x {sy})"  #  для вывода фигуры - когда появится
             "Size": f"fig({sx} x {sy})"
@@ -717,99 +722,6 @@ def plot_bright_debug(df, output_pdf_name="bright_barcharts_debug.pdf"):
     plt.show()
 
 
-# Вызов функции для отладки
-# plot_bright_debug(df)
-
-
-
-
-# Пример использования функции
-# Создание примерного датафрейма
-data = {
-    'Filename': [1, 1, 1, 1, 2, 2, 2, 2],
-    'Substrate': ['A', 'A', 'F', 'F', 'A', 'A', 'F', 'F'],
-    'Camera': ['K', 'C', 'K', 'C', 'K', 'C', 'K', 'C'],
-    'Bright_P': [50, 60, 70, 80, 55, 65, 75, 85]
-}
-# df = pd.DataFrame(data)
-
-# Вызов функции для примера
-# plot_bright(df)
-
-#
-# def visualize_data(data):
-#     """
-#     Визуализирует данные датафрейма в виде группированных столбцов с error bars.
-
-#     Параметры:
-#         data (pd.DataFrame): Датафрейм с колонками:
-#             - Filename: Числовые метки (например, 1, 2, 3).
-#             - Substrate: Группа (например, "A", "B").
-#             - Bright_P_mean, Bright_Sq_m, Bright_Cl_m: Средние значения.
-#             - Bright_P_std, Bright_Sq_s, Bright_Cl_s: Стандартные отклонения.
-#     """
-#     # Если Filename уже числовой, используем его как Label
-#     data['Label'] = data['Filename']
-
-#     # Уникальные метки и субстраты
-#     # labels = np.sort(data['Label'].unique())  # Сортировка в натуральном порядке
-#     labels = np.sort(data['Bright_Sq_m'].unique())  # Сортировка в натуральном порядке
-#     substrates = data['Substrate'].unique()
-
-#     # Сопоставление показателей и их стандартных отклонений
-#     metric_std_map = {
-#         # "Bright_P_mean": "Bright_P_std",
-#         "Bright_Sq_m": "Bright_Sq_s",
-#         "Bright_Cl_m": "Bright_Cl_s"
-#     }
-
-#     # Настройка графика
-#     fig, ax = plt.subplots(figsize=(16, 6))
-#     x = np.arange(len(labels))  # Позиции меток по оси X
-#     width = 0.12  # Ширина столбцов
-
-#     # Цвета для подгрупп Substrate
-#     substrate_colors = {
-#         "A": ["skyblue", "lightgreen", "lightcoral"],  # Цвета для Substrate A
-#         "F": ["blue", "green", "red"]  # Цвета для Substrate F
-#     }
-
-#     # Отображение данных
-#     for i, substrate in enumerate(substrates):
-#         for j, metric in enumerate(metric_std_map.keys()):
-#             # Фильтрация данных для текущего Substrate и метрики
-#             subset = data[data['Substrate'] == substrate]
-#             if subset.empty:  # Пропустить, если данных для этой подгруппы нет
-#                 continue
-#             means = subset[metric]
-#             stds = subset[metric_std_map[metric]]  # Соответствующее стандартное отклонение
-            
-#             # Позиция столбцов на графике
-#             pos = x + (i * len(metric_std_map) + j) * width
-#             ax.bar(
-#                 pos, means, width,
-#                 label=f'{substrate} {metric}', #if i == 0 else "",  # Легенда только для первой подгруппы
-#                 color=substrate_colors[substrate][j],  # Цвет для текущего Substrate и метрики
-#                 yerr=stds,
-#                 capsize=3,  # Уменьшенный размер "усиков"
-#                 error_kw={"elinewidth": 0.8, "ecolor": "gray"}  # Тонкие и светлые "усики"
-#             )
-
-#     # Настройка осей и легенды
-#     ax.set_xticks(x + width * (len(substrates) * len(metric_std_map) - 1) / 2)
-#     ax.set_xticklabels(labels)
-#     ax.set_xlabel('Filename (Label)')
-#     ax.set_ylabel('Brihtness')
-#     ax.legend(title='Substrate and Metric', bbox_to_anchor=(1.05, 1), loc='upper left')
-
-#     # Добавление разделителей между группами Filename
-#     for label in x[1:]:
-#         ax.axvline(label - 0.5 + width * 2, color='gray', linestyle='--', linewidth=0.5)  # Сдвиг разделителя
-
-#     plt.tight_layout()
-#     plt.show()
-
-
 def visualize_data(data, sort_by="F", output_dir=os.path.join(os.path.dirname(__file__), 'Data')):
     """
     Визуализирует данные датафрейма в виде группированных столбцов с error bars.
@@ -933,8 +845,8 @@ def visualize_data(data, sort_by="F", output_dir=os.path.join(os.path.dirname(__
 # Основной блок выполнения
 if __name__ == "__main__":
     # image_dir = r"G:\My\sov\extract\photo"  # Ваш путь к папке с изображениями
-    # image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
-    image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
+    image_dir = r"G:\My\sov\extract\ORF\AF"  # Ваш путь к папке с изображениями
+    # image_dir = r"G:\My\sov\extract\ORF\Work"  # Ваш путь к папке с изображениями
    
     current_date = datetime.now().strftime("%d_%m")
     output_dir = os.path.join(os.path.dirname(__file__), 'Data')
