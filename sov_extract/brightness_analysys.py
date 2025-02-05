@@ -23,6 +23,14 @@ import rawpy
 #         cv2.circle(image, (center_x, center_y), size // 2, (0, 255, 0), 2)
     
 #     return Image.fromarray(image)
+def process_image(img_path):
+    if img_path.lower().endswith('.orf'):
+        with rawpy.imread(img_path) as raw:
+            rgb = raw.postprocess()
+        img = Image.fromarray(rgb)
+    else:
+        img = Image.open(img_path)
+    return img
 
 def save_image_with_contour(image, image_path, output_folder='output'):
     """Сохраняет изображение с контуром."""
@@ -184,7 +192,7 @@ def get_hsv_histograms(hsv_array):
 
     return hist_hue, hist_saturation, hist_value, bin_edges
 
-def plot_hist(hue_channel, output_dir):
+def plot_hist1(hue_channel, output_dir):
 
     plt.hist(hue_channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
     plt.title("Гистограмма оттенков (Hue)")
@@ -200,6 +208,100 @@ def plot_hist(hue_channel, output_dir):
     
     return hist_hue, hist_saturation, hist_value, bin_edges
 
+# 2025-02-05 06:31:45
+
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+
+def plot_hist(channel, image_path, shape='rectangle', size=(100, 100), channel_name='Hue'):
+    """
+    Строит и сохраняет гистограмму для указанного канала.
+
+    Параметры:
+        channel (numpy.ndarray): Канал изображения (Hue, Saturation, Value).
+        image_path (str): Путь к исходному изображению.
+        shape (str): Форма области (например, 'rectangle' или 'ellipse').
+        size (tuple): Размер области (ширина, высота).
+        channel_name (str): Название канала ('Hue', 'Saturation', 'Value').
+    """
+    # Определяем каталог для сохранения
+    image_dir = os.path.dirname(image_path)
+    contour_dir = os.path.join(image_dir, "contour")
+    os.makedirs(contour_dir, exist_ok=True)
+
+    # Извлекаем имя файла без расширения
+    filename = os.path.splitext(os.path.basename(image_path))[0]
+
+    # Определяем имя файла для гистограммы
+    hist_name = f"h{channel_name[0]}"  # hH, hS, hV
+    hist_path = os.path.join(contour_dir, f"{filename}_{shape[0]}_{hist_name}.png")
+    hist_data_path = os.path.join(contour_dir, f"{filename}_{shape[0]}_hdig_{hist_name}.txt")
+
+    # Строим гистограмму
+    plt.figure()
+    plt.hist(channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
+    plt.title(f"Гистограмма {channel_name} для изображения {filename}")
+    plt.xlabel(channel_name)
+    plt.ylabel("Частота")
+    plt.savefig(hist_path)  # Сохраняем график
+    plt.close()
+
+    # Сохраняем числовые данные гистограммы
+    hist_values, bin_edges = np.histogram(channel.flatten(), bins=180, range=(0, 180))
+    np.savetxt(hist_data_path, hist_values, fmt='%d')  # Сохраняем данные в текстовый файл
+
+    print(f"Гистограмма {channel_name} сохранена в {hist_path}")
+    print(f"Числовые данные гистограммы сохранены в {hist_data_path}")
+
+def plot_hist_with_image(channel, image_path, shape='rectangle', size=(100, 100), channel_name='Hue'):
+    """
+    Строит и сохраняет гистограмму вместе с исходным изображением.
+
+    Параметры:
+        channel (numpy.ndarray): Канал изображения (Hue, Saturation, Value).
+        image_path (str): Путь к исходному изображению.
+        shape (str): Форма области (например, 'rectangle' или 'ellipse').
+        size (tuple): Размер области (ширина, высота).
+        channel_name (str): Название канала ('Hue', 'Saturation', 'Value').
+    """
+    # Определяем каталог для сохранения
+    image_dir = os.path.dirname(image_path)
+    contour_dir = os.path.join(image_dir, "contour")
+    os.makedirs(contour_dir, exist_ok=True)
+
+    # Извлекаем имя файла без расширения
+    filename = os.path.splitext(os.path.basename(image_path))[0]
+
+    # Определяем имя файла для гистограммы
+    hist_name = f"h{channel_name[0]}"  # hH, hS, hV
+    hist_path = os.path.join(contour_dir, f"{filename}_{shape[0]}_{hist_name}_with_image.png")
+    cont_path = os.path.join(contour_dir, f"{filename}_{shape[0]}.png")
+    # Загружаем исходное изображение
+    # img = Image.open(image_path)
+    img = Image.open(cont_path)
+    # img = process_image(image_path)  # Используем вашу функцию для обработки RAW-файлов
+    # Создаём полотно с двумя графиками
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+    # Отображаем исходное изображение
+    ax1.imshow(img)
+    ax1.set_title(f"Исходное изображение: {filename}")
+    ax1.axis('off')
+
+    # Строим гистограмму
+    ax2.hist(channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
+    ax2.set_title(f"Гистограмма {channel_name} для изображения {filename}")
+    ax2.set_xlabel(channel_name)
+    ax2.set_ylabel("Частота")
+
+    # Сохраняем полотно
+    plt.tight_layout()
+    plt.savefig(hist_path)
+    plt.close()
+
+    print(f"Гистограмма {channel_name} с изображением сохранена в {hist_path}")
 
 # Пример использования:
 # input_image = "image.jpg"
