@@ -88,3 +88,99 @@ dir_output_pic =  f"{image_dir}\picture"  - подкаталог image_dir\pictu
     # Извлекаем имя файла без расширения
     filename = os.path.splitext(os.path.basename(image_path))[0]
     contour_path = os.path.join(contour_dir, f"{filename}_{shape[0]}.png")
+
+
+2025-02-05 06:26:09
+
+ты предложил функцию построения графика гистограммы :
+def plot_hist(channel,  output_dir):
+
+    plt.hist(channel.flatten(), bins=180, range=(0, 180), color='red', alpha=0.7)
+    plt.title("Гистограмма оттенков (Hue)") # изменять титул в зависимости от канала ( hue, saturation, values)
+    plt.xlabel("Hue")  # 
+    plt.ylabel("Частота")
+    plt.show()
+
+Мне нужно вписать ее в контекст
+1) Функция должна определить имя  каталога и путь файла ( зависит от имени файла обрабатываемого изображения)
+ куда  помещать график
+каталог сохраняется там же где и изображение с контуром
+а его выполняет функция 
+def crop_image_x(image, image_path, shape='rectangle', size=(100, 100) ):
+
+ # Сохранение изображения с контуром
+    image_dir = os.path.dirname(image_path)
+    contour_dir = os.path.join(image_dir, "contour")
+    os.makedirs(contour_dir, exist_ok=True)
+    # Извлекаем имя файла без расширения
+    filename = os.path.splitext(os.path.basename(image_path))[0]
+    contour_path = os.path.join(contour_dir, f"{filename}_{shape[0]}_h{NAME}.png")
+
+    где {NAME} - идентифицирует гистограмму - hH - Hue оттенок
+    hS - Saturation 
+    hV - value
+
+
+2) при построении гистограмм обеспечить надпись на графики - 
+такого содержания 
+Гистограмма  Hue для изображения  filename   
+Гистограмма  Saturation для изображения  filename   
+Гистограмма  Value для изображения  filename   
+
+
+
+3) Было бы прекрасно визуализировать пары на одном полотне
+
+исходное изображение + 3 его гистограммы 
+Но для начала - одна  Гистограмма  Hue 
+
+4) обеспечить сохранение в тот же каталог
+ contour_dir = os.path.join(image_dir, "contour")
+ числовых данных гистограмм с именем f"{filename}_{shape[0]}_hdig_{NAME}.txt" (либо другой формат )
+
+-------------------------------
+Фрагмент кода в контексте которого должна работать функция plot_hist
+
+for idx, img_file in enumerate(image_files):
+    # цикл по всем файлам с изображениями
+        img_path = os.path.join(image_dir, img_file)
+        img = process_image(img_path)  # обработка .orf либо других расширений
+        rgb_array = np.array(img)  # Преобразуем изображение обратно в NumPy-массив
+        hsv_array = rgb_to_hsv(rgb_array)
+        hue_channel = hsv_array[:, :, 0]  # Оттенок
+        saturation_channel = hsv_array[:, :, 1]  # Насыщенность
+        value_channel = hsv_array[:, :, 2]  # Яркость
+        # Вычисляем гистограммы
+        hist_hue, hist_saturation, hist_value, bin_edges = get_hsv_histograms(hsv_array)
+        
+        brightness_pil = calculate_brightness_pil(img_path, lower_threshold)
+        brightness_square = calculate_brightness_with_area(img_path, shape ='rectangle',  size = size, lower_threshold=lower_threshold)
+        brightness_circle = calculate_brightness_with_area(img_path, shape ='ellipse', size=size, lower_threshold=lower_threshold)
+        
+        # тут должна быть адаптированная функция  !!!!
+        plot_hist(hue_channel, output_file, shape, size)
+        #       
+        avg_color_ellipse = calculate_color_with_area(img_path, 'ellipse', size=size, lower_threshold=lower_threshold)
+
+        # Основной словарь результатов
+        result_row = {
+            "Filename": img_file,
+            "Substrate": subst[idx],
+            "Bright_P_mean": brightness_pil['mean_brightness'],
+            "Bright_P_std": brightness_pil['stdv_brightness'],
+            "Bright_Sq_m": brightness_square['mean_brightness'],
+            "Bright_Sq_s": brightness_square['stdv_brightness'],
+            "Bright_Cl_m": brightness_circle['mean_brightness'],
+            "Bright_Cl_s": brightness_circle['stdv_brightness'],
+            "color_ellips": avg_color_ellipse,
+            "Hist_hue_m" :  np.mean(hist_hue),
+            "Hist_sat_m" :  np.mean(hist_saturation),
+            "Hist_value_m": np.mean(hist_value),
+            "Hist_hue_s" :  np.std(hist_hue),
+            "Hist_sat_s" :  np.std(hist_saturation),
+            "Hist_value_s": np.std(hist_value),
+            "Size": f"fig({sx} x {sy})"
+        }
+        results.append(result_row)
+         
+df = pd.DataFrame(results)
