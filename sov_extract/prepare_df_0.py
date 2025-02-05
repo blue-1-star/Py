@@ -167,17 +167,24 @@ def plot_gr(dataTall,output_dir):
     )
 
     # Шаг 3: Настройка оформления
-    plt.title('Differences in carbs/mg between Methods', fontsize=14)
-    plt.xlabel('Method', fontsize=12)
-    plt.ylabel('carbs/mg', fontsize=12)
-    plt.legend(title='Legend', bbox_to_anchor=(1.05, 1), loc='upper left')
+    font = {'family': 'Times New Roman','size': 14}
+    plt.title('Differences in carbs/mg between Methods',fontdict=font)
+    # plt.xlabel('Extraction method', fontsize=12)
+    # plt.ylabel('Carbohydrates/mg', fontsize=12)
+    font['size'] = 12
+    plt.xlabel('Extraction method', fontdict=font)
+    plt.ylabel('Carbohydrates/mg', fontdict=font)
+    plt.legend(title='Legend', bbox_to_anchor=(1.05, 1), loc='upper left', prop=font)
     plt.xticks(rotation=0)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
 
     # Шаг 4: Отображение графика
-    output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods.pdf')
-    plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight')  
+    # output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods.pdf')
+    output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods.svg')
+    # plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight') 
+    plt.savefig(output_path,  format="svg", dpi=300, bbox_inches='tight') 
+
     plt.show()
     plt.close()
 
@@ -235,7 +242,7 @@ res_lin_r = lin_r(dataTall)
 with open(f_out("res_lin_r.txt"), "w") as file:
     # Перенаправляем вывод в файл
     print(res_lin_r, file=file)
-# plot_gr(dataTall,output_dir)
+plot_gr(dataTall,output_dir)
 formula = 'Q("carbs/mg") ~ C(Solvent_Type) + C(Extraction_Technique)'
 
 # Подготовка данных (аналог rename и mutate)
