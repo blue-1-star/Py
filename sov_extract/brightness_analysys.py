@@ -5,6 +5,8 @@ from PIL import Image, ImageStat, ImageDraw, PngImagePlugin
 from datetime import datetime
 import tempfile
 import rawpy
+import pandas as pd
+
 # from brightness_analysys_2a import process_image
 # def draw_brightness_area(image, shape='square', size=100):
 #     """
@@ -322,4 +324,12 @@ def plot_hist_with_image(channel, image_path, shape='rectangle', size=(100, 100)
 # img =  draw_brightness_area(img, shape='square', size=size)
 # contour_path = save_image_with_contour(img, img_path, output_folder=cont_folder)
 # contour_paths.append(contour_path) 
+
+
+
+# print(df.columns)
+
+
+
+
 
