@@ -46,17 +46,19 @@ data = {
 }
 
 # df = pd.DataFrame(data)
-file_path = r"G:\My\sov\extract\Weight tables_my.xlsx"
-xls = pd.ExcelFile(file_path)
+file_path1 = r"G:\My\sov\extract\Weight tables_my.xlsx"
+file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx"
+
+xls = pd.ExcelFile(file_path1)
 df = xls.parse(sheet_name="Sheet1")
 columns_to_delete = [0, 1, 2]
 df.drop(df.columns[columns_to_delete], axis=1, inplace=True)
 # print(df)
-
 new_col = ['EM','PHS','Solv_1','Solv_2','FL','A','R','Total']
-# df.columns = new_col
+df.columns = new_col
+df1 = df
 
-result_df = calculate_weights(df)
+result_df = calculate_weights(df1)
 df['A'], df['FL'], df['R'] = result_df['Aw'], result_df['FLw'], result_df['Rw']
 print(df)
 # print(result_df)

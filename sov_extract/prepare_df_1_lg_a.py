@@ -33,14 +33,22 @@ def add_phase_column(df):
     
     return df
 
-file = r"G:\My\sov\extract\FL for permuations.xlsx"
+file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
+file_path1 = r"G:\My\sov\extract\Weight tables_my.xlsx" # column PHS 
+file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
+#
+df_phs = pd.read_excel(file_path1)
+columns_to_delete = [0, 1, 2]
+df_phs.drop(df.columns[columns_to_delete], axis=1, inplace=True)
+new_col = ['EM','PHS','Solv_1','Solv_2','FL','A','R','Total']
+df_phs.columns = new_col
+# file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
 # file = r"G:\My\sov\extract\FL for mixed effect regression.xlsx"
+
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
 
 sheet_name = 0          #"Sheet1"
 xls = pd.ExcelFile(file)
-
-
 # Проверка на существование листа
 if isinstance(sheet_name, int):
     if sheet_name >= len(xls.sheet_names):
