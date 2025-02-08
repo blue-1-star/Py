@@ -36,72 +36,129 @@ def add_phase_column(df):
 file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
 file_path1 = r"G:\My\sov\extract\Weight tables_my.xlsx" # column PHS 
 file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
+file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
+
 #
-df_phs = pd.read_excel(file_path1)
-columns_to_delete = [0, 1, 2]
-df_phs.drop(df.columns[columns_to_delete], axis=1, inplace=True)
-new_col = ['EM','PHS','Solv_1','Solv_2','FL','A','R','Total']
-df_phs.columns = new_col
+# df_phs = pd.read_excel(file_path1)
+# columns_to_delete = [0, 1, 2]
+# df_phs.drop(df_phs.columns[columns_to_delete], axis=1, inplace=True)
+# new_col = ['EM','PHS','Solv_1','Solv_2','FL','A','R','Total']
+# df_phs.columns = new_col
 # file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
 # file = r"G:\My\sov\extract\FL for mixed effect regression.xlsx"
-
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
 
-sheet_name = 0          #"Sheet1"
-xls = pd.ExcelFile(file)
-# Проверка на существование листа
-if isinstance(sheet_name, int):
-    if sheet_name >= len(xls.sheet_names):
-        raise ValueError("Лист с указанным индексом не существует.")
-    sheet_name = xls.sheet_names[sheet_name]
-else:
-    if sheet_name not in xls.sheet_names:
-        raise ValueError(f"Лист с именем '{sheet_name}' не найден. Доступные листы: {xls.sheet_names}")
+def prepare_fucoidan(inpur_file):
+    sheet_name = 0          #"Sheet1"
+    xls = pd.ExcelFile(file)
+    # Проверка на существование листа
+    if isinstance(sheet_name, int):
+        if sheet_name >= len(xls.sheet_names):
+            raise ValueError("Лист с указанным индексом не существует.")
+        sheet_name = xls.sheet_names[sheet_name]
+    else:
+        if sheet_name not in xls.sheet_names:
+            raise ValueError(f"Лист с именем '{sheet_name}' не найден. Доступные листы: {xls.sheet_names}")
 
-df = xls.parse(sheet_name="Sheet1")
-df = df.drop(columns='Combined Yield')
+    df = xls.parse(sheet_name="Sheet1")
+    df = df.drop(columns='Combined Yield')
 
 # Пример DataFrame
 # df = pd.DataFrame({'Extraction techniique 1,2,3…16': [1, 2, 3, 4]})
 
 # Переписываем в Python
-df = (
-    df.rename(columns={df.columns.values[0]: 'Method'})  # Переименование столбца
-      .assign(Method=lambda x: 'method_' + x['Method'].astype(str))  # Добавляем префикс method_
-)
-df = add_phase_column(df)
-# Преобразование столбцов в категориальный тип
-df = df.assign(
-    Method=df['Method'].astype('category'),
-    Solvent_Type=df['Solvent'].astype('category'),
-    Extraction_Technique=df['Extraction Technique'].astype('category')
-)
+    df = (
+        df.rename(columns={df.columns.values[0]: 'Method'})  # Переименование столбца
+        .assign(Method=lambda x: 'method_' + x['Method'].astype(str))  # Добавляем префикс method_
+    )
+# df = add_phase_column(df)
+    df['Extraction Technique'] = df['Extraction Technique'].str[0]  # first letter W or P or M
+    # Преобразование столбцов в категориальный тип
+    df = df.assign(
+        Method=df['Method'].astype('category'),
+        Solvent_Type=df['Solvent'].astype('category'),
+        Extraction_Technique=df['Extraction Technique'].astype('category')
+    )
 
 # Реализация эквивалента
-df1 = (
-    df.drop(columns=['Replicate Number'])  # Удаляем старый столбец
-        .groupby('Method', group_keys=False)  # Группировка по 'Method'
-        .apply(lambda group: group.assign(Replicate=pd.Categorical(group.reset_index().index + 1)))  # Создаем новый столбец 'Replicate'
-)
-
+    df1 = (
+        df.drop(columns=['Replicate Number'])  # Удаляем старый столбец
+            .groupby('Method', group_keys=False)  # Группировка по 'Method'
+            .apply(lambda group: group.assign(Replicate=pd.Categorical(group.reset_index().index + 1)))  # Создаем новый столбец 'Replicate'
+    )
 # print(df)
-print(df1)
+# print(df1)
 # Определяем столбцы, которые нужно оставить без изменений
-id_vars = ['Method', 'Solvent_Type', 'Extraction_Technique', 'Replicate']
-# Определяем только те столбцы, которые нужно трансформировать
-value_vars = [col for col in df1.columns if col.startswith('Measurement')]
+# print(df1.columns)
+    id_vars = ['Method', 'Solvent_Type', 'Extraction_Technique', 'Replicate']
+    # Определяем только те столбцы, которые нужно трансформировать
+    value_vars = [col for col in df1.columns if col.startswith('Measurement')]
 
-dataTall = pd.melt(
-    df1,
-    id_vars=id_vars,  # Оставляем эти столбцы как есть
-    value_vars=value_vars,  # Преобразуем только Measurement 1, 2, 3
-    var_name='Measurement',  # Название столбца для имен измерений
-    value_name='carbs/mg'    # Название столбца для значений
-)
+    dataTall = pd.melt(
+        df1,
+        id_vars=id_vars,  # Оставляем эти столбцы как есть
+        value_vars=value_vars,  # Преобразуем только Measurement 1, 2, 3
+        var_name='Measurement',  # Название столбца для имен измерений
+        value_name='carbs/mg'    # Название столбца для значений
+    )
+    return df1
+
+
+def prepare_alginate(input_file, df_fuc):
+    data_cleaned = pd.read_excel(input_file).rename(columns={
+    'Extraction method': 'Method',
+    'mg of carbohydrates in 1 g of extract': 'Rep1',
+    'Unnamed: 2': 'Rep2',
+    'Unnamed: 3': 'Rep3',
+    'Average mg of carbohydrates in 1 g of extract': 'Average'
+    })
+
+
+# Пример DataFrame
+# df = pd.DataFrame({'Extraction techniique 1,2,3…16': [1, 2, 3, 4]})
+
+# Переписываем в Python
+    df = (
+        df.rename(columns={df.columns.values[0]: 'Method'})  # Переименование столбца
+        .assign(Method=lambda x: 'method_' + x['Method'].astype(str))  # Добавляем префикс method_
+    )
+# df = add_phase_column(df)
+    df['Extraction Technique'] = df['Extraction Technique'].str[0]  # first letter W or P or M
+    # Преобразование столбцов в категориальный тип
+    df = df.assign(
+        Method=df['Method'].astype('category'),
+        Solvent_Type=df['Solvent'].astype('category'),
+        Extraction_Technique=df['Extraction Technique'].astype('category')
+    )
+
+# Реализация эквивалента
+    df1 = (
+        df.drop(columns=['Replicate Number'])  # Удаляем старый столбец
+            .groupby('Method', group_keys=False)  # Группировка по 'Method'
+            .apply(lambda group: group.assign(Replicate=pd.Categorical(group.reset_index().index + 1)))  # Создаем новый столбец 'Replicate'
+    )
+# print(df)
+# print(df1)
+# Определяем столбцы, которые нужно оставить без изменений
+# print(df1.columns)
+    id_vars = ['Method', 'Solvent_Type', 'Extraction_Technique', 'Replicate']
+    # Определяем только те столбцы, которые нужно трансформировать
+    value_vars = [col for col in df1.columns if col.startswith('Measurement')]
+
+    dataTall = pd.melt(
+        df1,
+        id_vars=id_vars,  # Оставляем эти столбцы как есть
+        value_vars=value_vars,  # Преобразуем только Measurement 1, 2, 3
+        var_name='Measurement',  # Название столбца для имен измерений
+        value_name='carbs/mg'    # Название столбца для значений
+    )
+    return df1
+
 
 
 # print(dataTall)
 output_file = os.path.join(output_dir, f"test_.xlsx")
+dataTall = prepare_fucoidan(file)
 dataTall.to_excel(output_file)
 
 
@@ -112,31 +169,66 @@ def plot_gr(dataTall,output_dir):
     dataTall = dataTall.sort_values('Method')  # Сортируем по 'Method'
     method_order = sorted(dataTall['Method'].unique())  
     dataTall['Method'] = dataTall['Method'].astype('category')  # Преобразуем обратно в категориальный тип
-
+    # Добавляем 2 категории для более детальной визуализации
+    # Extraction_Technique  = [W, P, M]; цвет тела боксплота  W - голубой, P - бирюзовый, M - что то желтоватое
+    dataTall['Extraction_Technique'] = dataTall['Extraction_Technique'].astype('category')  # Преобразуем обратно в категориальный тип
+    # Solvent_Type  = [Water, Acid];  цвет обрамления тела боксплота ( ободок) Water - темно синий, Acid - оранжевый
+    dataTall['Solvent_Type'] = dataTall['Solvent_Type'].astype('category')  # Преобразуем обратно в категориальный тип
+    # 
+    # Когда мы развернули данные в длинный формат из короткого у нас появилось по 9 точек для каждого боксплота
+    # Для отрисовки необходимо вернуться в исходное состояние ( широкого формата) и показать по 3 точки в 
+    # каждом боксплоте ( а не 9 как сейчас) условием сворачивания может быть например такое
+    #  Avarage ( Replicate = r AND Method = m  ) 
+    #  или словами - среднее по трем репликейтам для каждого метода заменяет три точки длинного формата на одно 
+    # среднее значение для каждого метода. 
+    # dataTall = dataTall.groupby(['Method', 'Extraction_Technique', 'Solvent_Type'], as_index=False)['carbs/mg'].mean()
+    # Агрегирование данных: среднее значение по трем репликейтам
+    dataTall = dataTall.groupby(['Method', 'Extraction_Technique', 'Solvent_Type', 'Replicate'], as_index=False)['carbs/mg'].mean()
+    # dataTall = dataTall.groupby(['Method', 'Extraction_Technique', 'Solvent_Type'], as_index=False)['carbs/mg'].mean()
+    # Цветовые схемы
+    extraction_palette = {'W': 'deepskyblue', 'P': 'turquoise', 'M': 'gold'}
+    solvent_palette = {'Water': 'darkblue', 'Acid': 'orange'}
+    
+    def get_border_color(method):
+        return 'darkblue' if method % 2 == 0 else 'orange'
     # Шаг 2: Построение графика
     plt.figure(figsize=(12, 10))
-    sns.boxplot(
+    ax = sns.boxplot(
         data=dataTall,
         x='Method',
         y='carbs/mg',
-        hue='Solvent_Type',
+        hue='Extraction_Technique',
         # palette='Dark2',  # Цветовая палитра для категорий
-        palette='Set2',  # Цветовая палитра для категорий
+        palette= extraction_palette,  # Цветовая палитра для категорий
         dodge=True  # Раздвигаем боксплоты для разных групп
     )
+
+    for i, artist in enumerate(ax.patches):
+        # Определение цвета обрамления
+        method = method_order[i % len(method_order)]
+        edge_color = get_border_color(method)
+        # solvent = dataTall['Solvent_Type'].iloc[i % len(dataTall)]
+        edge_color = get_border_color(method)
+        # edge_color = solvent_palette[solvent]
+        artist.set_edgecolor(edge_color)
+        artist.set_linewidth(2)
    
     sns.stripplot(
         data=dataTall,
         x='Method',
         y='carbs/mg',
-        hue='Solvent_Type',  # Используем тот же hue
+        # hue='Solvent_Type',  # Используем тот же hue
+        hue='Extraction_Technique',  # Должно совпадать с boxplot для сохранения порядка
         order=method_order,  # Совпадение порядка категорий
-        palette='Dark2',
+        # palette= solvent_palette,
+        palette= extraction_palette,        
         dodge=True,  # Должно совпадать с боксплотом
-        jitter=0.2,  # Умеренный джиттер, чтобы не улетали далеко
+        # jitter=0.2,  # Умеренный джиттер, чтобы не улетали далеко
+        jitter=False,   # Отключаем случайное рассеивание
         marker='o',
-        linewidth=0.5,
-        alpha=0.7
+        linewidth=1.5,
+        edgecolor='black', 
+        alpha=0.9
     )
 
     # Шаг 3: Настройка оформления
