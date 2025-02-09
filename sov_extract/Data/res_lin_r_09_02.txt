@@ -1,0 +1,44 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          Q("carbs/mg")   R-squared:                       0.928
+Model:                            OLS   Adj. R-squared:                  0.920
+Method:                 Least Squares   F-statistic:                     110.3
+Date:                Sun, 09 Feb 2025   Prob (F-statistic):           1.68e-65
+Time:                        15:49:39   Log-Likelihood:                -646.33
+No. Observations:                 144   AIC:                             1325.
+Df Residuals:                     128   BIC:                             1372.
+Df Model:                          15                                         
+Covariance Type:            nonrobust                                         
+================================================================================================
+                                   coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------
+Intercept                      578.4070      2.848    203.065      0.000     572.771     584.043
+C(Method)[T.method_10]          67.7444      6.785      9.985      0.000      54.320      81.169
+C(Method)[T.method_11]         -15.7363      7.442     -2.115      0.036     -30.461      -1.012
+C(Method)[T.method_12]         192.0460      6.719     28.581      0.000     178.750     205.342
+C(Method)[T.method_13]          60.4175      7.442      8.119      0.000      45.693      75.142
+C(Method)[T.method_14]         221.2341      6.719     32.924      0.000     207.938     234.530
+C(Method)[T.method_15]           9.1453     10.765      0.850      0.397     -12.155      30.446
+C(Method)[T.method_16]         133.2097      7.612     17.500      0.000     118.148     148.271
+C(Method)[T.method_2]          -10.9783      7.612     -1.442      0.152     -26.040       4.083
+C(Method)[T.method_3]           -8.8034     10.765     -0.818      0.415     -30.104      12.497
+C(Method)[T.method_4]           -6.1066      7.612     -0.802      0.424     -21.168       8.955
+C(Method)[T.method_5]            1.5385     10.765      0.143      0.887     -19.762      22.839
+C(Method)[T.method_6]           64.7909      7.612      8.512      0.000      49.729      79.852
+C(Method)[T.method_7]           74.8338      6.934     10.793      0.000      61.114      88.554
+C(Method)[T.method_8]          -49.9479      6.785     -7.362      0.000     -63.373     -36.523
+C(Method)[T.method_9]          -39.4397      6.934     -5.688      0.000     -53.159     -25.720
+C(Solvent_Type)[T.Water]       -33.5852      5.200     -6.459      0.000     -43.874     -23.296
+C(Extraction_Technique)[T.P]    53.1905      3.351     15.874      0.000      46.561      59.821
+C(Extraction_Technique)[T.W]    67.2551      4.947     13.595      0.000      57.467      77.044
+==============================================================================
+Omnibus:                        4.288   Durbin-Watson:                   2.405
+Prob(Omnibus):                  0.117   Jarque-Bera (JB):                4.146
+Skew:                           0.259   Prob(JB):                        0.126
+Kurtosis:                       3.651   Cond. No.                     1.29e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 1.46e-30. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.

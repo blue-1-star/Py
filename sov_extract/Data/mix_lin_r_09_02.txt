@@ -1,0 +1,18 @@
+                   Mixed Linear Model Regression Results
+===========================================================================
+Model:                  MixedLM      Dependent Variable:      Q("carbs/mg")
+No. Observations:       144          Method:                  REML         
+No. Groups:             3            Scale:                   3778.0382    
+Min. group size:        48           Log-Likelihood:          -782.7522    
+Max. group size:        48           Converged:               Yes          
+Mean group size:        48.0                                               
+---------------------------------------------------------------------------
+                              Coef.  Std.Err.   z    P>|z|  [0.025   0.975]
+---------------------------------------------------------------------------
+Intercept                    726.025   11.453 63.389 0.000  703.576 748.473
+C(Solvent_Type)[T.Water]     -99.840   10.244 -9.746 0.000 -119.918 -79.761
+C(Extraction_Technique)[T.P] -48.002   14.488 -3.313 0.001  -76.397 -19.607
+C(Extraction_Technique)[T.W] -24.386   12.547 -1.944 0.052  -48.977   0.205
+Group Var                      0.000    1.453                              
+===========================================================================
+
