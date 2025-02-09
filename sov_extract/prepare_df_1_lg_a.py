@@ -33,10 +33,10 @@ def add_phase_column(df):
     
     return df
 
-file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
+# file = r"G:\My\sov\extract\FL for permuations.xlsx"    # FL - data for LR 
 file_path1 = r"G:\My\sov\extract\Weight tables_my.xlsx" # column PHS 
-file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
-file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
+file = r"G:\My\sov\extract\Al for permuations.xlsx" # A - alginate data
+# file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
 
 #
 # df_phs = pd.read_excel(file_path1)
@@ -48,61 +48,82 @@ file_path2 = r"G:\My\sov\extract\Carb Al mg per g.xlsx" # A - alginate data
 # file = r"G:\My\sov\extract\FL for mixed effect regression.xlsx"
 output_dir = os.path.join(os.path.dirname(__file__), 'Data')
 
-def prepare_fucoidan(inpur_file):
-    sheet_name = 0          #"Sheet1"
-    xls = pd.ExcelFile(file)
-    # Проверка на существование листа
-    if isinstance(sheet_name, int):
-        if sheet_name >= len(xls.sheet_names):
-            raise ValueError("Лист с указанным индексом не существует.")
-        sheet_name = xls.sheet_names[sheet_name]
-    else:
-        if sheet_name not in xls.sheet_names:
-            raise ValueError(f"Лист с именем '{sheet_name}' не найден. Доступные листы: {xls.sheet_names}")
+# def prepare_fucoidan(input_file):
+sheet_name = 0          #"Sheet1"
+xls = pd.ExcelFile(file)
+# Проверка на существование листа
+if isinstance(sheet_name, int):
+    if sheet_name >= len(xls.sheet_names):
+        raise ValueError("Лист с указанным индексом не существует.")
+    sheet_name = xls.sheet_names[sheet_name]
+else:
+    if sheet_name not in xls.sheet_names:
+        raise ValueError(f"Лист с именем '{sheet_name}' не найден. Доступные листы: {xls.sheet_names}")
 
-    df = xls.parse(sheet_name="Sheet1")
-    df = df.drop(columns='Combined Yield')
+df = xls.parse(sheet_name="Sheet1")
+df = df.drop(columns='Combined Yield')
 
 # Пример DataFrame
 # df = pd.DataFrame({'Extraction techniique 1,2,3…16': [1, 2, 3, 4]})
 
 # Переписываем в Python
-    df = (
-        df.rename(columns={df.columns.values[0]: 'Method'})  # Переименование столбца
-        .assign(Method=lambda x: 'method_' + x['Method'].astype(str))  # Добавляем префикс method_
-    )
+df = (
+    df.rename(columns={df.columns.values[0]: 'Method'})  # Переименование столбца
+    .assign(Method=lambda x: 'method_' + x['Method'].astype(str))  # Добавляем префикс method_
+)
 # df = add_phase_column(df)
-    df['Extraction Technique'] = df['Extraction Technique'].str[0]  # first letter W or P or M
-    # Преобразование столбцов в категориальный тип
-    df = df.assign(
-        Method=df['Method'].astype('category'),
-        Solvent_Type=df['Solvent'].astype('category'),
-        Extraction_Technique=df['Extraction Technique'].astype('category')
-    )
+df['Extraction Technique'] = df['Extraction Technique'].str[0]  # first letter W or P or M
+# Преобразование столбцов в категориальный тип
+df = df.assign(
+    Method=df['Method'].astype('category'),
+    Solvent_Type=df['Solvent'].astype('category'),
+    Extraction_Technique=df['Extraction Technique'].astype('category')
+)
 
 # Реализация эквивалента
-    df1 = (
-        df.drop(columns=['Replicate Number'])  # Удаляем старый столбец
-            .groupby('Method', group_keys=False)  # Группировка по 'Method'
-            .apply(lambda group: group.assign(Replicate=pd.Categorical(group.reset_index().index + 1)))  # Создаем новый столбец 'Replicate'
-    )
+df1 = (
+    df.drop(columns=['Replicate Number'])  # Удаляем старый столбец
+        .groupby('Method', group_keys=False)  # Группировка по 'Method'
+        .apply(lambda group: group.assign(Replicate=pd.Categorical(group.reset_index().index + 1)))  # Создаем новый столбец 'Replicate'
+)
 # print(df)
 # print(df1)
 # Определяем столбцы, которые нужно оставить без изменений
 # print(df1.columns)
-    id_vars = ['Method', 'Solvent_Type', 'Extraction_Technique', 'Replicate']
-    # Определяем только те столбцы, которые нужно трансформировать
-    value_vars = [col for col in df1.columns if col.startswith('Measurement')]
+id_vars = ['Method', 'Solvent_Type', 'Extraction_Technique', 'Replicate']
+# Определяем только те столбцы, которые нужно трансформировать
+value_vars = [col for col in df1.columns if col.startswith('Measurement')]
 
-    dataTall = pd.melt(
-        df1,
-        id_vars=id_vars,  # Оставляем эти столбцы как есть
-        value_vars=value_vars,  # Преобразуем только Measurement 1, 2, 3
-        var_name='Measurement',  # Название столбца для имен измерений
-        value_name='carbs/mg'    # Название столбца для значений
-    )
-    return df1
+dataTall = pd.melt(
+    df1,
+    id_vars=id_vars,  # Оставляем эти столбцы как есть
+    value_vars=value_vars,  # Преобразуем только Measurement 1, 2, 3
+    var_name='Measurement',  # Название столбца для имен измерений
+    value_name='carbs/mg'    # Название столбца для значений
+)
+# return df1
 
+import os
+
+def determine_substance(file_path):
+  """
+  Определяет тип вещества по имени файла, игнорируя регистр.
+
+  Args:
+    file_path: Путь к файлу.
+
+  Returns:
+    str: Строка "Alginate" или "Fucoidan" в зависимости от наличия подстроки в имени файла,
+         иначе возвращает None.
+  """
+
+  filename = os.path.basename(file_path).lower()  # Приводим имя файла к нижнему регистру
+  if "al" in filename:
+    return "Alginate"
+  elif "fl" in filename:
+    return "Fucoidan"
+  else:
+    return None
 
 def prepare_alginate(input_file, df_fuc):
     data_cleaned = pd.read_excel(input_file).rename(columns={
@@ -157,8 +178,9 @@ def prepare_alginate(input_file, df_fuc):
 
 
 # print(dataTall)
-output_file = os.path.join(output_dir, f"test_.xlsx")
-dataTall = prepare_fucoidan(file)
+agent = determine_substance(file)
+output_file = os.path.join(output_dir, f"test_{agent[0].upper()}.xlsx")
+# dataTall = prepare_fucoidan(file)
 dataTall.to_excel(output_file)
 
 
@@ -233,7 +255,7 @@ def plot_gr(dataTall,output_dir):
 
     # Шаг 3: Настройка оформления
     font = {'family': 'Times New Roman','size': 14}
-    plt.title('Differences in carbs/mg between Methods',fontdict=font)
+    plt.title('Differences in carbs/mg between Methods (Alginate)',fontdict=font)
     # plt.xlabel('Extraction method', fontsize=12)
     # plt.ylabel('Carbohydrates/mg', fontsize=12)
     font['size'] = 12
@@ -246,7 +268,7 @@ def plot_gr(dataTall,output_dir):
 
     # Шаг 4: Отображение графика
     # output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods.pdf')
-    output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods.svg')
+    output_path = os.path.join(output_dir, f'Differences in carbs_mg between Methods_Alginate.svg')
     # plt.savefig(output_path,  format="pdf", dpi=300, bbox_inches='tight') 
     plt.savefig(output_path,  format="svg", dpi=300, bbox_inches='tight') 
 
