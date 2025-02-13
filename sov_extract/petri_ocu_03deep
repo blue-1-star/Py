@@ -1,0 +1,152 @@
+import cv2
+import numpy as np
+import os
+import pandas as pd
+from glob import glob
+import math
+
+# Функция для анализа изображения
+def analyze_petri_dish(image_path, output_dir):
+    # Загрузка изображения
+    image = cv2.imread(image_path)
+    if image is None:
+        print(f"Ошибка загрузки изображения: {image_path}")
+        return []
+
+    # Копия изображения для рисования контуров
+    image_with_contours = image.copy()
+
+    # Размеры чаши Петри (10 см диаметр)
+    petri_dish_diameter_cm = 10
+    petri_dish_radius_cm = petri_dish_diameter_cm / 2
+
+    # Предполагаем, что чаша занимает всю высоту или ширину изображения
+    petri_dish_diameter_pixels = min(image.shape[:2])
+    cm_to_pixels = petri_dish_diameter_pixels / petri_dish_diameter_cm
+    petri_dish_radius_pixels = petri_dish_diameter_pixels / 2
+
+    # Центр изображения
+    center_x = image.shape[1] // 2
+    center_y = image.shape[0] // 2
+
+    # Размеры ячеек
+    num_squares_x = 5
+    num_squares_y = 3
+
+    # Размер ячейки по горизонтали (2 см)
+    square_size_cm = 2
+    square_size_pixels = int(square_size_cm * cm_to_pixels)
+
+    # Список для хранения результатов
+    results = []
+
+    # Функция для анализа квадрата
+    def analyze_square(square, square_index):
+        # Пороговая обработка
+        _, thresholded = cv2.threshold(square, 127, 255, cv2.THRESH_BINARY_INV)
+        
+        # Подсчет пикселей, соответствующих грибку
+        fungus_pixels = np.sum(thresholded == 255)
+        total_pixels = square.size
+        fungus_percentage = (fungus_pixels / total_pixels) * 100
+        
+        # Сохранение результата
+        results.append({
+            'File': os.path.basename(image_path),  # Имя файла
+            'Substance': get_substance(square_index),
+            'Fungus Percentage': fungus_percentage,
+            'Square Index': square_index
+        })
+        
+        # Сохранение изображения с выделенными областями грибка
+        output_path = os.path.join(output_dir, f"{os.path.basename(image_path)}_{square_index + 1}.jpg")
+        cv2.imwrite(output_path, thresholded)
+
+    # Функция для определения вещества по индексу квадрата
+    def get_substance(square_index):
+        if square_index % num_squares_x == 0:
+            return 'Water'
+        elif square_index % num_squares_x == 1:
+            return '0.25%'
+        elif square_index % num_squares_x == 2:
+            return '0.5%'
+        elif square_index % num_squares_x == 3:
+            return '0.75%'
+        elif square_index % num_squares_x == 4:
+            return '1%'
+
+    # Обработка каждого квадрата
+    for i in range(num_squares_y):
+        for j in range(num_squares_x):
+            square_index = i * num_squares_x + j
+
+            # Вычисление координат ячейки с учетом геометрии окружности
+            y_offset = (i - (num_squares_y - 1) / 2) * square_size_pixels
+            x_offset = (j - (num_squares_x - 1) / 2) * square_size_pixels
+
+            # Длина хорды на текущей высоте
+            chord_length = 2 * math.sqrt(petri_dish_radius_pixels**2 - y_offset**2)
+
+            # Размер ячейки по горизонтали с учетом длины хорды
+            cell_width = min(square_size_pixels, chord_length / num_squares_x)
+
+            x_start = int(center_x + x_offset - cell_width / 2)
+            y_start = int(center_y + y_offset - square_size_pixels / 2)
+            x_end = int(x_start + cell_width)
+            y_end = int(y_start + square_size_pixels)
+
+            # Рисование контура квадрата на изображении
+            cv2.rectangle(image_with_contours, (x_start, y_start), (x_end, y_end), (0, 255, 0), 2)
+
+            # Сохранение изображения с контуром текущей ячейки
+            cell_contour_output_path = os.path.join(output_dir, f"{os.path.basename(image_path)}_{square_index + 1}_cont.jpg")
+            cv2.imwrite(cell_contour_output_path, image_with_contours)
+
+            # Вырезание квадрата для анализа
+            square = image[y_start:y_end, x_start:x_end]
+            if square.size == 0:
+                print(f"Ошибка: квадрат {square_index + 1} выходит за пределы изображения.")
+                continue
+
+            analyze_square(square, square_index)
+
+        # Сохранение итогового изображения со всеми контурами
+        final_contour_output_path = os.path.join(output_dir, f"{os.path.basename(image_path)}_all_contours.jpg")
+        cv2.imwrite(final_contour_output_path, image_with_contours)
+
+    return results
+
+# Основная функция для обработки всех файлов в каталоге
+def process_directory(input_dir, output_base_dir):
+    # Поиск всех файлов по шаблону FL*.jpg
+    image_files = glob(os.path.join(input_dir, "FL*.jpg"))
+    
+    # Общий DataFrame для всех результатов
+    all_results = pd.DataFrame()
+
+    for image_file in image_files:
+        # Создание подкаталога для результатов
+        output_dir = os.path.join(output_base_dir, os.path.splitext(os.path.basename(image_file))[0])
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Анализ изображения и получение результатов
+        results = analyze_petri_dish(image_file, output_dir)
+        
+        # Добавление результатов в общий DataFrame
+        if results:
+            all_results = pd.concat([all_results, pd.DataFrame(results)], ignore_index=True)
+
+    # Сохранение всех результатов в один Excel-файл
+    if not all_results.empty:
+        excel_path = os.path.join(output_base_dir, "all_results.xlsx")
+        all_results.to_excel(excel_path, index=False)
+        print(f"Все результаты сохранены в {excel_path}")
+    else:
+        print("Нет данных для сохранения.")
+
+# Пути к каталогам
+input_dir = r"G:\My\sov\extract\ORF\spori"
+output_base_dir = r"G:\My\sov\extract\ORF\spori\results"
+
+# Запуск обработки
+process_directory(input_dir, output_base_dir)
