@@ -80,12 +80,28 @@ def process_file(file_path, output_root, R=5, n=3, m=5, Delta=0.5):
         # Извлекаем ROI ячейки
         cell_roi = image[top_y:top_y+s_px, x_px:x_px+s_px]
         gray_roi = cv2.cvtColor(cell_roi, cv2.COLOR_BGR2GRAY)
-        ret, thresh_roi = cv2.threshold(gray_roi, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        # ret, thresh_roi = cv2.threshold(gray_roi, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        # Вычисляем Otsu-порог без инверсии:
+        ret, _ = cv2.threshold(gray_roi, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        delta = 15
+        # Подбираем смещение: уменьшаем порог, чтобы считать грибковыми только ещё более тёмные пиксели
+        adjusted_threshold = ret - delta  # например, если ret=149 и delta=20, то adjusted_threshold = 129
+        # Применяем пороговую операцию с новым порогом
+        _, thresh_roi = cv2.threshold(gray_roi, adjusted_threshold, 255, cv2.THRESH_BINARY)
+
+
         # Если грибок изображён как тёмная область, можно инвертировать:
         # thresh_roi = cv2.bitwise_not(thresh_roi)
         
-        fungus_pixels = cv2.countNonZero(thresh_roi)
+        #  подсчет грибковых площадей для светлых грибков
+        #  
+        # fungus_pixels = cv2.countNonZero(thresh_roi)
+        # total_pixels = s_px * s_px
+        # fungus_percentage = (fungus_pixels / total_pixels) * 100
+        #  подсчет грибковых площадей для темных грибков
         total_pixels = s_px * s_px
+        background_pixels = cv2.countNonZero(thresh_roi)
+        fungus_pixels = total_pixels - background_pixels
         fungus_percentage = (fungus_pixels / total_pixels) * 100
         
         cell_results[cell_number] = fungus_percentage
@@ -134,7 +150,9 @@ def process_file(file_path, output_root, R=5, n=3, m=5, Delta=0.5):
         fungus_percentage_P1 = (fungus_pixels_P1 / total_pixels_P1) * 100
         
         contours_P1, _ = cv2.findContours(thresh_P1, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        count_P1 = len(contours_P1)
+        # count_P1 = len(contours_P1)
+        count_P1 = fungus_pixels_P1
+
         
         annotated_full = image.copy()
         cv2.rectangle(annotated_full, (roi_x, roi_y), (roi_x+roi_width, roi_y+roi_height), (0, 0, 0), 3)
@@ -221,6 +239,7 @@ def main():
         })
     
     df_long = pd.DataFrame(long_records)
+    df_long = df_long.round(1)
     excel_path = os.path.join(output_root, "fungus_analysis_results_long.xlsx")
     df_long.to_excel(excel_path, index=False)
     print(f"Итоговый Excel-файл (длинный формат) сохранён: {excel_path}")
