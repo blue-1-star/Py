@@ -407,6 +407,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 from matplotlib.patches import Patch
+from matplotlib.font_manager import FontProperties
+font = FontProperties(family="Times New Roman", size=16, weight="bold")
+# plt.ylabel("Ось Y", fontproperties=font)
 
 def visualisation(df, output_root):
     """
@@ -460,18 +463,26 @@ def visualisation(df, output_root):
         if agg_df['SampleType'].iloc[i] != agg_df['SampleType'].iloc[i-1]:
             ax1.axvline(x=i - 0.5, color='black', linestyle='--')
     
-    ax1.set_ylabel("Mean FungusPercentage")
-    ax1.set_title("Агрегированные данные: среднее значение с усиками")
+    font = FontProperties(family="Times New Roman", size=16, weight="bold")
+
+    # ax1.set_ylabel("Mean FungusPercentage")
+    ax1.set_ylabel("Area covered with spores, %", fontproperties=font)
+    # ax1.set_title("Агрегированные данные: среднее значение с усиками")
+    ax1.set_title("Aggregated data: mean with error bars", fontproperties=font)
     
     # Добавляем метки по оси X и на верхнем графике (метки сверху и снизу)
     ax1.set_xticks(x_positions)
     ax1.set_xticklabels(agg_df['file_number'].astype(int).astype(str), rotation=0)
-    ax1.tick_params(axis='x', labelbottom=True, labeltop=True)
+    ax1.tick_params(axis='x', labelbottom=True, labeltop=False)
     
     # Формируем легенду по SampleType
     unique_types = agg_df['SampleType'].unique()
     legend_handles = [Patch(color=color_map.get(t, "gray"), label=t) for t in unique_types]
-    ax1.legend(handles=legend_handles, title="SampleType")
+    ax1.legend(handles=legend_handles, title="SampleType",
+           prop={'family': 'Times New Roman', 'size': 16},
+           title_fontproperties={'family': 'Times New Roman', 'size': 16, 'weight': 'bold'})
+
+    # ax1.legend(handles=legend_handles, title="SampleType")
     
     # -------- График 2: неагрегированные данные --------
     for i, row in agg_df.iterrows():
@@ -486,9 +497,12 @@ def visualisation(df, output_root):
             ax2.bar(file_x + offset, sub_row['FungusPercentage'], width=0.05,
                     color=color_map.get(sample_type, "gray"), edgecolor='black')
     
-    ax2.set_xlabel("Номер файла (из имени)")
-    ax2.set_ylabel("FungusPercentage")
-    ax2.set_title("Неагрегированные данные: значения по Region")
+    # ax2.set_xlabel("Номер файла (из имени)")
+    ax2.set_xlabel("Treatment", fontproperties=font)
+    # ax2.set_ylabel("FungusPercentage")
+    ax2.set_ylabel("Area covered with spores, %", fontproperties=font)
+    # ax2.set_title("Неагрегированные данные: значения по ячейкам сетки чашки Петри")
+    ax2.set_title("Unaggregated data: values by Petri dish grid cells",fontproperties=font)
     ax2.set_xticks(x_positions)
     ax2.set_xticklabels(agg_df['file_number'].astype(int).astype(str), rotation=0)
     
@@ -536,7 +550,13 @@ def visualisation_concentration_analysis(df, output_root):
     """
     # --- Подготовка данных ---
     df = df.copy()
-    
+    # Если столбца с числовой меткой не существует, создаем его:
+    if 'FileNumber' not in df.columns:
+        def extract_file_number(file_name):
+            m = re.search(r'(\d+)', file_name)
+            return int(m.group(1)) if m else np.nan
+        df['FileNumber'] = df['File'].apply(extract_file_number)
+
     # Добавляем столбец Replicate на основе номера ячейки, извлекаемого из Region ("Cell_X")
     def get_replicate(region):
         m = re.search(r'Cell_(\d+)', region)
@@ -572,6 +592,7 @@ def visualisation_concentration_analysis(df, output_root):
     color_map = {"Alginate": "blue", "Fucoidan": "green"}
     
     # Для наглядности создадим subplot для каждого SampleType
+    font = FontProperties(family="Times New Roman", size=16, weight="bold")
     figA, axesA = plt.subplots(1, len(sample_types), figsize=(6*len(sample_types), 6), sharey=True)
     if len(sample_types) == 1:
         axesA = [axesA]
@@ -587,9 +608,10 @@ def visualisation_concentration_analysis(df, output_root):
         ax.set_xlabel("Concentration (%)")
         ax.set_xticks([0, 25, 50, 75, 100])
         ax.set_xlim(-5, 105)
-        ax.set_ylabel("Mean FungusPercentage")
+        # ax.set_ylabel("Mean FungusPercentage")
+        ax.set_ylabel("Area covered with spores, %", fontproperties=font)
         ax.legend(title="File", fontsize='small')
-    figA.suptitle("FungusPercentage vs Concentration (среднее по 3 репликам)", fontsize=16)
+    figA.suptitle("FungusPercentage vs Concentration (среднее по 3 репликам)", fontproperties=font)
     
     # --- Visualization B: Сравнение Control vs Treatment ---
     # Для каждой ячейки уже есть значение Concentration_numeric; выделим:
@@ -620,13 +642,21 @@ def visualisation_concentration_analysis(df, output_root):
     
     # Построим график: для каждого SampleType – отдельный subplot, в котором по оси X файлы,
     # а для каждого файла два столбца: Control (0%) и Treatment (25-100%)
-    figB, axesB = plt.subplots(1, len(sample_types), figsize=(6*len(sample_types), 6), sharey=True)
+    figB, axesB = plt.subplots(1, len(sample_types), figsize=(6*len(sample_types), 6), sharey=False)
     if len(sample_types) == 1:
         axesB = [axesB]
     bar_width = 0.35
     for ax, st in zip(axesB, sample_types):
         subset = group_final[group_final['SampleType'] == st]
         files = subset['File'].values
+        # Здесь используем столбец FileNumber для подписи оси X (если он уже есть в исходном df)
+        file_numbers = []
+        for f in files:
+            sel = df[df['File'] == f]
+            if not sel.empty:
+                file_numbers.append(sel.iloc[0]['FileNumber'])
+            else:
+                file_numbers.append(f)
         x = np.arange(len(files))
         ax.bar(x - bar_width/2, subset['control_mean'], width=bar_width,
                yerr=subset['control_std'], capsize=5, label="Control (0%)",
@@ -636,11 +666,18 @@ def visualisation_concentration_analysis(df, output_root):
                color="salmon", edgecolor="black")
         ax.set_title(f"{st}")
         ax.set_xticks(x)
-        ax.set_xticklabels(files, rotation=45)
-        ax.set_xlabel("File")
-        ax.set_ylabel("Mean FungusPercentage")
+        # ax.set_xticklabels(files, rotation=0)
+        ax.set_xticklabels(file_numbers, rotation=0)
+        # ax.set_xlabel("File")
+        ax.set_xlabel("Treatment", fontproperties=font)
+        # ax.set_ylabel("Mean FungusPercentage")
+        ax.set_ylabel("Area covered with spores, %", fontproperties=font)
+        ax.set_ylim(0, 35)
+        ax.set_yticks([0, 5, 7, 9, 11,15, 20, 25, 30, 35])
+
         ax.legend()
-    figB.suptitle("Сравнение Control vs Treatment для каждого файла", fontsize=16)
+    # figB.suptitle("Сравнение Control vs Treatment для каждого файла", fontsize=16)
+    figB.suptitle("Comparison of Control vs Treatment", fontproperties=font)
     
     # --- Сохранение графиков ---
     graph_dir = os.path.join(output_root, "graph")
