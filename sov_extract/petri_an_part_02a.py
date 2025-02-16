@@ -107,7 +107,7 @@ def get_concentration(cell, m, consent):
     col = cell % m
     conc_value = consent[col]
     # Если нужно вернуть значение в процентах:
-    return f"{int(conc_value * 100)}%"
+    return f"{int(conc_value)}%"
 def process_file(file_path, output_root, R=5, n=3, m=5, Delta=0.5, shift=(0,0), pixel_per_cm=None):
     """
     Обрабатывает изображение чашки Петри:
@@ -701,7 +701,8 @@ def visualisation_concentration_analysis(df, output_root):
 
 def main():
     # input_folder = r"G:\My\sov\extract\ORF\fungus"
-    input_folder = r"G:\My\sov\extract\ORF\work_petri"
+    # input_folder = r"G:\My\sov\extract\ORF\work_petri"
+    input_folder = r"G:\My\sov\extract\ORF\work_petri_a"
     
     output_root = input_folder
     os.makedirs(output_root, exist_ok=True)    
