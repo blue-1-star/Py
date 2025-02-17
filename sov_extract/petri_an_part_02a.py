@@ -107,7 +107,7 @@ def get_concentration(cell, m, consent):
     col = cell % m
     conc_value = consent[col]
     # Если нужно вернуть значение в процентах:
-    return f"{int(conc_value)}%"
+    return f"{float(conc_value)}%"
 def process_file(file_path, output_root, R=5, n=3, m=5, Delta=0.5, shift=(0,0), pixel_per_cm=None):
     """
     Обрабатывает изображение чашки Петри:
@@ -510,7 +510,8 @@ def visualisation(df, output_root):
     
     # Сохраняем график в файл
     current_date = datetime.now().strftime("%d_%m")
-    output_file = os.path.join(graph_dir, f"fungal_{current_date}.jpg")
+    # output_file = os.path.join(graph_dir, f"fungal_{current_date}.jpg")
+    output_file = os.path.join(graph_dir, f"fungal_{current_date}.svg")
     plt.savefig(output_file, dpi=300)
     plt.show()
     plt.close(fig)
@@ -606,8 +607,8 @@ def visualisation_concentration_analysis(df, output_root):
                         label=file, color=color_map.get(st, "gray"))
         ax.set_title(f"{st}")
         ax.set_xlabel("Concentration (%)")
-        ax.set_xticks([0, 25, 50, 75, 100])
-        ax.set_xlim(-5, 105)
+        ax.set_xticks([0, 0.25, 0.50, 0.75, 1])
+        ax.set_xlim(-0.05, 1.05)
         # ax.set_ylabel("Mean FungusPercentage")
         ax.set_ylabel("Area covered with spores, %", fontproperties=font)
         ax.legend(title="File", fontsize='small')
@@ -662,7 +663,7 @@ def visualisation_concentration_analysis(df, output_root):
                yerr=subset['control_std'], capsize=5, label="Control (0%)",
                color="lightblue", edgecolor="black")
         ax.bar(x + bar_width/2, subset['treatment_mean'], width=bar_width,
-               yerr=subset['treatment_std'], capsize=5, label="Treatment (25-100%)",
+               yerr=subset['treatment_std'], capsize=5, label="Treatment (0.25-1%)",
                color="salmon", edgecolor="black")
         ax.set_title(f"{st}")
         ax.set_xticks(x)
@@ -683,8 +684,8 @@ def visualisation_concentration_analysis(df, output_root):
     graph_dir = os.path.join(output_root, "graph")
     os.makedirs(graph_dir, exist_ok=True)
     current_date = datetime.now().strftime("%d_%m")
-    output_file_A = os.path.join(graph_dir, f"fungal_concentration_A_{current_date}.jpg")
-    output_file_B = os.path.join(graph_dir, f"fungal_concentration_B_{current_date}.jpg")
+    output_file_A = os.path.join(graph_dir, f"fungal_concentration_A_{current_date}.svg")
+    output_file_B = os.path.join(graph_dir, f"fungal_concentration_B_{current_date}.svg")
     figA.tight_layout(rect=[0,0,1,0.95])
     figB.tight_layout(rect=[0,0,1,0.95])
     figA.savefig(output_file_A, dpi=300)
@@ -749,7 +750,7 @@ def main():
         df_long = pd.DataFrame(long_records)
         df_long.to_csv(csv_file, index=False)
         print(f"Данные сохранены в CSV: {csv_file}")
-    df_long = df_long.round(1)
+    df_long = df_long.round(2)
     excel_path = os.path.join(output_root, "fungus_analysis.xlsx")
     df_long.to_excel(excel_path, index=False)
     print(f"Итоговый Excel-файл (длинный формат) сохранён: {excel_path}")

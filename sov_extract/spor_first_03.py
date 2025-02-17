@@ -1,17 +1,10 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 # Загрузка изображения
 file_image = r"G:\My\sov\extract\Spores\original_img\test\best\4x\A best_4x_1_scale.png"
 img = cv2.imread(file_image)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 blur = cv2.GaussianBlur(gray, (5, 5), 0)
-
-# plt.figure(figsize=(8, 6))
-# plt.imshow(blur, cmap="gray")
-# plt.title("Gaussian Blurred Image")
-# plt.axis("off")
-# plt.show()
 
 # Пороговая обработка (например, метод Отсу)
 _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
@@ -25,55 +18,36 @@ morph = cv2.morphologyEx(morph, cv2.MORPH_OPEN, kernel, iterations=2)
 # contours, _ = cv2.findContours(morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 contours, hierarchy = cv2.findContours(morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-
-
-# Создаем копию исходного изображения для рисования контуров
-img_contours = img.copy()
-
 # Предполагаемый диаметр спор (в тех же единицах, что и изображение)
-expected_diameter = 50  # примерное значение
+expected_diameter = 80  # примерное значение
 expected_perimeter = np.pi * expected_diameter
 tolerance = 0.2  # допустимое отклонение (20%)
 
 min_perimeter = expected_perimeter * (1 - tolerance)
 max_perimeter = expected_perimeter * (1 + tolerance)
 
+
+
+spore_diameters = []
 filtered_contours = []
 for cnt in contours:
     perimeter = cv2.arcLength(cnt, True)
     if min_perimeter <= perimeter <= max_perimeter:
         filtered_contours.append(cnt)
-
-
-spore_diameters = []
-min_area = 10  # порог по площади для исключения шума, подбирается эмпирически
-
-for cnt in contours:
-    area = cv2.contourArea(cnt)
-    if area < min_area:
-        continue  # пропускаем мелкие шумовые объекты
-    # Вычисляем круговость, если требуется:
-    perimeter = cv2.arcLength(cnt, True)
-    circularity = 4 * np.pi * area / (perimeter**2) if perimeter > 0 else 0
-    if circularity < 0.5:
-        continue  # можно отсеять объекты, имеющие форму, далёкую от круглой
-
-    # Оценка диаметра
     ((x, y), radius) = cv2.minEnclosingCircle(cnt)
     diameter = 2 * radius
-    spore_diameters.append(diameter)
+    spore_diameters.append(diameter)        
 
-# Подсчет количества спор
-spore_count = len(spore_diameters)
-# Рисуем найденные контуры зеленым цветом (цвет можно изменить)
-cv2.drawContours(img_contours, contours, -1, (0, 255, 0), 2)
-cv2.namedWindow("Contours", cv2.WINDOW_NORMAL)
+# Отображение отфильтрованных контуров:
+output = cv2.cvtColor(morph, cv2.COLOR_GRAY2BGR)
+cv2.namedWindow("Filtered Contours", cv2.WINDOW_NORMAL)
 # Устанавливаем размер окна, например, 800x600 пикселей
-cv2.resizeWindow("Contours", 800, 600)
-cv2.imshow("Contours", img_contours)
+cv2.resizeWindow("Filtered Contours", 800, 600)
+cv2.drawContours(output, filtered_contours, -1, (0, 255, 0), 2)
+cv2.imshow("Filtered Contours", output)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+spore_count = len(spore_diameters)
 print("Найдено спор:", spore_count)
 # print("Диаметры спор:", spore_diameters)
 print("Диаметры спор:", ", ".join(f"{x:.0f}" for x in spore_diameters))
-
