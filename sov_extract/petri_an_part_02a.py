@@ -702,8 +702,8 @@ def visualisation_concentration_analysis(df, output_root):
 
 def main():
     # input_folder = r"G:\My\sov\extract\ORF\fungus"
-    # input_folder = r"G:\My\sov\extract\ORF\work_petri"
-    input_folder = r"G:\My\sov\extract\ORF\work_petri_a"
+    input_folder = r"G:\My\sov\extract\ORF\work_petri"
+    # input_folder = r"G:\My\sov\extract\ORF\work_petri_a"
     
     output_root = input_folder
     os.makedirs(output_root, exist_ok=True)    
@@ -715,7 +715,12 @@ def main():
         print("CSV файл не найден. Выполняются вычисления...")
         # Изменён шаблон для поиска всех jpg-файлов
         file_pattern = os.path.join(input_folder, "*.jpg")
-        files = glob.glob(file_pattern)
+        extensions = ["*.jpg", "*.png"]
+        files = []
+        for ext in extensions:
+            pattern = os.path.join(input_folder, ext)
+            files.extend(glob.glob(pattern))
+            files = glob.glob(file_pattern)
         if not files:
             print("Не найдено файлов для обработки.")
             return
