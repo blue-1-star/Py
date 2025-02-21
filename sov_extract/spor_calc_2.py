@@ -187,99 +187,239 @@ def get_color(file_name):
     else:
         return 'grey'
 
+# def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
+#     """
+#     Визуализация результатов по спорам.
+    
+#     Для каждого изображения (с Count > 1) строится:
+#       1) Гистограмма распределения диаметров споры (в отдельном графике для каждого изображения).
+#       2) Общая столбиковая диаграмма, состоящая из трех подплотов:
+#            - Count
+#            - Mean_Diameter_um (с усиками, отражающими Std_Diameter_um)
+#            - Fungus_Area_Percentage
+#          Для каждого из этих показателей данные сортируются по возрастанию.
+         
+#     Подписи по оси X формируются с помощью функции Short_Name_X и поворачиваются на 45°.
+    
+#     Графики сохраняются в подкаталоге "graph", который создается в папке data_scale_path.
+#     """
+#     # Определяем директорию для сохранения графиков
+#     graph_dir = os.path.join(os.path.dirname(data_scale_path), "graph")
+#     if not os.path.exists(graph_dir):
+#         os.makedirs(graph_dir)
+    
+#     # Фильтруем изображения, оставляем только те, где Count > 1
+#     df_filtered = df_scale_calc[df_scale_calc['Count'] > 1].copy()
+#     if df_filtered.empty:
+#         print("Нет изображений с Count > 1 для визуализации.")
+#         return
+    
+#     # Визуализация гистограмм по диаметрам для каждого изображения
+#     for idx, row in df_filtered.iterrows():
+#         file_base = row['File']
+#         short_label = Short_Name_X(file_base)
+#         # Извлекаем данные по спорам из merged_data по совпадению BaseName
+#         spores = merged_data[merged_data['BaseName'] == file_base]['Diameter_um'].dropna()
+#         if spores.empty:
+#             continue
+#         plt.figure()
+#         plt.hist(spores, bins='auto', edgecolor='black')
+#         plt.title(f"Гистограмма диаметров {short_label}")
+#         plt.xlabel("Диаметр (µm)")
+#         plt.ylabel("Количество")
+#         plt.xticks(rotation=45)
+#         # Сохраняем график гистограммы
+#         hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
+#         plt.savefig(hist_path, bbox_inches='tight')
+#         plt.close()
+#         print(f"Сохранена гистограмма для {short_label} в {hist_path}")
+    
+#     # Подготовка данных для столбиковой диаграммы.
+#     # Для каждого показателя выполняем сортировку по возрастанию.
+#     df_temp = df_filtered.copy()
+#     df_temp['short'] = df_temp['File'].apply(Short_Name_X)
+#     df_temp['color'] = df_temp['File'].apply(get_color)
+    
+#     # Сортировка по каждому показателю
+#     df_count = df_temp.sort_values(by='Count', ascending=True)
+#     df_mean_diam = df_temp.sort_values(by='Mean_Diameter_um', ascending=True)
+#     df_fungus = df_temp.sort_values(by='Fungus_Area_Percentage', ascending=True)
+    
+#     # Создаем столбиковые диаграммы с отдельной сортировкой
+#     fig, axs = plt.subplots(1, 3, figsize=(18, 6))
+    
+#     # Диаграмма 1: Count
+#     x1 = np.arange(len(df_count))
+#     axs[0].bar(x1, df_count['Count'], color=df_count['color'])
+#     axs[0].set_title("Count")
+#     axs[0].set_xticks(x1)
+#     axs[0].set_xticklabels(df_count['short'], rotation=45)
+#     axs[0].set_ylabel("Количество спор")
+    
+#     # Диаграмма 2: Mean Diameter (с усиками Std_Diameter_um)
+#     x2 = np.arange(len(df_mean_diam))
+#     axs[1].bar(x2, df_mean_diam['Mean_Diameter_um'], yerr=df_mean_diam['Std_Diameter_um'], capsize=5, color=df_mean_diam['color'])
+#     axs[1].set_title("Mean Diameter (µm)")
+#     axs[1].set_xticks(x2)
+#     axs[1].set_xticklabels(df_mean_diam['short'], rotation=45)
+#     axs[1].set_ylabel("Диаметр (µm)")
+    
+#     # Диаграмма 3: Fungus Area Percentage
+#     x3 = np.arange(len(df_fungus))
+#     axs[2].bar(x3, df_fungus['Fungus_Area_Percentage'], color=df_fungus['color'])
+#     axs[2].set_title("Fungus Area Percentage")
+#     axs[2].set_xticks(x3)
+#     axs[2].set_xticklabels(df_fungus['short'], rotation=45)
+#     axs[2].set_ylabel("% площади грибка")
+    
+#     plt.suptitle("Статистика по изображениям (Count > 1)")
+#     bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
+#     plt.savefig(bar_chart_path, bbox_inches='tight')
+#     plt.show()
+#     plt.close()
+#     print(f"Сохранена столбиковая диаграмма в {bar_chart_path}")
+
+
+import os
+import re
+import json
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+def Short_Name_X(file_name):
+    """
+    Generates a short label for the x-axis:
+    - If the name contains "best", prefix "B"; if "worst", prefix "W".
+    - Then an underscore and the second number found in the name.
+    
+    Examples:
+      "A best_4x_2_scale" -> "B_2"
+      "A_worst_4x_7" -> "W_7"
+    """
+    lower_name = file_name.lower()
+    if 'best' in lower_name:
+        prefix = 'B'
+    elif 'worst' in lower_name:
+        prefix = 'W'
+    else:
+        prefix = ''
+    numbers = re.findall(r'\d+', file_name)
+    if len(numbers) >= 2:
+        second_number = numbers[1]
+    elif len(numbers) == 1:
+        second_number = numbers[0]
+    else:
+        second_number = ''
+    return f"{prefix}_{second_number}" if prefix else f"{second_number}"
+
+def get_color(file_name):
+    """
+    Returns a color depending on the filename:
+    - "best" -> blue, "worst" -> red, otherwise grey.
+    """
+    lower_name = file_name.lower()
+    if 'best' in lower_name:
+        return 'blue'
+    elif 'worst' in lower_name:
+        return 'red'
+    else:
+        return 'grey'
+
 def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     """
-    Визуализация результатов по спорам.
+    Visualizes spores results.
     
-    Для каждого изображения (с Count > 1) строится:
-      1) Гистограмма распределения диаметров споры (в отдельном графике для каждого изображения).
-      2) Общая столбиковая диаграмма, состоящая из трех подплотов:
-           - Count
-           - Mean_Diameter_um (с усиками, отражающими Std_Diameter_um)
-           - Fungus_Area_Percentage
-         Для каждого из этих показателей данные сортируются по возрастанию.
-         
-    Подписи по оси X формируются с помощью функции Short_Name_X и поворачиваются на 45°.
+    1) For each image (with Count > 1), plots a histogram of diameters (in µm).
+    2) Creates a combined bar chart with three subplots for:
+         - Count,
+         - Mean Diameter (µm) with error bars (Std_Diameter_um),
+         - Fungus Area Percentage.
     
-    Графики сохраняются в подкаталоге "graph", который создается в папке data_scale_path.
+    For both visualizations:
+      - X-axis labels are generated using Short_Name_X and rotated 45°.
+      - All texts (titles, labels, ticks) are in English, using Times New Roman, bold, size 16.
+    
+    The resulting plots are saved in a subdirectory "graph" under the folder of data_scale_path.
     """
-    # Определяем директорию для сохранения графиков
+    # Set global font properties
+    plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.weight'] = 'bold'
+    plt.rcParams['font.size'] = 16
+    
+    # Define directory for saving graphs
     graph_dir = os.path.join(os.path.dirname(data_scale_path), "graph")
     if not os.path.exists(graph_dir):
         os.makedirs(graph_dir)
     
-    # Фильтруем изображения, оставляем только те, где Count > 1
+    # Filter images with Count > 1
     df_filtered = df_scale_calc[df_scale_calc['Count'] > 1].copy()
     if df_filtered.empty:
-        print("Нет изображений с Count > 1 для визуализации.")
+        print("No images with Count > 1 for visualization.")
         return
     
-    # Визуализация гистограмм по диаметрам для каждого изображения
+    # Visualization of histograms for each image
     for idx, row in df_filtered.iterrows():
         file_base = row['File']
         short_label = Short_Name_X(file_base)
-        # Извлекаем данные по спорам из merged_data по совпадению BaseName
+        # Extract diameter data for the image from merged_data
         spores = merged_data[merged_data['BaseName'] == file_base]['Diameter_um'].dropna()
         if spores.empty:
             continue
         plt.figure()
         plt.hist(spores, bins='auto', edgecolor='black')
-        plt.title(f"Гистограмма диаметров {short_label}")
-        plt.xlabel("Диаметр (µm)")
-        plt.ylabel("Количество")
+        plt.title(f"Histogram of Diameters: {short_label}")
+        plt.xlabel("Diameter (µm)")
+        plt.ylabel("Frequency")
         plt.xticks(rotation=45)
-        # Сохраняем график гистограммы
         hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
         plt.savefig(hist_path, bbox_inches='tight')
         plt.close()
-        print(f"Сохранена гистограмма для {short_label} в {hist_path}")
+        print(f"Histogram for {short_label} saved in {hist_path}")
     
-    # Подготовка данных для столбиковой диаграммы.
-    # Для каждого показателя выполняем сортировку по возрастанию.
+    # Prepare data for bar charts: add short labels and colors
     df_temp = df_filtered.copy()
     df_temp['short'] = df_temp['File'].apply(Short_Name_X)
     df_temp['color'] = df_temp['File'].apply(get_color)
     
-    # Сортировка по каждому показателю
+    # Sort data for each metric
     df_count = df_temp.sort_values(by='Count', ascending=True)
     df_mean_diam = df_temp.sort_values(by='Mean_Diameter_um', ascending=True)
     df_fungus = df_temp.sort_values(by='Fungus_Area_Percentage', ascending=True)
     
-    # Создаем столбиковые диаграммы с отдельной сортировкой
+    # Create a figure with 3 subplots
     fig, axs = plt.subplots(1, 3, figsize=(18, 6))
     
-    # Диаграмма 1: Count
+    # Bar chart for Count
     x1 = np.arange(len(df_count))
     axs[0].bar(x1, df_count['Count'], color=df_count['color'])
     axs[0].set_title("Count")
     axs[0].set_xticks(x1)
     axs[0].set_xticklabels(df_count['short'], rotation=45)
-    axs[0].set_ylabel("Количество спор")
+    axs[0].set_ylabel("Spore Count")
     
-    # Диаграмма 2: Mean Diameter (с усиками Std_Diameter_um)
+    # Bar chart for Mean Diameter with error bars
     x2 = np.arange(len(df_mean_diam))
     axs[1].bar(x2, df_mean_diam['Mean_Diameter_um'], yerr=df_mean_diam['Std_Diameter_um'], capsize=5, color=df_mean_diam['color'])
     axs[1].set_title("Mean Diameter (µm)")
     axs[1].set_xticks(x2)
     axs[1].set_xticklabels(df_mean_diam['short'], rotation=45)
-    axs[1].set_ylabel("Диаметр (µm)")
+    axs[1].set_ylabel("Diameter (µm)")
     
-    # Диаграмма 3: Fungus Area Percentage
+    # Bar chart for Fungus Area Percentage
     x3 = np.arange(len(df_fungus))
     axs[2].bar(x3, df_fungus['Fungus_Area_Percentage'], color=df_fungus['color'])
     axs[2].set_title("Fungus Area Percentage")
     axs[2].set_xticks(x3)
     axs[2].set_xticklabels(df_fungus['short'], rotation=45)
-    axs[2].set_ylabel("% площади грибка")
+    axs[2].set_ylabel("Percentage (%)")
     
-    plt.suptitle("Статистика по изображениям (Count > 1)")
+    plt.suptitle("Image Statistics (Count > 1)")
     bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
     plt.savefig(bar_chart_path, bbox_inches='tight')
     plt.show()
     plt.close()
-    print(f"Сохранена столбиковая диаграмма в {bar_chart_path}")
-
-
+    print(f"Bar chart saved in {bar_chart_path}")
 
 
 # Пример использования функции:
