@@ -369,9 +369,11 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
         plt.figure()
         plt.hist(spores, bins='auto', edgecolor='black')
         plt.title(f"Histogram of Diameters: {short_label}")
-        plt.xlabel("Diameter (µm)")
-        plt.ylabel("Frequency")
-        plt.xticks(rotation=45)
+        plt.xlabel("Diameter (µm)", fontweight='bold', fontsize=16)
+        plt.xticks(rotation=45, fontsize=16)  # чтобы цифры по оси X имели такой же размер
+        # plt.xlabel("Diameter (µm)")
+        plt.ylabel("Frequency of spores / interval", fontweight='bold', fontsize=16)
+        plt.xticks(rotation=0)
         hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
         plt.savefig(hist_path, bbox_inches='tight')
         plt.close()
@@ -395,7 +397,7 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[0].bar(x1, df_count['Count'], color=df_count['color'])
     axs[0].set_title("Count")
     axs[0].set_xticks(x1)
-    axs[0].set_xticklabels(df_count['short'], rotation=45)
+    axs[0].set_xticklabels(df_count['short'],fontsize=10, rotation=45)
     axs[0].set_ylabel("Spore Count")
     
     # Bar chart for Mean Diameter with error bars
@@ -403,7 +405,7 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[1].bar(x2, df_mean_diam['Mean_Diameter_um'], yerr=df_mean_diam['Std_Diameter_um'], capsize=5, color=df_mean_diam['color'])
     axs[1].set_title("Mean Diameter (µm)")
     axs[1].set_xticks(x2)
-    axs[1].set_xticklabels(df_mean_diam['short'], rotation=45)
+    axs[1].set_xticklabels(df_mean_diam['short'],fontsize=10, rotation=45)
     axs[1].set_ylabel("Diameter (µm)")
     
     # Bar chart for Fungus Area Percentage
@@ -411,7 +413,7 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[2].bar(x3, df_fungus['Fungus_Area_Percentage'], color=df_fungus['color'])
     axs[2].set_title("Fungus Area Percentage")
     axs[2].set_xticks(x3)
-    axs[2].set_xticklabels(df_fungus['short'], rotation=45)
+    axs[2].set_xticklabels(df_fungus['short'],fontsize=10, rotation=45)
     axs[2].set_ylabel("Percentage (%)")
     
     plt.suptitle("Image Statistics (Count > 1)")
@@ -420,6 +422,87 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     plt.show()
     plt.close()
     print(f"Bar chart saved in {bar_chart_path}")
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+from scipy.stats import gaussian_kde
+
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import gaussian_kde
+
+def visualize_grouped_density(data, data_scale_path, group_column='BaseName', value_column='Diameter',
+                              title='Density curves of spore diameter (FL12 vs FL9)'):
+    """
+    Visualizes density curves for two groups (FL12 and FL9) on a single plot.
+
+    Parameters:
+    - data: DataFrame containing the analysis results. It should have columns for grouping (e.g., 'BaseName')
+            and measurements (e.g., 'Diameter').
+    - data_scale_path: Path used to determine the output folder for graphs.
+    - group_column: Name of the column with grouping information. Default is 'BaseName'.
+    - value_column: Name of the column with the measured value (e.g., spore diameter). Default is 'Diameter'.
+    - title: Title of the plot.
+    """
+    # Create graph output directory based on data_scale_path
+    graph_dir = os.path.join(os.path.dirname(data_scale_path), "graph")
+    os.makedirs(graph_dir, exist_ok=True)
+    
+    # Filter data for groups "worst" and "best" (case insensitive)
+    worst_data = data[data[group_column].str.contains("worst", case=False, na=False)]
+    best_data = data[data[group_column].str.contains("best", case=False, na=False)]
+    
+    plt.figure(figsize=(10, 6))
+    
+    # Set color palette so that colors for groups are consistent
+    colors = sns.color_palette("deep")
+    worst_color = colors[0]
+    best_color = colors[1]
+
+    # Plot density curves with fill for each group using the new labels
+    sns.kdeplot(worst_data[value_column], label="FL12", fill=True, alpha=0.5, color=worst_color)
+    sns.kdeplot(best_data[value_column], label="FL9", fill=True, alpha=0.5, color=best_color)
+    
+    xgrid = np.linspace(0, 200, 1000)  # grid for KDE evaluation
+
+    # Add vertical dashed lines for the maximum density points
+    if not worst_data.empty:
+        kde_worst = gaussian_kde(worst_data[value_column])
+        y_worst = kde_worst(xgrid)
+        x_max_worst = xgrid[np.argmax(y_worst)]
+        plt.axvline(x=x_max_worst, color=worst_color, linestyle="--",
+                    label=f"Max FL12: {x_max_worst:.1f}")
+    
+    if not best_data.empty:
+        kde_best = gaussian_kde(best_data[value_column])
+        y_best = kde_best(xgrid)
+        x_max_best = xgrid[np.argmax(y_best)]
+        plt.axvline(x=x_max_best, color=best_color, linestyle="--",
+                    label=f"Max FL9: {x_max_best:.1f}")
+
+    # Set title and labels in English
+    plt.title(title, fontsize=16, fontweight='bold')
+    # plt.xlabel("Spore diameter (um)", fontsize=14, fontweight='bold')
+    plt.xlabel("Spore diameter (μm)", fontsize=14, fontweight='bold')
+    plt.ylabel("Density", fontsize=14, fontweight='bold')
+    
+    # Set x-axis ticks and limits
+    plt.xticks(np.arange(0, 210, 10), fontsize=12, rotation=45)
+    plt.xlim(0, 200)
+    plt.yticks(fontsize=12)
+    
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+    
+    dens_chart_path = os.path.join(graph_dir, "dens_chart.png")
+    plt.savefig(dens_chart_path, bbox_inches='tight')
+    plt.show()
+
 
 
 # Пример использования функции:
@@ -435,5 +518,6 @@ if __name__ == '__main__':
     df_scale_calc = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
     df_scale_calc, merged_data = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
     visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
-
+    visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
+                              title='Density curves for two groups (FL12 vs FL9)')
 
