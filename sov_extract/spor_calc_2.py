@@ -131,10 +131,15 @@ def process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3
     df_scale_calc['Fungus_Area_Percentage'] = (df_scale_calc['Spore_Total_Area_um2'] / df_scale_calc['Image_Area_um2']) * 100
     
     # Сохранение итогового файла data_Scale_calc.xlsx (в той же папке, что и data_scale_path)
+    # сохранение файла data_XY_calc.xlsx с пиксельными размерами ( merged_data)
     output_scale_calc_path = os.path.join(os.path.dirname(data_scale_path), "data_Scale_calc.xlsx")
+    output_data_XY_calc_path = os.path.join(os.path.dirname(data_scale_path), "data_XY_calc.xlsx")
     df_scale_calc = df_scale_calc.round(1)
+    # df_data_XY_calc = df_scale_calc.round(1)
+    merged_data.to_excel(output_data_XY_calc_path, index=False)
     df_scale_calc.to_excel(output_scale_calc_path, index=False)
     print(f"data_Scale_calc сохранён в {output_scale_calc_path}")
+    print(f"data_XY_calc сохранён в {output_scale_calc_path}")
     
     return df_scale_calc, merged_data
 # 
@@ -283,8 +288,8 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
         # plt.xlabel("Diameter (µm)")
         plt.ylabel("Frequency of spores / interval", fontweight='bold', fontsize=16)
         plt.xticks(rotation=0)
-        # hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
-        hist_path = os.path.join(graph_dir, f"hist_{short_label}.svg")
+        hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
+        # hist_path = os.path.join(graph_dir, f"hist_{short_label}.svg")
         plt.savefig(hist_path, bbox_inches='tight')
         plt.close()
         print(f"Histogram for {short_label} saved in {hist_path}")
@@ -327,8 +332,8 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[2].set_ylabel("Percentage (%)")
     
     plt.suptitle("Image Statistics (Count > 1)")
-    # bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
-    bar_chart_path = os.path.join(graph_dir, "bar_chart.svg")
+    bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
+    # bar_chart_path = os.path.join(graph_dir, "bar_chart.svg")
     plt.savefig(bar_chart_path, bbox_inches='tight')
     plt.show()
     plt.close()
@@ -428,8 +433,8 @@ if __name__ == '__main__':
     # Если необходимо брать размеры из файла, можно передать width_param=None, height_param=None.
     # df_scale_calc = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
     df_scale_calc, merged_data = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
-    # visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
-    # visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
-                            #   title='Density curves for two groups (FL12 vs FL9)')
+    visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
+    visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
+                              title='Density curves for two groups (FL12 vs FL9)')
     
 
