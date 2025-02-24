@@ -400,7 +400,8 @@ def process_directory(directory, mode='rectangle', excel_file='results.xlsx'):
 
 if __name__ == "__main__":
     # Укажите путь к каталогу с изображениями
-    directory = r"G:\My\sov\extract\Spores\original_img\test\best\4x"  # Замените на ваш путь
+    # directory = r"G:\My\sov\extract\Spores\original_img\test\best\4x"  # Замените на ваш путь
+    directory = r"G:\My\sov\extract\Spores\original_img\worst\test"  # Замените на ваш путь
     # Выберите режим: 'point', 'rectangle' или 'ellipse'
     excel_file = os.path.join(directory,"result.xlsx")
-    process_directory(directory, mode='rectangle', excel_file=excel_file)
+    process_directory(directory, mode='ellipse', excel_file=excel_file)
