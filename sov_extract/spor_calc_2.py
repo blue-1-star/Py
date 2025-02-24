@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import re
 from PIL import Image
-
+# from spor_bootstrap_01 import bootstrap_statistic, mean_statistic, kde_mode_statistic
 def set_size(df_scale, dir_image, width=3072, height=2048):
     """
     Заполняет столбцы 'width' и 'height' в DataFrame df_scale.
@@ -187,97 +187,6 @@ def get_color(file_name):
     else:
         return 'grey'
 
-# def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
-#     """
-#     Визуализация результатов по спорам.
-    
-#     Для каждого изображения (с Count > 1) строится:
-#       1) Гистограмма распределения диаметров споры (в отдельном графике для каждого изображения).
-#       2) Общая столбиковая диаграмма, состоящая из трех подплотов:
-#            - Count
-#            - Mean_Diameter_um (с усиками, отражающими Std_Diameter_um)
-#            - Fungus_Area_Percentage
-#          Для каждого из этих показателей данные сортируются по возрастанию.
-         
-#     Подписи по оси X формируются с помощью функции Short_Name_X и поворачиваются на 45°.
-    
-#     Графики сохраняются в подкаталоге "graph", который создается в папке data_scale_path.
-#     """
-#     # Определяем директорию для сохранения графиков
-#     graph_dir = os.path.join(os.path.dirname(data_scale_path), "graph")
-#     if not os.path.exists(graph_dir):
-#         os.makedirs(graph_dir)
-    
-#     # Фильтруем изображения, оставляем только те, где Count > 1
-#     df_filtered = df_scale_calc[df_scale_calc['Count'] > 1].copy()
-#     if df_filtered.empty:
-#         print("Нет изображений с Count > 1 для визуализации.")
-#         return
-    
-#     # Визуализация гистограмм по диаметрам для каждого изображения
-#     for idx, row in df_filtered.iterrows():
-#         file_base = row['File']
-#         short_label = Short_Name_X(file_base)
-#         # Извлекаем данные по спорам из merged_data по совпадению BaseName
-#         spores = merged_data[merged_data['BaseName'] == file_base]['Diameter_um'].dropna()
-#         if spores.empty:
-#             continue
-#         plt.figure()
-#         plt.hist(spores, bins='auto', edgecolor='black')
-#         plt.title(f"Гистограмма диаметров {short_label}")
-#         plt.xlabel("Диаметр (µm)")
-#         plt.ylabel("Количество")
-#         plt.xticks(rotation=45)
-#         # Сохраняем график гистограммы
-#         hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
-#         plt.savefig(hist_path, bbox_inches='tight')
-#         plt.close()
-#         print(f"Сохранена гистограмма для {short_label} в {hist_path}")
-    
-#     # Подготовка данных для столбиковой диаграммы.
-#     # Для каждого показателя выполняем сортировку по возрастанию.
-#     df_temp = df_filtered.copy()
-#     df_temp['short'] = df_temp['File'].apply(Short_Name_X)
-#     df_temp['color'] = df_temp['File'].apply(get_color)
-    
-#     # Сортировка по каждому показателю
-#     df_count = df_temp.sort_values(by='Count', ascending=True)
-#     df_mean_diam = df_temp.sort_values(by='Mean_Diameter_um', ascending=True)
-#     df_fungus = df_temp.sort_values(by='Fungus_Area_Percentage', ascending=True)
-    
-#     # Создаем столбиковые диаграммы с отдельной сортировкой
-#     fig, axs = plt.subplots(1, 3, figsize=(18, 6))
-    
-#     # Диаграмма 1: Count
-#     x1 = np.arange(len(df_count))
-#     axs[0].bar(x1, df_count['Count'], color=df_count['color'])
-#     axs[0].set_title("Count")
-#     axs[0].set_xticks(x1)
-#     axs[0].set_xticklabels(df_count['short'], rotation=45)
-#     axs[0].set_ylabel("Количество спор")
-    
-#     # Диаграмма 2: Mean Diameter (с усиками Std_Diameter_um)
-#     x2 = np.arange(len(df_mean_diam))
-#     axs[1].bar(x2, df_mean_diam['Mean_Diameter_um'], yerr=df_mean_diam['Std_Diameter_um'], capsize=5, color=df_mean_diam['color'])
-#     axs[1].set_title("Mean Diameter (µm)")
-#     axs[1].set_xticks(x2)
-#     axs[1].set_xticklabels(df_mean_diam['short'], rotation=45)
-#     axs[1].set_ylabel("Диаметр (µm)")
-    
-#     # Диаграмма 3: Fungus Area Percentage
-#     x3 = np.arange(len(df_fungus))
-#     axs[2].bar(x3, df_fungus['Fungus_Area_Percentage'], color=df_fungus['color'])
-#     axs[2].set_title("Fungus Area Percentage")
-#     axs[2].set_xticks(x3)
-#     axs[2].set_xticklabels(df_fungus['short'], rotation=45)
-#     axs[2].set_ylabel("% площади грибка")
-    
-#     plt.suptitle("Статистика по изображениям (Count > 1)")
-#     bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
-#     plt.savefig(bar_chart_path, bbox_inches='tight')
-#     plt.show()
-#     plt.close()
-#     print(f"Сохранена столбиковая диаграмма в {bar_chart_path}")
 
 
 import os
@@ -369,12 +278,13 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
         plt.figure()
         plt.hist(spores, bins='auto', edgecolor='black')
         plt.title(f"Histogram of Diameters: {short_label}")
-        plt.xlabel("Diameter (µm)", fontweight='bold', fontsize=16)
+        plt.xlabel("Diameter of sporangium (µm)", fontweight='bold', fontsize=16)
         plt.xticks(rotation=45, fontsize=16)  # чтобы цифры по оси X имели такой же размер
         # plt.xlabel("Diameter (µm)")
         plt.ylabel("Frequency of spores / interval", fontweight='bold', fontsize=16)
         plt.xticks(rotation=0)
-        hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
+        # hist_path = os.path.join(graph_dir, f"hist_{short_label}.png")
+        hist_path = os.path.join(graph_dir, f"hist_{short_label}.svg")
         plt.savefig(hist_path, bbox_inches='tight')
         plt.close()
         print(f"Histogram for {short_label} saved in {hist_path}")
@@ -406,7 +316,7 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[1].set_title("Mean Diameter (µm)")
     axs[1].set_xticks(x2)
     axs[1].set_xticklabels(df_mean_diam['short'],fontsize=10, rotation=45)
-    axs[1].set_ylabel("Diameter (µm)")
+    axs[1].set_ylabel("Diameter of sporangium (µm)")
     
     # Bar chart for Fungus Area Percentage
     x3 = np.arange(len(df_fungus))
@@ -417,7 +327,8 @@ def visualize_spores_results(df_scale_calc, merged_data, data_scale_path):
     axs[2].set_ylabel("Percentage (%)")
     
     plt.suptitle("Image Statistics (Count > 1)")
-    bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
+    # bar_chart_path = os.path.join(graph_dir, "bar_chart.png")
+    bar_chart_path = os.path.join(graph_dir, "bar_chart.svg")
     plt.savefig(bar_chart_path, bbox_inches='tight')
     plt.show()
     plt.close()
@@ -487,7 +398,7 @@ def visualize_grouped_density(data, data_scale_path, group_column='BaseName', va
     # Set title and labels in English
     plt.title(title, fontsize=16, fontweight='bold')
     # plt.xlabel("Spore diameter (um)", fontsize=14, fontweight='bold')
-    plt.xlabel("Spore diameter (μm)", fontsize=14, fontweight='bold')
+    plt.xlabel("Diameter of sporangium (μm)", fontsize=14, fontweight='bold')
     plt.ylabel("Density", fontsize=14, fontweight='bold')
     
     # Set x-axis ticks and limits
@@ -515,9 +426,10 @@ if __name__ == '__main__':
     
     # Если размеры заданы по умолчанию (3072, 2048), передаем их;
     # Если необходимо брать размеры из файла, можно передать width_param=None, height_param=None.
-    df_scale_calc = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
+    # df_scale_calc = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
     df_scale_calc, merged_data = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
-    visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
-    visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
-                              title='Density curves for two groups (FL12 vs FL9)')
+    # visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
+    # visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
+                            #   title='Density curves for two groups (FL12 vs FL9)')
+    
 
