@@ -1,8 +1,9 @@
 
 import cv2
 import numpy as np
+import pandas as pd
 
-def region_growing_fixed_seed(img, seed, thresh, display_interval=100, print_interval=1000):
+def region_growing_fixed_seed(img, seed, thresh, display_interval=100, print_interval=100):
     """
     Region growing algorithm that compares each pixel to the initial seed value.
     
@@ -41,6 +42,7 @@ def region_growing_fixed_seed(img, seed, thresh, display_interval=100, print_int
             print("Iteration:", iteration, "Region size:", np.sum(mask == 255))
 
         if iteration % display_interval == 0:
+            # print("Iteration:", iteration, "Region size:", np.sum(mask == 255))
             cv2.imshow("Process Region Growing", mask)
             cv2.waitKey(1)
             
@@ -53,6 +55,8 @@ if img_color is None:
     print("Error loading image!")
     exit()
 
+data_spore_path = r"G:\My\sov\extract\Spores\original_img\test\best\4x\data_XY_calc.xlsx"
+data_spore = pd.read_excel(data_spore_path)
 # Convert the image to grayscale
 img_gray = cv2.cvtColor(img_color, cv2.COLOR_BGR2GRAY)
 
@@ -61,7 +65,7 @@ def click_event(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         seed = (x, y)
         print("Seed point selected:", seed)
-        seg_mask = region_growing_fixed_seed(img_gray, seed, thresh=10, display_interval=200)
+        seg_mask = region_growing_fixed_seed(img_gray, seed, thresh=17, display_interval=200)
         
         cv2.namedWindow("Final Mask", cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Final Mask", 800, 600)
