@@ -40,6 +40,7 @@ def region_growing_fixed_seed(img, seed, thresh, display_interval=100):
                         seed_list.append((nx, ny))
         iteration += 1
         if iteration % display_interval == 0:
+            print("Iteration:", iteration, "Region size:", np.sum(mask == 255))
             cv2.imshow(process_window, mask)
             # Check if ESC is pressed during region growing to exit early
             if cv2.waitKey(1) == 27:
@@ -48,7 +49,9 @@ def region_growing_fixed_seed(img, seed, thresh, display_interval=100):
     return mask
 
 # Load the input image
-image_path = r"G:\My\sov\extract\Spores\original_img\worst\test\A_best_4x_11.png"  # Replace with your image path
+# image_path = r"G:\My\sov\extract\Spores\original_img\worst\test\A_best_4x_11.png"  # Replace with your image path
+image_path = r"G:\My\sov\extract\Spores\original_img\worst\test\A_worst_40x_2.png"  # Replace with your image path
+"G:\My\sov\extract\Spores\original_img\worst\test\A_worst_40x_2.png"
 img_color = cv2.imread(image_path)
 if img_color is None:
     print("Error loading image!")
@@ -62,7 +65,7 @@ def click_event(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         seed = (x, y)
         print("Seed point selected:", seed)
-        seg_mask = region_growing_fixed_seed(img_gray, seed, thresh=15, display_interval=200)
+        seg_mask = region_growing_fixed_seed(img_gray, seed, thresh=20, display_interval=2000)
         
         # Create and show final mask window
         final_mask_window = "Final Mask"
