@@ -433,8 +433,8 @@ if __name__ == '__main__':
     # Если необходимо брать размеры из файла, можно передать width_param=None, height_param=None.
     # df_scale_calc = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
     df_scale_calc, merged_data = process_fungus_stats(data_xy_path, data_scale_path, dir_image, width_param=3072, height_param=2048)
-    visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
-    visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
-                              title='Density curves for two groups (FL12 vs FL9)')
+    # visualize_spores_results(df_scale_calc, merged_data, data_scale_path)
+    # visualize_grouped_density(merged_data, data_scale_path, group_column='BaseName', value_column='Diameter',
+                            #   title='Density curves for two groups (FL12 vs FL9)')
     
 

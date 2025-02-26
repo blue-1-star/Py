@@ -22,8 +22,9 @@ def select_shapes(image_path, mode='rectangle'):
         print(f"Ошибка: не удалось загрузить изображение {image_path}!")
         return None
 
-    # Создаем окно с возможностью изменения размера
-    window_name = "Image"
+   # Получаем имя файла без пути
+    filename = os.path.basename(image_path)
+    window_name = filename  # Используем имя файла в качестве заголовка окна
     cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
     # cv2.resizeWindow(window_name, 800, 600)  # Можно изменить начальный размер окна
     cv2.resizeWindow(window_name, 1980, 1320)  # Можно изменить начальный размер окна
