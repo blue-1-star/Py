@@ -2,11 +2,6 @@ import os
 import cv2
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
-
-# Глобальный счетчик споры
-spore_counter = 0
-
 
 def region_growing_fixed_seed(image_path, threshold=15, base_mode='seed'):
     directory = os.path.dirname(image_path)
@@ -27,17 +22,7 @@ def region_growing_fixed_seed(image_path, threshold=15, base_mode='seed'):
     cv2.resizeWindow(window_name, 1980, 1320)
     
     spore_count = 1
-    seed = None
-
-    def mouse_callback(event, x, y, flags, param):
-        nonlocal seed
-        if event == cv2.EVENT_LBUTTONDOWN:  # Если нажата левая кнопка мыши
-            seed = (y, x)  # OpenCV использует (row, col)
-            print(f"Selected seed point: {seed}")
     
-    cv2.setMouseCallback(window_name, mouse_callback)
-
-
     def region_growing(seed):
         mask = np.zeros(image.shape[:2], dtype=np.uint8)
         queue = [seed]
@@ -67,7 +52,12 @@ def region_growing_fixed_seed(image_path, threshold=15, base_mode='seed'):
             print("Выход из программы")
             break
         
-        if (key == ord(' ') or key == 13) and seed is not None:  # Space или Enter
+        if key == ord(' ') or key == 13:  # Space или Enter
+            roi = cv2.selectROI(window_name, image, fromCenter=False, showCrosshair=True)
+            if roi[2] == 0 or roi[3] == 0:
+                continue  # Пропускаем, если ничего не выбрано
+            
+            seed = (int(roi[1] + roi[3] / 2), int(roi[0] + roi[2] / 2))
             mask, iterations = region_growing(seed)
             auto_select_regions.append(mask)
             
@@ -91,10 +81,6 @@ def region_growing_fixed_seed(image_path, threshold=15, base_mode='seed'):
     df.to_excel(auto_select_path, index=False)
     print(f"Данные auto_select_region сохранены в: {auto_select_path}")
 
-
-
-
-
 def process_images_in_directory(directory): 
     for filename in os.listdir(directory):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.tif', '.bmp')):
@@ -103,6 +89,4 @@ def process_images_in_directory(directory):
 
 # Пример вызова: process_images_in_directory("path/to/images")
 directory = "G:\My\sov\extract\Spores\original_img\grow_reg"
-# image_path = r"G:\My\sov\extract\Spores\original_img\grow_reg\A_best_4x_11.png"
-
 process_images_in_directory(directory)
