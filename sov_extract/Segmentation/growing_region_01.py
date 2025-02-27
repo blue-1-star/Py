@@ -49,7 +49,7 @@ def region_growing_fixed_seed(img, seed, thresh, display_interval=100, print_int
     return mask
 
 # Load the input image
-image_path = r"G:\My\sov\extract\Spores\original_img\worst\test\A_best_4x_11.png"  # Replace with your image path
+image_path = r"G:\My\sov\extract\Spores\original_img\grow_reg\A_best_4x_11.png"
 img_color = cv2.imread(image_path)
 if img_color is None:
     print("Error loading image!")
