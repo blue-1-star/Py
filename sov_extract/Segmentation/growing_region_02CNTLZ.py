@@ -121,3 +121,144 @@ def region_growing_fixed_seed(image_path, threshold=15, base_mode='seed', edit_m
 
     keyboard_event()  # Запускаем обработку клавиш
     cv2.destroyAllWindows()
+
+def process_images_in_directory(directory):
+    for file_name in os.listdir(directory):
+        if file_name.endswith('.png'):
+            image_path = os.path.join(directory, file_name)
+            region_growing_fixed_seed(image_path)
+
+def edit_existing_overlay(image_path):
+    region_growing_fixed_seed(image_path, edit_mode=True)
+
+def show_processed_files(directory):
+    files = [f for f in os.listdir(directory) if f.endswith('_overlay.png')]
+    if not files:
+        print("No processed files found.")
+        return
+    
+    print("Processed files:")
+    for i, file in enumerate(files):
+        print(f"{i+1}. {file}")
+    
+    choice = input("Enter the number of the file to edit: ")
+    try:
+        choice = int(choice) - 1
+        if 0 <= choice < len(files):
+            edit_existing_overlay(os.path.join(directory, files[choice].replace('_overlay.png', '.png')))
+    except ValueError:
+        print("Invalid choice.")
+
+def list_files(directory):
+    """Выводит список обработанных и необработанных файлов."""
+    processed = []
+    unprocessed = []
+    
+    for file in os.listdir(directory):
+        if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
+            base, ext = os.path.splitext(file)
+            processed_filename = base + "_overlay.png"
+            
+            if processed_filename in os.listdir(directory):
+                processed.append(processed_filename)
+            else:
+                unprocessed.append(file)
+    
+    print("\nФайлы в каталоге:")
+    print("\nОбработанные:")
+    for f in processed:
+        print(f)
+    print("\nНеобработанные:")
+    for f in unprocessed:
+        print(f)    
+    return processed, unprocessed
+
+
+
+# image_path = r"G:\My\sov\extract\Spores\original_img\grow_reg\A_best_4x_11.png"
+def get_file_lists(directory):
+    """Формирует списки оригинальных файлов и обработанных."""
+    all_files = [f for f in os.listdir(directory) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
+    
+    original_files = set()
+    overlay_files = set()
+
+    for file in all_files:
+        base, ext = os.path.splitext(file)
+        if base.endswith("_overlay"):
+            overlay_files.add(file)  # Файл отметки обработки
+        else:
+            original_files.add(file)  # Оригинальные файлы
+    
+    # Определяем, какие оригиналы уже обработаны
+    processed = {f for f in original_files if f"{os.path.splitext(f)[0]}_overlay.png" in overlay_files}
+    unprocessed = original_files - processed  # Только те, у которых нет _overlay
+
+    return sorted(list(processed)), sorted(list(unprocessed))
+	
+
+
+
+def get_next_file(unprocessed, processed):
+    """Ожидает выбора пользователя: обработка нового файла или редактирование."""
+    while True:
+        print("\nФайлы в каталоге:\n")
+        print("Обработанные:")
+        for f in processed:
+            print(f"- {f}")
+
+        print("\nНеобработанные:")
+        for f in unprocessed:
+            print(f"- {f}")
+
+        print("\nНажмите Enter (или Space) для обработки следующего файла.")
+        print("Введите 'edit' для выбора уже обработанного файла.")
+        key = input("Ваш выбор: ").strip().lower()
+
+        if key == "":  # Enter / Space -> берем следующий необработанный
+            if unprocessed:
+                return unprocessed.pop(0), False  # Новый файл, edit_mode=False
+            else:
+                print("Нет необработанных файлов.")
+                continue  # Возвращаемся в цикл, не завершая функцию
+
+        elif key == "edit":
+            if not processed:
+                print("Нет обработанных файлов для редактирования.")
+                continue  # Возвращаемся в цикл, не завершая функцию
+
+            print("Выберите номер обработанного файла для редактирования:")
+            for idx, file in enumerate(processed, start=1):
+                print(f"{idx}: {file}")
+
+            try:
+                choice = int(input("Введите номер: "))
+                if 0 < choice <= len(processed):
+                    selected_file = processed[choice - 1]
+                    print(f"\nРедактируем: {selected_file}")
+                    return selected_file, True  # Передаём файл и флаг edit_mode=True
+                else:
+                    print("Неверный номер. Попробуйте снова.")
+                    continue  # Возвращаемся в цикл, не завершая функцию
+            except ValueError:
+                print("Ошибка ввода. Введите номер файла.")
+                continue  # Возвращаемся в цикл, не завершая функцию
+
+        # Если ввод не соответствует ни одному условию — продолжаем спрашивать пользователя
+        print("Неверный ввод. Попробуйте снова.")
+        continue  # Возвращаемся в начало цикла
+
+
+if __name__ == "__main__":
+    directory = r"G:\My\sov\extract\Spores\original_img\grow_reg"  # Укажите вашу папку
+    processed, unprocessed = get_file_lists(directory)
+    next_file, edit_mode = get_next_file(unprocessed, processed)
+
+    if next_file:
+        full_path = os.path.join(directory, next_file)  # Добавляем полный путь
+        region_growing_fixed_seed(full_path, edit_mode=edit_mode)
+        print(f"\nОбрабатываем: {next_file}")
+        # region_growing_fixed_seed(next_file, edit_mode=edit_mode)
+    else:
+        print("\nНет доступных файлов для обработки.")
+
