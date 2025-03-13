@@ -1,7 +1,7 @@
 import pandas as pd
 from openpyxl import load_workbook
 from fpdf import FPDF
-
+import os
 # Функция для обработки Excel-файла и создания отчета
 def process_excel_to_pdf(excel_file, sheet_name, txt_list, excl_columns, oper_formula, pdf_file):
     # Чтение файла Excel
@@ -49,10 +49,14 @@ if __name__ == "__main__":
     file_path = os.path.join(inp_dir, excel_file)
     sheet_name = "Push"
 
-    txt_list = ["txt1", "txt2", "txt3", "txt4"]  # Пример списка TXT
-    txt_list = ['Дата','Расх воды','Расх ээ','вода','ээ']
+    # txt_list = ["txt1", "txt2", "txt3", "txt4"]  # Пример списка TXT
+    val_cell = ['El_bill','El_count','water','Wat_count','utilities','TV & Internet','litter','heating','Total']
+    txt_list = ['Свет','Расх ээ','вода','Расх воды','квартплата' ,'TV', 'мусор', 'отопление','ВСЕГО']
+    # val_cell = ['Date','El_count','Wat_count']
+    # txt_list = ['Дата','Расх воды','Расх ээ','вода','ээ']
     excl_columns = ["col1", "col2"]  # Пример исключенных столбцов
     oper_formula = "=({}{}-{}{})"  # Формула разности значений текущей и предыдущей строки
     pdf_file = "report.pdf"
 
     process_excel_to_pdf(file_path, sheet_name, txt_list, excl_columns, oper_formula, pdf_file)
+

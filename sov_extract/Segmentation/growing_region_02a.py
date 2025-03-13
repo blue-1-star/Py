@@ -152,29 +152,29 @@ def show_processed_files(directory):
     except ValueError:
         print("Invalid choice.")
 
-def list_files(directory):
-    """Выводит список обработанных и необработанных файлов."""
-    processed = []
-    unprocessed = []
+# def list_files(directory):
+#     """Выводит список обработанных и необработанных файлов."""
+#     processed = []
+#     unprocessed = []
     
-    for file in os.listdir(directory):
-        if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
-            base, ext = os.path.splitext(file)
-            processed_filename = base + "_overlay.png"
+#     for file in os.listdir(directory):
+#         if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
+#             base, ext = os.path.splitext(file)
+#             processed_filename = base + "_overlay.png"
             
-            if processed_filename in os.listdir(directory):
-                processed.append(processed_filename)
-            else:
-                unprocessed.append(file)
+#             if processed_filename in os.listdir(directory):
+#                 processed.append(processed_filename)
+#             else:
+#                 unprocessed.append(file)
     
-    print("\nФайлы в каталоге:")
-    print("\nОбработанные:")
-    for f in processed:
-        print(f)
-    print("\nНеобработанные:")
-    for f in unprocessed:
-        print(f)    
-    return processed, unprocessed
+#     print("\nФайлы в каталоге:")
+#     print("\nОбработанные:")
+#     for f in processed:
+#         print(f)
+#     print("\nНеобработанные:")
+#     for f in unprocessed:
+#         print(f)    
+#     return processed, unprocessed
 
 
 
