@@ -11,6 +11,9 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+
 # Регистрация шрифтов
 pdfmetrics.registerFont(TTFont('Arial', 'arial.ttf'))  # Обычный шрифт
 pdfmetrics.registerFont(TTFont('Arial-Bold', 'arialbd.ttf'))  # Жирный шрифт
@@ -34,7 +37,7 @@ def prepare_report_data(file_path, sheet_name, val_cell, txt_list):
     
     # Преобразование столбца 'Date' в формат datetime
     df['Date'] = pd.to_datetime(df['Date'], format='%d.%m.%Y')
-    
+    print(df['heating'],df['Total'])
     # Получение последней строки данных
     last_row = df.iloc[-1]
     prev_row = df.iloc[-2]
@@ -172,8 +175,8 @@ def write_report_to_excel(inp_dir, report_data, suffix, title_text):
 # Параметры
 # inp_dir = r"D:\OneDrive\Документы"
 inp_dir = r"G:\Flat"
-
 excel_file = "Flat_Arn.xlsx"
+# excel_file = "Flat_Arn3.xlsx"
 sheet_name = "Push"
 val_cell = ['El_bill', 'El_count', 'water', 'Wat_count', 'utilities', 'TV & Internet', 'litter', 'heating', 'Total']
 txt_list = ['Свет', 'Расход эл.энергии', 'вода', 'Расход воды', 'квартплата', 'TV', 'мусор', 'отопление', 'ВСЕГО']

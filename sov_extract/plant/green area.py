@@ -148,8 +148,8 @@ def generate_excel_file(folder_path, file_name):
 
 if __name__ == "__main__":
     # Path to folder with images 
-    img_folder = r"C:\Users\HP\Desktop\Plant green area analysis\Images"
-    
+    # img_folder = r"C:\Users\HP\Desktop\Plant green area analysis\Images"
+    img_folder = r"G:\My\sov\extract\plant1"
     start_time = time.time()
     generate_excel_file(img_folder, "Green area analysis")
     print("Excel file generated in ", int(time.time() - start_time), "seconds")

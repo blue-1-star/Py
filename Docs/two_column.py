@@ -37,6 +37,7 @@ def process_docx(input_path, output_path, separator="==="):
     create_two_column_docx(english_text, translated_text, output_path)
 
 # Пример использования
-input_file = "input.docx"   # Исходный файл
-output_file = "output.docx" # Файл с двумя колонками
+
+input_file =  r"G:\My\Politics\A new foreign policy for Europe.docx"   # Исходный файл
+output_file = r"G:\My\Politics\A new foreign policy for Europe_eng_ru.docx" # Файл с двумя колонками
 process_docx(input_file, output_file)
