@@ -24,11 +24,46 @@ def load_scale_data(excel_path):
     return scale_dict
 
 
-def getting_pixel_counts(img_path, show_images=False):
+# def getting_pixel_counts(img_path, show_images=False):
+#     """
+#     Вычисляет количество зелёных пикселей на изображении.
+    
+#     :param img_path: Путь к изображению.
+#     :param show_images: Показывать ли изображения (для отладки).
+#     :return: Количество зелёных пикселей и общее количество пикселей.
+#     """
+#     img = cv.imread(img_path)
+#     if img is None:
+#         sys.exit("Could not read image")
+    
+#     resized_img = cv.resize(img, (500, 500), interpolation=cv.INTER_LINEAR)
+    
+#     # Преобразуем изображение в HSV
+#     hsv_img = cv.cvtColor(resized_img, cv.COLOR_BGR2HSV)
+    
+#     # Создаем маску для зелёных цветов
+#     mask = cv.inRange(hsv_img, (40, 100, 20), (80, 255, 255))
+    
+#     if show_images:
+#         cv.imshow("Original Image", img)
+#         cv.imshow("Resized Image", resized_img)
+#         cv.imshow("Green Mask", mask)
+        
+#         k = cv.waitKey(0)
+#         cv.destroyAllWindows()
+    
+#     white_pixel_count = cv.countNonZero(mask)
+#     total_pixels = mask.shape[0] * mask.shape[1]
+    
+#     return white_pixel_count, total_pixels
+
+def getting_pixel_counts(img_path, lower_green=(35, 50, 50), upper_green=(85, 255, 255), show_images=False):
     """
     Вычисляет количество зелёных пикселей на изображении.
     
     :param img_path: Путь к изображению.
+    :param lower_green: Нижний порог для зелёного цвета в формате (H, S, V).
+    :param upper_green: Верхний порог для зелёного цвета в формате (H, S, V).
     :param show_images: Показывать ли изображения (для отладки).
     :return: Количество зелёных пикселей и общее количество пикселей.
     """
@@ -42,7 +77,7 @@ def getting_pixel_counts(img_path, show_images=False):
     hsv_img = cv.cvtColor(resized_img, cv.COLOR_BGR2HSV)
     
     # Создаем маску для зелёных цветов
-    mask = cv.inRange(hsv_img, (40, 100, 20), (80, 255, 255))
+    mask = cv.inRange(hsv_img, lower_green, upper_green)
     
     if show_images:
         cv.imshow("Original Image", img)
@@ -56,7 +91,6 @@ def getting_pixel_counts(img_path, show_images=False):
     total_pixels = mask.shape[0] * mask.shape[1]
     
     return white_pixel_count, total_pixels
-
 
 def get_date_taken(image_path):
     """
@@ -178,7 +212,7 @@ def generate_excel_file(folder_path, excel_file_name, scale_data):
         
         # Получаем данные о зелёных пикселях
         # white_pixels, total_pixels = getting_pixel_counts(cur_img_path, show_images=False)
-        white_pixels, total_pixels = getting_pixel_counts(cur_img_path, show_images=True)
+        white_pixels, total_pixels = getting_pixel_counts(cur_img_path, show_images=False)
         white_percent = (white_pixels / total_pixels) * 100
         white_percent_rounded = round(white_percent, 2)
         
@@ -206,16 +240,20 @@ def generate_excel_file(folder_path, excel_file_name, scale_data):
 if __name__ == "__main__":
     # Путь к каталогу с изображениями
     # img_folder = r"G:\My\sov\extract\plant1"
-    img_folder = r"G:\My\sov\extract\plant2"
+    # img_folder = r"G:\My\sov\extract\plant2"
+    # img_folder = r"G:\My\sov\extract\plant_d3"
+    img_folder = r"G:\My\sov\extract\plant_d7"
     
     # Путь к Excel-файлу с масштабами
     # scale_excel_path = r"G:\My\sov\extract\plant1\file_list.xlsx"
-    scale_excel_path = r"G:\My\sov\extract\plant2\file_list.xlsx"
-    
+    # scale_excel_path = r"G:\My\sov\extract\plant_d3\file_list.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_d3\file_list2_d3.xlsx"
+    scale_excel_path = r"G:\My\sov\extract\plant_d7\file_list_d7.xlsx"
     # Загружаем данные о масштабе
     scale_data = load_scale_data(scale_excel_path)
     
     # Генерируем Excel-файл
     start_time = time.time()
-    generate_excel_file(img_folder, "Green_area_analysis.xlsx", scale_data)
+    # generate_excel_file(img_folder, "Green_area_analysis.xlsx", scale_data)
+    generate_excel_file(img_folder, "Green_area_analysis_d7.xlsx", scale_data)
     print(f"Время выполнения: {int(time.time() - start_time)} секунд")
