@@ -63,7 +63,7 @@ def list_files_to_excel(folder_path, file_pattern="*", excel_file_name="file_lis
 
 if __name__ == "__main__":
 # Укажите путь к каталогу с файлами
-    folder_path = r"G:\My\sov\extract\plant_d7"
+    folder_path = r"G:\My\sov\extract\plant_d10"
 
 
 # Укажите шаблон для выбора файлов (например, "*.jpg")  
