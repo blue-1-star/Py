@@ -2,11 +2,25 @@ import os
 import xlsxwriter
 import fnmatch
 from PIL import Image  # Импортируем Pillow для работы с изображениями
+from PIL.ExifTags import TAGS  # Импортируем TAGS для работы с EXIF
 
+def get_camera_model(image_path):
+    """Извлекает модель камеры из EXIF-данных изображения."""
+    try:
+        with Image.open(image_path) as img:
+            exif_data = img._getexif()
+            if exif_data:
+                for tag_id, value in exif_data.items():
+                    tag = TAGS.get(tag_id, tag_id)
+                    if tag == "Model":
+                        return value
+    except (AttributeError, KeyError, IndexError, Exception):
+        pass
+    return "Неизвестно"
 
 def list_files_to_excel(folder_path, file_pattern="*", excel_file_name="file_list.xlsx"):
     """
-    Функция создает Excel-файл со списком имен файлов (без расширения), их размерами и размерами изображений.
+    Функция создает Excel-файл со списком имен файлов (без расширения), их размерами, размерами изображений и моделью камеры.
     
     :param folder_path: Путь к каталогу с файлами.
     :param file_pattern: Шаблон для выбора файлов (например, "*.jpg").
@@ -20,14 +34,14 @@ def list_files_to_excel(folder_path, file_pattern="*", excel_file_name="file_lis
     worksheet = workbook.add_worksheet()
     
     # Заголовки таблицы
-    headers = ["File Name", "File Size (MB)", "Width (px)", "Height (px)", "Scale pix/mm"]
+    headers = ["File Name", "File Size (MB)", "Width (px)", "Height (px)", "Scale pix/mm", "Cam"]
     for col_num, header in enumerate(headers):
         worksheet.write(0, col_num, header)
     
     # Получаем список файлов в каталоге, соответствующих шаблону
     files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f)) and fnmatch.fnmatch(f, file_pattern)]
     
-    # Записываем имена файлов (без расширения), их размеры и размеры изображений в Excel
+    # Записываем имена файлов (без расширения), их размеры, размеры изображений и модель камеры в Excel
     for row_num, file_name in enumerate(files, start=1):
         # Полный путь к файлу
         file_path = os.path.join(folder_path, file_name)
@@ -39,19 +53,23 @@ def list_files_to_excel(folder_path, file_pattern="*", excel_file_name="file_lis
         file_size_bytes = os.path.getsize(file_path)
         file_size_mb = file_size_bytes / (1024 * 1024)  # Конвертация в MB
         
-        # Получаем размеры изображения (ширину и высоту)
+        # Получаем размеры изображения (ширину и высоту) и модель камеры
         try:
             with Image.open(file_path) as img:
                 width, height = img.size  # Получаем ширину и высоту
+                camera_model = get_camera_model(file_path)  # Получаем модель камеры
         except Exception as e:
             print(f"Ошибка при обработке файла {file_name}: {e}")
             width, height = "N/A", "N/A"  # Если файл не является изображением
+            camera_model = "N/A"  # Если не удалось извлечь модель камеры
         
         # Записываем данные в Excel
         worksheet.write(row_num, 0, file_name_without_ext)  # Имя файла
         worksheet.write(row_num, 1, round(file_size_mb, 2)) # Размер файла в MB с округлением до 2 знаков
         worksheet.write(row_num, 2, width)                 # Ширина изображения
         worksheet.write(row_num, 3, height)                # Высота изображения
+        worksheet.write(row_num, 4, "")                    # Пустой столбец для Scale (ручное заполнение)
+        worksheet.write(row_num, 5, camera_model)         # Модель камеры
     
     # Автоматически подгоняем ширину столбцов
     worksheet.autofit()
@@ -62,13 +80,11 @@ def list_files_to_excel(folder_path, file_pattern="*", excel_file_name="file_lis
     print(f"Excel-файл создан: {excel_file_path}")
 
 if __name__ == "__main__":
-# Укажите путь к каталогу с файлами
-    # folder_path = r"G:\My\sov\extract\plant_d10"
+    # Укажите путь к каталогу с файлами
     folder_path = r"G:\My\sov\extract\plant_d14"
 
-
-# Укажите шаблон для выбора файлов (например, "*.jpg")  
+    # Укажите шаблон для выбора файлов (например, "*.jpg")
     file_pattern = "*.jpg"
 
-# Вызов функции
+    # Вызов функции
     list_files_to_excel(folder_path, file_pattern=file_pattern)
