@@ -353,19 +353,22 @@ def generate_excel_file(folder_path, excel_file_name, scale_data):
 if __name__ == "__main__":
     # Путь к каталогу с изображениями
     # img_folder = r"G:\My\sov\extract\plant1"
-    # img_folder = r"G:\My\sov\extract\plant2"
+    # img_folder = r"G:\My\sov\extract\plant_d0"
     # img_folder = r"G:\My\sov\extract\plant_d3"
     # img_folder = r"G:\My\sov\extract\plant_d7"
-    # img_folder = r"G:\My\sov\extract\plant_d14"
-    img_folder = r"G:\My\sov\extract\plant_tmp"
+    # img_folder = r"G:\My\sov\extract\plant_d10"
+    img_folder = r"G:\My\sov\extract\plant_d14"
+    # img_folder = r"G:\My\sov\extract\plant_tmp"
     
     # Путь к Excel-файлу с масштабами
     # scale_excel_path = r"G:\My\sov\extract\plant1\file_list.xlsx"
     # scale_excel_path = r"G:\My\sov\extract\plant_d3\file_list.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_d3\file_list.xlsx"
     # scale_excel_path = r"G:\My\sov\extract\plant_d3\file_list2_d3.xlsx"
-    # scale_excel_path = r"G:\My\sov\extract\plant_d7\file_list_d7.xlsx"
-    # scale_excel_path = r"G:\My\sov\extract\plant_d14\file_list_d14.xlsx"
-    scale_excel_path = r"G:\My\sov\extract\plant_tmp\file_list_d7a.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_d7\file_list.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_d10\file_list.xlsx"
+    scale_excel_path = r"G:\My\sov\extract\plant_d14\file_list.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_tmp\file_list_d7a.xlsx"
     # Загружаем данные о масштабе
     scale_data = load_scale_data(scale_excel_path)
     
