@@ -377,3 +377,4 @@ if __name__ == "__main__":
     # generate_excel_file(img_folder, "Green_area_analysis.xlsx", scale_data)
     generate_excel_file(img_folder, "Green_area_analysis_tmp.xlsx", scale_data)
     print(f"Время выполнения: {int(time.time() - start_time)} секунд")
+
