@@ -149,5 +149,20 @@ resized_img = cv.resize(img, (500, 500), interpolation=cv.INTER_LINEAR)
 Далее текущее состояние кода ( без масштабирования при resize)
 
 
+Необходимо собрать данные из всех файлов Excel в каталоге 
+"G:\My\sov\extract\plant\Data"  в один файл Excel файл Data_Plant 
+в этом же каталоге
+фильтр для отбора строк во всех файлах :
+столбец "File Name"  первое число в содержимом ячейки из следующего списка
+list_names = [ 1,2,10,12,14,15,16]
+Например запись UGAN_02_03_d0.jpg  -> 2 входит в список и отбирается 
+UGAN_05_3_d0.jpg -> 5  - не входит и пропускается
+
+выбрать  данные из  столбцов из следующего списка
+list_columns = [FILE NAME, SCALE (pix/mm),	WHITE PIXEL COUNT,	TOTAL PIXELS,	WHITE PIXEL PERCENTAGE,	WHITE PIXELS MM^2]
+
+
+
+
 
 
