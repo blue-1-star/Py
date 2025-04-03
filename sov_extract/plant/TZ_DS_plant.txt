@@ -164,5 +164,10 @@ list_columns = [FILE NAME, SCALE (pix/mm),	WHITE PIXEL COUNT,	TOTAL PIXELS,	WHIT
 
 
 
+Можно ли сделать аналог - макрос в Fiji/ImageJ2?
+использовать файлы изображения, заданные в списке имен файлов list_files_Fiji  из 
+заданного каталога img_folder
+
+вывести результат в Excel - файл в img_folder
 
 
