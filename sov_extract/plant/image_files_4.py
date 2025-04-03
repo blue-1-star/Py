@@ -120,7 +120,8 @@ if __name__ == "__main__":
     # folder_path = r"G:\My\sov\extract\plant_d3"
     # folder_path = r"G:\My\sov\extract\plant_d7"
     # folder_path = r"G:\My\sov\extract\plant_d10"
-    folder_path = r"G:\My\sov\extract\plant_d14"
+    # folder_path = r"G:\My\sov\extract\plant_d14"
+    folder_path = r"G:\My\sov\extract\plant_d0a"
         
     # Укажите шаблон для выбора файлов (например, "*.jpg")
     file_pattern = "*.jpg"
