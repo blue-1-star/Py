@@ -358,8 +358,8 @@ if __name__ == "__main__":
     # img_folder = r"G:\My\sov\extract\plant_d7"
     # img_folder = r"G:\My\sov\extract\plant_d10"
     # img_folder = r"G:\My\sov\extract\plant_d14"
-    img_folder = r"G:\My\sov\extract\plant_d0a"
-    # img_folder = r"G:\My\sov\extract\plant_tmp"
+    # img_folder = r"G:\My\sov\extract\plant_d0a"
+    img_folder = r"G:\My\sov\extract\plant_tmp"
     
     # Путь к Excel-файлу с масштабами
     # scale_excel_path = r"G:\My\sov\extract\plant1\file_list.xlsx"
@@ -369,8 +369,8 @@ if __name__ == "__main__":
     # scale_excel_path = r"G:\My\sov\extract\plant_d7\file_list.xlsx"
     # scale_excel_path = r"G:\My\sov\extract\plant_d10\file_list.xlsx"
     # scale_excel_path = r"G:\My\sov\extract\plant_d14\file_list.xlsx"
-    scale_excel_path = r"G:\My\sov\extract\plant_d0a\file_list.xlsx"
-    # scale_excel_path = r"G:\My\sov\extract\plant_tmp\file_list_d7a.xlsx"
+    # scale_excel_path = r"G:\My\sov\extract\plant_d0a\file_list.xlsx"
+    scale_excel_path = r"G:\My\sov\extract\plant_tmp\file_list.xlsx"
     # Загружаем данные о масштабе
     scale_data = load_scale_data(scale_excel_path)
     
