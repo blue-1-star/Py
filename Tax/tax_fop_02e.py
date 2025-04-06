@@ -3,8 +3,9 @@ from openpyxl.utils import get_column_letter
 from tkinter import Tk, Button, Label, Entry, StringVar, messagebox
 
 # Путь к файлу Excel
-file_path = r"G:\Programming\Py\Tax\data\L_02a.xlsx"
-tax_rate = 0.05
+# file_path = r"G:\Programming\Py\Tax\data\L_02a.xlsx"
+file_path = r"G:\Programming\Py\Tax\data\L_02b.xlsx"
+tax_rate, tax_military = 0.05, 0.01
 
 def load_workbook():
     wb = openpyxl.load_workbook(file_path)
@@ -90,6 +91,9 @@ def add_data():
     sheet[f"I{row}"].value = prev_tax
     tax_pay = total_tax - prev_tax
     sheet[f"J{row}"].value = tax_pay
+    military_tax = quarterly_income * tax_military
+    sheet[f"K{row}"].value = military_tax
+
 
     wb.save(file_path)
     messagebox.showinfo("Успех", "Данные успешно добавлены")
