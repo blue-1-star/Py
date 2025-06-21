@@ -1,0 +1,6 @@
+{
+    "debug.onTaskFirstRun": {
+        "python": "Python: Current File",
+        "powershell": "PowerShell: Current Script"
+    }
+}

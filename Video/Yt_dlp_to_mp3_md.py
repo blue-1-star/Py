@@ -46,8 +46,8 @@ def download_and_convert_to_mp3(url, output_directory='.'):
         print(f"Ошибка: {e}")
 
 # Пример использования
-output_directory = r"G:\Music\fav\2025_spring"
-web_source = "https://www.youtube.com/watch?v=PgXd_93og6o&list=RDGMEMQ1dJ7wXfLlqCjwV0xfSNbA&index=27"
+output_directory = r"G:\Music\fav\2025_summer"
+web_source = "https://www.youtube.com/live/UVguAgphDJY"
 # download_and_convert_to_mp3('https://www.youtube.com/watch?v=07lcIkYEK-g', output_directory)
 download_and_convert_to_mp3(web_source, output_directory)
 
