@@ -1,0 +1,310 @@
+﻿C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+%PATH%
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Users\first\AppData\Roaming\Python\Python313\Scripts
+C:\Program Files\dotnet\
+C:\Program Files\PowerShell\7\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+%PATH%
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Users\first\AppData\Roaming\Python\Python313\Scripts
+C:\Program Files\dotnet\
+C:\Program Files\PowerShell\7\
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+%PATH%
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Users\first\AppData\Roaming\Python\Python313\Scripts
+C:\Program Files\dotnet\
+C:\Program Files\PowerShell\7\
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+C:\Program Files\Python313\Scripts\
+C:\Program Files\Python313\
+%PATH%
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\Git\cmd
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+C:\Python
+C:\Python\Scripts
+C:\Python
+C:\Program Files\Git\bin\
+
+C:\Users\first\AppData\Roaming\Python\Python313\Scripts
+C:\Program Files\dotnet\
+C:\Program Files\PowerShell\7\
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\Program Files\R\R-4.4.2\bin
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+C:\WINDOWS\System32\OpenSSH\
+C:\ffmpeg\bin
+C:\Users\first\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Users\first\AppData\Local\Microsoft\WindowsApps
+
+C:\Python
+C:\Python\Scripts
+C:\Python
+
