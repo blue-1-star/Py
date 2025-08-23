@@ -1,3 +1,4 @@
+#  копия 10.07.2025  файла report_DS_5b.py  - последней работающей версии. 
 import os
 import pandas as pd
 from reportlab.lib.pagesizes import A4
