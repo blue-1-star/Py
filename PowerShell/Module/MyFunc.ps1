@@ -205,7 +205,8 @@ function Clean-PathVariable {
 
 function Repair-PathVariable {
     param (
-        [switch]$Update
+        [switch]$Update,
+        [switch]$Persist
     )
 
     $entries = $env:PATH -split ';'
