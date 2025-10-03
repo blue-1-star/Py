@@ -2,5 +2,12 @@
     "debug.onTaskFirstRun": {
         "python": "Python: Current File",
         "powershell": "PowerShell: Current Script"
-    }
+    },
+    "python-envs.pythonProjects": [
+        {
+            "path": "",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
 }
