@@ -1,3 +1,4 @@
+# https://chat.chatbot.app/chats/-OcvkvuQO17ayv87smrk?model=4o-mini
 import os
 
 # Настройки
