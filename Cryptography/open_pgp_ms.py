@@ -4,11 +4,13 @@ import os
 KEY_EXTENSIONS = ('.pgp', '.gpg', '.asc', '.bak', '.backup', '.key', '.pem')
 
 # Задайте имя файла здесь
-KEY_FILE_NAME = "my_backup.pgp"  # измените на имя вашего файла
+# KEY_FILE_NAME = "Z:\Keys\backup_2025-11-23.sec.pgp"  # измените на имя вашего файла
+KEY_FILE_NAME = "backup_2025-11-23.sec.pgp"  # измените на имя вашего файла
+
 
 def get_key_file_path():
     """Возвращает путь к файлу ключа в каталоге Z:\Keys"""
-    keys_dir = "Z:/Keys"
+    keys_dir = "Z:\Keys"
     file_path = os.path.join(keys_dir, KEY_FILE_NAME)
     
     if os.path.exists(file_path):
