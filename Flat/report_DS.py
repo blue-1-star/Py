@@ -76,9 +76,10 @@ def create_report(inp_dir, excel_file, sheet_name, val_cell, txt_list, title):
     doc.build(elements)
 
 # Параметры
-# inp_dir = r"D:\OneDrive\Документы"
-inp_dir = r"G:\Flat"
-excel_file = "Flat_Arn.xlsx"
+inp_dir = r"D:\OneDrive"
+# inp_dir = r"G:\Flat"
+# excel_file = "Flat_Arn.xlsx"
+excel_file = "Flat_Arn_m.xlsx"
 sheet_name = "Push"
 val_cell = ['El_bill', 'El_count', 'water', 'Wat_count', 'utilities', 'TV & Internet', 'litter', 'heating', 'Total']
 txt_list = ['Свет', 'Расх ээ', 'вода', 'Расх воды', 'квартплата', 'TV', 'мусор', 'отопление', 'ВСЕГО']
