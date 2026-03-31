@@ -160,3 +160,6 @@ cython_debug/
 #.idea/
 D:\OneDrive\Документы\
 !D:\OneDrive\Документы\Flat_Arn.xlsx
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json

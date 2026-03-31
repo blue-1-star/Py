@@ -175,7 +175,9 @@ def write_report_to_excel(inp_dir, report_data, suffix, title_text):
 
 # Параметры
 # inp_dir = r"D:\OneDrive\Документы"
-inp_dir = r"G:\Flat"
+inp_dir = "/Users/san/Library/CloudStorage/OneDrive-Personal/"  
+# Flat_Arn.xlsx
+# inp_dir = r"G:\Flat"
 excel_file = "Flat_Arn.xlsx"
 # excel_file = "Flat_Arn3.xlsx"
 sheet_name = "Push"
