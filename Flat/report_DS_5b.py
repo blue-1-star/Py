@@ -182,7 +182,7 @@ sheet_name = "Push"
 val_cell = ['El_bill', 'El_count', 'water', 'Wat_count', 'utilities', 'TV & Internet', 'litter', 'heating', 'Total']
 txt_list = ['Свет', 'Расход эл.энергии', 'вода', 'Расход воды', 'квартплата', 'TV', 'мусор', 'отопление', 'ВСЕГО']
 title = "Коммунальные расходы за __  ++++ года"
-
+# "D:\OneDrive\Flat_Arn_m.xlsx"
 # Подготовка данных
 file_path = os.path.join(inp_dir, excel_file)
 report_data, month_name, year, suffix = prepare_report_data(file_path, sheet_name, val_cell, txt_list)
