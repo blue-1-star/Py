@@ -7,20 +7,7 @@
             "program": "${file}",
             "console": "integratedTerminal"
         },
-        {
-            "name": "PowerShell Launch Current File",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${file}",
-            "cwd": "${cwd}"
-        },
-        {
-            "name": "PowerShell Launch Script",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "Enter path or command to execute, for example, ${workspaceFolder}/src/foo.ps1 or Invoke-Pester",
-            "cwd": "${cwd}"
-        },
+        
         
     ]
 }
