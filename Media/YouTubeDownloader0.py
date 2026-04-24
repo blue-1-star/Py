@@ -50,7 +50,7 @@ class YouTubeDownloader:
         except:
             pass
     
-    def get_video_info(self, url, timeout=30):
+    def get_video_info(self, url, timeout=60):
         """
         Получает информацию о видео: название, длительность.
         timeout: максимальное время ожидания в секундах.
@@ -102,10 +102,22 @@ class YouTubeDownloader:
         seconds = self.parse_duration_to_seconds(duration_str)
         return seconds > threshold_minutes * 60
     
-    def clean_filename(self, title):
+    def clean_filename1(self, title):
         """Очищает название файла от недопустимых символов"""
         clean = re.sub(r'[<>:"/\\|?*]', '', title)
         clean = re.sub(r'\s+', '_', clean)
+        clean = clean[:100]
+        return clean
+    def clean_filename(self, title):
+        """Очищает название файла от недопустимых символов, сохраняя пробелы"""
+        # Удаляем запрещённые символы для имен файлов
+        clean = re.sub(r'[<>:"/\\|?*]', '', title)
+        # Оставляем пробелы как есть (НЕ заменяем на подчёркивания)
+        # Убираем только множественные пробелы
+        clean = re.sub(r'\s+', ' ', clean)
+        # Убираем пробелы в начале и конце
+        clean = clean.strip()
+        # Ограничиваем длину
         clean = clean[:100]
         return clean
     
@@ -232,7 +244,91 @@ class YouTubeDownloader:
         # Также удаляем &index= если остался
         if '&index=' in url:
             url = url.split('&index=')[0]    
-        return url    
+        return url
+    #  --------------------------------------------------------
+    #  Chapters
+    def get_chapters(self, url):
+        """
+        Получает список глав (треков) из видео.
+        Возвращает список словарей: [{"title": "...", "start": 123.4, "end": 456.7}, ...]
+        """
+        try:
+            # Получаем JSON с информацией о видео
+            result = subprocess.run(
+                ['yt-dlp', '--remote-components', 'ejs:github', '--print-json', url],
+                capture_output=True,
+                text=True,
+                encoding='utf-8',
+                timeout=60
+            )
+            
+            if result.returncode != 0:
+                self.log(f"Ошибка получения JSON: {result.stderr}")
+                return None
+            
+            # Парсим JSON
+            import json
+            data = json.loads(result.stdout)
+            
+            chapters = data.get('chapters', [])
+            if not chapters:
+                self.log("Главы (треки) не найдены в видео")
+                return None
+            
+            # Приводим к удобному формату
+            tracks = []
+            for i, ch in enumerate(chapters, 1):
+                tracks.append({
+                    "number": i,
+                    "title": ch.get('title', f"Трек {i}"),
+                    "start_time": ch.get('start_time', 0),
+                    "end_time": ch.get('end_time', 0)
+                })
+            
+            self.log(f"Найдено {len(tracks)} треков")
+            return tracks
+            
+        except json.JSONDecodeError as e:
+            self.log(f"Ошибка парсинга JSON: {e}")
+            return None
+        except Exception as e:
+            self.log(f"Ошибка получения глав: {e}")
+            return None
+
+    def download_track_by_number(self, url, track_number, target_dir):
+        """
+        Скачивает трек по его порядковому номеру из видео с главами
+        """
+        tracks = self.get_chapters(url)
+        if not tracks:
+            return None
+        
+        if track_number < 1 or track_number > len(tracks):
+            self.log(f"Неверный номер трека. Доступно: 1-{len(tracks)}")
+            return None
+        
+        track = tracks[track_number - 1]
+        
+        # Форматируем время для ffmpeg
+    def format_time(seconds):
+        hours = int(seconds // 3600)
+        minutes = int((seconds % 3600) // 60)
+        secs = seconds % 60
+        if hours > 0:
+            return f"{hours:02d}:{minutes:02d}:{secs:06.3f}"
+        else:
+            return f"{minutes:02d}:{secs:06.3f}"
+    
+    start_time = format_time(track["start_time"])
+    end_time = format_time(track["end_time"])
+    
+    # Очищаем название для имени файла
+    filename = self.clean_filename(f"{track['number']:02d}_{track['title']}")
+    
+    self.log(f"Скачивание трека {track['number']}: {track['title']} ({start_time} - {end_time})")
+    
+    return self.download_clip(url, start_time, end_time, target_dir, filename)
+    
 
 
 def main():
