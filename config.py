@@ -1,8 +1,16 @@
 # config.py (в корне Py/)
+import sys
 from pathlib import Path
 import platform
-from datetime import datetime
 
+# Добавляем корень Py/ в путь поиска модулей
+PY_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(PY_ROOT))
+
+import subprocess
+import re
+import json
+from datetime import datetime
 class ProjectPaths:
     def __init__(self, project_root=None):
         self.os_name = platform.system()
@@ -75,4 +83,4 @@ class ProjectPaths:
 
 # ✅ СОЗДАЁМ ГЛОБАЛЬНЫЙ ЭКЗЕМПЛЯР
 paths = ProjectPaths()
-print("✅ config.py загружен успешно")
+# print("✅ config.py загружен успешно")
