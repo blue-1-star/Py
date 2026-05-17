@@ -7,26 +7,28 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+import sqlite3
 
 # Добавляем корневую папку Py/ в путь поиска модулей
 PY_ROOT = Path(__file__).parent.parent  # поднимаемся из Media/ в Py/
 sys.path.insert(0, str(PY_ROOT))
 
 # Теперь импорт сработает
-from config import paths
-# Импортируем наш класс путей (если используешь config.py)
+# from config import paths
+# print(f"✅ config.py загружен, диск: {paths.EXTERNAL_DRIVE}")
+# # Импортируем наш класс путей (если используешь config.py)
 try:
     from config import paths
     print(f"✅ config.py загружен, диск: {paths.EXTERNAL_DRIVE}")
 except ImportError as e:
     print(f"⚠️ config.py не найден: {e}")
-    # Если config.py нет, создаём базовые пути
-    class SimplePaths:
-        def __init__(self):
-            self.BASE_MUSIC_DIR = Path.home() / "Music" / "fav"
-            self.TMP_DIR = self.BASE_MUSIC_DIR / "tmp"
-            self.LOG_DIR = self.BASE_MUSIC_DIR / "log"
-    paths = SimplePaths()
+#     # Если config.py нет, создаём базовые пути
+#     class SimplePaths:
+#         def __init__(self):
+#             self.BASE_MUSIC_DIR = Path.home() / "Music" / "fav"
+#             self.TMP_DIR = self.BASE_MUSIC_DIR / "tmp"
+#             self.LOG_DIR = self.BASE_MUSIC_DIR / "log"
+#     paths = SimplePaths()
 
 
 class YouTubeDownloader:
@@ -57,6 +59,48 @@ class YouTubeDownloader:
         # Файл лога (один общий)
         self.log_file = self.log_dir / "download_history.log"
         self._init_log_file()
+        self._chapters_cache = {}
+        self.db_path = self._init_db()
+    
+
+    def _init_db(self):
+        """Инициализирует базу данных SQLite"""
+        db_path = self.log_dir / "downloads.db"
+        self.db_path = db_path
+        
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS downloads (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    season TEXT NOT NULL,
+                    download_date TEXT NOT NULL,
+                    filename TEXT NOT NULL,
+                    file_size INTEGER,
+                    duration TEXT,
+                    url TEXT,
+                    note TEXT
+                )
+            ''')
+            # ПРОВЕРЯЕМ И ДОБАВЛЯЕМ НОВЫЕ ПОЛЯ (если их нет)
+        # Получаем список существующих колонок
+        cursor.execute("PRAGMA table_info(downloads)")
+        existing_columns = [col[1] for col in cursor.fetchall()]
+        
+        # Добавляем поле genre, если его нет
+        if 'genre' not in existing_columns:
+            cursor.execute('ALTER TABLE downloads ADD COLUMN genre TEXT')
+            print("✅ Добавлено поле genre")
+        
+        # Добавляем поле duration, если его нет (но оно у тебя уже есть?)
+        if 'duration' not in existing_columns:
+            cursor.execute('ALTER TABLE downloads ADD COLUMN duration TEXT')
+            print("✅ Добавлено поле duration")
+        
+        conn.commit()
+
+        return db_path
+    
     
     def _init_log_file(self):
         """Инициализирует файл лога с заголовком"""
@@ -79,13 +123,36 @@ class YouTubeDownloader:
             except Exception as e:
                 print(f"Ошибка записи лога: {e}")
     
-    def log_success(self, filename, source_url=None, track_info=None):
-        """Записывает только успешные скачивания в специальный формат"""
+    # 
+    def save_to_db(self, filename, file_size=None, duration=None, url=None, note=None):
+        """Сохраняет информацию о скачанном треке в базу данных"""
+        
+        # Определяем сезон
+        if hasattr(self, 'season_dir'):
+            season = self.season_dir.name  # например, "2026_spring"
+        else:
+            season = "unknown"
+        
+        download_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    INSERT INTO downloads (season, download_date, filename, file_size, duration, url, note)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (season, download_date, filename, file_size, duration, url, note))
+                conn.commit()
+                self.log(f"📝 Запись в БД: {filename}")
+        except Exception as e:
+            self.log(f"Ошибка записи в БД: {e}")
+
+    def log_success(self, filename, source_url=None, track_info=None, file_size=None,genre=None, duration=None):
+        """Записывает только успешные скачивания в лог и БД"""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # Формируем строку лога
+        # Текстовый лог
         log_entry = f"[{timestamp}] | УСПЕХ | {filename}"
-        
         if track_info:
             log_entry += f" | {track_info.get('title', '')} (#{track_info.get('number', '?')})"
         elif source_url:
@@ -97,6 +164,24 @@ class YouTubeDownloader:
                 f.write(log_entry + "\n")
         except Exception as e:
             print(f"Ошибка записи лога: {e}")
+        
+        # База данных
+        note = None
+        if track_info:
+            note = f"Трек {track_info.get('number')}: {track_info.get('title')}"
+        
+        season = self.season_dir.name if hasattr(self, 'season_dir') else "unknown"
+        
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    INSERT INTO downloads (season, download_date, filename, file_size, duration, url, note)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (season, timestamp, filename, file_size, duration, source_url, note))
+                conn.commit()
+        except Exception as e:
+            print(f"Ошибка записи в БД: {e}")
     
     def clean_filename(self, title):
         """Очищает название файла от недопустимых символов, сохраняя пробелы"""
@@ -155,6 +240,38 @@ class YouTubeDownloader:
             url = url.split('&index=')[0]
         return url
     
+    def _has_chapters(self, url, timeout=15):
+        """
+        Быстро проверяет, есть ли в видео главы.
+        Возвращает True, если главы есть, False в противном случае.
+        """
+        try:
+            clean_url = self._clean_url(url)
+            # Проверяем кеш
+            if clean_url in self._chapters_cache:
+                return True
+            
+            # Быстрая проверка через --print chapters
+            result = subprocess.run(
+                ['yt-dlp', '--remote-components', 'ejs:github', '--print', '%(chapters)s', clean_url],
+                capture_output=True,
+                text=True,
+                encoding='utf-8',
+                timeout=timeout
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                # Если вывод не пустой и не "None" — главы есть
+                has = result.stdout.strip() not in ['', 'None', '[]']
+                if has:
+                    self.log(f"✅ Быстрая проверка: главы есть")
+                else:
+                    self.log(f"ℹ️ Быстрая проверка: глав нет")
+                return has
+        except subprocess.TimeoutExpired:
+            self.log(f"⚠️ Таймаут быстрой проверки глав (>{timeout} сек)")
+        except Exception as e:
+            self.log(f"Ошибка быстрой проверки глав: {e}")
+        return False
     # 
     def get_chapters(self, url, timeout=120):
         """
@@ -163,6 +280,10 @@ class YouTubeDownloader:
         """
         try:
             clean_url = self._clean_url(url)
+            # Проверяем кеш
+            if clean_url in self._chapters_cache:
+                self.log(f"Использую кеш для {clean_url}")
+                return self._chapters_cache[clean_url]
             
             # СПОСОБ 1: Через JSON
             result = subprocess.run(
@@ -215,6 +336,9 @@ class YouTubeDownloader:
                 })
             
             self.log(f"Найдено {len(tracks)} треков с главами")
+            # Сохраняем в кеш
+            self._chapters_cache[clean_url] = tracks
+    
             return tracks
             
         except Exception as e:
@@ -289,8 +413,27 @@ class YouTubeDownloader:
             return f"{hours:02d}:{minutes:02d}:{secs:06.3f}"
         else:
             return f"{minutes:02d}:{secs:06.3f}"
+        
+    def _get_audio_duration(self, file_path):
+        """Получает длительность аудиофайла в формате MM:SS"""
+        try:
+            result = subprocess.run(
+                ['ffprobe', '-v', 'error', '-show_entries', 'format=duration', 
+                '-of', 'default=noprint_wrappers=1:nokey=1', str(file_path)],
+                capture_output=True,
+                text=True,
+                timeout=10
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                seconds = float(result.stdout.strip())
+                minutes = int(seconds // 60)
+                secs = int(seconds % 60)
+                return f"{minutes:02d}:{secs:02d}"
+        except Exception as e:
+            self.log(f"Ошибка получения длительности: {e}")
+            return None
     
-    def download_clip(self, url, start_time, end_time, target_dir, filename=None):
+    def download_clip(self, url, start_time, end_time, target_dir, filename=None, track_info=None):
         """Скачивает и вырезает фрагмент"""
         target_dir = Path(target_dir)
         target_dir.mkdir(parents=True, exist_ok=True)
@@ -319,6 +462,7 @@ class YouTubeDownloader:
         command = [
             'yt-dlp',
             '--remote-components', 'ejs:github',
+            '--paths', 'temp', str(self.tmp_dir),  # ← временные файлы в tmp
             '-f', 'bestaudio',
             '--extract-audio',
             '--audio-format', 'mp3',
@@ -343,7 +487,15 @@ class YouTubeDownloader:
             process.wait()
             
             if process.returncode == 0:
-                self.log_success(full_path.name, url)
+                file_size = full_path.stat().st_size if full_path.exists() else None
+                duration = self._get_audio_duration(full_path)
+                self.log_success(full_path.name, url, track_info=track_info, file_size=file_size, duration=duration)
+                
+                # 🧹 Очистка временных файлов
+                for temp_file in self.tmp_dir.glob("*.part"):
+                    temp_file.unlink()
+                    self.log(f"🧹 Удалён временный файл: {temp_file.name}")
+                
                 return full_path
             else:
                 self.log(f"Ошибка вырезания")
@@ -380,6 +532,7 @@ class YouTubeDownloader:
         command = [
             'yt-dlp',
             '--remote-components', 'ejs:github',
+            '--paths', 'temp', str(self.tmp_dir),  # ← временные файлы в tmp
             '-f', 'bestaudio',
             '--extract-audio',
             '--audio-format', 'mp3',
@@ -403,7 +556,13 @@ class YouTubeDownloader:
             process.wait()
             
             if process.returncode == 0:
-                self.log_success(full_path.name, url)
+                file_size = full_path.stat().st_size if full_path.exists() else None
+                duration = self._get_audio_duration(full_path)
+                self.log_success(full_path.name, url, file_size=file_size, duration=duration)
+                # 🧹 Очистка временных файлов
+                for temp_file in self.tmp_dir.glob("*.part"):
+                    temp_file.unlink()
+                    self.log(f"🧹 Удалён временный файл: {temp_file.name}")
                 return full_path
             else:
                 self.log(f"Ошибка скачивания")
@@ -436,10 +595,21 @@ class YouTubeDownloader:
         
         self.log(f"Скачивание трека {track['number']}: {track['title']} ({start_time} - {end_time})")
         
-        return self.download_clip(url, start_time, end_time, target_dir, filename)
+        # return self.download_clip(url, start_time, end_time, target_dir, filename)
+        track_info = {
+        "number": track['number'],
+        "title": track['title']
+        }
+        return self.download_clip(url, start_time, end_time, target_dir, filename, track_info=track_info)
     
     def list_tracks(self, url):
         """Выводит список всех треков из видео с главами"""
+        # Быстрая проверка наличия глав
+        if not self._has_chapters(url):
+            print("ℹ️ Быстрая проверка: главы не найдены")
+            return None
+        
+        # Если главы есть — получаем их полностью
         tracks = self.get_chapters(url)
         if not tracks:
             print("Треки не найдены")
