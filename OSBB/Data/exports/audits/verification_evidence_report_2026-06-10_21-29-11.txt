@@ -1,0 +1,349 @@
+================================================================================
+VERIFICATION EVIDENCE REPORT
+================================================================================
+Generated: 2026-06-10 21:29:11
+
+================================================================================
+SUMMARY
+================================================================================
+Open tasks          : 37
+Evidence records    : 80
+Tasks with evidence : 25
+
+================================================================================
+EVIDENCE BY MATCH TYPE
+================================================================================
+SAME_APARTMENT_PLATE_LIST : 50
+SAME_DIGITS_4             : 28
+MISSING_LAST_CHAR         : 1
+CONTAINS_VALUE            : 1
+
+================================================================================
+TASKS WITH TELEGRAM EVIDENCE
+================================================================================
+--------------------------------------------------------------------------------
+Task ID       : 19
+Apartment     : 16
+Task type     : plate_too_short
+Task value    : 8969
+Task normalized: 8969
+Suggestion    : Номер слишком короткий. Требуется ручная проверка.
+Task comment  : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA8969YC
+Evidence norm : AA8969YC
+Match type    : CONTAINS_VALUE
+Evidence note : Telegram fact. telegram_apartment=None; person=-; phone=-; chat=Andrew Andrii; msg_id=31981; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 19
+Apartment     : 16
+Task type     : plate_too_short
+Task value    : 8969
+Task normalized: 8969
+Suggestion    : Номер слишком короткий. Требуется ручная проверка.
+Task comment  : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA8969YC
+Evidence norm : AA8969YC
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=8969; telegram_apartment=-; person=-; phone=-; model=-; chat=Andrew Andrii; msg_id=31981; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: DO 0077
+Evidence norm : DO0077
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA6535YC
+Evidence norm : AA6535YC
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA7535YD
+Evidence norm : AA7535YD
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: DO 0077
+Evidence norm : DO0077
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=-; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Дима_охр; msg_id=31233; plate_status=SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA6535YC
+Evidence norm : AA6535YC
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=-; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Дима_охр; msg_id=31233; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 33
+Apartment     : 31
+Task type     : plate_custom_or_foreign
+Task value    : D00077
+Task normalized: D00077
+Suggestion    : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment  : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA7535YD
+Evidence norm : AA7535YD
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=-; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Дима_охр; msg_id=31233; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 37
+Apartment     : 89
+Task type     : plate_possible_missing_suffix
+Task value    : KA6739E
+Task normalized: KA6739E
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АА4566СТ
+Evidence norm : AA4566CT
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=89; person=-; phone=-; model=-; chat=Анатолій В'язовченко; msg_id=30907; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 7
+Apartment     : 122
+Task type     : plate_possible_missing_suffix
+Task value    : KA6623M
+Task normalized: KA6623M
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: КВ 122
+Evidence norm : KB122
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=122; person=-; phone=-; model=-; chat=Vitaliy; msg_id=31609; plate_status=SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID       : 9
+Apartment     : 126
+Task type     : plate_possible_missing_suffix
+Task value    : AA8393B
+Task normalized: AA8393B
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: аа8393yB
+Evidence norm : AA8393YB
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=8393; telegram_apartment=-; person=-; phone=-; model=-; chat=Anna; msg_id=31242; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 9
+Apartment     : 126
+Task type     : plate_possible_missing_suffix
+Task value    : AA8393B
+Task normalized: AA8393B
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: аа8393yB
+Evidence norm : AA8393YB
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=8393; telegram_apartment=-; person=-; phone=-; model=-; chat=Дима_охр; msg_id=31243; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 10
+Apartment     : 129
+Task type     : plate_possible_missing_suffix
+Task value    : KA8009B
+Task normalized: KA8009B
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: KA8009IB
+Evidence norm : KA8009IB
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=8009; telegram_apartment=-; person=-; phone=-; model=-; chat=Іван Кривохатько; msg_id=31691; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 11
+Apartment     : 133
+Task type     : plate_possible_missing_suffix
+Task value    : A5787ET
+Task normalized: A5787ET
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АІ5787ЕТ
+Evidence norm : AI5787ET
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=5787; telegram_apartment=-; person=-; phone=-; model=-; chat=Konstantin; msg_id=31950; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 12
+Apartment     : 140
+Task type     : plate_possible_missing_suffix
+Task value    : A7772C
+Task normalized: A7772C
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АІ7772ІС
+Evidence norm : AI7772IC
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=140; person=-; phone=-; model=-; chat=Julia кв 140; msg_id=31534; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 12
+Apartment     : 140
+Task type     : plate_possible_missing_suffix
+Task value    : A7772C
+Task normalized: A7772C
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АІ7772ІС
+Evidence norm : AI7772IC
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=7772; telegram_apartment=140; person=-; phone=-; model=-; chat=Julia кв 140; msg_id=31534; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АА5553РІ
+Evidence norm : AA5553PI
+Match type    : MISSING_LAST_CHAR
+Evidence note : Telegram fact. telegram_apartment=186; person=-; phone=+380503301135; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АА5553РІ
+Evidence norm : AA5553PI
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АА5553РІ
+Evidence norm : AA5553PI
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=5553; telegram_apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: Aa5553ЕВ
+Evidence norm : AA5553EB
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: Aa5553ЕВ
+Evidence norm : AA5553EB
+Match type    : SAME_DIGITS_4
+Evidence note : Same 4-digit plate core in Telegram. task_digits=5553; telegram_apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: RX350H
+Evidence norm : RX350H
+Match type    : SAME_APARTMENT_PLATE_LIST
+Evidence note : Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=SUSPICIOUS
+
+================================================================================
+OPEN TASKS WITHOUT EVIDENCE
+================================================================================
+Count: 12
+
+Task    2 | apt=10     | plate_too_short                | value=AA54B | norm=AA54B | Авто: АА3455; Марка нормализована: AA3455; Статус номера: SUSPICIOUS
+Task   27 | apt=2      | plate_possible_missing_suffix  | value=A8756HK | norm=A8756HK | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task    6 | apt=12     | plate_possible_missing_suffix  | value=A0448YB | norm=A0448YB | Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+Task   34 | apt=43     | plate_possible_missing_suffix  | value=KA0651K | norm=KA0651K | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task    4 | apt=107    | plate_possible_missing_suffix  | value=A7758TE | norm=A7758TE | Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+Task    5 | apt=115    | plate_possible_missing_suffix  | value=AA7383A | norm=AA7383A | Авто: Hyndai; Марка нормализована: HYNDAI; Статус номера: SUSPICIOUS
+Task   13 | apt=142    | plate_possible_missing_suffix  | value=AA0721M | norm=AA0721M | Авто: Honda; Марка нормализована: HONDA; Статус номера: SUSPICIOUS
+Task   16 | apt=155    | plate_possible_missing_suffix  | value=KA9151 | norm=KA9151 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   17 | apt=155    | plate_possible_missing_suffix  | value=AA7020 | norm=AA7020 | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task   18 | apt=155    | plate_possible_missing_suffix  | value=KA1175 | norm=KA1175 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   23 | apt=191    | plate_possible_missing_suffix  | value=KA3326E | norm=KA3326E | Авто: BYD; Марка нормализована: BYD; Статус номера: SUSPICIOUS
+Task   24 | apt=191    | plate_possible_missing_suffix  | value=K5775AC | norm=K5775AC | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS

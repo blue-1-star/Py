@@ -17,6 +17,11 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from pathlib import Path
 
+# Добавляем корень Py/ в путь
+PY_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PY_ROOT))
+
+from config import paths
 # ===== АВТОМАТИЧЕСКАЯ НАСТРОЙКА ШРИФТОВ =====
 def setup_fonts():
     """Регистрирует ВСЕ шрифты"""
@@ -276,8 +281,10 @@ def write_report_to_excel(inp_dir, report_data, suffix, title_text):
 # ===== ОСНОВНАЯ ПРОГРАММА =====
 if __name__ == "__main__":
     # Параметры
-    inp_dir = "/Users/san/Library/CloudStorage/OneDrive-Personal/"
-    excel_file = "Flat_Arn.xlsx"
+    # inp_dir = "/Users/san/Library/CloudStorage/OneDrive-Personal/"
+    inp_dir = str(paths.ONEDRIVE)
+    excel_file = paths.FLAT_FILE.name   # 'Flat_Arn.xlsx'
+    # excel_file = "Flat_Arn.xlsx"
     sheet_name = "Push"
     val_cell = ['El_bill', 'El_count', 'water', 'Wat_count', 'utilities', 'TV & Internet', 'litter', 'heating', 'Total']
     txt_list = ['Свет', 'Расход эл.энергии', 'вода', 'Расход воды', 'квартплата', 'TV', 'мусор', 'отопление', 'ВСЕГО']

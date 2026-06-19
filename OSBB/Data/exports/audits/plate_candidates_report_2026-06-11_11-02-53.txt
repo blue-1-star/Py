@@ -1,0 +1,536 @@
+================================================================================
+PLATE CANDIDATES REPORT
+================================================================================
+Generated: 2026-06-11 11:02:53
+
+SUMMARY
+--------------------------------------------------------------------------------
+VERY_HIGH : 4
+HIGH      : 3
+MEDIUM    : 12
+LOW       : 27
+
+================================================================================
+VERY_HIGH CONFIDENCE
+================================================================================
+
+--------------------------------------------------------------------------------
+Task ID      : 21
+Apartment    : 186
+Task type    : plate_possible_missing_suffix
+Current plate: AA5553P
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [228] AA5553PI
+       Sources    : tbot_parking; telegram
+       Match type : MISSING_LAST_CHAR; SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 7
+Apartment    : 122
+Task type    : plate_possible_missing_suffix
+Current plate: KA6623M
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [138] KA6623MI
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 26
+Apartment    : 198
+Task type    : plate_possible_missing_suffix
+Current plate: KA2882E
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [138] KA2882EI
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 28
+Apartment    : 200
+Task type    : plate_possible_missing_suffix
+Current plate: AA5200H
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [138] AA5200HI
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+================================================================================
+HIGH CONFIDENCE
+================================================================================
+
+--------------------------------------------------------------------------------
+Task ID      : 14
+Apartment    : 144
+Task type    : plate_possible_missing_suffix
+Current plate: AA9599
+Comment      : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 95] AA9599BC
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 15
+Apartment    : 144
+Task type    : plate_possible_missing_suffix
+Current plate: KA9959
+Comment      : Авто: Porsche; Марка нормализована: PORSCHE; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 95] KA9959AE
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 30
+Apartment    : 205
+Task type    : plate_possible_missing_suffix
+Current plate: KA8482
+Comment      : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 95] KA8482II
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+================================================================================
+MEDIUM CONFIDENCE
+================================================================================
+
+--------------------------------------------------------------------------------
+Task ID      : 32
+Apartment    : 27
+Task type    : plate_possible_missing_suffix
+Current plate: AP8170X
+Comment      : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 78] AP8170IX
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 37
+Apartment    : 89
+Task type    : plate_possible_missing_suffix
+Current plate: KA6739E
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 78] KA6739IE
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 9
+Apartment    : 126
+Task type    : plate_possible_missing_suffix
+Current plate: AA8393B
+Comment      : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 78] AA8393YB
+       Sources    : tbot_parking; telegram
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 25
+Apartment    : 194
+Task type    : plate_possible_missing_suffix
+Current plate: AA5551H
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 78] AA5551IH
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 29
+Apartment    : 203
+Task type    : plate_possible_missing_suffix
+Current plate: AA8069M
+Comment      : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 78] AA8069IM
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 21
+Apartment    : 186
+Task type    : plate_possible_missing_suffix
+Current plate: AA5553P
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 70] AA5553EB
+       Sources    : tbot_parking; telegram
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 26
+Apartment    : 198
+Task type    : plate_possible_missing_suffix
+Current plate: KA2882E
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 70] KA2882TT
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 11
+Apartment    : 133
+Task type    : plate_possible_missing_suffix
+Current plate: A5787ET
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 68] AI5787ET
+       Sources    : tbot_parking; telegram
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 12
+Apartment    : 140
+Task type    : plate_possible_missing_suffix
+Current plate: A7772C
+Comment      : Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 68] AI7772IC
+       Sources    : telegram
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 20
+Apartment    : 185
+Task type    : plate_possible_missing_suffix
+Current plate: KA1302H
+Comment      : Авто: Kia; Марка нормализована: KIA; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 68] KI1302IH
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 22
+Apartment    : 188
+Task type    : plate_possible_missing_suffix
+Current plate: A5568AC
+Comment      : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 68] AI5568AC
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 19
+Apartment    : 16
+Task type    : plate_too_short
+Current plate: 8969
+Comment      : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 55] AA8969YC
+       Sources    : telegram
+       Match type : CONTAINS_VALUE; SAME_DIGITS_4
+
+================================================================================
+LOW CONFIDENCE
+================================================================================
+
+--------------------------------------------------------------------------------
+Task ID      : 3
+Apartment    : 106
+Task type    : plate_possible_missing_suffix
+Current plate: AA3353B
+Comment      : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 53] AA3353IB
+       Sources    : tbot_parking
+       Match type : SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 10
+Apartment    : 129
+Task type    : plate_possible_missing_suffix
+Current plate: KA8009B
+Comment      : Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 53] KA8009IB
+       Sources    : telegram
+       Match type : SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 26
+Apartment    : 198
+Task type    : plate_possible_missing_suffix
+Current plate: KA2882E
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 53] KA2882AE
+       Sources    : tbot_parking
+       Match type : SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 36
+Apartment    : 8
+Task type    : plate_possible_missing_suffix
+Current plate: AA8008M
+Comment      : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 43] AA8098MM
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 35
+Apartment    : 56
+Task type    : plate_needs_check
+Current plate: KA95552TB
+Comment      : Авто: Suzuki; Марка нормализована: SUZUKI; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 43] KA9552TB
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 1
+Apartment    : 1
+Task type    : plate_too_short
+Current plate: 9599
+Comment      : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 35] AA9599BC
+       Sources    : tbot_parking
+       Match type : SAME_DIGITS_4
+
+--------------------------------------------------------------------------------
+Task ID      : 26
+Apartment    : 198
+Task type    : plate_possible_missing_suffix
+Current plate: KA2882E
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 35] KA6992PP
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 28
+Apartment    : 200
+Task type    : plate_possible_missing_suffix
+Current plate: AA5200H
+Comment      : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 35] AA8499AK
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 29
+Apartment    : 203
+Task type    : plate_possible_missing_suffix
+Current plate: AA8069M
+Comment      : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 35] AA5056AX
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 35] AA5054AX
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 30
+Apartment    : 205
+Task type    : plate_possible_missing_suffix
+Current plate: KA8482
+Comment      : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 35] KA2882AE
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 33
+Apartment    : 31
+Task type    : plate_custom_or_foreign
+Current plate: D00077
+Comment      : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 33] DO0077
+       Sources    : telegram
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 31
+Apartment    : 25
+Task type    : plate_possible_missing_suffix
+Current plate: SNDIGO
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA2095XA
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 25] AA0060HC
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 25] AA7499AH
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 33
+Apartment    : 31
+Task type    : plate_custom_or_foreign
+Current plate: D00077
+Comment      : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA6535YC
+       Sources    : telegram
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 25] AA7535YD
+       Sources    : telegram
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 37
+Apartment    : 89
+Task type    : plate_possible_missing_suffix
+Current plate: KA6739E
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA4566CT
+       Sources    : telegram
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 25] AA0606KB
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 7
+Apartment    : 122
+Task type    : plate_possible_missing_suffix
+Current plate: KA6623M
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA4712YB
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 8
+Apartment    : 125
+Task type    : plate_custom_or_foreign
+Current plate: LNH519
+Comment      : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA6626HP
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+  [ 25] KA2708HO
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 9
+Apartment    : 126
+Task type    : plate_possible_missing_suffix
+Current plate: AA8393B
+Comment      : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] KA7973CC
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 11
+Apartment    : 133
+Task type    : plate_possible_missing_suffix
+Current plate: A5787ET
+Comment      : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AM0808BO
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 14
+Apartment    : 144
+Task type    : plate_possible_missing_suffix
+Current plate: AA9599
+Comment      : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] KA9959AE
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 15
+Apartment    : 144
+Task type    : plate_possible_missing_suffix
+Current plate: KA9959
+Comment      : Авто: Porsche; Марка нормализована: PORSCHE; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA9599BC
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+--------------------------------------------------------------------------------
+Task ID      : 22
+Apartment    : 188
+Task type    : plate_possible_missing_suffix
+Current plate: A5568AC
+Comment      : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Candidates:
+  [ 25] AA1402MK
+       Sources    : tbot_parking
+       Match type : SAME_APARTMENT_PLATE_LIST
+
+================================================================================
+TOP HIGH CONFIDENCE CANDIDATES
+================================================================================
+Task  21 | apt=186    | AA5553P      -> AA5553PI     | 228 | tbot_parking; telegram | MISSING_LAST_CHAR; SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task   7 | apt=122    | KA6623M      -> KA6623MI     | 138 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task  26 | apt=198    | KA2882E      -> KA2882EI     | 138 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task  28 | apt=200    | AA5200H      -> AA5200HI     | 138 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task  14 | apt=144    | AA9599       -> AA9599BC     |  95 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task  15 | apt=144    | KA9959       -> KA9959AE     |  95 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4
+Task  30 | apt=205    | KA8482       -> KA8482II     |  95 | tbot_parking | SAME_APARTMENT_PLATE_LIST; SAME_DIGITS_4

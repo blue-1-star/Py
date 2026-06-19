@@ -1,0 +1,939 @@
+================================================================================
+PARKING_TIME WITH HINTS REPORT
+================================================================================
+Generated: 2026-06-11 21:34:42
+Source   : G:\Programming\Py\OSBB\Data\raw\typed\Охорона.xlsx
+
+================================================================================
+SUMMARY
+================================================================================
+VERY_HIGH : 2
+HIGH      : 0
+MEDIUM    : 13
+LOW       : 1
+NO_HINT   : 22
+CHECK     : 0
+
+================================================================================
+APARTMENT 110 | VERY_HIGH
+================================================================================
+Vehicles:
+  id=37 | AA3393AT | MITSUBISHI | parking_time=-
+
+Open tasks:
+  Task 15 | vehicle_id=37 | AA3393AT | Mitsubishi
+
+Охорона.xlsx hint:
+  Day=0 | Night=1
+  Excel row 22: 1-сутки -> 1 Night
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: VERY_HIGH
+  Reason    : All vehicles missing; hint says all Night
+  Proposed actions:
+    vehicle_id=37 | AA3393AT -> Night
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 128 | VERY_HIGH
+================================================================================
+Vehicles:
+  id=48 | AA9319PA | KIA | parking_time=-
+
+Open tasks:
+  Task 22 | vehicle_id=48 | AA9319PA | КІА
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 26: 1-день -> 1 Day
+
+Telegram hints:
+  plate=AA9319PA | person=- | phone=+380662201570 | model=-
+
+Recommendation:
+  Confidence: VERY_HIGH
+  Reason    : All vehicles missing; hint says all Day
+  Proposed actions:
+    vehicle_id=48 | AA9319PA -> Day
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 6 | MEDIUM
+================================================================================
+Vehicles:
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=0 | Night=1
+  Excel row 21: 1-сутки -> 1 Night
+
+Telegram hints:
+  plate=AA4594PC | person=- | phone=- | model=-
+  plate=- | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=0; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 25 | MEDIUM
+================================================================================
+Vehicles:
+  id=11 | AA0060HC | BMW | parking_time=-
+  id=12 | AA2095XA | VOLVO | parking_time=-
+  id=13 | AA7499AH | BMW | parking_time=-
+  id=14 | SNDIGO | BMW | parking_time=-
+
+Open tasks:
+  Task 3 | vehicle_id=11 | AA0060HC | BMW
+  Task 4 | vehicle_id=12 | AA2095XA | Volvo
+  Task 5 | vehicle_id=13 | AA7499AH | BMW
+  Task 6 | vehicle_id=14 | SNDIGO | BMW
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 27: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=4; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 31 | MEDIUM
+================================================================================
+Vehicles:
+  id=73 | D00077 | AUDI | parking_time=-
+  id=74 | AA7535YD | ZEEKR | parking_time=-
+
+Open tasks:
+  Task 31 | vehicle_id=73 | D00077 | Audi
+  Task 32 | vehicle_id=74 | AA7535YD | Zeekr
+
+Охорона.xlsx hint:
+  Day=3 | Night=0
+  Excel row 23: 3-день -> 3 Day
+
+Telegram hints:
+  plate=DO0077 | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+  plate=AA6535YC | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+  plate=AA7535YD | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+  plate=- | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=3, DB vehicles=2; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 57 | MEDIUM
+================================================================================
+Vehicles:
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=0 | Night=1
+  Excel row 31: 1-сутки -> 1 Night
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=0; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 105 | MEDIUM
+================================================================================
+Vehicles:
+  id=33 | AA3033BC | SUBARU | parking_time=Night
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=0 | Night=2
+  Excel row 28: 2-сутки -> 2 Night
+
+Telegram hints:
+  plate=- | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=2, DB vehicles=1; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 139 | MEDIUM
+================================================================================
+Vehicles:
+  id=55 | AA1371MK | RENAULT | parking_time=-
+  id=56 | KA6052PK | BMW | parking_time=Night
+  id=57 | KA7764MK | PEUGEOT | parking_time=Night
+
+Open tasks:
+  Task 26 | vehicle_id=55 | AA1371MK | Renault
+
+Охорона.xlsx hint:
+  Day=0 | Night=1
+  Excel row 29: 1-сутки -> 1 Night
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=3; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 170 | MEDIUM
+================================================================================
+Vehicles:
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=0 | Night=2
+  Excel row 33: 1-сутки -> 1 Night
+  Excel row 34: 1- сутки -> 1 Night
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=2, DB vehicles=0; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 191 | MEDIUM
+================================================================================
+Vehicles:
+  id=111 | AA1677MA | MERCEDES | parking_time=Day
+  id=112 | KA3326E | BYD | parking_time=Day
+  id=113 | K5775AC | MERCEDES | parking_time=Night
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 2: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=3; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 192 | MEDIUM
+================================================================================
+Vehicles:
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 3: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=0; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 193 | MEDIUM
+================================================================================
+Vehicles:
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 4: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=0; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 195 | MEDIUM
+================================================================================
+Vehicles:
+  id=116 | AA1102AA | JEEP | parking_time=Night
+  id=117 | AA8838TX | AUDI | parking_time=Day
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 7: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=2; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 198 | MEDIUM
+================================================================================
+Vehicles:
+  id=120 | KA2882E | MERCEDES | parking_time=Day
+  id=121 | KA2882TT | RANGE ROVER | parking_time=Day
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=3 | Night=0
+  Excel row 10: 3-день -> 3 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=3, DB vehicles=2; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 200 | MEDIUM
+================================================================================
+Vehicles:
+  id=122 | AA8499AK | HONDA | parking_time=Day
+  id=123 | AA5200H | MERCEDES | parking_time=Day
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=1 | Night=0
+  Excel row 11: 1-день -> 1 Day
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: MEDIUM
+  Reason    : Hint total=1, DB vehicles=2; operator must verify vehicle list
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 180 | LOW
+================================================================================
+Vehicles:
+  id=100 | AA5993TH | BMW | parking_time=Night
+  id=101 | AA9489XK | VOLKSWAGEN | parking_time=Day
+
+Open tasks:
+  -
+
+Охорона.xlsx hint:
+  Day=0 | Night=0
+  UNPARSED row 30: 1-д і сутки
+
+Telegram hints:
+  plate=- | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: LOW
+  Reason    : Охорона.xlsx has unparsed tariff text
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 16 | NO_HINT
+================================================================================
+Vehicles:
+  id=8 | 8969 | ZEEKR | parking_time=-
+
+Open tasks:
+  Task 1 | vehicle_id=8 | 8969 | ZEEKR
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 24 | NO_HINT
+================================================================================
+Vehicles:
+  id=10 | AA4203XA | NISSAN | parking_time=-
+
+Open tasks:
+  Task 2 | vehicle_id=10 | AA4203XA | Nissan
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 32 | NO_HINT
+================================================================================
+Vehicles:
+  id=75 | AA6535YC | MERSEDES | parking_time=-
+
+Open tasks:
+  Task 33 | vehicle_id=75 | AA6535YC | Mersedes
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 40 | NO_HINT
+================================================================================
+Vehicles:
+  id=20 | AA0667HB | GRANDIS | parking_time=-
+
+Open tasks:
+  Task 7 | vehicle_id=20 | AA0667HB | Grandis
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 42 | NO_HINT
+================================================================================
+Vehicles:
+  id=21 | AA0163PH | HONDA | parking_time=-
+
+Open tasks:
+  Task 8 | vehicle_id=21 | AA0163PH | Honda
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 43 | NO_HINT
+================================================================================
+Vehicles:
+  id=22 | KA0651K | TOYOTA | parking_time=-
+
+Open tasks:
+  Task 9 | vehicle_id=22 | KA0651K | Toyota
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 50 | NO_HINT
+================================================================================
+Vehicles:
+  id=64 | AA1322MC | VOLKSWAGEN | parking_time=-
+  id=76 | KA0262AB | FORD | parking_time=-
+
+Open tasks:
+  Task 29 | vehicle_id=64 | AA1322MC | VW
+  Task 34 | vehicle_id=76 | KA0262AB | Ford
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  plate=KA0262AB | person=- | phone=+380675028550 | model=-
+  plate=- | person=- | phone=- | model=-
+  plate=AA1322MC | person=- | phone=+380674454466 | model=-
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 51 | NO_HINT
+================================================================================
+Vehicles:
+  id=23 | AA3884OT | BMW | parking_time=-
+
+Open tasks:
+  Task 10 | vehicle_id=23 | AA3884OT | BMW
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 52 | NO_HINT
+================================================================================
+Vehicles:
+  id=77 | KA7140AB | KIA | parking_time=-
+
+Open tasks:
+  Task 35 | vehicle_id=77 | KA7140AB | КІА
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  plate=KA7140AB | person=- | phone=+380933487752 | model=-
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 80 | NO_HINT
+================================================================================
+Vehicles:
+  id=27 | AA7786HX | LANOS | parking_time=-
+
+Open tasks:
+  Task 11 | vehicle_id=27 | AA7786HX | Lanos
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  plate=- | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 84 | NO_HINT
+================================================================================
+Vehicles:
+  id=29 | AA4448CM | TOYOTA | parking_time=-
+
+Open tasks:
+  Task 12 | vehicle_id=29 | AA4448CM | Toyota
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 95 | NO_HINT
+================================================================================
+Vehicles:
+  id=30 | AA9312HB | CHEVROLET | parking_time=-
+
+Open tasks:
+  Task 13 | vehicle_id=30 | AA9312HB | Chevrolet
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 108 | NO_HINT
+================================================================================
+Vehicles:
+  id=36 | KA6556BP | BMW | parking_time=-
+
+Open tasks:
+  Task 14 | vehicle_id=36 | KA6556BP | BMW
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  plate=KA6556BP | person=- | phone=- | model=-
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 111 | NO_HINT
+================================================================================
+Vehicles:
+  id=38 | AA7565YA | VOLKSWAGEN | parking_time=-
+  id=39 | AA0203HM | HONDA | parking_time=-
+
+Open tasks:
+  Task 16 | vehicle_id=38 | AA7565YA | VW
+  Task 17 | vehicle_id=39 | AA0203HM | Honda
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 115 | NO_HINT
+================================================================================
+Vehicles:
+  id=40 | AA7383A | HYNDAI | parking_time=-
+  id=41 | AA2670CP | NISSAN | parking_time=-
+
+Open tasks:
+  Task 18 | vehicle_id=40 | AA7383A | Hyndai
+  Task 19 | vehicle_id=41 | AA2670CP | Nissan
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 120 | NO_HINT
+================================================================================
+Vehicles:
+  id=42 | KA5004EB | LINCOLN | parking_time=-
+  id=43 | AA7171EA | HONDA | parking_time=Night
+
+Open tasks:
+  Task 20 | vehicle_id=42 | KA5004EB | Lincoln
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 121 | NO_HINT
+================================================================================
+Vehicles:
+  id=72 | KA6055KO | AUDI | parking_time=-
+
+Open tasks:
+  Task 30 | vehicle_id=72 | KA6055KO | Audi
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 122 | NO_HINT
+================================================================================
+Vehicles:
+  id=44 | AA4712KB | VOLKSWAGEN | parking_time=-
+  id=45 | KA6623M | BMW | parking_time=Night
+
+Open tasks:
+  Task 21 | vehicle_id=44 | AA4712KB | VW
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 125 | NO_HINT
+================================================================================
+Vehicles:
+  id=61 | LNH519 | VOLKSWAGEN | parking_time=-
+  id=62 | KA2708HO | LEXUS | parking_time=Night
+  id=63 | AA6626HP | MERSEDES | parking_time=Night
+
+Open tasks:
+  Task 28 | vehicle_id=61 | LNH519 | VW
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 132 | NO_HINT
+================================================================================
+Vehicles:
+  id=51 | AA2281MB | SUBARU | parking_time=-
+
+Open tasks:
+  Task 23 | vehicle_id=51 | AA2281MB | Subaru
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 138 | NO_HINT
+================================================================================
+Vehicles:
+  id=52 | KA4288BT | JAGUAR | parking_time=Night
+  id=53 | AA6403XC | KIA | parking_time=-
+  id=54 | AA4878KX | KIA | parking_time=-
+
+Open tasks:
+  Task 24 | vehicle_id=53 | AA6403XC | КІА
+  Task 25 | vehicle_id=54 | AA4878KX | КІА
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 142 | NO_HINT
+================================================================================
+Vehicles:
+  id=59 | AA0721M | HONDA | parking_time=Night
+  id=60 | AA0982AH | OPEL | parking_time=-
+
+Open tasks:
+  Task 27 | vehicle_id=60 | AA0982AH | Opel
+
+Охорона.xlsx hint:
+  -
+
+Telegram hints:
+  -
+
+Recommendation:
+  Confidence: NO_HINT
+  Reason    : No Охорона.xlsx hint
+  Proposed actions: -
+
+Operator options:
+  [Apply proposed] [Set Day] [Set Night] [Ask owner] [Skip]

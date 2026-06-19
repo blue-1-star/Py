@@ -1,0 +1,90 @@
+================================================================================
+VERIFICATION EVIDENCE REPORT
+================================================================================
+Generated: 2026-06-10 21:04:35
+
+================================================================================
+SUMMARY
+================================================================================
+Open tasks          : 37
+Evidence records    : 2
+Tasks with evidence : 2
+
+================================================================================
+EVIDENCE BY MATCH TYPE
+================================================================================
+MISSING_LAST_CHAR         : 1
+CONTAINS_VALUE            : 1
+
+================================================================================
+TASKS WITH TELEGRAM EVIDENCE
+================================================================================
+--------------------------------------------------------------------------------
+Task ID       : 19
+Apartment     : 16
+Task type     : plate_too_short
+Task value    : 8969
+Task normalized: 8969
+Suggestion    : Номер слишком короткий. Требуется ручная проверка.
+Task comment  : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: AA8969YC
+Evidence norm : AA8969YC
+Match type    : CONTAINS_VALUE
+Evidence note : Telegram fact. telegram_apartment=None; person=-; phone=-; chat=Andrew Andrii; msg_id=31981; plate_status=STANDARD
+--------------------------------------------------------------------------------
+Task ID       : 21
+Apartment     : 186
+Task type     : plate_possible_missing_suffix
+Task value    : AA5553P
+Task normalized: AA5553P
+Suggestion    : Похоже на украинский номер с потерянной буквой в конце.
+Task comment  : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence src  : telegram
+Evidence value: АА5553РІ
+Evidence norm : AA5553PI
+Match type    : MISSING_LAST_CHAR
+Evidence note : Telegram fact. telegram_apartment=186; person=-; phone=+380503301135; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+
+================================================================================
+OPEN TASKS WITHOUT EVIDENCE
+================================================================================
+Count: 35
+
+Task    1 | apt=1      | plate_too_short                | value=9599 | norm=9599 | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task    2 | apt=10     | plate_too_short                | value=AA54B | norm=AA54B | Авто: АА3455; Марка нормализована: AA3455; Статус номера: SUSPICIOUS
+Task   27 | apt=2      | plate_possible_missing_suffix  | value=A8756HK | norm=A8756HK | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task   36 | apt=8      | plate_possible_missing_suffix  | value=AA8008M | norm=AA8008M | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task    6 | apt=12     | plate_possible_missing_suffix  | value=A0448YB | norm=A0448YB | Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+Task   31 | apt=25     | plate_possible_missing_suffix  | value=SNDIGO | norm=SNDIGO | Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+Task   32 | apt=27     | plate_possible_missing_suffix  | value=AP8170X | norm=AP8170X | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   34 | apt=43     | plate_possible_missing_suffix  | value=KA0651K | norm=KA0651K | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   37 | apt=89     | plate_possible_missing_suffix  | value=KA6739E | norm=KA6739E | Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+Task    3 | apt=106    | plate_possible_missing_suffix  | value=AA3353B | norm=AA3353B | Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+Task    4 | apt=107    | plate_possible_missing_suffix  | value=A7758TE | norm=A7758TE | Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+Task    5 | apt=115    | plate_possible_missing_suffix  | value=AA7383A | norm=AA7383A | Авто: Hyndai; Марка нормализована: HYNDAI; Статус номера: SUSPICIOUS
+Task    7 | apt=122    | plate_possible_missing_suffix  | value=KA6623M | norm=KA6623M | Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+Task    9 | apt=126    | plate_possible_missing_suffix  | value=AA8393B | norm=AA8393B | Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+Task   10 | apt=129    | plate_possible_missing_suffix  | value=KA8009B | norm=KA8009B | Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+Task   11 | apt=133    | plate_possible_missing_suffix  | value=A5787ET | norm=A5787ET | Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+Task   12 | apt=140    | plate_possible_missing_suffix  | value=A7772C | norm=A7772C | Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+Task   13 | apt=142    | plate_possible_missing_suffix  | value=AA0721M | norm=AA0721M | Авто: Honda; Марка нормализована: HONDA; Статус номера: SUSPICIOUS
+Task   14 | apt=144    | plate_possible_missing_suffix  | value=AA9599 | norm=AA9599 | Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+Task   15 | apt=144    | plate_possible_missing_suffix  | value=KA9959 | norm=KA9959 | Авто: Porsche; Марка нормализована: PORSCHE; Статус номера: SUSPICIOUS
+Task   16 | apt=155    | plate_possible_missing_suffix  | value=KA9151 | norm=KA9151 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   17 | apt=155    | plate_possible_missing_suffix  | value=AA7020 | norm=AA7020 | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task   18 | apt=155    | plate_possible_missing_suffix  | value=KA1175 | norm=KA1175 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   20 | apt=185    | plate_possible_missing_suffix  | value=KA1302H | norm=KA1302H | Авто: Kia; Марка нормализована: KIA; Статус номера: SUSPICIOUS
+Task   22 | apt=188    | plate_possible_missing_suffix  | value=A5568AC | norm=A5568AC | Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+Task   23 | apt=191    | plate_possible_missing_suffix  | value=KA3326E | norm=KA3326E | Авто: BYD; Марка нормализована: BYD; Статус номера: SUSPICIOUS
+Task   24 | apt=191    | plate_possible_missing_suffix  | value=K5775AC | norm=K5775AC | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task   25 | apt=194    | plate_possible_missing_suffix  | value=AA5551H | norm=AA5551H | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task   26 | apt=198    | plate_possible_missing_suffix  | value=KA2882E | norm=KA2882E | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task   28 | apt=200    | plate_possible_missing_suffix  | value=AA5200H | norm=AA5200H | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task   29 | apt=203    | plate_possible_missing_suffix  | value=AA8069M | norm=AA8069M | Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+Task   30 | apt=205    | plate_possible_missing_suffix  | value=KA8482 | norm=KA8482 | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task   35 | apt=56     | plate_needs_check              | value=KA95552TB | norm=KA95552TB | Авто: Suzuki; Марка нормализована: SUZUKI; Статус номера: SUSPICIOUS
+Task   33 | apt=31     | plate_custom_or_foreign        | value=D00077 | norm=D00077 | Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+Task    8 | apt=125    | plate_custom_or_foreign        | value=LNH519 | norm=LNH519 | Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS

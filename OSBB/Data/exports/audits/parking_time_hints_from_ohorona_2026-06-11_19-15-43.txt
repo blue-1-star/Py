@@ -1,0 +1,345 @@
+================================================================================
+PARKING_TIME HINTS FROM ОХОРОНА.XLSX
+================================================================================
+Generated : 2026-06-11 19:15:43
+Source    : G:\Programming\Py\OSBB\Data\raw\typed\Охорона.xlsx
+
+================================================================================
+SUMMARY
+================================================================================
+Apartments with hints              : 28
+Apartments with vehicles in DB      : 87
+Auto-fill safe apartments           : 2
+Operator-needed apartments          : 21
+Hints without vehicles in DB        : 5
+DB missing parking_time without hint: 22
+
+================================================================================
+AUTO-FILL SAFE
+================================================================================
+Эти квартиры можно заполнить автоматически: все авто одной категории Day/Night.
+
+--------------------------------------------------------------------------------
+Apartment : 110
+Hint      : Day=0 | Night=1
+Action    : set parking_time = Night for all vehicles
+Vehicles:
+  id=37 | AA3393AT | MITSUBISHI | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 128
+Hint      : Day=1 | Night=0
+Action    : set parking_time = Day for all vehicles
+Vehicles:
+  id=48 | AA9319PA | KIA | parking_time=-
+
+================================================================================
+OPERATOR NEEDED
+================================================================================
+Здесь файл даёт количество Day/Night, но нужно назначить тариф конкретным авто.
+
+--------------------------------------------------------------------------------
+Apartment : 8
+Hint      : Day=0 | Night=1
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 20: 1-сутки -> 1 Night
+Vehicles:
+  id=3 | AA8008M | LEXUS | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 12
+Hint      : Day=1 | Night=0
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 19: 1-день -> 1 Day
+Vehicles:
+  id=5 | A0448YB | AUDI | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 25
+Hint      : Day=1 | Night=0
+DB cars   : 4
+Missing   : 4
+Hint rows:
+  Excel row 27: 1-день -> 1 Day
+Vehicles:
+  id=11 | AA0060HC | BMW | parking_time=-
+  id=12 | AA2095XA | VOLVO | parking_time=-
+  id=13 | AA7499AH | BMW | parking_time=-
+  id=14 | SNDIGO | BMW | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 31
+Hint      : Day=3 | Night=0
+DB cars   : 2
+Missing   : 2
+Hint rows:
+  Excel row 23: 3-день -> 3 Day
+Vehicles:
+  id=73 | D00077 | AUDI | parking_time=-
+  id=74 | AA7535YD | ZEEKR | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 56
+Hint      : Day=1 | Night=0
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 25: 1-день -> 1 Day
+Vehicles:
+  id=67 | KA95552TB | SUZUKI | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 82
+Hint      : Day=0 | Night=1
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 24: 1-сутки -> 1 Night
+Vehicles:
+  id=28 | KA1901PX | TOYOTA | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 96
+Hint      : Day=0 | Night=1
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 32: 1-сутки -> 1 Night
+Vehicles:
+  id=31 | KA6144PM | AUDI | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 105
+Hint      : Day=0 | Night=2
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 28: 2-сутки -> 2 Night
+Vehicles:
+  id=33 | AA3033BC | SUBARU | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 139
+Hint      : Day=0 | Night=1
+DB cars   : 3
+Missing   : 1
+Hint rows:
+  Excel row 29: 1-сутки -> 1 Night
+Vehicles:
+  id=55 | AA1371MK | RENAULT | parking_time=-
+  id=56 | KA6052PK | BMW | parking_time=Night
+  id=57 | KA7764MK | PEUGEOT | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 181
+Hint      : Day=0 | Night=1
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 16: 1-сутки -> 1 Night
+Vehicles:
+  id=102 | BO7254EM | VOLKSWAGEN | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 182
+Hint      : Day=1 | Night=1
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 17: 1-день -> 1 Day
+  Excel row 18: 1-сутки -> 1 Night
+Vehicles:
+  id=103 | BO0125EX | BMW | parking_time=Night
+  id=104 | BO8887BB | LAND ROVER | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 191
+Hint      : Day=1 | Night=0
+DB cars   : 3
+Missing   : 0
+Hint rows:
+  Excel row 2: 1-день -> 1 Day
+Vehicles:
+  id=111 | AA1677MA | MERCEDES | parking_time=Day
+  id=112 | KA3326E | BYD | parking_time=Day
+  id=113 | K5775AC | MERCEDES | parking_time=Night
+--------------------------------------------------------------------------------
+Apartment : 194
+Hint      : Day=1 | Night=1
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 5: 1-день -> 1 Day
+  Excel row 6: 1-сутки -> 1 Night
+Vehicles:
+  id=114 | AA5551H | MERCEDES | parking_time=Night
+  id=115 | KA8848AO | MERCEDES | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 195
+Hint      : Day=1 | Night=0
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 7: 1-день -> 1 Day
+Vehicles:
+  id=116 | AA1102AA | JEEP | parking_time=Night
+  id=117 | AA8838TX | AUDI | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 196
+Hint      : Day=1 | Night=0
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 8: 1-день -> 1 Day
+Vehicles:
+  id=118 | AA9933EC | NISSAN | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 197
+Hint      : Day=1 | Night=0
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 9: 1-день -> 1 Day
+Vehicles:
+  id=119 | AA0403EM | SKODA | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 198
+Hint      : Day=3 | Night=0
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 10: 3-день -> 3 Day
+Vehicles:
+  id=120 | KA2882E | MERCEDES | parking_time=Day
+  id=121 | KA2882TT | RANGE ROVER | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 200
+Hint      : Day=1 | Night=0
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 11: 1-день -> 1 Day
+Vehicles:
+  id=122 | AA8499AK | HONDA | parking_time=Day
+  id=123 | AA5200H | MERCEDES | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 201
+Hint      : Day=1 | Night=0
+DB cars   : 1
+Missing   : 0
+Hint rows:
+  Excel row 12: 1-день -> 1 Day
+Vehicles:
+  id=124 | AA4388EX | VOLKSWAGEN | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 203
+Hint      : Day=1 | Night=1
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 13: 1-день -> 1 Day
+  Excel row 14: 1-сутки -> 1 Night
+Vehicles:
+  id=126 | AA5054AX | - | parking_time=Night
+  id=127 | AA8069M | - | parking_time=Day
+--------------------------------------------------------------------------------
+Apartment : 205
+Hint      : Day=2 | Night=0
+DB cars   : 2
+Missing   : 0
+Hint rows:
+  Excel row 15: 2-день -> 2 Day
+Vehicles:
+  id=128 | KA2882AE | VOLKSWAGEN | parking_time=Day
+  id=129 | KA8482 | LEXUS | parking_time=Day
+
+================================================================================
+HINTS WITHOUT VEHICLES IN DB
+================================================================================
+--------------------------------------------------------------------------------
+Apartment : 6
+Hint      : Day=0 | Night=1
+  Excel row 21: 1-сутки -> 1 Night
+--------------------------------------------------------------------------------
+Apartment : 57
+Hint      : Day=0 | Night=1
+  Excel row 31: 1-сутки -> 1 Night
+--------------------------------------------------------------------------------
+Apartment : 170
+Hint      : Day=0 | Night=2
+  Excel row 33: 1-сутки -> 1 Night
+  Excel row 34: 1- сутки -> 1 Night
+--------------------------------------------------------------------------------
+Apartment : 192
+Hint      : Day=1 | Night=0
+  Excel row 3: 1-день -> 1 Day
+--------------------------------------------------------------------------------
+Apartment : 193
+Hint      : Day=1 | Night=0
+  Excel row 4: 1-день -> 1 Day
+
+================================================================================
+DB MISSING PARKING_TIME WITHOUT HINT
+================================================================================
+--------------------------------------------------------------------------------
+Apartment : 16
+  id=8 | 8969 | ZEEKR | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 24
+  id=10 | AA4203XA | NISSAN | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 32
+  id=75 | AA6535YC | MERSEDES | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 40
+  id=20 | AA0667HB | GRANDIS | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 42
+  id=21 | AA0163PH | HONDA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 43
+  id=22 | KA0651K | TOYOTA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 50
+  id=64 | AA1322MC | VOLKSWAGEN | parking_time=-
+  id=76 | KA0262AB | FORD | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 51
+  id=23 | AA3884OT | BMW | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 52
+  id=77 | KA7140AB | KIA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 80
+  id=27 | AA7786HX | LANOS | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 84
+  id=29 | AA4448CM | TOYOTA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 95
+  id=30 | AA9312HB | CHEVROLET | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 108
+  id=36 | KA6556BP | BMW | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 111
+  id=38 | AA7565YA | VOLKSWAGEN | parking_time=-
+  id=39 | AA0203HM | HONDA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 115
+  id=40 | AA7383A | HYNDAI | parking_time=-
+  id=41 | AA2670CP | NISSAN | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 120
+  id=42 | KA5004EB | LINCOLN | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 121
+  id=72 | KA6055KO | AUDI | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 122
+  id=44 | AA4712KB | VOLKSWAGEN | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 125
+  id=61 | LNH519 | VOLKSWAGEN | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 132
+  id=51 | AA2281MB | SUBARU | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 138
+  id=53 | AA6403XC | KIA | parking_time=-
+  id=54 | AA4878KX | KIA | parking_time=-
+--------------------------------------------------------------------------------
+Apartment : 142
+  id=60 | AA0982AH | OPEL | parking_time=-

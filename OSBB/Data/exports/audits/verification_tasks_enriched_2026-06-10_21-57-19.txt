@@ -1,0 +1,604 @@
+================================================================================
+VERIFICATION TASKS ENRICHED REPORT
+================================================================================
+Generated: 2026-06-10 21:57:19
+
+================================================================================
+SUMMARY
+================================================================================
+Open tasks          : 37
+Tasks with evidence : 25
+Tasks with clean evidence: 25
+Tasks without clean evidence: 12
+
+
+================================================================================
+TASKS WITH EVIDENCE
+================================================================================
+--------------------------------------------------------------------------------
+Task ID      : 1
+Apartment    : 1
+Type         : plate_too_short
+Priority     : 10
+Status       : new
+Value        : 9599
+Normalized   : 9599
+Suggestion   : Номер слишком короткий. Требуется ручная проверка.
+Task comment : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Evidence count: 1
+
+[tbot_parking] SAME_DIGITS_4
+  - АА9599ВС -> AA9599BC (record=87)
+    Same 4-digit plate core in TBot. task_digits=9599; tbot_apartment=144; model=Ауди; color=BLACK; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 36
+Apartment    : 8
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA8008M
+Normalized   : AA8008M
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Evidence count: 1
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА8098ММ -> AA8098MM (record=97)
+    Same apartment in TBot. apartment=8; model=Лексус; color=BLACK; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 19
+Apartment    : 16
+Type         : plate_too_short
+Priority     : 10
+Status       : new
+Value        : 8969
+Normalized   : 8969
+Suggestion   : Номер слишком короткий. Требуется ручная проверка.
+Task comment : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+
+Evidence count: 2
+
+[telegram] CONTAINS_VALUE
+  - AA8969YC -> AA8969YC (record=177)
+    Telegram fact. telegram_apartment=None; person=-; phone=-; chat=Andrew Andrii; msg_id=31981; plate_status=STANDARD
+
+[telegram] SAME_DIGITS_4
+  - AA8969YC -> AA8969YC (record=177)
+    Same 4-digit plate core in Telegram. task_digits=8969; telegram_apartment=-; person=-; phone=-; model=-; chat=Andrew Andrii; msg_id=31981; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 31
+Apartment    : 25
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : SNDIGO
+Normalized   : SNDIGO
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence count: 4
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА0060НС -> AA0060HC (record=93)
+    Same apartment in TBot. apartment=25; model=BMW; color=GRAY; ownership=OWNER
+  - AA2095XA -> AA2095XA (record=91)
+    Same apartment in TBot. apartment=25; model=Volvo; color=WHITE; ownership=OWNER
+  - AA7499AH -> AA7499AH (record=94)
+    Same apartment in TBot. apartment=25; model=BMW; color=BLACK; ownership=OWNER
+  - INDIGO -> INDIGO (record=92)
+    Same apartment in TBot. apartment=25; model=BMW; color=BLUE; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 32
+Apartment    : 27
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AP8170X
+Normalized   : AP8170X
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+
+Evidence count: 2
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АР8170IX -> AP8170IX (record=82)
+    Same apartment in TBot. apartment=27; model=Toyota; color=GRAY; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АР8170IX -> AP8170IX (record=82)
+    Same 4-digit plate core in TBot. task_digits=8170; tbot_apartment=27; model=Toyota; color=GRAY; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 33
+Apartment    : 31
+Type         : plate_custom_or_foreign
+Priority     : 80
+Status       : new
+Value        : D00077
+Normalized   : D00077
+Suggestion   : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[telegram] SAME_APARTMENT_PLATE_LIST
+  - AA6535YC -> AA6535YC (record=171)
+    Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=STANDARD
+  - AA7535YD -> AA7535YD (record=172)
+    Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=STANDARD
+  - DO 0077 -> DO0077 (record=170)
+    Same apartment in Telegram. apartment=31; person=Погорєлов В.Г.; phone=+380504622914; +380636507585; model=Ауди Q8; Mercedes EQE; Zeekr 001; chat=Alexandr; msg_id=31123; plate_status=SUSPICIOUS
+
+--------------------------------------------------------------------------------
+Task ID      : 35
+Apartment    : 56
+Type         : plate_needs_check
+Priority     : 50
+Status       : new
+Value        : KA95552TB
+Normalized   : KA95552TB
+Suggestion   : Номер не соответствует стандартному шаблону AA0000AA.
+Task comment : Авто: Suzuki; Марка нормализована: SUZUKI; Статус номера: SUSPICIOUS
+
+Evidence count: 1
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - KA9552TB -> KA9552TB (record=85)
+    Same apartment in TBot. apartment=56; model=Suzuki; color=WHITE; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 37
+Apartment    : 89
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA6739E
+Normalized   : KA6739E
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence count: 4
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА0606КВ -> AA0606KB (record=36)
+    Same apartment in TBot. apartment=89; model=TOYOTA; color=GOLD; ownership=OWNER
+  - КА6739ІЕ -> KA6739IE (record=37)
+    Same apartment in TBot. apartment=89; model=BMW 120i; color=DARK_GRAY; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - КА6739ІЕ -> KA6739IE (record=37)
+    Same 4-digit plate core in TBot. task_digits=6739; tbot_apartment=89; model=BMW 120i; color=DARK_GRAY; ownership=OWNER
+
+[telegram] SAME_APARTMENT_PLATE_LIST
+  - АА4566СТ -> AA4566CT (record=223)
+    Same apartment in Telegram. apartment=89; person=-; phone=-; model=-; chat=Анатолій В'язовченко; msg_id=30907; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 3
+Apartment    : 106
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA3353B
+Normalized   : AA3353B
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+
+Evidence count: 1
+
+[tbot_parking] SAME_DIGITS_4
+  - АА3353ІВ -> AA3353IB (record=21)
+    Same 4-digit plate core in TBot. task_digits=3353; tbot_apartment=105.106; model=VW; color=GRAY; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 7
+Apartment    : 122
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA6623M
+Normalized   : KA6623M
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА4712YB -> AA4712YB (record=59)
+    Same apartment in TBot. apartment=122; model=VW; color=SILVER; ownership=TENANT
+  - KA6623MI -> KA6623MI (record=60)
+    Same apartment in TBot. apartment=122; model=BMW; color=WHITE; ownership=TENANT
+
+[tbot_parking] SAME_DIGITS_4
+  - KA6623MI -> KA6623MI (record=60)
+    Same 4-digit plate core in TBot. task_digits=6623; tbot_apartment=122; model=BMW; color=WHITE; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 8
+Apartment    : 125
+Type         : plate_custom_or_foreign
+Priority     : 80
+Status       : new
+Value        : LNH519
+Normalized   : LNH519
+Suggestion   : Вероятно именной или иностранный номер. Подтвердить вручную.
+Task comment : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА6626НР -> AA6626HP (record=25)
+    Same apartment in TBot. apartment=125; model=Mercedes Benz Sprinter; color=WHITE; ownership=OWNER
+  - КА2708НО -> KA2708HO (record=26)
+    Same apartment in TBot. apartment=125; model=LEXUS; color=BLUE; ownership=OWNER
+  - LNH519 -> LNH519 (record=27)
+    Same apartment in TBot. apartment=125; model=Volkswagen; color=WHITE; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 9
+Apartment    : 126
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA8393B
+Normalized   : AA8393B
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+
+Evidence count: 4
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА8393УВ -> AA8393YB (record=124)
+    Same apartment in TBot. apartment=126; model=Tesla model 3; color=WHITE; ownership=OWNER
+  - КА7973СС -> KA7973CC (record=125)
+    Same apartment in TBot. apartment=126; model=Volkswagen; color=BLACK; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АА8393УВ -> AA8393YB (record=124)
+    Same 4-digit plate core in TBot. task_digits=8393; tbot_apartment=126; model=Tesla model 3; color=WHITE; ownership=OWNER
+
+[telegram] SAME_DIGITS_4
+  - аа8393yB -> AA8393YB (record=181)
+    Same 4-digit plate core in Telegram. task_digits=8393; telegram_apartment=-; person=-; phone=-; model=-; chat=Anna; msg_id=31242; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 10
+Apartment    : 129
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA8009B
+Normalized   : KA8009B
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+
+Evidence count: 1
+
+[telegram] SAME_DIGITS_4
+  - KA8009IB -> KA8009IB (record=217)
+    Same 4-digit plate core in Telegram. task_digits=8009; telegram_apartment=-; person=-; phone=-; model=-; chat=Іван Кривохатько; msg_id=31691; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 11
+Apartment    : 133
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : A5787ET
+Normalized   : A5787ET
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+
+Evidence count: 4
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АІ5787ЕТ -> AI5787ET (record=73)
+    Same apartment in TBot. apartment=133; model=BMW; color=WHITE; ownership=OWNER
+  - АМ0808ВО -> AM0808BO (record=74)
+    Same apartment in TBot. apartment=133; model=Mazda; color=BLUE; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АІ5787ЕТ -> AI5787ET (record=73)
+    Same 4-digit plate core in TBot. task_digits=5787; tbot_apartment=133; model=BMW; color=WHITE; ownership=OWNER
+
+[telegram] SAME_DIGITS_4
+  - АІ5787ЕТ -> AI5787ET (record=189)
+    Same 4-digit plate core in Telegram. task_digits=5787; telegram_apartment=-; person=-; phone=-; model=-; chat=Konstantin; msg_id=31950; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 12
+Apartment    : 140
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : A7772C
+Normalized   : A7772C
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+
+Evidence count: 2
+
+[telegram] SAME_APARTMENT_PLATE_LIST
+  - АІ7772ІС -> AI7772IC (record=185)
+    Same apartment in Telegram. apartment=140; person=-; phone=-; model=-; chat=Julia кв 140; msg_id=31534; plate_status=STANDARD
+
+[telegram] SAME_DIGITS_4
+  - АІ7772ІС -> AI7772IC (record=185)
+    Same 4-digit plate core in Telegram. task_digits=7772; telegram_apartment=140; person=-; phone=-; model=-; chat=Julia кв 140; msg_id=31534; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 14
+Apartment    : 144
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA9599
+Normalized   : AA9599
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА9599ВС -> AA9599BC (record=87)
+    Same apartment in TBot. apartment=144; model=Ауди; color=BLACK; ownership=TENANT
+  - КА9959АЕ -> KA9959AE (record=88)
+    Same apartment in TBot. apartment=144; model=Порш; color=BLUE; ownership=TENANT
+
+[tbot_parking] SAME_DIGITS_4
+  - АА9599ВС -> AA9599BC (record=87)
+    Same 4-digit plate core in TBot. task_digits=9599; tbot_apartment=144; model=Ауди; color=BLACK; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 15
+Apartment    : 144
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA9959
+Normalized   : KA9959
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Porsche; Марка нормализована: PORSCHE; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА9599ВС -> AA9599BC (record=87)
+    Same apartment in TBot. apartment=144; model=Ауди; color=BLACK; ownership=TENANT
+  - КА9959АЕ -> KA9959AE (record=88)
+    Same apartment in TBot. apartment=144; model=Порш; color=BLUE; ownership=TENANT
+
+[tbot_parking] SAME_DIGITS_4
+  - КА9959АЕ -> KA9959AE (record=88)
+    Same 4-digit plate core in TBot. task_digits=9959; tbot_apartment=144; model=Порш; color=BLUE; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 20
+Apartment    : 185
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA1302H
+Normalized   : KA1302H
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Kia; Марка нормализована: KIA; Статус номера: SUSPICIOUS
+
+Evidence count: 2
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - КІ1302ІН -> KI1302IH (record=65)
+    Same apartment in TBot. apartment=185; model=Kia; color=SILVER; ownership=TENANT
+
+[tbot_parking] SAME_DIGITS_4
+  - КІ1302ІН -> KI1302IH (record=65)
+    Same 4-digit plate core in TBot. task_digits=1302; tbot_apartment=185; model=Kia; color=SILVER; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 21
+Apartment    : 186
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA5553P
+Normalized   : AA5553P
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence count: 10
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА5553ЕВ -> AA5553EB (record=15)
+    Same apartment in TBot. apartment=186; model=Лексус; color=COPPER; ownership=OWNER
+  - АА5553РІ -> AA5553PI (record=14)
+    Same apartment in TBot. apartment=186; model=Мерседес; color=WHITE; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АА5553ЕВ -> AA5553EB (record=15)
+    Same 4-digit plate core in TBot. task_digits=5553; tbot_apartment=186; model=Лексус; color=COPPER; ownership=OWNER
+  - АА5553РІ -> AA5553PI (record=14)
+    Same 4-digit plate core in TBot. task_digits=5553; tbot_apartment=186; model=Мерседес; color=WHITE; ownership=OWNER
+
+[telegram] MISSING_LAST_CHAR
+  - АА5553РІ -> AA5553PI (record=220)
+    Telegram fact. telegram_apartment=186; person=-; phone=+380503301135; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+
+[telegram] SAME_APARTMENT_PLATE_LIST
+  - Aa5553ЕВ -> AA5553EB (record=221)
+    Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+  - АА5553РІ -> AA5553PI (record=220)
+    Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+  - RX350H -> RX350H (record=222)
+    Same apartment in Telegram. apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=SUSPICIOUS
+
+[telegram] SAME_DIGITS_4
+  - Aa5553ЕВ -> AA5553EB (record=221)
+    Same 4-digit plate core in Telegram. task_digits=5553; telegram_apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+  - АА5553РІ -> AA5553PI (record=220)
+    Same 4-digit plate core in Telegram. task_digits=5553; telegram_apartment=186; person=-; phone=+380503301135; model=-; chat=Алина Шаповал; msg_id=32047; plate_status=STANDARD
+
+--------------------------------------------------------------------------------
+Task ID      : 22
+Apartment    : 188
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : A5568AC
+Normalized   : A5568AC
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА1402МК -> AA1402MK (record=10)
+    Same apartment in TBot. apartment=188; model=Шевроле; color=GRAY; ownership=TENANT
+  - АІ5568АС -> AI5568AC (record=9)
+    Same apartment in TBot. apartment=188; model=Хюндай; color=BLACK; ownership=TENANT
+
+[tbot_parking] SAME_DIGITS_4
+  - АІ5568АС -> AI5568AC (record=9)
+    Same 4-digit plate core in TBot. task_digits=5568; tbot_apartment=188; model=Хюндай; color=BLACK; ownership=TENANT
+
+--------------------------------------------------------------------------------
+Task ID      : 25
+Apartment    : 194
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA5551H
+Normalized   : AA5551H
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence count: 2
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА5551ІН -> AA5551IH (record=38)
+    Same apartment in TBot. apartment=194; model=Мерседес; color=BLACK; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АА5551ІН -> AA5551IH (record=38)
+    Same 4-digit plate core in TBot. task_digits=5551; tbot_apartment=194; model=Мерседес; color=BLACK; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 26
+Apartment    : 198
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA2882E
+Normalized   : KA2882E
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence count: 6
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - КА2882ЕІ -> KA2882EI (record=121)
+    Same apartment in TBot. apartment=198; model=Мерседес; color=BLACK; ownership=OWNER
+  - КА2882ТТ -> KA2882TT (record=120)
+    Same apartment in TBot. apartment=198; model=Рейндж Ровер; color=BLACK; ownership=OWNER
+  - КА6992РР -> KA6992PP (record=122)
+    Same apartment in TBot. apartment=198; model=Хендай; color=BLACK; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - КА2882АЕ -> KA2882AE (record=64)
+    Same 4-digit plate core in TBot. task_digits=2882; tbot_apartment=205; model=Volkswagen; color=DARK_CHERRY; ownership=OWNER
+  - КА2882ЕІ -> KA2882EI (record=121)
+    Same 4-digit plate core in TBot. task_digits=2882; tbot_apartment=198; model=Мерседес; color=BLACK; ownership=OWNER
+  - КА2882ТТ -> KA2882TT (record=120)
+    Same 4-digit plate core in TBot. task_digits=2882; tbot_apartment=198; model=Рейндж Ровер; color=BLACK; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 28
+Apartment    : 200
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA5200H
+Normalized   : AA5200H
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА5200НІ -> AA5200HI (record=7)
+    Same apartment in TBot. apartment=200; model=МERCEDES-BENZ; color=GRAY; ownership=OWNER
+  - АА8499АК -> AA8499AK (record=6)
+    Same apartment in TBot. apartment=200; model=Хонда CRV; color=GRAY; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АА5200НІ -> AA5200HI (record=7)
+    Same 4-digit plate core in TBot. task_digits=5200; tbot_apartment=200; model=МERCEDES-BENZ; color=GRAY; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 29
+Apartment    : 203
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : AA8069M
+Normalized   : AA8069M
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+
+Evidence count: 4
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - АА5054АХ -> AA5054AX (record=66)
+    Same apartment in TBot. apartment=203; model=Форд; color=BLUE; ownership=OWNER
+  - АА5056АХ -> AA5056AX (record=5)
+    Same apartment in TBot. apartment=203; model=Ford focus; color=BLUE; ownership=OWNER
+  - АА8069ІМ -> AA8069IM (record=4)
+    Same apartment in TBot. apartment=203; model=АА 5054АХ; color=BLACK; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - АА8069ІМ -> AA8069IM (record=4)
+    Same 4-digit plate core in TBot. task_digits=8069; tbot_apartment=203; model=АА 5054АХ; color=BLACK; ownership=OWNER
+
+--------------------------------------------------------------------------------
+Task ID      : 30
+Apartment    : 205
+Type         : plate_possible_missing_suffix
+Priority     : 20
+Status       : new
+Value        : KA8482
+Normalized   : KA8482
+Suggestion   : Похоже на украинский номер с потерянной буквой в конце.
+Task comment : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+
+Evidence count: 3
+
+[tbot_parking] SAME_APARTMENT_PLATE_LIST
+  - КА2882АЕ -> KA2882AE (record=64)
+    Same apartment in TBot. apartment=205; model=Volkswagen; color=DARK_CHERRY; ownership=OWNER
+  - КА8482ІІ -> KA8482II (record=63)
+    Same apartment in TBot. apartment=205; model=Лексус; color=WHITE; ownership=OWNER
+
+[tbot_parking] SAME_DIGITS_4
+  - КА8482ІІ -> KA8482II (record=63)
+    Same 4-digit plate core in TBot. task_digits=8482; tbot_apartment=205; model=Лексус; color=WHITE; ownership=OWNER
+
+
+================================================================================
+OPEN TASKS WITHOUT CLEAN EVIDENCE
+================================================================================
+Task   27 | apt=2      | plate_possible_missing_suffix  | value=A8756HK | norm=A8756HK | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+Task    2 | apt=10     | plate_too_short                | value=AA54B | norm=AA54B | Авто: АА3455; Марка нормализована: AA3455; Статус номера: SUSPICIOUS
+Task    6 | apt=12     | plate_possible_missing_suffix  | value=A0448YB | norm=A0448YB | Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+Task   34 | apt=43     | plate_possible_missing_suffix  | value=KA0651K | norm=KA0651K | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task    4 | apt=107    | plate_possible_missing_suffix  | value=A7758TE | norm=A7758TE | Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+Task    5 | apt=115    | plate_possible_missing_suffix  | value=AA7383A | norm=AA7383A | Авто: Hyndai; Марка нормализована: HYNDAI; Статус номера: SUSPICIOUS
+Task   13 | apt=142    | plate_possible_missing_suffix  | value=AA0721M | norm=AA0721M | Авто: Honda; Марка нормализована: HONDA; Статус номера: SUSPICIOUS
+Task   16 | apt=155    | plate_possible_missing_suffix  | value=KA9151 | norm=KA9151 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   17 | apt=155    | plate_possible_missing_suffix  | value=AA7020 | norm=AA7020 | Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+Task   18 | apt=155    | plate_possible_missing_suffix  | value=KA1175 | norm=KA1175 | Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+Task   23 | apt=191    | plate_possible_missing_suffix  | value=KA3326E | norm=KA3326E | Авто: BYD; Марка нормализована: BYD; Статус номера: SUSPICIOUS
+Task   24 | apt=191    | plate_possible_missing_suffix  | value=K5775AC | norm=K5775AC | Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS

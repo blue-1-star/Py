@@ -1,0 +1,117 @@
+
+================================================================================
+NORMALIZATION AUDIT
+================================================================================
+Main DB       : G:\Programming\Py\OSBB\Data\db\osbb.db
+Quarantine DB : G:\Programming\Py\OSBB\Data\db\osbb_quarantine.db
+Time          : 2026-06-09 10:40:26
+
+================================================================================
+MAIN DB NORMALIZATION
+================================================================================
+Vehicles updated: 130
+
+================================================================================
+MAIN DB UNKNOWN CAR MODELS
+================================================================================
+Count: 0
+
+================================================================================
+MAIN DB UNKNOWN COLORS
+================================================================================
+Count: 0
+
+================================================================================
+MAIN DB SUSPICIOUS PLATES
+================================================================================
+Count: 37
+id=1 raw=9599 normalized=9599
+id=2 raw=A8756HK normalized=A8756HK
+id=3 raw=AA8008M normalized=AA8008M
+id=4 raw=AA54B normalized=AA54B
+id=5 raw=A0448YB normalized=A0448YB
+id=8 raw=8969 normalized=8969
+id=14 raw=SNDIGO normalized=SNDIGO
+id=15 raw=AP8170X normalized=AP8170X
+id=22 raw=KA0651K normalized=KA0651K
+id=34 raw=AA3353B normalized=AA3353B
+id=35 raw=A7758TE normalized=A7758TE
+id=40 raw=AA7383A normalized=AA7383A
+id=45 raw=KA6623M normalized=KA6623M
+id=46 raw=AA8393B normalized=AA8393B
+id=49 raw=KA8009B normalized=KA8009B
+id=58 raw=A7772C normalized=A7772C
+id=59 raw=AA0721M normalized=AA0721M
+id=61 raw=LNH519 normalized=LNH519
+id=65 raw=KA6739E normalized=KA6739E
+id=67 raw=KA95552TB normalized=KA95552TB
+id=68 raw=A5787ET normalized=A5787ET
+id=73 raw=D00077 normalized=D00077
+id=80 raw=AA9599 normalized=AA9599
+id=81 raw=KA9959 normalized=KA9959
+id=82 raw=KA9151 normalized=KA9151
+id=83 raw=AA7020 normalized=AA7020
+id=84 raw=KA1175 normalized=KA1175
+id=105 raw=KA1302H normalized=KA1302H
+id=107 raw=AA5553P normalized=AA5553P
+id=110 raw=A5568AC normalized=A5568AC
+id=112 raw=KA3326E normalized=KA3326E
+id=113 raw=K5775AC normalized=K5775AC
+id=114 raw=AA5551H normalized=AA5551H
+id=120 raw=KA2882E normalized=KA2882E
+id=123 raw=AA5200H normalized=AA5200H
+id=127 raw=AA8069M normalized=AA8069M
+id=129 raw=KA8482 normalized=KA8482
+
+================================================================================
+QUARANTINE DB NORMALIZATION
+================================================================================
+TBot records updated: 125
+
+================================================================================
+QUARANTINE UNKNOWN CAR MODELS
+================================================================================
+Count: 23
+Ауди
+БМВ X5
+Лексус
+Ленд Ровер
+Мерседес
+Мерседес Бенц
+Мерседес-Бенц
+Міцубісі
+Нисан
+Порш
+Рейндж Ровер
+Субару
+Субару Форестер
+Тойота
+Фольксваген
+Фольцваген
+Форд
+Хендай
+Хонда
+Хонда CRV
+Хюндай
+Шевроле
+Ягуар
+
+================================================================================
+QUARANTINE UNKNOWN COLORS
+================================================================================
+Count: 1
+-
+
+================================================================================
+QUARANTINE SUSPICIOUS PLATES
+================================================================================
+Count: 5
+id=1 raw=D00077 normalized=D00077
+id=27 raw=LNH519 normalized=LNH519
+id=90 raw=Л001Л normalized=001
+id=92 raw=INDIGO normalized=INDIGO
+id=101 raw=O9888G normalized=O9888G
+
+================================================================================
+NORMALIZATION FINISHED
+================================================================================

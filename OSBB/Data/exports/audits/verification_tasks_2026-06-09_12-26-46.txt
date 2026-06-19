@@ -1,0 +1,427 @@
+
+================================================================================
+VERIFICATION TASKS REPORT
+================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb.db
+Generated: 2026-06-09 12:26:46
+
+================================================================================
+SUMMARY
+================================================================================
+Total tasks: 37
+plate_possible_missing_suffix       : 31
+plate_too_short                     : 3
+plate_custom_or_foreign             : 2
+plate_needs_check                   : 1
+
+================================================================================
+OPEN TASKS
+================================================================================
+Count: 37
+--------------------------------------------------------------------------------
+Task ID     : 1
+Apartment   : 1
+Type        : plate_too_short
+Priority    : 10
+Status      : new
+Value       : 9599
+Normalized  : 9599
+Suggestion  : Номер слишком короткий. Требуется ручная проверка.
+Comment     : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 2
+Apartment   : 10
+Type        : plate_too_short
+Priority    : 10
+Status      : new
+Value       : AA54B
+Normalized  : AA54B
+Suggestion  : Номер слишком короткий. Требуется ручная проверка.
+Comment     : Авто: АА3455; Марка нормализована: AA3455; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 19
+Apartment   : 16
+Type        : plate_too_short
+Priority    : 10
+Status      : new
+Value       : 8969
+Normalized  : 8969
+Suggestion  : Номер слишком короткий. Требуется ручная проверка.
+Comment     : Авто: ZEEKR; Марка нормализована: ZEEKR; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 27
+Apartment   : 2
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A8756HK
+Normalized  : A8756HK
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 36
+Apartment   : 8
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA8008M
+Normalized  : AA8008M
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 6
+Apartment   : 12
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A0448YB
+Normalized  : A0448YB
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 31
+Apartment   : 25
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : SNDIGO
+Normalized  : SNDIGO
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 32
+Apartment   : 27
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AP8170X
+Normalized  : AP8170X
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 34
+Apartment   : 43
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA0651K
+Normalized  : KA0651K
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 37
+Apartment   : 89
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA6739E
+Normalized  : KA6739E
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 3
+Apartment   : 106
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA3353B
+Normalized  : AA3353B
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 4
+Apartment   : 107
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A7758TE
+Normalized  : A7758TE
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 5
+Apartment   : 115
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA7383A
+Normalized  : AA7383A
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Hyndai; Марка нормализована: HYNDAI; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 7
+Apartment   : 122
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA6623M
+Normalized  : KA6623M
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 9
+Apartment   : 126
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA8393B
+Normalized  : AA8393B
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Tesla; Марка нормализована: TESLA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 10
+Apartment   : 129
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA8009B
+Normalized  : KA8009B
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Nissan; Марка нормализована: NISSAN; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 11
+Apartment   : 133
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A5787ET
+Normalized  : A5787ET
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: BMW; Марка нормализована: BMW; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 12
+Apartment   : 140
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A7772C
+Normalized  : A7772C
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Lincoln; Марка нормализована: LINCOLN; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 13
+Apartment   : 142
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA0721M
+Normalized  : AA0721M
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Honda; Марка нормализована: HONDA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 14
+Apartment   : 144
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA9599
+Normalized  : AA9599
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 15
+Apartment   : 144
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA9959
+Normalized  : KA9959
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Porsche; Марка нормализована: PORSCHE; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 16
+Apartment   : 155
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA9151
+Normalized  : KA9151
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 17
+Apartment   : 155
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA7020
+Normalized  : AA7020
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 18
+Apartment   : 155
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA1175
+Normalized  : KA1175
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Toyota; Марка нормализована: TOYOTA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 20
+Apartment   : 185
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA1302H
+Normalized  : KA1302H
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Kia; Марка нормализована: KIA; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 21
+Apartment   : 186
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA5553P
+Normalized  : AA5553P
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 22
+Apartment   : 188
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : A5568AC
+Normalized  : A5568AC
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 23
+Apartment   : 191
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA3326E
+Normalized  : KA3326E
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: BYD; Марка нормализована: BYD; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 24
+Apartment   : 191
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : K5775AC
+Normalized  : K5775AC
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 25
+Apartment   : 194
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA5551H
+Normalized  : AA5551H
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 26
+Apartment   : 198
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA2882E
+Normalized  : KA2882E
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 28
+Apartment   : 200
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA5200H
+Normalized  : AA5200H
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Mercedes; Марка нормализована: MERCEDES; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 29
+Apartment   : 203
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : AA8069M
+Normalized  : AA8069M
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: -; Марка нормализована: -; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 30
+Apartment   : 205
+Type        : plate_possible_missing_suffix
+Priority    : 20
+Status      : new
+Value       : KA8482
+Normalized  : KA8482
+Suggestion  : Похоже на украинский номер с потерянной буквой в конце.
+Comment     : Авто: Lexus; Марка нормализована: LEXUS; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 35
+Apartment   : 56
+Type        : plate_needs_check
+Priority    : 50
+Status      : new
+Value       : KA95552TB
+Normalized  : KA95552TB
+Suggestion  : Номер не соответствует стандартному шаблону AA0000AA.
+Comment     : Авто: Suzuki; Марка нормализована: SUZUKI; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 33
+Apartment   : 31
+Type        : plate_custom_or_foreign
+Priority    : 80
+Status      : new
+Value       : D00077
+Normalized  : D00077
+Suggestion  : Вероятно именной или иностранный номер. Подтвердить вручную.
+Comment     : Авто: Audi; Марка нормализована: AUDI; Статус номера: SUSPICIOUS
+--------------------------------------------------------------------------------
+Task ID     : 8
+Apartment   : 125
+Type        : plate_custom_or_foreign
+Priority    : 80
+Status      : new
+Value       : LNH519
+Normalized  : LNH519
+Suggestion  : Вероятно именной или иностранный номер. Подтвердить вручную.
+Comment     : Авто: VW; Марка нормализована: VOLKSWAGEN; Статус номера: SUSPICIOUS
+
+================================================================================
+TASKS BY APARTMENT
+================================================================================
+1            : 1
+2            : 1
+8            : 1
+10           : 1
+12           : 1
+16           : 1
+25           : 1
+27           : 1
+31           : 1
+43           : 1
+56           : 1
+89           : 1
+106          : 1
+107          : 1
+115          : 1
+122          : 1
+125          : 1
+126          : 1
+129          : 1
+133          : 1
+140          : 1
+142          : 1
+144          : 2
+155          : 3
+185          : 1
+186          : 1
+188          : 1
+191          : 2
+194          : 1
+198          : 1
+200          : 1
+203          : 1
+205          : 1

@@ -1,0 +1,357 @@
+================================================================================
+OSBB INCLUDED TELEGRAM PEERS
+================================================================================
+Generated     : 2026-06-10 13:11:23
+Folder title  : TextWithEntities(text='OSBB', entities=[])
+Folder id     : 6
+Peers count   : 49
+
+--------------------------------------------------------------------------------
+Title     : Svyat
+Type      : personal_chat
+ID        : 60655413
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=60655413, access_hash=9002522585360123733)
+--------------------------------------------------------------------------------
+Title     : СоседкаТатГриг173квС
+Type      : personal_chat
+ID        : 64296097
+Username  : bigfoxTania
+Phone     : 380672207538
+Peer raw  : InputPeerUser(user_id=64296097, access_hash=8631653455735344264)
+--------------------------------------------------------------------------------
+Title     : Helga Goloshevich
+Type      : personal_chat
+ID        : 199278593
+Username  : helga_fit
+Phone     : None
+Peer raw  : InputPeerUser(user_id=199278593, access_hash=4468016554321799649)
+--------------------------------------------------------------------------------
+Title     : Irina
+Type      : personal_chat
+ID        : 253302333
+Username  : None
+Phone     : 380503341541
+Peer raw  : InputPeerUser(user_id=253302333, access_hash=9222292555628196360)
+--------------------------------------------------------------------------------
+Title     : Pasha Kostuinik
+Type      : personal_chat
+ID        : 274788475
+Username  : pashakost
+Phone     : 380999013914
+Peer raw  : InputPeerUser(user_id=274788475, access_hash=-6261570676091275371)
+--------------------------------------------------------------------------------
+Title     : Valeriy 🇺🇦🇺🇦🇺🇦
+Type      : personal_chat
+ID        : 284652224
+Username  : ValZagi
+Phone     : None
+Peer raw  : InputPeerUser(user_id=284652224, access_hash=-3441984881934826982)
+--------------------------------------------------------------------------------
+Title     : Vlad
+Type      : personal_chat
+ID        : 359738209
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=359738209, access_hash=6763927233263591651)
+--------------------------------------------------------------------------------
+Title     : Alla Roienko
+Type      : personal_chat
+ID        : 360192183
+Username  : AR5075
+Phone     : None
+Peer raw  : InputPeerUser(user_id=360192183, access_hash=-5674152876511773911)
+--------------------------------------------------------------------------------
+Title     : Vitaliy
+Type      : personal_chat
+ID        : 387186301
+Username  : tolsom18
+Phone     : None
+Peer raw  : InputPeerUser(user_id=387186301, access_hash=7489457602370590783)
+--------------------------------------------------------------------------------
+Title     : Olga
+Type      : personal_chat
+ID        : 419448225
+Username  : olga_lsu
+Phone     : None
+Peer raw  : InputPeerUser(user_id=419448225, access_hash=-7761905503255421023)
+--------------------------------------------------------------------------------
+Title     : Леонид
+Type      : personal_chat
+ID        : 430717692
+Username  : None
+Phone     : 380983153840
+Peer raw  : InputPeerUser(user_id=430717692, access_hash=6814196246532599666)
+--------------------------------------------------------------------------------
+Title     : Віталій Хомяк
+Type      : personal_chat
+ID        : 432119518
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=432119518, access_hash=3656963682515115418)
+--------------------------------------------------------------------------------
+Title     : Ekaterina Gnatovska (164)
+Type      : personal_chat
+ID        : 432687837
+Username  : EkaterinaVelikaya
+Phone     : 380638007295
+Peer raw  : InputPeerUser(user_id=432687837, access_hash=-1278124777734943527)
+--------------------------------------------------------------------------------
+Title     : Алина Шаповал
+Type      : personal_chat
+ID        : 463016346
+Username  : None
+Phone     : 380504698866
+Peer raw  : InputPeerUser(user_id=463016346, access_hash=-1125377739012092011)
+--------------------------------------------------------------------------------
+Title     : Kateryna Zhuravska
+Type      : personal_chat
+ID        : 465485028
+Username  : katerynatelegram
+Phone     : None
+Peer raw  : InputPeerUser(user_id=465485028, access_hash=2693917222061757200)
+--------------------------------------------------------------------------------
+Title     : Andrii P.
+Type      : personal_chat
+ID        : 507114320
+Username  : paa2015
+Phone     : None
+Peer raw  : InputPeerUser(user_id=507114320, access_hash=-4091842949679233973)
+--------------------------------------------------------------------------------
+Title     : Alexandr
+Type      : personal_chat
+ID        : 522474957
+Username  : None
+Phone     : 380636507585
+Peer raw  : InputPeerUser(user_id=522474957, access_hash=8806497641151245321)
+--------------------------------------------------------------------------------
+Title     : Алена Алёшина
+Type      : personal_chat
+ID        : 534347210
+Username  : None
+Phone     : 380674016122
+Peer raw  : InputPeerUser(user_id=534347210, access_hash=-5399980781954216657)
+--------------------------------------------------------------------------------
+Title     : Слава Жадан
+Type      : personal_chat
+ID        : 544857617
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=544857617, access_hash=-8771772566863190640)
+--------------------------------------------------------------------------------
+Title     : Ruslana Deda
+Type      : personal_chat
+ID        : 545703604
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=545703604, access_hash=-5739832857076798625)
+--------------------------------------------------------------------------------
+Title     : Julia кв 140
+Type      : personal_chat
+ID        : 551608233
+Username  : fin_standart
+Phone     : 380672816501
+Peer raw  : InputPeerUser(user_id=551608233, access_hash=7331589677946035813)
+--------------------------------------------------------------------------------
+Title     : Анна
+Type      : personal_chat
+ID        : 573564728
+Username  : Marigold_from_ua
+Phone     : None
+Peer raw  : InputPeerUser(user_id=573564728, access_hash=-3149396463362729567)
+--------------------------------------------------------------------------------
+Title     : Вячеслав
+Type      : personal_chat
+ID        : 582004171
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=582004171, access_hash=769689306897576716)
+--------------------------------------------------------------------------------
+Title     : Olena Andrushchenko
+Type      : personal_chat
+ID        : 602414304
+Username  : OlenAndrushchenko
+Phone     : None
+Peer raw  : InputPeerUser(user_id=602414304, access_hash=-6218634279874737638)
+--------------------------------------------------------------------------------
+Title     : Yuliya Fedorovich
+Type      : personal_chat
+ID        : 626546077
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=626546077, access_hash=9064905890388795400)
+--------------------------------------------------------------------------------
+Title     : Nataliia
+Type      : personal_chat
+ID        : 683582718
+Username  : natie_bo
+Phone     : None
+Peer raw  : InputPeerUser(user_id=683582718, access_hash=2386114604994024901)
+--------------------------------------------------------------------------------
+Title     : Oleksiy
+Type      : personal_chat
+ID        : 741341962
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=741341962, access_hash=-7500255257261423608)
+--------------------------------------------------------------------------------
+Title     : Serg Natkha
+Type      : personal_chat
+ID        : 794387910
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=794387910, access_hash=2625038980751080341)
+--------------------------------------------------------------------------------
+Title     : Анатолій В'язовченко
+Type      : personal_chat
+ID        : 805770647
+Username  : arbiter_pro
+Phone     : None
+Peer raw  : InputPeerUser(user_id=805770647, access_hash=-6141402174261170265)
+--------------------------------------------------------------------------------
+Title     : VLADO
+Type      : personal_chat
+ID        : 853948569
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=853948569, access_hash=2204735560344895836)
+--------------------------------------------------------------------------------
+Title     : Konstantin
+Type      : personal_chat
+ID        : 938375754
+Username  : Konstantin_NDA
+Phone     : None
+Peer raw  : InputPeerUser(user_id=938375754, access_hash=6112699586595068151)
+--------------------------------------------------------------------------------
+Title     : Nataliya Poznyak
+Type      : personal_chat
+ID        : 944368942
+Username  : nata_li100
+Phone     : None
+Peer raw  : InputPeerUser(user_id=944368942, access_hash=5265861479597555492)
+--------------------------------------------------------------------------------
+Title     : Andrew Andrii
+Type      : personal_chat
+ID        : 949616876
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=949616876, access_hash=-2111912093476783893)
+--------------------------------------------------------------------------------
+Title     : Anna
+Type      : personal_chat
+ID        : 953278289
+Username  : annakapetii
+Phone     : None
+Peer raw  : InputPeerUser(user_id=953278289, access_hash=7696100294642834468)
+--------------------------------------------------------------------------------
+Title     : Надежда Стеклова
+Type      : personal_chat
+ID        : 1046150340
+Username  : NadiiaSteka
+Phone     : 380674022566
+Peer raw  : InputPeerUser(user_id=1046150340, access_hash=-4889599323149868109)
+--------------------------------------------------------------------------------
+Title     : Іван Кривохатько
+Type      : personal_chat
+ID        : 1092728362
+Username  : ikryvokh
+Phone     : 380503278030
+Peer raw  : InputPeerUser(user_id=1092728362, access_hash=8814150881322359649)
+--------------------------------------------------------------------------------
+Title     : Lika Феоктистова
+Type      : personal_chat
+ID        : 1198872172
+Username  : Lika_369
+Phone     : 380504628033
+Peer raw  : InputPeerUser(user_id=1198872172, access_hash=-8588045432879982477)
+--------------------------------------------------------------------------------
+Title     : Дима_охр
+Type      : personal_chat
+ID        : 1462441451
+Username  : None
+Phone     : 380931130129
+Peer raw  : InputPeerUser(user_id=1462441451, access_hash=2394279800668008025)
+--------------------------------------------------------------------------------
+Title     : Віра Ричаківська
+Type      : personal_chat
+ID        : 1488454540
+Username  : Avonadr
+Phone     : None
+Peer raw  : InputPeerUser(user_id=1488454540, access_hash=-2658251079628366187)
+--------------------------------------------------------------------------------
+Title     : Александр Митрохин
+Type      : personal_chat
+ID        : 1635182151
+Username  : None
+Phone     : 380638221512
+Peer raw  : InputPeerUser(user_id=1635182151, access_hash=-6459321892576172491)
+--------------------------------------------------------------------------------
+Title     : Kateryna Boyarova
+Type      : personal_chat
+ID        : 1799376435
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=1799376435, access_hash=-6279035565043741783)
+--------------------------------------------------------------------------------
+Title     : Володимир
+Type      : personal_chat
+ID        : 5156905268
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=5156905268, access_hash=6633969852643193527)
+--------------------------------------------------------------------------------
+Title     : Koval
+Type      : personal_chat
+ID        : 5217663046
+Username  : Koval_Mike
+Phone     : 380970000130
+Peer raw  : InputPeerUser(user_id=5217663046, access_hash=4226918728972008824)
+--------------------------------------------------------------------------------
+Title     : Юля
+Type      : personal_chat
+ID        : 5854531305
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=5854531305, access_hash=5643648060593462619)
+--------------------------------------------------------------------------------
+Title     : Ірина Михайлова
+Type      : personal_chat
+ID        : 5931030570
+Username  : WildHoney_UA
+Phone     : None
+Peer raw  : InputPeerUser(user_id=5931030570, access_hash=-8119214767166180738)
+--------------------------------------------------------------------------------
+Title     : Євгеній
+Type      : personal_chat
+ID        : 6231204341
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=6231204341, access_hash=-5049798798014999505)
+--------------------------------------------------------------------------------
+Title     : N Kh
+Type      : personal_chat
+ID        : 8647440858
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=8647440858, access_hash=890037076973952390)
+--------------------------------------------------------------------------------
+Title     : BYSHA
+Type      : personal_chat
+ID        : 8679088096
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=8679088096, access_hash=9110292540356873728)
+--------------------------------------------------------------------------------
+Title     : Volodymyr Krepky
+Type      : personal_chat
+ID        : 8724117070
+Username  : None
+Phone     : None
+Peer raw  : InputPeerUser(user_id=8724117070, access_hash=-3121093061769879289)
+
+================================================================================
+SUMMARY
+================================================================================
+Resolved: 49
+Failed  : 0

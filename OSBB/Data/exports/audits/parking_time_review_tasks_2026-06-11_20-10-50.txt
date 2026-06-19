@@ -1,0 +1,540 @@
+================================================================================
+PARKING TIME REVIEW TASKS REPORT
+================================================================================
+Generated: 2026-06-11 20:10:50
+
+================================================================================
+SUMMARY
+================================================================================
+Open tasks        : 35
+Apartments affected: 27
+
+================================================================================
+APARTMENT 16
+================================================================================
+Vehicles in DB:
+  id=8 | 8969 | ZEEKR | parking_time=-
+
+Open review tasks:
+  Task 1 | vehicle_id=8 | 8969 | ZEEKR | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=- | person=- | phone=- | model=-
+    chat=Дима_охр; msg_id=31988; no plate found
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 24
+================================================================================
+Vehicles in DB:
+  id=10 | AA4203XA | NISSAN | parking_time=-
+
+Open review tasks:
+  Task 2 | vehicle_id=10 | AA4203XA | Nissan | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=KB128 | person=- | phone=- | model=-
+    chat=Дима_охр; msg_id=31583; plate_status=SUSPICIOUS
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 25
+================================================================================
+Vehicles in DB:
+  id=11 | AA0060HC | BMW | parking_time=-
+  id=12 | AA2095XA | VOLVO | parking_time=-
+  id=13 | AA7499AH | BMW | parking_time=-
+  id=14 | SNDIGO | BMW | parking_time=-
+
+Open review tasks:
+  Task 3 | vehicle_id=11 | AA0060HC | BMW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 4 | vehicle_id=12 | AA2095XA | Volvo | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 5 | vehicle_id=13 | AA7499AH | BMW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 6 | vehicle_id=14 | SNDIGO | BMW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 31
+================================================================================
+Vehicles in DB:
+  id=73 | D00077 | AUDI | parking_time=-
+  id=74 | AA7535YD | ZEEKR | parking_time=-
+
+Open review tasks:
+  Task 31 | vehicle_id=73 | D00077 | Audi | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 32 | vehicle_id=74 | AA7535YD | Zeekr | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=DO0077 | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Alexandr; msg_id=31123; plate_status=SUSPICIOUS
+  plate=AA6535YC | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Alexandr; msg_id=31123; plate_status=STANDARD
+  plate=AA7535YD | person=Погорєлов В.Г. | phone=+380504622914; +380636507585 | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Alexandr; msg_id=31123; plate_status=STANDARD
+  plate=- | person=- | phone=- | model=-
+    chat=Alexandr; msg_id=31528; no plate found
+  plate=DO0077 | person=Погорєлов В.Г. | phone=- | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Дима_охр; msg_id=31233; plate_status=SUSPICIOUS
+  plate=AA6535YC | person=Погорєлов В.Г. | phone=- | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Дима_охр; msg_id=31233; plate_status=STANDARD
+  plate=AA7535YD | person=Погорєлов В.Г. | phone=- | model=Ауди Q8; Mercedes EQE; Zeekr 001
+    chat=Дима_охр; msg_id=31233; plate_status=STANDARD
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 32
+================================================================================
+Vehicles in DB:
+  id=75 | AA6535YC | MERSEDES | parking_time=-
+
+Open review tasks:
+  Task 33 | vehicle_id=75 | AA6535YC | Mersedes | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 40
+================================================================================
+Vehicles in DB:
+  id=20 | AA0667HB | GRANDIS | parking_time=-
+
+Open review tasks:
+  Task 7 | vehicle_id=20 | AA0667HB | Grandis | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 42
+================================================================================
+Vehicles in DB:
+  id=21 | AA0163PH | HONDA | parking_time=-
+
+Open review tasks:
+  Task 8 | vehicle_id=21 | AA0163PH | Honda | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 43
+================================================================================
+Vehicles in DB:
+  id=22 | KA0651K | TOYOTA | parking_time=-
+
+Open review tasks:
+  Task 9 | vehicle_id=22 | KA0651K | Toyota | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 50
+================================================================================
+Vehicles in DB:
+  id=64 | AA1322MC | VOLKSWAGEN | parking_time=-
+  id=76 | KA0262AB | FORD | parking_time=-
+
+Open review tasks:
+  Task 29 | vehicle_id=64 | AA1322MC | VW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 34 | vehicle_id=76 | KA0262AB | Ford | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=KA0262AB | person=- | phone=+380675028550 | model=-
+    chat=Nataliia; msg_id=31015; plate_status=STANDARD
+  plate=- | person=- | phone=- | model=-
+    chat=Nataliia; msg_id=31030; no plate found
+  plate=AA1322MC | person=- | phone=+380674454466 | model=-
+    chat=VLADO; msg_id=31936; plate_status=STANDARD
+  plate=KA0262AB | person=- | phone=- | model=-
+    chat=Дима_охр; msg_id=31171; plate_status=STANDARD
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 51
+================================================================================
+Vehicles in DB:
+  id=23 | AA3884OT | BMW | parking_time=-
+
+Open review tasks:
+  Task 10 | vehicle_id=23 | AA3884OT | BMW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 52
+================================================================================
+Vehicles in DB:
+  id=77 | KA7140AB | KIA | parking_time=-
+
+Open review tasks:
+  Task 35 | vehicle_id=77 | KA7140AB | КІА | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=KA7140AB | person=- | phone=+380933487752 | model=-
+    chat=Olga; msg_id=31872; plate_status=STANDARD
+  plate=- | person=- | phone=- | model=-
+    chat=Дима_охр; msg_id=31901; no plate found
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 80
+================================================================================
+Vehicles in DB:
+  id=27 | AA7786HX | LANOS | parking_time=-
+
+Open review tasks:
+  Task 11 | vehicle_id=27 | AA7786HX | Lanos | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=- | person=- | phone=- | model=-
+    chat=Volodymyr Krepky; msg_id=31531; no plate found
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 84
+================================================================================
+Vehicles in DB:
+  id=29 | AA4448CM | TOYOTA | parking_time=-
+
+Open review tasks:
+  Task 12 | vehicle_id=29 | AA4448CM | Toyota | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 95
+================================================================================
+Vehicles in DB:
+  id=30 | AA9312HB | CHEVROLET | parking_time=-
+
+Open review tasks:
+  Task 13 | vehicle_id=30 | AA9312HB | Chevrolet | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 108
+================================================================================
+Vehicles in DB:
+  id=36 | KA6556BP | BMW | parking_time=-
+
+Open review tasks:
+  Task 14 | vehicle_id=36 | KA6556BP | BMW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=KB108 | person=- | phone=- | model=-
+    chat=Vlad; msg_id=31121; plate_status=SUSPICIOUS
+  plate=KA6556BP | person=- | phone=- | model=-
+    chat=Vlad; msg_id=31121; plate_status=STANDARD
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 110
+================================================================================
+Vehicles in DB:
+  id=37 | AA3393AT | MITSUBISHI | parking_time=-
+
+Open review tasks:
+  Task 15 | vehicle_id=37 | AA3393AT | Mitsubishi | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 111
+================================================================================
+Vehicles in DB:
+  id=38 | AA7565YA | VOLKSWAGEN | parking_time=-
+  id=39 | AA0203HM | HONDA | parking_time=-
+
+Open review tasks:
+  Task 16 | vehicle_id=38 | AA7565YA | VW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 17 | vehicle_id=39 | AA0203HM | Honda | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 115
+================================================================================
+Vehicles in DB:
+  id=40 | AA7383A | HYNDAI | parking_time=-
+  id=41 | AA2670CP | NISSAN | parking_time=-
+
+Open review tasks:
+  Task 18 | vehicle_id=40 | AA7383A | Hyndai | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 19 | vehicle_id=41 | AA2670CP | Nissan | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 120
+================================================================================
+Vehicles in DB:
+  id=42 | KA5004EB | LINCOLN | parking_time=-
+  id=43 | AA7171EA | HONDA | parking_time=Night
+
+Open review tasks:
+  Task 20 | vehicle_id=42 | KA5004EB | Lincoln | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 121
+================================================================================
+Vehicles in DB:
+  id=72 | KA6055KO | AUDI | parking_time=-
+
+Open review tasks:
+  Task 30 | vehicle_id=72 | KA6055KO | Audi | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 122
+================================================================================
+Vehicles in DB:
+  id=44 | AA4712KB | VOLKSWAGEN | parking_time=-
+  id=45 | KA6623M | BMW | parking_time=Night
+
+Open review tasks:
+  Task 21 | vehicle_id=44 | AA4712KB | VW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=KB122 | person=- | phone=- | model=-
+    chat=Vitaliy; msg_id=31609; plate_status=SUSPICIOUS
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 125
+================================================================================
+Vehicles in DB:
+  id=61 | LNH519 | VOLKSWAGEN | parking_time=-
+  id=62 | KA2708HO | LEXUS | parking_time=Night
+  id=63 | AA6626HP | MERSEDES | parking_time=Night
+
+Open review tasks:
+  Task 28 | vehicle_id=61 | LNH519 | VW | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 128
+================================================================================
+Vehicles in DB:
+  id=48 | AA9319PA | KIA | parking_time=-
+
+Open review tasks:
+  Task 22 | vehicle_id=48 | AA9319PA | КІА | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  plate=AA9319PA | person=- | phone=+380662201570 | model=-
+    chat=Александр Митрохин; msg_id=31494; plate_status=STANDARD
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 132
+================================================================================
+Vehicles in DB:
+  id=51 | AA2281MB | SUBARU | parking_time=-
+
+Open review tasks:
+  Task 23 | vehicle_id=51 | AA2281MB | Subaru | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 138
+================================================================================
+Vehicles in DB:
+  id=52 | KA4288BT | JAGUAR | parking_time=Night
+  id=53 | AA6403XC | KIA | parking_time=-
+  id=54 | AA4878KX | KIA | parking_time=-
+
+Open review tasks:
+  Task 24 | vehicle_id=53 | AA6403XC | КІА | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+  Task 25 | vehicle_id=54 | AA4878KX | КІА | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 139
+================================================================================
+Vehicles in DB:
+  id=55 | AA1371MK | RENAULT | parking_time=-
+  id=56 | KA6052PK | BMW | parking_time=Night
+  id=57 | KA7764MK | PEUGEOT | parking_time=Night
+
+Open review tasks:
+  Task 26 | vehicle_id=55 | AA1371MK | Renault | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]
+
+================================================================================
+APARTMENT 142
+================================================================================
+Vehicles in DB:
+  id=59 | AA0721M | HONDA | parking_time=Night
+  id=60 | AA0982AH | OPEL | parking_time=-
+
+Open review tasks:
+  Task 27 | vehicle_id=60 | AA0982AH | Opel | type=parking_time_missing | priority=100
+    current parking_time: -
+    source: vehicles | parking_time is empty
+
+Telegram hints:
+  -
+
+Operator decision options:
+  [Day] [Night] [Ask owner] [Skip]

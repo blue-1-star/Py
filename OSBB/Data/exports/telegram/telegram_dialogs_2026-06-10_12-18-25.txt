@@ -1,0 +1,4101 @@
+================================================================================
+TELEGRAM DIALOGS
+================================================================================
+Dialogs count: 585
+Generated: 2026-06-10 12:18:26
+
+--------------------------------------------------------------------------------
+Title     : BAZYLEV TRADER
+Type      : channel
+ID        : 1329419841
+Username  : BazaBitcoin
+Unread    : 9
+Pinned    : True
+--------------------------------------------------------------------------------
+Title     : Mr Mozart
+Type      : channel
+ID        : 1290061428
+Username  : None
+Unread    : 0
+Pinned    : True
+--------------------------------------------------------------------------------
+Title     : Istorium
+Type      : channel
+ID        : 1258787688
+Username  : istorium_net
+Unread    : 8337
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Рестарт
+Type      : channel
+ID        : 1177342537
+Username  : None
+Unread    : 11208
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Наше тело
+Type      : channel
+ID        : 1497050564
+Username  : None
+Unread    : 7932
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Вечность на Тибете
+Type      : channel
+ID        : 1325471527
+Username  : tibet_love
+Unread    : 8768
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Telegram
+Type      : personal_chat
+ID        : 777000
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Bybit API Discussion
+Type      : supergroup
+ID        : 1281274611
+Username  : BybitAPI
+Unread    : 73036
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Про Бізнес, стартапи, IT
+Type      : channel
+ID        : 1372862774
+Username  : None
+Unread    : 5549
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Новости Кипра Cyprus Butterfly
+Type      : channel
+ID        : 1123421768
+Username  : cyprusnews
+Unread    : 8472
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЗАБЫТАЯ ИСТОРИЯ
+Type      : channel
+ID        : 1535237453
+Username  : None
+Unread    : 5637
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СОКРЫТОЕ
+Type      : channel
+ID        : 1778640067
+Username  : None
+Unread    : 245
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : АНТАРКТИДА | Наследие
+Type      : channel
+ID        : 2341204024
+Username  : None
+Unread    : 360
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 🔊 BazylevTrade.com / Сигналы и Аналитика для Трейдеров
+Type      : channel
+ID        : 1921119853
+Username  : BazylevTrade_TG
+Unread    : 65
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Вторжение
+Type      : channel
+ID        : 1817446437
+Username  : None
+Unread    : 180
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Coin Post – Деньги, инвестиции, биткоин
+Type      : channel
+ID        : 1132611527
+Username  : Coin_Post
+Unread    : 3994
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Адвокат Права
+Type      : channel
+ID        : 1248149892
+Username  : None
+Unread    : 206
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Джейпег Малевича
+Type      : channel
+ID        : 1763850118
+Username  : malepeg
+Unread    : 15028
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Киллер-фича
+Type      : channel
+ID        : 1406656383
+Username  : killerfeat
+Unread    : 9659
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ГуголЪ | IT и Тренды
+Type      : channel
+ID        : 1665860687
+Username  : None
+Unread    : 7476
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Старший (@sniperusdt)
+Type      : channel
+ID        : 2275086698
+Username  : None
+Unread    : 209
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Криптообмін EasyExchange 🇺🇦
+Type      : channel
+ID        : 1513892011
+Username  : esy_exchange
+Unread    : 1886
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Такер Карлсон
+Type      : channel
+ID        : 2289401560
+Username  : K_Taker
+Unread    : 96
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Бенефіціар
+Type      : channel
+ID        : 1284169710
+Username  : None
+Unread    : 3934
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Binance Новости
+Type      : channel
+ID        : 1350175669
+Username  : binance_ru
+Unread    : 1625
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Однажды в трендах
+Type      : channel
+ID        : 1414693404
+Username  : None
+Unread    : 123
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Софи, как стать лучше?
+Type      : channel
+ID        : 2190394841
+Username  : None
+Unread    : 964
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Компьютерная | IT, Digital
+Type      : channel
+ID        : 1344184893
+Username  : None
+Unread    : 6668
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Київ без цензури 🇺🇦
+Type      : channel
+ID        : 1316318953
+Username  : now_kyiv
+Unread    : 1355
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Надежда Стеклова
+Type      : personal_chat
+ID        : 1046150340
+Username  : NadiiaSteka
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Будьмо здорові
+Type      : channel
+ID        : 1840161973
+Username  : None
+Unread    : 3951
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Нарративы Мачихина
+Type      : channel
+ID        : 1150385093
+Username  : m4khn
+Unread    : 1258
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Rustam Vasilevich - трейдинг криптовалют, новости, обзоры рынка
+Type      : channel
+ID        : 1346870469
+Username  : Rustik_Vasilevich
+Unread    : 302
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Liberty Exchange
+Type      : channel
+ID        : 1158056553
+Username  : Liberty_exchange
+Unread    : 1166
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Игра на понижение (OptionsWorld)
+Type      : channel
+ID        : 1146761014
+Username  : OptionsWorld
+Unread    : 327
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Monex
+Type      : channel
+ID        : 1742902514
+Username  : monex_kyiv
+Unread    : 964
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Fikrat Shabanov
+Type      : channel
+ID        : 1977096565
+Username  : Fikrat_Shabanov
+Unread    : 38897
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : FastSaltTimes.com
+Type      : channel
+ID        : 1111829248
+Username  : fastsalttimes
+Unread    : 849
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 💙Ana Celtic Main Chat | Бухгалтерiя та консультації Chat
+Type      : supergroup
+ID        : 2009927002
+Username  : None
+Unread    : 793
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 💛Ana Celtic Main | Бухгалтерiя та консультації
+Type      : channel
+ID        : 1868512496
+Username  : Ana_Celtic
+Unread    : 64
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 🔓 Спот | Хайдара Сабиева
+Type      : channel
+ID        : 1562828895
+Username  : None
+Unread    : 41
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Витрина криптовалют
+Type      : channel
+ID        : 1736461283
+Username  : crypto_showcase
+Unread    : 738
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Litvinoff
+Type      : channel
+ID        : 1344723295
+Username  : None
+Unread    : 1426
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЗАРАБАТЫВАЙ💰
+Type      : channel
+ID        : 1222900482
+Username  : None
+Unread    : 2923
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Книги Українською
+Type      : channel
+ID        : 1852004345
+Username  : booksua11
+Unread    : 3755
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : MPG: Вакансії | Робота | Розвиток
+Type      : channel
+ID        : 1829612287
+Username  : None
+Unread    : 3166
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ITeach: твоя кибербезопасность
+Type      : channel
+ID        : 1501244252
+Username  : iteach_ru
+Unread    : 5459
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : КИТ с Wall Street
+Type      : channel
+ID        : 1583904562
+Username  : whaleWS
+Unread    : 781
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : MPG: Бізнес і Фінанси
+Type      : channel
+ID        : 1829319753
+Username  : mpg_finance
+Unread    : 10241
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Записки пасквілянта
+Type      : channel
+ID        : 1231998105
+Username  : volodymyrboyko
+Unread    : 2278
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Іван Кривохатько
+Type      : personal_chat
+ID        : 1092728362
+Username  : ikryvokh
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tatiana Gromova Godard Живая Книга Жизни
+Type      : channel
+ID        : 1935073949
+Username  : tatiana_gromova_godard
+Unread    : 256
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Юрий Романенко
+Type      : channel
+ID        : 1155695707
+Username  : romanenko_dns
+Unread    : 2346
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Sergey Lubarsky
+Type      : channel
+ID        : 1771335346
+Username  : SergeyLubarsky
+Unread    : 6519
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ОКО МАСОНОВ
+Type      : channel
+ID        : 1943577018
+Username  : None
+Unread    : 5212
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BYSHA
+Type      : personal_chat
+ID        : 8679088096
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Parking_24a_GS
+Type      : supergroup
+ID        : 3996822588
+Username  : Parking_24a_GS
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Лонгрид (Несмиян)
+Type      : channel
+ID        : 1642623742
+Username  : None
+Unread    : 767
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Квест Теория Каст и Ролей
+Type      : channel
+ID        : 1094435752
+Username  : alexkrol
+Unread    : 1193
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Потерянное прошлое
+Type      : channel
+ID        : 1732612730
+Username  : None
+Unread    : 274
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Троянский конь | IT, технологии
+Type      : channel
+ID        : 1538905707
+Username  : trojan_anonym
+Unread    : 2111
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ретро 🔞
+Type      : bot
+ID        : 8366804528
+Username  : retrogram_bot
+Unread    : 187
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ошибка#404
+Type      : bot
+ID        : 8429441451
+Username  : arxivv_404_bot
+Unread    : 71
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Владислав Стешенко | Crypto Kings
+Type      : channel
+ID        : 1311408644
+Username  : vs_cryptokings
+Unread    : 620
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Димитриев
+Type      : channel
+ID        : 1171552896
+Username  : russ_orientalist
+Unread    : 6897
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Психолог Дмитрий Пастернак-Таранушенко
+Type      : channel
+ID        : 1951671991
+Username  : pasternak_taranushenko
+Unread    : 656
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Lika Феоктистова
+Type      : personal_chat
+ID        : 1198872172
+Username  : Lika_369
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СОКРЫТОЕ 🔞
+Type      : bot
+ID        : 6986306402
+Username  : sokrito_tg_bot
+Unread    : 180
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Максим Гольдарб
+Type      : channel
+ID        : 1156712794
+Username  : m_goldarb
+Unread    : 1002
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Евгений Мураев
+Type      : channel
+ID        : 1442124343
+Username  : murayevUA
+Unread    : 549
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Артур Білоус
+Type      : channel
+ID        : 2018125031
+Username  : Arthur_Bilous
+Unread    : 260
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Программирование | книги
+Type      : channel
+ID        : 1305140758
+Username  : it_boooks
+Unread    : 320
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ⚡️ Tron pool energy ⚡️
+Type      : bot
+ID        : 7670579079
+Username  : TronPoolBot
+Unread    : 27
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : НЕ!Азартные игры
+Type      : channel
+ID        : 1755876485
+Username  : None
+Unread    : 1006
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Arestovich / Official
+Type      : channel
+ID        : 1225597716
+Username  : O_Arestovich_official
+Unread    : 2285
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Трейдинг-марафон от Хайдара Сабиева
+Type      : channel
+ID        : 2246606205
+Username  : haydar_marafon
+Unread    : 667
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Цифровой апокалипсис
+Type      : channel
+ID        : 1151176267
+Username  : digital_apocalypse
+Unread    : 3616
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Yuliya Fedorovich
+Type      : personal_chat
+ID        : 626546077
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ALTCLUB
+Type      : channel
+ID        : 2339675158
+Username  : None
+Unread    : 13
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Дима_охр
+Type      : personal_chat
+ID        : 1462441451
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Повідомлення паркінг адміни
+Type      : group
+ID        : 5193798578
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Alla Roienko
+Type      : personal_chat
+ID        : 360192183
+Username  : AR5075
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Деньги&Власть
+Type      : channel
+ID        : 1420237463
+Username  : None
+Unread    : 3801
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 🔓 Фьючерсы | Хайдара Сабиева
+Type      : channel
+ID        : 1503642129
+Username  : None
+Unread    : 104
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Открытые пространства
+Type      : channel
+ID        : 1540992315
+Username  : openexpanse
+Unread    : 7206
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : devdigest // dot net
+Type      : channel
+ID        : 1082828516
+Username  : dncuug
+Unread    : 1820
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Adapty SubHub: мобильные подписки
+Type      : channel
+ID        : 1491207102
+Username  : apple_developer_news
+Unread    : 585
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Аналітика Куща
+Type      : channel
+ID        : 1838251846
+Username  : Analityka_Kush
+Unread    : 1484
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : RationalAnswer | Павел Комаровский
+Type      : channel
+ID        : 1346874275
+Username  : RationalAnswer
+Unread    : 644
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Винда для чайника
+Type      : channel
+ID        : 1932166356
+Username  : the_winda
+Unread    : 187
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Imashev invest
+Type      : channel
+ID        : 1426984821
+Username  : imashev_invest
+Unread    : 886
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Gennady M
+Type      : channel
+ID        : 1287067034
+Username  : gen_m
+Unread    : 243
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Богатейший Ди⚡️NEWS
+Type      : channel
+ID        : 1305719985
+Username  : richdeenews
+Unread    : 748
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Богатейший ДИ / ИИ /
+Type      : channel
+ID        : 1163213919
+Username  : richdi
+Unread    : 276
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Sokrat Online - бібліотека класика
+Type      : channel
+ID        : 2059698051
+Username  : sokrat_online
+Unread    : 635
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : mta.ua bot
+Type      : bot
+ID        : 2115125734
+Username  : mtaua_bot
+Unread    : 39
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : STOP Fake Pandemic / СТОП Фейк Пандемія
+Type      : channel
+ID        : 1343793116
+Username  : stopfakepandemic
+Unread    : 1894
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : HODL
+Type      : channel
+ID        : 1309689589
+Username  : hodlalex
+Unread    : 744
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Леонид
+Type      : personal_chat
+ID        : 430717692
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Черный Ящик
+Type      : bot
+ID        : 8489877098
+Username  : black_Rchik_bot
+Unread    : 78
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Недвижимость Cyprus
+Type      : supergroup
+ID        : 1177546334
+Username  : btfrealty
+Unread    : 659
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Макс Куратов
+Type      : channel
+ID        : 1184742624
+Username  : None
+Unread    : 227
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Blue1star
+Type      : personal_chat
+ID        : 210312208
+Username  : blue1star
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Health
+Type      : channel
+ID        : 1790787113
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : kungurov
+Type      : channel
+ID        : 1198773228
+Username  : alekseykungurov
+Unread    : 392
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Говорит Фурсов
+Type      : channel
+ID        : 1436234144
+Username  : govoritfursov
+Unread    : 3108
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : adm_Parking_24a_GS
+Type      : channel
+ID        : 3607130287
+Username  : adm_parking_24a_GS
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Helga Goloshevich
+Type      : personal_chat
+ID        : 199278593
+Username  : helga_fit
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Parking 24A GS
+Type      : bot
+ID        : 8924565536
+Username  : Parking_24a_GS_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : mxx (мэверик)
+Type      : channel
+ID        : 1254502533
+Username  : mxxmav
+Unread    : 427
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : User Info • Get ID • idbot
+Type      : bot
+ID        : 52504489
+Username  : userinfobot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : FB
+Type      : channel
+ID        : 3183216883
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Music
+Type      : channel
+ID        : 3793192870
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Елена_АльфаБрок
+Type      : personal_chat
+ID        : 8629784884
+Username  : maya95afrolova
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BotFather
+Type      : bot
+ID        : 93372553
+Username  : BotFather
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СоседкаТатГриг173квС
+Type      : personal_chat
+ID        : 64296097
+Username  : bigfoxTania
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Pasha Kostuinik
+Type      : personal_chat
+ID        : 274788475
+Username  : pashakost
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Віталій Хомяк
+Type      : personal_chat
+ID        : 432119518
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto Lamer©
+Type      : channel
+ID        : 1275381155
+Username  : CryptoLamer
+Unread    : 395
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Goloborodko 😎🇺🇦
+Type      : channel
+ID        : 3120380698
+Username  : goloborodko_ua
+Unread    : 268
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : I D E A L I S T
+Type      : channel
+ID        : 1605231707
+Username  : idealist_lab
+Unread    : 916
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Irina
+Type      : personal_chat
+ID        : 253302333
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Julia кв 140
+Type      : personal_chat
+ID        : 551608233
+Username  : fin_standart
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Реферальные позывы х100
+Type      : supergroup
+ID        : 1254454696
+Username  : None
+Unread    : 2047
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Западный Паук
+Type      : channel
+ID        : 1279892690
+Username  : prokop141
+Unread    : 672
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Vlad
+Type      : personal_chat
+ID        : 359738209
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : DomoBot
+Type      : bot
+ID        : 238870335
+Username  : domonet_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Valeriy 🇺🇦🇺🇦🇺🇦
+Type      : personal_chat
+ID        : 284652224
+Username  : ValZagi
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Гарячі вакансії
+Type      : bot
+ID        : 5827866518
+Username  : sms_mpg_bot
+Unread    : 74
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Family telegram
+Type      : group
+ID        : 557983919
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Andrew Andrii
+Type      : personal_chat
+ID        : 949616876
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ruslana Deda
+Type      : personal_chat
+ID        : 545703604
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : X100 (закрытый чат)
+Type      : supergroup
+ID        : 1373942324
+Username  : None
+Unread    : 3674
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Алина Шаповал
+Type      : personal_chat
+ID        : 463016346
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ірина Михайлова
+Type      : personal_chat
+ID        : 5931030570
+Username  : WildHoney_UA
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Konstantin
+Type      : personal_chat
+ID        : 938375754
+Username  : Konstantin_NDA
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : VikTor
+Type      : personal_chat
+ID        : 423310861
+Username  : JackSmiles
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СЕТЬ СОЗНАНИЙ + СНИО (Большой чат)
+Type      : supergroup
+ID        : 1421132545
+Username  : socialnet_snio_common_chat
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : VLADO
+Type      : personal_chat
+ID        : 853948569
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Володимир
+Type      : personal_chat
+ID        : 5156905268
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Olga
+Type      : personal_chat
+ID        : 419448225
+Username  : olga_lsu
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Kateryna Boyarova
+Type      : personal_chat
+ID        : 1799376435
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Анна
+Type      : personal_chat
+ID        : 573564728
+Username  : Marigold_from_ua
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ilya
+Type      : personal_chat
+ID        : 393657773
+Username  : ILUjKA
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ДТЕК Київські електромережі
+Type      : bot
+ID        : 1039251874
+Username  : DTEKKyivskielectromerezhibot
+Unread    : 12
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : preSpacePower
+Type      : channel
+ID        : 1624101097
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Svyat
+Type      : personal_chat
+ID        : 60655413
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Koval
+Type      : personal_chat
+ID        : 5217663046
+Username  : Koval_Mike
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Бізнес Інформатор
+Type      : bot
+ID        : 5869691223
+Username  : mpg_biz_bot
+Unread    : 59
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Небоженко UA - власний блог
+Type      : channel
+ID        : 1485032111
+Username  : nebozh_ua
+Unread    : 238
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Євгеній
+Type      : personal_chat
+ID        : 6231204341
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : N Kh
+Type      : personal_chat
+ID        : 8647440858
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Andrii P.
+Type      : personal_chat
+ID        : 507114320
+Username  : paa2015
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Oleksiy
+Type      : personal_chat
+ID        : 741341962
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Vitaliy
+Type      : personal_chat
+ID        : 387186301
+Username  : tolsom18
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Віра Ричаківська
+Type      : personal_chat
+ID        : 1488454540
+Username  : Avonadr
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Volodymyr Krepky
+Type      : personal_chat
+ID        : 8724117070
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Alexandr
+Type      : personal_chat
+ID        : 522474957
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Лучшие курсы для программистов
+Type      : channel
+ID        : 1740277944
+Username  : IT_Best_Lessons
+Unread    : 1079
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nataliya Poznyak
+Type      : personal_chat
+ID        : 944368942
+Username  : nata_li100
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Александр Митрохин
+Type      : personal_chat
+ID        : 1635182151
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Независимый Международный Союз Возрождения Человечества
+Type      : supergroup
+ID        : 2008977394
+Username  : union_renaissance_humanity
+Unread    : 1119
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ekaterina Gnatovska (164)
+Type      : personal_chat
+ID        : 432687837
+Username  : EkaterinaVelikaya
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Serg Natkha
+Type      : personal_chat
+ID        : 794387910
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Андрей
+Type      : personal_chat
+ID        : 1025360476
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Olena Andrushchenko
+Type      : personal_chat
+ID        : 602414304
+Username  : OlenAndrushchenko
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Юля
+Type      : personal_chat
+ID        : 5854531305
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nataliia
+Type      : personal_chat
+ID        : 683582718
+Username  : natie_bo
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Anna
+Type      : personal_chat
+ID        : 953278289
+Username  : annakapetii
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Вячеслав
+Type      : personal_chat
+ID        : 582004171
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : OSBB
+Type      : channel
+ID        : 3749302582
+Username  : osbb24A
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Kateryna Zhuravska
+Type      : personal_chat
+ID        : 465485028
+Username  : katerynatelegram
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Слава Жадан
+Type      : personal_chat
+ID        : 544857617
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Анатолій В'язовченко
+Type      : personal_chat
+ID        : 805770647
+Username  : arbiter_pro
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 24aParkingbot
+Type      : bot
+ID        : 8655683186
+Username  : ivasucaParkingbot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Алена Алёшина
+Type      : personal_chat
+ID        : 534347210
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Blue1star, Леонид and Надежда
+Type      : group
+ID        : 5280316220
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BazylevMultbot
+Type      : bot
+ID        : 8378251888
+Username  : BazylevMultbot
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CHOW TRADE
+Type      : channel
+ID        : 1254762668
+Username  : Chow_Trade
+Unread    : 450
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Чесний інформер
+Type      : channel
+ID        : 3134735678
+Username  : None
+Unread    : 7
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : amantonio
+Type      : channel
+ID        : 1169993190
+Username  : amantonio
+Unread    : 83
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Комуналка
+Type      : bot
+ID        : 5880405591
+Username  : komunalkaua_bot
+Unread    : 5
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Stacy
+Type      : personal_chat
+ID        : 8654076510
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Anton Tretiak
+Type      : personal_chat
+ID        : 1313835592
+Username  : Jester_o
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Адвокат Романов Факты и Комментарии
+Type      : channel
+ID        : 1479684009
+Username  : advokat_romanov_v
+Unread    : 50
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : X100
+Type      : channel
+ID        : 1287025339
+Username  : None
+Unread    : 885
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ALPPAY Новости
+Type      : channel
+ID        : 1304874869
+Username  : alppay_news_ru
+Unread    : 51
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : thoughts_crypto
+Type      : channel
+ID        : 2314198646
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Родня
+Type      : personal_chat
+ID        : 8768040536
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ProTrade AI
+Type      : channel
+ID        : 1283353167
+Username  : zolotocrypto
+Unread    : 7
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Psychology
+Type      : channel
+ID        : 2588781800
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ДАША - ТВОЙ НУМЕРОЛОГ
+Type      : channel
+ID        : 1662021016
+Username  : hors33numerolog
+Unread    : 356
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 966940685
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Common_prog
+Type      : channel
+ID        : 3875644685
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : RealEstate
+Type      : channel
+ID        : 3846471845
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : FOXTROT
+Type      : bot
+ID        : 1040589121
+Username  : FoxtrotInfo_bot
+Unread    : 24
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Stacy
+Type      : personal_chat
+ID        : 962600170
+Username  : Anastasiia_liceum
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : БукиПапаЕвгенЮры
+Type      : personal_chat
+ID        : 8603449929
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Hel_KS_viber
+Type      : personal_chat
+ID        : 536987406
+Username  : Quik_Tortilla
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Python обучающий
+Type      : channel
+ID        : 1374570847
+Username  : pythonist24
+Unread    : 559
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : My_World
+Type      : channel
+ID        : 1510311206
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 8233143841
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Лев
+Type      : personal_chat
+ID        : 1366903349
+Username  : Zen0xsyyy
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Assistant Ana Navackiene
+Type      : personal_chat
+ID        : 6740983129
+Username  : Assistant_Ana_Navackiene
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Думаем...
+Type      : bot
+ID        : 8126919369
+Username  : Dumaem22847bot
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ферма Земля
+Type      : bot
+ID        : 7096389395
+Username  : FermaZemlya_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ПОЛЯРНИК АЛЕКСЕЙ
+Type      : bot
+ID        : 7575975531
+Username  : no_zemla_bot
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Sofiia Tretiak
+Type      : personal_chat
+ID        : 2109096698
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Влад_электрик
+Type      : personal_chat
+ID        : 5555286646
+Username  : rozetkin
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tribute
+Type      : bot
+ID        : 6675346585
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : RE_Cyprus
+Type      : channel
+ID        : 2330343405
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Милана Коновалова🌺
+Type      : personal_chat
+ID        : 6527403977
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Книжный импорт
+Type      : channel
+ID        : 1112958342
+Username  : importknig
+Unread    : 430
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олексій електрик інвертор
+Type      : personal_chat
+ID        : 1493326227
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : AppLab( м.Мінська)
+Type      : personal_chat
+ID        : 5550262631
+Username  : applelab_obolon
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сервісний центр AppLab 🍏 Дніпро, Київ, Харків, Одеса
+Type      : bot
+ID        : 6515122756
+Username  : AppleLab_ua_bot
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nadiia Boichuk - LET'S INVEST IN UKRAINE -
+Type      : personal_chat
+ID        : 8438577747
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Денисенко Лида
+Type      : personal_chat
+ID        : 8599532290
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Invest_coin
+Type      : channel
+ID        : 1768272274
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Александр Менделев
+Type      : personal_chat
+ID        : 1596051447
+Username  : alex_mendelev
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Адамовка Счетчи Люб
+Type      : personal_chat
+ID        : 7776490386
+Username  : timurchiki228
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Cipolla Rossa
+Type      : personal_chat
+ID        : 8236861124
+Username  : RestoranCipollaRossa
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Катя Smart_bux
+Type      : personal_chat
+ID        : 8385530283
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto_mix
+Type      : channel
+ID        : 1589478946
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Николай Зозуля
+Type      : personal_chat
+ID        : 1977900658
+Username  : Nick751952
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Стёб
+Type      : channel
+ID        : 1199631475
+Username  : None
+Unread    : 6
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Antony
+Type      : channel
+ID        : 3667902501
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Миша
+Type      : personal_chat
+ID        : 7086069103
+Username  : Karrienslym
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : TrustUP | Копитрейдинг
+Type      : channel
+ID        : 2568099877
+Username  : None
+Unread    : 52
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Хайдар Сабиев
+Type      : personal_chat
+ID        : 5228552668
+Username  : Haydar_Sabiev
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Аннушка
+Type      : personal_chat
+ID        : 462842594
+Username  : nestulia
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Dubilet
+Type      : channel
+ID        : 1116485533
+Username  : dmytro_dubilet
+Unread    : 28
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сейф
+Type      : personal_chat
+ID        : 6332943767
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto Bot
+Type      : bot
+ID        : 1559501630
+Username  : None
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Игорь Белялетдинов
+Type      : personal_chat
+ID        : 196026710
+Username  : igorbel
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Старший st
+Type      : personal_chat
+ID        : 7520683360
+Username  : sniperusdt
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : FLAMPIC
+Type      : personal_chat
+ID        : 1053712019
+Username  : flampic
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : AI
+Type      : channel
+ID        : 2914230041
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Alan Fooksman
+Type      : personal_chat
+ID        : 8008796212
+Username  : t4z0ik5lo6
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Python My
+Type      : channel
+ID        : 1571583162
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Support swap-line.com
+Type      : bot
+ID        : 8105024443
+Username  : sup_swapline_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ВодитАнд-Денис
+Type      : personal_chat
+ID        : 8472553044
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : EasyExMaster Exchange Crypto
+Type      : personal_chat
+ID        : 5716547715
+Username  : EasyExMaster
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CashFlow_support Cash_Гончара 35
+Type      : personal_chat
+ID        : 5291950336
+Username  : Cash_Flow_Support
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : МартыноваЕлСем
+Type      : personal_chat
+ID        : 8581284755
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : MacOS
+Type      : channel
+ID        : 3215644932
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : My_comp
+Type      : channel
+ID        : 1711649932
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : API
+Type      : channel
+ID        : 3228353644
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Оборудование NUC
+Type      : channel
+ID        : 1860059323
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Aphorism
+Type      : channel
+ID        : 2466272174
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Антон Новосельский
+Type      : personal_chat
+ID        : 7892493938
+Username  : Corabelle_augeri
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Жизнелюб Наташа Демина
+Type      : personal_chat
+ID        : 8200886666
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : My_IT
+Type      : channel
+ID        : 1628706288
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : tempting_channels
+Type      : channel
+ID        : 1732565493
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ФермаСергКислов
+Type      : personal_chat
+ID        : 8276322872
+Username  : bead_202
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Lixyy
+Type      : personal_chat
+ID        : 6238246846
+Username  : inequalityClipper
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ANSER
+Type      : bot
+ID        : 6227959204
+Username  : ANSERSHOP_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Геннадий_ Volvo
+Type      : personal_chat
+ID        : 8399243660
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Финансы
+Type      : bot
+ID        : 5652883335
+Username  : finance_fbs_bot
+Unread    : 93
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : esoteric
+Type      : channel
+ID        : 2951372855
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олег Игоревич Васильев
+Type      : personal_chat
+ID        : 8322088385
+Username  : nik2600
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ШацкМасажОлег
+Type      : personal_chat
+ID        : 8193651371
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ассистент Софи
+Type      : bot
+ID        : 7766952935
+Username  : assistant_sofi_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nic_Kot
+Type      : personal_chat
+ID        : 635171961
+Username  : Teachmegg
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Роман Коваленко — о крипте (since 2017)
+Type      : channel
+ID        : 1074531031
+Username  : KovaLenko_Roma
+Unread    : 66
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : iSpace.news
+Type      : channel
+ID        : 1157878455
+Username  : None
+Unread    : 77
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Dacha Толокунь
+Type      : personal_chat
+ID        : 7049654930
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олег Лернер
+Type      : personal_chat
+ID        : 5951773033
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : AI
+Type      : channel
+ID        : 2702454721
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Frit
+Type      : personal_chat
+ID        : 8159868003
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : АдамовкаНадіяОлексії
+Type      : personal_chat
+ID        : 7962526042
+Username  : Truhan1
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BybitMT5
+Type      : channel
+ID        : 2783519454
+Username  : BybitMT5
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Starshiyprivet_bot
+Type      : bot
+ID        : 7769380917
+Username  : Starshiyprivet_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Subaru Денис_
+Type      : personal_chat
+ID        : 867658110
+Username  : Des5979
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Вишневое Света
+Type      : personal_chat
+ID        : 8158956057
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nikolay L.
+Type      : personal_chat
+ID        : 8094156088
+Username  : eluiden
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Счётчики воды Сергей
+Type      : personal_chat
+ID        : 7577624289
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Mam_
+Type      : personal_chat
+ID        : 7864062608
+Username  : DonnaDavis209323
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nikolay L.
+Type      : personal_chat
+ID        : 324757451
+Username  : aelvelis
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nady P
+Type      : personal_chat
+ID        : 1367312437
+Username  : NadyPich
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Luch_fav
+Type      : channel
+ID        : 1835252188
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Володя Пазинич
+Type      : personal_chat
+ID        : 7705304461
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Alexander Rozenzhak
+Type      : personal_chat
+ID        : 647214637
+Username  : alexander_rozenzhak
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Sofiia Tretiak
+Type      : personal_chat
+ID        : 7676681454
+Username  : pavelBulkov
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Крипто Анализ
+Type      : channel
+ID        : 1316666833
+Username  : CryptoAnalyz
+Unread    : 80
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Bla Bla Crypto
+Type      : channel
+ID        : 1530672763
+Username  : meta_official_channel
+Unread    : 34
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nasser Bazhan
+Type      : personal_chat
+ID        : 7550997805
+Username  : y_18_z
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Verification Codes
+Type      : bot
+ID        : 489000
+Username  : VerificationCodes
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Егор Желудков
+Type      : personal_chat
+ID        : 8111128379
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : КристинаЛапина🌸
+Type      : personal_chat
+ID        : 6468348738
+Username  : KristinaLap1na
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Луцк Діана
+Type      : personal_chat
+ID        : 7442470602
+Username  : dadsddsrd
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Бізнес повідомлення
+Type      : bot
+ID        : 5520189236
+Username  : bizukra_bot
+Unread    : 41
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : cookery
+Type      : channel
+ID        : 2005761582
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Валентина Козелецкая
+Type      : personal_chat
+ID        : 7699644865
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 7586175012
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сант Петя Хороший
+Type      : personal_chat
+ID        : 7876070798
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : БрЛенаЗолВорота
+Type      : personal_chat
+ID        : 7851091198
+Username  : iiiealt
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Жизнелюб Света Петренко
+Type      : personal_chat
+ID        : 8129732057
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Хохлов продюсер экспертов
+Type      : channel
+ID        : 1578558533
+Username  : prokhokhlov
+Unread    : 116
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЯрошкевичТоляРжищ
+Type      : personal_chat
+ID        : 7884722562
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Тарас Шевченко
+Type      : bot
+ID        : 6431286797
+Username  : knigitrafficbot
+Unread    : 35
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Стеклов Андрей
+Type      : personal_chat
+ID        : 333285999
+Username  : SteklovAndrii
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЛисенкоСергійВікторо
+Type      : personal_chat
+ID        : 7339408284
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tea
+Type      : channel
+ID        : 2085735196
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Uberem_Cleaning
+Type      : bot
+ID        : 1691302413
+Username  : UberemCleaning_bot
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : gerchik.official
+Type      : bot
+ID        : 928747359
+Username  : gerchikofficialbot
+Unread    : 159
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tanja Oreshko
+Type      : personal_chat
+ID        : 6737175566
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 7428828957
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : MMM (My MetaMask)
+Type      : channel
+ID        : 1687207856
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ФАРИК
+Type      : personal_chat
+ID        : 7192810290
+Username  : farikao
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Anastasiia [Dvizh]
+Type      : personal_chat
+ID        : 6978864826
+Username  : dvizhsupportservice
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Тарас Зіновійович_Ірланд
+Type      : personal_chat
+ID        : 1511031284
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Лев
+Type      : personal_chat
+ID        : 6795545068
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Жизнелюб Светлана Георгиевна
+Type      : personal_chat
+ID        : 7126794922
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Common_leave
+Type      : channel
+ID        : 1709067255
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Торговец Альто
+Type      : channel
+ID        : 1581019361
+Username  : torgovecAlto
+Unread    : 26
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Коровин Андрей
+Type      : personal_chat
+ID        : 7232420851
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6385649657
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Kuna Code Bot
+Type      : bot
+ID        : 786805975
+Username  : kunacodebot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олена Анатоліївна Сабадіна
+Type      : personal_chat
+ID        : 6690226050
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Аліна
+Type      : personal_chat
+ID        : 6654829292
+Username  : Finance_Alina
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Groshify
+Type      : personal_chat
+ID        : 5085378476
+Username  : Manager_Groshify
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : перетяжка Оболонь Артём
+Type      : personal_chat
+ID        : 7142384981
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : [MoneyBus] Обмін валют - Доставка
+Type      : bot
+ID        : 5632222036
+Username  : money24_exchange_delivery_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Майдыбура
+Type      : personal_chat
+ID        : 7085306324
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Wallet
+Type      : bot
+ID        : 1985737506
+Username  : wallet
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Виктория Чуфистова
+Type      : personal_chat
+ID        : 7083129864
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Юра Маляр Авто Сырец
+Type      : personal_chat
+ID        : 6763654802
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tatiana
+Type      : personal_chat
+ID        : 619941231
+Username  : colibri222
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Панікарча Гена
+Type      : personal_chat
+ID        : 6705807540
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : InНаusВаляПреп
+Type      : personal_chat
+ID        : 7050478970
+Username  : RyqeeeBatuadoxxx
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Творог Валя
+Type      : personal_chat
+ID        : 6768778611
+Username  : Eighth_Element
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : БукиПетривцыАня
+Type      : personal_chat
+ID        : 6789269157
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : KRAVCHENKO & P2P CRYPTO | 🚀🇺🇦
+Type      : channel
+ID        : 1943373065
+Username  : None
+Unread    : 233
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6866861889
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Лидия & Ко
+Type      : personal_chat
+ID        : 6926600715
+Username  : Sudiy_88
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Тарас Миколайович Курілко
+Type      : personal_chat
+ID        : 6588802305
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЛернерАнтон
+Type      : personal_chat
+ID        : 6576180739
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Прапори з Дмитром Дубілетом
+Type      : channel
+ID        : 1297373103
+Username  : dubilet_flags
+Unread    : 41
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЦЕНЗУРА 🔞
+Type      : bot
+ID        : 6291144576
+Username  : censor_18_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ФермаСашаПиндюр
+Type      : personal_chat
+ID        : 6978274112
+Username  : gaichkaa
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Location_p
+Type      : channel
+ID        : 2008197935
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CytaPolisManager
+Type      : personal_chat
+ID        : 6611121094
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Robot_Dreams
+Type      : bot
+ID        : 1722499523
+Username  : Robot_Dreams_platformbot
+Unread    : 4
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ТТ
+Type      : personal_chat
+ID        : 6673764603
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6467690989
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сергей Луч
+Type      : channel
+ID        : 1766300667
+Username  : Polymodal
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ⁨Галина Шпирналь⁩
+Type      : personal_chat
+ID        : 6962017854
+Username  : Galinka100674
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : KRAVCHENKO & P2P CRYPTO | 🚀🇺🇦
+Type      : bot
+ID        : 6354113727
+Username  : kravchenko_trade_bot
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6883212997
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6542708017
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Portmone.com
+Type      : bot
+ID        : 1041560248
+Username  : portmonesupport_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : AndreasAristo
+Type      : personal_chat
+ID        : 6871106309
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Андрій
+Type      : personal_chat
+ID        : 314338741
+Username  : Andriyhura
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Игорь Корнейчук
+Type      : personal_chat
+ID        : 6316519120
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Технологии Выживания и Развития
+Type      : channel
+ID        : 1238662746
+Username  : Survival_Technology
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6937568921
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : biovitВикторияФитогорм
+Type      : personal_chat
+ID        : 6708211846
+Username  : biovitmng2
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 🌱Общение по душам🦋
+Type      : supergroup
+ID        : 1600757900
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6471787791
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Оля Тимофеева
+Type      : personal_chat
+ID        : 6648329568
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Anastasiya Zhuk
+Type      : personal_chat
+ID        : 396131825
+Username  : psyholog_Anastasiya_Zhuk
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Помічник у вивченні англійської
+Type      : bot
+ID        : 6280387578
+Username  : ukr_pazzle_bot
+Unread    : 24
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Гостомель Борис
+Type      : personal_chat
+ID        : 6589648284
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : VyachelsavBazylev
+Type      : bot
+ID        : 870164351
+Username  : VBazylevbot
+Unread    : 56
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЛернерЛариса
+Type      : personal_chat
+ID        : 6586540446
+Username  : L0RA23
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олеся-сир
+Type      : personal_chat
+ID        : 6503530582
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : nevi.ai | ChatGPT & Midjourney
+Type      : bot
+ID        : 6155577684
+Username  : chatgptgru_bot
+Unread    : 4
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Валерий Юрьевич Котляр
+Type      : personal_chat
+ID        : 6218740590
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Алена_бух
+Type      : personal_chat
+ID        : 659374002
+Username  : MelnykAlona
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : My_growth
+Type      : channel
+ID        : 1913085500
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Парикмахер_Света
+Type      : personal_chat
+ID        : 6438440901
+Username  : mega_bi4
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nikolay L.
+Type      : personal_chat
+ID        : 476291955
+Username  : SergeyLuch
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Osago_Ирина
+Type      : personal_chat
+ID        : 6585379316
+Username  : smart_brain_top
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ася Спортлайф
+Type      : personal_chat
+ID        : 5953380441
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6352207253
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : RIELTOR.UA Bot
+Type      : bot
+ID        : 5509189445
+Username  : RIELTORUA_phone_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : TV
+Type      : channel
+ID        : 1800086798
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Зазимье Василий
+Type      : personal_chat
+ID        : 6387334176
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Оповещение
+Type      : bot
+ID        : 6177004580
+Username  : moneyesoteric_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5926231661
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Первый Мужской
+Type      : bot
+ID        : 6143641536
+Username  : firsmanchik_bot
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Бабич Володя
+Type      : personal_chat
+ID        : 969359024
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Main_leave
+Type      : channel
+ID        : 1652826889
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto_leave
+Type      : channel
+ID        : 1737473179
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЛисенкоСергеяЖена
+Type      : personal_chat
+ID        : 5761830509
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : МирКурсов - платные курсы бесплатно
+Type      : channel
+ID        : 1188434273
+Username  : slivvkiorg
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Covid
+Type      : channel
+ID        : 1534355630
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ripple XRP News #Ripple #XRP
+Type      : channel
+ID        : 1220869410
+Username  : ripplenews24
+Unread    : 832
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЗНАЙОМСТВА🔥СЕКС🔥КИЇВ
+Type      : channel
+ID        : 1409987336
+Username  : znayomstva_Kyyiv
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Александр Еленин
+Type      : personal_chat
+ID        : 5737511726
+Username  : Rumma90
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Володя Воробей
+Type      : personal_chat
+ID        : 5398807756
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Віктор Кахута
+Type      : personal_chat
+ID        : 252445876
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Наталія Молчанова
+Type      : personal_chat
+ID        : 792263500
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Алла Стрілець
+Type      : personal_chat
+ID        : 5135300413
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СпортлайфТаня
+Type      : personal_chat
+ID        : 6033553965
+Username  : tatianaakovalenko
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6032597796
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tatiana Prokopchuk
+Type      : personal_chat
+ID        : 476041868
+Username  : TatiVarna
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СпирулинаАнна
+Type      : personal_chat
+ID        : 6266357632
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Shadow Anonymous
+Type      : channel
+ID        : 1240691527
+Username  : shadow_anonymous_insights
+Unread    : 319
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 🌱Пространство СИЛЫ🔥
+Type      : channel
+ID        : 1452832542
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ШацкиеТаняРиба
+Type      : personal_chat
+ID        : 5690944336
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ipnetBot
+Type      : bot
+ID        : 706539419
+Username  : ipnetBot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ключи от Рая. Новый Завет
+Type      : channel
+ID        : 1780246931
+Username  : kljuchi_ot_raja
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Костя Рябокляч
+Type      : personal_chat
+ID        : 1169391916
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 💌 Rubin
+Type      : bot
+ID        : 5515587165
+Username  : Rubin_ru_Bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЗнахаркаГалинаС.Піщі
+Type      : personal_chat
+ID        : 6255458859
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ZZV_fav
+Type      : channel
+ID        : 1963747998
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : KotIL Chat
+Type      : supergroup
+ID        : 1461371104
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Крем Корейск. Crispy
+Type      : personal_chat
+ID        : 6276431580
+Username  : crispyua
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : КофеОлег
+Type      : personal_chat
+ID        : 6103490652
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : O Р
+Type      : personal_chat
+ID        : 5241707848
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Replies
+Type      : bot
+ID        : 1271266957
+Username  : replies
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : X100 Хайлайты
+Type      : channel
+ID        : 1117837818
+Username  : None
+Unread    : 483
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CryptoPing Channel
+Type      : channel
+ID        : 1227773378
+Username  : cryptopingfree
+Unread    : 343
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 6253470820
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Буки Инна
+Type      : personal_chat
+ID        : 6177398663
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Pix2Mix - Change your face
+Type      : bot
+ID        : 1400261968
+Username  : Pix2MixV2Bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Света_Чала
+Type      : personal_chat
+ID        : 6029361237
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Только вперёд!
+Type      : channel
+ID        : 1720536762
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Vlad
+Type      : personal_chat
+ID        : 286313569
+Username  : wvladdev
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5691151598
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ИпамЛьвов
+Type      : personal_chat
+ID        : 5419500277
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5849608974
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Mary Ben
+Type      : personal_chat
+ID        : 5871219046
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5879811965
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СправкаВикторияВалентиновна
+Type      : personal_chat
+ID        : 5912880647
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Гельthikingup
+Type      : personal_chat
+ID        : 5786827431
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : АнглМишкеДенис
+Type      : personal_chat
+ID        : 5653644695
+Username  : DenisBurunduk
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : arc_leaved_chats
+Type      : channel
+ID        : 1728159049
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5384865381
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ㅤㅤ ‌‎ ₿₪₴
+Type      : personal_chat
+ID        : 1808094170
+Username  : ooMExchange
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Meta Comics
+Type      : bot
+ID        : 5063249697
+Username  : Meta_Gamebot
+Unread    : 53
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Перше Бюро Перекладів
+Type      : personal_chat
+ID        : 5741099935
+Username  : FTB_translation
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5539507485
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 650934693
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СпортлайфВышгородНадя
+Type      : personal_chat
+ID        : 5683104882
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : X100 Distributor
+Type      : bot
+ID        : 725459992
+Username  : x100profitbot
+Unread    : 65
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5736815832
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Президент України В.Зеленський | Зеленский
+Type      : channel
+ID        : 1133861851
+Username  : None
+Unread    : 10
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5624437627
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Светлана Шишова
+Type      : personal_chat
+ID        : 5662813689
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5629687719
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Адамовка Сусідк Над Мих
+Type      : personal_chat
+ID        : 5691383012
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ксерокс
+Type      : personal_chat
+ID        : 5567658802
+Username  : FotoCopiMinska
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Адамчук Нина Петр
+Type      : personal_chat
+ID        : 5380569694
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ЖэкКрышаАндрАлександрович
+Type      : personal_chat
+ID        : 5769607818
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ОЛЕНА ЛИПЕНЬ
+Type      : channel
+ID        : 1439457251
+Username  : OK785
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : НовЛинияЛешаГипс
+Type      : personal_chat
+ID        : 5677780731
+Username  : Qhsjc18
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5420167102
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BTC banker
+Type      : bot
+ID        : 159405177
+Username  : BTC_CHANGE_BOT
+Unread    : 17
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Галя дружина Володі
+Type      : personal_chat
+ID        : 5485615155
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : КриптоПрактика
+Type      : channel
+ID        : 1190387082
+Username  : cryptopraktika
+Unread    : 57
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Macro Exchange
+Type      : personal_chat
+ID        : 1223476180
+Username  : macroexchange
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сосновская Яна
+Type      : personal_chat
+ID        : 5160562106
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ДТЕК Київські регіональні електромережі
+Type      : bot
+ID        : 1424629479
+Username  : DTEKKyivRegionElektromerezhiBot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Бабушка Верёвкиной Марины
+Type      : personal_chat
+ID        : 5545373655
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Nasser Bazhan
+Type      : personal_chat
+ID        : 5568056882
+Username  : majidniky
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : 💲Futures Trading by Tarnovskiy 💲
+Type      : supergroup
+ID        : 1511109826
+Username  : None
+Unread    : 71
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 742288064
+Username  : None
+Unread    : 4
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : УправдомВладимирАнатольевич
+Type      : personal_chat
+ID        : 5455156165
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : КузминцыТамПетр
+Type      : personal_chat
+ID        : 5563457594
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : МаклерВалера
+Type      : personal_chat
+ID        : 5522604550
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : IT_leave
+Type      : channel
+ID        : 1792689644
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ГамалейНина
+Type      : personal_chat
+ID        : 5404424766
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : R V
+Type      : personal_chat
+ID        : 269573333
+Username  : hopcicps4
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : The Rich Trader 🐋
+Type      : channel
+ID        : 1337031551
+Username  : TheRichTrader_Real
+Unread    : 160
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ГавтанцыАнтонМедвед
+Type      : personal_chat
+ID        : 5197043283
+Username  : medved7854
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ICO Дня
+Type      : channel
+ID        : 1145654718
+Username  : icotoday
+Unread    : 20
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5299787234
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5227357017
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сигналы Ди
+Type      : channel
+ID        : 1170886601
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ПарикмВалера
+Type      : personal_chat
+ID        : 5202067414
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5157597853
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СпортлайфTetiana
+Type      : personal_chat
+ID        : 5265896066
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Дядя Вася
+Type      : personal_chat
+ID        : 5239403262
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Самсонник Нила
+Type      : personal_chat
+ID        : 5289842664
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ГрибокТатьяна
+Type      : personal_chat
+ID        : 5270254073
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Аква Шаломова Ира
+Type      : personal_chat
+ID        : 5250220928
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Татьяна Алексеевна Полковская
+Type      : personal_chat
+ID        : 5268278530
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Аня_Соц-раб
+Type      : personal_chat
+ID        : 5288599512
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Миша Сантехника Воскресенка
+Type      : personal_chat
+ID        : 5190552546
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Пока мать спит мы думаем
+Type      : group
+ID        : 525661603
+Username  : None
+Unread    : 93
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Artem Солотвино - Румыния
+Type      : personal_chat
+ID        : 571009485
+Username  : Id_70077
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 462763617
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 5159766637
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BanklessRU
+Type      : channel
+ID        : 1437680268
+Username  : BanklessRU
+Unread    : 15
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олег электрик Воскресенка
+Type      : personal_chat
+ID        : 5202021656
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Володимир Поляк Volodymyr Polyak
+Type      : personal_chat
+ID        : 5123571489
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Михаил Михайлович
+Type      : personal_chat
+ID        : 5167260827
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сливы сливы
+Type      : channel
+ID        : 1765650891
+Username  : None
+Unread    : 48
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Новости криптовалют. Altcoin.info 💰
+Type      : channel
+ID        : 1091164421
+Username  : infoaltcoin
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : C# 10 and .NET 6
+Type      : channel
+ID        : 1787230942
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : UniversalBank
+Type      : bot
+ID        : 1361330616
+Username  : UniversalBank_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 2081253676
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : DInvest
+Type      : channel
+ID        : 1517770325
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 814913377
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СИНЕРГИЯ АРХИВ-ВАЖНОЕ
+Type      : channel
+ID        : 1559943473
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : СИНЕРГИЯ - БИБЛИОТЕКА
+Type      : channel
+ID        : 1745301538
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Space Crypto
+Type      : bot
+ID        : 2041478599
+Username  : SpaceRequestsBot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 2101901417
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Adamos
+Type      : personal_chat
+ID        : 2102050453
+Username  : Tbkad
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Pro Traders Club
+Type      : supergroup
+ID        : 1250122448
+Username  : Protradersclub1
+Unread    : 6
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Николай Николаевич Капустин
+Type      : personal_chat
+ID        : 2082972031
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Павел Поступаленко
+Type      : personal_chat
+ID        : 2013019836
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Aleksandr Gordeev 📩
+Type      : channel
+ID        : 1528107165
+Username  : None
+Unread    : 2
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 2008213639
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Дія – Державні послуги онлайн
+Type      : bot
+ID        : 985334078
+Username  : Diia_help_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Valeriy Kotliar
+Type      : personal_chat
+ID        : 1955996302
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сергій Зарічний
+Type      : personal_chat
+ID        : 1994892960
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Svitlana
+Type      : personal_chat
+ID        : 1993775491
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Covid
+Type      : channel
+ID        : 1592493391
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Bazylev СЛИВ Базылев
+Type      : channel
+ID        : 1399572041
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CRYPTO SENSEI
+Type      : channel
+ID        : 1238338292
+Username  : None
+Unread    : 24
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Сибирский Прополис
+Type      : personal_chat
+ID        : 1878681458
+Username  : domovichokMagazin
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : CACTUS Гаджети та Аксесуари
+Type      : personal_chat
+ID        : 537713693
+Username  : bycactus
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Oleg Khomko
+Type      : personal_chat
+ID        : 1709741220
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Claim BTC Bot
+Type      : bot
+ID        : 1152438328
+Username  : Crypto_Claimer_Bot
+Unread    : 14
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : SAVCHENKO.COME
+Type      : channel
+ID        : 1350971815
+Username  : None
+Unread    : 35
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : AlfaCentr
+Type      : personal_chat
+ID        : 932626851
+Username  : ChatAlfaCentr
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Максим Радченко
+Type      : personal_chat
+ID        : 825761321
+Username  : Maksim_Radchenko
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Dmytro Sotsenko
+Type      : personal_chat
+ID        : 225635607
+Username  : MetalurgD
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Юра
+Type      : personal_chat
+ID        : 859637328
+Username  : PramPamPam
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 1534905642
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Анастасія Довгун Dolgun
+Type      : personal_chat
+ID        : 868217071
+Username  : OnResult
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : KotIL
+Type      : channel
+ID        : 1489233672
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Stickers
+Type      : bot
+ID        : 429000
+Username  : Stickers
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Fede
+Type      : personal_chat
+ID        : 4950343
+Username  : Yiyinovich
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 729669922
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Евгений
+Type      : personal_chat
+ID        : 1627053219
+Username  : Eugeneee999
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Виктория Клименко🍓
+Type      : personal_chat
+ID        : 1332085021
+Username  : Vikki090816
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : InfoTAX
+Type      : bot
+ID        : 1477484471
+Username  : infoTAXbot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Everest Insiders
+Type      : channel
+ID        : 1375116557
+Username  : None
+Unread    : 101
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ДаркМаркет
+Type      : channel
+ID        : 1179741264
+Username  : None
+Unread    : 15
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Oleg
+Type      : personal_chat
+ID        : 1555848604
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Василиса Прекрасная
+Type      : personal_chat
+ID        : 1516522931
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Пасічник_ Вячеслав
+Type      : personal_chat
+ID        : 1542579288
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Test
+Type      : channel
+ID        : 1239909290
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Denis Vlasyuk
+Type      : personal_chat
+ID        : 515505353
+Username  : Denis_Supp0rt
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Матрос Кошка
+Type      : personal_chat
+ID        : 147109348
+Username  : Matros_Kit
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Александр Мельник
+Type      : personal_chat
+ID        : 992817737
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 444615529
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ACEBTC
+Type      : channel
+ID        : 1123385580
+Username  : None
+Unread    : 9
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : PRO SLIV 🔮
+Type      : channel
+ID        : 1235465949
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : JP Morgan Insider
+Type      : channel
+ID        : 1432793609
+Username  : None
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Валера Котляр
+Type      : personal_chat
+ID        : 1493677700
+Username  : romchk88
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto thoughts
+Type      : channel
+ID        : 1428072194
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : -
+Type      : personal_chat
+ID        : 1498695456
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Крипта без шняги
+Type      : channel
+ID        : 1396558100
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Anton
+Type      : personal_chat
+ID        : 506066974
+Username  : AntonS87
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Jack Vorobey
+Type      : personal_chat
+ID        : 1112319502
+Username  : jac_vorobey
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Traders v2
+Type      : supergroup
+ID        : 1451331098
+Username  : None
+Unread    : 27
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Aleks Richmond
+Type      : personal_chat
+ID        : 153041458
+Username  : Richmond27
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto Exchange
+Type      : personal_chat
+ID        : 1281093192
+Username  : Crypto_Exchange1
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Cuna
+Type      : channel
+ID        : 1118174405
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Abidjan-Fx
+Type      : channel
+ID        : 1398766421
+Username  : None
+Unread    : 3
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Денис-вент
+Type      : personal_chat
+ID        : 1177099923
+Username  : D555507
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Alexandr Duchenko
+Type      : personal_chat
+ID        : 1124839099
+Username  : lop754b
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Vlad Nobilis
+Type      : personal_chat
+ID        : 37011424
+Username  : nobilis
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : PMznaki. XMR, BTC, ETH, LTC...
+Type      : personal_chat
+ID        : 637451633
+Username  : pmznaki
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Юрий Пушкарёв
+Type      : personal_chat
+ID        : 323850625
+Username  : Ypushkarev
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Viacheslav
+Type      : personal_chat
+ID        : 506236421
+Username  : viacheslav_stf
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Марина Радюк
+Type      : personal_chat
+ID        : 715656033
+Username  : mrntt77
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : BitJackass
+Type      : channel
+ID        : 1298458295
+Username  : BitJackassCrypto
+Unread    : 3
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Оля_Бар
+Type      : personal_chat
+ID        : 994154957
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Олександр
+Type      : personal_chat
+ID        : 839380978
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ivan Paskar
+Type      : personal_chat
+ID        : 151963356
+Username  : paskal_navi
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Наталья Киевэнерго
+Type      : personal_chat
+ID        : 1017250968
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : ︎ ︎ ︎ ︎
+Type      : personal_chat
+ID        : 424024938
+Username  : bosskorostenx
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Simon
+Type      : personal_chat
+ID        : 512671830
+Username  : SimonovSimon
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Dmytro
+Type      : personal_chat
+ID        : 856938566
+Username  : CheckYourCrypto
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Dmitriy | M
+Type      : personal_chat
+ID        : 125158312
+Username  : x_0088
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Ваня
+Type      : personal_chat
+ID        : 1050282479
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Mr Mozart Bot
+Type      : bot
+ID        : 865571062
+Username  : cryptomozart_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Света-том-сок
+Type      : personal_chat
+ID        : 991373208
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Azimut
+Type      : personal_chat
+ID        : 456722223
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Tetiana Volynska
+Type      : personal_chat
+ID        : 371850139
+Username  : perekliolga
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Artem Bohoslov
+Type      : personal_chat
+ID        : 212512618
+Username  : artemont
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : EarnBTC Official Bot
+Type      : bot
+ID        : 863991249
+Username  : earnbtc_official_bot
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Mr Mozart Help
+Type      : personal_chat
+ID        : 980755984
+Username  : mozart_info
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Алекс
+Type      : personal_chat
+ID        : 474739683
+Username  : shadowpsy
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Вадим Губатый
+Type      : personal_chat
+ID        : 976256335
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Crypto News
+Type      : channel
+ID        : 1425244372
+Username  : None
+Unread    : 0
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Andriy Kremin
+Type      : personal_chat
+ID        : 658409855
+Username  : AndriyKremin
+Unread    : 1
+Pinned    : False
+--------------------------------------------------------------------------------
+Title     : Володимир Поляк Volodymyr Polyak
+Type      : personal_chat
+ID        : 896929546
+Username  : MexaHik_TaHkepa
+Unread    : 0
+Pinned    : False
