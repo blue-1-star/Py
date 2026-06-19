@@ -1,0 +1,166 @@
+====================================================================================================
+PARKING CHARGES DRY RUN
+====================================================================================================
+Generated : 2026-06-18 18:00:39
+DB        : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE      : TEST/WORK
+Period    : 2026-05_2026-06
+Months    : 2
+Tariff on : 2026-05-01
+
+====================================================================================================
+SKIPPED — НЕ БУДЕТ НАЧИСЛЕНО
+====================================================================================================
+id | apt | plate | model | parking_time | reason
+----------------------------------------------------------------------------------------------------
+8 | 16 | 8969 | ZEEKR | NULL | parking_time=NULL/unknown
+10 | 24 | AA4203XA | NISSAN | NULL | parking_time=NULL/unknown
+11 | 25 | AA0060HC | BMW | NULL | parking_time=NULL/unknown
+12 | 25 | AA2095XA | VOLVO | NULL | parking_time=NULL/unknown
+13 | 25 | AA7499AH | BMW | NULL | parking_time=NULL/unknown
+14 | 25 | INDIGO | BMW | NULL | parking_time=NULL/unknown
+73 | 31 | D00077 | AUDI | NULL | parking_time=NULL/unknown
+74 | 31 | AA7535YD | ZEEKR | NULL | parking_time=NULL/unknown
+75 | 32 | AA6535YC | MERSEDES | NULL | parking_time=NULL/unknown
+20 | 40 | AA0667HB | GRANDIS | NULL | parking_time=NULL/unknown
+21 | 42 | AA0163PH | HONDA | NULL | parking_time=NULL/unknown
+22 | 43 | KA0651K | TOYOTA | NULL | parking_time=NULL/unknown
+64 | 50 | AA1322MC | VOLKSWAGEN | NULL | parking_time=NULL/unknown
+76 | 50 | KA0262AB | FORD | NULL | parking_time=NULL/unknown
+23 | 51 | AA3884OT | BMW | NULL | parking_time=NULL/unknown
+77 | 52 | KA7140AB | KIA | NULL | parking_time=NULL/unknown
+27 | 80 | AA7786HX | LANOS | NULL | parking_time=NULL/unknown
+29 | 84 | AA4448CM | TOYOTA | NULL | parking_time=NULL/unknown
+30 | 95 | AA9312HB | CHEVROLET | NULL | parking_time=NULL/unknown
+36 | 108 | KA6556BP | BMW | NULL | parking_time=NULL/unknown
+37 | 110 | AA3393AT | MITSUBISHI | NULL | parking_time=NULL/unknown
+38 | 111 | AA7565YA | VOLKSWAGEN | NULL | parking_time=NULL/unknown
+39 | 111 | AA0203HM | HONDA | NULL | parking_time=NULL/unknown
+40 | 115 | AA7383A | HYNDAI | NULL | parking_time=NULL/unknown
+41 | 115 | AA2670CP | NISSAN | NULL | parking_time=NULL/unknown
+42 | 120 | KA5004EB | LINCOLN | NULL | parking_time=NULL/unknown
+72 | 121 | KA6055KO | AUDI | NULL | parking_time=NULL/unknown
+44 | 122 | AA4712KB | VOLKSWAGEN | NULL | parking_time=NULL/unknown
+61 | 125 | LNH519 | VOLKSWAGEN | NULL | parking_time=NULL/unknown
+48 | 128 | AA9319PA | KIA | NULL | parking_time=NULL/unknown
+51 | 132 | AA2281MB | SUBARU | NULL | parking_time=NULL/unknown
+53 | 138 | AA6403XC | KIA | NULL | parking_time=NULL/unknown
+54 | 138 | AA4878KX | KIA | NULL | parking_time=NULL/unknown
+55 | 139 | AA1371MK | RENAULT | NULL | parking_time=NULL/unknown
+60 | 142 | AA0982AH | OPEL | NULL | parking_time=NULL/unknown
+
+====================================================================================================
+CHARGES TO CREATE
+====================================================================================================
+apt | plate | model | parking_time | service | qty | unit_price | amount
+----------------------------------------------------------------------------------------------------
+1 | 9599 | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+2 | A8756HK | MERCEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+8 | AA8008M | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+10 | AA54B | AA3455 | Night | PARKING_NIGHT | 2 | 500 | 1000
+12 | A0448YB | AUDI | Night | PARKING_NIGHT | 2 | 500 | 1000
+13 | KA7550BC | SKODA | Day | PARKING_DAY | 2 | 200 | 400
+13 | AA5472OA | - | Night | PARKING_NIGHT | 2 | 500 | 1000
+14 | KA1165IB | HYUNDAI | Night | PARKING_NIGHT | 2 | 500 | 1000
+27 | AP8170X | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+29 | AA5432EX | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+30 | KA0186CM | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+38 | AA9437MX | KIA | Night | PARKING_NIGHT | 2 | 500 | 1000
+38 | AA1474IB | OPEL | Night | PARKING_NIGHT | 2 | 500 | 1000
+56 | KA95552TB | SUZUKI | Night | PARKING_NIGHT | 2 | 500 | 1000
+69 | KA6061KK | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+69 | KA5670EB | KIA | Night | PARKING_NIGHT | 2 | 500 | 1000
+71 | BM1253BX | SKODA | Night | PARKING_NIGHT | 2 | 500 | 1000
+82 | KA1901PX | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+89 | KA6739E | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+89 | AA0606KB | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+89 | AA4566CT | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+96 | KA6144PM | AUDI | Night | PARKING_NIGHT | 2 | 500 | 1000
+98 | AA3804KI | VOLVO | Night | PARKING_NIGHT | 2 | 500 | 1000
+101 | KA6714MP | SKODA | Night | PARKING_NIGHT | 2 | 500 | 1000
+105 | AA3033BC | SUBARU | Night | PARKING_NIGHT | 2 | 500 | 1000
+106 | AA3353B | VOLKSWAGEN | Night | PARKING_NIGHT | 2 | 500 | 1000
+107 | A7758TE | NISSAN | Night | PARKING_NIGHT | 2 | 500 | 1000
+120 | AA7171EA | HONDA | Night | PARKING_NIGHT | 2 | 500 | 1000
+122 | KA6623M | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+125 | KA2708HO | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+125 | AA6626HP | MERSEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+126 | AA8393B | TESLA | Night | PARKING_NIGHT | 2 | 500 | 1000
+126 | KA7973CC | VOLKSWAGEN | Night | PARKING_NIGHT | 2 | 500 | 1000
+129 | KA8009B | NISSAN | Night | PARKING_NIGHT | 2 | 500 | 1000
+129 | KA6786PE | MERSEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+133 | A5787ET | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+133 | AM0808BO | MAZDA | Night | PARKING_NIGHT | 2 | 500 | 1000
+134 | AM1317HT | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+134 | AA2558HK | NISSAN | Night | PARKING_NIGHT | 2 | 500 | 1000
+138 | KA4288BT | JAGUAR | Night | PARKING_NIGHT | 2 | 500 | 1000
+139 | KA6052PK | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+139 | KA7764MK | PEUGEOT | Night | PARKING_NIGHT | 2 | 500 | 1000
+140 | A7772C | LINCOLN | Night | PARKING_NIGHT | 2 | 500 | 1000
+142 | AA0721M | HONDA | Night | PARKING_NIGHT | 2 | 500 | 1000
+144 | AA9599 | AUDI | Day | PARKING_DAY | 2 | 200 | 400
+144 | KA9959 | PORSCHE | Day | PARKING_DAY | 2 | 200 | 400
+145 | AA1402MK | CHEVROLET | Day | PARKING_DAY | 2 | 200 | 400
+155 | KA9151 | TOYOTA | Day | PARKING_DAY | 2 | 200 | 400
+155 | AA7020 | LEXUS | Day | PARKING_DAY | 2 | 200 | 400
+155 | KA1175 | TOYOTA | Day | PARKING_DAY | 2 | 200 | 400
+158 | AA5566CO | AUDI | Night | PARKING_NIGHT | 2 | 500 | 1000
+159 | KA5689BB | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+160 | KA7030TH | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+161 | AA5003MX | LEXUS | Night | PARKING_NIGHT | 2 | 500 | 1000
+161 | AA9868KC | AUDI | Night | PARKING_NIGHT | 2 | 500 | 1000
+162 | AA5557TE | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+167 | AA4477OH | TOYOTA | Night | PARKING_NIGHT | 2 | 500 | 1000
+169 | KA1784EA | MERCEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+171 | KA5524KA | MAZDA | Night | PARKING_NIGHT | 2 | 500 | 1000
+173 | AA9415YC | TESLA | Day | PARKING_DAY | 2 | 200 | 400
+173 | KA1188BK | BMW | Day | PARKING_DAY | 2 | 200 | 400
+173 | KA2729CH | JAGUAR | Day | PARKING_DAY | 2 | 200 | 400
+174 | AA8787BC | VOLVO | Day | PARKING_DAY | 2 | 200 | 400
+176 | AA1234BT | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+180 | AA5993TH | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+180 | AA9489XK | VOLKSWAGEN | Day | PARKING_DAY | 2 | 200 | 400
+181 | BO7254EM | VOLKSWAGEN | Day | PARKING_DAY | 2 | 200 | 400
+182 | BO0125EX | BMW | Night | PARKING_NIGHT | 2 | 500 | 1000
+182 | BO8887BB | LAND ROVER | Night | PARKING_NIGHT | 2 | 500 | 1000
+185 | KA1302H | KIA | Day | PARKING_DAY | 2 | 200 | 400
+186 | AA5553EB | LEXUS | Day | PARKING_DAY | 2 | 200 | 400
+186 | AA5553P | MERCEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+187 | AA7007AO | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+187 | AA7007OO | RANGE ROVER | Night | PARKING_NIGHT | 2 | 500 | 1000
+188 | A5568AC | - | Day | PARKING_DAY | 2 | 200 | 400
+191 | AA1677MA | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+191 | KA3326E | BYD | Day | PARKING_DAY | 2 | 200 | 400
+191 | K5775AC | MERCEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+194 | AA5551H | MERCEDES | Night | PARKING_NIGHT | 2 | 500 | 1000
+194 | KA8848AO | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+195 | AA1102AA | JEEP | Night | PARKING_NIGHT | 2 | 500 | 1000
+195 | AA8838TX | AUDI | Day | PARKING_DAY | 2 | 200 | 400
+196 | AA9933EC | NISSAN | Day | PARKING_DAY | 2 | 200 | 400
+197 | AA0403EM | SKODA | Day | PARKING_DAY | 2 | 200 | 400
+198 | KA2882E | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+198 | KA2882TT | RANGE ROVER | Day | PARKING_DAY | 2 | 200 | 400
+200 | AA8499AK | HONDA | Day | PARKING_DAY | 2 | 200 | 400
+200 | AA5200H | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+201 | AA4388EX | VOLKSWAGEN | Day | PARKING_DAY | 2 | 200 | 400
+202 | KA8801BB | RANGE ROVER | Day | PARKING_DAY | 2 | 200 | 400
+203 | AA5054AX | - | Night | PARKING_NIGHT | 2 | 500 | 1000
+203 | AA8069M | - | Day | PARKING_DAY | 2 | 200 | 400
+205 | KA2882AE | VOLKSWAGEN | Day | PARKING_DAY | 2 | 200 | 400
+205 | KA8482 | LEXUS | Day | PARKING_DAY | 2 | 200 | 400
+206 | AA1311BP | MERCEDES | Day | PARKING_DAY | 2 | 200 | 400
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+New charges count       : 95
+Existing charges count  : 0
+Skipped vehicles        : 35
+Missing tariffs         : 0
+
+PARKING_DAY   count     : 34
+PARKING_DAY   total     : 13600
+PARKING_NIGHT count     : 61
+PARKING_NIGHT total     : 61000
+
+TOTAL TO CREATE         : 74600

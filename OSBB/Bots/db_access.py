@@ -1,8 +1,9 @@
 from pathlib import Path
 import sys
 import sqlite3
-from datetime import datetime
 import re
+from datetime import datetime
+
 
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
@@ -2537,6 +2538,66 @@ def set_apartment_verification_in_progress(apartment_number, verified_by=None):
 # Agreement dashboard
 # ==========================================================
 
+def is_composite_apartment(value):
+    if not value:
+        return False
+
+    value = str(value).strip()
+
+    return bool(
+        re.match(r"^\d+\s*[._/,]\s*\d+$", value)
+    )
+
+
+def normalize_composite_apartment(value):
+    apt = str(value).strip()
+
+    special_cases = {
+        "89.9": "89_90",
+    }
+
+    if apt in special_cases:
+        return special_cases[apt]
+
+    return re.sub(r"[./,]", "_", apt)
+
+
+def composite_parts(apartment_number):
+    apt = str(apartment_number).strip()
+
+    special_cases = {
+        "89.9": ["89", "90"],
+    }
+
+    if apt in special_cases:
+        return special_cases[apt]
+
+    return [
+        part.strip()
+        for part in re.split(r"[._/,]", apt)
+        if part.strip()
+    ]
+
+
+def composite_exists_in_db(apartment_number, main_apartments):
+    parts = composite_parts(apartment_number)
+
+    if not parts:
+        return False
+
+    return all(
+        part in main_apartments
+        for part in parts
+    )
+
+
+def sort_tuple_set(values):
+    return sorted(
+        values,
+        key=lambda x: tuple("" if v is None else str(v) for v in x)
+    )
+
+
 def _safe_table_exists(db_file, table_name):
     if not db_file.exists():
         return False
@@ -2798,6 +2859,7 @@ def get_agreement_dashboard():
             "error": tbot["error"],
             "apartments_not_in_db": [],
             "plates_not_in_db": [],
+            "composite_apartments": [],
         },
         "telegram": {
             "ok": telegram["ok"],
@@ -2811,22 +2873,42 @@ def get_agreement_dashboard():
     if tbot["ok"]:
         seen_apts = set()
         seen_plates = set()
+        composite_apartments = set()
 
         for item in tbot["rows"]:
             apt = item.get("apartment_number")
             plate = item.get("plate")
 
-            if apt and apt not in main_apartments:
-                seen_apts.add(apt)
+            if apt:
+                if is_composite_apartment(apt):
+                    if composite_exists_in_db(apt, main_apartments):
+                        composite_apartments.add(
+                            normalize_composite_apartment(apt)
+                        )
+                    else:
+                        seen_apts.add(apt)
+
+                elif apt not in main_apartments:
+                    seen_apts.add(apt)
 
             if plate and plate not in main_plates:
-                seen_plates.add((apt or "-", plate, item.get("model"), item.get("phone")))
+                display_apt = (
+                    normalize_composite_apartment(apt)
+                    if apt and is_composite_apartment(apt)
+                    else (apt or "-")
+                )
+                seen_plates.add(
+                    (
+                        display_apt,
+                        plate,
+                        item.get("model"),
+                        item.get("phone"),
+                    )
+                )
 
         dashboard["tbot"]["apartments_not_in_db"] = sorted(seen_apts)
-        dashboard["tbot"]["plates_not_in_db"] = sorted(
-            seen_plates,
-            key=lambda x: tuple("" if v is None else str(v) for v in x)
-        )
+        dashboard["tbot"]["plates_not_in_db"] = sort_tuple_set(seen_plates)
+        dashboard["tbot"]["composite_apartments"] = sorted(composite_apartments)
 
     if telegram["ok"]:
         seen_plates = set()
@@ -2842,14 +2924,8 @@ def get_agreement_dashboard():
             if item.get("parking_hint"):
                 seen_hints.add((apt, plate or "-", item["parking_hint"]))
 
-        dashboard["telegram"]["plates_not_in_db"] = sorted(
-            seen_plates,
-            key=lambda x: tuple("" if v is None else str(v) for v in x)
-        )
-        dashboard["telegram"]["parking_hints"] = sorted(
-            seen_hints,
-            key=lambda x: tuple("" if v is None else str(v) for v in x)
-        )
+        dashboard["telegram"]["plates_not_in_db"] = sort_tuple_set(seen_plates)
+        dashboard["telegram"]["parking_hints"] = sort_tuple_set(seen_hints)
 
     return dashboard
 
@@ -2891,9 +2967,16 @@ def format_agreement_dashboard(data):
     else:
         apts = data["tbot"]["apartments_not_in_db"]
         plates = data["tbot"]["plates_not_in_db"]
+        composite = data["tbot"].get("composite_apartments", [])
 
         lines.append(f"• квартир есть в боте, нет в БД: {len(apts)}")
+        lines.append(f"• составных квартир: {len(composite)}")
         lines.append(f"• авто есть в боте, нет в БД: {len(plates)}")
+
+        if composite:
+            lines.append("• составные квартиры:")
+            for apt in composite[:10]:
+                lines.append(f"  • {apt}")
 
         if plates:
             lines.append("• первые авто к разбору:")
@@ -3349,4 +3432,1478 @@ def get_agreement_compare_summary(apartment_number):
         lines.append("Номера авто по источникам совпадают.")
 
     return "\n".join(lines)
+
+
+# ==========================================================
+# Agreement V3: composite apartment lookup/display
+# ==========================================================
+
+def _normalize_apartment_text(value):
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def _normalize_composite_display(value):
+    apt = _normalize_apartment_text(value)
+
+    special_cases = {
+        "89.9": "89_90",
+        "89.90": "89_90",
+    }
+
+    if apt in special_cases:
+        return special_cases[apt]
+
+    return re.sub(r"[./,]", "_", apt)
+
+
+def _composite_parts_from_ref(value):
+    apt = _normalize_apartment_text(value)
+
+    special_cases = {
+        "89.9": ["89", "90"],
+        "89.90": ["89", "90"],
+    }
+
+    if apt in special_cases:
+        return special_cases[apt]
+
+    parts = [
+        part.strip()
+        for part in re.split(r"[._/,]", apt)
+        if part.strip()
+    ]
+
+    return parts
+
+
+def _is_composite_ref(value):
+    apt = _normalize_apartment_text(value)
+    return bool(re.match(r"^\d+\s*[._/,]\s*\d+$", apt))
+
+
+def _get_tbot_composite_refs():
+    """
+    Ищет составные квартиры в tbot_parking_import.
+    Возвращает список:
+    {
+        raw: '105.106',
+        display: '105_106',
+        parts: ['105', '106']
+    }
+    """
+    tbot = _get_tbot_dashboard_rows()
+
+    if not tbot.get("ok"):
+        return []
+
+    result = {}
+    for item in tbot["rows"]:
+        apt = _normalize_apartment_text(item.get("apartment_number"))
+
+        if not apt or not _is_composite_ref(apt):
+            continue
+
+        display = _normalize_composite_display(apt)
+        parts = _composite_parts_from_ref(apt)
+
+        if not parts:
+            continue
+
+        result[display] = {
+            "raw": apt,
+            "display": display,
+            "parts": parts,
+        }
+
+    return sorted(result.values(), key=lambda x: x["display"])
+
+
+def resolve_agreement_apartment_ref(apartment_number):
+    """
+    Единая точка для согласования:
+    - 106 -> 105_106, если в бот-базе есть 105.106;
+    - 105 -> 105_106;
+    - 105_106 -> 105_106;
+    - 105.106 -> 105_106;
+    - обычная квартира -> сама себя.
+    """
+    requested = _normalize_apartment_text(apartment_number)
+    requested_norm = _normalize_composite_display(requested)
+
+    for item in _get_tbot_composite_refs():
+        raw = item["raw"]
+        display = item["display"]
+        parts = item["parts"]
+
+        if (
+            requested == raw
+            or requested_norm == display
+            or requested in parts
+        ):
+            return {
+                "requested": requested,
+                "display": display,
+                "lookup_numbers": parts,
+                "tbot_refs": [raw],
+                "is_composite": True,
+            }
+
+    return {
+        "requested": requested,
+        "display": requested,
+        "lookup_numbers": [requested],
+        "tbot_refs": [requested],
+        "is_composite": False,
+    }
+
+
+def find_apartment(apartment_number):
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+
+    # Для составной квартиры возвращаем первую существующую часть.
+    # Это сохраняет совместимость с кодом, который ожидает одну строку apartments.
+    candidates = resolved["lookup_numbers"]
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    for apt_number in candidates:
+        cur.execute("""
+            SELECT
+                id,
+                apartment_number,
+                entrance
+            FROM apartments
+            WHERE apartment_number = ?
+        """, (str(apt_number),))
+
+        row = cur.fetchone()
+
+        if row:
+            conn.close()
+            return row
+
+    conn.close()
+    return None
+
+
+def get_apartment_vehicles(apartment_number):
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+    lookup_numbers = resolved["lookup_numbers"]
+
+    if not lookup_numbers:
+        return []
+
+    placeholders = ",".join("?" for _ in lookup_numbers)
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute(f"""
+        SELECT id
+        FROM apartments
+        WHERE apartment_number IN ({placeholders})
+        ORDER BY
+            CASE
+                WHEN apartment_number GLOB '[0-9]*'
+                THEN CAST(apartment_number AS INTEGER)
+                ELSE 999999
+            END,
+            apartment_number
+    """, tuple(lookup_numbers))
+
+    apt_rows = cur.fetchall()
+
+    if not apt_rows:
+        conn.close()
+        return []
+
+    apartment_ids = [row[0] for row in apt_rows]
+    placeholders = ",".join("?" for _ in apartment_ids)
+
+    cur.execute(f"""
+        SELECT
+            id,
+            license_plate_normalized,
+            license_plate,
+            car_model_normalized,
+            car_model,
+            parking_time
+        FROM vehicles
+        WHERE apartment_id IN ({placeholders})
+        ORDER BY id
+    """, tuple(apartment_ids))
+
+    rows = cur.fetchall()
+    conn.close()
+
+    return rows
+
+
+def get_apartment_card(apartment_number):
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+    lookup_numbers = resolved["lookup_numbers"]
+    display_number = resolved["display"]
+
+    if not lookup_numbers:
+        return None
+
+    placeholders = ",".join("?" for _ in lookup_numbers)
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute(f"""
+        SELECT
+            id,
+            apartment_number,
+            entrance
+        FROM apartments
+        WHERE apartment_number IN ({placeholders})
+        ORDER BY
+            CASE
+                WHEN apartment_number GLOB '[0-9]*'
+                THEN CAST(apartment_number AS INTEGER)
+                ELSE 999999
+            END,
+            apartment_number
+    """, tuple(lookup_numbers))
+
+    apartments = cur.fetchall()
+
+    if not apartments:
+        conn.close()
+        return None
+
+    cur.execute(f"""
+        SELECT
+            telegram_first_name,
+            telegram_last_name,
+            telegram_username,
+            status
+        FROM resident_accounts
+        WHERE apartment_number IN ({placeholders})
+        ORDER BY telegram_user_id
+    """, tuple(lookup_numbers))
+
+    residents = cur.fetchall()
+    conn.close()
+
+    vehicles = get_apartment_vehicles(apartment_number)
+
+    return {
+        "apartment": apartments[0],
+        "apartment_number": display_number,
+        "lookup_numbers": lookup_numbers,
+        "is_composite": resolved["is_composite"],
+        "residents": residents,
+        "vehicles": vehicles,
+    }
+
+
+def get_tbot_source_rows(apartment_number):
+    db_file = paths.OSBB_QUARANTINE_DB_FILE
+
+    if not db_file.exists():
+        return {
+            "ok": False,
+            "error": f"quarantine_db_not_found: {db_file}",
+            "rows": [],
+        }
+
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+    search_refs = list(dict.fromkeys(
+        resolved["tbot_refs"]
+        + resolved["lookup_numbers"]
+        + [resolved["display"], resolved["requested"]]
+    ))
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT name
+        FROM sqlite_master
+        WHERE type = 'table'
+          AND name = 'tbot_parking_import'
+    """)
+
+    if not cur.fetchone():
+        conn.close()
+        return {
+            "ok": False,
+            "error": "table_tbot_parking_import_not_found",
+            "rows": [],
+        }
+
+    cur.execute("PRAGMA table_info(tbot_parking_import)")
+    columns = [row[1] for row in cur.fetchall()]
+
+    def pick(*names):
+        for name in names:
+            if name in columns:
+                return name
+        return None
+
+    apartment_col = pick("apartment_number", "Номер квартири", "Номер квартиры", "Квартира")
+    plate_norm_col = pick("license_plate_normalized")
+    plate_raw_col = pick("license_plate", "Номер Авто", "Номер авто", "plate")
+    model_norm_col = pick("car_model_normalized")
+    model_raw_col = pick("car_model", "Марка авто", "Марка", "model")
+    phone_col = pick("phone_normalized", "phone_number", "Телефон", "phone")
+    status_col = pick("status", "Статус", "parking_time", "Тариф")
+
+    if not apartment_col:
+        conn.close()
+        return {
+            "ok": False,
+            "error": "apartment_column_not_found",
+            "rows": [],
+        }
+
+    select_parts = [
+        f"{apartment_col} AS apartment_number",
+        f"{plate_norm_col} AS license_plate_normalized" if plate_norm_col else "NULL AS license_plate_normalized",
+        f"{plate_raw_col} AS license_plate" if plate_raw_col else "NULL AS license_plate",
+        f"{model_norm_col} AS car_model_normalized" if model_norm_col else "NULL AS car_model_normalized",
+        f"{model_raw_col} AS car_model" if model_raw_col else "NULL AS car_model",
+        f"{phone_col} AS phone_normalized" if phone_col else "NULL AS phone_normalized",
+        f"{status_col} AS status" if status_col else "NULL AS status",
+    ]
+
+    placeholders = ",".join("?" for _ in search_refs)
+
+    cur.execute(f"""
+        SELECT
+            {", ".join(select_parts)}
+        FROM tbot_parking_import
+        WHERE CAST({apartment_col} AS TEXT) IN ({placeholders})
+        ORDER BY rowid
+    """, tuple(search_refs))
+
+    rows = cur.fetchall()
+    conn.close()
+
+    return {
+        "ok": True,
+        "error": None,
+        "rows": rows,
+    }
+
+
+def get_telegram_facts_by_apartment(apartment_number):
+    db_file = paths.OSBB_TELEGRAM_DB_FILE
+
+    if not db_file.exists():
+        return {
+            "ok": False,
+            "error": f"telegram_db_not_found: {db_file}",
+            "rows": [],
+        }
+
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+    search_refs = list(dict.fromkeys(
+        resolved["lookup_numbers"]
+        + [resolved["display"], resolved["requested"]]
+    ))
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT name
+        FROM sqlite_master
+        WHERE type = 'table'
+          AND name = 'telegram_facts'
+    """)
+
+    if not cur.fetchone():
+        conn.close()
+        return {
+            "ok": False,
+            "error": "table_telegram_facts_not_found",
+            "rows": [],
+        }
+
+    placeholders = ",".join("?" for _ in search_refs)
+
+    cur.execute(f"""
+        SELECT
+            f.id,
+            f.fact_type,
+            f.apartment_number,
+            f.person_name,
+            f.phone_normalized,
+            f.license_plate_normalized,
+            f.license_plate,
+            f.car_brand,
+            f.car_model,
+            f.car_color_normalized,
+            f.amount,
+            f.remote_count,
+            f.fact_status,
+            f.comment,
+            m.text_raw,
+            m.message_date,
+            m.sender_name
+        FROM telegram_facts f
+        LEFT JOIN telegram_messages m
+            ON m.id = f.telegram_message_db_id
+        WHERE CAST(f.apartment_number AS TEXT) IN ({placeholders})
+        ORDER BY f.id
+    """, tuple(search_refs))
+
+    raw_rows = cur.fetchall()
+    conn.close()
+
+    rows = []
+
+    for row in raw_rows:
+        (
+            fact_id,
+            fact_type,
+            apt,
+            person_name,
+            phone_normalized,
+            plate_norm,
+            plate_raw,
+            car_brand,
+            car_model,
+            car_color,
+            amount,
+            remote_count,
+            fact_status,
+            comment,
+            text_raw,
+            message_date,
+            sender_name,
+        ) = row
+
+        parking_hint = (
+            detect_parking_time_from_text(fact_type)
+            or detect_parking_time_from_text(comment)
+            or detect_parking_time_from_text(text_raw)
+        )
+
+        rows.append({
+            "fact_id": fact_id,
+            "fact_type": fact_type,
+            "apartment_number": apt,
+            "person_name": person_name,
+            "phone": phone_normalized,
+            "plate": plate_norm or plate_raw,
+            "model": " ".join(
+                x for x in [car_brand, car_model]
+                if x
+            ) or None,
+            "color": car_color,
+            "amount": amount,
+            "remote_count": remote_count,
+            "fact_status": fact_status,
+            "comment": comment,
+            "text_raw": text_raw,
+            "message_date": message_date,
+            "sender_name": sender_name,
+            "parking_hint": parking_hint,
+        })
+
+    return {
+        "ok": True,
+        "error": None,
+        "rows": rows,
+    }
+
+
+def get_main_db_vehicle_rows_for_compare(apartment_number):
+    vehicles = get_apartment_vehicles(apartment_number)
+
+    result = []
+
+    for row in vehicles:
+        (
+            vehicle_id,
+            plate_norm,
+            plate_raw,
+            model_norm,
+            model_raw,
+            parking_time,
+        ) = row
+
+        result.append({
+            "plate": plate_norm or plate_raw or "-",
+            "model": model_norm or model_raw or "-",
+            "parking_time": parking_time or "NULL",
+        })
+
+    return result
+
+
+def format_apartment_agreement_card(apartment_number):
+    resolved = resolve_agreement_apartment_ref(apartment_number)
+    card = get_apartment_card(apartment_number)
+
+    if not card:
+        return "Квартира не найдена."
+
+    # Статус берём по первому реальному номеру квартиры.
+    # Для составной карточки это компромисс без перестройки схемы БД.
+    status_lookup_number = (
+        resolved["lookup_numbers"][0]
+        if resolved["lookup_numbers"]
+        else apartment_number
+    )
+
+    verification = get_apartment_verification_status(status_lookup_number)
+
+    if verification:
+        status = verification[3]
+        comment = verification[4]
+    else:
+        status = "new"
+        comment = None
+
+    status_label = VERIFICATION_STATUSES.get(status, status)
+    tbot_source = get_tbot_source_rows(apartment_number)
+    telegram_facts_source = get_clean_telegram_facts_by_apartment(apartment_number)
+
+    lines = []
+    lines.append(f"🏠 Квартира {card['apartment_number']}")
+
+    if card.get("is_composite"):
+        lines.append("Связка: " + ", ".join(card.get("lookup_numbers", [])))
+
+    lines.append(f"Статус: {status_label}")
+
+    if comment:
+        lines.append(f"Комментарий: {comment}")
+
+    lines.append("")
+    lines.append(format_tbot_source_rows(tbot_source))
+
+    lines.append("")
+    lines.append(format_telegram_facts_source_rows(telegram_facts_source))
+
+    lines.append("")
+    lines.append("💾 БД")
+    lines.append("Авто:")
+    lines.append(format_vehicle_list(card["vehicles"]))
+
+    lines.append("")
+    lines.append(get_agreement_compare_summary(apartment_number))
+
+    lines.append("")
+    lines.append(format_agreement_suggestion(apartment_number))
+
+    lines.append("")
+    lines.append("👥 Жильцы:")
+    if card["residents"]:
+        for first_name, last_name, username, resident_status in card["residents"]:
+            name = " ".join(x for x in [first_name, last_name] if x) or "-"
+            username = f"@{username}" if username else "-"
+            lines.append(f"• {name} | {username} | {resident_status or '-'}")
+    else:
+        lines.append("нет пользователей")
+
+    return "\n".join(lines)
+
+
+# ==========================================================
+# Tariff review mode: fill NULL parking_time
+# ==========================================================
+
+def _is_empty_tariff(value):
+    if value is None:
+        return True
+
+    text = str(value).strip()
+
+    return text == "" or text.upper() == "NULL"
+
+
+def get_tariff_review_stats():
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("SELECT COUNT(*) FROM vehicles")
+    total = cur.fetchone()[0]
+
+    cur.execute("""
+        SELECT
+            COALESCE(NULLIF(TRIM(parking_time), ''), 'NULL') AS status,
+            COUNT(*)
+        FROM vehicles
+        GROUP BY COALESCE(NULLIF(TRIM(parking_time), ''), 'NULL')
+    """)
+
+    stats = {
+        "total": total,
+        "Day": 0,
+        "Night": 0,
+        "Inactive": 0,
+        "NULL": 0,
+    }
+
+    for status, count in cur.fetchall():
+        if status in stats:
+            stats[status] = count
+        elif status is None:
+            stats["NULL"] += count
+        else:
+            # неизвестные значения считаем незаполненными,
+            # чтобы оператор их тоже увидел.
+            stats["NULL"] += count
+
+    conn.close()
+
+    filled = stats["Day"] + stats["Night"] + stats["Inactive"]
+    stats["filled"] = filled
+    stats["percent"] = round(filled / total * 100, 1) if total else 0
+
+    return stats
+
+
+def format_tariff_review_stats(stats):
+    return (
+        "🚦 Проверка тарифов\n\n"
+        f"Всего авто: {stats['total']}\n"
+        f"🌞 Day: {stats['Day']}\n"
+        f"🌙 Night: {stats['Night']}\n"
+        f"🚫 Не паркуется: {stats['Inactive']}\n"
+        f"❓ Без тарифа: {stats['NULL']}\n\n"
+        f"Заполнено: {stats['filled']} из {stats['total']} "
+        f"({stats['percent']}%)"
+    )
+
+
+def get_next_vehicle_without_tariff(skip_vehicle_ids=None):
+    skip_vehicle_ids = [
+        int(x) for x in (skip_vehicle_ids or [])
+        if str(x).strip().isdigit()
+    ]
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    params = []
+    skip_sql = ""
+
+    if skip_vehicle_ids:
+        placeholders = ",".join("?" for _ in skip_vehicle_ids)
+        skip_sql = f"AND v.id NOT IN ({placeholders})"
+        params.extend(skip_vehicle_ids)
+
+    cur.execute(f"""
+        SELECT
+            v.id,
+            a.apartment_number,
+            v.license_plate_normalized,
+            v.license_plate,
+            v.car_model_normalized,
+            v.car_model,
+            v.parking_time
+        FROM vehicles v
+        JOIN apartments a
+            ON a.id = v.apartment_id
+        WHERE (
+            v.parking_time IS NULL
+            OR TRIM(v.parking_time) = ''
+            OR UPPER(TRIM(v.parking_time)) = 'NULL'
+        )
+        {skip_sql}
+        ORDER BY
+            CASE
+                WHEN a.apartment_number GLOB '[0-9]*'
+                THEN CAST(a.apartment_number AS INTEGER)
+                ELSE 999999
+            END,
+            a.apartment_number,
+            v.id
+        LIMIT 1
+    """, tuple(params))
+
+    row = cur.fetchone()
+    conn.close()
+    return row
+
+
+def _get_all_tbot_rows_by_plate(plate):
+    plate = normalize_source_plate(plate)
+
+    if not plate:
+        return []
+
+    db_file = paths.OSBB_QUARANTINE_DB_FILE
+
+    if not db_file.exists():
+        return []
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT name
+        FROM sqlite_master
+        WHERE type = 'table'
+          AND name = 'tbot_parking_import'
+    """)
+
+    if not cur.fetchone():
+        conn.close()
+        return []
+
+    cur.execute("PRAGMA table_info(tbot_parking_import)")
+    columns = [row[1] for row in cur.fetchall()]
+
+    def pick(*names):
+        for name in names:
+            if name in columns:
+                return name
+        return None
+
+    apartment_col = pick("apartment_number", "Номер квартири", "Номер квартиры", "Квартира")
+    plate_norm_col = pick("license_plate_normalized")
+    plate_raw_col = pick("license_plate", "Номер Авто", "Номер авто", "plate")
+    model_norm_col = pick("car_model_normalized")
+    model_raw_col = pick("car_model", "Марка авто", "Марка", "model")
+    phone_col = pick("phone_normalized", "phone_number", "Телефон", "phone")
+    status_col = pick("status", "Статус", "parking_time", "Тариф")
+
+    if not plate_norm_col and not plate_raw_col:
+        conn.close()
+        return []
+
+    select_parts = [
+        f"{apartment_col} AS apartment_number" if apartment_col else "NULL AS apartment_number",
+        f"{plate_norm_col} AS license_plate_normalized" if plate_norm_col else "NULL AS license_plate_normalized",
+        f"{plate_raw_col} AS license_plate" if plate_raw_col else "NULL AS license_plate",
+        f"{model_norm_col} AS car_model_normalized" if model_norm_col else "NULL AS car_model_normalized",
+        f"{model_raw_col} AS car_model" if model_raw_col else "NULL AS car_model",
+        f"{phone_col} AS phone_normalized" if phone_col else "NULL AS phone_normalized",
+        f"{status_col} AS status" if status_col else "NULL AS status",
+    ]
+
+    where_parts = []
+    params = []
+
+    if plate_norm_col:
+        where_parts.append(f"UPPER(REPLACE(CAST({plate_norm_col} AS TEXT), ' ', '')) = ?")
+        params.append(plate)
+
+    if plate_raw_col:
+        where_parts.append(f"UPPER(REPLACE(CAST({plate_raw_col} AS TEXT), ' ', '')) = ?")
+        params.append(plate)
+
+    cur.execute(f"""
+        SELECT {", ".join(select_parts)}
+        FROM tbot_parking_import
+        WHERE {" OR ".join(where_parts)}
+        ORDER BY rowid
+    """, tuple(params))
+
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+
+def _get_all_telegram_facts_by_plate(plate):
+    plate = normalize_source_plate(plate)
+
+    if not plate:
+        return []
+
+    db_file = paths.OSBB_TELEGRAM_DB_FILE
+
+    if not db_file.exists():
+        return []
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT name
+        FROM sqlite_master
+        WHERE type = 'table'
+          AND name = 'telegram_facts'
+    """)
+
+    if not cur.fetchone():
+        conn.close()
+        return []
+
+    cur.execute("""
+        SELECT
+            f.apartment_number,
+            f.license_plate_normalized,
+            f.license_plate,
+            f.car_brand,
+            f.car_model,
+            f.comment,
+            m.text_raw,
+            m.telegram_message_id,
+            m.sender_name
+        FROM telegram_facts f
+        LEFT JOIN telegram_messages m
+            ON m.id = f.telegram_message_db_id
+        WHERE UPPER(REPLACE(CAST(COALESCE(f.license_plate_normalized, f.license_plate) AS TEXT), ' ', '')) = ?
+        ORDER BY f.id
+    """, (plate,))
+
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+
+def get_tariff_hints_for_vehicle(vehicle):
+    if not vehicle:
+        return []
+
+    (
+        vehicle_id,
+        apartment_number,
+        plate_norm,
+        plate_raw,
+        model_norm,
+        model_raw,
+        parking_time,
+    ) = vehicle
+
+    plate = normalize_source_plate(plate_norm or plate_raw)
+
+    hints = []
+
+    # 1. Сообщения Telegram: самый ценный источник для Day/Night
+    seen = set()
+    for row in _get_all_telegram_facts_by_plate(plate):
+        (
+            apt,
+            fact_plate_norm,
+            fact_plate_raw,
+            car_brand,
+            car_model,
+            comment,
+            text_raw,
+            msg_id,
+            sender_name,
+        ) = row
+
+        hint = (
+            detect_parking_time_from_text(comment)
+            or detect_parking_time_from_text(text_raw)
+        )
+
+        if not hint:
+            continue
+
+        key = ("messages", apt, plate, hint, msg_id)
+
+        if key in seen:
+            continue
+
+        seen.add(key)
+
+        hints.append({
+            "source": "Сообщения",
+            "apartment": apt,
+            "parking_time": hint,
+            "details": f"msg_id={msg_id}" if msg_id else None,
+        })
+
+    # 2. Бот-анкета: если вдруг статус/тариф там заполнен
+    for row in _get_all_tbot_rows_by_plate(plate):
+        (
+            apt,
+            plate_norm2,
+            plate_raw2,
+            model_norm2,
+            model_raw2,
+            phone,
+            status,
+        ) = row
+
+        hint = detect_parking_time_from_text(status)
+
+        if not hint:
+            continue
+
+        hints.append({
+            "source": "Бот",
+            "apartment": apt,
+            "parking_time": hint,
+            "details": phone,
+        })
+
+    return hints
+
+
+def get_best_tariff_hint_for_vehicle(vehicle):
+    hints = get_tariff_hints_for_vehicle(vehicle)
+
+    if not hints:
+        return None
+
+    counts = {}
+
+    for item in hints:
+        tariff = item["parking_time"]
+
+        if tariff not in ["Day", "Night"]:
+            continue
+
+        counts[tariff] = counts.get(tariff, 0) + 1
+
+    if not counts:
+        return None
+
+    best = sorted(counts.items(), key=lambda x: (-x[1], x[0]))[0][0]
+
+    sources = [
+        item["source"]
+        for item in hints
+        if item["parking_time"] == best
+    ]
+
+    return {
+        "parking_time": best,
+        "count": counts[best],
+        "sources": sorted(set(sources)),
+    }
+
+
+def format_tariff_vehicle_card(vehicle):
+    if not vehicle:
+        return "Все автомобили уже имеют Day / Night / Не паркуется."
+
+    (
+        vehicle_id,
+        apartment_number,
+        plate_norm,
+        plate_raw,
+        model_norm,
+        model_raw,
+        parking_time,
+    ) = vehicle
+
+    plate = plate_norm or plate_raw or "-"
+    model = model_norm or model_raw or "-"
+    status = parking_time or "NULL"
+
+    hints = get_tariff_hints_for_vehicle(vehicle)
+    best_hint = get_best_tariff_hint_for_vehicle(vehicle)
+
+    lines = []
+    lines.append("🚦 Тариф автомобиля")
+    lines.append("")
+    lines.append(f"ID: {vehicle_id}")
+    lines.append(f"Квартира: {apartment_number}")
+    lines.append(f"Номер: {plate}")
+    lines.append(f"Марка: {model}")
+    lines.append(f"Текущий тариф: {status}")
+    lines.append("")
+
+    if best_hint:
+        lines.append("🟢 Подсказка")
+        lines.append(
+            f"{best_hint['parking_time']} "
+            f"({'+'.join(best_hint['sources'])})"
+        )
+        lines.append("")
+    else:
+        lines.append("🟡 Подсказка")
+        lines.append("не найдена")
+        lines.append("")
+
+    if hints:
+        lines.append("Источники:")
+        for item in hints[:5]:
+            extra = f" | {item['details']}" if item.get("details") else ""
+            lines.append(
+                f"• {item['source']} | кв.{item.get('apartment') or '-'} | "
+                f"{item['parking_time']}{extra}"
+            )
+
+        if len(hints) > 5:
+            lines.append(f"… ещё {len(hints) - 5}")
+
+        lines.append("")
+
+    lines.append("Выберите тариф:")
+
+    return "\n".join(lines)
+
+
+def apply_vehicle_tariff(vehicle_id, tariff):
+    if tariff == "Day":
+        status = "Day"
+    elif tariff == "Night":
+        status = "Night"
+    elif tariff in ["Inactive", "Не паркуется"]:
+        status = "Inactive"
+    else:
+        return False, "invalid_tariff"
+
+    return update_vehicle_parking_status(vehicle_id, status)
+
+
+def apply_best_tariff_hint(vehicle_id):
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    best = get_best_tariff_hint_for_vehicle(vehicle)
+
+    if not best:
+        return False, "no_hint"
+
+    return apply_vehicle_tariff(vehicle_id, best["parking_time"])
+
+
+# ==========================================================
+# Minimal vehicle edit helpers for tariff mode
+# ==========================================================
+
+def format_vehicle_edit_menu_card(vehicle_id):
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return "Автомобиль не найден."
+
+    return (
+        format_vehicle_card_for_edit(vehicle)
+        + "\n\nЧто изменить?"
+    )
+
+
+def set_vehicle_plate_from_text(vehicle_id, plate_text):
+    return update_vehicle_plate(vehicle_id, plate_text)
+
+
+def set_vehicle_model_from_text(vehicle_id, model_text):
+    return update_vehicle_model(vehicle_id, model_text)
+
+
+def set_vehicle_tariff_from_text(vehicle_id, tariff_text):
+    return update_vehicle_parking_status(vehicle_id, tariff_text)
+
+
+# ==========================================================
+# Operator audit log
+# ==========================================================
+
+def _audit_value(value):
+    if value is None:
+        return "NULL"
+    return str(value)
+
+
+def log_operator_action(
+    operator_telegram_id=None,
+    action_type=None,
+    entity_type=None,
+    entity_id=None,
+    apartment_number=None,
+    vehicle_id=None,
+    old_value=None,
+    new_value=None,
+    comment=None,
+    operator_username=None,
+    operator_name=None,
+):
+    """
+    Пишет действие оператора в operator_audit_log.
+    Журналирование не должно ломать основное действие, поэтому ошибки
+    записи в журнал возвращаются как False, но не выбрасываются наружу.
+    """
+    if not action_type:
+        return False, "empty_action_type"
+
+    try:
+        conn = get_conn()
+        cur = conn.cursor()
+
+        cur.execute("""
+            INSERT INTO operator_audit_log (
+                created_at,
+
+                operator_telegram_id,
+                operator_username,
+                operator_name,
+
+                action_type,
+                entity_type,
+                entity_id,
+
+                apartment_number,
+                vehicle_id,
+
+                old_value,
+                new_value,
+
+                comment
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            now(),
+
+            str(operator_telegram_id) if operator_telegram_id is not None else None,
+            operator_username,
+            operator_name,
+
+            action_type,
+            entity_type,
+            str(entity_id) if entity_id is not None else None,
+
+            str(apartment_number) if apartment_number is not None else None,
+            int(vehicle_id) if vehicle_id is not None else None,
+
+            _audit_value(old_value),
+            _audit_value(new_value),
+
+            comment,
+        ))
+
+        audit_id = cur.lastrowid
+        conn.commit()
+        conn.close()
+
+        return True, audit_id
+
+    except Exception as exc:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+        return False, f"audit_log_error: {exc}"
+
+
+def update_vehicle_parking_status(
+    vehicle_id,
+    status,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    if status == "NULL":
+        new_value = None
+    elif status in ["Day", "Night", "Inactive"]:
+        new_value = status
+    else:
+        return False, "invalid_status"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    old_value = vehicle[6]
+    apartment_number = vehicle[1]
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET parking_time = ?
+        WHERE id = ?
+    """, (
+        new_value,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_tariff_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=new_value,
+        comment="parking_time updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": new_value,
+    }
+
+
+def update_vehicle_plate(
+    vehicle_id,
+    plate,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    plate = str(plate).strip().upper()
+
+    if not plate:
+        return False, "empty_plate"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    apartment_number = vehicle[1]
+    old_plate = vehicle[2]
+    old_plate_raw = vehicle[3]
+    old_value = old_plate or old_plate_raw
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET
+            license_plate = ?,
+            license_plate_normalized = ?
+        WHERE id = ?
+    """, (
+        plate,
+        plate,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_plate_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=plate,
+        comment="license plate updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": plate,
+    }
+
+
+def update_vehicle_model(
+    vehicle_id,
+    model,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    model = str(model).strip().upper()
+
+    if not model:
+        return False, "empty_model"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    apartment_number = vehicle[1]
+    old_model = vehicle[4]
+    old_model_raw = vehicle[5]
+    old_value = old_model or old_model_raw
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET
+            car_model = ?,
+            car_model_normalized = ?
+        WHERE id = ?
+    """, (
+        model,
+        model,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_model_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=model,
+        comment="car model updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": model,
+    }
+
+
+def set_apartment_verification_status(
+    apartment_number,
+    status,
+    verified_by=None,
+    comment=None,
+    operator_username=None,
+    operator_name=None,
+):
+    if status not in VERIFICATION_STATUSES:
+        return False, "invalid_status"
+
+    apt = find_apartment(apartment_number)
+
+    if not apt:
+        return False, "apartment_not_found"
+
+    apartment_id = apt[0]
+    apartment_number = str(apt[1])
+
+    old_verification = get_apartment_verification_status(apartment_number)
+    old_status = old_verification[3] if old_verification else None
+
+    verified_at = now() if status in ["confirmed", "deferred", "conflict"] else None
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        INSERT INTO apartment_verification (
+            apartment_id,
+            apartment_number,
+            status,
+            comment,
+            verified_by,
+            verified_at,
+            created_at,
+            updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+        ON CONFLICT(apartment_id)
+        DO UPDATE SET
+            apartment_number = excluded.apartment_number,
+            status = excluded.status,
+            comment = excluded.comment,
+            verified_by = excluded.verified_by,
+            verified_at = excluded.verified_at,
+            updated_at = excluded.updated_at
+    """, (
+        apartment_id,
+        apartment_number,
+        status,
+        comment,
+        int(verified_by) if verified_by else None,
+        verified_at,
+        now(),
+        now(),
+    ))
+
+    conn.commit()
+    conn.close()
+
+    log_operator_action(
+        operator_telegram_id=verified_by,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="apartment_verification_status_update",
+        entity_type="apartment",
+        entity_id=apartment_id,
+        apartment_number=apartment_number,
+        old_value=old_status,
+        new_value=status,
+        comment=comment,
+    )
+
+    return True, status
+
+
+def set_vehicle_plate_from_text(vehicle_id, plate_text, operator_telegram_id=None):
+    return update_vehicle_plate(
+        vehicle_id,
+        plate_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def set_vehicle_model_from_text(vehicle_id, model_text, operator_telegram_id=None):
+    return update_vehicle_model(
+        vehicle_id,
+        model_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def set_vehicle_tariff_from_text(vehicle_id, tariff_text, operator_telegram_id=None):
+    return update_vehicle_parking_status(
+        vehicle_id,
+        tariff_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def apply_vehicle_tariff(vehicle_id, tariff, operator_telegram_id=None):
+    if tariff == "Day":
+        status = "Day"
+    elif tariff == "Night":
+        status = "Night"
+    elif tariff in ["Inactive", "Не паркуется"]:
+        status = "Inactive"
+    else:
+        return False, "invalid_tariff"
+
+    return update_vehicle_parking_status(
+        vehicle_id,
+        status,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def apply_best_tariff_hint(vehicle_id, operator_telegram_id=None):
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    best = get_best_tariff_hint_for_vehicle(vehicle)
+
+    if not best:
+        return False, "no_hint"
+
+    return apply_vehicle_tariff(
+        vehicle_id,
+        best["parking_time"],
+        operator_telegram_id=operator_telegram_id,
+    )
 

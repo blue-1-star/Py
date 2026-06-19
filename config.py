@@ -16,8 +16,8 @@ from datetime import datetime
 # ГЛОБАЛЬНЫЕ НАСТРОЙКИ
 # ==================================================
 
-# USE_TEST_DB = True
-USE_TEST_DB = False
+USE_TEST_DB = True
+# USE_TEST_DB = False
 
 class ProjectPaths:
     def __init__(self, project_root=None):
