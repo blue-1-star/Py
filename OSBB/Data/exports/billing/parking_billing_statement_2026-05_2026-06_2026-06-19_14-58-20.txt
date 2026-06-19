@@ -1,0 +1,543 @@
+========================================================================================================================
+PARKING BILLING STATEMENT
+========================================================================================================================
+Generated : 2026-06-19 14:58:20
+DB        : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE      : TEST/WORK
+Period    : 2026-05_2026-06
+Charges   : charges
+Payments  : payments
+Allocations: payment_allocations
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+Apartments in statement : 72
+Charges total           : 74600
+Payments total          : 24150
+Allocated payments      : 8900
+Unallocated payments    : 15250
+Balance total           : 50450
+Debtors                 : 58
+Overpayments            : 9
+Zero balance            : 5
+
+========================================================================================================================
+MAIN STATEMENT
+========================================================================================================================
+apt | charged | paid | allocated | unallocated | balance | status
+------------------------------------------------------------------------------------------------------------------------
+1 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+2 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+8 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+10 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+12 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+13 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+14 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+16 | 0 | 700 | 0 | 700 | -700 | OVERPAY
+27 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+29 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+30 | 1000 | 500 | 500 | 0 | 500 | DEBT
+38 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+52 | 0 | 400 | 0 | 400 | -400 | OVERPAY
+56 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+69 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+71 | 1000 | 500 | 500 | 0 | 500 | DEBT
+82 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+89 | 3000 | 0 | 0 | 0 | 3000 | DEBT
+96 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+98 | 1000 | 500 | 500 | 0 | 500 | DEBT
+101 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+105 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+106 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+107 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+108 | 0 | 1000 | 0 | 1000 | -1000 | OVERPAY
+120 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+122 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+125 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+126 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+129 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+132 | 0 | 400 | 0 | 400 | -400 | OVERPAY
+133 | 2000 | 1000 | 0 | 1000 | 1000 | DEBT
+134 | 2000 | 2000 | 1000 | 1000 | 0 | OK
+138 | 1000 | 1000 | 0 | 1000 | 0 | OK
+139 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+140 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+142 | 1000 | 1000 | 0 | 1000 | 0 | OK
+144 | 800 | 0 | 0 | 0 | 800 | DEBT
+145 | 400 | 0 | 0 | 0 | 400 | DEBT
+155 | 1200 | 0 | 0 | 0 | 1200 | DEBT
+158 | 1000 | 1000 | 1000 | 0 | 0 | OK
+159 | 1000 | 1500 | 1500 | 0 | -500 | OVERPAY
+160 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+161 | 2000 | 1000 | 1000 | 0 | 1000 | DEBT
+162 | 400 | 1200 | 1200 | 0 | -800 | OVERPAY
+164 | 0 | 2500 | 0 | 2500 | -2500 | OVERPAY
+167 | 1000 | 700 | 700 | 0 | 300 | DEBT
+169 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+171 | 1000 | 1000 | 1000 | 0 | 0 | OK
+173 | 1200 | 0 | 0 | 0 | 1200 | DEBT
+174 | 400 | 1000 | 0 | 1000 | -600 | OVERPAY
+176 | 1000 | 0 | 0 | 0 | 1000 | DEBT
+180 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+181 | 400 | 0 | 0 | 0 | 400 | DEBT
+182 | 2000 | 0 | 0 | 0 | 2000 | DEBT
+185 | 400 | 0 | 0 | 0 | 400 | DEBT
+186 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+187 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+188 | 400 | 0 | 0 | 0 | 400 | DEBT
+191 | 1800 | 0 | 0 | 0 | 1800 | DEBT
+194 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+195 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+196 | 400 | 0 | 0 | 0 | 400 | DEBT
+197 | 400 | 0 | 0 | 0 | 400 | DEBT
+198 | 800 | 0 | 0 | 0 | 800 | DEBT
+200 | 800 | 0 | 0 | 0 | 800 | DEBT
+201 | 400 | 0 | 0 | 0 | 400 | DEBT
+202 | 400 | 0 | 0 | 0 | 400 | DEBT
+203 | 1400 | 0 | 0 | 0 | 1400 | DEBT
+205 | 800 | 0 | 0 | 0 | 800 | DEBT
+206 | 400 | 0 | 0 | 0 | 400 | DEBT
+ | 0 | 5250 | 0 | 5250 | -5250 | OVERPAY
+
+========================================================================================================================
+DEBTORS
+========================================================================================================================
+apt | debt | charged | paid
+------------------------------------------------------------------------------------------------------------------------
+89 | 3000 | 3000 | 0
+38 | 2000 | 2000 | 0
+69 | 2000 | 2000 | 0
+125 | 2000 | 2000 | 0
+126 | 2000 | 2000 | 0
+129 | 2000 | 2000 | 0
+139 | 2000 | 2000 | 0
+182 | 2000 | 2000 | 0
+191 | 1800 | 1800 | 0
+13 | 1400 | 1400 | 0
+180 | 1400 | 1400 | 0
+186 | 1400 | 1400 | 0
+187 | 1400 | 1400 | 0
+194 | 1400 | 1400 | 0
+195 | 1400 | 1400 | 0
+203 | 1400 | 1400 | 0
+155 | 1200 | 1200 | 0
+173 | 1200 | 1200 | 0
+1 | 1000 | 1000 | 0
+2 | 1000 | 1000 | 0
+8 | 1000 | 1000 | 0
+10 | 1000 | 1000 | 0
+12 | 1000 | 1000 | 0
+14 | 1000 | 1000 | 0
+27 | 1000 | 1000 | 0
+29 | 1000 | 1000 | 0
+56 | 1000 | 1000 | 0
+82 | 1000 | 1000 | 0
+96 | 1000 | 1000 | 0
+101 | 1000 | 1000 | 0
+105 | 1000 | 1000 | 0
+106 | 1000 | 1000 | 0
+107 | 1000 | 1000 | 0
+120 | 1000 | 1000 | 0
+122 | 1000 | 1000 | 0
+133 | 1000 | 2000 | 1000
+140 | 1000 | 1000 | 0
+160 | 1000 | 1000 | 0
+161 | 1000 | 2000 | 1000
+169 | 1000 | 1000 | 0
+176 | 1000 | 1000 | 0
+144 | 800 | 800 | 0
+198 | 800 | 800 | 0
+200 | 800 | 800 | 0
+205 | 800 | 800 | 0
+30 | 500 | 1000 | 500
+71 | 500 | 1000 | 500
+98 | 500 | 1000 | 500
+145 | 400 | 400 | 0
+181 | 400 | 400 | 0
+185 | 400 | 400 | 0
+188 | 400 | 400 | 0
+196 | 400 | 400 | 0
+197 | 400 | 400 | 0
+201 | 400 | 400 | 0
+202 | 400 | 400 | 0
+206 | 400 | 400 | 0
+167 | 300 | 1000 | 700
+
+========================================================================================================================
+OVERPAYMENTS / UNALLOCATED PAYMENTS
+========================================================================================================================
+apt | overpay/balance | paid | charged | unallocated
+------------------------------------------------------------------------------------------------------------------------
+ | 5250 | 5250 | 0 | 5250
+164 | 2500 | 2500 | 0 | 2500
+108 | 1000 | 1000 | 0 | 1000
+162 | 800 | 1200 | 400 | 0
+16 | 700 | 700 | 0 | 700
+174 | 600 | 1000 | 400 | 1000
+159 | 500 | 1500 | 1000 | 0
+52 | 400 | 400 | 0 | 400
+132 | 400 | 400 | 0 | 400
+133 | 0 | 1000 | 2000 | 1000
+134 | 0 | 2000 | 2000 | 1000
+138 | 0 | 1000 | 1000 | 1000
+142 | 0 | 1000 | 1000 | 1000
+
+========================================================================================================================
+DETAILS BY APARTMENT
+========================================================================================================================
+------------------------------------------------------------------------------------------------------------------------
+Apartment 1 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=1 | Парковка Night | 9599 | LEXUS | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 2 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=2 | Парковка Night | A8756HK | MERCEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 8 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=3 | Парковка Night | AA8008M | LEXUS | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 10 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=4 | Парковка Night | AA54B | AA3455 | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 12 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=5 | Парковка Night | A0448YB | AUDI | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 13 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=6 | Парковка Day | KA7550BC | SKODA | amount=400 | allocated=0 | balance=400
+    charge_id=7 | Парковка Night | AA5472OA | - | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 14 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=8 | Парковка Night | KA1165IB | HYUNDAI | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 16 | charged=0 | paid=700 | balance=-700
+  Payments:
+    payment_id=15 | 2026-06-05 | - | 8969 | amount=700 | allocated=0 | unallocated=700 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 27 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=9 | Парковка Night | AP8170X | TOYOTA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 29 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=10 | Парковка Night | AA5432EX | TOYOTA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 30 | charged=1000 | paid=500 | balance=500
+  Charges:
+    charge_id=11 | Парковка Night | KA0186CM | TOYOTA | amount=1000 | allocated=500 | balance=500
+  Payments:
+    payment_id=26 | 2026-06-01 | - | KA0186CM | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 38 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=12 | Парковка Night | AA9437MX | KIA | amount=1000 | allocated=0 | balance=1000
+    charge_id=13 | Парковка Night | AA1474IB | OPEL | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 52 | charged=0 | paid=400 | balance=-400
+  Payments:
+    payment_id=1 | 2026-05-30 | - | KA7140AB | amount=400 | allocated=0 | unallocated=400 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 56 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=14 | Парковка Night | KA95552TB | SUZUKI | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 69 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=15 | Парковка Night | KA6061KK | TOYOTA | amount=1000 | allocated=0 | balance=1000
+    charge_id=16 | Парковка Night | KA5670EB | KIA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 71 | charged=1000 | paid=500 | balance=500
+  Charges:
+    charge_id=17 | Парковка Night | BM1253BX | SKODA | amount=1000 | allocated=500 | balance=500
+  Payments:
+    payment_id=18 | 2026-05-31 | - | BM1253BX | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 82 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=18 | Парковка Night | KA1901PX | TOYOTA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 89 | charged=3000 | paid=0 | balance=3000
+  Charges:
+    charge_id=19 | Парковка Night | KA6739E | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=20 | Парковка Night | AA0606KB | TOYOTA | amount=1000 | allocated=0 | balance=1000
+    charge_id=21 | Парковка Night | AA4566CT | TOYOTA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 96 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=22 | Парковка Night | KA6144PM | AUDI | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 98 | charged=1000 | paid=500 | balance=500
+  Charges:
+    charge_id=23 | Парковка Night | AA3804KI | VOLVO | amount=1000 | allocated=500 | balance=500
+  Payments:
+    payment_id=22 | 2026-06-01 | - | AA3804KI | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 101 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=24 | Парковка Night | KA6714MP | SKODA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 105 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=25 | Парковка Night | AA3033BC | SUBARU | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 106 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=26 | Парковка Night | AA3353B | VOLKSWAGEN | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 107 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=27 | Парковка Night | A7758TE | NISSAN | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 108 | charged=0 | paid=1000 | balance=-1000
+  Payments:
+    payment_id=11 | 2026-05-21 | - | KA6556BP | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 120 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=28 | Парковка Night | AA7171EA | HONDA | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 122 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=29 | Парковка Night | KA6623M | BMW | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 125 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=30 | Парковка Night | KA2708HO | LEXUS | amount=1000 | allocated=0 | balance=1000
+    charge_id=31 | Парковка Night | AA6626HP | MERSEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 126 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=32 | Парковка Night | AA8393B | TESLA | amount=1000 | allocated=0 | balance=1000
+    charge_id=33 | Парковка Night | KA7973CC | VOLKSWAGEN | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 129 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=34 | Парковка Night | KA8009B | NISSAN | amount=1000 | allocated=0 | balance=1000
+    charge_id=35 | Парковка Night | KA6786PE | MERSEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 132 | charged=0 | paid=400 | balance=-400
+  Payments:
+    payment_id=30 | 2026-06-01 | - | AA2281MB | amount=400 | allocated=0 | unallocated=400 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 133 | charged=2000 | paid=1000 | balance=1000
+  Charges:
+    charge_id=36 | Парковка Night | A5787ET | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=37 | Парковка Night | AM0808BO | MAZDA | amount=1000 | allocated=0 | balance=1000
+  Payments:
+    payment_id=12 | 2026-06-04 | - | - | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 134 | charged=2000 | paid=2000 | balance=0
+  Charges:
+    charge_id=38 | Парковка Night | AM1317HT | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=39 | Парковка Night | AA2558HK | NISSAN | amount=1000 | allocated=1000 | balance=0
+  Payments:
+    payment_id=13 | 2026-06-04 | - | - | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+    payment_id=14 | 2026-06-04 | - | AA2558HK | amount=1000 | allocated=1000 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 138 | charged=1000 | paid=1000 | balance=0
+  Charges:
+    charge_id=40 | Парковка Night | KA4288BT | JAGUAR | amount=1000 | allocated=0 | balance=1000
+  Payments:
+    payment_id=3 | 2026-05-30 | - | - | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 139 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=41 | Парковка Night | KA6052PK | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=42 | Парковка Night | KA7764MK | PEUGEOT | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 140 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=43 | Парковка Night | A7772C | LINCOLN | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 142 | charged=1000 | paid=1000 | balance=0
+  Charges:
+    charge_id=44 | Парковка Night | AA0721M | HONDA | amount=1000 | allocated=0 | balance=1000
+  Payments:
+    payment_id=7 | 2026-05-22 | - | - | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 144 | charged=800 | paid=0 | balance=800
+  Charges:
+    charge_id=45 | Парковка Day | AA9599 | AUDI | amount=400 | allocated=0 | balance=400
+    charge_id=46 | Парковка Day | KA9959 | PORSCHE | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 145 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=47 | Парковка Day | AA1402MK | CHEVROLET | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 155 | charged=1200 | paid=0 | balance=1200
+  Charges:
+    charge_id=48 | Парковка Day | KA9151 | TOYOTA | amount=400 | allocated=0 | balance=400
+    charge_id=49 | Парковка Day | AA7020 | LEXUS | amount=400 | allocated=0 | balance=400
+    charge_id=50 | Парковка Day | KA1175 | TOYOTA | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 158 | charged=1000 | paid=1000 | balance=0
+  Charges:
+    charge_id=51 | Парковка Night | AA5566CO | AUDI | amount=1000 | allocated=1000 | balance=0
+  Payments:
+    payment_id=2 | 2026-05-31 | - | AA5566CO | amount=1000 | allocated=1000 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 159 | charged=1000 | paid=1500 | balance=-500
+  Charges:
+    charge_id=52 | Парковка Night | KA5689BB | LEXUS | amount=1000 | allocated=1500 | balance=-500
+  Payments:
+    payment_id=6 | 2026-05-15 | - | KA5689BB | amount=1000 | allocated=1000 | unallocated=0 | source=import_ohorona_sheet1
+    payment_id=20 | 2026-05-30 | - | KA5689BB | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 160 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=53 | Парковка Night | KA7030TH | LEXUS | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 161 | charged=2000 | paid=1000 | balance=1000
+  Charges:
+    charge_id=54 | Парковка Night | AA5003MX | LEXUS | amount=1000 | allocated=500 | balance=500
+    charge_id=55 | Парковка Night | AA9868KC | AUDI | amount=1000 | allocated=500 | balance=500
+  Payments:
+    payment_id=28 | 2026-06-01 | - | AA5003MX | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+    payment_id=29 | 2026-06-01 | - | AA9868KC | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 162 | charged=400 | paid=1200 | balance=-800
+  Charges:
+    charge_id=56 | Парковка Day | AA5557TE | MERCEDES | amount=400 | allocated=1200 | balance=-800
+  Payments:
+    payment_id=10 | 2026-05-21 | - | AA5557TE | amount=1200 | allocated=1200 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 164 | charged=0 | paid=2500 | balance=-2500
+  Payments:
+    payment_id=4 | 2026-05-30 | - | - | amount=2500 | allocated=0 | unallocated=2500 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 167 | charged=1000 | paid=700 | balance=300
+  Charges:
+    charge_id=57 | Парковка Night | AA4477OH | TOYOTA | amount=1000 | allocated=700 | balance=300
+  Payments:
+    payment_id=8 | 2026-05-21 | - | AA4477OH | amount=700 | allocated=700 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 169 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=58 | Парковка Night | KA1784EA | MERCEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 171 | charged=1000 | paid=1000 | balance=0
+  Charges:
+    charge_id=59 | Парковка Night | KA5524KA | MAZDA | amount=1000 | allocated=1000 | balance=0
+  Payments:
+    payment_id=9 | 2026-05-21 | - | KA5524KA | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+    payment_id=25 | 2026-06-01 | - | KA5524KA | amount=500 | allocated=500 | unallocated=0 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 173 | charged=1200 | paid=0 | balance=1200
+  Charges:
+    charge_id=60 | Парковка Day | AA9415YC | TESLA | amount=400 | allocated=0 | balance=400
+    charge_id=61 | Парковка Day | KA1188BK | BMW | amount=400 | allocated=0 | balance=400
+    charge_id=62 | Парковка Day | KA2729CH | JAGUAR | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 174 | charged=400 | paid=1000 | balance=-600
+  Charges:
+    charge_id=63 | Парковка Day | AA8787BC | VOLVO | amount=400 | allocated=0 | balance=400
+  Payments:
+    payment_id=5 | 2026-05-15 | - | AA8787BC | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+------------------------------------------------------------------------------------------------------------------------
+Apartment 176 | charged=1000 | paid=0 | balance=1000
+  Charges:
+    charge_id=64 | Парковка Night | AA1234BT | BMW | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 180 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=65 | Парковка Night | AA5993TH | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=66 | Парковка Day | AA9489XK | VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 181 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=67 | Парковка Day | BO7254EM | VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 182 | charged=2000 | paid=0 | balance=2000
+  Charges:
+    charge_id=68 | Парковка Night | BO0125EX | BMW | amount=1000 | allocated=0 | balance=1000
+    charge_id=69 | Парковка Night | BO8887BB | LAND ROVER | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 185 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=70 | Парковка Day | KA1302H | KIA | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 186 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=71 | Парковка Day | AA5553EB | LEXUS | amount=400 | allocated=0 | balance=400
+    charge_id=72 | Парковка Night | AA5553P | MERCEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 187 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=73 | Парковка Day | AA7007AO | MERCEDES | amount=400 | allocated=0 | balance=400
+    charge_id=74 | Парковка Night | AA7007OO | RANGE ROVER | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 188 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=75 | Парковка Day | A5568AC | - | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 191 | charged=1800 | paid=0 | balance=1800
+  Charges:
+    charge_id=76 | Парковка Day | AA1677MA | MERCEDES | amount=400 | allocated=0 | balance=400
+    charge_id=77 | Парковка Day | KA3326E | BYD | amount=400 | allocated=0 | balance=400
+    charge_id=78 | Парковка Night | K5775AC | MERCEDES | amount=1000 | allocated=0 | balance=1000
+------------------------------------------------------------------------------------------------------------------------
+Apartment 194 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=79 | Парковка Night | AA5551H | MERCEDES | amount=1000 | allocated=0 | balance=1000
+    charge_id=80 | Парковка Day | KA8848AO | MERCEDES | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 195 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=81 | Парковка Night | AA1102AA | JEEP | amount=1000 | allocated=0 | balance=1000
+    charge_id=82 | Парковка Day | AA8838TX | AUDI | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 196 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=83 | Парковка Day | AA9933EC | NISSAN | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 197 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=84 | Парковка Day | AA0403EM | SKODA | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 198 | charged=800 | paid=0 | balance=800
+  Charges:
+    charge_id=85 | Парковка Day | KA2882E | MERCEDES | amount=400 | allocated=0 | balance=400
+    charge_id=86 | Парковка Day | KA2882TT | RANGE ROVER | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 200 | charged=800 | paid=0 | balance=800
+  Charges:
+    charge_id=87 | Парковка Day | AA8499AK | HONDA | amount=400 | allocated=0 | balance=400
+    charge_id=88 | Парковка Day | AA5200H | MERCEDES | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 201 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=89 | Парковка Day | AA4388EX | VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 202 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=90 | Парковка Day | KA8801BB | RANGE ROVER | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 203 | charged=1400 | paid=0 | balance=1400
+  Charges:
+    charge_id=91 | Парковка Night | AA5054AX | - | amount=1000 | allocated=0 | balance=1000
+    charge_id=92 | Парковка Day | AA8069M | - | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 205 | charged=800 | paid=0 | balance=800
+  Charges:
+    charge_id=93 | Парковка Day | KA2882AE | VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+    charge_id=94 | Парковка Day | KA8482 | LEXUS | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment 206 | charged=400 | paid=0 | balance=400
+  Charges:
+    charge_id=95 | Парковка Day | AA1311BP | MERCEDES | amount=400 | allocated=0 | balance=400
+------------------------------------------------------------------------------------------------------------------------
+Apartment  | charged=0 | paid=5250 | balance=-5250
+  Payments:
+    payment_id=16 | 2026-05-23 | - | - | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1
+    payment_id=19 | 2026-05-25 | - | - | amount=150 | allocated=0 | unallocated=150 | source=import_ohorona_sheet1
+    payment_id=17 | 2026-05-30 | - | - | amount=800 | allocated=0 | unallocated=800 | source=import_ohorona_sheet1
+    payment_id=21 | 2026-05-30 | - | - | amount=500 | allocated=0 | unallocated=500 | source=import_ohorona_sheet1
+    payment_id=23 | 2026-06-01 | - | - | amount=500 | allocated=0 | unallocated=500 | source=import_ohorona_sheet1
+    payment_id=24 | 2026-06-01 | - | - | amount=2000 | allocated=0 | unallocated=2000 | source=import_ohorona_sheet1
+    payment_id=27 | 2026-06-01 | - | - | amount=300 | allocated=0 | unallocated=300 | source=import_ohorona_sheet1

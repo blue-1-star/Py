@@ -183,11 +183,28 @@ def read_sheet1_rows(source_file):
             "cashbox": normalize_cashbox(ws.cell(row=row_idx, column=COL_CASHBOX).value),
             "parse_status": "ok",
             "parse_error": "",
+            "row_kind": "payment",
         }
 
+        is_total_row = (
+            not row["payment_date"]
+            and not row["apartment_number"]
+            and not row["payer_name"]
+            and not row["plate_raw"]
+            and not row["purpose_raw"]
+            and (income is not None or expense is not None or row["cashbox"])
+        )
+
+        if is_total_row:
+            row["row_kind"] = "cashbox_total"
+            row["parse_status"] = "skip"
+            row["parse_error"] = "cashbox_total_row"
+            rows.append(row)
+            continue
+
         errors = []
-        if income is None and expense is None:
-            errors.append("missing_income_and_expense")
+        if income is None:
+            errors.append("missing_income")
         if purpose not in ["PARKING", "BARRIER_CALL", "IMPROVEMENT"]:
             errors.append(f"unknown_purpose:{purpose_raw}")
         if errors:
@@ -380,6 +397,10 @@ def apply_rows(conn, enriched, period_code):
     skipped_errors = 0
 
     for item in enriched:
+        if item.get("row_kind") != "payment":
+            skipped_errors += 1
+            continue
+
         if item["income"] is None or item["income"] <= 0:
             skipped_errors += 1
             continue
@@ -444,6 +465,9 @@ def apply_rows(conn, enriched, period_code):
 def cashbox_summary(enriched):
     result = {}
     for item in enriched:
+        if item.get("row_kind") != "payment":
+            continue
+
         cashbox = item["cashbox"] or "-"
         income = item["income"] or 0
         expense = item["expense"] or 0
@@ -453,6 +477,94 @@ def cashbox_summary(enriched):
         result[cashbox]["expense"] += expense
         result[cashbox]["net"] += income - expense
         result[cashbox]["rows"] += 1
+    return result
+
+
+def cashbox_total_rows(enriched):
+    return [item for item in enriched if item.get("row_kind") == "cashbox_total"]
+
+
+def unknown_plates(enriched):
+    result = []
+    for item in enriched:
+        if item.get("row_kind") != "payment":
+            continue
+        if item["purpose"] != "PARKING":
+            continue
+        if item.get("vehicle_match_status") == "vehicle_not_found":
+            result.append(item)
+    return result
+
+
+def skipped_system_rows(enriched):
+    """
+    Строки, которые есть в Excel, но не являются платежами к импорту:
+    кассовые итоги, строки без назначения, строки без прихода.
+    """
+    result = []
+
+    for item in enriched:
+        if item.get("row_kind") == "cashbox_total":
+            result.append(item)
+            continue
+
+        if item.get("row_kind") != "payment":
+            result.append(item)
+            continue
+
+        if item.get("parse_status") != "ok" and (
+            "unknown_purpose" in item.get("parse_error", "")
+            or "missing_income" in item.get("parse_error", "")
+        ):
+            result.append(item)
+
+    return result
+
+
+def manual_review_required(enriched):
+    """
+    Реальные платежные строки, которые можно хранить как оплаты,
+    но они требуют внимания человека:
+    - парковка без найденного авто;
+    - неоднозначное авто;
+    - недоплата/переплата относительно начисления;
+    - шлагбаум/благоустройство без начисления — это нормально для денег,
+      но полезно видеть отдельно.
+    """
+    result = []
+
+    for item in enriched:
+        if item.get("row_kind") != "payment":
+            continue
+
+        if item.get("parse_status") != "ok":
+            continue
+
+        if item.get("purpose") == "PARKING":
+            # Комбинат/коммерческая структура: П + сумма есть, но нет квартиры/номера.
+            # Это не системная строка, а ручная строка к учёту.
+            if not item.get("apartment_number") and not item.get("plate"):
+                result.append(item)
+                continue
+
+            if item.get("vehicle_match_status") not in {
+                "plate_exact",
+                "plate_and_apartment",
+                "plate_4digits_unique",
+                "plate_4digits_and_apartment",
+                "apartment_single_vehicle",
+            }:
+                result.append(item)
+                continue
+
+            if item.get("charge_match_status") != "charge_exact":
+                result.append(item)
+                continue
+
+        if item.get("purpose") in {"BARRIER_CALL", "IMPROVEMENT"}:
+            if item.get("charge_match_status") in {"charge_not_found", "no_charge_lookup"}:
+                result.append(item)
+
     return result
 
 
@@ -474,12 +586,12 @@ def write_report(report_file, enriched, apply_result, db_file, period_code, appl
     lines.append("=" * 120)
     lines.append("SIMPLE CHECK TABLE")
     lines.append("=" * 120)
-    lines.append("row | date | apt | effective_apt | plate_raw | plate_norm | purpose | income | cashbox | service | vehicle_match | charge_match")
+    lines.append("row | kind | date | apt | effective_apt | plate_raw | plate_norm | purpose | income | cashbox | service | vehicle_match | charge_match")
     lines.append("-" * 120)
 
     for item in enriched:
         lines.append(
-            f"{item['excel_row']} | {item['payment_date']} | "
+            f"{item['excel_row']} | {item.get('row_kind', 'payment')} | {item['payment_date']} | "
             f"{item['apartment_number']} | {item['effective_apartment']} | "
             f"{item['plate_raw']} | {item['plate']} | "
             f"{item['purpose_raw']} | {item['income']} | "
@@ -489,7 +601,28 @@ def write_report(report_file, enriched, apply_result, db_file, period_code, appl
 
     lines.append("")
     lines.append("=" * 120)
-    lines.append("WARNINGS / MANUAL REVIEW")
+    lines.append("SKIPPED_SYSTEM_ROWS — НЕ ИМПОРТИРУЮТСЯ")
+    lines.append("=" * 120)
+
+    system_rows = skipped_system_rows(enriched)
+
+    if not system_rows:
+        lines.append("нет системных/служебных строк")
+    else:
+        lines.append("row | kind | date | apt | plate | purpose | income | expense | cashbox | reason")
+        lines.append("-" * 120)
+        for item in system_rows:
+            lines.append(
+                f"{item['excel_row']} | {item.get('row_kind')} | "
+                f"{item['payment_date']} | {item['apartment_number']} | "
+                f"{item['plate_raw']} | {item['purpose_raw']} | "
+                f"{item['income']} | {item['expense']} | {item['cashbox']} | "
+                f"{item.get('parse_error', '')}"
+            )
+
+    lines.append("")
+    lines.append("=" * 120)
+    lines.append("MANUAL_REVIEW_REQUIRED")
     lines.append("=" * 120)
 
     good_vehicle_statuses = {
@@ -500,15 +633,10 @@ def write_report(report_file, enriched, apply_result, db_file, period_code, appl
         "apartment_single_vehicle",
     }
 
-    warnings = [
-        item for item in enriched
-        if item["parse_status"] != "ok"
-        or (item["purpose"] == "PARKING" and item.get("vehicle_match_status") not in good_vehicle_statuses)
-        or (item["purpose"] == "PARKING" and item.get("charge_match_status") != "charge_exact")
-    ]
+    warnings = manual_review_required(enriched)
 
     if not warnings:
-        lines.append("нет предупреждений")
+        lines.append("нет строк, требующих ручного просмотра")
     else:
         for item in warnings:
             lines.append(
@@ -523,6 +651,41 @@ def write_report(report_file, enriched, apply_result, db_file, period_code, appl
 
     lines.append("")
     lines.append("=" * 120)
+    lines.append("UNKNOWN PLATES FROM OHORONA")
+    lines.append("=" * 120)
+
+    unknowns = unknown_plates(enriched)
+    if not unknowns:
+        lines.append("нет неопознанных номеров")
+    else:
+        lines.append("row | date | apt | plate_raw | plate_norm | income | cashbox")
+        lines.append("-" * 120)
+        for item in unknowns:
+            lines.append(
+                f"{item['excel_row']} | {item['payment_date']} | "
+                f"{item['apartment_number']} | {item['plate_raw']} | "
+                f"{item['plate']} | {item['income']} | {item['cashbox']}"
+            )
+
+    lines.append("")
+    lines.append("=" * 120)
+    lines.append("CASHBOX TOTAL ROWS — НЕ ИМПОРТИРУЮТСЯ КАК ПЛАТЕЖИ")
+    lines.append("=" * 120)
+
+    total_rows = cashbox_total_rows(enriched)
+    if not total_rows:
+        lines.append("нет итоговых строк")
+    else:
+        lines.append("row | income | expense | cashbox/net")
+        lines.append("-" * 120)
+        for item in total_rows:
+            lines.append(
+                f"{item['excel_row']} | {item['income']} | "
+                f"{item['expense']} | {item['cashbox']}"
+            )
+
+    lines.append("")
+    lines.append("=" * 120)
     lines.append("CASHBOX SUMMARY")
     lines.append("=" * 120)
     lines.append("cashbox | rows | income | expense | net")
@@ -531,18 +694,23 @@ def write_report(report_file, enriched, apply_result, db_file, period_code, appl
     for cashbox, data in sorted(cashbox_summary(enriched).items()):
         lines.append(f"{cashbox} | {data['rows']} | {data['income']:g} | {data['expense']:g} | {data['net']:g}")
 
-    total_income = sum(item["income"] or 0 for item in enriched)
-    total_expense = sum(item["expense"] or 0 for item in enriched)
-    parking_income = sum(item["income"] or 0 for item in enriched if item["purpose"] == "PARKING")
-    barrier_income = sum(item["income"] or 0 for item in enriched if item["purpose"] == "BARRIER_CALL")
-    improvement_income = sum(item["income"] or 0 for item in enriched if item["purpose"] == "IMPROVEMENT")
+    payment_rows = [item for item in enriched if item.get("row_kind") == "payment"]
+    total_income = sum(item["income"] or 0 for item in payment_rows)
+    total_expense = sum(item["expense"] or 0 for item in payment_rows)
+    parking_income = sum(item["income"] or 0 for item in payment_rows if item["purpose"] == "PARKING")
+    barrier_income = sum(item["income"] or 0 for item in payment_rows if item["purpose"] == "BARRIER_CALL")
+    improvement_income = sum(item["income"] or 0 for item in payment_rows if item["purpose"] == "IMPROVEMENT")
 
     lines.append("")
     lines.append("=" * 120)
     lines.append("SUMMARY")
     lines.append("=" * 120)
     lines.append(f"Parsed rows        : {len(enriched)}")
-    lines.append(f"Warnings           : {len(warnings)}")
+    lines.append(f"Payment rows       : {len(payment_rows)}")
+    lines.append(f"Cashbox total rows : {len(cashbox_total_rows(enriched))}")
+    lines.append(f"Skipped system rows: {len(skipped_system_rows(enriched))}")
+    lines.append(f"Manual review rows : {len(warnings)}")
+    lines.append(f"Unknown plates     : {len(unknown_plates(enriched))}")
     lines.append(f"Total income       : {total_income:g}")
     lines.append(f"Total expense      : {total_expense:g}")
     lines.append(f"Net cash movement  : {total_income - total_expense:g}")

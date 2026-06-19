@@ -1,0 +1,184 @@
+========================================================================================================================
+BILLING RECONCILIATION REPORT
+========================================================================================================================
+Generated  : 2026-06-19 16:15:39
+DB         : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE       : TEST/WORK
+Period     : 2026-05_2026-06
+Charges    : charges
+Payments   : payments
+Allocations: payment_allocations
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+Charges count              : 95
+Payments count             : 30
+Allocations count          : 13
+Charges total              : 74600
+Payments total             : 24150
+Allocated total            : 8900
+Unallocated total          : 15250
+
+Fully matched charges      : 3
+Partially paid charges     : 6
+Unpaid charges             : 84
+Overallocated charges      : 2
+Payments without charge    : 5
+Apartment-level payments   : 5
+Unknown payments           : 7
+Empty apartment payments   : 0
+
+========================================================================================================================
+1. FULLY_MATCHED_CHARGES — начисление полностью закрыто оплатой
+========================================================================================================================
+charge_id=39 | apt=134 | Парковка Night | plate=AA2558HK | model=NISSAN | amount=1000 | allocated=1000 | balance=0
+charge_id=51 | apt=158 | Парковка Night | plate=AA5566CO | model=AUDI | amount=1000 | allocated=1000 | balance=0
+charge_id=59 | apt=171 | Парковка Night | plate=KA5524KA | model=MAZDA | amount=1000 | allocated=1000 | balance=0
+
+========================================================================================================================
+2. PARTIALLY_PAID_CHARGES — частично оплачено
+========================================================================================================================
+charge_id=11 | apt=30 | Парковка Night | plate=KA0186CM | model=TOYOTA | amount=1000 | allocated=500 | balance=500
+charge_id=17 | apt=71 | Парковка Night | plate=BM1253BX | model=SKODA | amount=1000 | allocated=500 | balance=500
+charge_id=23 | apt=98 | Парковка Night | plate=AA3804KI | model=VOLVO | amount=1000 | allocated=500 | balance=500
+charge_id=54 | apt=161 | Парковка Night | plate=AA5003MX | model=LEXUS | amount=1000 | allocated=500 | balance=500
+charge_id=55 | apt=161 | Парковка Night | plate=AA9868KC | model=AUDI | amount=1000 | allocated=500 | balance=500
+charge_id=57 | apt=167 | Парковка Night | plate=AA4477OH | model=TOYOTA | amount=1000 | allocated=700 | balance=300
+
+========================================================================================================================
+3. UNPAID_CHARGES — начисления без оплаты
+========================================================================================================================
+charge_id=1 | apt=1 | Парковка Night | plate=9599 | model=LEXUS | amount=1000 | allocated=0 | balance=1000
+charge_id=2 | apt=2 | Парковка Night | plate=A8756HK | model=MERCEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=3 | apt=8 | Парковка Night | plate=AA8008M | model=LEXUS | amount=1000 | allocated=0 | balance=1000
+charge_id=4 | apt=10 | Парковка Night | plate=AA54B | model=AA3455 | amount=1000 | allocated=0 | balance=1000
+charge_id=5 | apt=12 | Парковка Night | plate=A0448YB | model=AUDI | amount=1000 | allocated=0 | balance=1000
+charge_id=6 | apt=13 | Парковка Day | plate=KA7550BC | model=SKODA | amount=400 | allocated=0 | balance=400
+charge_id=7 | apt=13 | Парковка Night | plate=AA5472OA | model=- | amount=1000 | allocated=0 | balance=1000
+charge_id=8 | apt=14 | Парковка Night | plate=KA1165IB | model=HYUNDAI | amount=1000 | allocated=0 | balance=1000
+charge_id=9 | apt=27 | Парковка Night | plate=AP8170X | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=10 | apt=29 | Парковка Night | plate=AA5432EX | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=12 | apt=38 | Парковка Night | plate=AA9437MX | model=KIA | amount=1000 | allocated=0 | balance=1000
+charge_id=13 | apt=38 | Парковка Night | plate=AA1474IB | model=OPEL | amount=1000 | allocated=0 | balance=1000
+charge_id=14 | apt=56 | Парковка Night | plate=KA95552TB | model=SUZUKI | amount=1000 | allocated=0 | balance=1000
+charge_id=15 | apt=69 | Парковка Night | plate=KA6061KK | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=16 | apt=69 | Парковка Night | plate=KA5670EB | model=KIA | amount=1000 | allocated=0 | balance=1000
+charge_id=18 | apt=82 | Парковка Night | plate=KA1901PX | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=19 | apt=89 | Парковка Night | plate=KA6739E | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=20 | apt=89 | Парковка Night | plate=AA0606KB | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=21 | apt=89 | Парковка Night | plate=AA4566CT | model=TOYOTA | amount=1000 | allocated=0 | balance=1000
+charge_id=22 | apt=96 | Парковка Night | plate=KA6144PM | model=AUDI | amount=1000 | allocated=0 | balance=1000
+charge_id=24 | apt=101 | Парковка Night | plate=KA6714MP | model=SKODA | amount=1000 | allocated=0 | balance=1000
+charge_id=25 | apt=105 | Парковка Night | plate=AA3033BC | model=SUBARU | amount=1000 | allocated=0 | balance=1000
+charge_id=26 | apt=106 | Парковка Night | plate=AA3353B | model=VOLKSWAGEN | amount=1000 | allocated=0 | balance=1000
+charge_id=27 | apt=107 | Парковка Night | plate=A7758TE | model=NISSAN | amount=1000 | allocated=0 | balance=1000
+charge_id=28 | apt=120 | Парковка Night | plate=AA7171EA | model=HONDA | amount=1000 | allocated=0 | balance=1000
+charge_id=29 | apt=122 | Парковка Night | plate=KA6623M | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=30 | apt=125 | Парковка Night | plate=KA2708HO | model=LEXUS | amount=1000 | allocated=0 | balance=1000
+charge_id=31 | apt=125 | Парковка Night | plate=AA6626HP | model=MERSEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=32 | apt=126 | Парковка Night | plate=AA8393B | model=TESLA | amount=1000 | allocated=0 | balance=1000
+charge_id=33 | apt=126 | Парковка Night | plate=KA7973CC | model=VOLKSWAGEN | amount=1000 | allocated=0 | balance=1000
+charge_id=34 | apt=129 | Парковка Night | plate=KA8009B | model=NISSAN | amount=1000 | allocated=0 | balance=1000
+charge_id=35 | apt=129 | Парковка Night | plate=KA6786PE | model=MERSEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=36 | apt=133 | Парковка Night | plate=A5787ET | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=37 | apt=133 | Парковка Night | plate=AM0808BO | model=MAZDA | amount=1000 | allocated=0 | balance=1000
+charge_id=38 | apt=134 | Парковка Night | plate=AM1317HT | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=40 | apt=138 | Парковка Night | plate=KA4288BT | model=JAGUAR | amount=1000 | allocated=0 | balance=1000
+charge_id=41 | apt=139 | Парковка Night | plate=KA6052PK | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=42 | apt=139 | Парковка Night | plate=KA7764MK | model=PEUGEOT | amount=1000 | allocated=0 | balance=1000
+charge_id=43 | apt=140 | Парковка Night | plate=A7772C | model=LINCOLN | amount=1000 | allocated=0 | balance=1000
+charge_id=44 | apt=142 | Парковка Night | plate=AA0721M | model=HONDA | amount=1000 | allocated=0 | balance=1000
+charge_id=45 | apt=144 | Парковка Day | plate=AA9599 | model=AUDI | amount=400 | allocated=0 | balance=400
+charge_id=46 | apt=144 | Парковка Day | plate=KA9959 | model=PORSCHE | amount=400 | allocated=0 | balance=400
+charge_id=47 | apt=145 | Парковка Day | plate=AA1402MK | model=CHEVROLET | amount=400 | allocated=0 | balance=400
+charge_id=48 | apt=155 | Парковка Day | plate=KA9151 | model=TOYOTA | amount=400 | allocated=0 | balance=400
+charge_id=49 | apt=155 | Парковка Day | plate=AA7020 | model=LEXUS | amount=400 | allocated=0 | balance=400
+charge_id=50 | apt=155 | Парковка Day | plate=KA1175 | model=TOYOTA | amount=400 | allocated=0 | balance=400
+charge_id=53 | apt=160 | Парковка Night | plate=KA7030TH | model=LEXUS | amount=1000 | allocated=0 | balance=1000
+charge_id=58 | apt=169 | Парковка Night | plate=KA1784EA | model=MERCEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=60 | apt=173 | Парковка Day | plate=AA9415YC | model=TESLA | amount=400 | allocated=0 | balance=400
+charge_id=61 | apt=173 | Парковка Day | plate=KA1188BK | model=BMW | amount=400 | allocated=0 | balance=400
+charge_id=62 | apt=173 | Парковка Day | plate=KA2729CH | model=JAGUAR | amount=400 | allocated=0 | balance=400
+charge_id=63 | apt=174 | Парковка Day | plate=AA8787BC | model=VOLVO | amount=400 | allocated=0 | balance=400
+charge_id=64 | apt=176 | Парковка Night | plate=AA1234BT | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=65 | apt=180 | Парковка Night | plate=AA5993TH | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=66 | apt=180 | Парковка Day | plate=AA9489XK | model=VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+charge_id=67 | apt=181 | Парковка Day | plate=BO7254EM | model=VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+charge_id=68 | apt=182 | Парковка Night | plate=BO0125EX | model=BMW | amount=1000 | allocated=0 | balance=1000
+charge_id=69 | apt=182 | Парковка Night | plate=BO8887BB | model=LAND ROVER | amount=1000 | allocated=0 | balance=1000
+charge_id=70 | apt=185 | Парковка Day | plate=KA1302H | model=KIA | amount=400 | allocated=0 | balance=400
+charge_id=71 | apt=186 | Парковка Day | plate=AA5553EB | model=LEXUS | amount=400 | allocated=0 | balance=400
+charge_id=72 | apt=186 | Парковка Night | plate=AA5553P | model=MERCEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=73 | apt=187 | Парковка Day | plate=AA7007AO | model=MERCEDES | amount=400 | allocated=0 | balance=400
+charge_id=74 | apt=187 | Парковка Night | plate=AA7007OO | model=RANGE ROVER | amount=1000 | allocated=0 | balance=1000
+charge_id=75 | apt=188 | Парковка Day | plate=A5568AC | model=- | amount=400 | allocated=0 | balance=400
+charge_id=76 | apt=191 | Парковка Day | plate=AA1677MA | model=MERCEDES | amount=400 | allocated=0 | balance=400
+charge_id=77 | apt=191 | Парковка Day | plate=KA3326E | model=BYD | amount=400 | allocated=0 | balance=400
+charge_id=78 | apt=191 | Парковка Night | plate=K5775AC | model=MERCEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=79 | apt=194 | Парковка Night | plate=AA5551H | model=MERCEDES | amount=1000 | allocated=0 | balance=1000
+charge_id=80 | apt=194 | Парковка Day | plate=KA8848AO | model=MERCEDES | amount=400 | allocated=0 | balance=400
+charge_id=81 | apt=195 | Парковка Night | plate=AA1102AA | model=JEEP | amount=1000 | allocated=0 | balance=1000
+charge_id=82 | apt=195 | Парковка Day | plate=AA8838TX | model=AUDI | amount=400 | allocated=0 | balance=400
+charge_id=83 | apt=196 | Парковка Day | plate=AA9933EC | model=NISSAN | amount=400 | allocated=0 | balance=400
+charge_id=84 | apt=197 | Парковка Day | plate=AA0403EM | model=SKODA | amount=400 | allocated=0 | balance=400
+charge_id=85 | apt=198 | Парковка Day | plate=KA2882E | model=MERCEDES | amount=400 | allocated=0 | balance=400
+charge_id=86 | apt=198 | Парковка Day | plate=KA2882TT | model=RANGE ROVER | amount=400 | allocated=0 | balance=400
+charge_id=87 | apt=200 | Парковка Day | plate=AA8499AK | model=HONDA | amount=400 | allocated=0 | balance=400
+charge_id=88 | apt=200 | Парковка Day | plate=AA5200H | model=MERCEDES | amount=400 | allocated=0 | balance=400
+charge_id=89 | apt=201 | Парковка Day | plate=AA4388EX | model=VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+charge_id=90 | apt=202 | Парковка Day | plate=KA8801BB | model=RANGE ROVER | amount=400 | allocated=0 | balance=400
+charge_id=91 | apt=203 | Парковка Night | plate=AA5054AX | model=- | amount=1000 | allocated=0 | balance=1000
+charge_id=92 | apt=203 | Парковка Day | plate=AA8069M | model=- | amount=400 | allocated=0 | balance=400
+charge_id=93 | apt=205 | Парковка Day | plate=KA2882AE | model=VOLKSWAGEN | amount=400 | allocated=0 | balance=400
+charge_id=94 | apt=205 | Парковка Day | plate=KA8482 | model=LEXUS | amount=400 | allocated=0 | balance=400
+charge_id=95 | apt=206 | Парковка Day | plate=AA1311BP | model=MERCEDES | amount=400 | allocated=0 | balance=400
+
+========================================================================================================================
+4. OVERALLOCATED_CHARGES — к начислению привязано больше, чем начислено
+========================================================================================================================
+charge_id=52 | apt=159 | Парковка Night | plate=KA5689BB | model=LEXUS | amount=1000 | allocated=1500 | balance=-500
+charge_id=56 | apt=162 | Парковка Day | plate=AA5557TE | model=MERCEDES | amount=400 | allocated=1200 | balance=-800
+
+========================================================================================================================
+5. PAYMENTS_WITHOUT_CHARGE — есть авто/квартира, но нет подходящего начисления
+========================================================================================================================
+payment_id=15 | date=2026-06-05 | apt=16 | vehicle_id=8 | service=- | plate=8969 | amount=700 | allocated=0 | unallocated=700 | source=import_ohorona_sheet1 | ref=-
+payment_id=1 | date=2026-05-30 | apt=52 | vehicle_id=77 | service=- | plate=KA7140AB | amount=400 | allocated=0 | unallocated=400 | source=import_ohorona_sheet1 | ref=-
+payment_id=11 | date=2026-05-21 | apt=108 | vehicle_id=36 | service=- | plate=KA6556BP | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=30 | date=2026-06-01 | apt=132 | vehicle_id=51 | service=- | plate=AA2281MB | amount=400 | allocated=0 | unallocated=400 | source=import_ohorona_sheet1 | ref=-
+payment_id=5 | date=2026-05-15 | apt=174 | vehicle_id=98 | service=- | plate=AA8787BC | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+
+========================================================================================================================
+6. APARTMENT_LEVEL_PAYMENTS — оплата на квартиру без конкретного авто
+========================================================================================================================
+payment_id=12 | date=2026-06-04 | apt=133 | vehicle_id=- | service=- | plate=- | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=13 | date=2026-06-04 | apt=134 | vehicle_id=- | service=- | plate=- | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=3 | date=2026-05-30 | apt=138 | vehicle_id=- | service=- | plate=- | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=7 | date=2026-05-22 | apt=142 | vehicle_id=- | service=- | plate=- | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=4 | date=2026-05-30 | apt=164 | vehicle_id=- | service=- | plate=- | amount=2500 | allocated=0 | unallocated=2500 | source=import_ohorona_sheet1 | ref=-
+
+========================================================================================================================
+7. UNKNOWN_PAYMENTS — платежи без квартиры и без найденного авто
+========================================================================================================================
+payment_id=16 | date=2026-05-23 | apt=- | vehicle_id=- | service=- | plate=- | amount=1000 | allocated=0 | unallocated=1000 | source=import_ohorona_sheet1 | ref=-
+payment_id=17 | date=2026-05-30 | apt=- | vehicle_id=- | service=- | plate=- | amount=800 | allocated=0 | unallocated=800 | source=import_ohorona_sheet1 | ref=-
+payment_id=19 | date=2026-05-25 | apt=- | vehicle_id=- | service=- | plate=- | amount=150 | allocated=0 | unallocated=150 | source=import_ohorona_sheet1 | ref=-
+payment_id=21 | date=2026-05-30 | apt=- | vehicle_id=- | service=- | plate=- | amount=500 | allocated=0 | unallocated=500 | source=import_ohorona_sheet1 | ref=-
+payment_id=23 | date=2026-06-01 | apt=- | vehicle_id=- | service=- | plate=- | amount=500 | allocated=0 | unallocated=500 | source=import_ohorona_sheet1 | ref=-
+payment_id=24 | date=2026-06-01 | apt=- | vehicle_id=- | service=- | plate=- | amount=2000 | allocated=0 | unallocated=2000 | source=import_ohorona_sheet1 | ref=-
+payment_id=27 | date=2026-06-01 | apt=- | vehicle_id=- | service=- | plate=- | amount=300 | allocated=0 | unallocated=300 | source=import_ohorona_sheet1 | ref=-
+
+========================================================================================================================
+8. EMPTY_APARTMENT_PAYMENTS — платежи с пустой квартирой, но с vehicle_id
+========================================================================================================================
+нет записей
+
+========================================================================================================================
+NEXT ACTION HINTS
+========================================================================================================================
+UNKNOWN_PAYMENTS: искать номер/плательщика и привязывать к квартире/авто.
+APARTMENT_LEVEL_PAYMENTS: проверить, можно ли распределить на начисления квартиры.
+PAYMENTS_WITHOUT_CHARGE: вероятно, создать недостающее начисление или сменить тип услуги.
+PARTIALLY_PAID_CHARGES: это реальные частичные оплаты или старые тарифы.
+OVERALLOCATED_CHARGES: проверить переплату или ошибочное распределение.

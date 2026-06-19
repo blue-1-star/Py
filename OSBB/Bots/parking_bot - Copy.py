@@ -55,15 +55,20 @@ from Bots.db_access import (
     update_vehicle_parking_status,
     update_vehicle_plate,
     update_vehicle_model,
-    get_verification_stats,
-    format_verification_stats,
-    get_next_apartment_for_verification,
-    get_apartments_by_verification_status,
-    set_apartment_verification_status,
-    format_verification_apartment_list,
-    format_apartment_agreement_card,
 )
 
+
+from Bots.handlers.agreement import (
+    AGREEMENT_MENU,
+    AGREEMENT_ACTION_MENU,
+    show_agreement_menu,
+    show_next_agreement_apartment,
+    show_agreement_list,
+    show_agreement_stats,
+    handle_waiting_agreement_apartment,
+    handle_agreement_card_action,
+    handle_agreement_menu_text,
+)
 
 user_languages = {}
 user_modes = {}
@@ -200,23 +205,6 @@ VEHICLE_STATUS_MENU = [
     ["🚫 Не паркуется", "❓ NULL"],
     ["⬅️ Назад"],
 ]
-
-AGREEMENT_MENU = [
-    ["▶️ Продолжить"],
-    ["🏠 Найти квартиру"],
-    ["⚠️ Конфликты", "⏳ Отложенные"],
-    ["📊 Статистика"],
-    ["⬅️ Назад"],
-]
-
-AGREEMENT_ACTION_MENU = [
-    ["✅ Согласовать"],
-    ["⏳ Отложить", "⚠️ Конфликт"],
-    ["✏️ Исправить"],
-    ["➡️ Следующая"],
-    ["⬅️ Назад"],
-]
-
 
 def kb(buttons):
     return ReplyKeyboardMarkup(buttons, resize_keyboard=True)
@@ -733,139 +721,6 @@ async def handle_vehicle_review_action(update: Update, user_id: int, text: str):
         reply_markup=kb(VEHICLE_ACTION_MENU),
     )
 
-async def show_agreement_menu(update: Update):
-    stats = get_verification_stats()
-
-    await update.message.reply_text(
-        format_verification_stats(stats) + "\n\nВыберите действие:",
-        reply_markup=kb(AGREEMENT_MENU),
-    )
-
-
-async def show_agreement_stats(update: Update):
-    stats = get_verification_stats()
-
-    await update.message.reply_text(
-        format_verification_stats(stats),
-        reply_markup=kb(AGREEMENT_MENU),
-    )
-
-
-async def show_agreement_card(update: Update, user_id: int, apartment_number: str):
-    user_states[user_id] = ("agreement_card", str(apartment_number))
-
-    await update.message.reply_text(
-        format_apartment_agreement_card(apartment_number),
-        reply_markup=kb(AGREEMENT_ACTION_MENU),
-    )
-
-
-async def show_next_agreement_apartment(update: Update, user_id: int):
-    row = get_next_apartment_for_verification()
-
-    if not row:
-        user_states.pop(user_id, None)
-
-        await update.message.reply_text(
-            "✅ Все квартиры уже имеют статус согласования.",
-            reply_markup=kb(AGREEMENT_MENU),
-        )
-        return
-
-    apartment_number = row[2]
-    await show_agreement_card(update, user_id, apartment_number)
-
-
-async def show_agreement_list(update: Update, title: str, status: str):
-    rows = get_apartments_by_verification_status(status, limit=50)
-
-    await update.message.reply_text(
-        format_verification_apartment_list(title, rows),
-        reply_markup=kb(AGREEMENT_MENU),
-    )
-
-
-async def handle_agreement_card_action(update: Update, user_id: int, text: str):
-    state = user_states.get(user_id)
-
-    if not (isinstance(state, tuple) and state[0] == "agreement_card"):
-        user_states.pop(user_id, None)
-        await show_agreement_menu(update)
-        return
-
-    apartment_number = state[1]
-
-    if text == "⬅️ Назад":
-        user_states.pop(user_id, None)
-        await show_agreement_menu(update)
-        return
-
-    if text == "➡️ Следующая":
-        await show_next_agreement_apartment(update, user_id)
-        return
-
-    if text == "✏️ Исправить":
-        user_states.pop(user_id, None)
-        await show_apartment_card(update, user_id, apartment_number)
-        return
-
-    if text == "✅ Согласовать":
-        ok, result = set_apartment_verification_status(
-            apartment_number,
-            "confirmed",
-            verified_by=user_id,
-        )
-
-        if ok:
-            await update.message.reply_text(f"✅ Квартира {apartment_number} согласована.")
-            await show_next_agreement_apartment(update, user_id)
-        else:
-            await update.message.reply_text(
-                f"Ошибка: {result}",
-                reply_markup=kb(AGREEMENT_ACTION_MENU),
-            )
-        return
-
-    if text == "⏳ Отложить":
-        ok, result = set_apartment_verification_status(
-            apartment_number,
-            "deferred",
-            verified_by=user_id,
-        )
-
-        if ok:
-            await update.message.reply_text(f"⏳ Квартира {apartment_number} отложена.")
-            await show_next_agreement_apartment(update, user_id)
-        else:
-            await update.message.reply_text(
-                f"Ошибка: {result}",
-                reply_markup=kb(AGREEMENT_ACTION_MENU),
-            )
-        return
-
-    if text == "⚠️ Конфликт":
-        ok, result = set_apartment_verification_status(
-            apartment_number,
-            "conflict",
-            verified_by=user_id,
-        )
-
-        if ok:
-            await update.message.reply_text(f"⚠️ Квартира {apartment_number}: конфликт.")
-            await show_next_agreement_apartment(update, user_id)
-        else:
-            await update.message.reply_text(
-                f"Ошибка: {result}",
-                reply_markup=kb(AGREEMENT_ACTION_MENU),
-            )
-        return
-
-    await update.message.reply_text(
-        "Выберите действие кнопкой.",
-        reply_markup=kb(AGREEMENT_ACTION_MENU),
-    )
-
-
 async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     user_id = user.id
@@ -1110,18 +965,17 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if state == "admin_waiting_agreement_apartment":
-
-        if text == "⬅️ Назад":
-            user_states.pop(user_id, None)
-            await show_agreement_menu(update)
-            return
-
-        user_states.pop(user_id, None)
-        await show_agreement_card(update, user_id, text)
+        await handle_waiting_agreement_apartment(update, user_states, user_id, text)
         return
 
     if isinstance(state, tuple) and state[0] == "agreement_card":
-        await handle_agreement_card_action(update, user_id, text)
+        await handle_agreement_card_action(
+            update,
+            user_states,
+            user_id,
+            text,
+            show_apartment_card,
+        )
         return
 
     if isinstance(state, tuple) and state[0] == "vehicle_review":
@@ -1355,33 +1209,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await show_vehicle_stats(update)
         return
 
-    if text == "🤝 Согласование":
-        await show_agreement_menu(update)
-        return
-
-    if text == "▶️ Продолжить":
-        await show_next_agreement_apartment(update, user_id)
-        return
-
-    if text == "🏠 Найти квартиру":
-        user_states[user_id] = "admin_waiting_agreement_apartment"
-
-        await update.message.reply_text(
-            "Введите номер квартиры:",
-            reply_markup=kb([["⬅️ Назад"]]),
-        )
-        return
-
-    if text == "⚠️ Конфликты":
-        await show_agreement_list(update, "Конфликты", "conflict")
-        return
-
-    if text == "⏳ Отложенные":
-        await show_agreement_list(update, "Отложенные", "deferred")
-        return
-
-    if text == "📊 Статистика":
-        await show_agreement_stats(update)
+    if await handle_agreement_menu_text(update, user_states, user_id, text):
         return
 
     if text == "🔑 Заявки на пульты":

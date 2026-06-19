@@ -1,0 +1,117 @@
+========================================================================================================================
+OHORONA SHEET1 PAYMENTS DRY RUN
+========================================================================================================================
+Generated : 2026-06-19 10:25:19
+DB        : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE      : TEST/WORK
+Source    : G:\Programming\Py\OSBB\Data\raw\typed\Охорона.xlsx
+Sheet     : Sheet1
+Period    : 2026-05_2026-06
+Header row: 3
+Columns   : Date | Entrance | Apt | Name | Plate | Purpose | Income | Expense | Cashbox
+
+========================================================================================================================
+SIMPLE CHECK TABLE
+========================================================================================================================
+row | date | apt | effective_apt | plate_raw | plate_norm | purpose | income | cashbox | service | vehicle_match | charge_match
+------------------------------------------------------------------------------------------------------------------------
+4 | 2026-05-30 | 52 | 52 |  |  | П | 400.0 |  | - | apartment_single_vehicle | no_charge_lookup
+5 | 2026-05-31 | 158 | 158 |  |  | П | 1000.0 |  | PARKING_NIGHT | apartment_single_vehicle | charge_exact
+6 | 2026-05-30 | 138 | 138 |  |  | П | 1000.0 |  | - | apartment_multiple_vehicles | no_charge_lookup
+7 | 2026-05-30 | 164 | 164 |  |  | П | 2500.0 |  | - | vehicle_not_found | no_charge_lookup
+8 | 2026-05-15 | 174 | 174 |  |  | Ш | 1000.0 |  | BARRIER_CALL | apartment_single_vehicle | charge_not_found
+9 | 2026-05-15 | 159 | 159 |  |  | П | 1000.0 |  | PARKING_NIGHT | apartment_single_vehicle | charge_exact
+10 | 2026-05-15 |  |  |  |  |  | None |  | - | vehicle_not_found | no_charge_lookup
+11 | 2026-05-22 | 142 | 142 |  |  | П | 1000.0 |  | - | apartment_multiple_vehicles | no_charge_lookup
+12 | 2026-05-21 | 167 | 167 |  |  | П | 700.0 |  | PARKING_NIGHT | apartment_single_vehicle | charge_underpay:300
+13 | 2026-05-21 | 171 | 171 |  |  | П | 500.0 |  | PARKING_NIGHT | apartment_single_vehicle | charge_underpay:500
+14 | 2026-05-21 | 162 | 162 |  |  | П | 1200.0 |  | PARKING_DAY | apartment_single_vehicle | charge_overpay:800
+15 | 2026-05-21 | 108 | 108 |  |  | П | 1000.0 |  | - | apartment_single_vehicle | no_charge_lookup
+16 | ? | ? | ? |  |  |  | 750.0 |  | - | vehicle_not_found | no_charge_lookup
+17 | 2026-06-04 | 133 | 133 | AI5787ET | AI5787ET | П | 1000.0 |  | - | apartment_multiple_vehicles | no_charge_lookup
+18 | 2026-06-04 | 134 | 134 | AM1317MT | AM1317MT | П | 1000.0 |  | - | apartment_multiple_vehicles | no_charge_lookup
+19 | 2026-06-04 | 134 | 134 | AA2558HK | AA2558HK | П | 1000.0 |  | PARKING_NIGHT | plate_exact | charge_exact
+20 | 2026-06-05 | 16 | 16 |  |  | П | 700.0 |  | - | apartment_single_vehicle | no_charge_lookup
+21 | 2026-05-23 |  |  | AA12354BT | AA12354BT | П | 1000.0 | O | - | vehicle_not_found | no_charge_lookup
+22 | 2026-05-30 |  |  | AI8756HK | AI8756HK | П | 800.0 | O | - | vehicle_not_found | no_charge_lookup
+23 | 2026-05-31 |  | 71 | BM1253BX | BM1253BX | П | 500.0 | O | PARKING_NIGHT | plate_exact | charge_underpay:500
+24 | 2026-05-25 |  |  | AA1178KM | AA1178KM | П | 150.0 | O | - | vehicle_not_found | no_charge_lookup
+25 | 2026-05-30 |  | 159 | KA5689BB | KA5689BB | П | 500.0 | O | PARKING_NIGHT | plate_exact | charge_underpay:500
+26 | 2026-05-30 |  |  | KA5030CI | KA5030CI | П | 500.0 | O | - | vehicle_not_found | no_charge_lookup
+27 | 2026-06-01 |  | 98 | AA3804KI | AA3804KI | П | 500.0 | O | PARKING_NIGHT | plate_exact | charge_underpay:500
+28 | 2026-06-01 |  |  | 8092 | 8092 | П | 500.0 | O | - | vehicle_not_found | no_charge_lookup
+29 | 2026-06-01 |  |  |  |  | П | 2000.0 | O | - | vehicle_not_found | no_charge_lookup
+30 | 2026-06-01 |  | 171 | KA5524KA | KA5524KA | П | 500.0 | O | PARKING_NIGHT | plate_exact | charge_underpay:500
+31 | 2026-06-01 |  | 30 | O186 | 0186 | П | 500.0 | O | PARKING_NIGHT | plate_4digits_unique | charge_underpay:500
+32 | 2026-06-01 |  |  | 9000 | 9000 | П | 300.0 | O | - | vehicle_not_found | no_charge_lookup
+33 | 2026-06-01 |  | 161 | 5003 | 5003 | П | 500.0 | O | PARKING_NIGHT | plate_4digits_unique | charge_underpay:500
+34 | 2026-06-01 |  | 161 | 9868 | 9868 | П | 500.0 | O | PARKING_NIGHT | plate_4digits_unique | charge_underpay:500
+35 | 2026-06-01 | 132 | 132 |  |  | Б | 400.0 | O | IMPROVEMENT | apartment_single_vehicle | charge_not_found
+39 |  |  |  |  |  |  | 18200.0 | 16850 | - | vehicle_not_found | no_charge_lookup
+41 |  |  |  |  |  |  | 7900.0 | 1300 | - | vehicle_not_found | no_charge_lookup
+42 |  |  |  |  |  |  | 11500.0 | 500 | - | vehicle_not_found | no_charge_lookup
+43 |  |  |  |  |  |  | 6750.0 |  | - | vehicle_not_found | no_charge_lookup
+44 |  |  |  |  |  |  | 26150.0 | 8550 | - | vehicle_not_found | no_charge_lookup
+
+========================================================================================================================
+WARNINGS / MANUAL REVIEW
+========================================================================================================================
+row 4: apt=52 effective_apt=52 plate=-> purpose=П income=400.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=no_charge_lookup
+row 6: apt=138 effective_apt=138 plate=-> purpose=П income=1000.0 cashbox= | parse=ok  | vehicle=apartment_multiple_vehicles | charge=no_charge_lookup
+row 7: apt=164 effective_apt=164 plate=-> purpose=П income=2500.0 cashbox= | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 10: apt= effective_apt= plate=-> purpose= income=None cashbox= | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 11: apt=142 effective_apt=142 plate=-> purpose=П income=1000.0 cashbox= | parse=ok  | vehicle=apartment_multiple_vehicles | charge=no_charge_lookup
+row 12: apt=167 effective_apt=167 plate=-> purpose=П income=700.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=charge_underpay:300
+row 13: apt=171 effective_apt=171 plate=-> purpose=П income=500.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=charge_underpay:500
+row 14: apt=162 effective_apt=162 plate=-> purpose=П income=1200.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=charge_overpay:800
+row 15: apt=108 effective_apt=108 plate=-> purpose=П income=1000.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=no_charge_lookup
+row 16: apt=? effective_apt=? plate=-> purpose= income=750.0 cashbox= | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 17: apt=133 effective_apt=133 plate=AI5787ET->AI5787ET purpose=П income=1000.0 cashbox= | parse=ok  | vehicle=apartment_multiple_vehicles | charge=no_charge_lookup
+row 18: apt=134 effective_apt=134 plate=AM1317MT->AM1317MT purpose=П income=1000.0 cashbox= | parse=ok  | vehicle=apartment_multiple_vehicles | charge=no_charge_lookup
+row 20: apt=16 effective_apt=16 plate=-> purpose=П income=700.0 cashbox= | parse=ok  | vehicle=apartment_single_vehicle | charge=no_charge_lookup
+row 21: apt= effective_apt= plate=AA12354BT->AA12354BT purpose=П income=1000.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 22: apt= effective_apt= plate=AI8756HK->AI8756HK purpose=П income=800.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 23: apt= effective_apt=71 plate=BM1253BX->BM1253BX purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_exact | charge=charge_underpay:500
+row 24: apt= effective_apt= plate=AA1178KM->AA1178KM purpose=П income=150.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 25: apt= effective_apt=159 plate=KA5689BB->KA5689BB purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_exact | charge=charge_underpay:500
+row 26: apt= effective_apt= plate=KA5030CI->KA5030CI purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 27: apt= effective_apt=98 plate=AA3804KI->AA3804KI purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_exact | charge=charge_underpay:500
+row 28: apt= effective_apt= plate=8092->8092 purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 29: apt= effective_apt= plate=-> purpose=П income=2000.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 30: apt= effective_apt=171 plate=KA5524KA->KA5524KA purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_exact | charge=charge_underpay:500
+row 31: apt= effective_apt=30 plate=O186->0186 purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_4digits_unique | charge=charge_underpay:500
+row 32: apt= effective_apt= plate=9000->9000 purpose=П income=300.0 cashbox=O | parse=ok  | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 33: apt= effective_apt=161 plate=5003->5003 purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_4digits_unique | charge=charge_underpay:500
+row 34: apt= effective_apt=161 plate=9868->9868 purpose=П income=500.0 cashbox=O | parse=ok  | vehicle=plate_4digits_unique | charge=charge_underpay:500
+row 39: apt= effective_apt= plate=-> purpose= income=18200.0 cashbox=16850 | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 41: apt= effective_apt= plate=-> purpose= income=7900.0 cashbox=1300 | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 42: apt= effective_apt= plate=-> purpose= income=11500.0 cashbox=500 | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 43: apt= effective_apt= plate=-> purpose= income=6750.0 cashbox= | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+row 44: apt= effective_apt= plate=-> purpose= income=26150.0 cashbox=8550 | parse=warning unknown_purpose: | vehicle=vehicle_not_found | charge=no_charge_lookup
+
+========================================================================================================================
+CASHBOX SUMMARY
+========================================================================================================================
+cashbox | rows | income | expense | net
+------------------------------------------------------------------------------------------------------------------------
+- | 18 | 22500 | 1350 | 21150
+1300 | 1 | 7900 | 6600 | 1300
+16850 | 1 | 18200 | 1350 | 16850
+500 | 1 | 11500 | 11000 | 500
+8550 | 1 | 26150 | 17600 | 8550
+O | 15 | 9150 | 0 | 9150
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+Parsed rows        : 37
+Warnings           : 32
+Total income       : 95400
+Total expense      : 37900
+Net cash movement  : 57500
+Parking income     : 22750
+Barrier income     : 1000
+Improvement income : 400
+
+DRY RUN ONLY. Database was not changed.
+To apply, run with --apply
