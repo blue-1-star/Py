@@ -1,0 +1,72 @@
+==================================================================================================================================
+ИСТОРИЧЕСКИЙ ИМПОРТ ОХОРОНА.XLSX В ЖУРНАЛ КАССИРА
+==================================================================================================================================
+Generated        : 2026-06-22 20:55:57
+DB               : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE             : TEST/WORK
+Source           : G:\Programming\Py\OSBB\Data\raw\typed\Охорона.xlsx
+Sheet            : Sheet1
+Header row       : 3
+Legacy period key: 2026-05_2026-06
+Default cashbox  : O
+Snapshot balance : -
+
+ПЛАН ОПЕРАЦИЙ:
+row | status | date | cashbox | direction | amount | base service | item | payment_id | payment match | warning/reason
+----------------------------------------------------------------------------------------------------------------------------------
+4 | ready | 2026-05-30 | O | in | 400 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 1 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=1 (comment_row)
+5 | ready | 2026-05-31 | O | in | 1000 | PARKING_NIGHT | 05_26_Night | 2 | comment_row | Связан payment id=2 (comment_row)
+6 | ready | 2026-05-30 | O | in | 1000 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 3 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=3 (comment_row)
+7 | ready | 2026-05-30 | O | in | 2500 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 4 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=4 (comment_row)
+8 | ready | 2026-05-15 | O | in | 1000 | BARRIER_REPAIR | 01_BarrierRepair | 5 | comment_row | Связан payment id=5 (comment_row)
+9 | ready | 2026-05-15 | O | in | 1000 | PARKING_NIGHT | 05_26_Night | 6 | comment_row | Связан payment id=6 (comment_row)
+10 | ready | 2026-05-15 | O | out | 1350 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | - | not_applicable | Неизвестное назначение: ''
+11 | ready | 2026-05-22 | O | in | 1000 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 7 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=7 (comment_row)
+12 | ready | 2026-05-21 | O | in | 700 | PARKING_NIGHT | 05_26_Night | 8 | comment_row | Связан payment id=8 (comment_row)
+13 | ready | 2026-05-21 | O | in | 500 | PARKING_NIGHT | 05_26_Night | 9 | comment_row | Связан payment id=9 (comment_row)
+14 | ready | 2026-05-21 | O | in | 1200 | PARKING_DAY | 05_26_Day | 10 | comment_row | Связан payment id=10 (comment_row)
+15 | ready | 2026-05-21 | O | in | 1000 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 11 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=11 (comment_row)
+16 | skip | ? | O | - | 0 | - | - | - | - | неизвестная дата; добавьте --unknown-date YYYY-MM-DD после проверки бумажного источника
+17 | ready | 2026-06-04 | O | in | 1000 | PARKING_NIGHT | 06_26_Night | 12 | comment_row | Связан payment id=12 (comment_row)
+18 | ready | 2026-06-04 | O | in | 1000 | HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | 13 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=13 (comment_row)
+19 | ready | 2026-06-04 | O | in | 1000 | PARKING_NIGHT | 06_26_Night | 14 | comment_row | Связан payment id=14 (comment_row)
+20 | ready | 2026-06-05 | O | in | 700 | HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | 15 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=15 (comment_row)
+21 | ready | 2026-05-23 | O | in | 1000 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 16 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=16 (comment_row)
+22 | ready | 2026-05-30 | O | in | 800 | PARKING_NIGHT | 05_26_Night | 17 | comment_row | Связан payment id=17 (comment_row)
+23 | ready | 2026-05-31 | O | in | 500 | PARKING_NIGHT | 05_26_Night | 18 | comment_row | Связан payment id=18 (comment_row)
+24 | ready | 2026-05-25 | O | in | 150 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 19 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=19 (comment_row)
+25 | ready | 2026-05-30 | O | in | 500 | PARKING_NIGHT | 05_26_Night | 20 | comment_row | Связан payment id=20 (comment_row)
+26 | ready | 2026-05-30 | O | in | 500 | HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | 21 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=21 (comment_row)
+27 | ready | 2026-06-01 | O | in | 500 | PARKING_NIGHT | 06_26_Night | 22 | comment_row | Связан payment id=22 (comment_row)
+28 | ready | 2026-06-01 | O | in | 500 | HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | 23 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=23 (comment_row)
+29 | ready | 2026-06-01 | O | in | 2000 | HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | 24 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=24 (comment_row)
+30 | ready | 2026-06-01 | O | in | 500 | PARKING_NIGHT | 06_26_Night | 25 | comment_row | Связан payment id=25 (comment_row)
+31 | ready | 2026-06-01 | O | in | 500 | PARKING_NIGHT | 06_26_Night | 26 | comment_row | Связан payment id=26 (comment_row)
+32 | ready | 2026-06-01 | O | in | 300 | HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | 27 | comment_row | Не удалось определить тариф Day/Night для исторического парковочного платежа; Связан payment id=27 (comment_row)
+33 | ready | 2026-06-01 | O | in | 500 | PARKING_NIGHT | 06_26_Night | 28 | comment_row | Связан payment id=28 (comment_row)
+34 | ready | 2026-06-01 | O | in | 500 | PARKING_NIGHT | 06_26_Night | 29 | comment_row | Связан payment id=29 (comment_row)
+35 | ready | 2026-06-01 | O | in | 400 | IMPROVEMENT | 01_Imp | 30 | comment_row | Связан payment id=30 (comment_row)
+39 | skip |  | 16850 | - | 0 | - | - | - | - | итоговая строка кассы — не является операцией
+41 | skip |  | 1300 | - | 0 | - | - | - | - | итоговая строка кассы — не является операцией
+42 | skip |  | 500 | - | 0 | - | - | - | - | итоговая строка кассы — не является операцией
+43 | skip |  | O | - | 0 | - | - | - | - | итоговая строка кассы — не является операцией
+44 | skip |  | 8550 | - | 0 | - | - | - | - | итоговая строка кассы — не является операцией
+
+СВОДКА:
+ready: 31
+skip: 6
+
+СОПОСТАВЛЕНИЕ С УЖЕ ИМПОРТИРОВАННЫМИ PAYMENT:
+-: 6
+comment_row: 30
+not_applicable: 1
+
+РЕЗУЛЬТАТ APPLY:
+inserted_operations: 31
+linked_existing_payments: 30
+ledger_only_operations: 1
+skipped: 6
+duplicates: 0
+snapshot_operation_id: None
+snapshot_adjustment: 0
+balances: {'O': 22800.0, 'K': 0.0, 'BANK': 0.0}

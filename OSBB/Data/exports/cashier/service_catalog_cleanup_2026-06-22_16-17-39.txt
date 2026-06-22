@@ -1,0 +1,23 @@
+================================================================================================
+ОЧИСТКА КАТАЛОГА СЕРВИСОВ
+================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE: TEST/WORK
+Apply: False
+
+Текущие коды (11): PARKING_DAY, PARKING_NIGHT, GUEST_NIGHT, BARRIER_CALL, BARRIER_PHONE, IMPROVEMENT, PARKING_EQUIPMENT, BARRIER_REPAIR, GUEST_PARKING, PARK_PLACE_RENT, PARK_PLACE_SALE
+Коды к удалению (2): BARRIER_CALL, GUEST_NIGHT
+Статей service_items к очистке: 3
+Телефонных доступов barrier_phone_access: 0 (не удаляются данным модулем)
+
+Фиксированная формулировка:
+  BARRIER_PHONE = Телефонный доступ к шлагбауму
+  Тип: ACCESS_CONTROL; не является ежемесячным начислением.
+
+DRY RUN: база не изменялась.
+
+Будет сделано:
+  1. Очистка всех текущих service_items — они пока не используются.
+  2. Удаление старых кодов, включая BARRIER_CALL и GUEST_NIGHT.
+  3. Создание/обновление девяти утверждённых сервисов.
+  4. У BARRIER_PHONE будет зафиксировано имя «Телефонный доступ к шлагбауму».

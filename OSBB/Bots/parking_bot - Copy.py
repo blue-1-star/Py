@@ -3,8 +3,9 @@ import sys
 
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
-
-
+# from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+from handlers.vehicle_verification import handle_vehicle_verification_text
+from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
 PY_ROOT = OSBB_ROOT.parent
@@ -138,6 +139,7 @@ ADMIN_MENU = [
     ["🏠 Квартиры"],
     ["👥 Пользователи"],
     ["🚗 Автомобили"],
+    ["🚗 Проверка авто"],
     ["🤝 Согласование"],
     ["🔑 Заявки на пульты"],
     ["📞 Телефонный доступ"],
@@ -178,6 +180,7 @@ USER_VERIFY_MENU = [
 ]
 VEHICLE_REVIEW_MENU = [
     ["📋 Все автомобили"],
+    ["🔎 Найти авто"],
     ["❓ Без статуса"],
     ["☀️ Day", "🌙 Night"],
     ["🚫 Не паркуется"],
@@ -1251,7 +1254,20 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=kb(ADMIN_MENU),
         )
         return
+    # =========================
+    # SPECIAL MODES
+    # =========================
 
+    if await handle_vehicle_verification_text(
+        update,
+        user_states,
+        user_id,
+        text,
+    ):
+        return
+    
+    if await handle_vehicle_card_editor_text(update, user_states, user_id, text):
+        return
     # =========================
     # fallback
     # =========================

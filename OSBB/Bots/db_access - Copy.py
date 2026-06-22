@@ -1036,8 +1036,12 @@ def format_vehicle_admin_line(row):
 def format_vehicles_admin_list(title, rows):
     count = len(rows)
 
-    lines = [f"🚗 {title}: {count}", ""]
-
+    # lines = [f"🚗 {title}: {count}", ""]
+    lines = [
+    f"🚗 {title}",
+    f"Показано: {count} из базы (вывод ограничен 50 строками)",
+    ""
+]
     if not rows:
         lines.append("Список пуст.")
         return "\n".join(lines)
@@ -4486,4 +4490,424 @@ def set_vehicle_model_from_text(vehicle_id, model_text):
 
 def set_vehicle_tariff_from_text(vehicle_id, tariff_text):
     return update_vehicle_parking_status(vehicle_id, tariff_text)
+
+
+# ==========================================================
+# Operator audit log
+# ==========================================================
+
+def _audit_value(value):
+    if value is None:
+        return "NULL"
+    return str(value)
+
+
+def log_operator_action(
+    operator_telegram_id=None,
+    action_type=None,
+    entity_type=None,
+    entity_id=None,
+    apartment_number=None,
+    vehicle_id=None,
+    old_value=None,
+    new_value=None,
+    comment=None,
+    operator_username=None,
+    operator_name=None,
+):
+    """
+    Пишет действие оператора в operator_audit_log.
+    Журналирование не должно ломать основное действие, поэтому ошибки
+    записи в журнал возвращаются как False, но не выбрасываются наружу.
+    """
+    if not action_type:
+        return False, "empty_action_type"
+
+    try:
+        conn = get_conn()
+        cur = conn.cursor()
+
+        cur.execute("""
+            INSERT INTO operator_audit_log (
+                created_at,
+
+                operator_telegram_id,
+                operator_username,
+                operator_name,
+
+                action_type,
+                entity_type,
+                entity_id,
+
+                apartment_number,
+                vehicle_id,
+
+                old_value,
+                new_value,
+
+                comment
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            now(),
+
+            str(operator_telegram_id) if operator_telegram_id is not None else None,
+            operator_username,
+            operator_name,
+
+            action_type,
+            entity_type,
+            str(entity_id) if entity_id is not None else None,
+
+            str(apartment_number) if apartment_number is not None else None,
+            int(vehicle_id) if vehicle_id is not None else None,
+
+            _audit_value(old_value),
+            _audit_value(new_value),
+
+            comment,
+        ))
+
+        audit_id = cur.lastrowid
+        conn.commit()
+        conn.close()
+
+        return True, audit_id
+
+    except Exception as exc:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+        return False, f"audit_log_error: {exc}"
+
+
+def update_vehicle_parking_status(
+    vehicle_id,
+    status,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    if status == "NULL":
+        new_value = None
+    elif status in ["Day", "Night", "Inactive"]:
+        new_value = status
+    else:
+        return False, "invalid_status"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    old_value = vehicle[6]
+    apartment_number = vehicle[1]
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET parking_time = ?
+        WHERE id = ?
+    """, (
+        new_value,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_tariff_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=new_value,
+        comment="parking_time updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": new_value,
+    }
+
+
+def update_vehicle_plate(
+    vehicle_id,
+    plate,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    plate = str(plate).strip().upper()
+
+    if not plate:
+        return False, "empty_plate"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    apartment_number = vehicle[1]
+    old_plate = vehicle[2]
+    old_plate_raw = vehicle[3]
+    old_value = old_plate or old_plate_raw
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET
+            license_plate = ?,
+            license_plate_normalized = ?
+        WHERE id = ?
+    """, (
+        plate,
+        plate,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_plate_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=plate,
+        comment="license plate updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": plate,
+    }
+
+
+def update_vehicle_model(
+    vehicle_id,
+    model,
+    operator_telegram_id=None,
+    operator_username=None,
+    operator_name=None,
+):
+    model = str(model).strip().upper()
+
+    if not model:
+        return False, "empty_model"
+
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    apartment_number = vehicle[1]
+    old_model = vehicle[4]
+    old_model_raw = vehicle[5]
+    old_value = old_model or old_model_raw
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE vehicles
+        SET
+            car_model = ?,
+            car_model_normalized = ?
+        WHERE id = ?
+    """, (
+        model,
+        model,
+        int(vehicle_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "not_updated"
+
+    log_operator_action(
+        operator_telegram_id=operator_telegram_id,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="vehicle_model_update",
+        entity_type="vehicle",
+        entity_id=vehicle_id,
+        apartment_number=apartment_number,
+        vehicle_id=vehicle_id,
+        old_value=old_value,
+        new_value=model,
+        comment="car model updated",
+    )
+
+    return True, {
+        "vehicle_id": int(vehicle_id),
+        "old_value": old_value,
+        "new_value": model,
+    }
+
+
+def set_apartment_verification_status(
+    apartment_number,
+    status,
+    verified_by=None,
+    comment=None,
+    operator_username=None,
+    operator_name=None,
+):
+    if status not in VERIFICATION_STATUSES:
+        return False, "invalid_status"
+
+    apt = find_apartment(apartment_number)
+
+    if not apt:
+        return False, "apartment_not_found"
+
+    apartment_id = apt[0]
+    apartment_number = str(apt[1])
+
+    old_verification = get_apartment_verification_status(apartment_number)
+    old_status = old_verification[3] if old_verification else None
+
+    verified_at = now() if status in ["confirmed", "deferred", "conflict"] else None
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        INSERT INTO apartment_verification (
+            apartment_id,
+            apartment_number,
+            status,
+            comment,
+            verified_by,
+            verified_at,
+            created_at,
+            updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+        ON CONFLICT(apartment_id)
+        DO UPDATE SET
+            apartment_number = excluded.apartment_number,
+            status = excluded.status,
+            comment = excluded.comment,
+            verified_by = excluded.verified_by,
+            verified_at = excluded.verified_at,
+            updated_at = excluded.updated_at
+    """, (
+        apartment_id,
+        apartment_number,
+        status,
+        comment,
+        int(verified_by) if verified_by else None,
+        verified_at,
+        now(),
+        now(),
+    ))
+
+    conn.commit()
+    conn.close()
+
+    log_operator_action(
+        operator_telegram_id=verified_by,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="apartment_verification_status_update",
+        entity_type="apartment",
+        entity_id=apartment_id,
+        apartment_number=apartment_number,
+        old_value=old_status,
+        new_value=status,
+        comment=comment,
+    )
+
+    return True, status
+
+
+def set_vehicle_plate_from_text(vehicle_id, plate_text, operator_telegram_id=None):
+    return update_vehicle_plate(
+        vehicle_id,
+        plate_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def set_vehicle_model_from_text(vehicle_id, model_text, operator_telegram_id=None):
+    return update_vehicle_model(
+        vehicle_id,
+        model_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def set_vehicle_tariff_from_text(vehicle_id, tariff_text, operator_telegram_id=None):
+    return update_vehicle_parking_status(
+        vehicle_id,
+        tariff_text,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def apply_vehicle_tariff(vehicle_id, tariff, operator_telegram_id=None):
+    if tariff == "Day":
+        status = "Day"
+    elif tariff == "Night":
+        status = "Night"
+    elif tariff in ["Inactive", "Не паркуется"]:
+        status = "Inactive"
+    else:
+        return False, "invalid_tariff"
+
+    return update_vehicle_parking_status(
+        vehicle_id,
+        status,
+        operator_telegram_id=operator_telegram_id,
+    )
+
+
+def apply_best_tariff_hint(vehicle_id, operator_telegram_id=None):
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return False, "vehicle_not_found"
+
+    best = get_best_tariff_hint_for_vehicle(vehicle)
+
+    if not best:
+        return False, "no_hint"
+
+    return apply_vehicle_tariff(
+        vehicle_id,
+        best["parking_time"],
+        operator_telegram_id=operator_telegram_id,
+    )
 

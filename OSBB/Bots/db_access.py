@@ -1036,8 +1036,12 @@ def format_vehicle_admin_line(row):
 def format_vehicles_admin_list(title, rows):
     count = len(rows)
 
-    lines = [f"🚗 {title}: {count}", ""]
-
+    # lines = [f"🚗 {title}: {count}", ""]
+    lines = [
+    f"🚗 {title}",
+    f"Показано: {count} из базы (вывод ограничен 50 строками)",
+    ""
+]
     if not rows:
         lines.append("Список пуст.")
         return "\n".join(lines)
