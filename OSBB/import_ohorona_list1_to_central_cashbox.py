@@ -768,6 +768,8 @@ def make_report(
             f"{plan['reason'] or '-'}"
         )
 
+    review_plans = [p for p in plans if p["status"] == "review"]
+
     lines.extend([
         "",
         "СТРОКИ ДЛЯ РУЧНОЙ ПРОВЕРКИ:",
@@ -775,7 +777,13 @@ def make_report(
         "-" * 132,
     ])
 
-    if reviews:
+    if review_plans or reviews:
+        for plan in review_plans:
+            lines.append(
+                f"{plan['row']} | {plan['source_part']} | {plan['apartment_number'] or '-'} | "
+                f"{plan['tariff_raw'] or '-'} | {money(plan['amount'])} | {plan['reason']}"
+            )
+
         for item in reviews:
             lines.append(
                 f"{item['row']} | {item['source_part']} | {item['apartment_number'] or '-'} | "
@@ -788,13 +796,14 @@ def make_report(
     duplicate = sum(1 for p in plans if p["status"] == "duplicate")
     total_ready = sum(p["amount"] for p in plans if p["status"] == "ready")
     overlap_warnings = sum(1 for p in plans if p["possible_sheet1_matches"])
+    review_total = len(review_plans) + len(reviews)
 
     lines.extend([
         "",
         "СВОДКА:",
         f"ready: {ready}",
         f"duplicates: {duplicate}",
-        f"review: {len(reviews)}",
+        f"review: {review_total}",
         f"Сумма ready: {money(total_ready)} UAH",
         f"Предупреждений о возможном совпадении с Sheet1: {overlap_warnings}",
     ])
@@ -849,6 +858,7 @@ def main() -> None:
     print()
     print("Лист1 считается автономным источником поступлений.")
     print("Операции Sheet1 не перемещаются и не используются как дедупликация.")
+    print("Смешанные Day/Night строки выводятся в ручную проверку и не импортируются.")
     print()
 
     rows = read_xlsx_rows(source_file, SHEET_NAME)
@@ -870,8 +880,11 @@ def main() -> None:
 
         ready = sum(1 for p in plans if p["status"] == "ready")
         amount = sum(p["amount"] for p in plans if p["status"] == "ready")
+        review_total = len(reviews) + sum(
+            1 for p in plans if p["status"] == "review"
+        )
         print("Готово к импорту:", ready, "оплат на", money(amount), "UAH")
-        print("Ручная проверка :", len(reviews))
+        print("Ручная проверка :", review_total)
         print("Отчёт:", report_file)
         print()
         print("DRY RUN ONLY. База не изменялась.")
