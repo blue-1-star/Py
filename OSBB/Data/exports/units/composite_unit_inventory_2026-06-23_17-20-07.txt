@@ -1,0 +1,65 @@
+====================================================================================================================================
+ИНВЕНТАРИЗАЦИЯ СОСТАВНЫХ ОБОЗНАЧЕНИЙ КВАРТИР / ЕДИНИЦ
+====================================================================================================================================
+Generated: 2026-06-23 17:20:07
+MODE: TEST/WORK
+Main DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Quarantine DB: G:\Programming\Py\OSBB\Data\db\osbb_quarantine.db
+Telegram DB: G:\Programming\Py\OSBB\Data\db\osbb_telegram.db
+
+МОДЕЛЬ ПРЕЖНЕГО RESOLVER:
+  105, 106, 105.106, 105_106, 105-106, 105/106 → потенциальная связка 105_106.
+  Особый исторический случай: 89.9 / 89.90 → 89_90.
+
+Модуль только читает данные. Ничего не меняет и не создаёт алиасы.
+
+СВОДНАЯ ТАБЛИЦА:
+canonical | parts | status | raw forms | sources | main parts | direct composite records | recommended future aliases
+------------------------------------------------------------------------------------------------------------------------------------
+105_106 | 105 + 106 | PARTS_COMPLETE | 105.106 | Quarantine DB · tbot_parking_import | 105: id=101, apt=105, entr=-, type=RESIDENTIAL / 106: id=102, apt=106, entr=-, type=RESIDENTIAL | - | 105, 105,106, 105-106, 105.106, 105/106, 105_106, 106
+  Причина: Все части существуют отдельными записями в apartments; связка пригодна для будущей карты алиасов.
+  Варианты из tbot, используемые прежним resolver: 105.106
+  Наблюдения:
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=21 | raw='105.106'
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=22 | raw='105.106'
+
+31_32 | 31 + 32 | PARTS_COMPLETE | 31.32 | Quarantine DB · tbot_parking_import | 31: id=31, apt=31, entr=-, type=RESIDENTIAL / 32: id=32, apt=32, entr=-, type=RESIDENTIAL | - | 31, 31,32, 31-32, 31.32, 31/32, 31_32, 32
+  Причина: Все части существуют отдельными записями в apartments; связка пригодна для будущей карты алиасов.
+  Варианты из tbot, используемые прежним resolver: 31.32
+  Наблюдения:
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=1 | raw='31.32'
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=67 | raw='31.32'
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=68 | raw='31.32'
+
+89_90 | 89 + 90 | PARTS_COMPLETE | 89.9 | Quarantine DB · tbot_parking_import | 89: id=87, apt=89, entr=-, type=RESIDENTIAL / 90: id=88, apt=90, entr=-, type=RESIDENTIAL | - | 89, 89,90, 89-90, 89.90, 89/90, 89_90, 90
+  Причина: Все части существуют отдельными записями в apartments; связка пригодна для будущей карты алиасов.
+  Варианты из tbot, используемые прежним resolver: 89.9
+  Наблюдения:
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=96 | raw='89.9'
+
+94_95 | 94 + 95 | PARTS_COMPLETE | 94.95 | Quarantine DB · tbot_parking_import | 94: id=91, apt=94, entr=-, type=RESIDENTIAL / 95: id=92, apt=95, entr=-, type=RESIDENTIAL | - | 94, 94,95, 94-95, 94.95, 94/95, 94_95, 95
+  Причина: Все части существуют отдельными записями в apartments; связка пригодна для будущей карты алиасов.
+  Варианты из tbot, используемые прежним resolver: 94.95
+  Наблюдения:
+    - Quarantine DB · tbot_parking_import | tbot_parking_import.apartment_number | id=61 | raw='94.95'
+
+====================================================================================================================================
+ИТОГИ:
+Составных групп обнаружено: 4
+Сырых вхождений: 7
+Строк в apartments: 231
+
+По статусам:
+  PARTS_COMPLETE: 4
+
+По источникам:
+  Quarantine DB · tbot_parking_import: 4 групп
+
+ПЕРЕСЕЧЕНИЯ ЧАСТЕЙ МЕЖДУ РАЗНЫМИ СВЯЗКАМИ:
+  Нет.
+
+РЕКОМЕНДУЕМЫЙ СЛЕДУЮЩИЙ ШАГ:
+  1. Утвердить/исправить список групп со статусом PARTS_COMPLETE.
+  2. Отдельно рассмотреть DIRECT_PLUS_PARTS и PARTS_MISSING.
+  3. Только после утверждения создать постоянную таблицу unit_aliases.
+  4. Затем заменить старый локальный resolver единым общим resolver во всех формах бота.

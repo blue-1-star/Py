@@ -1,0 +1,40 @@
+============================================================================================================
+МИГРАЦИЯ ДОГОВОРНОГО ЯДРА КОММЕРЧЕСКИХ ПОМЕЩЕНИЙ
+============================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE: TEST/WORK
+Apply: False
+
+Логика уведомлений:
+  • должнику создаётся Telegram-уведомление, не SMS;
+  • SMS-команды GSM-шлагбауму здесь не создаются и не отправляются;
+  • отключение/восстановление доступа пока фиксируется как ручное действие оператора;
+  • один номер может иметь другие права доступа — физическое отключение требует проверки оператора.
+
+Новые таблицы:
+  commercial_contracts
+  commercial_contract_items
+  commercial_contract_recipients
+  commercial_access_phones
+  commercial_notifications
+  commercial_access_actions
+
+Новые поля в договорных таблицах:
+  нет
+
+Связи с общим billing ledger:
+  charges: commercial_contract_id, commercial_contract_item_id, commercial_due_date
+  payments: commercial_contract_id, commercial_unit_id
+  cashbox_operations: commercial_contract_id, commercial_unit_id
+
+Service catalog: создан
+Вьюхи задолженности: созданы
+Индивидуальных КП в реестре: 5
+Подтверждённых КП: 0
+
+Следующий этап:
+  заполнить договор и условия для конкретного КП;
+  привязать Telegram-представителя договора;
+  затем создавать начисления с commercial_contract_id и commercial_due_date.
+
+DRY RUN COMPLETED - NO CHANGES SAVED

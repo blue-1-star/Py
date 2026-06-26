@@ -13,7 +13,6 @@ from handlers.client_portal import (
     client_menu_keyboard,
     client_welcome_text,
 )
-from handlers.cashier_operator import handle_cashier_operator_text
 from handlers.unit_registry_editor import handle_unit_registry_editor_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
@@ -158,7 +157,6 @@ ADMIN_MENU = [
     ["⚙️ Настройки"],
     ["👤 Клиентский режим"],
     ["🔗 Запросы квартир"],
-    ["💰 Касса"],
 ]
 
 USERS_MENU = [
@@ -1055,20 +1053,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text,
         lang=lang,
         user_mode=user_modes.get(user_id),
-        is_admin=is_admin_user(user_id),
-    ):
-        return
-
-    # =========================
-    # Операторский кассовый редактор
-    # =========================
-    # O — основная касса охраны; K1..K6 — отдельные точки консьержей.
-    # Обработчик вызывается до старого router состояний.
-    if await handle_cashier_operator_text(
-        update,
-        user_states,
-        user_id,
-        text,
         is_admin=is_admin_user(user_id),
     ):
         return

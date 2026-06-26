@@ -1,0 +1,22 @@
+====================================================================================================
+RESTORE RESIDENT APARTMENT LINK
+====================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE: TEST/WORK
+Apply: True
+Telegram ID: 210312208
+Resident account id: 1
+Current linked apartment: 166
+Target apartment: 174
+
+Что изменяется:
+  Только resident_accounts.apartment_id / apartment_number указанного Telegram-кабинета.
+
+Что НЕ изменяется:
+  Карточка квартиры, автомобили, контакты, начисления, оплаты,
+  коммерческие договоры и данные других пользователей.
+
+Последние записи аудита по этому resident_account:
+  Нет.
+
+APPLIED. audit_id=113

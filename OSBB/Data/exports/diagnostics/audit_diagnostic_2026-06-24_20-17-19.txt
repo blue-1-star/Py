@@ -1,0 +1,56 @@
+============================================================================================================
+config.paths.OSBB_TEST_DB_FILE | handlers.unit_registry_editor.get_db_file() | handlers.audit_viewer.get_db_file() | audit_logger.get_db_file()
+============================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Exists: True
+Modified: 2026-06-24 14:50:25
+Audit rows: 110
+Max audit id: 110
+Latest audit time: 2026-06-24 14:01:31
+Error: -
+
+4_A:
+  id: 234
+  apartment_number: 4_A
+  unit_code: 4_A
+  display_name: Комбинат
+  official_number: 261
+  record_status: CONFIRMED
+  internal_note: Создано программно как черновик. Уточнить фактическое назначение, название, контакты, номер и площадь.
+
+Аудит 4_A:
+  #110 2026-06-24 14:01:31 | operator 210312208 | unit_registry_field_update | record_status | DRAFT -> CONFIRMED | unit_registry_editor_bot
+  #109 2026-06-24 14:00:40 | operator 210312208 | unit_registry_field_update | official_number |  -> 261 | unit_registry_editor_bot
+  #108 2026-06-24 13:56:00 | operator 210312208 | unit_registry_field_update | display_name |  -> Комбинат | unit_registry_editor_bot
+  #104 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | unit_code,unit_type,record_status |  -> 4_A, COMMERCIAL, DRAFT | seed_commercial_unit_placeholders.py
+
+Последние 10:
+  #110 2026-06-24 14:01:31 | operator 210312208 | unit_registry_field_update | apartments#234 | record_status
+  #109 2026-06-24 14:00:40 | operator 210312208 | unit_registry_field_update | apartments#234 | official_number
+  #108 2026-06-24 13:56:00 | operator 210312208 | unit_registry_field_update | apartments#234 | display_name
+  #107 2026-06-24 12:30:30 | system system | commercial_contract_core_migration | commercial_contracts# | schema
+  #106 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | apartments#236 | unit_code,unit_type,record_status
+  #105 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | apartments#235 | unit_code,unit_type,record_status
+  #104 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | apartments#234 | unit_code,unit_type,record_status
+  #103 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | apartments#233 | unit_code,unit_type,record_status
+  #102 2026-06-24 10:49:12 | system system | commercial_unit_placeholder_created | apartments#232 | unit_code,unit_type,record_status
+  #101 2026-06-23 17:40:54 | system system | unit_registry_composite_groups_migration | unit_groups# | group_code
+============================================================================================================
+config.paths.OSBB_DB_FILE
+============================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb.db
+Exists: True
+Modified: 2026-06-18 18:20:18
+Audit rows: 0
+Max audit id: None
+Latest audit time: None
+Error: OperationalError: no such column: actor_type
+
+4_A:
+  Не найдено.
+
+Аудит 4_A:
+  Записей для 4_A нет.
+
+Последние 10:
+  Нет записей.

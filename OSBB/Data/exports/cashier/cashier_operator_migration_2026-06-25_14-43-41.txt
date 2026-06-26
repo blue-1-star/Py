@@ -1,0 +1,54 @@
+========================================================================================================
+CASHIER OPERATOR EDITOR MIGRATION
+========================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE: TEST/WORK
+Apply: True
+
+Точки приёма:
+  O  — касса охраны, основная;
+  K1..K6 — отдельные кассы консьержей;
+  C  — центральная касса;
+  K  — агрегат истории/отчёта, новые операции запрещены.
+
+Сценарий «деньги из рук в руки, кв. X, за июль»:
+  1. Оператор выбирает O — касса охраны.
+  2. Фиксирует фактическую дату приёма денег.
+  3. Указывает квартиру, 2026-07, сумму и дословное основание.
+  4. Создаётся receipt + payment + операция O.
+  5. Деньги НЕ разносятся автоматически на начисления.
+  6. Позже оператор вручную выбирает конкретное начисление для разнесения.
+
+Бумажка без физически полученных денег:
+  создаётся PAPER_NOTE; платёж и остаток кассы не изменяются.
+
+Изменения касс:
+  O:updated
+  K1:created
+  K2:created
+  K3:created
+  K4:created
+  K5:created
+  K6:created
+  C:updated
+  BANK:updated
+  K:updated
+
+Новые/добавленные поля receipts: нет
+Связи payments: нет
+Связи cashbox_operations: нет
+Индексы: idx_cashier_receipts_status, idx_cashier_receipts_cashbox, idx_cashier_receipts_apartment, idx_cashier_receipts_allocation, idx_payments_cashier_receipt, idx_cashbox_operations_cashier_receipt, idx_cashbox_operations_transfer_group
+
+Остатки после пересчёта:
+  BANK: 0.00 UAH
+  C: 23950.00 UAH
+  K: 0.00 UAH
+  K1: 0.00 UAH
+  K2: 0.00 UAH
+  K3: 0.00 UAH
+  K4: 0.00 UAH
+  K5: 0.00 UAH
+  K6: 0.00 UAH
+  O: 22800.00 UAH
+
+APPLIED

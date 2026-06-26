@@ -1,0 +1,19 @@
+============================================================================================
+МИГРАЦИЯ РЕЕСТРА ЕДИНИЦ И СТРОКОВЫХ АЛИАСОВ
+============================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Apply: False
+
+Все прежние apartments признаны RESIDENTIAL по происхождению, не по виду кода.
+Строковые ключи сохранены: 203, 84_85, 4A и т. п.
+
+Добавлены поля: unit_type, unit_code, entrance_number, official_number, display_name, area_sqm, record_status, source_note, internal_note, unit_updated_at
+Всего единиц: 231
+RESIDENTIAL set/confirmed: 0
+unit_code filled: 231
+aliases inserted: 231
+84/85/84_85: каноническая запись 84_85 не найдена; алиасы группы не добавлены
+aliases group: -
+
+Конфликты алиасов:
+  Нет.

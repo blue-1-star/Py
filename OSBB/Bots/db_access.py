@@ -4911,3 +4911,1101 @@ def apply_best_tariff_hint(vehicle_id, operator_telegram_id=None):
         operator_telegram_id=operator_telegram_id,
     )
 
+
+# ==========================================================
+# UNIT RESOLVER INTEGRATION — ACTIVE OVERRIDES
+# ==========================================================
+
+# Сохраняем предыдущую одиночную реализацию для обратной совместимости.
+_legacy_apply_agreement_suggestion = apply_agreement_suggestion
+#
+# This block supersedes the earlier local composite resolver
+# (`_get_tbot_composite_refs` / `resolve_agreement_apartment_ref`).
+#
+# The old implementation inferred composite references from the Telegram
+# quarantine database every time and returned the first physical apartment
+# for compatibility. The shared `unit_resolver.py` now reads the approved,
+# persistent unit_groups / unit_group_members / unit_group_aliases structure.
+#
+# Integrity rule:
+# - READ operations may aggregate a logical group.
+# - WRITE operations that change a resident link or verification status MUST
+#   select one physical unit explicitly. A logical group is not a legal merge.
+
+try:
+    from unit_resolver import resolve_unit_ref
+except ImportError as exc:
+    raise ImportError(
+        "Не найден unit_resolver.py в корне проекта OSBB. "
+        "Сначала установите этот модуль рядом с config.py."
+    ) from exc
+
+
+def _ur_q(identifier):
+    return '"' + str(identifier).replace('"', '""') + '"'
+
+
+def _ur_text(value):
+    return "" if value is None else str(value).strip()
+
+
+def _ur_table_exists(conn, table_name):
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+        (table_name,),
+    )
+    return cur.fetchone() is not None
+
+
+def _ur_table_columns(conn, table_name):
+    cur = conn.cursor()
+    cur.execute(f"PRAGMA table_info({_ur_q(table_name)})")
+    return {row[1] for row in cur.fetchall()}
+
+
+def _ur_unique(values):
+    """Сохраняет порядок, удаляя пустые и повторяющиеся значения."""
+    result = []
+    seen = set()
+
+    for value in values:
+        value = _ur_text(value)
+        if not value or value in seen:
+            continue
+
+        seen.add(value)
+        result.append(value)
+
+    return result
+
+
+def _ur_apartment_row_tuple(conn, apartment_id):
+    """
+    Legacy tuple contract:
+      (id, apartment_number, entrance)
+
+    Многие старые обработчики ожидают именно такой tuple. Поэтому сохраняем
+    контракт, но источник apartment_id теперь выбирается общим resolver.
+    """
+    cols = _ur_table_columns(conn, "apartments")
+
+    if "entrance" in cols:
+        entrance_expr = _ur_q("entrance")
+    elif "entrance_number" in cols:
+        entrance_expr = _ur_q("entrance_number")
+    else:
+        entrance_expr = "NULL"
+
+    cur = conn.cursor()
+    cur.execute(f"""
+        SELECT
+            id,
+            apartment_number,
+            {entrance_expr} AS entrance
+        FROM apartments
+        WHERE id = ?
+    """, (int(apartment_id),))
+
+    return cur.fetchone()
+
+
+def resolve_unit_context(unit_ref):
+    """
+    Общий контекст единицы для db_access.
+
+    Возвращает dict:
+      resolution            — UnitResolution из unit_resolver
+      display               — 31_32 для группы или номер отдельной единицы
+      lookup_numbers        — номера всех физических units
+      lookup_apartment_ids  — id всех физических units
+      source_refs           — все допустимые формы для поиска во внешних источниках
+      is_group              — логическая группа?
+      group_aliases         — raw aliases, сохранённые в БД
+
+    Этот helper предназначен для чтения и отображения. Для записи используйте
+    resolve_physical_unit_for_write(), который отвергнет логическую группу.
+    """
+    requested = _ur_text(unit_ref)
+    conn = get_conn()
+    conn.row_factory = sqlite3.Row
+
+    try:
+        resolution = resolve_unit_ref(conn, requested)
+
+        if not resolution.found:
+            return {
+                "requested": requested,
+                "display": requested,
+                "resolution": resolution,
+                "lookup_numbers": [],
+                "lookup_apartment_ids": [],
+                "source_refs": _ur_unique([requested]),
+                "group_aliases": [],
+                "is_group": False,
+            }
+
+        group_aliases = []
+
+        if resolution.is_group and resolution.group_id is not None:
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT alias_text
+                FROM unit_group_aliases
+                WHERE group_id = ?
+                  AND is_active = 1
+                ORDER BY
+                    CASE alias_kind
+                        WHEN 'COMPONENT' THEN 1
+                        WHEN 'COMPOSITE' THEN 2
+                        ELSE 3
+                    END,
+                    alias_text
+            """, (int(resolution.group_id),))
+            group_aliases = [_ur_text(row[0]) for row in cur.fetchall()]
+
+        lookup_numbers = resolution.member_apartment_numbers
+        lookup_ids = resolution.member_apartment_ids
+        display = (
+            resolution.group_code
+            if resolution.is_group
+            else (lookup_numbers[0] if lookup_numbers else requested)
+        )
+
+        source_refs = _ur_unique(
+            group_aliases
+            + lookup_numbers
+            + [
+                resolution.group_code,
+                display,
+                requested,
+            ]
+        )
+
+        return {
+            "requested": requested,
+            "display": display,
+            "resolution": resolution,
+            "lookup_numbers": lookup_numbers,
+            "lookup_apartment_ids": lookup_ids,
+            "source_refs": source_refs,
+            "group_aliases": group_aliases,
+            "is_group": resolution.is_group,
+        }
+    finally:
+        conn.close()
+
+
+def resolve_physical_unit_for_write(unit_ref, selected_apartment_number=None):
+    """
+    Безопасное разрешение физической единицы перед записью.
+
+    Для отдельной квартиры/помещения возвращает её member.
+    Для логической группы:
+      - без selected_apartment_number возвращает ошибку;
+      - с явным участником возвращает именно выбранную физическую единицу.
+
+    Это предотвращает ошибку старой логики: «взяли первую часть группы».
+    """
+    context = resolve_unit_context(unit_ref)
+    resolution = context["resolution"]
+
+    if not resolution.found:
+        return None, "unit_not_found", context
+
+    if not resolution.is_group:
+        return resolution.members[0], "ok", context
+
+    if not selected_apartment_number:
+        return None, "group_requires_member_selection", context
+
+    wanted = _ur_text(selected_apartment_number)
+
+    for member in resolution.members:
+        if member.apartment_number == wanted:
+            return member, "ok", context
+
+    return None, "selected_member_not_in_group", context
+
+
+def resolve_agreement_apartment_ref(apartment_number):
+    """
+    Compatibility API for older agreement code.
+
+    New code should prefer resolve_unit_context(). This wrapper retains the
+    old dict shape while now using the persistent resolver structure.
+    """
+    context = resolve_unit_context(apartment_number)
+    resolution = context["resolution"]
+
+    return {
+        "requested": context["requested"],
+        "display": context["display"],
+        "lookup_numbers": context["lookup_numbers"],
+        "lookup_apartment_ids": context["lookup_apartment_ids"],
+        "tbot_refs": context["source_refs"],
+        "is_composite": context["is_group"],
+        "resolution_kind": resolution.kind,
+        "group_id": resolution.group_id,
+        "group_code": resolution.group_code,
+        "legal_status": resolution.legal_status,
+    }
+
+
+def find_apartment(apartment_number):
+    """
+    Compatibility lookup returning a single legacy apartments tuple.
+
+    For a group it returns the first member only because some old callers
+    require one tuple. NEW write operations must not use this function for
+    group updates; they use resolve_physical_unit_for_write().
+    """
+    context = resolve_unit_context(apartment_number)
+
+    if not context["lookup_apartment_ids"]:
+        return None
+
+    conn = get_conn()
+    try:
+        return _ur_apartment_row_tuple(conn, context["lookup_apartment_ids"][0])
+    finally:
+        conn.close()
+
+
+def get_accounts_by_apartment(apartment_number):
+    """Read all resident accounts belonging to the resolved physical units."""
+    context = resolve_unit_context(apartment_number)
+
+    if not context["lookup_numbers"]:
+        return []
+
+    placeholders = ",".join("?" for _ in context["lookup_numbers"])
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute(f"""
+        SELECT
+            telegram_user_id,
+            telegram_username,
+            telegram_first_name,
+            telegram_last_name,
+            apartment_number,
+            status,
+            verified_at
+        FROM resident_accounts
+        WHERE apartment_number IN ({placeholders})
+        ORDER BY verified_at, telegram_user_id
+    """, tuple(context["lookup_numbers"]))
+
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+
+def link_resident_to_apartment(
+    telegram_user_id,
+    apartment_number,
+    status="apartment_confirmed",
+    selected_apartment_number=None,
+):
+    """
+    Связывает Telegram-пользователя только с одной физической единицей.
+
+    Для 31_32 без явного selected_apartment_number запись не выполняется.
+    """
+    member, state, context = resolve_physical_unit_for_write(
+        apartment_number,
+        selected_apartment_number=selected_apartment_number,
+    )
+
+    if state != "ok":
+        return False, state
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        UPDATE resident_accounts
+        SET
+            apartment_id = ?,
+            apartment_number = ?,
+            status = ?,
+            verified_at = ?,
+            updated_at = ?
+        WHERE telegram_user_id = ?
+    """, (
+        member.apartment_id,
+        member.apartment_number,
+        status,
+        now(),
+        now(),
+        int(telegram_user_id),
+    ))
+
+    changed = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    if not changed:
+        return False, "resident_not_found"
+
+    return True, {
+        "status": "linked",
+        "apartment_id": member.apartment_id,
+        "apartment_number": member.apartment_number,
+        "group_code": context["resolution"].group_code,
+    }
+
+
+def get_apartment_vehicles(apartment_number):
+    """
+    Возвращает машины по одной physical unit либо по всем участникам группы.
+
+    Формат результата сохранён:
+      (id, plate_norm, plate_raw, model_norm, model_raw, parking_time)
+    """
+    context = resolve_unit_context(apartment_number)
+    apartment_ids = context["lookup_apartment_ids"]
+
+    if not apartment_ids:
+        return []
+
+    placeholders = ",".join("?" for _ in apartment_ids)
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute(f"""
+        SELECT
+            v.id,
+            v.license_plate_normalized,
+            v.license_plate,
+            v.car_model_normalized,
+            v.car_model,
+            v.parking_time
+        FROM vehicles v
+        WHERE v.apartment_id IN ({placeholders})
+        ORDER BY v.apartment_id, v.id
+    """, tuple(apartment_ids))
+
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+
+def get_vehicle_by_id_for_apartment(vehicle_id, apartment_number=None):
+    """
+    Проверяет принадлежность авто одной единице или участнику логической группы.
+    """
+    vehicle = get_vehicle_by_id(vehicle_id)
+
+    if not vehicle:
+        return None
+
+    if apartment_number is None:
+        return vehicle
+
+    context = resolve_unit_context(apartment_number)
+    if not context["lookup_numbers"]:
+        return None
+
+    return vehicle if _ur_text(vehicle[1]) in context["lookup_numbers"] else None
+
+
+def _ur_fetch_member_rows(conn, apartment_ids):
+    if not apartment_ids:
+        return []
+
+    cols = _ur_table_columns(conn, "apartments")
+
+    if "entrance" in cols:
+        entrance_expr = f'a.{_ur_q("entrance")}'
+    elif "entrance_number" in cols:
+        entrance_expr = f'a.{_ur_q("entrance_number")}'
+    else:
+        entrance_expr = "NULL"
+
+    unit_type_expr = (
+        f'a.{_ur_q("unit_type")}'
+        if "unit_type" in cols else "NULL"
+    )
+    unit_code_expr = (
+        f'a.{_ur_q("unit_code")}'
+        if "unit_code" in cols else "NULL"
+    )
+    display_name_expr = (
+        f'a.{_ur_q("display_name")}'
+        if "display_name" in cols else "NULL"
+    )
+
+    placeholders = ",".join("?" for _ in apartment_ids)
+    cur = conn.cursor()
+    cur.execute(f"""
+        SELECT
+            a.id,
+            a.apartment_number,
+            {entrance_expr} AS entrance,
+            {unit_code_expr} AS unit_code,
+            {unit_type_expr} AS unit_type,
+            {display_name_expr} AS display_name
+        FROM apartments a
+        WHERE a.id IN ({placeholders})
+        ORDER BY
+            CASE
+                WHEN a.apartment_number GLOB '[0-9]*'
+                THEN CAST(a.apartment_number AS INTEGER)
+                ELSE 999999
+            END,
+            a.apartment_number,
+            a.id
+    """, tuple(apartment_ids))
+
+    return cur.fetchall()
+
+
+def get_apartment_card(apartment_number):
+    """
+    Универсальная карточка отдельной единицы или составной группы.
+
+    Existing keys are preserved:
+      apartment, apartment_number, lookup_numbers, is_composite, residents, vehicles
+
+    New keys:
+      unit_resolution, member_apartments, lookup_apartment_ids, group_code,
+      group_legal_status.
+    """
+    context = resolve_unit_context(apartment_number)
+    resolution = context["resolution"]
+    apartment_ids = context["lookup_apartment_ids"]
+
+    if not apartment_ids:
+        return None
+
+    conn = get_conn()
+    member_apartments = _ur_fetch_member_rows(conn, apartment_ids)
+
+    if not member_apartments:
+        conn.close()
+        return None
+
+    placeholders_ids = ",".join("?" for _ in apartment_ids)
+    placeholders_numbers = ",".join("?" for _ in context["lookup_numbers"])
+    cur = conn.cursor()
+
+    # apartment_id — основной современный ключ. apartment_number нужен как
+    # fallback для старых resident_accounts, где apartment_id был пустым.
+    cur.execute(f"""
+        SELECT
+            telegram_first_name,
+            telegram_last_name,
+            telegram_username,
+            status
+        FROM resident_accounts
+        WHERE apartment_id IN ({placeholders_ids})
+           OR (
+               apartment_id IS NULL
+               AND apartment_number IN ({placeholders_numbers})
+           )
+        ORDER BY telegram_user_id
+    """, tuple(apartment_ids) + tuple(context["lookup_numbers"]))
+
+    residents = cur.fetchall()
+    conn.close()
+
+    vehicles = get_apartment_vehicles(apartment_number)
+
+    return {
+        "apartment": member_apartments[0][:3],
+        "apartment_number": context["display"],
+        "lookup_numbers": context["lookup_numbers"],
+        "lookup_apartment_ids": apartment_ids,
+        "is_composite": context["is_group"],
+        "group_code": resolution.group_code,
+        "group_legal_status": resolution.legal_status,
+        "unit_resolution": resolution,
+        "member_apartments": member_apartments,
+        "residents": residents,
+        "vehicles": vehicles,
+    }
+
+
+def format_apartment_card(card):
+    """Короткая карточка для обычного раздела «Квартиры»."""
+    if not card:
+        return "Квартира или помещение не найдено."
+
+    residents_count = len(card["residents"])
+    vehicles_count = len(card["vehicles"])
+
+    lines = []
+    if card.get("is_composite"):
+        lines.append(f"🏠 Связка {card['apartment_number']}")
+        lines.append(
+            "Физические единицы: " + ", ".join(card.get("lookup_numbers", []))
+        )
+        lines.append(
+            "Статус связи: "
+            + (
+                "юридическое объединение не подтверждено"
+                if card.get("group_legal_status") == "UNKNOWN"
+                else str(card.get("group_legal_status") or "-")
+            )
+        )
+    else:
+        lines.append(f"🏠 Квартира / помещение {card['apartment_number']}")
+
+    lines.append("")
+    lines.append(f"👥 Пользователи: {residents_count}")
+    lines.append(f"🚗 Авто: {vehicles_count}")
+    lines.append("")
+    lines.append("Выберите раздел:")
+
+    return "\n".join(lines)
+
+
+def _ur_pick_column(columns, *candidates):
+    for name in candidates:
+        if name in columns:
+            return name
+    return None
+
+
+def get_tbot_source_rows(apartment_number):
+    """
+    Выбирает данные tbot по всем алиасам группы и её физическим units.
+    """
+    db_file = paths.OSBB_QUARANTINE_DB_FILE
+
+    if not db_file.exists():
+        return {
+            "ok": False,
+            "error": f"quarantine_db_not_found: {db_file}",
+            "rows": [],
+        }
+
+    context = resolve_unit_context(apartment_number)
+    search_refs = context["source_refs"]
+
+    if not search_refs:
+        return {
+            "ok": True,
+            "error": None,
+            "rows": [],
+        }
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    try:
+        if not _ur_table_exists(conn, "tbot_parking_import"):
+            return {
+                "ok": False,
+                "error": "table_tbot_parking_import_not_found",
+                "rows": [],
+            }
+
+        cols = _ur_table_columns(conn, "tbot_parking_import")
+        apartment_col = _ur_pick_column(
+            cols,
+            "apartment_number",
+            "Номер квартири",
+            "Номер квартиры",
+            "Квартира",
+        )
+        plate_norm_col = _ur_pick_column(cols, "license_plate_normalized")
+        plate_raw_col = _ur_pick_column(
+            cols,
+            "license_plate", "Номер Авто", "Номер авто", "plate",
+        )
+        model_norm_col = _ur_pick_column(cols, "car_model_normalized")
+        model_raw_col = _ur_pick_column(
+            cols,
+            "car_model", "Марка авто", "Марка", "model",
+        )
+        phone_col = _ur_pick_column(
+            cols,
+            "phone_normalized", "phone_number", "Телефон", "phone",
+        )
+        status_col = _ur_pick_column(
+            cols,
+            "status", "Статус", "parking_time", "Тариф",
+        )
+
+        if not apartment_col:
+            return {
+                "ok": False,
+                "error": "apartment_column_not_found",
+                "rows": [],
+            }
+
+        def select_expr(column, alias):
+            return (
+                f"{_ur_q(column)} AS {_ur_q(alias)}"
+                if column else f"NULL AS {_ur_q(alias)}"
+            )
+
+        placeholders = ",".join("?" for _ in search_refs)
+        cur.execute(f"""
+            SELECT
+                {_ur_q(apartment_col)} AS apartment_number,
+                {select_expr(plate_norm_col, "license_plate_normalized")},
+                {select_expr(plate_raw_col, "license_plate")},
+                {select_expr(model_norm_col, "car_model_normalized")},
+                {select_expr(model_raw_col, "car_model")},
+                {select_expr(phone_col, "phone_normalized")},
+                {select_expr(status_col, "status")}
+            FROM {_ur_q("tbot_parking_import")}
+            WHERE TRIM(CAST({_ur_q(apartment_col)} AS TEXT)) IN ({placeholders})
+            ORDER BY rowid
+        """, tuple(search_refs))
+
+        return {
+            "ok": True,
+            "error": None,
+            "rows": cur.fetchall(),
+        }
+    finally:
+        conn.close()
+
+
+def get_telegram_facts_by_apartment(apartment_number):
+    """
+    Выбирает Telegram facts по всем алиасам группы и физическим units.
+    """
+    db_file = paths.OSBB_TELEGRAM_DB_FILE
+
+    if not db_file.exists():
+        return {
+            "ok": False,
+            "error": f"telegram_db_not_found: {db_file}",
+            "rows": [],
+        }
+
+    context = resolve_unit_context(apartment_number)
+    search_refs = context["source_refs"]
+
+    if not search_refs:
+        return {
+            "ok": True,
+            "error": None,
+            "rows": [],
+        }
+
+    conn = sqlite3.connect(db_file)
+    cur = conn.cursor()
+
+    try:
+        if not _ur_table_exists(conn, "telegram_facts"):
+            return {
+                "ok": False,
+                "error": "table_telegram_facts_not_found",
+                "rows": [],
+            }
+
+        placeholders = ",".join("?" for _ in search_refs)
+        cur.execute(f"""
+            SELECT
+                f.id,
+                f.fact_type,
+                f.apartment_number,
+                f.person_name,
+                f.phone_normalized,
+                f.license_plate_normalized,
+                f.license_plate,
+                f.car_brand,
+                f.car_model,
+                f.car_color_normalized,
+                f.amount,
+                f.remote_count,
+                f.fact_status,
+                f.comment,
+                m.text_raw,
+                m.message_date,
+                m.sender_name
+            FROM telegram_facts f
+            LEFT JOIN telegram_messages m
+                ON m.id = f.telegram_message_db_id
+            WHERE TRIM(CAST(f.apartment_number AS TEXT)) IN ({placeholders})
+            ORDER BY f.id
+        """, tuple(search_refs))
+
+        raw_rows = cur.fetchall()
+    finally:
+        conn.close()
+
+    rows = []
+    for row in raw_rows:
+        (
+            fact_id,
+            fact_type,
+            apt,
+            person_name,
+            phone_normalized,
+            plate_norm,
+            plate_raw,
+            car_brand,
+            car_model,
+            car_color,
+            amount,
+            remote_count,
+            fact_status,
+            comment,
+            text_raw,
+            message_date,
+            sender_name,
+        ) = row
+
+        parking_hint = (
+            detect_parking_time_from_text(fact_type)
+            or detect_parking_time_from_text(comment)
+            or detect_parking_time_from_text(text_raw)
+        )
+
+        rows.append({
+            "fact_id": fact_id,
+            "fact_type": fact_type,
+            "apartment_number": apt,
+            "person_name": person_name,
+            "phone": phone_normalized,
+            "plate": plate_norm or plate_raw,
+            "model": " ".join(
+                item for item in [car_brand, car_model] if item
+            ) or None,
+            "color": car_color,
+            "amount": amount,
+            "remote_count": remote_count,
+            "fact_status": fact_status,
+            "comment": comment,
+            "text_raw": text_raw,
+            "message_date": message_date,
+            "sender_name": sender_name,
+            "parking_hint": parking_hint,
+        })
+
+    return {
+        "ok": True,
+        "error": None,
+        "rows": rows,
+    }
+
+
+def get_main_db_vehicle_rows_for_compare(apartment_number):
+    vehicles = get_apartment_vehicles(apartment_number)
+    result = []
+
+    for row in vehicles:
+        (
+            vehicle_id,
+            plate_norm,
+            plate_raw,
+            model_norm,
+            model_raw,
+            parking_time,
+        ) = row
+
+        result.append({
+            "plate": plate_norm or plate_raw or "-",
+            "model": model_norm or model_raw or "-",
+            "parking_time": parking_time or "NULL",
+        })
+
+    return result
+
+
+def get_unit_verification_summary(apartment_number):
+    """
+    Возвращает статусы согласования по каждой физической единице группы.
+    """
+    context = resolve_unit_context(apartment_number)
+    members = context["resolution"].members
+
+    if not members:
+        return []
+
+    conn = get_conn()
+    cur = conn.cursor()
+    result = []
+
+    try:
+        for member in members:
+            cur.execute("""
+                SELECT
+                    status,
+                    comment,
+                    verified_by,
+                    verified_at,
+                    updated_at
+                FROM apartment_verification
+                WHERE apartment_id = ?
+            """, (member.apartment_id,))
+            row = cur.fetchone()
+
+            if row:
+                status, comment, verified_by, verified_at, updated_at = row
+            else:
+                status, comment, verified_by, verified_at, updated_at = (
+                    "new", None, None, None, None
+                )
+
+            result.append({
+                "apartment_id": member.apartment_id,
+                "apartment_number": member.apartment_number,
+                "status": status,
+                "comment": comment,
+                "verified_by": verified_by,
+                "verified_at": verified_at,
+                "updated_at": updated_at,
+            })
+    finally:
+        conn.close()
+
+    return result
+
+
+def format_apartment_agreement_card(apartment_number):
+    """
+    Согласовательная карточка с отображением всех physical members.
+
+    Для составной группы показываются статусы каждой квартиры отдельно.
+    Финансовых либо подтверждающих действий по группе функция не выполняет.
+    """
+    context = resolve_unit_context(apartment_number)
+    card = get_apartment_card(apartment_number)
+
+    if not card:
+        return "Квартира или помещение не найдено."
+
+    verification_rows = get_unit_verification_summary(apartment_number)
+    tbot_source = get_tbot_source_rows(apartment_number)
+    telegram_facts_source = get_clean_telegram_facts_by_apartment(apartment_number)
+
+    lines = []
+
+    if card.get("is_composite"):
+        lines.append(f"🏠 Связка {card['apartment_number']}")
+        lines.append("Физические единицы: " + ", ".join(card["lookup_numbers"]))
+        lines.append(
+            "Юридический статус: "
+            + (
+                "не подтверждён"
+                if card.get("group_legal_status") == "UNKNOWN"
+                else str(card.get("group_legal_status") or "-")
+            )
+        )
+        lines.append(
+            "Внимание: подтверждение и изменение данных выполняются "
+            "только после выбора конкретной физической единицы."
+        )
+    else:
+        lines.append(f"🏠 Квартира / помещение {card['apartment_number']}")
+
+    lines.append("")
+    lines.append("🤝 Статус согласования:")
+
+    for item in verification_rows:
+        status_label = VERIFICATION_STATUSES.get(item["status"], item["status"])
+        comment = f" | {item['comment']}" if item.get("comment") else ""
+        lines.append(
+            f"• {item['apartment_number']}: {status_label}{comment}"
+        )
+
+    lines.append("")
+    lines.append(format_tbot_source_rows(tbot_source))
+
+    lines.append("")
+    lines.append(format_telegram_facts_source_rows(telegram_facts_source))
+
+    lines.append("")
+    lines.append("💾 БД")
+    lines.append("Авто:")
+    lines.append(format_vehicle_list(card["vehicles"]))
+
+    lines.append("")
+    lines.append(get_agreement_compare_summary(apartment_number))
+
+    lines.append("")
+    lines.append(format_agreement_suggestion(apartment_number))
+
+    lines.append("")
+    lines.append("👥 Жильцы:")
+    if card["residents"]:
+        for first_name, last_name, username, resident_status in card["residents"]:
+            name = " ".join(item for item in [first_name, last_name] if item) or "-"
+            username = f"@{username}" if username else "-"
+            lines.append(f"• {name} | {username} | {resident_status or '-'}")
+    else:
+        lines.append("нет пользователей")
+
+    return "\n".join(lines)
+
+
+def set_apartment_verification_status(
+    apartment_number,
+    status,
+    verified_by=None,
+    comment=None,
+    operator_username=None,
+    operator_name=None,
+    selected_apartment_number=None,
+):
+    """
+    Меняет статус только одной физической единицы.
+
+    Для группы параметр selected_apartment_number обязателен.
+    """
+    if status not in VERIFICATION_STATUSES:
+        return False, "invalid_status"
+
+    member, state, context = resolve_physical_unit_for_write(
+        apartment_number,
+        selected_apartment_number=selected_apartment_number,
+    )
+
+    if state != "ok":
+        return False, state
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT status
+        FROM apartment_verification
+        WHERE apartment_id = ?
+    """, (member.apartment_id,))
+    row = cur.fetchone()
+    old_status = row[0] if row else None
+
+    verified_at = now() if status in ["confirmed", "deferred", "conflict"] else None
+
+    cur.execute("""
+        INSERT INTO apartment_verification (
+            apartment_id,
+            apartment_number,
+            status,
+            comment,
+            verified_by,
+            verified_at,
+            created_at,
+            updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+        ON CONFLICT(apartment_id)
+        DO UPDATE SET
+            apartment_number = excluded.apartment_number,
+            status = excluded.status,
+            comment = excluded.comment,
+            verified_by = excluded.verified_by,
+            verified_at = excluded.verified_at,
+            updated_at = excluded.updated_at
+    """, (
+        member.apartment_id,
+        member.apartment_number,
+        status,
+        comment,
+        int(verified_by) if verified_by else None,
+        verified_at,
+        now(),
+        now(),
+    ))
+
+    conn.commit()
+    conn.close()
+
+    log_operator_action(
+        operator_telegram_id=verified_by,
+        operator_username=operator_username,
+        operator_name=operator_name,
+        action_type="apartment_verification_status_update",
+        entity_type="apartment",
+        entity_id=member.apartment_id,
+        apartment_number=member.apartment_number,
+        old_value=old_status,
+        new_value=status,
+        comment=comment,
+    )
+
+    return True, {
+        "status": status,
+        "apartment_id": member.apartment_id,
+        "apartment_number": member.apartment_number,
+        "group_code": context["resolution"].group_code,
+    }
+
+
+def apply_agreement_suggestion(
+    apartment_number,
+    verified_by=None,
+    selected_apartment_number=None,
+):
+    """
+    Защита от массового действия.
+
+    Автоприменение предложения к логической группе запрещено, пока оператор
+    не выберет одного physical member. Для обычной единицы сохраняется
+    ранее существовавшая логика.
+    """
+    member, state, _context = resolve_physical_unit_for_write(
+        apartment_number,
+        selected_apartment_number=selected_apartment_number,
+    )
+
+    if state != "ok":
+        return False, state
+
+    # В legacy коде member номер мог снова раскрыться в группу. Поэтому
+    # для group-сценария не вызываем старый авто-apply: это отдельная
+    # будущая форма с явным выбором и отдельными источниками по member.
+    if _context["is_group"]:
+        return False, "group_auto_apply_requires_dedicated_member_workflow"
+
+    # Для одиночной unit прежняя проверенная логика сохраняется.
+    return _legacy_apply_agreement_suggestion(
+        member.apartment_number,
+        verified_by=verified_by,
+    )
+
+
+def unit_resolver_db_access_self_test():
+    """
+    Read-only диагностика интеграции db_access -> unit_resolver.
+    Используется из небольшой CLI команды или интерактивной проверки.
+    """
+    conn = get_conn()
+    conn.row_factory = sqlite3.Row
+
+    try:
+        if not _ur_table_exists(conn, "unit_group_aliases"):
+            return {
+                "ok": False,
+                "error": "unit_group_aliases_not_found",
+                "tests": [],
+            }
+
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT DISTINCT alias_text
+            FROM unit_group_aliases
+            WHERE is_active = 1
+            ORDER BY alias_text
+        """)
+        aliases = [_ur_text(row[0]) for row in cur.fetchall()]
+    finally:
+        conn.close()
+
+    tests = []
+    for alias in aliases:
+        context = resolve_unit_context(alias)
+        result = context["resolution"]
+        tests.append({
+            "alias": alias,
+            "kind": result.kind,
+            "group_code": result.group_code,
+            "members": context["lookup_numbers"],
+            "ok": result.is_group and len(context["lookup_numbers"]) >= 2,
+        })
+
+    return {
+        "ok": all(item["ok"] for item in tests),
+        "error": None,
+        "tests": tests,
+    }

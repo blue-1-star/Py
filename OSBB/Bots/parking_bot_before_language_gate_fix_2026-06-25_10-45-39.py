@@ -13,7 +13,6 @@ from handlers.client_portal import (
     client_menu_keyboard,
     client_welcome_text,
 )
-from handlers.cashier_operator import handle_cashier_operator_text
 from handlers.unit_registry_editor import handle_unit_registry_editor_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
@@ -157,8 +156,6 @@ ADMIN_MENU = [
     ["📊 Отчёты"],
     ["⚙️ Настройки"],
     ["👤 Клиентский режим"],
-    ["🔗 Запросы квартир"],
-    ["💰 Касса"],
 ]
 
 USERS_MENU = [
@@ -240,6 +237,18 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def show_mode_menu(update: Update, lang: str):
+    # =========================
+    # Строгий выбор языка для клиентского кабинета
+    # =========================
+    # После перезапуска язык выбирается заново: это намеренно.
+    # До выбора языка не допускаем переход в русское меню «по умолчанию».
+    if user_id not in user_languages:
+        await update.message.reply_text(
+            TEXTS["ru"]["choose_language"],
+            reply_markup=kb(LANG_MENU),
+        )
+        return
+
     t = TEXTS[lang]
     await update.message.reply_text(
         t["mode"],
@@ -780,18 +789,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_client_menu(update, lang)
         return
 
-    # =========================
-    # Строгий выбор языка для клиентского кабинета
-    # =========================
-    # После перезапуска язык выбирается заново: это намеренно.
-    # До выбора языка не допускаем переход в русское меню «по умолчанию».
-    if user_id not in user_languages:
-        await update.message.reply_text(
-            TEXTS["ru"]["choose_language"],
-            reply_markup=kb(LANG_MENU),
-        )
-        return
-
     t = TEXTS[lang]
 
     # =========================
@@ -1055,20 +1052,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text,
         lang=lang,
         user_mode=user_modes.get(user_id),
-        is_admin=is_admin_user(user_id),
-    ):
-        return
-
-    # =========================
-    # Операторский кассовый редактор
-    # =========================
-    # O — основная касса охраны; K1..K6 — отдельные точки консьержей.
-    # Обработчик вызывается до старого router состояний.
-    if await handle_cashier_operator_text(
-        update,
-        user_states,
-        user_id,
-        text,
         is_admin=is_admin_user(user_id),
     ):
         return

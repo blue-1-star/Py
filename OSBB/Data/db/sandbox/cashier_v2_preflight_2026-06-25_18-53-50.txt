@@ -1,0 +1,47 @@
+====================================================================================================
+CASHIER V2 PREFLIGHT — SAFE SANDBOX CHECK
+====================================================================================================
+Source DB (read-only): G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Sandbox DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db
+Mode from config: TEST/WORK
+
+1. Компиляция исходников
+   OK  migration v1: migrate_cashier_operator_editor.py
+   OK  migration v2: migrate_cashier_v2.py
+   OK  core v2: cashier_v2_core.py
+   OK  operator handler v2: cashier_operator_v2.py
+   OK  client portal v2: client_portal_v2.py
+   OK  bot switcher: switch_parking_bot_to_cashier_v2.py
+   OK  current parking_bot: parking_bot.py
+   OK  base client portal: client_portal.py
+   OK  base cashier handler: cashier_operator.py
+
+2. Импортная совместимость
+   OK  cashier_v2_core.py import
+   OK  cashier_operator_v2.py import
+   OK  client_portal_v2.py import
+
+3. Создание независимой SQLite-копии
+   OK  snapshot created: osbb_test_cashier_v2_check_2026-06-25_18-53-50.db
+
+4. Применение миграций только к sandbox-копии
+   OK  v1 base schema applied to clone
+       v1 receipt fields: []
+       v1 links: {'payments': [], 'cashbox_operations': []}
+   OK  v2 schema applied to clone
+       v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+       v2 links: {'cashier_receipts': [], 'payments': [], 'cashbox_operations': []}
+
+5. Проверка структуры sandbox-копии
+   OK  все обязательные таблицы существуют
+   ERR cashier_batches: batch_number, entrance_number
+
+6. Проверка переключения parking_bot.py в памяти
+   OK  parking_bot v2 switch compiles in memory
+       client_portal -> client_portal_v2; cashier_operator import -> v2; cashier handler call -> v2
+
+====================================================================================================
+RESULT: NOT READY — ACTIVE DB AND BOT WERE NOT MODIFIED
+Problems:
+  - В clone отсутствуют обязательные поля
+====================================================================================================

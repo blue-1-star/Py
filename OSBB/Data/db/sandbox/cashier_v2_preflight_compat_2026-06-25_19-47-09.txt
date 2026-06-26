@@ -1,0 +1,43 @@
+====================================================================================================
+CASHIER V2 COMPAT PREFLIGHT — SANDBOX ONLY
+====================================================================================================
+Source DB read-only: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Sandbox DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db
+Mode: TEST/WORK
+
+1. Компиляция
+   OK  migration v1: migrate_cashier_operator_editor.py
+   OK  migration v2 compat: migrate_cashier_v2_compat.py
+   OK  core v2: cashier_v2_core.py
+   OK  operator v2: cashier_operator_v2.py
+   OK  client v2: client_portal_v2.py
+   OK  switcher: switch_parking_bot_to_cashier_v2.py
+   OK  bot: parking_bot.py
+   OK  base portal: client_portal.py
+   OK  base cashier: cashier_operator.py
+
+2. Импортная совместимость
+   OK  core v2
+   OK  operator v2
+   OK  client v2
+
+3. Snapshot исходной БД
+   OK  snapshot created
+
+4. Миграции применяются только к snapshot
+   OK  v1 applied to snapshot
+   OK  v2 compat applied to snapshot
+       batch repair: {'blank_filled': 0, 'duplicate_renamed': 0}
+       v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+
+5. Проверка структуры snapshot
+   OK  структура v2 совместима
+
+6. Переключение parking_bot.py только в памяти
+   OK  bot switch compiles in memory
+       client_portal -> client_portal_v2; cashier_operator import -> v2; cashier handler call -> v2
+
+====================================================================================================
+RESULT: READY FOR SANDBOX BOT TEST
+Active DB and active bot were not modified.
+====================================================================================================

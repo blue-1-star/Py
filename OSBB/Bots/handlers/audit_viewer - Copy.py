@@ -45,124 +45,80 @@ def safe(value):
     return "" if value is None else str(value)
 
 
-def load_new_audit(cur, limit=50, actor_filter=None):
-    if not table_exists(cur, "operator_audit_log"):
-        return []
-
-    where = ""
-    params = []
-
-    if actor_filter:
-        where = "WHERE actor_type = ?"
-        params.append(actor_filter)
-
-    params.append(limit)
-
-    cur.execute(f"""
-        SELECT
-            'operator_audit_log' AS source_table,
-            id,
-            created_at AS event_time,
-            actor_type,
-            operator_id AS actor_id,
-            action_type AS action,
-            table_name,
-            row_id AS record_id,
-            field_name,
-            old_value,
-            new_value,
-            comment
-        FROM operator_audit_log
-        {where}
-        ORDER BY id DESC
-        LIMIT ?
-    """, tuple(params))
-
-    return [dict(row) for row in cur.fetchall()]
-
-
-def load_old_audit(cur, limit=50, actor_filter=None):
-    if not table_exists(cur, "audit_log"):
-        return []
-
-    where = ""
-    params = []
-
-    if actor_filter:
-        where = "WHERE actor_role = ?"
-        params.append(actor_filter)
-
-    params.append(limit)
-
-    cur.execute(f"""
-        SELECT
-            'audit_log' AS source_table,
-            id,
-            event_time,
-            actor_role AS actor_type,
-            COALESCE(CAST(telegram_user_id AS TEXT), username, actor_name, '') AS actor_id,
-            action,
-            table_name,
-            record_id,
-            field_name,
-            old_value,
-            new_value,
-            comment
-        FROM audit_log
-        {where}
-        ORDER BY id DESC
-        LIMIT ?
-    """, tuple(params))
-
-    return [dict(row) for row in cur.fetchall()]
-
-
-def normalize_row(row):
-    return {
-        "source_table": safe(row.get("source_table")),
-        "id": row.get("id"),
-        "event_time": safe(row.get("event_time")),
-        "actor_type": safe(row.get("actor_type")) or "-",
-        "actor_id": safe(row.get("actor_id")) or "-",
-        "action": safe(row.get("action")) or "-",
-        "table_name": safe(row.get("table_name")) or "-",
-        "record_id": safe(row.get("record_id")) or "-",
-        "field_name": safe(row.get("field_name")) or "-",
-        "old_value": safe(row.get("old_value")),
-        "new_value": safe(row.get("new_value")),
-        "comment": safe(row.get("comment")),
-    }
-
-
-def load_unified_audit(limit=30, actor_filter=None):
+def load_audit(limit=30, actor_filter=None):
     conn = get_conn()
     cur = conn.cursor()
-    rows = []
-    rows.extend(load_new_audit(cur, limit=limit, actor_filter=actor_filter))
-    rows.extend(load_old_audit(cur, limit=limit, actor_filter=actor_filter))
-    conn.close()
 
-    normalized = [normalize_row(row) for row in rows]
-    normalized.sort(key=lambda r: (r["event_time"], int(r["id"] or 0)), reverse=True)
-    return normalized[:limit]
+    if not table_exists(cur, "operator_audit_log"):
+        conn.close()
+        return []
+
+    where = []
+    params = []
+
+    if actor_filter:
+        where.append("actor_type = ?")
+        params.append(actor_filter)
+
+    where_sql = "WHERE " + " AND ".join(where) if where else ""
+    params.append(limit)
+
+    cur.execute(f"""
+        SELECT
+            id,
+            created_at,
+            actor_type,
+            operator_id,
+            user_id,
+            action_type,
+            table_name,
+            row_id,
+            field_name,
+            old_value,
+            new_value,
+            action_status,
+            review_status,
+            source_context,
+            comment
+        FROM operator_audit_log
+        {where_sql}
+        ORDER BY id DESC
+        LIMIT ?
+    """, tuple(params))
+
+    rows = [dict(row) for row in cur.fetchall()]
+    conn.close()
+    return rows
 
 
 def format_audit_row(row, index):
-    old_value = row["old_value"] if row["old_value"] != "" else "∅"
-    new_value = row["new_value"] if row["new_value"] != "" else "∅"
+    old_value = safe(row.get("old_value")) or "∅"
+    new_value = safe(row.get("new_value")) or "∅"
+
+    operator = safe(row.get("operator_id")) or safe(row.get("user_id")) or "-"
+    actor = safe(row.get("actor_type")) or "-"
+    action = safe(row.get("action_type")) or "-"
+    table = safe(row.get("table_name")) or "-"
+    record_id = safe(row.get("row_id")) or "-"
+    field = safe(row.get("field_name")) or "-"
+    created = safe(row.get("created_at")) or "-"
+    review = safe(row.get("review_status")) or "-"
+    comment = safe(row.get("comment"))
 
     lines = [
-        f"{index}. {row['event_time'] or '-'}",
-        f"   {row['actor_type']} | {row['actor_id']}",
-        f"   {row['action']}",
-        f"   {row['table_name']} #{row['record_id']} | {row['field_name']}",
+        f"{index}. {created}",
+        f"   {actor} | {operator}",
+        f"   {action}",
+        f"   {table} #{record_id} | {field}",
         f"   {old_value} → {new_value}",
+        f"   проверка: {review}",
     ]
 
-    if row["comment"]:
-        lines.append(f"   {row['comment']}")
+    if comment:
+        lines.append(f"   {comment}")
 
-    lines.append(f"   источник: {row['source_table']} id={row['id']}")
+    lines.append(f"   audit_id={row.get('id')}")
+
     return "\n".join(lines)
 
 
@@ -171,6 +127,7 @@ def format_audit_list(rows, title):
         f"🧾 {title}",
         "",
         f"База: {'TEST/WORK' if USE_TEST_DB else 'PROD'}",
+        "Источник: operator_audit_log",
         f"Показано: {len(rows)}",
         "",
     ]
@@ -189,6 +146,7 @@ def format_audit_list(rows, title):
 def split_text(text, limit=3500):
     parts = []
     current = []
+
     for line in text.splitlines():
         candidate = "\n".join(current + [line])
         if len(candidate) > limit and current:
@@ -196,13 +154,16 @@ def split_text(text, limit=3500):
             current = [line]
         else:
             current.append(line)
+
     if current:
         parts.append("\n".join(current))
+
     return parts
 
 
 async def send_long_text(update: Update, text, reply_markup=None):
     parts = split_text(text)
+
     for i, part in enumerate(parts):
         if i == len(parts) - 1:
             await update.message.reply_text(part, reply_markup=reply_markup)
@@ -213,19 +174,27 @@ async def send_long_text(update: Update, text, reply_markup=None):
 async def show_audit_dashboard(update: Update, user_states, user_id):
     state = user_states.setdefault(user_id, {})
     state["mode"] = "audit_viewer"
+
     await update.message.reply_text(
         "🧾 Журнал действий\n\n"
-        "Показываются записи из двух таблиц:\n"
-        "• operator_audit_log\n"
-        "• audit_log\n\n"
+        "Основной журнал: operator_audit_log.\n\n"
+        "Здесь видны системные, админские и операторские изменения:\n"
+        "• кто изменил\n"
+        "• что изменил\n"
+        "• было / стало\n"
+        "• где изменено\n\n"
         "Выберите режим просмотра.",
         reply_markup=kb(AUDIT_MENU),
     )
 
 
 async def show_recent_audit(update: Update, actor_filter=None, title="Последние правки"):
-    rows = load_unified_audit(limit=30, actor_filter=actor_filter)
-    await send_long_text(update, format_audit_list(rows, title), reply_markup=kb(AUDIT_MENU))
+    rows = load_audit(limit=30, actor_filter=actor_filter)
+    await send_long_text(
+        update,
+        format_audit_list(rows, title),
+        reply_markup=kb(AUDIT_MENU),
+    )
 
 
 async def handle_audit_viewer_text(update: Update, user_states, user_id, text):
@@ -237,16 +206,23 @@ async def handle_audit_viewer_text(update: Update, user_states, user_id, text):
         await show_audit_dashboard(update, user_states, user_id)
         return True
 
-    if mode == "audit_viewer" or normalized in {"🕘 Последние правки", "👤 Правки операторов", "⚙️ Системные правки"}:
+    if mode == "audit_viewer" or normalized in {
+        "🕘 Последние правки",
+        "👤 Правки операторов",
+        "⚙️ Системные правки",
+    }:
         if normalized == "🕘 Последние правки":
             await show_recent_audit(update, None, "Последние правки")
             return True
+
         if normalized == "👤 Правки операторов":
             await show_recent_audit(update, "operator", "Правки операторов")
             return True
+
         if normalized == "⚙️ Системные правки":
             await show_recent_audit(update, "system", "Системные правки")
             return True
+
         if normalized in {"⬅️ Назад", "🏠 Главное меню"}:
             state["mode"] = ""
             return False

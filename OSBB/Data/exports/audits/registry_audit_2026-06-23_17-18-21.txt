@@ -1,0 +1,157 @@
+
+======================================================================
+OSBB REGISTRY AUDIT
+======================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb.db
+Audit time: 2026-06-23 17:18:21
+
+======================================================================
+GENERAL COUNTS
+======================================================================
+apartments          : 231
+persons             : 343
+vehicles            : 130
+contact_methods     : 0
+events              : 0
+verification_log    : 0
+audit_log           : 0
+message_sources     : 0
+raw_messages        : 0
+extracted_facts     : 0
+
+======================================================================
+APARTMENTS BY SOURCE
+======================================================================
+house_registry           : 230
+paper_parking            : 1
+
+======================================================================
+APARTMENTS CREATED FROM PAPER PARKING
+======================================================================
+Комбінат   entrance=4 source=paper_parking notes=None
+
+======================================================================
+APARTMENTS WITHOUT PERSONS
+======================================================================
+Count: 0
+
+======================================================================
+APARTMENTS WITH MULTIPLE PERSON RECORDS
+======================================================================
+Count: 87
+139        persons=4
+155        persons=4
+191        persons=4
+89         persons=4
+120        persons=3
+122        persons=3
+126        persons=3
+13         persons=3
+144        persons=3
+161        persons=3
+173        persons=3
+180        persons=3
+182        persons=3
+187        persons=3
+194        persons=3
+195        persons=3
+200        persons=3
+205        persons=3
+38         persons=3
+50         persons=3
+69         persons=3
+1          persons=2
+10         persons=2
+101        persons=2
+105        persons=2
+106        persons=2
+107        persons=2
+108        persons=2
+110        persons=2
+111        persons=2
+115        persons=2
+12         persons=2
+121        persons=2
+125        persons=2
+128        persons=2
+129        persons=2
+132        persons=2
+133        persons=2
+134        persons=2
+138        persons=2
+14         persons=2
+140        persons=2
+142        persons=2
+145        persons=2
+158        persons=2
+159        persons=2
+16         persons=2
+160        persons=2
+162        persons=2
+167        persons=2
+169        persons=2
+171        persons=2
+174        persons=2
+176        persons=2
+181        persons=2
+185        persons=2
+186        persons=2
+188        persons=2
+196        persons=2
+197        persons=2
+198        persons=2
+2          persons=2
+201        persons=2
+202        persons=2
+203        persons=2
+206        persons=2
+24         persons=2
+25         persons=2
+27         persons=2
+29         persons=2
+30         persons=2
+31         persons=2
+32         persons=2
+40         persons=2
+42         persons=2
+43         persons=2
+51         persons=2
+52         persons=2
+56         persons=2
+71         persons=2
+8          persons=2
+80         persons=2
+82         persons=2
+84         persons=2
+95         persons=2
+96         persons=2
+98         persons=2
+
+======================================================================
+VEHICLES WITHOUT LICENSE PLATE
+======================================================================
+Count: 0
+
+======================================================================
+VEHICLES WITHOUT CAR MODEL
+======================================================================
+Count: 4
+13         plate=AA5472OA source=paper_parking
+188        plate=A5568AC source=paper_parking
+203        plate=AA5054AX source=paper_parking
+203        plate=AA8069M source=paper_parking
+
+======================================================================
+DUPLICATE LICENSE PLATES
+======================================================================
+Count: 0
+
+======================================================================
+NON-NUMERIC APARTMENT NUMBERS
+======================================================================
+Count: 1
+Комбінат        source=paper_parking
+
+======================================================================
+AUDIT FINISHED
+======================================================================

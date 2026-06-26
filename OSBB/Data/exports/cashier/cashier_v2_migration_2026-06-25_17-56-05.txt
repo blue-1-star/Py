@@ -1,0 +1,30 @@
+========================================================================================================
+CASHIER V2 MIGRATION
+========================================================================================================
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+MODE: TEST/WORK
+Apply: False
+
+Новые сущности:
+  payment_notices: created
+  bank_transactions: created
+  cashier_batches: already exists
+  cashier_batch_items: created
+  cashier_reconciliation_cases: created
+
+Ключевые правила:
+  • O — основная касса охраны; K1–K6 — отдельные консьержи;
+  • BANK — банковский канал, не физическая касса;
+  • уведомление жителя не является оплатой;
+  • пакет подъезда создаёт отдельную строку на каждую квартиру;
+  • автоматическое разнесение допустимо только в подтверждённом пакете
+    с точной квартирой, точным начислением и точной суммой;
+  • исторические импорты и бумажки попадают в очередь сверки.
+
+Добавленные связи:
+  cashier_receipts: payment_notice_id, cashier_batch_id, service_item_code, review_status
+  payments: payment_notice_id, bank_transaction_id, payment_channel
+  cashbox_operations: payment_notice_id, cashier_batch_id
+Индексы: idx_payment_notices_status, idx_payment_notices_unit, idx_bank_transactions_ref, idx_bank_transactions_unit, idx_cashier_batch_items_batch, idx_cashier_batch_items_unit, idx_cashier_reconciliation_status, idx_cashier_reconciliation_unit, idx_payments_notice_v2, idx_payments_bank_v2, idx_receipts_notice_v2
+
+DRY RUN COMPLETED - NO CHANGES SAVED

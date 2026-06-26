@@ -8,12 +8,6 @@ from handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
 from handlers.vehicle_full_list import handle_vehicle_full_list_text
 from handlers.audit_viewer import handle_audit_viewer_text
-from handlers.client_portal import (
-    handle_client_portal_text,
-    client_menu_keyboard,
-    client_welcome_text,
-)
-from handlers.cashier_operator import handle_cashier_operator_text
 from handlers.unit_registry_editor import handle_unit_registry_editor_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
@@ -157,8 +151,6 @@ ADMIN_MENU = [
     ["📊 Отчёты"],
     ["⚙️ Настройки"],
     ["👤 Клиентский режим"],
-    ["🔗 Запросы квартир"],
-    ["💰 Касса"],
 ]
 
 USERS_MENU = [
@@ -248,10 +240,12 @@ async def show_mode_menu(update: Update, lang: str):
 
 
 async def show_client_menu(update: Update, lang: str):
+    t = TEXTS[lang]
     await update.message.reply_text(
-        client_welcome_text(lang),
-        reply_markup=kb(client_menu_keyboard(lang)),
+        t["welcome"],
+        reply_markup=kb(CLIENT_MENU_RU),
     )
+
 
 async def show_admin_menu(update: Update):
     await update.message.reply_text(
@@ -780,18 +774,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_client_menu(update, lang)
         return
 
-    # =========================
-    # Строгий выбор языка для клиентского кабинета
-    # =========================
-    # После перезапуска язык выбирается заново: это намеренно.
-    # До выбора языка не допускаем переход в русское меню «по умолчанию».
-    if user_id not in user_languages:
-        await update.message.reply_text(
-            TEXTS["ru"]["choose_language"],
-            reply_markup=kb(LANG_MENU),
-        )
-        return
-
     t = TEXTS[lang]
 
     # =========================
@@ -1040,37 +1022,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_admin_menu(update)
         else:
             await update.message.reply_text("Нет доступа.")
-        return
-
-    # =========================
-    # Клиентский кабинет / заявки на пульты
-    # =========================
-    # В client-режиме блокирует старую RU-only обработку кнопок:
-    # на каждом уровне принимаются только кнопки выбранного языка.
-    # В admin-режиме обрабатывает только «Заявки на пульты».
-    if await handle_client_portal_text(
-        update,
-        user_states,
-        user_id,
-        text,
-        lang=lang,
-        user_mode=user_modes.get(user_id),
-        is_admin=is_admin_user(user_id),
-    ):
-        return
-
-    # =========================
-    # Операторский кассовый редактор
-    # =========================
-    # O — основная касса охраны; K1..K6 — отдельные точки консьержей.
-    # Обработчик вызывается до старого router состояний.
-    if await handle_cashier_operator_text(
-        update,
-        user_states,
-        user_id,
-        text,
-        is_admin=is_admin_user(user_id),
-    ):
         return
 
     # =========================

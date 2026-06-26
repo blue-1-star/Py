@@ -6,6 +6,8 @@ from telegram.ext import Application, CommandHandler, MessageHandler, ContextTyp
 # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+from handlers.vehicle_full_list import handle_vehicle_full_list_text
+from handlers.audit_viewer import handle_audit_viewer_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
 PY_ROOT = OSBB_ROOT.parent
@@ -140,6 +142,7 @@ ADMIN_MENU = [
     ["👥 Пользователи"],
     ["🚗 Автомобили"],
     ["🚗 Проверка авто"],
+    ["🧾 Журнал действий"],
     ["🤝 Согласование"],
     ["🔑 Заявки на пульты"],
     ["📞 Телефонный доступ"],
@@ -1167,7 +1170,8 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if text == "🚗 Автомобили":
         await show_vehicle_menu(update)
         return
-
+    if await handle_vehicle_full_list_text(update, user_states, user_id, text):
+        return
     if text == "📋 Все автомобили":
         rows = get_vehicles_by_status("all", limit=50)
         await update.message.reply_text(
@@ -1267,6 +1271,8 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     if await handle_vehicle_card_editor_text(update, user_states, user_id, text):
+        return
+    if await handle_audit_viewer_text(update, user_states, user_id, text):
         return
     # =========================
     # fallback
