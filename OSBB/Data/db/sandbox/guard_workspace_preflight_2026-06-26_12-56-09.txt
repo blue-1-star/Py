@@ -1,0 +1,46 @@
+====================================================================================================
+GUARD WORKSPACE PREFLIGHT V2 — SANDBOX ONLY
+====================================================================================================
+Source sandbox (read-only): G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db
+New guard sandbox: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+
+1. Компиляция
+   OK  access core: access_control.py
+   OK  access migration: migrate_access_control_and_guard.py
+   OK  access manager: manage_staff_access.py
+   OK  guard handler: guard_workspace.py
+   OK  guard bot patcher: patch_parking_bot_guard_workspace_v3.py
+   OK  cashier switcher: switch_parking_bot_to_cashier_v2.py
+   OK  cashier core v2: cashier_v2_core.py
+   OK  client portal v2: client_portal_v2.py
+   OK  parking bot: parking_bot.py
+
+2. Независимая копия sandbox
+   OK  clone created
+
+3. Роли и таблицы охраны только в новой копии
+   OK  access/guard migration applied to clone
+       tables: {'staff_principals': True, 'access_roles': True, 'access_role_permissions': True, 'access_user_roles': True, 'access_user_permissions': True, 'access_audit_log': True, 'remote_handover_events': True}
+       seed: {'roles_upserted': 5, 'permissions_inserted': 12}
+
+4. Проверка индивидуальных прав GUARD_O на тестовом ID
+   OK  workspace enter O
+   OK  notice confirm O
+   OK  manual cash O
+   OK  remote issue post O
+   OK  bank forbidden
+   OK  other cashbox forbidden
+
+5. Проверка обработчика и сборки бота в памяти
+   OK  guard_workspace.py import
+   OK  parking_bot v2 + guard patch compiles in memory
+       cashier: client_portal -> client_portal_v2; cashier_operator import -> v2; cashier handler call -> v2
+       guard: guard_workspace import; mode menu with guard workspace; language gate for guard users; guard state router; guard mode switch
+
+6. Проверка структуры новой копии
+   OK  все таблицы guard workspace существуют
+
+====================================================================================================
+RESULT: READY FOR GUARD SANDBOX TEST
+Новая guard sandbox создана; реальным пользователям доступ не выдан.
+====================================================================================================

@@ -1,0 +1,50 @@
+====================================================================================================
+ISOLATED LIVE SANDBOX CREATION
+====================================================================================================
+Base test DB (read-only): G:\Programming\Py\OSBB\Data\db\osbb_test.db
+New sandbox: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Guard user: 210312208
+
+Baseline workflow counts inherited from osbb_test.db:
+  cashier_receipts: 0
+  cashbox_operations: 93
+  payment_notices: 0
+  cashier_batches: 0
+  cashier_batch_items: 0
+  remote_handover_events: 0
+  service_orders: 0
+  remote_assets: 0
+  service_access_credentials: 0
+
+Important: non-zero baseline values are inherited history, not a failure.
+
+1. Snapshot: OK
+
+2. Cashier base: OK
+   Cashboxes: O:updated, K1:updated, K2:updated, K3:updated, K4:updated, K5:updated, K6:updated, C:updated, BANK:updated, K:updated
+   Cashbox balances: {'BANK': 0.0, 'C': 23950.0, 'K': 0.0, 'K1': 0.0, 'K2': 0.0, 'K3': 0.0, 'K4': 0.0, 'K5': 0.0, 'K6': 0.0, 'O': 22800.0}
+
+3. Cashier v2: OK
+   {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}, 'link_fields_added': {'cashier_receipts': [], 'payments': [], 'cashbox_operations': []}, 'batch_backfill': {'blank_filled': 0, 'duplicate_renamed': 0}, 'defaults_backfill': {'cashier_batches.batch_kind': 0, 'cashier_batches.entry_status': 0, 'cashier_batches.currency': 0, 'payment_notices.notice_status': 0, 'payment_notices.currency': 0, 'bank_transactions.entry_status': 0, 'bank_transactions.currency': 0, 'bank_transactions.source_type': 0, 'cashier_batch_items.item_status': 0, 'cashier_reconciliation_cases.case_status': 0, 'cashier_reconciliation_cases.priority': 0, 'cashier_reconciliation_cases.currency': 0}, 'indexes_added': ['idx_cashier_batches_number', 'idx_payments_batch_v2', 'idx_receipts_batch_v2', 'idx_cashbox_ops_batch_v2']}
+
+4. Access / guard schema: OK
+   {'tables_created': {'staff_principals': True, 'access_roles': True, 'access_role_permissions': True, 'access_user_roles': True, 'access_user_permissions': True, 'access_audit_log': True, 'remote_handover_events': True}, 'fields_added': {'staff_principals': [], 'access_roles': [], 'access_role_permissions': [], 'access_user_roles': [], 'access_user_permissions': [], 'access_audit_log': [], 'remote_handover_events': []}, 'seed': {'roles_upserted': 5, 'permissions_inserted': 12}, 'indexes_created': ['idx_access_user_roles_user', 'idx_access_user_permissions_user', 'idx_access_role_permissions_role', 'idx_access_audit_actor', 'idx_remote_handover_post', 'idx_remote_handover_operator', 'idx_remote_handover_request']}
+
+5. Service orders / remotes / phone access schema: OK
+   {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone_access_mapping_seeded': True, 'access_roles_seed': {'roles': 3, 'permissions': 11}, 'indexes_created': ['idx_service_item_workflows_profile', 'idx_service_price_versions_item', 'idx_service_orders_unit', 'idx_service_orders_item', 'idx_service_order_steps_order', 'idx_service_order_events_order', 'idx_remote_assets_status', 'idx_remote_asset_movements_asset', 'idx_service_access_credentials_value'], 'legacy_columns_added': {'remote_requests': ['service_order_id'], 'remote_handover_events': ['service_order_id', 'remote_asset_id', 'remote_asset_movement_id'], 'barrier_phone_access': ['service_order_id']}}
+
+6. Clean workflow counts in the NEW sandbox:
+   cashier_receipts: 0
+   cashbox_operations: 93
+   payment_notices: 0
+   remote_handover_events: 0
+   service_orders: 0
+   remote_assets: 0
+   service_access_credentials: 0
+   GUARD_O assignment for requested test user: 1
+
+7. Launcher created: G:\Programming\Py\OSBB\Start_OSBB_Live_Service_Sandbox_Bot.bat
+
+RESULT: READY FOR ISOLATED LIVE SANDBOX TEST
+Historical base operations were preserved as a baseline; new test operations begin only in this new sandbox.
+Base osbb_test.db and all previous sandbox copies were not modified.

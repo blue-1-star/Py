@@ -1,0 +1,31 @@
+====================================================================================================
+SERVICE ORDERS / REMOTES / PHONE ACCESS PREFLIGHT — SANDBOX ONLY
+====================================================================================================
+Source sandbox (read-only): G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+New service-orders sandbox: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db
+
+1. Компиляция
+   OK  migration: migrate_service_orders_and_fulfillment.py
+   OK  orders core: service_orders_core.py
+   OK  catalog core: service_catalog_admin_core.py
+
+2. Независимая копия sandbox
+   OK  clone created
+
+3. Миграция общего контура только в новой копии
+   OK  migration applied to clone
+       workflow: {'profiles_upserted': 5, 'steps_upserted': 14}
+       phone mapping: True
+
+4. Общая модель заказов: пульт и телефонный доступ
+   OK  remote order completed
+   OK  remote payment confirmed
+   OK  phone order completed
+   OK  phone payment confirmed
+   OK  retired offer hidden from active list
+   OK  phone offer remains active
+
+====================================================================================================
+RESULT: READY FOR SERVICE-ORDERS SANDBOX TEST
+Новая копия содержит только технические PREFLIGHT-заказы и не затрагивает реальных пользователей или исходную sandbox.
+====================================================================================================
