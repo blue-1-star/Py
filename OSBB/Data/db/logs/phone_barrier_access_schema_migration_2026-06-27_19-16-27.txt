@@ -1,0 +1,29 @@
+OSBB phone-barrier access schema migration
+Mode: SANDBOX ONLY
+Database: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Effective from: 2026-06-27
+Backup: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db
+Changes:
+- created table access_debt_warnings
+- created table access_external_commands
+- created table access_operation_journal
+- created table access_points
+- created table access_policy_values
+- created table access_policy_versions
+- created table access_schema_migrations
+- created table access_tariff_versions
+- created table phone_access_subscription_charges
+- created table phone_access_subscription_points
+- created table phone_access_subscriptions
+- seeded access point BARRIER_FAR_01
+- seeded access point BARRIER_NEAR_02
+- seeded tariff PHONE_BARRIER_ACCESS_CONNECT = 200 UAH per barrier
+- seeded tariff PHONE_BARRIER_ACCESS_MONTHLY = 100 UAH per barrier/month
+- seeded policy PHONE_BARRIER_ACCESS version for 2026-06-27
+- seeded policy value PHONE_ACCESS_DEBT_GRACE_DAYS = 10
+- seeded policy value PHONE_ACCESS_MONTHLY_START_RULE = MIDPOINT_OF_CALENDAR_MONTH
+- seeded policy value PHONE_ACCESS_AUTO_DEACTIVATE_ENABLED = 1
+- seeded policy value PHONE_ACCESS_DEFAULT_PARKING_DEBT_MODE = MANUAL_REVIEW
+- seeded policy value PHONE_ACCESS_REAPPLICATION_NEW_SUBSCRIPTION = 1
+- recorded migration PHONE_BARRIER_ACCESS_SCHEMA_V1
+Result: MIGRATION COMPLETED

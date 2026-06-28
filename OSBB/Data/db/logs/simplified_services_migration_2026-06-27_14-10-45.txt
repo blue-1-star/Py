@@ -1,0 +1,8 @@
+Simplified services sandbox migration
+Project: G:\Programming\Py\OSBB
+Sandbox: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Backup: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db
+Config: G:\Programming\Py\config.py
+created REMOTE_NEW_PREORDER workflow profile
+created REMOTE_NEW_PREORDER workflow steps
+moved 1 active new-remote service item(s) to paid preorder workflow

@@ -1,0 +1,204 @@
+OSBB Guard Sandbox — Service Orders Diagnosis V2
+====================================================================================================
+Project root: G:\Programming\Py\OSBB
+This diagnostic is read-only.
+====================================================================================================
+BOT SOURCE / RUNTIME PATCH CHECK
+[OK] G:\Programming\Py\OSBB\Bots\parking_bot.py
+[OK] G:\Programming\Py\OSBB\Bots\handlers\service_orders_workspace.py
+[OK] G:\Programming\Py\OSBB\switch_parking_bot_to_cashier_v2.py
+[OK] G:\Programming\Py\OSBB\patch_parking_bot_guard_workspace_v4.py
+
+Raw parking_bot.py: 1358 lines
+PATCH ANALYSIS FAILED: RuntimeError: Не найден импортный якорь handlers.audit_viewer.
+Traceback (most recent call last):
+  File "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders_v2.py", line 200, in inspect_bot_source
+    patched_source, guard_changes = guard.patch(patched_source)
+                                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "G:\Programming\Py\OSBB\patch_parking_bot_guard_workspace_v4.py", line 160, in patch
+    source, changed = add_import(source)
+                      ~~~~~~~~~~^^^^^^^^
+  File "G:\Programming\Py\OSBB\patch_parking_bot_guard_workspace_v4.py", line 109, in add_import
+    raise RuntimeError("Не найден импортный якорь handlers.audit_viewer.")
+RuntimeError: Не найден импортный якорь handlers.audit_viewer.
+
+
+RAW SOURCE
+  'service_orders_workspace': 0 occurrence(s)
+  'handle_service_orders_text': 0 occurrence(s)
+  'show_service_operator_workspace': 0 occurrence(s)
+  '🔑 Заявки на пульты': 3 occurrence(s)
+      152:     ["🧾 Журнал действий"],
+      153:     ["🤝 Согласование"],
+      154:     ["🔑 Заявки на пульты"],
+      155:     ["📞 Телефонный доступ"],
+      156:     ["💳 Платежи"],
+    ---
+     1278:         return
+     1279: 
+     1280:     if text == "🔑 Заявки на пульты":
+     1281:         await update.message.reply_text(
+     1282:             "🔑 Заявки на пульты\n\n"
+    ---
+     1280:     if text == "🔑 Заявки на пульты":
+     1281:         await update.message.reply_text(
+     1282:             "🔑 Заявки на пульты\n\n"
+     1283:             "Здесь будет обработка заказов пультов.",
+     1284:             reply_markup=kb(ADMIN_MENU),
+    ---
+  '🔑 Оператор услуг': 0 occurrence(s)
+  'remote_requests': 0 occurrence(s)
+  'guard_workspace': 0 occurrence(s)
+
+PATCHED SOURCE
+  'service_orders_workspace': 0 occurrence(s)
+  'handle_service_orders_text': 0 occurrence(s)
+  'show_service_operator_workspace': 0 occurrence(s)
+  '🔑 Заявки на пульты': 3 occurrence(s)
+      152:     ["🧾 Журнал действий"],
+      153:     ["🤝 Согласование"],
+      154:     ["🔑 Заявки на пульты"],
+      155:     ["📞 Телефонный доступ"],
+      156:     ["💳 Платежи"],
+    ---
+     1278:         return
+     1279: 
+     1280:     if text == "🔑 Заявки на пульты":
+     1281:         await update.message.reply_text(
+     1282:             "🔑 Заявки на пульты\n\n"
+    ---
+     1280:     if text == "🔑 Заявки на пульты":
+     1281:         await update.message.reply_text(
+     1282:             "🔑 Заявки на пульты\n\n"
+     1283:             "Здесь будет обработка заказов пультов.",
+     1284:             reply_markup=kb(ADMIN_MENU),
+    ---
+  '🔑 Оператор услуг': 0 occurrence(s)
+  'remote_requests': 0 occurrence(s)
+  'guard_workspace': 0 occurrence(s)
+
+SERVICE WORKSPACE CHECK
+service_orders_workspace.py: 1505 lines
+  'def handle_service_orders_text': 1 occurrence(s)
+  '🔑 Заявки на пульты': 1 occurrence(s)
+  'has_service_workspace_access': 4 occurrence(s)
+  'def _matching_payments': 1 occurrence(s)
+  '_payments_has_source_ref': 0 occurrence(s)
+  'p.source_ref': 1 occurrence(s)
+====================================================================================================
+SANDBOX DATABASE CHECK
+Sandbox DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+Exists: True
+Opened read-only: PASS
+
+Relevant tables:
+  [OK] payments: 96 row(s)
+       columns: id, payment_date, period_code, apartment_number, vehicle_id, amount, currency, payment_method, source, created_by, comment, created_at, cashbox_code, cashbox_operation_id, cashier_batch_id, operator_id, service_item_code, base_service_code, service_type, commercial_contract_id, commercial_unit_id, cashier_receipt_id, cashier_entry_status, payment_notice_id, bank_transaction_id, payment_channel
+  [MISSING] service_orders
+  [MISSING] service_order_steps
+  [MISSING] service_order_payment_links
+  [MISSING] remote_order_details
+  [MISSING] remote_assets
+  [OK] remote_requests: 0 row(s)
+       columns: id, resident_account_id, telegram_user_id, apartment_id, apartment_number, request_kind, quantity, resident_comment, status, operator_id, operator_note, created_at, updated_at, reviewed_at, issued_at, closed_at
+  [OK] remote_handover_events: 0 row(s)
+       columns: id, event_kind, event_status, post_code, remote_request_id, apartment_id, apartment_number, quantity, operator_id, note, created_at, updated_at
+  [OK] staff_principals: 2 row(s)
+       columns: telegram_user_id, display_name, is_active, note, created_at, updated_at
+  [OK] access_user_roles: 2 row(s)
+       columns: id, telegram_user_id, role_code, scope_type, scope_value, is_active, valid_from, valid_to, granted_by, note, created_at, updated_at
+  [OK] access_user_permissions: 0 row(s)
+       columns: id, telegram_user_id, resource, action, scope_type, scope_value, effect, is_active, valid_from, valid_to, granted_by, note, created_at, updated_at
+  [OK] access_role_permissions: 12 row(s)
+       columns: id, role_code, resource, action, scope_type, scope_value, effect, is_active, note, created_at, updated_at
+  [OK] access_audit_log: 5 row(s)
+       columns: id, created_at, actor_telegram_user_id, action_type, resource, action, scope_type, scope_value, target_table, target_id, success, details
+
+payments.source_ref: MISSING
+
+Latest payments:
+  id=96 | payment_date='2026-06-26' | service_item_code='07_26_Day' | amount=220.0 | currency='UAH' | payment_method='cash' | payment_channel='CASH' | cashbox_code='O' | cashier_entry_status='CONFIRMED' | comment='[Пост O] Принято наличными на посту O.'
+  id=95 | payment_date='2026-06-26' | service_item_code='07_26_Day' | amount=200.0 | currency='UAH' | payment_method='cash' | payment_channel='CASH' | cashbox_code='O' | cashier_entry_status='CONFIRMED' | comment='Подтверждение уведомления N-20260626173555-000001.'
+  id=94 | payment_date='2026-06-26' | service_item_code=None | amount=200.0 | currency='UAH' | payment_method='cash' | payment_channel='CASH' | cashbox_code='O' | cashier_entry_status='CONFIRMED' | comment='[Пост O] Принято наличными на посту O.'
+  id=93 | payment_date='2026-06-26' | service_item_code='07_26_Day' | amount=200.0 | currency='UAH' | payment_method='cash' | payment_channel='CASH' | cashbox_code='O' | cashier_entry_status='CONFIRMED' | comment='[Пост O] передано лично за июль'
+  id=92 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1- сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=91 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=90 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=89 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=88 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=87 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=86 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=85 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=84 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=83 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=1000.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 2-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=82 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=1000.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 2-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=81 | payment_date='2026-07-31' | service_item_code='07_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, дополнительная запись из колонки F: 200-липень Тарифная запись: 1-день. Техническая дата: 2026-07-31; vehicle_id не назначен.'
+  id=80 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=79 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=78 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=77 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=76 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=1000.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=75 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=74 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=73 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=600.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 3-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=72 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=600.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 3-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=71 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=70 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=69 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=68 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=67 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=66 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=65 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=64 | payment_date='2026-04-30' | service_item_code='04_26_Night' | amount=450.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, дополнительная запись из колонки F: 450-квітень Тарифная запись: 1-сутки. Техническая дата: 2026-04-30; vehicle_id не назначен.'
+  id=63 | payment_date='2026-06-30' | service_item_code='06_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=62 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=61 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=60 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=200.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=59 | payment_date='2026-05-31' | service_item_code='05_26_Night' | amount=500.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+  id=58 | payment_date='2026-06-30' | service_item_code='06_26_Day' | amount=400.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 2-день. Техническая дата: 2026-06-30; vehicle_id не назначен.'
+  id=57 | payment_date='2026-05-31' | service_item_code='05_26_Day' | amount=400.0 | currency='UAH' | payment_method=None | payment_channel=None | cashbox_code='C' | cashier_entry_status=None | comment='Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 2-день. Техническая дата: 2026-05-31; vehicle_id не назначен.'
+
+Service orders (latest first):
+  (no rows)
+
+Service-order steps:
+  (no rows)
+
+Payment links:
+  (no rows)
+
+Legacy remote requests:
+  (no rows)
+
+Staff principals:
+  telegram_user_id='999999991' | display_name='PREFLIGHT GUARD' | is_active=1
+  telegram_user_id='210312208' | display_name='Тестовый охранник O' | is_active=1
+
+User roles:
+  id=2 | telegram_user_id='210312208' | role_code='GUARD_O' | scope_type='ALL' | scope_value='*' | is_active=1
+  id=1 | telegram_user_id='999999991' | role_code='GUARD_O' | scope_type='ALL' | scope_value='*' | is_active=1
+
+Direct user permissions:
+  (no rows)
+
+Role permissions:
+  id=12 | role_code='AUDITOR' | resource='access_audit_log' | action='VIEW' | scope_type='ALL' | scope_value='*' | is_active=1
+  id=11 | role_code='ACCESS_MANAGER' | resource='access_control' | action='MANAGE' | scope_type='ALL' | scope_value='*' | is_active=1
+  id=10 | role_code='GUARD_O' | resource='remote_handover_events' | action='CREATE' | scope_type='POST' | scope_value='O' | is_active=1
+  id=9 | role_code='GUARD_O' | resource='remote_handover_events' | action='VIEW' | scope_type='POST' | scope_value='O' | is_active=1
+  id=8 | role_code='GUARD_O' | resource='remote_requests' | action='ISSUE' | scope_type='POST' | scope_value='O' | is_active=1
+  id=7 | role_code='GUARD_O' | resource='remote_requests' | action='VIEW' | scope_type='POST' | scope_value='O' | is_active=1
+  id=6 | role_code='GUARD_O' | resource='cashbox_operations' | action='VIEW' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+  id=5 | role_code='GUARD_O' | resource='cashier_receipts' | action='CREATE' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+  id=4 | role_code='GUARD_O' | resource='cashier_receipts' | action='VIEW' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+  id=3 | role_code='GUARD_O' | resource='payment_notices' | action='CONFIRM' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+  id=2 | role_code='GUARD_O' | resource='payment_notices' | action='VIEW' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+  id=1 | role_code='GUARD_O' | resource='guard_workspace' | action='ENTER' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+
+What the report will tell us:
+  1) Whether the runtime-patched parking_bot imports and calls service_orders_workspace.
+  2) Whether your sandbox contains the yesterday's reprogramming service order and its exact step.
+  3) Whether the sandbox has payments.source_ref.
+  4) Whether roles/permissions permit service_orders VIEW for REMOTE / ACCESS.
+====================================================================================================
+Diagnosis completed. No DB or source code was changed.

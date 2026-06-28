@@ -1,0 +1,9 @@
+OSBB two-barrier phone-access operational migration
+Mode: SANDBOX ONLY
+Database: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Backup: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db
+Changes:
+- created table phone_access_request_points
+- created table phone_access_requests
+- recorded migration PHONE_BARRIER_ACCESS_OPERATIONAL_SCHEMA_V2
+Result: PHONE_BARRIER_ACCESS_OPERATIONAL_SCHEMA_V2 COMPLETED

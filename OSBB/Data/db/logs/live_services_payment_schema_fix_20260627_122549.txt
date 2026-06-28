@@ -1,0 +1,16 @@
+OSBB LIVE SERVICES SANDBOX — PAYMENT SCHEMA FIX
+============================================================================================
+Database: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Backup created: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db
+ADDED: payments.apartment_id INTEGER
+ADDED: payments.source_ref TEXT
+Mapped via apartments: 86 payment row(s).
+Mapped via service_orders fallback: 0 payment row(s).
+
+Verification of the exact test workflow:
+Order SO-20260626-000001: apartment_id=166, apartment_number='174', payment_status='AWAITING_PAYMENT'
+Payment #93: apartment_id=166, apartment_number='174', amount=1.0, cashbox='O', service='TEST_REMOTE_REPROGRAM_OWN'
+PASS: selected payment and test order have the same apartment_id.
+
+DONE: the sandbox payment schema is compatible with the service-order link.
+Now restart Start_OSBB_Live_Services_Sandbox_Bot_v1.bat and repeat payment #93.

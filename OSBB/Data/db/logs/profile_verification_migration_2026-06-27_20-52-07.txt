@@ -1,0 +1,18 @@
+OSBB resident profile verification migration
+Mode: SANDBOX ONLY
+Database: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Backup: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db
+Changes:
+- created table resident_profile_change_requests
+- created table resident_profile_operation_journal
+- created table resident_profile_policy_values
+- created table resident_profile_policy_versions
+- created table resident_profile_schema_migrations
+- created table resident_profile_verifications
+- seeded policy value PROFILE_REQUIRE_CLIENT_CONFIRMATION = 1
+- seeded policy value PROFILE_REQUIRE_EXPLICIT_NO_VEHICLE = 1
+- seeded policy value PROFILE_CRITICAL_REQUIRE_PLATE = 1
+- seeded policy value PROFILE_CRITICAL_REQUIRE_PARKING_TIME = 1
+- seeded policy value PROFILE_ALLOW_PRIVATE_ACCESS_PHONE = 1
+- recorded migration RESIDENT_PROFILE_VERIFICATION_V1
+MIGRATION COMPLETED

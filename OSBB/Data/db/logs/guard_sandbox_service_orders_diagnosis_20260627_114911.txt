@@ -1,0 +1,18 @@
+OSBB Guard Sandbox — Service Orders Diagnosis
+====================================================================================================
+Project root: G:\Programming\Py\OSBB
+Launcher BAT: G:\Programming\Py\OSBB\Start_OSBB_Guard_Sandbox_Bot_v2.bat
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DIAGNOSIS FAILED: RuntimeError: The sandbox path contains an environment variable and cannot be resolved safely: %PROJECT%\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+Traceback (most recent call last):
+  File "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders.py", line 480, in <module>
+    code = main()
+  File "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders.py", line 467, in main
+    sandbox_db = extract_sandbox_path()
+  File "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders.py", line 95, in extract_sandbox_path
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: The sandbox path contains an environment variable and cannot be resolved safely: %PROJECT%\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+

@@ -1,0 +1,79 @@
+OSBB — Actual Service-Order State Locator
+==============================================================================================================
+Read-only. No database, source code, bot configuration or process is changed.
+Started: 2026-06-27 11:57:21
+==============================================================================================================
+RUNNING PYTHON PROCESSES
+PID=26036 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\run_bot_guard_sandbox_v3.py" --sandbox "G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db" --run
+PID=16548 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\run_bot_guard_sandbox_v3.py" --sandbox "G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db" --run
+PID=15248 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders_v2.py"
+PID=30696 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\CHECK_guard_sandbox_service_orders_v2.py"
+PID=4232 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\FIND_actual_service_order_state.py"
+PID=1844 | NAME=python.exe | CMD="G:\Programming\Py\venv\Scripts\python.exe"  "G:\Programming\Py\OSBB\FIND_actual_service_order_state.py"
+==============================================================================================================
+CURRENT RELEVANT SOURCE FILES
+[OK] Bots\parking_bot.py | 46,470 bytes | modified 2026-06-25 14:45:11
+[OK] Bots\handlers\service_orders_workspace.py | 59,547 bytes | modified 2026-06-26 20:40:59
+[OK] run_bot_guard_sandbox_v3.py | 7,553 bytes | modified 2026-06-26 17:27:16
+[OK] patch_parking_bot_guard_workspace_v4.py | 9,165 bytes | modified 2026-06-26 17:25:49
+[OK] switch_parking_bot_to_cashier_v2.py | 4,455 bytes | modified 2026-06-25 17:44:55
+==============================================================================================================
+SQLITE DATABASE SCAN
+Project root: G:\Programming\Py\OSBB
+SQLite files found: 12
+
+Compact inventory:
+  [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db | service_orders=None | remote_requests=0 | payments=96 | payments.source_ref=False
+  [OK] Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db | service_orders=1 | remote_requests=0 | payments=93 | payments.source_ref=False
+  [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db | service_orders=2 | remote_requests=0 | payments=96 | payments.source_ref=False
+  [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+  [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+  [OK] Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+  [OK] Data\db\osbb_test.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+  [OK] Data\db\osbb_test - Copy.db | service_orders=None | remote_requests=None | payments=92 | payments.source_ref=False
+  [OK] Data\db\osbb.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+  [OK] Data\db\osbb_telegram.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+  [OK] Data\db\osbb_telegram - Copy.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+  [OK] Data\db\osbb_quarantine.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+==============================================================================================================
+DATABASES WITH SERVICE-ORDER SCHEMA: 2
+DATABASES WITH ACTUAL SERVICE-ORDER ROWS: 2
+--------------------------------------------------------------------------------------------------------------
+SERVICE-ORDER DATABASE
+Path: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+File size: 1,593,344 bytes
+Modified: 2026-06-26 21:21:04
+Latest service orders:
+  id=1 | order_number='SO-20260626-000001' | apartment_id=166 | apartment_number='174' | service_item_code='TEST_REMOTE_REPROGRAM_OWN' | service_name_snapshot='ТЕСТ — перепрошивка собственного пульта' | workflow_profile_code='REMOTE_REPROGRAM_OWN' | order_status='AWAITING_PAYMENT' | payment_status='AWAITING_PAYMENT' | fulfillment_status='WAITING_FOR_PAYMENT' | requested_at='2026-06-26 21:00:59' | updated_at='2026-06-26 21:12:54'
+Steps for listed service orders:
+  id=2 | service_order_id=1 | step_code='PAYMENT_CONFIRMED' | step_name='Оплата подтверждена' | sequence_no=20 | is_required=1 | step_status='WAITING' | confirmed_at=None | confirmed_by=None | updated_at='2026-06-26 21:00:59'
+  id=3 | service_order_id=1 | step_code='REMOTE_PROGRAMMED' | step_name='Пульт перепрошит' | sequence_no=30 | is_required=1 | step_status='WAITING' | confirmed_at=None | confirmed_by=None | updated_at='2026-06-26 21:00:59'
+  id=1 | service_order_id=1 | step_code='RESIDENT_REMOTE_RECEIVED' | step_name='Пульт жильца принят' | sequence_no=10 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 21:12:54' | confirmed_by='210312208' | updated_at='2026-06-26 21:12:54'
+  id=4 | service_order_id=1 | step_code='RESIDENT_REMOTE_RETURNED' | step_name='Пульт возвращён жильцу' | sequence_no=40 | is_required=1 | step_status='WAITING' | confirmed_at=None | confirmed_by=None | updated_at='2026-06-26 21:00:59'
+Service-order payment links:
+  (no rows)
+Remote-order details:
+  service_order_id=1 | resident_asset_id=5 | issued_asset_id=None | created_at='2026-06-26 21:00:59' | updated_at='2026-06-26 21:12:54'
+payments.source_ref: MISSING
+--------------------------------------------------------------------------------------------------------------
+SERVICE-ORDER DATABASE
+Path: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db
+File size: 1,593,344 bytes
+Modified: 2026-06-26 19:42:58
+Latest service orders:
+  id=2 | order_number='SO-20260626-000002' | apartment_id=166 | apartment_number='174' | service_item_code='PREFLIGHT_PHONE_CONNECT' | service_name_snapshot='PREFLIGHT — подключение телефонного доступа' | workflow_profile_code='PHONE_ACCESS_CONNECT' | order_status='COMPLETED' | payment_status='CONFIRMED' | fulfillment_status='COMPLETED' | requested_at='2026-06-26 19:42:57' | updated_at='2026-06-26 19:42:57'
+  id=1 | order_number='SO-20260626-000001' | apartment_id=166 | apartment_number='174' | service_item_code='PREFLIGHT_REMOTE_REPROGRAM' | service_name_snapshot='PREFLIGHT — перепрошивка пульта жильца' | workflow_profile_code='REMOTE_REPROGRAM_OWN' | order_status='COMPLETED' | payment_status='CONFIRMED' | fulfillment_status='COMPLETED' | requested_at='2026-06-26 19:42:57' | updated_at='2026-06-26 19:42:57'
+Steps for listed service orders:
+  id=5 | service_order_id=2 | step_code='PAYMENT_CONFIRMED' | step_name='Оплата подтверждена' | sequence_no=10 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+  id=6 | service_order_id=2 | step_code='DIGITAL_ACCESS_ACTIVATED' | step_name='Телефонный доступ активирован' | sequence_no=20 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+  id=4 | service_order_id=1 | step_code='RESIDENT_REMOTE_RETURNED' | step_name='Пульт возвращён жильцу' | sequence_no=40 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+  id=1 | service_order_id=1 | step_code='RESIDENT_REMOTE_RECEIVED' | step_name='Пульт жильца принят' | sequence_no=10 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+  id=3 | service_order_id=1 | step_code='REMOTE_PROGRAMMED' | step_name='Пульт перепрошит' | sequence_no=30 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+  id=2 | service_order_id=1 | step_code='PAYMENT_CONFIRMED' | step_name='Оплата подтверждена' | sequence_no=20 | is_required=1 | step_status='CONFIRMED' | confirmed_at='2026-06-26 19:42:57' | confirmed_by='system' | updated_at='2026-06-26 19:42:57'
+Service-order payment links:
+  (no rows)
+Remote-order details:
+  service_order_id=1 | resident_asset_id=None | issued_asset_id=None | created_at='2026-06-26 19:42:57' | updated_at='2026-06-26 19:42:57'
+payments.source_ref: MISSING
+==============================================================================================================
+Completed.
