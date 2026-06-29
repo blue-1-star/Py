@@ -1,0 +1,22 @@
+﻿path,name,line,end_line,bases,methods,doc
+audit_registry.py,AuditReport,20,42,,4,
+audit_tbot_quarantine.py,Report,21,40,,4,
+commercial_contracts.py,ContractDebt,72,91,,2,
+normalize_registry_fields.py,Report,25,43,,4,
+report_verification_tasks.py,Report,20,46,,4,
+tools/project_passport.py,FileInfo,150,156,,0,
+tools/project_passport.py,ModuleInfo,160,168,,0,
+tools/project_passport.py,FunctionInfo,172,180,,0,
+tools/project_passport.py,ClassInfo,184,191,,0,
+tools/project_passport.py,ImportInfo,195,200,,0,
+tools/project_passport.py,TodoInfo,204,208,,0,
+tools/project_passport.py,TableRefInfo,212,216,,0,
+tools/project_passport_v2.py,FileInfo,171,177,,0,
+tools/project_passport_v2.py,ModuleInfo,181,189,,0,
+tools/project_passport_v2.py,FunctionInfo,193,201,,0,
+tools/project_passport_v2.py,ClassInfo,205,212,,0,
+tools/project_passport_v2.py,ImportInfo,216,221,,0,
+tools/project_passport_v2.py,TodoInfo,225,229,,0,
+tools/project_passport_v2.py,TableRefInfo,233,237,,0,
+unit_resolver.py,UnitMember,41,51,,0,Физическая единица в apartments.
+unit_resolver.py,UnitResolution,55,99,,6,Итог поиска. GROUP — логическая составная группа. UNIT — одна отдельная физическая единица. AMBIGUOUS — требуется ручной выбор. NOT_FOUND — ничего не найдено.

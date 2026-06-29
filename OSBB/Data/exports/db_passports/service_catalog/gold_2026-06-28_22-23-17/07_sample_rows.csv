@@ -1,0 +1,17 @@
+﻿id,service_code,service_group,service_name,unit,is_active,comment,created_at,updated_at,service_type,category,is_monthly,is_fundraising,is_commercial,is_access_control,is_cash_collectable
+1,PARKING_DAY,MONTHLY,Парковка Day,service,1,,2026-06-22 20:07:24,2026-06-22 22:53:02,MONTHLY,PARKING,1,0,0,0,1
+2,PARKING_NIGHT,MONTHLY,Парковка Night,service,1,,2026-06-22 20:07:24,2026-06-22 22:53:02,MONTHLY,PARKING,1,0,0,0,1
+5,BARRIER_PHONE,MONTHLY,Телефонный доступ к шлагбауму,service,1,Ежемесячный платный сервис для зарегистрированного номера телефона. Начисляется автоматически только при отсутствии долга по PARKING_DAY/PARKING_NIGHT. Доступ может быть отключён при появлении такого долга.,2026-06-22 20:07:24,2026-06-22 20:07:24,MONTHLY,ACCESS,1,0,0,1,1
+6,IMPROVEMENT,FUNDRAISING,Благоустройство,service,1,,2026-06-22 20:07:24,2026-06-22 20:55:57,FUNDRAISING,IMPROVEMENT,0,1,0,0,1
+7,PARKING_EQUIPMENT,FUNDRAISING,Оборудование парковки,service,1,"Камеры, видеорегистратор, распознавание номеров, сеть и иное оборудование парковки.",2026-06-22 20:07:24,2026-06-22 20:07:24,FUNDRAISING,EQUIPMENT,0,1,0,0,1
+8,BARRIER_REPAIR,FUNDRAISING,Ремонт / сбор на шлагбаум,service,1,,2026-06-22 20:07:24,2026-06-22 20:55:57,FUNDRAISING,BARRIER,0,1,0,0,1
+9,GUEST_PARKING,COMMERCIAL,Гостевая парковка,service,1,Коммерческий сервис гостевой парковки. Тарифы и правила задаются отдельными статьями service_items.,2026-06-22 20:07:24,2026-06-22 20:07:24,COMMERCIAL,PARKING,0,0,1,0,1
+10,PARK_PLACE_RENT,COMMERCIAL,Аренда паркоместа,service,1,Коммерческая аренда паркоместа.,2026-06-22 20:07:24,2026-06-22 20:07:24,COMMERCIAL,PARKING_ASSET,0,0,1,0,1
+11,PARK_PLACE_SALE,COMMERCIAL,Продажа паркоместа,service,1,Коммерческая продажа паркоместа. Детальный учёт мест будет отдельным модулем.,2026-06-22 20:07:24,2026-06-22 20:07:24,COMMERCIAL,PARKING_ASSET,0,0,1,0,1
+12,BARRIER_PHONE_CONNECT,ACCESS_CONTROL,Подключение / повторное подключение телефонного доступа,service,1,Разовая услуга подключения или повторного подключения номера к GSM-модулю. Тариф: 200 грн. После отключения номер должен пройти эту услугу заново.,2026-06-22 20:07:24,2026-06-22 20:07:24,ONE_TIME,ACCESS,0,0,0,1,1
+13,HISTORICAL_UNCLASSIFIED,HISTORICAL,Историческая нераспределённая операция,service,1,,2026-06-22 20:55:57,2026-06-22 20:55:57,HISTORICAL,HISTORICAL,0,0,0,0,1
+14,COMMERCIAL_CONTRACT,COMMERCIAL,Индивидуальная услуга коммерческого договора,contract,1,"Классификатор начислений по индивидуальным договорам КП. Цена определяется строкой договора, не service_tariffs.",2026-06-24 12:30:30,2026-06-24 12:30:30,CONTRACT,COMMERCIAL,0,0,1,0,1
+15,TEST_REMOTE_REPROGRAM_OWN,ACCESS_CONTROL,ТЕСТ — перепрошивка собственного пульта,service,1,Только live sandbox. Не утверждённый тариф.,2026-06-26 20:53:46,2026-06-26 20:53:46,ONE_TIME,REMOTE,0,0,0,0,1
+16,TEST_REMOTE_NEW,ACCESS_CONTROL,ТЕСТ — новый пульт,service,1,Только live sandbox. Не утверждённый тариф.,2026-06-26 20:53:46,2026-06-26 20:53:46,ONE_TIME,REMOTE,0,0,0,0,1
+17,TEST_REMOTE_REFURBISHED,ACCESS_CONTROL,ТЕСТ — восстановленный пульт,service,1,Только live sandbox. Не утверждённый тариф.,2026-06-26 20:53:46,2026-06-26 20:53:46,ONE_TIME,REMOTE,0,0,0,0,1
+18,TEST_PHONE_ACCESS_CONNECT,ACCESS_CONTROL,ТЕСТ — подключение телефонного доступа,service,1,Только live sandbox. Не утверждённый тариф.,2026-06-26 20:53:46,2026-06-26 20:53:46,ONE_TIME,ACCESS,0,0,0,1,1

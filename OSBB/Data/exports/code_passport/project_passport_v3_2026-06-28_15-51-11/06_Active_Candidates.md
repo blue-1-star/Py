@@ -1,0 +1,111 @@
+# Active Source Candidates
+
+- `Bots/handlers/__init___.py` — bot_handler, lines=1, funcs=0, imported_by=0, themes=-
+- `Bots/handlers/agreement.py` — bot_handler, lines=542, funcs=17, imported_by=54, themes=access_control, parking_time, schema_db, telegram_bot
+- `Bots/handlers/audit_viewer.py` — bot_handler, lines=366, funcs=15, imported_by=6, themes=schema_db, telegram_bot
+- `Bots/handlers/cashier_operator.py` — bot_handler, lines=2427, funcs=61, imported_by=1, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `Bots/handlers/cashier_operator_v2.py` — bot_handler, lines=1098, funcs=29, imported_by=0, themes=cashier, parking_time, remote, schema_db, telegram_bot
+- `Bots/handlers/client_portal.py` — bot_handler, lines=2184, funcs=60, imported_by=12, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `Bots/handlers/client_portal_safe_linking.py` — bot_handler, lines=2184, funcs=60, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `Bots/handlers/client_portal_v2.py` — bot_handler, lines=666, funcs=19, imported_by=0, themes=access_control, cashier, parking_time, remote, telegram_bot
+- `Bots/handlers/client_portal_v3.py` — bot_handler, lines=97, funcs=3, imported_by=0, themes=access_control, cashier, remote, service_orders, telegram_bot
+- `Bots/handlers/commercial_contract_editor.py` — bot_handler, lines=1582, funcs=55, imported_by=4, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `Bots/handlers/guard_workspace.py` — bot_handler, lines=1151, funcs=29, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `Bots/handlers/profile_parking_time_test_workspace.py` — bot_handler, lines=365, funcs=9, imported_by=0, themes=parking_time, service_orders, telegram_bot
+- `Bots/handlers/profile_verification_workspace.py` — bot_handler, lines=768, funcs=19, imported_by=0, themes=access_control, parking_time, schema_db, service_orders, telegram_bot
+- `Bots/handlers/service_orders_workspace.py` — bot_handler, lines=1743, funcs=58, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `Bots/handlers/unit_registry_editor.py` — bot_handler, lines=1077, funcs=35, imported_by=7, themes=access_control, schema_db, telegram_bot
+- `Bots/handlers/vehicle_card_editor.py` — bot_handler, lines=595, funcs=23, imported_by=6, themes=parking_time, schema_db, telegram_bot
+- `Bots/handlers/vehicle_full_list.py` — bot_handler, lines=127, funcs=8, imported_by=6, themes=parking_time, schema_db, telegram_bot
+- `Bots/handlers/vehicle_verification.py` — bot_handler, lines=519, funcs=28, imported_by=6, themes=cashier, schema_db, telegram_bot
+- `Data/run_direct_merge.py` — runtime_entrypoint, lines=82, funcs=4, imported_by=0, themes=access_control, parking_time, schema_db
+- `Data/run_flat_merge.py` — runtime_entrypoint, lines=64, funcs=3, imported_by=0, themes=parking_time
+- `Data/run_smart_merge.py` — runtime_entrypoint, lines=64, funcs=3, imported_by=0, themes=parking_time
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py` — runtime_entrypoint, lines=708, funcs=17, imported_by=1, themes=access_control, cashier, remote, schema_db, service_orders, telegram_bot
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py` — runtime_entrypoint, lines=919, funcs=18, imported_by=1, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py` — runtime_entrypoint, lines=865, funcs=18, imported_by=1, themes=access_control, cashier, remote, schema_db, service_orders, telegram_bot
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py` — runtime_entrypoint, lines=831, funcs=18, imported_by=1, themes=access_control, cashier, remote, schema_db, service_orders, telegram_bot
+- `run_bot_guard_sandbox.py` — runtime_entrypoint, lines=236, funcs=8, imported_by=0, themes=access_control, cashier, remote, schema_db, telegram_bot
+- `run_bot_guard_sandbox_v2.py` — runtime_entrypoint, lines=236, funcs=8, imported_by=0, themes=access_control, cashier, remote, schema_db, telegram_bot
+- `run_bot_guard_sandbox_v3.py` — runtime_entrypoint, lines=236, funcs=8, imported_by=0, themes=access_control, cashier, remote, schema_db, telegram_bot
+- `run_bot_live_service_sandbox_v4.py` — runtime_entrypoint, lines=250, funcs=9, imported_by=0, themes=access_control, cashier, remote, schema_db, service_orders, telegram_bot
+- `run_bot_live_services_sandbox_v1.py` — runtime_entrypoint, lines=919, funcs=18, imported_by=1, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `run_bot_sandbox_v2.py` — runtime_entrypoint, lines=286, funcs=9, imported_by=0, themes=access_control, cashier, schema_db, telegram_bot
+- `Bots/data_park_bot.py` — runtime_or_cli_entrypoint, lines=155, funcs=4, imported_by=0, themes=parking_time, remote, schema_db, telegram_bot
+- `Bots/hello.py` — runtime_or_cli_entrypoint, lines=72, funcs=3, imported_by=0, themes=parking_time, remote, telegram_bot
+- `Bots/parking_bot.py` — runtime_or_cli_entrypoint, lines=1359, funcs=27, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `Collect_sheets.py` — runtime_or_cli_entrypoint, lines=143, funcs=1, imported_by=0, themes=access_control, parking_time, schema_db
+- `Collect_sheets1.py` — runtime_or_cli_entrypoint, lines=169, funcs=1, imported_by=0, themes=access_control, parking_time, schema_db
+- `Collect_word_tables.py` — runtime_or_cli_entrypoint, lines=105, funcs=1, imported_by=0, themes=-
+- `Data/car_registry.py` — runtime_or_cli_entrypoint, lines=54, funcs=1, imported_by=0, themes=access_control
+- `Data/conflicts.py` — runtime_or_cli_entrypoint, lines=39, funcs=3, imported_by=0, themes=-
+- `Data/create_payment_sheet.py` — runtime_or_cli_entrypoint, lines=62, funcs=1, imported_by=0, themes=cashier, parking_time
+- `Data/final_merge.py` — runtime_or_cli_entrypoint, lines=68, funcs=3, imported_by=0, themes=access_control, parking_time, schema_db
+- `Data/merge_all.py` — runtime_or_cli_entrypoint, lines=71, funcs=3, imported_by=0, themes=access_control, parking_time, schema_db
+- `FIND_actual_service_order_state.py` — runtime_or_cli_entrypoint, lines=436, funcs=18, imported_by=0, themes=access_control, cashier, remote, schema_db, service_orders, telegram_bot
+- `build_plate_candidates.py` — runtime_or_cli_entrypoint, lines=329, funcs=9, imported_by=0, themes=schema_db
+- `build_plate_evidence_by_digits_and_apartment.py` — runtime_or_cli_entrypoint, lines=343, funcs=10, imported_by=0, themes=access_control, schema_db, telegram_bot
+- `build_plate_evidence_from_telegram.py` — runtime_or_cli_entrypoint, lines=175, funcs=3, imported_by=0, themes=access_control, schema_db, telegram_bot
+- `build_verification_tasks.py` — runtime_or_cli_entrypoint, lines=231, funcs=6, imported_by=0, themes=schema_db
+- `cashier_journal.py` — runtime_or_cli_entrypoint, lines=1731, funcs=44, imported_by=35, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `commercial_contracts.py` — runtime_or_cli_entrypoint, lines=1312, funcs=33, imported_by=0, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `commercial_notification_delivery.py` — runtime_or_cli_entrypoint, lines=256, funcs=8, imported_by=0, themes=parking_time, schema_db, telegram_bot
+- `diagnose_osbb_audit.py` — runtime_or_cli_entrypoint, lines=333, funcs=5, imported_by=0, themes=schema_db
+- `extract_telegram_remote_facts.py` — runtime_or_cli_entrypoint, lines=270, funcs=6, imported_by=0, themes=access_control, remote, schema_db, service_orders, telegram_bot
+- `extract_telegram_vehicle_facts.py` — runtime_or_cli_entrypoint, lines=415, funcs=13, imported_by=0, themes=access_control, parking_time, remote, schema_db, telegram_bot
+- `fix_parking_bot_language_gate.py` — runtime_or_cli_entrypoint, lines=143, funcs=4, imported_by=0, themes=telegram_bot
+- `fix_source_ref_schema.py` — runtime_or_cli_entrypoint, lines=310, funcs=14, imported_by=0, themes=cashier, schema_db, service_orders, telegram_bot
+- `generate_parking_charges.py` — runtime_or_cli_entrypoint, lines=492, funcs=15, imported_by=0, themes=cashier, parking_time, schema_db, telegram_bot
+- `init_osbb_db.py` — runtime_or_cli_entrypoint, lines=226, funcs=2, imported_by=0, themes=access_control, parking_time, schema_db, telegram_bot
+- `init_osbb_quarantine_db.py` — runtime_or_cli_entrypoint, lines=71, funcs=2, imported_by=0, themes=access_control, schema_db
+- `init_osbb_telegram_db.py` — runtime_or_cli_entrypoint, lines=133, funcs=2, imported_by=0, themes=access_control, remote, schema_db, telegram_bot
+- `inspect_osbb_folder_filter.py` — runtime_or_cli_entrypoint, lines=56, funcs=1, imported_by=0, themes=schema_db, telegram_bot
+- `list_osbb_folder_dialogs.py` — runtime_or_cli_entrypoint, lines=106, funcs=3, imported_by=0, themes=schema_db, telegram_bot
+- `list_osbb_included_peers.py` — runtime_or_cli_entrypoint, lines=154, funcs=4, imported_by=0, themes=access_control, schema_db, telegram_bot
+- `list_telegram_dialogs.py` — runtime_or_cli_entrypoint, lines=113, funcs=3, imported_by=0, themes=schema_db, telegram_bot
+- `list_telegram_folders.py` — runtime_or_cli_entrypoint, lines=60, funcs=1, imported_by=0, themes=schema_db, telegram_bot
+- `manage_staff_access.py` — runtime_or_cli_entrypoint, lines=450, funcs=9, imported_by=0, themes=access_control, cashier, remote, schema_db, telegram_bot
+- `manage_staff_access_v2.py` — runtime_or_cli_entrypoint, lines=450, funcs=9, imported_by=0, themes=access_control, cashier, remote, schema_db, telegram_bot
+- `plate_consensus_apply.py` — runtime_or_cli_entrypoint, lines=369, funcs=11, imported_by=0, themes=schema_db, telegram_bot
+- `plate_consensus_top6.py` — runtime_or_cli_entrypoint, lines=102, funcs=3, imported_by=0, themes=schema_db
+- `repair_confirmed_unit_seed_notes.py` — runtime_or_cli_entrypoint, lines=140, funcs=3, imported_by=0, themes=schema_db, telegram_bot
+- `reset_service_catalog.py` — runtime_or_cli_entrypoint, lines=628, funcs=15, imported_by=0, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `restore_resident_apartment_link.py` — runtime_or_cli_entrypoint, lines=321, funcs=12, imported_by=0, themes=schema_db, telegram_bot
+- `search_vehicle_by_plate_fragment.py` — runtime_or_cli_entrypoint, lines=244, funcs=11, imported_by=0, themes=access_control, parking_time, schema_db
+- `seed_bot_admins.py` — runtime_or_cli_entrypoint, lines=179, funcs=4, imported_by=0, themes=cashier, schema_db, telegram_bot
+- `seed_commercial_unit_placeholders.py` — runtime_or_cli_entrypoint, lines=395, funcs=15, imported_by=0, themes=access_control, schema_db, telegram_bot
+- `seed_parking_tariffs.py` — runtime_or_cli_entrypoint, lines=166, funcs=4, imported_by=0, themes=parking_time, schema_db, telegram_bot
+- `supervisor_dashboard.py` — runtime_or_cli_entrypoint, lines=647, funcs=20, imported_by=0, themes=cashier, parking_time, schema_db
+- `switch_parking_bot_to_cashier_v2.py` — runtime_or_cli_entrypoint, lines=135, funcs=3, imported_by=0, themes=cashier
+- `unit_resolver.py` — runtime_or_cli_entrypoint, lines=551, funcs=25, imported_by=5, themes=schema_db, telegram_bot
+- `vehicle_data_quality_tasks.py` — runtime_or_cli_entrypoint, lines=381, funcs=21, imported_by=0, themes=cashier, parking_time, schema_db, telegram_bot
+- `vehicle_verification_tasks.py` — runtime_or_cli_entrypoint, lines=596, funcs=23, imported_by=0, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `Bots/db_access.py` — source_module, lines=6012, funcs=174, imported_by=228, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `Data/rub_flat_merge.py` — source_module, lines=54, funcs=3, imported_by=0, themes=parking_time
+- `Generate_Stetement.py` — source_module, lines=77, funcs=0, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, telegram_bot
+- `access_control.py` — source_module, lines=400, funcs=17, imported_by=46, themes=access_control, cashier, schema_db, telegram_bot
+- `cashier_v2_core.py` — source_module, lines=1556, funcs=42, imported_by=87, themes=cashier, parking_time, remote, schema_db, telegram_bot
+- `phone_barrier_access_core.py` — source_module, lines=2163, funcs=45, imported_by=44, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_service.py` — source_module, lines=208, funcs=6, imported_by=28, themes=access_control, cashier, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py` — source_module, lines=1614, funcs=55, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py` — source_module, lines=2163, funcs=45, imported_by=44, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py` — source_module, lines=208, funcs=6, imported_by=28, themes=access_control, cashier, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_v2_payload/service_orders_core.py` — source_module, lines=1338, funcs=31, imported_by=122, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `phone_barrier_access_v2_payload/service_preorders_core.py` — source_module, lines=1147, funcs=24, imported_by=95, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py` — source_module, lines=768, funcs=19, imported_by=0, themes=access_control, parking_time, schema_db, service_orders, telegram_bot
+- `profile_verification_core.py` — source_module, lines=1557, funcs=39, imported_by=71, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py` — source_module, lines=765, funcs=19, imported_by=0, themes=access_control, parking_time, schema_db, service_orders, telegram_bot
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py` — source_module, lines=714, funcs=18, imported_by=0, themes=access_control, parking_time, schema_db, service_orders, telegram_bot
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py` — source_module, lines=1736, funcs=58, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `profile_verification_payload/profile_verification_core.py` — source_module, lines=1531, funcs=39, imported_by=71, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py` — source_module, lines=760, funcs=19, imported_by=0, themes=access_control, parking_time, schema_db, service_orders, telegram_bot
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py` — source_module, lines=1743, funcs=58, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `profile_verification_terminology_v2_payload/profile_verification_core.py` — source_module, lines=1557, funcs=39, imported_by=71, themes=access_control, cashier, parking_time, schema_db, telegram_bot
+- `service_catalog_admin_core.py` — source_module, lines=571, funcs=14, imported_by=0, themes=access_control, cashier, parking_time, schema_db, service_orders, telegram_bot
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py` — source_module, lines=1632, funcs=55, imported_by=0, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `service_code_compatibility_payload/service_orders_core.py` — source_module, lines=1409, funcs=32, imported_by=122, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `service_code_compatibility_payload/service_preorders_core.py` — source_module, lines=1155, funcs=24, imported_by=95, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `service_orders_core.py` — source_module, lines=1409, funcs=32, imported_by=122, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `service_preorders_core.py` — source_module, lines=1155, funcs=24, imported_by=95, themes=access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot
+- `test.py` — source_module, lines=1, funcs=0, imported_by=0, themes=access_control, cashier
+- `utils.py` — source_module, lines=268, funcs=10, imported_by=19, themes=access_control

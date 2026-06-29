@@ -1,0 +1,2470 @@
+========================================================================================================================
+OSBB REMOTE/PULT GATE SOURCE EXTRACTOR - READ ONLY
+========================================================================================================================
+Generated: 2026-06-28 16:59:59
+Root     : G:\Programming\Py\OSBB
+Report   : G:\Programming\Py\OSBB\Data\exports\code_passport\remote_gate_sources_2026-06-28_16-59-59.txt
+
+========================================================================================================================
+FILE: Bots/handlers/client_portal.py
+========================================================================================================================
+Lines: 2183
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _billing_data
+------------------------------------------------------------------------------------------------------------------------
+1036 | def _billing_data(unit: dict) -> dict:
+1037 |     result = {
+1038 |         "error": None,
+1039 |         "charges": [],
+1040 |         "payments": [],
+1041 |         "charged_total": 0.0,
+1042 |         "allocated_total": 0.0,
+1043 |         "outstanding_total": 0.0,
+1044 |         "payments_total": 0.0,
+1045 |         "unallocated_total": 0.0,
+1046 |         "periods": [],
+1047 |     }
+1048 |     conn = get_conn()
+1049 |     try:
+1050 |         cur = conn.cursor()
+1051 |         if not table_exists(cur, "charges"):
+1052 |             result["error"] = "charges table missing"
+1053 |             return result
+1054 | 
+1055 |         charge_columns = table_columns(cur, "charges")
+1056 |         alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+1057 |         alloc_columns = table_columns(cur, alloc_table) if alloc_table else set()
+1058 | 
+1059 |         filters = []
+1060 |         params: list[Any] = []
+1061 |         if "apartment_id" in charge_columns:
+1062 |             filters.append("c.apartment_id = ?")
+1063 |             params.append(int(unit["id"]))
+1064 |         if "apartment_number" in charge_columns:
+1065 |             filters.append("c.apartment_number = ?")
+1066 |             params.append(text(unit.get("apartment_number")))
+1067 |         if not filters:
+1068 |             result["error"] = "charge link columns missing"
+1069 |             return result
+1070 | 
+1071 |         amount_expr = "c.amount" if "amount" in charge_columns else "0"
+1072 |         service_expr = "c.service_code" if "service_code" in charge_columns else "NULL"
+1073 |         period_expr = "c.period_code" if "period_code" in charge_columns else "NULL"
+1074 |         status_filter = (
+1075 |             "AND COALESCE(c.charge_status, '') <> 'cancelled'"
+1076 |             if "charge_status" in charge_columns
+1077 |             else (
+1078 |                 "AND COALESCE(c.status, '') <> 'cancelled'"
+1079 |                 if "status" in charge_columns else ""
+1080 |             )
+1081 |         )
+1082 | 
+1083 |         allocation_join = ""
+1084 |         allocation_select = "0 AS allocated_amount"
+1085 |         if alloc_table and "charge_id" in alloc_columns:
+1086 |             amount_col = _allocation_amount_column(alloc_columns)
+1087 |             if amount_col:
+1088 |                 allocation_join = (
+1089 |                     f'LEFT JOIN "{alloc_table}" pa ON pa.charge_id = c.id'
+1090 |                 )
+1091 |                 allocation_select = (
+1092 |                     f'COALESCE(SUM(pa."{amount_col}"), 0) AS allocated_amount'
+1093 |                 )
+1094 | 
+1095 |         cur.execute(f"""
+1096 |             SELECT
+1097 |                 c.id AS charge_id,
+1098 |                 {period_expr} AS period_code,
+1099 |                 {service_expr} AS service_code,
+1100 |                 {amount_expr} AS amount,
+1101 |                 {allocation_select}
+1102 |             FROM charges c
+1103 |             {allocation_join}
+1104 |             WHERE ({' OR '.join(filters)})
+1105 |             {status_filter}
+1106 |             GROUP BY c.id
+1107 |             ORDER BY COALESCE({period_expr}, '') DESC, c.id DESC
+1108 |         """, tuple(params))
+1109 | 
+1110 |         for row in cur.fetchall():
+1111 |             item = dict(row)
+1112 |             item["amount"] = float(item["amount"] or 0)
+1113 |             item["allocated_amount"] = float(item["allocated_amount"] or 0)
+1114 |             item["outstanding_amount"] = max(0.0, item["amount"] - item["allocated_amount"])
+1115 |             result["charges"].append(item)
+1116 | 
+1117 |         result["charged_total"] = sum(x["amount"] for x in result["charges"])
+1118 |         result["allocated_total"] = sum(x["allocated_amount"] for x in result["charges"])
+1119 |         result["outstanding_total"] = sum(x["outstanding_amount"] for x in result["charges"])
+1120 | 
+1121 |         for item in result["charges"]:
+1122 |             period = text(item.get("period_code"))
+1123 |             if period and period not in result["periods"]:
+1124 |                 result["periods"].append(period)
+1125 | 
+1126 |         if table_exists(cur, "payments"):
+1127 |             payment_columns = table_columns(cur, "payments")
+1128 |             p_filters = []
+1129 |             p_params: list[Any] = []
+1130 |             if "apartment_id" in payment_columns:
+1131 |                 p_filters.append("p.apartment_id = ?")
+1132 |                 p_params.append(int(unit["id"]))
+1133 |             if "apartment_number" in payment_columns:
+1134 |                 p_filters.append("p.apartment_number = ?")
+1135 |                 p_params.append(text(unit.get("apartment_number")))
+1136 | 
+1137 |             if p_filters:
+1138 |                 p_amount = "p.amount" if "amount" in payment_columns else "0"
+1139 |                 p_date = "p.payment_date" if "payment_date" in payment_columns else "NULL"
+1140 |                 p_period = "p.period_code" if "period_code" in payment_columns else "NULL"
+1141 |                 p_method = (
+1142 |                     "p.payment_method" if "payment_method" in payment_columns
+1143 |                     else ("p.source" if "source" in payment_columns else "NULL")
+1144 |                 )
+1145 | 
+1146 |                 pay_alloc_join = ""
+1147 |                 pay_alloc_select = "0 AS allocated_amount"
+1148 |                 if alloc_table and "payment_id" in alloc_columns:
+1149 |                     amount_col = _allocation_amount_column(alloc_columns)
+1150 |                     if amount_col:
+1151 |                         pay_alloc_join = (
+1152 |                             f'LEFT JOIN "{alloc_table}" pa2 ON pa2.payment_id = p.id'
+1153 |                         )
+1154 |                         pay_alloc_select = (
+1155 |                             f'COALESCE(SUM(pa2."{amount_col}"), 0) AS allocated_amount'
+1156 |                         )
+1157 | 
+1158 |                 cur.execute(f"""
+1159 |                     SELECT
+1160 |                         p.id AS payment_id,
+1161 |                         {p_date} AS payment_date,
+1162 |                         {p_period} AS period_code,
+1163 |                         {p_method} AS payment_method,
+1164 |                         {p_amount} AS amount,
+1165 |                         {pay_alloc_select}
+1166 |                     FROM payments p
+1167 |                     {pay_alloc_join}
+1168 |                     WHERE ({' OR '.join(p_filters)})
+1169 |                     GROUP BY p.id
+1170 |                     ORDER BY COALESCE({p_date}, '') DESC, p.id DESC
+1171 |                 """, tuple(p_params))
+1172 | 
+1173 |                 for row in cur.fetchall():
+1174 |                     item = dict(row)
+1175 |                     item["amount"] = float(item["amount"] or 0)
+1176 |                     item["allocated_amount"] = float(item["allocated_amount"] or 0)
+1177 |                     item["unallocated_amount"] = max(
+1178 |                         0.0, item["amount"] - item["allocated_amount"]
+1179 |                     )
+1180 |                     result["payments"].append(item)
+1181 | 
+1182 |                 result["payments_total"] = sum(x["amount"] for x in result["payments"])
+1183 |                 result["unallocated_total"] = sum(x["unallocated_amount"] for x in result["payments"])
+1184 | 
+1185 |         return result
+1186 |     except sqlite3.Error as exc:
+1187 |         result["error"] = str(exc)
+1188 |         return result
+1189 |     finally:
+1190 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _create_remote_request
+------------------------------------------------------------------------------------------------------------------------
+1341 | def _create_remote_request(
+1342 |     *,
+1343 |     account: dict,
+1344 |     unit: dict,
+1345 |     request_kind: str,
+1346 |     quantity: int,
+1347 |     resident_comment: str | None,
+1348 | ) -> int:
+1349 |     conn = get_conn()
+1350 |     try:
+1351 |         cur = conn.cursor()
+1352 |         cur.execute("""
+1353 |             INSERT INTO remote_requests (
+1354 |                 resident_account_id,
+1355 |                 telegram_user_id,
+1356 |                 apartment_id,
+1357 |                 apartment_number,
+1358 |                 request_kind,
+1359 |                 quantity,
+1360 |                 resident_comment,
+1361 |                 status,
+1362 |                 created_at,
+1363 |                 updated_at
+1364 |             )
+1365 |             VALUES (?, ?, ?, ?, ?, ?, ?, 'NEW', ?, ?)
+1366 |         """, (
+1367 |             int(account["id"]),
+1368 |             str(account["telegram_user_id"]),
+1369 |             int(unit["id"]),
+1370 |             text(unit.get("apartment_number")),
+1371 |             request_kind,
+1372 |             int(quantity),
+1373 |             resident_comment,
+1374 |             now_db(),
+1375 |             now_db(),
+1376 |         ))
+1377 |         request_id = int(cur.lastrowid)
+1378 | 
+1379 |         if audit_log:
+1380 |             audit_log(
+1381 |                 conn=conn,
+1382 |                 operator_id=str(account["telegram_user_id"]),
+1383 |                 user_id=str(account["telegram_user_id"]),
+1384 |                 actor_type="resident",
+1385 |                 action_type="remote_request_created",
+1386 |                 table_name="remote_requests",
+1387 |                 row_id=request_id,
+1388 |                 field_name="request_kind,quantity,status",
+1389 |                 old_value="",
+1390 |                 new_value=f"{request_kind}, {quantity}, NEW",
+1391 |                 source_context="client_portal",
+1392 |                 comment="Пользователь создал обращение на пульт.",
+1393 |                 extra={"apartment_id": unit["id"], "apartment_number": unit.get("apartment_number")},
+1394 |                 commit=False,
+1395 |             )
+1396 |         conn.commit()
+1397 |         return request_id
+1398 |     finally:
+1399 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _update_remote_status
+------------------------------------------------------------------------------------------------------------------------
+1444 | def _update_remote_status(
+1445 |     request_id: int,
+1446 |     status: str,
+1447 |     operator_id: int,
+1448 |     operator_note: str | None = None,
+1449 | ) -> None:
+1450 |     if status not in {"NEW", "IN_REVIEW", "ISSUED", "REJECTED", "CANCELLED"}:
+1451 |         raise ValueError("Недопустимый статус заявки.")
+1452 | 
+1453 |     conn = get_conn()
+1454 |     try:
+1455 |         cur = conn.cursor()
+1456 |         cur.execute("""
+1457 |             SELECT status, apartment_number, request_kind, quantity
+1458 |             FROM remote_requests WHERE id = ?
+1459 |         """, (int(request_id),))
+1460 |         old = cur.fetchone()
+1461 |         if not old:
+1462 |             raise ValueError("Заявка не найдена.")
+1463 | 
+1464 |         timestamps = {
+1465 |             "reviewed_at": now_db() if status == "IN_REVIEW" else None,
+1466 |             "issued_at": now_db() if status == "ISSUED" else None,
+1467 |             "closed_at": now_db() if status in {"ISSUED", "REJECTED", "CANCELLED"} else None,
+1468 |         }
+1469 |         cur.execute("""
+1470 |             UPDATE remote_requests
+1471 |             SET
+1472 |                 status = ?,
+1473 |                 operator_id = ?,
+1474 |                 operator_note = COALESCE(?, operator_note),
+1475 |                 updated_at = ?,
+1476 |                 reviewed_at = COALESCE(?, reviewed_at),
+1477 |                 issued_at = COALESCE(?, issued_at),
+1478 |                 closed_at = COALESCE(?, closed_at)
+1479 |             WHERE id = ?
+1480 |         """, (
+1481 |             status,
+1482 |             str(operator_id),
+1483 |             operator_note,
+1484 |             now_db(),
+1485 |             timestamps["reviewed_at"],
+1486 |             timestamps["issued_at"],
+1487 |             timestamps["closed_at"],
+1488 |             int(request_id),
+1489 |         ))
+1490 | 
+1491 |         if audit_log:
+1492 |             audit_log(
+1493 |                 conn=conn,
+1494 |                 operator_id=str(operator_id),
+1495 |                 user_id=str(operator_id),
+1496 |                 actor_type="operator",
+1497 |                 action_type="remote_request_status_update",
+1498 |                 table_name="remote_requests",
+1499 |                 row_id=request_id,
+1500 |                 field_name="status",
+1501 |                 old_value=old["status"],
+1502 |                 new_value=status,
+1503 |                 source_context="client_portal",
+1504 |                 comment=operator_note or "Оператор изменил статус заявки на пульт.",
+1505 |                 extra={
+1506 |                     "apartment_number": old["apartment_number"],
+1507 |                     "request_kind": old["request_kind"],
+1508 |                     "quantity": old["quantity"],
+1509 |                 },
+1510 |                 commit=False,
+1511 |             )
+1512 |         conn.commit()
+1513 |     finally:
+1514 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _show_my_remote_requests
+------------------------------------------------------------------------------------------------------------------------
+1678 | async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1679 |     data = _account_and_unit(user_id)
+1680 |     if not data or not data.get("unit"):
+1681 |         await show_client_portal(update, user_states, user_id, lang)
+1682 |         return
+1683 |     if not _remote_table_ready():
+1684 |         await update.message.reply_text(tr(lang, "remote_missing_table"), reply_markup=kb(remotes_menu_keyboard(lang)))
+1685 |         return
+1686 |     state = _portal_state(user_states, user_id, create=True)
+1687 |     state["mode"] = "client_remotes"
+1688 |     await update.message.reply_text(
+1689 |         _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+1690 |         reply_markup=kb(remotes_menu_keyboard(lang)),
+1691 |     )
+
+========================================================================================================================
+FILE: Bots/handlers/client_portal_safe_linking.py
+========================================================================================================================
+Lines: 2183
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _billing_data
+------------------------------------------------------------------------------------------------------------------------
+1036 | def _billing_data(unit: dict) -> dict:
+1037 |     result = {
+1038 |         "error": None,
+1039 |         "charges": [],
+1040 |         "payments": [],
+1041 |         "charged_total": 0.0,
+1042 |         "allocated_total": 0.0,
+1043 |         "outstanding_total": 0.0,
+1044 |         "payments_total": 0.0,
+1045 |         "unallocated_total": 0.0,
+1046 |         "periods": [],
+1047 |     }
+1048 |     conn = get_conn()
+1049 |     try:
+1050 |         cur = conn.cursor()
+1051 |         if not table_exists(cur, "charges"):
+1052 |             result["error"] = "charges table missing"
+1053 |             return result
+1054 | 
+1055 |         charge_columns = table_columns(cur, "charges")
+1056 |         alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+1057 |         alloc_columns = table_columns(cur, alloc_table) if alloc_table else set()
+1058 | 
+1059 |         filters = []
+1060 |         params: list[Any] = []
+1061 |         if "apartment_id" in charge_columns:
+1062 |             filters.append("c.apartment_id = ?")
+1063 |             params.append(int(unit["id"]))
+1064 |         if "apartment_number" in charge_columns:
+1065 |             filters.append("c.apartment_number = ?")
+1066 |             params.append(text(unit.get("apartment_number")))
+1067 |         if not filters:
+1068 |             result["error"] = "charge link columns missing"
+1069 |             return result
+1070 | 
+1071 |         amount_expr = "c.amount" if "amount" in charge_columns else "0"
+1072 |         service_expr = "c.service_code" if "service_code" in charge_columns else "NULL"
+1073 |         period_expr = "c.period_code" if "period_code" in charge_columns else "NULL"
+1074 |         status_filter = (
+1075 |             "AND COALESCE(c.charge_status, '') <> 'cancelled'"
+1076 |             if "charge_status" in charge_columns
+1077 |             else (
+1078 |                 "AND COALESCE(c.status, '') <> 'cancelled'"
+1079 |                 if "status" in charge_columns else ""
+1080 |             )
+1081 |         )
+1082 | 
+1083 |         allocation_join = ""
+1084 |         allocation_select = "0 AS allocated_amount"
+1085 |         if alloc_table and "charge_id" in alloc_columns:
+1086 |             amount_col = _allocation_amount_column(alloc_columns)
+1087 |             if amount_col:
+1088 |                 allocation_join = (
+1089 |                     f'LEFT JOIN "{alloc_table}" pa ON pa.charge_id = c.id'
+1090 |                 )
+1091 |                 allocation_select = (
+1092 |                     f'COALESCE(SUM(pa."{amount_col}"), 0) AS allocated_amount'
+1093 |                 )
+1094 | 
+1095 |         cur.execute(f"""
+1096 |             SELECT
+1097 |                 c.id AS charge_id,
+1098 |                 {period_expr} AS period_code,
+1099 |                 {service_expr} AS service_code,
+1100 |                 {amount_expr} AS amount,
+1101 |                 {allocation_select}
+1102 |             FROM charges c
+1103 |             {allocation_join}
+1104 |             WHERE ({' OR '.join(filters)})
+1105 |             {status_filter}
+1106 |             GROUP BY c.id
+1107 |             ORDER BY COALESCE({period_expr}, '') DESC, c.id DESC
+1108 |         """, tuple(params))
+1109 | 
+1110 |         for row in cur.fetchall():
+1111 |             item = dict(row)
+1112 |             item["amount"] = float(item["amount"] or 0)
+1113 |             item["allocated_amount"] = float(item["allocated_amount"] or 0)
+1114 |             item["outstanding_amount"] = max(0.0, item["amount"] - item["allocated_amount"])
+1115 |             result["charges"].append(item)
+1116 | 
+1117 |         result["charged_total"] = sum(x["amount"] for x in result["charges"])
+1118 |         result["allocated_total"] = sum(x["allocated_amount"] for x in result["charges"])
+1119 |         result["outstanding_total"] = sum(x["outstanding_amount"] for x in result["charges"])
+1120 | 
+1121 |         for item in result["charges"]:
+1122 |             period = text(item.get("period_code"))
+1123 |             if period and period not in result["periods"]:
+1124 |                 result["periods"].append(period)
+1125 | 
+1126 |         if table_exists(cur, "payments"):
+1127 |             payment_columns = table_columns(cur, "payments")
+1128 |             p_filters = []
+1129 |             p_params: list[Any] = []
+1130 |             if "apartment_id" in payment_columns:
+1131 |                 p_filters.append("p.apartment_id = ?")
+1132 |                 p_params.append(int(unit["id"]))
+1133 |             if "apartment_number" in payment_columns:
+1134 |                 p_filters.append("p.apartment_number = ?")
+1135 |                 p_params.append(text(unit.get("apartment_number")))
+1136 | 
+1137 |             if p_filters:
+1138 |                 p_amount = "p.amount" if "amount" in payment_columns else "0"
+1139 |                 p_date = "p.payment_date" if "payment_date" in payment_columns else "NULL"
+1140 |                 p_period = "p.period_code" if "period_code" in payment_columns else "NULL"
+1141 |                 p_method = (
+1142 |                     "p.payment_method" if "payment_method" in payment_columns
+1143 |                     else ("p.source" if "source" in payment_columns else "NULL")
+1144 |                 )
+1145 | 
+1146 |                 pay_alloc_join = ""
+1147 |                 pay_alloc_select = "0 AS allocated_amount"
+1148 |                 if alloc_table and "payment_id" in alloc_columns:
+1149 |                     amount_col = _allocation_amount_column(alloc_columns)
+1150 |                     if amount_col:
+1151 |                         pay_alloc_join = (
+1152 |                             f'LEFT JOIN "{alloc_table}" pa2 ON pa2.payment_id = p.id'
+1153 |                         )
+1154 |                         pay_alloc_select = (
+1155 |                             f'COALESCE(SUM(pa2."{amount_col}"), 0) AS allocated_amount'
+1156 |                         )
+1157 | 
+1158 |                 cur.execute(f"""
+1159 |                     SELECT
+1160 |                         p.id AS payment_id,
+1161 |                         {p_date} AS payment_date,
+1162 |                         {p_period} AS period_code,
+1163 |                         {p_method} AS payment_method,
+1164 |                         {p_amount} AS amount,
+1165 |                         {pay_alloc_select}
+1166 |                     FROM payments p
+1167 |                     {pay_alloc_join}
+1168 |                     WHERE ({' OR '.join(p_filters)})
+1169 |                     GROUP BY p.id
+1170 |                     ORDER BY COALESCE({p_date}, '') DESC, p.id DESC
+1171 |                 """, tuple(p_params))
+1172 | 
+1173 |                 for row in cur.fetchall():
+1174 |                     item = dict(row)
+1175 |                     item["amount"] = float(item["amount"] or 0)
+1176 |                     item["allocated_amount"] = float(item["allocated_amount"] or 0)
+1177 |                     item["unallocated_amount"] = max(
+1178 |                         0.0, item["amount"] - item["allocated_amount"]
+1179 |                     )
+1180 |                     result["payments"].append(item)
+1181 | 
+1182 |                 result["payments_total"] = sum(x["amount"] for x in result["payments"])
+1183 |                 result["unallocated_total"] = sum(x["unallocated_amount"] for x in result["payments"])
+1184 | 
+1185 |         return result
+1186 |     except sqlite3.Error as exc:
+1187 |         result["error"] = str(exc)
+1188 |         return result
+1189 |     finally:
+1190 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _create_remote_request
+------------------------------------------------------------------------------------------------------------------------
+1341 | def _create_remote_request(
+1342 |     *,
+1343 |     account: dict,
+1344 |     unit: dict,
+1345 |     request_kind: str,
+1346 |     quantity: int,
+1347 |     resident_comment: str | None,
+1348 | ) -> int:
+1349 |     conn = get_conn()
+1350 |     try:
+1351 |         cur = conn.cursor()
+1352 |         cur.execute("""
+1353 |             INSERT INTO remote_requests (
+1354 |                 resident_account_id,
+1355 |                 telegram_user_id,
+1356 |                 apartment_id,
+1357 |                 apartment_number,
+1358 |                 request_kind,
+1359 |                 quantity,
+1360 |                 resident_comment,
+1361 |                 status,
+1362 |                 created_at,
+1363 |                 updated_at
+1364 |             )
+1365 |             VALUES (?, ?, ?, ?, ?, ?, ?, 'NEW', ?, ?)
+1366 |         """, (
+1367 |             int(account["id"]),
+1368 |             str(account["telegram_user_id"]),
+1369 |             int(unit["id"]),
+1370 |             text(unit.get("apartment_number")),
+1371 |             request_kind,
+1372 |             int(quantity),
+1373 |             resident_comment,
+1374 |             now_db(),
+1375 |             now_db(),
+1376 |         ))
+1377 |         request_id = int(cur.lastrowid)
+1378 | 
+1379 |         if audit_log:
+1380 |             audit_log(
+1381 |                 conn=conn,
+1382 |                 operator_id=str(account["telegram_user_id"]),
+1383 |                 user_id=str(account["telegram_user_id"]),
+1384 |                 actor_type="resident",
+1385 |                 action_type="remote_request_created",
+1386 |                 table_name="remote_requests",
+1387 |                 row_id=request_id,
+1388 |                 field_name="request_kind,quantity,status",
+1389 |                 old_value="",
+1390 |                 new_value=f"{request_kind}, {quantity}, NEW",
+1391 |                 source_context="client_portal",
+1392 |                 comment="Пользователь создал обращение на пульт.",
+1393 |                 extra={"apartment_id": unit["id"], "apartment_number": unit.get("apartment_number")},
+1394 |                 commit=False,
+1395 |             )
+1396 |         conn.commit()
+1397 |         return request_id
+1398 |     finally:
+1399 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _update_remote_status
+------------------------------------------------------------------------------------------------------------------------
+1444 | def _update_remote_status(
+1445 |     request_id: int,
+1446 |     status: str,
+1447 |     operator_id: int,
+1448 |     operator_note: str | None = None,
+1449 | ) -> None:
+1450 |     if status not in {"NEW", "IN_REVIEW", "ISSUED", "REJECTED", "CANCELLED"}:
+1451 |         raise ValueError("Недопустимый статус заявки.")
+1452 | 
+1453 |     conn = get_conn()
+1454 |     try:
+1455 |         cur = conn.cursor()
+1456 |         cur.execute("""
+1457 |             SELECT status, apartment_number, request_kind, quantity
+1458 |             FROM remote_requests WHERE id = ?
+1459 |         """, (int(request_id),))
+1460 |         old = cur.fetchone()
+1461 |         if not old:
+1462 |             raise ValueError("Заявка не найдена.")
+1463 | 
+1464 |         timestamps = {
+1465 |             "reviewed_at": now_db() if status == "IN_REVIEW" else None,
+1466 |             "issued_at": now_db() if status == "ISSUED" else None,
+1467 |             "closed_at": now_db() if status in {"ISSUED", "REJECTED", "CANCELLED"} else None,
+1468 |         }
+1469 |         cur.execute("""
+1470 |             UPDATE remote_requests
+1471 |             SET
+1472 |                 status = ?,
+1473 |                 operator_id = ?,
+1474 |                 operator_note = COALESCE(?, operator_note),
+1475 |                 updated_at = ?,
+1476 |                 reviewed_at = COALESCE(?, reviewed_at),
+1477 |                 issued_at = COALESCE(?, issued_at),
+1478 |                 closed_at = COALESCE(?, closed_at)
+1479 |             WHERE id = ?
+1480 |         """, (
+1481 |             status,
+1482 |             str(operator_id),
+1483 |             operator_note,
+1484 |             now_db(),
+1485 |             timestamps["reviewed_at"],
+1486 |             timestamps["issued_at"],
+1487 |             timestamps["closed_at"],
+1488 |             int(request_id),
+1489 |         ))
+1490 | 
+1491 |         if audit_log:
+1492 |             audit_log(
+1493 |                 conn=conn,
+1494 |                 operator_id=str(operator_id),
+1495 |                 user_id=str(operator_id),
+1496 |                 actor_type="operator",
+1497 |                 action_type="remote_request_status_update",
+1498 |                 table_name="remote_requests",
+1499 |                 row_id=request_id,
+1500 |                 field_name="status",
+1501 |                 old_value=old["status"],
+1502 |                 new_value=status,
+1503 |                 source_context="client_portal",
+1504 |                 comment=operator_note or "Оператор изменил статус заявки на пульт.",
+1505 |                 extra={
+1506 |                     "apartment_number": old["apartment_number"],
+1507 |                     "request_kind": old["request_kind"],
+1508 |                     "quantity": old["quantity"],
+1509 |                 },
+1510 |                 commit=False,
+1511 |             )
+1512 |         conn.commit()
+1513 |     finally:
+1514 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _show_my_remote_requests
+------------------------------------------------------------------------------------------------------------------------
+1678 | async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1679 |     data = _account_and_unit(user_id)
+1680 |     if not data or not data.get("unit"):
+1681 |         await show_client_portal(update, user_states, user_id, lang)
+1682 |         return
+1683 |     if not _remote_table_ready():
+1684 |         await update.message.reply_text(tr(lang, "remote_missing_table"), reply_markup=kb(remotes_menu_keyboard(lang)))
+1685 |         return
+1686 |     state = _portal_state(user_states, user_id, create=True)
+1687 |     state["mode"] = "client_remotes"
+1688 |     await update.message.reply_text(
+1689 |         _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+1690 |         reply_markup=kb(remotes_menu_keyboard(lang)),
+1691 |     )
+
+========================================================================================================================
+FILE: Bots/handlers/guard_workspace.py
+========================================================================================================================
+Lines: 1150
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _remote_rows_for_issue
+------------------------------------------------------------------------------------------------------------------------
+502 | def _remote_rows_for_issue() -> list[dict]:
+503 |     conn = get_conn()
+504 |     try:
+505 |         cur = conn.cursor()
+506 |         if not table_exists(cur, "remote_requests"):
+507 |             return []
+508 |         cur.execute(
+509 |             """
+510 |             SELECT id, apartment_id, apartment_number, request_kind,
+511 |                    quantity, resident_comment, status, created_at
+512 |             FROM remote_requests
+513 |             WHERE status IN ('NEW', 'IN_REVIEW')
+514 |             ORDER BY CASE status WHEN 'NEW' THEN 1 ELSE 2 END, id
+515 |             LIMIT 40
+516 |             """
+517 |         )
+518 |         return [dict(row) for row in cur.fetchall()]
+519 |     finally:
+520 |         conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _show_remote_issue_card
+------------------------------------------------------------------------------------------------------------------------
+700 | async def _show_remote_issue_card(update: Update, state: dict, request_id: int) -> None:
+701 |     row = _remote_request(request_id)
+702 |     if not row or row.get("status") not in {"NEW", "IN_REVIEW"}:
+703 |         await update.message.reply_text("Заявка не найдена или уже закрыта.")
+704 |         return
+705 | 
+706 |     state["mode"] = "remote_issue_card"
+707 |     state["remote_request_id"] = int(request_id)
+708 |     await update.message.reply_text(
+709 |         "\n".join([
+710 |             f"🔑 Заявка #{row['id']}",
+711 |             "",
+712 |             f"Квартира: {row.get('apartment_number') or '-'}",
+713 |             f"Вид: {row.get('request_kind') or '-'}",
+714 |             f"Количество: {row.get('quantity') or 1}",
+715 |             f"Комментарий жителя: {row.get('resident_comment') or '—'}",
+716 |             f"Статус: {row.get('status')}",
+717 |             "",
+718 |             "Подтверждайте только после фактической выдачи пульта.",
+719 |         ]),
+720 |         reply_markup=kb([
+721 |             ["✅ Пульт выдан"],
+722 |             ["⬅️ К заявкам", HOME],
+723 |         ]),
+724 |     )
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _save_remote_issued
+------------------------------------------------------------------------------------------------------------------------
+727 | async def _save_remote_issued(update: Update, state: dict, user_id: int, note: str) -> None:
+728 |     if not (
+729 |         _is_allowed(
+730 |             user_id, "remote_requests", "ISSUE",
+731 |             scope_type="POST", scope_value=POST_CODE,
+732 |         )
+733 |         and _is_allowed(
+734 |             user_id, "remote_handover_events", "CREATE",
+735 |             scope_type="POST", scope_value=POST_CODE,
+736 |         )
+737 |     ):
+738 |         await _denied(update)
+739 |         return
+740 | 
+741 |     request_id = int(state["remote_request_id"])
+742 |     conn = get_conn()
+743 |     try:
+744 |         cur = conn.cursor()
+745 |         cur.execute(
+746 |             "SELECT * FROM remote_requests WHERE id = ?",
+747 |             (request_id,),
+748 |         )
+749 |         row = cur.fetchone()
+750 |         if not row:
+751 |             raise ValueError("Заявка не найдена.")
+752 |         request = dict(row)
+753 |         if request.get("status") not in {"NEW", "IN_REVIEW"}:
+754 |             raise ValueError("Заявка уже обработана другим сотрудником.")
+755 | 
+756 |         event_id = _insert_remote_event(
+757 |             conn,
+758 |             event_kind="ISSUED_FROM_POST",
+759 |             operator_id=user_id,
+760 |             remote_request=request,
+761 |             quantity=int(request.get("quantity") or 1),
+762 |             note=note,
+763 |         )
+764 | 
+765 |         rcols = table_columns(cur, "remote_requests")
+766 |         updates = {
+767 |             "status": "ISSUED",
+768 |             "operator_id": str(user_id),
+769 |             "operator_note": note or None,
+770 |             "updated_at": now_db(),
+771 |             "issued_at": now_db(),
+772 |             "closed_at": now_db(),
+773 |         }
+774 |         actual = {key: value for key, value in updates.items() if key in rcols}
+775 |         assignments = ", ".join(f"{key} = ?" for key in actual)
+776 |         cur.execute(
+777 |             f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+778 |             tuple(actual.values()) + (request_id,),
+779 |         )
+780 | 
+781 |         write_business_access_audit(
+782 |             conn,
+783 |             actor_user_id=user_id,
+784 |             action_type="guard_o_remote_issued",
+785 |             resource="remote_requests",
+786 |             action="ISSUE",
+787 |             scope_type="POST",
+788 |             scope_value=POST_CODE,
+789 |             target_table="remote_requests",
+790 |             target_id=request_id,
+791 |             details=(
+792 |                 f"Пульт выдан с поста O. Event={event_id}; "
+793 |                 f"кв.{request.get('apartment_number')}; количество={request.get('quantity') or 1}."
+794 |             ),
+795 |         )
+796 |         conn.commit()
+797 |     except Exception as exc:
+798 |         conn.rollback()
+799 |         await update.message.reply_text(f"Не удалось подтвердить выдачу: {exc}")
+800 |         return
+801 |     finally:
+802 |         conn.close()
+803 | 
+804 |     await update.message.reply_text(
+805 |         f"✅ Пульт выдан.\nЗаявка #{request_id} закрыта как ISSUED.\n"
+806 |         f"Событие выдачи: #{event_id}."
+807 |     )
+808 |     await _show_remote_issue_list(update, state, user_id)
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: handle_guard_workspace_text
+------------------------------------------------------------------------------------------------------------------------
+ 901 | async def handle_guard_workspace_text(
+ 902 |     update: Update,
+ 903 |     user_states: dict,
+ 904 |     user_id: int,
+ 905 |     message_text: str,
+ 906 |     *,
+ 907 |     lang: str = "ru",
+ 908 | ) -> bool:
+ 909 |     message_text = text(message_text)
+ 910 | 
+ 911 |     # Allow parking_bot.py to process global mode choices.
+ 912 |     if _global_switch_text(message_text) and message_text != "🛡 Пост охраны O":
+ 913 |         return False
+ 914 | 
+ 915 |     state = _state(user_states, user_id, create=False)
+ 916 | 
+ 917 |     # Entry button from the main mode selector.
+ 918 |     if message_text == "🛡 Пост охраны O":
+ 919 |         await show_guard_workspace(update, user_states, user_id)
+ 920 |         return True
+ 921 | 
+ 922 |     if not state:
+ 923 |         return False
+ 924 | 
+ 925 |     if not has_guard_workspace_access(user_id, cashbox_code=CASHBOX_CODE):
+ 926 |         user_states.pop(user_id, None)
+ 927 |         await _denied(update)
+ 928 |         return True
+ 929 | 
+ 930 |     if message_text in {BACK, HOME}:
+ 931 |         await show_guard_workspace(update, user_states, user_id)
+ 932 |         return True
+ 933 | 
+ 934 |     mode = text(state.get("mode"))
+ 935 | 
+ 936 |     if mode == "home":
+ 937 |         if message_text == "🔔 Поступления O":
+ 938 |             await _show_cash_notices(update, state, user_id)
+ 939 |             return True
+ 940 |         if message_text == "💵 Принять наличные":
+ 941 |             if not _is_allowed(
+ 942 |                 user_id, "cashier_receipts", "CREATE",
+ 943 |                 scope_type="CASHBOX", scope_value=CASHBOX_CODE,
+ 944 |             ):
+ 945 |                 await _denied(update)
+ 946 |                 return True
+ 947 |             state.clear()
+ 948 |             state.update({
+ 949 |                 "_module": "guard_workspace_o",
+ 950 |                 "mode": "manual_cash_unit",
+ 951 |                 "period_code": next_month(),
+ 952 |             })
+ 953 |             await _ask_manual_unit(update, state)
+ 954 |             return True
+ 955 |         if message_text == "📥 Пульт принят":
+ 956 |             await _start_remote_received(update, state, user_id)
+ 957 |             return True
+ 958 |         if message_text == "📤 Пульт выдан":
+ 959 |             await _show_remote_issue_list(update, state, user_id)
+ 960 |             return True
+ 961 |         if message_text == "📋 Мои операции":
+ 962 |             await _show_my_operations(update, state, user_id)
+ 963 |             return True
+ 964 |         await update.message.reply_text("Выберите действие кнопкой.", reply_markup=kb(MENU))
+ 965 |         return True
+ 966 | 
+ 967 |     # ---- notices
+ 968 |     if mode == "notice_list":
+ 969 |         notice_id = (state.get("notice_buttons") or {}).get(message_text)
+ 970 |         if notice_id:
+ 971 |             await _show_notice_card(update, state, int(notice_id))
+ 972 |         else:
+ 973 |             await update.message.reply_text("Выберите поступление кнопкой.")
+ 974 |         return True
+ 975 | 
+ 976 |     if mode == "notice_card":
+ 977 |         if message_text == "✅ Деньги приняты в O":
+ 978 |             # Для обычной операции отдельный текст не нужен:
+ 979 |             # факт подтверждения, охранник, касса, сумма и время записываются
+ 980 |             # системой. Исключения будут оформляться отдельным действием.
+ 981 |             await _confirm_notice(update, state, user_id, "")
+ 982 |             return True
+ 983 |         if message_text == "⬅️ К поступлениям":
+ 984 |             await _show_cash_notices(update, state, user_id)
+ 985 |             return True
+ 986 |         await update.message.reply_text("Выберите действие кнопкой.")
+ 987 |         return True
+ 988 | 
+ 989 |     # Совместимость с незавершённым старым диалогом:
+ 990 |     # если бот был перезапущен именно на старом шаге note, «.» или «-»
+ 991 |     # завершит его без свободного текста.
+ 992 |     if mode == "notice_note":
+ 993 |         await _confirm_notice(
+ 994 |             update,
+ 995 |             state,
+ 996 |             user_id,
+ 997 |             "" if message_text in {".", "-"} else message_text,
+ 998 |         )
+ 999 |         return True
+1000 | 
+1001 |     # ---- manual cash
+1002 |     if mode == "manual_cash_unit":
+1003 |         await _select_cash_unit(update, state, message_text)
+1004 |         return True
+1005 | 
+1006 |     if mode == "manual_cash_unit_member":
+1007 |         unit = (state.get("unit_member_buttons") or {}).get(message_text)
+1008 |         if not unit:
+1009 |             await update.message.reply_text("Выберите физическую квартиру кнопкой.")
+1010 |             return True
+1011 |         state["unit"] = unit
+1012 |         state["mode"] = "manual_cash_service"
+1013 |         await update.message.reply_text(
+1014 |             "Выберите услугу.",
+1015 |             reply_markup=kb(_service_buttons(state)),
+1016 |         )
+1017 |         return True
+1018 | 
+1019 |     if mode == "manual_cash_service":
+1020 |         service = (state.get("service_buttons") or {}).get(message_text)
+1021 |         if not service:
+1022 |             await update.message.reply_text("Выберите услугу кнопкой.")
+1023 |             return True
+1024 |         state["service"] = service
+1025 |         state["mode"] = "manual_cash_amount"
+1026 |         await update.message.reply_text(
+1027 |             "Введите фактически принятую сумму.",
+1028 |             reply_markup=kb([[BACK], [HOME]]),
+1029 |         )
+1030 |         return True
+1031 | 
+1032 |     if mode == "manual_cash_amount":
+1033 |         try:
+1034 |             state["amount"] = parse_amount(message_text)
+1035 |         except Exception as exc:
+1036 |             await update.message.reply_text(f"Ошибка: {exc}")
+1037 |             return True
+1038 | 
+1039 |         # Обычная операция уже документирована структурированными полями:
+1040 |         # касса, квартира, период, услуга, сумма, время и охранник.
+1041 |         # Свободный текст нужен только для исключений.
+1042 |         state.setdefault("note", "")
+1043 |         await _show_manual_cash_preview(update, state)
+1044 |         return True
+1045 | 
+1046 |     if mode == "manual_cash_note":
+1047 |         # Точка или дефис: оставить системную стандартную отметку.
+1048 |         state["note"] = "" if message_text in {".", "-"} else message_text
+1049 |         await _show_manual_cash_preview(update, state)
+1050 |         return True
+1051 | 
+1052 |     if mode == "manual_cash_review":
+1053 |         if message_text == "✅ Принять наличные в O":
+1054 |             await _save_manual_cash(update, user_states, state, user_id)
+1055 |             return True
+1056 |         if message_text == "✏️ Сумма":
+1057 |             state["mode"] = "manual_cash_amount"
+1058 |             await update.message.reply_text("Введите новую сумму.", reply_markup=kb([[BACK], [HOME]]))
+1059 |             return True
+1060 |         if message_text in {"📝 Примечание", "📝 Основание"}:
+1061 |             state["mode"] = "manual_cash_note"
+1062 |             await update.message.reply_text(
+1063 |                 "Введите короткое примечание только для исключения.\n"
+1064 |                 "Отправьте . или - — система оставит стандартную запись.",
+1065 |                 reply_markup=kb([["."], [BACK, HOME]]),
+1066 |             )
+1067 |             return True
+1068 | 
+1069 |         if message_text == "❌ Отменить":
+1070 |             await show_guard_workspace(update, user_states, user_id)
+1071 |             return True
+1072 |         await update.message.reply_text("Выберите действие кнопкой.")
+1073 |         return True
+1074 | 
+1075 |     # ---- remote received
+1076 |     if mode == "remote_received_unit":
+1077 |         await _select_remote_received_unit(update, state, message_text)
+1078 |         return True
+1079 | 
+1080 |     if mode == "remote_received_unit_member":
+1081 |         unit = (state.get("unit_member_buttons") or {}).get(message_text)
+1082 |         if not unit:
+1083 |             await update.message.reply_text("Выберите физическую квартиру кнопкой.")
+1084 |             return True
+1085 |         state["unit"] = unit
+1086 |         state["mode"] = "remote_received_quantity"
+1087 |         await update.message.reply_text(
+1088 |             "Введите количество принятых пультов.",
+1089 |             reply_markup=kb([["1"], [BACK, HOME]]),
+1090 |         )
+1091 |         return True
+1092 | 
+1093 |     if mode == "remote_received_quantity":
+1094 |         try:
+1095 |             quantity = int(message_text)
+1096 |             if quantity < 1 or quantity > 20:
+1097 |                 raise ValueError
+1098 |         except ValueError:
+1099 |             await update.message.reply_text("Введите целое количество от 1 до 20.")
+1100 |             return True
+1101 |         state["quantity"] = quantity
+1102 |         state["mode"] = "remote_received_note"
+1103 |         await update.message.reply_text(
+1104 |             "Введите отметку охранника или «-».",
+1105 |             reply_markup=kb([[BACK], [HOME]]),
+1106 |         )
+1107 |         return True
+1108 | 
+1109 |     if mode == "remote_received_note":
+1110 |         await _save_remote_received(
+1111 |             update, user_states, state, user_id,
+1112 |             "" if message_text == "-" else message_text,
+1113 |         )
+1114 |         return True
+1115 | 
+1116 |     # ---- remote issue
+1117 |     if mode == "remote_issue_list":
+1118 |         request_id = (state.get("remote_issue_buttons") or {}).get(message_text)
+1119 |         if request_id:
+1120 |             await _show_remote_issue_card(update, state, int(request_id))
+1121 |         else:
+1122 |             await update.message.reply_text("Выберите заявку кнопкой.")
+1123 |         return True
+1124 | 
+1125 |     if mode == "remote_issue_card":
+1126 |         if message_text == "✅ Пульт выдан":
+1127 |             state["mode"] = "remote_issue_note"
+1128 |             await update.message.reply_text(
+1129 |                 "Введите отметку охранника или «-».",
+1130 |                 reply_markup=kb([["⬅️ К заявкам"], [HOME]]),
+1131 |             )
+1132 |             return True
+1133 |         if message_text == "⬅️ К заявкам":
+1134 |             await _show_remote_issue_list(update, state, user_id)
+1135 |             return True
+1136 |         await update.message.reply_text("Выберите действие кнопкой.")
+1137 |         return True
+1138 | 
+1139 |     if mode == "remote_issue_note":
+1140 |         await _save_remote_issued(
+1141 |             update, state, user_id, "" if message_text == "-" else message_text
+1142 |         )
+1143 |         return True
+1144 | 
+1145 |     if mode == "my_operations":
+1146 |         await show_guard_workspace(update, user_states, user_id)
+1147 |         return True
+1148 | 
+1149 |     await show_guard_workspace(update, user_states, user_id)
+1150 |     return True
+
+========================================================================================================================
+FILE: Bots/handlers/service_orders_workspace.py
+========================================================================================================================
+Lines: 1742
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _show_preview
+------------------------------------------------------------------------------------------------------------------------
+903 | async def _show_preview(update: Update, state: dict, lang: str) -> None:
+904 |     offer = state["offer"]
+905 |     quantity = int(state.get("quantity") or 1)
+906 |     is_phone = _is_phone_offer(offer)
+907 |     if is_phone:
+908 |         points = state.get("phone_access_points") or []
+909 |         if not points:
+910 |             await _show_phone_access_points(update, state, lang)
+911 |             return
+912 |         try:
+913 |             quote = phone_barrier_quote(access_point_codes=points)
+914 |         except Exception as exc:
+915 |             await update.message.reply_text(f"⚠️ {exc}", reply_markup=kb([[BACK], [HOME]]))
+916 |             return
+917 |         state["phone_quote"] = quote
+918 |         total = float(quote["connection_total"])
+919 |         currency = quote.get("currency") or "UAH"
+920 |     else:
+921 |         price = offer.get("unit_price")
+922 |         if price is None:
+923 |             await update.message.reply_text(
+924 |                 "⚠️ Для услуги не задана цена.",
+925 |                 reply_markup=kb([[BACK], [HOME]]),
+926 |             )
+927 |             return
+928 |         total = float(price) * quantity
+929 |         currency = offer.get("currency") or "UAH"
+930 | 
+931 |     state["mode"] = "resident_preview"
+932 |     lines = [
+933 |         tr(lang, "phone_preview") if is_phone else tr(lang, "preview"),
+934 |         "",
+935 |         f"Квартира: {state['unit'].get('apartment_number') or '-'}",
+936 |         f"Услуга: {offer.get('service_item_name') or offer.get('service_item_code')}",
+937 |     ]
+938 |     if is_phone:
+939 |         quote = state["phone_quote"]
+940 |         lines += [
+941 |             f"{phone_tr(lang, 'points')}: {_phone_point_text(quote.get('access_points') or [])}",
+942 |             f"{tr(lang, 'phone_number')}: {state.get('requested_phone') or '-'}",
+943 |             f"{phone_tr(lang, 'connect_fee')}: {money(total)} {currency}",
+944 |             f"{phone_tr(lang, 'monthly_fee')}: {money(quote.get('monthly_total'))} {currency} {phone_tr(lang, 'monthly_suffix')}",
+945 |             f"{phone_tr(lang, 'first_month')}: {quote.get('first_charge_period')}",
+946 |             phone_tr(lang, 'debt_mode'),
+947 |             phone_tr(lang, 'debt_note'),
+948 |             phone_tr(lang, 'private_phone_note'),
+949 |         ]
+950 |     else:
+951 |         lines += [
+952 |             f"Кількість: {quantity}",
+953 |             f"Вартість: {money(total)} {currency}",
+954 |         ]
+955 |     lines += [
+956 |         "",
+957 |         (
+958 |             "До підтвердженої оплати це лише намір. Після оплати створюється "
+959 |             "справжнє замовлення."
+960 |         ),
+961 |     ]
+962 |     await update.message.reply_text(
+963 |         "\n".join(lines),
+964 |         reply_markup=kb(
+965 |             [[tr(lang, "create_interest")], [tr(lang, "cancel"), BACK], [HOME]]
+966 |         ),
+967 |     )
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _create_interest_from_state
+------------------------------------------------------------------------------------------------------------------------
+969 | def _create_interest_from_state(state: dict, user_id: int) -> dict:
+970 |     if _is_phone_offer(state.get("offer")):
+971 |         phone = _normalise_phone(state.get("requested_phone"))
+972 |         if not _valid_phone(phone):
+973 |             raise ValueError(tr(state.get("lang") or "ru", "wrong_phone"))
+974 |         gate = _phone_profile_gate(
+975 |             {"account": state["account"], "unit": state["unit"]}
+976 |         )
+977 |         if not gate.get("allowed"):
+978 |             raise ValueError(_phone_profile_gate_text(gate))
+979 |         return create_phone_barrier_access_interest(
+980 |             resident_account_id=int(state["account"]["id"]),
+981 |             telegram_user_id=user_id,
+982 |             apartment_id=int(state["unit"]["id"]),
+983 |             apartment_number=text(state["unit"].get("apartment_number")),
+984 |             service_item_code=state["offer"]["service_item_code"],
+985 |             phone=phone,
+986 |             access_point_codes=state.get("phone_access_points") or [],
+987 |             parking_debt_check_mode=text(gate.get("parking_debt_check_mode")) or "MANUAL_REVIEW",
+988 |             parking_debt_check_note=text(gate.get("parking_debt_check_note")),
+989 |         )
+990 |     return create_service_interest(
+991 |         resident_account_id=int(state["account"]["id"]),
+992 |         telegram_user_id=user_id,
+993 |         apartment_id=int(state["unit"]["id"]),
+994 |         apartment_number=text(state["unit"].get("apartment_number")),
+995 |         service_item_code=state["offer"]["service_item_code"],
+996 |         quantity=int(state.get("quantity") or 1),
+997 |     )
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _handle_resident
+------------------------------------------------------------------------------------------------------------------------
+1101 | async def _handle_resident(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, state: dict) -> bool:
+1102 |     if _home(message_text):
+1103 |         user_states.pop(user_id, None)
+1104 |         return False
+1105 |     if _service_back(message_text):
+1106 |         await show_resident_services(update, user_states, user_id, lang=lang)
+1107 |         return True
+1108 |     mode = text(state.get("mode"))
+1109 |     if mode == "resident_home":
+1110 |         if message_text == tr(lang, "my_requests"):
+1111 |             await _show_resident_records(update, state, lang)
+1112 |             return True
+1113 |         offer = (state.get("offer_buttons") or {}).get(message_text)
+1114 |         if offer:
+1115 |             state["offer"] = offer
+1116 |             state["lang"] = lang
+1117 |             if _is_phone_offer(offer):
+1118 |                 state["quantity"] = 1
+1119 |                 state.pop("phone_access_points", None)
+1120 |                 state.pop("phone_quote", None)
+1121 |                 state.pop("requested_phone", None)
+1122 |                 await _show_phone_access_points(update, state, lang)
+1123 |             elif text(offer.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+1124 |                 await _show_quantity(update, state, lang)
+1125 |             else:
+1126 |                 state["quantity"] = 1
+1127 |                 await _show_preview(update, state, lang)
+1128 |             return True
+1129 |         if message_text == tr(lang, "back_portal"):
+1130 |             user_states.pop(user_id, None)
+1131 |             return False
+1132 | 
+1133 |         # Keyboard-independent fallback for the phone page. A phone entered
+1134 |         # before choosing a barrier is retained, then the resident chooses
+1135 |         # Far No.1, Near No.2 or both.
+1136 |         if state.get("resident_section") == "phone" and _valid_phone(message_text):
+1137 |             offer = _resident_phone_offer()
+1138 |             if not offer:
+1139 |                 await update.message.reply_text(
+1140 |                     "⚠️ Активна послуга телефонного доступу не знайдена."
+1141 |                 )
+1142 |                 return True
+1143 |             state["offer"] = offer
+1144 |             state["lang"] = lang
+1145 |             state["requested_phone"] = _normalise_phone(message_text)
+1146 |             state["quantity"] = 1
+1147 |             await _show_phone_access_points(update, state, lang)
+1148 |             return True
+1149 | 
+1150 |         await update.message.reply_text(tr(lang, "wrong"))
+1151 |         return True
+1152 |     if mode == "resident_phone_points":
+1153 |         points = (state.get("phone_point_buttons") or {}).get(message_text)
+1154 |         if not points:
+1155 |             await update.message.reply_text(tr(lang, "wrong"))
+1156 |             return True
+1157 |         state["phone_access_points"] = list(points)
+1158 |         state["quantity"] = len(points)
+1159 |         if _valid_phone(state.get("requested_phone") or ""):
+1160 |             await _show_preview(update, state, lang)
+1161 |             return True
+1162 |         state["mode"] = "resident_phone_input"
+1163 |         await update.message.reply_text(
+1164 |             tr(lang, "phone_resident_prompt"),
+1165 |             reply_markup=kb([[BACK], [HOME]]),
+1166 |         )
+1167 |         return True
+1168 |     if mode == "resident_phone_input":
+1169 |         phone = _normalise_phone(message_text)
+1170 |         if not _valid_phone(phone):
+1171 |             await update.message.reply_text(tr(lang, "wrong_phone"))
+1172 |             return True
+1173 |         state["requested_phone"] = phone
+1174 |         state["quantity"] = len(state.get("phone_access_points") or [BARRIER_FAR_01])
+1175 |         await _show_preview(update, state, lang)
+1176 |         return True
+1177 |     if mode == "resident_quantity":
+1178 |         if message_text in {"1", "2", "3", "4", "5"}:
+1179 |             state["quantity"] = int(message_text)
+1180 |             await _show_preview(update, state, lang)
+1181 |             return True
+1182 |         if message_text == tr(lang, "other_quantity"):
+1183 |             state["mode"] = "resident_quantity_input"
+1184 |             await update.message.reply_text("Введіть ціле число від 1 до 20.", reply_markup=kb([[BACK], [HOME]]))
+1185 |             return True
+1186 |         await update.message.reply_text(tr(lang, "wrong"))
+1187 |         return True
+1188 |     if mode == "resident_quantity_input":
+1189 |         try:
+1190 |             quantity = int(text(message_text))
+1191 |         except ValueError:
+1192 |             quantity = 0
+1193 |         if not 1 <= quantity <= 20:
+1194 |             await update.message.reply_text("Вкажіть ціле число від 1 до 20.")
+1195 |             return True
+1196 |         state["quantity"] = quantity
+1197 |         await _show_preview(update, state, lang)
+1198 |         return True
+1199 |     if mode == "resident_preview":
+1200 |         if message_text == tr(lang, "create_interest"):
+1201 |             try:
+1202 |                 interest = _create_interest_from_state(state, user_id)
+1203 |             except Exception as exc:
+1204 |                 await update.message.reply_text(f"⚠️ {exc}")
+1205 |                 return True
+1206 |             await update.message.reply_text(tr(lang, "interest_saved"))
+1207 |             await _show_interest_card(update, state, int(interest["id"]), lang)
+1208 |             return True
+1209 |         if message_text == tr(lang, "cancel"):
+1210 |             await show_resident_services(update, user_states, user_id, lang=lang)
+1211 |             return True
+1212 |         await update.message.reply_text(tr(lang, "wrong"))
+1213 |         return True
+1214 |     if mode == "resident_records":
+1215 |         selected = (state.get("resident_record_buttons") or {}).get(message_text)
+1216 |         if selected:
+1217 |             kind, record_id = selected
+1218 |             if kind == "interest":
+1219 |                 await _show_interest_card(update, state, record_id, lang)
+1220 |             else:
+1221 |                 await _show_resident_order(update, state, record_id, lang)
+1222 |             return True
+1223 |         await update.message.reply_text(tr(lang, "wrong"))
+1224 |         return True
+1225 |     if mode == "resident_interest_card":
+1226 |         if message_text in {tr(lang, "cash_notice"), tr(lang, "bank_notice")}:
+1227 |             interest = get_service_interest(int(state["interest_id"]))
+1228 |             notice_type = "CASH_HANDOVER" if message_text == tr(lang, "cash_notice") else "BANK_TRANSFER"
+1229 |             try:
+1230 |                 notice = _notice_for_interest(interest, state, notice_type)
+1231 |                 attach_payment_notice_to_interest(int(interest["id"]), notice)
+1232 |             except Exception as exc:
+1233 |                 await update.message.reply_text(f"⚠️ {exc}")
+1234 |                 return True
+1235 |             await update.message.reply_text(tr(lang, "notice_saved", number=notice.get("notice_number") or "—"))
+1236 |             await _show_interest_card(update, state, int(interest["id"]), lang)
+1237 |             return True
+1238 |         if message_text == tr(lang, "my_requests"):
+1239 |             await _show_resident_records(update, state, lang)
+1240 |             return True
+1241 |         await update.message.reply_text(tr(lang, "wrong"))
+1242 |         return True
+1243 |     if mode == "resident_order_card":
+1244 |         if message_text == tr(lang, "my_requests"):
+1245 |             await _show_resident_records(update, state, lang)
+1246 |             return True
+1247 |         await update.message.reply_text(tr(lang, "wrong"))
+1248 |         return True
+1249 |     await show_resident_services(update, user_states, user_id, lang=lang)
+1250 |     return True
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _show_operator_order
+------------------------------------------------------------------------------------------------------------------------
+1405 | async def _show_operator_order(update: Update, state: dict, user_id: int, order_id: int, lang: str) -> None:
+1406 |     order = service_order_summary(order_id)
+1407 |     try:
+1408 |         _assert_order_access(user_id, order)
+1409 |     except Exception:
+1410 |         await update.message.reply_text(tr(lang, "denied"))
+1411 |         return
+1412 |     state["mode"] = "operator_order_card"
+1413 |     state["order_id"] = int(order_id)
+1414 |     body = _order_card(order, title="🔑 Заявка оператора")
+1415 |     if text(order.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+1416 |         link = order_supply_link(int(order_id))
+1417 |         if link:
+1418 |             body += f"\n\nПоставка: {link.get('batch_number')} | {link.get('link_status')}"
+1419 |     await update.message.reply_text(body, reply_markup=kb(_order_actions(order, lang)))
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _handle_operator
+------------------------------------------------------------------------------------------------------------------------
+1550 | async def _handle_operator(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, state: dict) -> bool:
+1551 |     if _home(message_text):
+1552 |         user_states.pop(user_id, None)
+1553 |         return False
+1554 |     if not has_service_workspace_access(user_id):
+1555 |         await update.message.reply_text(tr(lang, "denied")); return True
+1556 |     if _operator_back(message_text):
+1557 |         await show_service_operator_workspace(
+1558 |             update,
+1559 |             user_states,
+1560 |             user_id,
+1561 |             lang=lang,
+1562 |             category_filter=state.get("category_filter"),
+1563 |         )
+1564 |         return True
+1565 |     mode = text(state.get("mode"))
+1566 |     if mode == "operator_home":
+1567 |         if message_text in {tr(lang, "open_orders"), tr(lang, "refresh")}:
+1568 |             await _show_operator_orders(update, state, user_id, lang); return True
+1569 |         if message_text == tr(lang, "supplier_demand"):
+1570 |             await _show_supplier_demand(update, state, user_id, lang); return True
+1571 |         if message_text == tr(lang, "supplier_batches"):
+1572 |             await _show_batches(update, state, lang); return True
+1573 |         await update.message.reply_text(tr(lang, "wrong")); return True
+1574 |     if mode == "operator_orders":
+1575 |         order_id = (state.get("operator_order_buttons") or {}).get(message_text)
+1576 |         if order_id:
+1577 |             await _show_operator_order(update, state, user_id, int(order_id), lang); return True
+1578 |         await update.message.reply_text(tr(lang, "wrong")); return True
+1579 |     if mode == "operator_order_card":
+1580 |         order = service_order_summary(int(state["order_id"]))
+1581 |         action_map = {
+1582 |             tr(lang, "receive_remote"): "receive_remote",
+1583 |             tr(lang, "program_done"): "program_done",
+1584 |             tr(lang, "return_remote"): "return_remote",
+1585 |             tr(lang, "activate_phone"): "activate_phone",
+1586 |             tr(lang, "issue_new"): "issue_new",
+1587 |             tr(lang, "supplier_demand"): "supplier_demand",
+1588 |             tr(lang, "supplier_batches"): "supplier_batches",
+1589 |         }
+1590 |         action = action_map.get(message_text)
+1591 |         if not action:
+1592 |             await update.message.reply_text(tr(lang, "wrong")); return True
+1593 |         if action == "supplier_demand":
+1594 |             await _show_supplier_demand(update, state, user_id, lang); return True
+1595 |         if action == "supplier_batches":
+1596 |             await _show_batches(update, state, lang); return True
+1597 |         try:
+1598 |             _assert_order_access(user_id, order, "CONFIRM")
+1599 |         except Exception:
+1600 |             await update.message.reply_text(tr(lang, "denied")); return True
+1601 |         if action == "receive_remote":
+1602 |             state["mode"] = "operator_remote_label"
+1603 |             await update.message.reply_text(tr(lang, "asset_prompt"), reply_markup=kb([["⬅️ К оператору"], [HOME]])); return True
+1604 |         if action == "activate_phone":
+1605 |             phone = _requested_phone(order)
+1606 |             if phone:
+1607 |                 try:
+1608 |                     _activate_phone(order, phone, user_id)
+1609 |                 except Exception as exc:
+1610 |                     await update.message.reply_text(f"⚠️ {exc}")
+1611 |                     return True
+1612 |                 await update.message.reply_text(tr(lang, "phone_activated", phone=phone))
+1613 |                 await _show_operator_order(
+1614 |                     update,
+1615 |                     state,
+1616 |                     user_id,
+1617 |                     int(order["id"]),
+1618 |                     lang,
+1619 |                 )
+1620 |                 return True
+1621 | 
+1622 |             # Compatibility path for legacy manually-created orders that do
+1623 |             # not contain a resident-requested number.
+1624 |             state["mode"] = "operator_phone_input"
+1625 |             await update.message.reply_text(
+1626 |                 tr(lang, "phone_prompt"),
+1627 |                 reply_markup=kb([["⬅️ К оператору"], [HOME]]),
+1628 |             )
+1629 |             return True
+1630 |         try:
+1631 |             if action == "program_done":
+1632 |                 _program(order, user_id)
+1633 |             elif action == "return_remote":
+1634 |                 _return_own_remote(order, user_id)
+1635 |             elif action == "issue_new":
+1636 |                 issue_new_remotes_from_batch(service_order_id=int(order["id"]), actor_id=user_id)
+1637 |         except Exception as exc:
+1638 |             await update.message.reply_text(f"⚠️ {exc}"); return True
+1639 |         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
+1640 |     if mode == "operator_remote_label":
+1641 |         label = text(message_text)
+1642 |         if len(label) < 3:
+1643 |             await update.message.reply_text("Маркировка должна содержать минимум 3 символа."); return True
+1644 |         order = service_order_summary(int(state["order_id"]))
+1645 |         try:
+1646 |             _receive_resident_remote(order, label, user_id)
+1647 |         except Exception as exc:
+1648 |             await update.message.reply_text(f"⚠️ {exc}"); return True
+1649 |         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
+1650 |     if mode == "operator_phone_input":
+1651 |         phone = re.sub(r"[\s()\-]", "", text(message_text))
+1652 |         if not re.fullmatch(r"\+?\d{8,20}", phone):
+1653 |             await update.message.reply_text(tr(lang, "wrong_phone")); return True
+1654 |         order = service_order_summary(int(state["order_id"]))
+1655 |         try:
+1656 |             _activate_phone(order, phone, user_id)
+1657 |         except Exception as exc:
+1658 |             await update.message.reply_text(f"⚠️ {exc}"); return True
+1659 |         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
+1660 |     if mode == "operator_demand":
+1661 |         service_item_code = (state.get("demand_buttons") or {}).get(message_text)
+1662 |         if not service_item_code:
+1663 |             await update.message.reply_text(tr(lang, "wrong")); return True
+1664 |         try:
+1665 |             batch = create_supplier_batch(service_item_code=service_item_code, actor_id=user_id)
+1666 |         except Exception as exc:
+1667 |             await update.message.reply_text(f"⚠️ {exc}"); return True
+1668 |         await update.message.reply_text(f"✅ Створено {batch['batch_number']}: {batch['quantity_requested']} шт.")
+1669 |         await _show_batch_card(update, state, int(batch["id"]), lang); return True
+1670 |     if mode == "operator_batches":
+1671 |         batch_id = (state.get("batch_buttons") or {}).get(message_text)
+1672 |         if not batch_id:
+1673 |             await update.message.reply_text(tr(lang, "wrong")); return True
+1674 |         await _show_batch_card(update, state, int(batch_id), lang); return True
+1675 |     if mode == "operator_batch_card":
+1676 |         if message_text == tr(lang, "receive_delivery"):
+1677 |             state["mode"] = "operator_delivery_qty"
+1678 |             await update.message.reply_text(tr(lang, "delivery_qty_prompt"), reply_markup=kb([["⬅️ К оператору"], [HOME]])); return True
+1679 |         await update.message.reply_text(tr(lang, "wrong")); return True
+1680 |     if mode == "operator_delivery_qty":
+1681 |         try:
+1682 |             quantity = int(text(message_text))
+1683 |         except ValueError:
+1684 |             quantity = 0
+1685 |         if quantity <= 0:
+1686 |             await update.message.reply_text("Вкажіть додатне ціле число."); return True
+1687 |         try:
+1688 |             receive_supplier_batch(batch_id=int(state["batch_id"]), received_now=quantity, actor_id=user_id)
+1689 |         except Exception as exc:
+1690 |             await update.message.reply_text(f"⚠️ {exc}"); return True
+1691 |         await _show_batch_card(update, state, int(state["batch_id"]), lang); return True
+1692 |     await show_service_operator_workspace(update, user_states, user_id, lang=lang)
+1693 |     return True
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: handle_service_orders_text
+------------------------------------------------------------------------------------------------------------------------
+1696 | async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:
+1697 |     message_text = text(message_text)
+1698 |     lang = lang if lang in I18N else "ru"
+1699 |     try:
+1700 |         _ensure_and_reconcile()
+1701 |     except Exception:
+1702 |         # Do not show a technical schema error before user deliberately enters
+1703 |         # the services screen; routing remains available for the usual menus.
+1704 |         pass
+1705 |     if message_text in _operator_entry_texts():
+1706 |         await show_service_operator_workspace(update, user_states, user_id, lang=lang)
+1707 |         return True
+1708 |     state = _state(user_states, user_id, create=False)
+1709 |     if state:
+1710 |         if text(state.get("area")) == "resident":
+1711 |             return await _handle_resident(update, user_states, user_id, message_text, lang=lang, state=state)
+1712 |         if text(state.get("area")) == "operator":
+1713 |             return await _handle_operator(update, user_states, user_id, message_text, lang=lang, state=state)
+1714 |     if user_mode == "client" and message_text in _resident_entry_texts():
+1715 |         section = "phone" if message_text in _phone_entry_texts() else "all"
+1716 |         await show_resident_services(
+1717 |             update,
+1718 |             user_states,
+1719 |             user_id,
+1720 |             lang=lang,
+1721 |             section=section,
+1722 |         )
+1723 |         return True
+1724 |     if user_mode == "admin" and message_text == "🔑 Заявки на пульты" and has_service_workspace_access(user_id):
+1725 |         await show_service_operator_workspace(
+1726 |             update,
+1727 |             user_states,
+1728 |             user_id,
+1729 |             lang=lang,
+1730 |             category_filter="REMOTE",
+1731 |         )
+1732 |         return True
+1733 |     if user_mode == "admin" and message_text == "📞 Телефонный доступ" and has_service_workspace_access(user_id):
+1734 |         await show_service_operator_workspace(
+1735 |             update,
+1736 |             user_states,
+1737 |             user_id,
+1738 |             lang=lang,
+1739 |             category_filter="ACCESS",
+1740 |         )
+1741 |         return True
+1742 |     return False
+
+========================================================================================================================
+FILE: service_preorders_core.py
+========================================================================================================================
+Lines: 1154
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: create_service_interest
+------------------------------------------------------------------------------------------------------------------------
+365 | def create_service_interest(
+366 |     *,
+367 |     resident_account_id: int | None,
+368 |     telegram_user_id: int | str | None,
+369 |     apartment_id: int | None,
+370 |     apartment_number: str,
+371 |     service_item_code: str,
+372 |     quantity: int,
+373 |     resident_comment: str = "",
+374 |     service_name_snapshot_override: str = "",
+375 |     unit_price_snapshot_override: float | None = None,
+376 |     amount_due_snapshot_override: float | None = None,
+377 |     currency_snapshot_override: str = "",
+378 |     conn: sqlite3.Connection | None = None,
+379 | ) -> dict:
+380 |     """Record non-binding demand. It becomes an operational order only after payment."""
+381 |     quantity = int(quantity)
+382 |     if quantity <= 0:
+383 |         raise ValueError("Количество должно быть больше нуля.")
+384 |     owns = conn is None
+385 |     conn = conn or get_conn()
+386 |     try:
+387 |         ensure_simplified_service_schema(conn)
+388 |         cur = conn.cursor()
+389 |         item = _service_item_snapshot(cur, service_item_code)
+390 |         workflow = get_service_workflow(cur, service_item_code)
+391 |         if int(workflow.get("resident_request_enabled") or 0) != 1:
+392 |             raise PermissionError("Эта услуга пока недоступна для самостоятельной заявки.")
+393 |         catalog_price, catalog_currency = effective_price(cur, service_item_code)
+394 |         override_used = any(
+395 |             value is not None and value != ""
+396 |             for value in (
+397 |                 unit_price_snapshot_override,
+398 |                 amount_due_snapshot_override,
+399 |                 currency_snapshot_override,
+400 |                 service_name_snapshot_override,
+401 |             )
+402 |         )
+403 |         if override_used:
+404 |             if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
+405 |                 raise ValueError(
+406 |                     "Для фиксированной цены намерения нужны цена единицы и итоговая сумма."
+407 |                 )
+408 |             price = round(float(unit_price_snapshot_override), 2)
+409 |             amount_due = round(float(amount_due_snapshot_override), 2)
+410 |             if price < 0 or amount_due < 0:
+411 |                 raise ValueError("Фиксированная цена намерения не может быть отрицательной.")
+412 |             expected = round(price * quantity, 2)
+413 |             if abs(expected - amount_due) > 0.01:
+414 |                 raise ValueError(
+415 |                     "Итоговая фиксированная сумма не соответствует цене единицы и количеству."
+416 |                 )
+417 |             currency = text(currency_snapshot_override) or text(catalog_currency) or "UAH"
+418 |             service_name_snapshot = (
+419 |                 text(service_name_snapshot_override)
+420 |                 or text(item.get("service_item_name"))
+421 |                 or service_item_code
+422 |             )
+423 |         else:
+424 |             price, currency = catalog_price, catalog_currency
+425 |             if price is None or float(price) <= 0:
+426 |                 raise ValueError("Для услуги не задана положительная цена.")
+427 |             amount_due = round(float(price) * quantity, 2)
+428 |             service_name_snapshot = text(item.get("service_item_name")) or service_item_code
+429 |         interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+430 |         cur.execute(
+431 |             """
+432 |             INSERT INTO service_order_interests (
+433 |                 interest_number, resident_account_id, telegram_user_id,
+434 |                 apartment_id, apartment_number,
+435 |                 service_code, service_item_code, service_name_snapshot,
+436 |                 workflow_profile_code, quantity, unit_price_snapshot,
+437 |                 amount_due_snapshot, currency, interest_status,
+438 |                 resident_comment, created_at, updated_at
+439 |             )
+440 |             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+441 |             """,
+442 |             (
+443 |                 interest_number,
+444 |                 resident_account_id,
+445 |                 str(telegram_user_id) if telegram_user_id is not None else None,
+446 |                 apartment_id,
+447 |                 text(apartment_number),
+448 |                 text(item.get("service_code")) or None,
+449 |                 service_item_code,
+450 |                 service_name_snapshot,
+451 |                 workflow["workflow_profile_code"],
+452 |                 quantity,
+453 |                 float(price),
+454 |                 amount_due,
+455 |                 currency or "UAH",
+456 |                 INTEREST,
+457 |                 text(resident_comment) or None,
+458 |                 now_db(),
+459 |                 now_db(),
+460 |             ),
+461 |         )
+462 |         result = get_service_interest(int(cur.lastrowid), conn=conn)
+463 |         if owns:
+464 |             conn.commit()
+465 |         return result
+466 |     except Exception:
+467 |         if owns:
+468 |             conn.rollback()
+469 |         raise
+470 |     finally:
+471 |         if owns:
+472 |             conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: attach_payment_notice_to_interest
+------------------------------------------------------------------------------------------------------------------------
+528 | def attach_payment_notice_to_interest(
+529 |     interest_id: int,
+530 |     notice: dict,
+531 |     *,
+532 |     conn: sqlite3.Connection | None = None,
+533 | ) -> dict:
+534 |     owns = conn is None
+535 |     conn = conn or get_conn()
+536 |     try:
+537 |         cur = conn.cursor()
+538 |         interest = get_service_interest(interest_id, conn=conn)
+539 |         if text(interest.get("interest_status")) in {PAID_ORDER_CREATED, CANCELLED}:
+540 |             raise ValueError("Эта запись уже не ожидает оплаты.")
+541 |         notice_id, notice_number = _notice_id(conn, notice)
+542 |         if notice_id is None:
+543 |             raise RuntimeError(
+544 |                 "Не удалось определить ID платёжного уведомления. "
+545 |                 "Уведомление не привязано к намерению."
+546 |             )
+547 |         cur.execute(
+548 |             """
+549 |             UPDATE service_order_interests
+550 |             SET payment_notice_id = ?,
+551 |                 payment_notice_number = ?,
+552 |                 interest_status = ?,
+553 |                 updated_at = ?
+554 |             WHERE id = ?
+555 |             """,
+556 |             (notice_id, notice_number or None, PAYMENT_NOTICE, now_db(), int(interest_id)),
+557 |         )
+558 |         result = get_service_interest(interest_id, conn=conn)
+559 |         if owns:
+560 |             conn.commit()
+561 |         return result
+562 |     except Exception:
+563 |         if owns:
+564 |             conn.rollback()
+565 |         raise
+566 |     finally:
+567 |         if owns:
+568 |             conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: reconcile_paid_service_interests
+------------------------------------------------------------------------------------------------------------------------
+623 | def reconcile_paid_service_interests(
+624 |     *,
+625 |     limit: int = 100,
+626 |     conn: sqlite3.Connection | None = None,
+627 | ) -> list[dict]:
+628 |     """Promote unambiguous confirmed paid interests to real service orders."""
+629 |     owns = conn is None
+630 |     conn = conn or get_conn()
+631 |     created: list[dict] = []
+632 |     try:
+633 |         ensure_simplified_service_schema(conn)
+634 |         cur = conn.cursor()
+635 |         interests = _rows(
+636 |             cur,
+637 |             """
+638 |             SELECT * FROM service_order_interests
+639 |             WHERE interest_status = ?
+640 |               AND payment_id IS NULL
+641 |               AND service_order_id IS NULL
+642 |             ORDER BY id ASC
+643 |             LIMIT ?
+644 |             """,
+645 |             (PAYMENT_NOTICE, int(limit)),
+646 |         )
+647 |         for interest in interests:
+648 |             candidates = _payment_candidates(cur, interest)
+649 |             if len(candidates) != 1:
+650 |                 continue
+651 |             payment = candidates[0]
+652 |             due = float(interest.get("amount_due_snapshot") or 0)
+653 |             if due <= 0 or float(payment.get("amount") or 0) + 0.00001 < due:
+654 |                 continue
+655 |             order = create_service_order(
+656 |                 resident_account_id=interest.get("resident_account_id"),
+657 |                 telegram_user_id=interest.get("telegram_user_id"),
+658 |                 apartment_id=interest.get("apartment_id"),
+659 |                 apartment_number=text(interest.get("apartment_number")),
+660 |                 service_item_code=text(interest.get("service_item_code")),
+661 |                 quantity=float(interest.get("quantity") or 1),
+662 |                 resident_comment=text(interest.get("resident_comment")),
+663 |                 service_name_snapshot_override=text(interest.get("service_name_snapshot")),
+664 |                 unit_price_snapshot_override=float(interest.get("unit_price_snapshot") or 0),
+665 |                 amount_due_snapshot_override=float(interest.get("amount_due_snapshot") or 0),
+666 |                 currency_snapshot_override=text(interest.get("currency")) or "UAH",
+667 |                 actor_id=None,
+668 |                 source_context=f"paid_interest:{interest['interest_number']}",
+669 |                 conn=conn,
+670 |             )
+671 |             linked = link_payment_to_order(
+672 |                 order_id=int(order["id"]),
+673 |                 payment_id=int(payment["id"]),
+674 |                 amount=due,
+675 |                 actor_id=None,
+676 |                 note=(
+677 |                     f"Автоматически создано из оплаченного намерения "
+678 |                     f"{interest['interest_number']}."
+679 |                 ),
+680 |                 conn=conn,
+681 |             )
+682 |             # A two-barrier phone request has its own normalized request record.
+683 |             # The import is deliberately lazy so ordinary remote flows do not
+684 |             # depend on the phone-access module.
+685 |             from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+686 |             promote_paid_phone_barrier_access_interest(
+687 |                 interest=interest,
+688 |                 order=linked["order"],
+689 |                 payment_id=int(payment["id"]),
+690 |                 conn=conn,
+691 |             )
+692 | 
+693 |             cur.execute(
+694 |                 """
+695 |                 UPDATE service_order_interests
+696 |                 SET interest_status = ?, payment_id = ?, service_order_id = ?,
+697 |                     paid_at = ?, updated_at = ?
+698 |                 WHERE id = ?
+699 |                 """,
+700 |                 (
+701 |                     PAID_ORDER_CREATED,
+702 |                     int(payment["id"]),
+703 |                     int(order["id"]),
+704 |                     now_db(),
+705 |                     now_db(),
+706 |                     int(interest["id"]),
+707 |                 ),
+708 |             )
+709 |             created.append(
+710 |                 {
+711 |                     "interest_id": int(interest["id"]),
+712 |                     "interest_number": interest["interest_number"],
+713 |                     "payment_id": int(payment["id"]),
+714 |                     "order": linked["order"],
+715 |                 }
+716 |             )
+717 |         if owns:
+718 |             conn.commit()
+719 |         return created
+720 |     except Exception:
+721 |         if owns:
+722 |             conn.rollback()
+723 |         raise
+724 |     finally:
+725 |         if owns:
+726 |             conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: issue_new_remotes_from_batch
+------------------------------------------------------------------------------------------------------------------------
+1045 | def issue_new_remotes_from_batch(
+1046 |     *,
+1047 |     service_order_id: int,
+1048 |     actor_id: int | str | None,
+1049 |     note: str = "",
+1050 |     conn: sqlite3.Connection | None = None,
+1051 | ) -> dict:
+1052 |     """Create actual asset records at issue time and complete the paid preorder."""
+1053 |     owns = conn is None
+1054 |     conn = conn or get_conn()
+1055 |     try:
+1056 |         cur = conn.cursor()
+1057 |         order = get_service_order(cur, service_order_id)
+1058 |         if text(order.get("workflow_profile_code")) != NEW_REMOTE_PROFILE:
+1059 |             raise ValueError("Этот заказ не является предзаказом нового пульта.")
+1060 |         link = order_supply_link(service_order_id, conn=conn)
+1061 |         if not link or text(link.get("link_status")) != LINK_READY:
+1062 |             raise ValueError("Для заявки ещё нет полученной партии, готовой к выдаче.")
+1063 |         quantity = int(link.get("quantity") or 0)
+1064 |         if quantity <= 0:
+1065 |             raise ValueError("В привязке к поставке отсутствует количество.")
+1066 |         batch = get_supplier_batch(int(link["supplier_batch_id"]), conn=conn)
+1067 |         available = int(batch.get("quantity_received") or 0) - int(batch.get("quantity_issued") or 0)
+1068 |         if available < quantity:
+1069 |             raise ValueError("В поставке недостаточно фактически полученных пультов.")
+1070 |         issued_assets: list[int] = []
+1071 |         start = int(batch.get("quantity_issued") or 0) + 1
+1072 |         for position in range(quantity):
+1073 |             asset_number = f"{batch['batch_number']}-{start + position:03d}"
+1074 |             asset = create_remote_asset(
+1075 |                 asset_number=asset_number,
+1076 |                 ownership_type="OSBB_STOCK",
+1077 |                 inventory_status="RECEIVED",
+1078 |                 condition_status="NEW",
+1079 |                 apartment_id=int(order["apartment_id"]) if order.get("apartment_id") is not None else None,
+1080 |                 apartment_number=text(order.get("apartment_number")),
+1081 |                 actor_id=actor_id,
+1082 |                 note=f"Получен в поставке {batch['batch_number']} для выдачи по {order['order_number']}.",
+1083 |                 conn=conn,
+1084 |             )
+1085 |             asset_id = int(asset["id"])
+1086 |             record_remote_movement(
+1087 |                 remote_asset_id=asset_id,
+1088 |                 service_order_id=int(service_order_id),
+1089 |                 movement_type="ISSUED_FROM_SUPPLIER_BATCH",
+1090 |                 to_state="WITH_RESIDENT",
+1091 |                 actor_id=actor_id,
+1092 |                 apartment_id=int(order["apartment_id"]) if order.get("apartment_id") is not None else None,
+1093 |                 apartment_number=text(order.get("apartment_number")),
+1094 |                 note=f"Выдан по оплаченной заявке из поставки {batch['batch_number']}.",
+1095 |                 confirm_step_code="REMOTE_BATCH_ISSUED",
+1096 |                 conn=conn,
+1097 |             )
+1098 |             cur.execute(
+1099 |                 """
+1100 |                 UPDATE remote_assets
+1101 |                 SET ownership_type = 'RESIDENT', issued_at = ?, updated_at = ?
+1102 |                 WHERE id = ?
+1103 |                 """,
+1104 |                 (now_db(), now_db(), asset_id),
+1105 |             )
+1106 |             cur.execute(
+1107 |                 """
+1108 |                 INSERT INTO remote_order_issued_assets (
+1109 |                     service_order_id, remote_asset_id, supplier_batch_id,
+1110 |                     issued_at, issued_by, note
+1111 |                 ) VALUES (?, ?, ?, ?, ?, ?)
+1112 |                 """,
+1113 |                 (
+1114 |                     int(service_order_id), asset_id, int(batch["id"]), now_db(),
+1115 |                     str(actor_id) if actor_id is not None else "system", text(note) or None,
+1116 |                 ),
+1117 |             )
+1118 |             issued_assets.append(asset_id)
+1119 |         cur.execute(
+1120 |             """
+1121 |             UPDATE remote_supplier_batch_links
+1122 |             SET issued_quantity = ?, link_status = ?, updated_at = ?
+1123 |             WHERE id = ?
+1124 |             """,
+1125 |             (quantity, LINK_ISSUED, now_db(), int(link["id"])),
+1126 |         )
+1127 |         issued_total = int(batch.get("quantity_issued") or 0) + quantity
+1128 |         received_total = int(batch.get("quantity_received") or 0)
+1129 |         cur.execute(
+1130 |             """
+1131 |             UPDATE remote_supplier_batches
+1132 |             SET quantity_issued = ?,
+1133 |                 batch_status = ?,
+1134 |                 updated_at = ?
+1135 |             WHERE id = ?
+1136 |             """,
+1137 |             (
+1138 |                 issued_total,
+1139 |                 BATCH_CLOSED if issued_total >= received_total and received_total >= int(batch.get("quantity_requested") or 0) else BATCH_RECEIVED,
+1140 |                 now_db(),
+1141 |                 int(batch["id"]),
+1142 |             ),
+1143 |         )
+1144 |         result = get_service_order(cur, int(service_order_id))
+1145 |         if owns:
+1146 |             conn.commit()
+1147 |         return {"order": result, "asset_ids": issued_assets, "batch": get_supplier_batch(int(batch["id"]), conn=conn)}
+1148 |     except Exception:
+1149 |         if owns:
+1150 |             conn.rollback()
+1151 |         raise
+1152 |     finally:
+1153 |         if owns:
+1154 |             conn.close()
+
+========================================================================================================================
+FILE: service_orders_core.py
+========================================================================================================================
+Lines: 1408
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: create_service_order
+------------------------------------------------------------------------------------------------------------------------
+495 | def create_service_order(
+496 |     *,
+497 |     resident_account_id: int | None,
+498 |     telegram_user_id: int | str | None,
+499 |     apartment_id: int | None,
+500 |     apartment_number: str,
+501 |     service_item_code: str,
+502 |     quantity: float = 1,
+503 |     resident_comment: str = "",
+504 |     service_name_snapshot_override: str = "",
+505 |     unit_price_snapshot_override: float | None = None,
+506 |     amount_due_snapshot_override: float | None = None,
+507 |     currency_snapshot_override: str = "",
+508 |     actor_id: int | str | None = None,
+509 |     actor_role: str = "",
+510 |     source_context: str = "",
+511 |     conn: sqlite3.Connection | None = None,
+512 | ) -> dict:
+513 |     if quantity <= 0:
+514 |         raise ValueError("Количество должно быть больше нуля.")
+515 | 
+516 |     owns = conn is None
+517 |     conn = conn or get_conn()
+518 |     try:
+519 |         ready, reason = schema_ready(conn)
+520 |         if not ready:
+521 |             raise RuntimeError(reason)
+522 | 
+523 |         cur = conn.cursor()
+524 |         item = _service_item(cur, service_item_code)
+525 |         workflow = get_service_workflow(cur, service_item_code)
+526 | 
+527 |         request_allowed = int(workflow.get("resident_request_enabled") or 0) == 1
+528 |         if actor_id is None and not request_allowed:
+529 |             raise PermissionError("Эта услуга пока недоступна для самостоятельной заявки жителя.")
+530 | 
+531 |         category = text(workflow.get("service_category")) or "GENERAL"
+532 |         _permission_or_raise(
+533 |             actor_id,
+534 |             "service_orders",
+535 |             "CREATE",
+536 |             "SERVICE_CATEGORY",
+537 |             category,
+538 |         )
+539 | 
+540 |         catalog_unit_price, catalog_currency = effective_price(cur, service_item_code)
+541 |         override_used = any(
+542 |             value is not None and value != ""
+543 |             for value in (
+544 |                 unit_price_snapshot_override,
+545 |                 amount_due_snapshot_override,
+546 |                 currency_snapshot_override,
+547 |                 service_name_snapshot_override,
+548 |             )
+549 |         )
+550 |         if override_used:
+551 |             if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
+552 |                 raise ValueError(
+553 |                     "Для фиксированной цены заказа нужны и цена единицы, и итоговая сумма."
+554 |                 )
+555 |             unit_price = round(float(unit_price_snapshot_override), 2)
+556 |             amount_due = round(float(amount_due_snapshot_override), 2)
+557 |             if unit_price < 0 or amount_due < 0:
+558 |                 raise ValueError("Фиксированная цена заказа не может быть отрицательной.")
+559 |             expected = round(unit_price * float(quantity), 2)
+560 |             if abs(expected - amount_due) > 0.01:
+561 |                 raise ValueError(
+562 |                     "Итоговая фиксированная сумма не соответствует цене единицы и количеству."
+563 |                 )
+564 |             currency = text(currency_snapshot_override) or text(catalog_currency) or "UAH"
+565 |             service_name_snapshot = (
+566 |                 text(service_name_snapshot_override)
+567 |                 or text(item.get("service_item_name"))
+568 |                 or service_item_code
+569 |             )
+570 |         else:
+571 |             unit_price = catalog_unit_price
+572 |             amount_due = (
+573 |                 round(float(unit_price) * float(quantity), 2)
+574 |                 if unit_price is not None
+575 |                 else None
+576 |             )
+577 |             currency = catalog_currency
+578 |             service_name_snapshot = text(item.get("service_item_name")) or service_item_code
+579 |         order_number = _next_order_number(cur)
+580 | 
+581 |         cur.execute(
+582 |             """
+583 |             INSERT INTO service_orders (
+584 |                 order_number, resident_account_id, telegram_user_id,
+585 |                 apartment_id, apartment_number,
+586 |                 service_code, service_item_code,
+587 |                 service_name_snapshot, workflow_profile_code,
+588 |                 quantity, unit_price_snapshot, amount_due_snapshot, currency,
+589 |                 order_status, payment_status, fulfillment_status,
+590 |                 resident_comment, requested_at, updated_at
+591 |             )
+592 |             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+593 |                     'REQUESTED', 'NOT_REQUIRED', 'NOT_STARTED',
+594 |                     ?, ?, ?)
+595 |             """,
+596 |             (
+597 |                 order_number,
+598 |                 resident_account_id,
+599 |                 str(telegram_user_id) if telegram_user_id is not None else None,
+600 |                 apartment_id,
+601 |                 text(apartment_number),
+602 |                 text(item.get("service_code")) or None,
+603 |                 service_item_code,
+604 |                 service_name_snapshot,
+605 |                 workflow["workflow_profile_code"],
+606 |                 float(quantity),
+607 |                 unit_price,
+608 |                 amount_due,
+609 |                 currency,
+610 |                 text(resident_comment) or None,
+611 |                 now_db(),
+612 |                 now_db(),
+613 |             ),
+614 |         )
+615 |         order_id = int(cur.lastrowid)
+616 | 
+617 |         cur.execute(
+618 |             """
+619 |             SELECT step_code, step_name, step_kind, sequence_no, is_required
+620 |             FROM service_workflow_steps
+621 |             WHERE profile_code = ?
+622 |               AND is_active = 1
+623 |             ORDER BY sequence_no, id
+624 |             """,
+625 |             (workflow["workflow_profile_code"],),
+626 |         )
+627 |         steps = cur.fetchall()
+628 |         if not steps:
+629 |             raise RuntimeError(
+630 |                 "В профиле нет шагов выполнения: "
+631 |                 f"{workflow['workflow_profile_code']}"
+632 |             )
+633 | 
+634 |         for row in steps:
+635 |             cur.execute(
+636 |                 """
+637 |                 INSERT INTO service_order_steps (
+638 |                     service_order_id, step_code, step_name, step_kind,
+639 |                     sequence_no, is_required, step_status, created_at, updated_at
+640 |                 )
+641 |                 VALUES (?, ?, ?, ?, ?, ?, 'WAITING', ?, ?)
+642 |                 """,
+643 |                 (
+644 |                     order_id,
+645 |                     row["step_code"],
+646 |                     row["step_name"],
+647 |                     row["step_kind"],
+648 |                     row["sequence_no"],
+649 |                     row["is_required"],
+650 |                     now_db(),
+651 |                     now_db(),
+652 |                 ),
+653 |             )
+654 | 
+655 |         profile = text(workflow["workflow_profile_code"])
+656 |         if profile.startswith("REMOTE_"):
+657 |             cur.execute(
+658 |                 """
+659 |                 INSERT INTO remote_order_details (
+660 |                     service_order_id, remote_owner_mode,
+661 |                     reprogramming_required, inventory_asset_required,
+662 |                     created_at, updated_at
+663 |                 )
+664 |                 VALUES (?, ?, ?, ?, ?, ?)
+665 |                 """,
+666 |                 (
+667 |                     order_id,
+668 |                     (
+669 |                         "RESIDENT_OWN"
+670 |                         if profile == "REMOTE_REPROGRAM_OWN"
+671 |                         else "OSBB_STOCK"
+672 |                     ),
+673 |                     1 if profile == "REMOTE_REPROGRAM_OWN" else 0,
+674 |                     1 if profile in {
+675 |                         "REMOTE_NEW_FROM_STOCK",
+676 |                         "REMOTE_REFURBISHED_FROM_STOCK",
+677 |                     } else 0,
+678 |                     now_db(),
+679 |                     now_db(),
+680 |                 ),
+681 |             )
+682 | 
+683 |         _event(
+684 |             cur,
+685 |             order_id=order_id,
+686 |             event_type="ORDER_CREATED",
+687 |             actor_id=actor_id,
+688 |             actor_role=actor_role,
+689 |             source_context=source_context,
+690 |             details=(
+691 |                 f"item={service_item_code}; profile={profile}; "
+692 |                 f"quantity={quantity}; amount={amount_due}"
+693 |             ),
+694 |         )
+695 |         result = recompute_order_status(cur, order_id)
+696 |         _audit_order(
+697 |             conn,
+698 |             actor_id=actor_id,
+699 |             action_type="service_order_created",
+700 |             order_id=order_id,
+701 |             details=f"{order_number}; {service_item_code}; {result['order_status']}",
+702 |         )
+703 | 
+704 |         if owns:
+705 |             conn.commit()
+706 |         return result
+707 |     except Exception:
+708 |         if owns:
+709 |             conn.rollback()
+710 |         raise
+711 |     finally:
+712 |         if owns:
+713 |             conn.close()
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: required_tables
+------------------------------------------------------------------------------------------------------------------------
+147 | def required_tables() -> set[str]:
+148 |     return {
+149 |         "service_workflow_profiles",
+150 |         "service_workflow_steps",
+151 |         "service_item_workflows",
+152 |         "service_price_versions",
+153 |         "service_orders",
+154 |         "service_order_steps",
+155 |         "service_order_charge_links",
+156 |         "service_order_payment_links",
+157 |         "service_order_events",
+158 |         "remote_assets",
+159 |         "remote_asset_movements",
+160 |         "remote_order_details",
+161 |         "service_access_credentials",
+162 |     }
+
+------------------------------------------------------------------------------------------------------------------------
+FUNCTION: _derive_status
+------------------------------------------------------------------------------------------------------------------------
+406 | def _derive_status(steps: list[dict]) -> tuple[str, str, str]:
+407 |     required = [row for row in steps if int(row.get("is_required") or 0) == 1]
+408 |     waiting = [
+409 |         row for row in required
+410 |         if text(row.get("step_status")) not in {"CONFIRMED", "WAIVED"}
+411 |     ]
+412 | 
+413 |     payment = next(
+414 |         (row for row in required if text(row.get("step_code")) == "PAYMENT_CONFIRMED"),
+415 |         None,
+416 |     )
+417 |     payment_status = (
+418 |         "NOT_REQUIRED"
+419 |         if payment is None
+420 |         else (
+421 |             "CONFIRMED"
+422 |             if text(payment.get("step_status")) in {"CONFIRMED", "WAIVED"}
+423 |             else "AWAITING_PAYMENT"
+424 |         )
+425 |     )
+426 | 
+427 |     if not waiting:
+428 |         return "COMPLETED", payment_status, "COMPLETED"
+429 | 
+430 |     waiting_codes = {text(row.get("step_code")) for row in waiting}
+431 |     if "RESIDENT_REMOTE_RECEIVED" in waiting_codes:
+432 |         return "AWAITING_RESIDENT_ASSET", payment_status, "WAITING_FOR_REMOTE"
+433 |     if "STOCK_ASSET_RESERVED" in waiting_codes:
+434 |         return "AWAITING_STOCK", payment_status, "WAITING_FOR_STOCK"
+435 |     if "PAYMENT_CONFIRMED" in waiting_codes:
+436 |         return "AWAITING_PAYMENT", payment_status, "WAITING_FOR_PAYMENT"
+437 |     if "DIGITAL_ACCESS_ACTIVATED" in waiting_codes:
+438 |         return "IN_PROGRESS", payment_status, "WAITING_FOR_ACCESS_ACTIVATION"
+439 |     if "REMOTE_PROGRAMMED" in waiting_codes:
+440 |         return "IN_PROGRESS", payment_status, "WAITING_FOR_PROGRAMMING"
+441 |     if (
+442 |         "RESIDENT_REMOTE_RETURNED" in waiting_codes
+443 |         or "STOCK_ASSET_ISSUED" in waiting_codes
+444 |     ):
+445 |         return "READY_FOR_ISSUE", payment_status, "READY_FOR_HANDOVER"
+446 |     if "SERVICE_DELIVERED" in waiting_codes:
+447 |         return "IN_PROGRESS", payment_status, "WAITING_FOR_FULFILLMENT"
+448 |     return "IN_PROGRESS", payment_status, "IN_PROGRESS"
+
+========================================================================================================================
+FILE: run_bot_guard_sandbox_v3.py
+========================================================================================================================
+Lines: 235
+
+SEARCH SNIPPETS
+------------------------------------------------------------------------------------------------------------------------
+--- lines 31-39 ---
+31 | BOTS = ROOT / "Bots"
+32 | SANDBOX_DIR = ROOT / "Data" / "db" / "sandbox"
+33 | BOT_FILE = BOTS / "parking_bot.py"
+34 | V2_SWITCHER = ROOT / "switch_parking_bot_to_cashier_v2.py"
+35 | GUARD_PATCHER = ROOT / "patch_parking_bot_guard_workspace_v4.py"
+36 | 
+37 | 
+38 | def load_module(path: Path, name: str):
+39 |     spec = importlib.util.spec_from_file_location(name, path)
+
+--- lines 102-110 ---
+102 |         "access_user_permissions",
+103 |         "access_audit_log",
+104 |         "payment_notices",
+105 |         "cashier_receipts",
+106 |         "remote_requests",
+107 |         "remote_handover_events",
+108 |     ]
+109 |     conn = sqlite3.connect(sandbox_db)
+110 |     try:
+
+--- lines 153-161 ---
+153 |             "access_control",
+154 |             "audit_logger",
+155 |             "db_access",
+156 |             "Bots.db_access",
+157 |             "handlers.client_portal",
+158 |             "handlers.client_portal_v2",
+159 |             "handlers.cashier_operator",
+160 |             "handlers.cashier_operator_v2",
+161 |             "handlers.guard_workspace",
+
+--- lines 154-162 ---
+154 |             "audit_logger",
+155 |             "db_access",
+156 |             "Bots.db_access",
+157 |             "handlers.client_portal",
+158 |             "handlers.client_portal_v2",
+159 |             "handlers.cashier_operator",
+160 |             "handlers.cashier_operator_v2",
+161 |             "handlers.guard_workspace",
+162 |         }:
+
+--- lines 157-165 ---
+157 |             "handlers.client_portal",
+158 |             "handlers.client_portal_v2",
+159 |             "handlers.cashier_operator",
+160 |             "handlers.cashier_operator_v2",
+161 |             "handlers.guard_workspace",
+162 |         }:
+163 |             sys.modules.pop(name, None)
+164 | 
+165 |     namespace = {
+
+
+========================================================================================================================
+FILE: Bots/parking_bot.py
+========================================================================================================================
+Lines: 1358
+
+SEARCH SNIPPETS
+------------------------------------------------------------------------------------------------------------------------
+--- lines 7-15 ---
+ 7 | from handlers.vehicle_verification import handle_vehicle_verification_text
+ 8 | from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+ 9 | from handlers.vehicle_full_list import handle_vehicle_full_list_text
+10 | from handlers.audit_viewer import handle_audit_viewer_text
+11 | from handlers.client_portal import (
+12 |     handle_client_portal_text,
+13 |     client_menu_keyboard,
+14 |     client_welcome_text,
+15 | )
+
+--- lines 8-16 ---
+ 8 | from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+ 9 | from handlers.vehicle_full_list import handle_vehicle_full_list_text
+10 | from handlers.audit_viewer import handle_audit_viewer_text
+11 | from handlers.client_portal import (
+12 |     handle_client_portal_text,
+13 |     client_menu_keyboard,
+14 |     client_welcome_text,
+15 | )
+16 | from handlers.cashier_operator import handle_cashier_operator_text
+
+--- lines 94-102 ---
+ 94 |         "client_mode": "👤 Клиентский режим",
+ 95 |         "admin_mode": "🔐 Админ-режим",
+ 96 |         "welcome": "Добро пожаловать в систему управления ОСББ.",
+ 97 |         "parking": "🚗 Парковка",
+ 98 |         "remotes": "🔑 Пульты",
+ 99 |         "improvement": "🏗 Благоустройство",
+100 |         "news": "📢 Объявления",
+101 |         "contacts": "📞 Контакты",
+102 |     },
+
+--- lines 106-114 ---
+106 |         "client_mode": "👤 Режим мешканця",
+107 |         "admin_mode": "🔐 Адмін-режим",
+108 |         "welcome": "Ласкаво просимо до системи ОСББ.",
+109 |         "parking": "🚗 Паркування",
+110 |         "remotes": "🔑 Пульти",
+111 |         "improvement": "🏗 Благоустрій",
+112 |         "news": "📢 Оголошення",
+113 |         "contacts": "📞 Контакти",
+114 |     },
+
+--- lines 136-144 ---
+136 | CLIENT_MENU_RU = [
+137 |     ["🏠 Моя квартира"],
+138 |     ["✏️ Изменить квартиру"],
+139 |     ["🚗 Мои автомобили"],
+140 |     ["🚗 Парковка", "🔑 Пульты"],
+141 |     ["📞 Открытие по телефону"],
+142 |     ["🏗 Благоустройство"],
+143 |     ["📢 Объявления", "📞 Контакты"],
+144 |     ["🔐 Админ-режим"],
+
+--- lines 150-158 ---
+150 |     ["🚗 Автомобили"],
+151 |     ["🚗 Проверка авто"],
+152 |     ["🧾 Журнал действий"],
+153 |     ["🤝 Согласование"],
+154 |     ["🔑 Заявки на пульты"],
+155 |     ["📞 Телефонный доступ"],
+156 |     ["💳 Платежи"],
+157 |     ["📊 Отчёты"],
+158 |     ["⚙️ Настройки"],
+
+--- lines 172-180 ---
+172 | ]
+173 | APARTMENT_MENU = [
+174 |     ["👥 Жильцы", "🚗 Авто"],
+175 |     ["💳 Платежи", "📞 Телефоны"],
+176 |     ["🔑 Пульты"],
+177 |     ["🏠 Квартиры"],
+178 |     ["⬅️ Назад"],
+179 | ]
+180 | 
+
+--- lines 1042-1050 ---
+1042 |             await update.message.reply_text("Нет доступа.")
+1043 |         return
+1044 | 
+1045 |     # =========================
+1046 |     # Клиентский кабинет / заявки на пульты
+1047 |     # =========================
+1048 |     # В client-режиме блокирует старую RU-only обработку кнопок:
+1049 |     # на каждом уровне принимаются только кнопки выбранного языка.
+1050 |     # В admin-режиме обрабатывает только «Заявки на пульты».
+
+--- lines 1046-1054 ---
+1046 |     # Клиентский кабинет / заявки на пульты
+1047 |     # =========================
+1048 |     # В client-режиме блокирует старую RU-only обработку кнопок:
+1049 |     # на каждом уровне принимаются только кнопки выбранного языка.
+1050 |     # В admin-режиме обрабатывает только «Заявки на пульты».
+1051 |     if await handle_client_portal_text(
+1052 |         update,
+1053 |         user_states,
+1054 |         user_id,
+
+--- lines 1047-1055 ---
+1047 |     # =========================
+1048 |     # В client-режиме блокирует старую RU-only обработку кнопок:
+1049 |     # на каждом уровне принимаются только кнопки выбранного языка.
+1050 |     # В admin-режиме обрабатывает только «Заявки на пульты».
+1051 |     if await handle_client_portal_text(
+1052 |         update,
+1053 |         user_states,
+1054 |         user_id,
+1055 |         text,
+
+--- lines 1115-1123 ---
+1115 |             reply_markup=kb(CLIENT_MENU_RU),
+1116 |         )
+1117 |         return
+1118 | 
+1119 |     if text in ["🔑 Пульты", "🔑 Remotes"]:
+1120 |         await update.message.reply_text(
+1121 |             "🔑 Пульты шлагбаума\n\n"
+1122 |             "Здесь можно будет заказать новый пульт.",
+1123 |             reply_markup=kb(CLIENT_MENU_RU),
+
+--- lines 1117-1125 ---
+1117 |         return
+1118 | 
+1119 |     if text in ["🔑 Пульты", "🔑 Remotes"]:
+1120 |         await update.message.reply_text(
+1121 |             "🔑 Пульты шлагбаума\n\n"
+1122 |             "Здесь можно будет заказать новый пульт.",
+1123 |             reply_markup=kb(CLIENT_MENU_RU),
+1124 |         )
+1125 |         return
+
+--- lines 1118-1126 ---
+1118 | 
+1119 |     if text in ["🔑 Пульты", "🔑 Remotes"]:
+1120 |         await update.message.reply_text(
+1121 |             "🔑 Пульты шлагбаума\n\n"
+1122 |             "Здесь можно будет заказать новый пульт.",
+1123 |             reply_markup=kb(CLIENT_MENU_RU),
+1124 |         )
+1125 |         return
+1126 | 
+
+--- lines 1186-1194 ---
+1186 |             reply_markup=kb(APARTMENT_MENU if apartment_number else ADMIN_MENU),
+1187 |         )
+1188 |         return
+1189 | 
+1190 |     if text == "🔑 Пульты":
+1191 |         apartment_number = user_admin_apartments.get(user_id)
+1192 |         suffix = f" кв.{apartment_number}" if apartment_number else ""
+1193 |         await update.message.reply_text(
+1194 |             f"🔑 Пульты{suffix}\n\n"
+
+--- lines 1190-1198 ---
+1190 |     if text == "🔑 Пульты":
+1191 |         apartment_number = user_admin_apartments.get(user_id)
+1192 |         suffix = f" кв.{apartment_number}" if apartment_number else ""
+1193 |         await update.message.reply_text(
+1194 |             f"🔑 Пульты{suffix}\n\n"
+1195 |             "Раздел будет добавлен позже.",
+1196 |             reply_markup=kb(APARTMENT_MENU if apartment_number else ADMIN_MENU),
+1197 |         )
+1198 |         return
+
+--- lines 1276-1284 ---
+1276 | 
+1277 |     if await handle_agreement_menu_text(update, user_states, user_id, text):
+1278 |         return
+1279 | 
+1280 |     if text == "🔑 Заявки на пульты":
+1281 |         await update.message.reply_text(
+1282 |             "🔑 Заявки на пульты\n\n"
+1283 |             "Здесь будет обработка заказов пультов.",
+1284 |             reply_markup=kb(ADMIN_MENU),
+
+--- lines 1278-1286 ---
+1278 |         return
+1279 | 
+1280 |     if text == "🔑 Заявки на пульты":
+1281 |         await update.message.reply_text(
+1282 |             "🔑 Заявки на пульты\n\n"
+1283 |             "Здесь будет обработка заказов пультов.",
+1284 |             reply_markup=kb(ADMIN_MENU),
+1285 |         )
+1286 |         return
+
+--- lines 1279-1287 ---
+1279 | 
+1280 |     if text == "🔑 Заявки на пульты":
+1281 |         await update.message.reply_text(
+1282 |             "🔑 Заявки на пульты\n\n"
+1283 |             "Здесь будет обработка заказов пультов.",
+1284 |             reply_markup=kb(ADMIN_MENU),
+1285 |         )
+1286 |         return
+1287 | 
+

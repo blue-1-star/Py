@@ -1189,6 +1189,80 @@ def _billing_data(unit: dict) -> dict:
     finally:
         conn.close()
 
+# OSBB_REMOTE_DEBT_GATE_V1_CLIENT_HELPERS
+def _remote_gate_service_is_blocking(service_code: object) -> bool:
+    service = text(service_code).upper()
+    if not service:
+        return False
+    return (
+        service.startswith("PARKING")
+        or service.startswith("BARRIER")
+        or "PARK" in service
+        or "ШЛАГ" in service
+        or "SHLAG" in service
+    )
+
+
+def _remote_gate_block_message(apartment_number: object, amount: float, reason: str = "") -> str:
+    apt = text(apartment_number) or "-"
+    if reason:
+        return (
+            f"⚠️ За квартирой {apt} невозможно автоматически проверить задолженность.\n\n"
+            "Заказ нового пульта через бот временно недоступен.\n"
+            "Пожалуйста, обратитесь к оператору ОСББ для сверки."
+        )
+    return (
+        f"⚠️ За квартирой {apt} числится задолженность за парковку / доступ к шлагбауму: "
+        f"{amount:.2f} грн.\n\n"
+        "Заказ нового пульта через бот временно недоступен.\n"
+        "Пожалуйста, погасите задолженность у кассира/охраны или обратитесь к оператору ОСББ для сверки."
+    )
+
+
+def _remote_debt_gate(unit: dict) -> dict:
+    """
+    Read-only gate for resident remote requests.
+
+    Uses _billing_data(), so it follows the current charges/payment_allocations
+    compatibility logic and does not create any DB rows.
+    """
+    billing = _billing_data(unit)
+    apt = text((unit or {}).get("apartment_number"))
+
+    if billing.get("error"):
+        return {
+            "allowed": False,
+            "outstanding_total": 0.0,
+            "message": _remote_gate_block_message(apt, 0.0, str(billing.get("error"))),
+        }
+
+    total = 0.0
+    rows = []
+    for item in billing.get("charges") or []:
+        service = item.get("service_code")
+        if not _remote_gate_service_is_blocking(service):
+            continue
+        rest = float(item.get("outstanding_amount") or 0)
+        if rest > 0.01:
+            total += rest
+            rows.append(item)
+
+    if total > 0.01:
+        return {
+            "allowed": False,
+            "outstanding_total": round(total, 2),
+            "rows": rows,
+            "message": _remote_gate_block_message(apt, total),
+        }
+
+    return {
+        "allowed": True,
+        "outstanding_total": 0.0,
+        "rows": [],
+        "message": "",
+    }
+
+
 
 def _service_name(code: str | None, lang: str) -> str:
     code = text(code)
@@ -1346,6 +1420,11 @@ def _create_remote_request(
     quantity: int,
     resident_comment: str | None,
 ) -> int:
+    # OSBB_REMOTE_DEBT_GATE_V1_CREATE_CHECK
+    gate = _remote_debt_gate(unit)
+    if not gate.get("allowed"):
+        raise ValueError(gate.get("message") or "Заказ пульта временно недоступен из-за задолженности.")
+
     conn = get_conn()
     try:
         cur = conn.cursor()
@@ -2158,13 +2237,19 @@ async def handle_client_portal_text(
             await show_remotes(update, user_states, user_id, lang)
             return True
         comment = None if message_text == "-" else message_text
-        request_id = _create_remote_request(
-            account=data["account"],
-            unit=data["unit"],
-            request_kind=text(state.get("remote_kind")) or "FIRST",
-            quantity=int(state.get("remote_quantity") or 1),
-            resident_comment=comment,
-        )
+        # OSBB_REMOTE_DEBT_GATE_V1_CALL_WRAP
+        try:
+            request_id = _create_remote_request(
+                account=data["account"],
+                unit=data["unit"],
+                request_kind=text(state.get("remote_kind")) or "FIRST",
+                quantity=int(state.get("remote_quantity") or 1),
+                resident_comment=comment,
+            )
+        except ValueError as exc:
+            await update.message.reply_text(f"⚠️ {exc}", reply_markup=kb(remotes_menu_keyboard(lang)))
+            state["mode"] = "client_remotes"
+            return True
         state["mode"] = "client_remotes"
         state.pop("remote_kind", None)
         state.pop("remote_quantity", None)

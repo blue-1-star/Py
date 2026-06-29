@@ -1,0 +1,1003 @@
+# Debt Gate Candidate Lines
+
+- `billing_reconciliation_report.py:61` **debt_or_payment_reference** — def load_charges(cur, charges_table, period_code):
+- `billing_reconciliation_report.py:62` **debt_or_payment_reference** — if not charges_table:
+- `billing_reconciliation_report.py:65` **debt_or_payment_reference** — columns = table_columns(cur, charges_table)
+- `billing_reconciliation_report.py:78` **debt_or_payment_reference** — FROM {charges_table} c
+- `billing_reconciliation_report.py:155` **debt_or_payment_reference** — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_reconciliation_report.py:157` **debt_or_payment_reference** — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `billing_reconciliation_report.py:159` **debt_or_payment_reference** — charges = load_charges(cur, charges_table, period_code)
+- `billing_reconciliation_report.py:163` **debt_or_payment_reference** — allocated_by_charge = {}
+- `billing_reconciliation_report.py:164` **debt_or_payment_reference** — allocated_by_payment = {}
+- `billing_reconciliation_report.py:170` **debt_or_payment_reference** — allocated_by_charge[charge_id] = allocated_by_charge.get(charge_id, 0) + amount
+- `billing_reconciliation_report.py:171` **debt_or_payment_reference** — allocated_by_payment[payment_id] = allocated_by_payment.get(payment_id, 0) + amount
+- `billing_reconciliation_report.py:174` **debt_or_payment_reference** — partially_paid = []
+- `billing_reconciliation_report.py:175` **debt_or_payment_reference** — unpaid_charges = []
+- `billing_reconciliation_report.py:176` **debt_or_payment_reference** — overallocated_charges = []
+- `billing_reconciliation_report.py:183` **debt_or_payment_reference** — for c in charges:
+- `billing_reconciliation_report.py:185` **debt_or_payment_reference** — allocated = float(allocated_by_charge.get(c["charge_id"], 0))
+- `billing_reconciliation_report.py:186` **debt_or_payment_reference** — balance = amount - allocated
+- `billing_reconciliation_report.py:188` **debt_or_payment_reference** — item["allocated"] = allocated
+- `billing_reconciliation_report.py:189` **debt_or_payment_reference** — item["balance"] = balance
+- `billing_reconciliation_report.py:191` **debt_or_payment_reference** — if abs(balance) <= 0.01 and allocated > 0:
+- `billing_reconciliation_report.py:193` **debt_or_payment_reference** — elif allocated > amount + 0.01:
+- `billing_reconciliation_report.py:194` **debt_or_payment_reference** — overallocated_charges.append(item)
+- `billing_reconciliation_report.py:195` **debt_or_payment_reference** — elif allocated > 0.01:
+- `billing_reconciliation_report.py:196` **debt_or_payment_reference** — partially_paid.append(item)
+- `billing_reconciliation_report.py:198` **debt_or_payment_reference** — unpaid_charges.append(item)
+- `billing_reconciliation_report.py:202` **debt_or_payment_reference** — allocated = float(allocated_by_payment.get(p["payment_id"], 0))
+- `billing_reconciliation_report.py:203` **debt_or_payment_reference** — unallocated = amount - allocated
+- `billing_reconciliation_report.py:205` **debt_or_payment_reference** — if abs(unallocated) <= 0.01:
+- `billing_reconciliation_report.py:209` **debt_or_payment_reference** — item["allocated"] = allocated
+- `billing_reconciliation_report.py:210` **debt_or_payment_reference** — item["unallocated"] = unallocated
+- `billing_reconciliation_report.py:225` **debt_or_payment_reference** — "charges_table": charges_table,
+- `billing_reconciliation_report.py:228` **debt_or_payment_reference** — "charges": charges,
+- `billing_reconciliation_report.py:232` **debt_or_payment_reference** — "partially_paid": partially_paid,
+- `billing_reconciliation_report.py:233` **debt_or_payment_reference** — "unpaid_charges": unpaid_charges,
+- `billing_reconciliation_report.py:234` **debt_or_payment_reference** — "overallocated_charges": overallocated_charges,
+- `billing_reconciliation_report.py:247` **debt_or_payment_reference** — f"allocated={money(c.get('allocated'))} | balance={money(c.get('balance'))}"
+- `billing_reconciliation_report.py:256` **debt_or_payment_reference** — f"amount={money(p.get('amount'))} | allocated={money(p.get('allocated'))} | "
+- `billing_reconciliation_report.py:257` **debt_or_payment_reference** — f"unallocated={money(p.get('unallocated'))} | source={p.get('source') or '-'} | "
+- `billing_reconciliation_report.py:287` **debt_or_payment_reference** — total_charges = sum(float(c["amount"] or 0) for c in data["charges"])
+- `billing_reconciliation_report.py:291` **debt_or_payment_reference** — total_unallocated = sum(
+- `billing_reconciliation_report.py:292` **debt_or_payment_reference** — float(p.get("unallocated") or 0)
+- `billing_reconciliation_report.py:309` **debt_or_payment_reference** — lines.append(f"Charges    : {data['charges_table']}")
+- `billing_reconciliation_report.py:317` **debt_or_payment_reference** — lines.append(f"Charges count              : {len(data['charges'])}")
+- `billing_reconciliation_report.py:320` **debt_or_payment_reference** — lines.append(f"Charges total              : {money(total_charges)}")
+- `billing_reconciliation_report.py:322` **debt_or_payment_reference** — lines.append(f"Allocated total            : {money(total_allocations)}")
+- `billing_reconciliation_report.py:323` **debt_or_payment_reference** — lines.append(f"Unallocated total          : {money(total_unallocated)}")
+- `billing_reconciliation_report.py:325` **debt_or_payment_reference** — lines.append(f"Fully matched charges      : {len(data['fully_matched'])}")
+- `billing_reconciliation_report.py:326` **debt_or_payment_reference** — lines.append(f"Partially paid charges     : {len(data['partially_paid'])}")
+- `billing_reconciliation_report.py:327` **debt_or_payment_reference** — lines.append(f"Unpaid charges             : {len(data['unpaid_charges'])}")
+- `billing_reconciliation_report.py:328` **debt_or_payment_reference** — lines.append(f"Overallocated charges      : {len(data['overallocated_charges'])}")
+- `billing_reconciliation_report.py:335` **debt_or_payment_reference** — write_section(lines, "1. FULLY_MATCHED_CHARGES — начисление полностью закрыто оплатой", data["fully_matched"], format_charge_line)
+- `billing_reconciliation_report.py:336` **debt_or_payment_reference** — write_section(lines, "2. PARTIALLY_PAID_CHARGES — частично оплачено", data["partially_paid"], format_charge_line)
+- `billing_reconciliation_report.py:337` **debt_or_payment_reference** — write_section(lines, "3. UNPAID_CHARGES — начисления без оплаты", data["unpaid_charges"], format_charge_line)
+- `billing_reconciliation_report.py:338` **debt_or_payment_reference** — write_section(lines, "4. OVERALLOCATED_CHARGES — к начислению привязано больше, чем начислено", data["overallocated_charges"], format_charge_line)
+- `billing_reconciliation_report.py:350` **debt_or_payment_reference** — lines.append("PARTIALLY_PAID_CHARGES: это реальные частичные оплаты или старые тарифы.")
+- `billing_reconciliation_report.py:351` **debt_or_payment_reference** — lines.append("OVERALLOCATED_CHARGES: проверить переплату или ошибочное распределение.")
+- `billing_reconciliation_report.py:383` **debt_or_payment_reference** — print("Partially paid:", len(data["partially_paid"]))
+- `billing_reconciliation_report.py:384` **debt_or_payment_reference** — print("Unpaid charges:", len(data["unpaid_charges"]))
+- `billing_statement_excel.py:74` **debt_or_payment_reference** — def load_charges(cur, period_code):
+- `billing_statement_excel.py:75` **debt_or_payment_reference** — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_statement_excel.py:76` **debt_or_payment_reference** — if not charges_table:
+- `billing_statement_excel.py:79` **debt_or_payment_reference** — cols = table_columns(cur, charges_table)
+- `billing_statement_excel.py:95` **debt_or_payment_reference** — FROM {charges_table} c
+- `billing_statement_excel.py:144` **debt_or_payment_reference** — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `billing_statement_excel.py:183` **debt_or_payment_reference** — charges = load_charges(cur, period_code)
+- `billing_statement_excel.py:188` **debt_or_payment_reference** — allocated_by_charge = defaultdict(float)
+- `billing_statement_excel.py:189` **debt_or_payment_reference** — allocated_by_payment = defaultdict(float)
+- `billing_statement_excel.py:192` **debt_or_payment_reference** — allocated_by_charge[a["charge_id"]] += float(a["amount"] or 0)
+- `billing_statement_excel.py:193` **debt_or_payment_reference** — allocated_by_payment[a["payment_id"]] += float(a["amount"] or 0)
+- `billing_statement_excel.py:204` **debt_or_payment_reference** — "allocated": 0.0,
+- `billing_statement_excel.py:205` **debt_or_payment_reference** — "unallocated": 0.0,
+- `billing_statement_excel.py:206` **debt_or_payment_reference** — "charges": [],
+- `billing_statement_excel.py:211` **debt_or_payment_reference** — for ch in charges:
+- `billing_statement_excel.py:213` **debt_or_payment_reference** — allocated = allocated_by_charge[ch["charge_id"]]
+- `billing_statement_excel.py:217` **debt_or_payment_reference** — row["allocated"] = allocated
+- `billing_statement_excel.py:218` **debt_or_payment_reference** — row["charge_balance"] = amount - allocated
+- `billing_statement_excel.py:222` **debt_or_payment_reference** — item["allocated"] += allocated
+- `billing_statement_excel.py:223` **debt_or_payment_reference** — item["charges"].append(row)
+- `billing_statement_excel.py:228` **debt_or_payment_reference** — allocated = allocated_by_payment[p["payment_id"]]
+- `billing_statement_excel.py:231` **debt_or_payment_reference** — row["allocated"] = allocated
+- `billing_statement_excel.py:232` **debt_or_payment_reference** — row["unallocated"] = amount - allocated
+- `billing_statement_excel.py:236` **debt_or_payment_reference** — item["unallocated"] += amount - allocated
+- `billing_statement_excel.py:240` **debt_or_payment_reference** — item["balance"] = item["charged"] - item["paid"]
+- `billing_statement_excel.py:243` **debt_or_payment_reference** — "charges": charges,
+- `billing_statement_excel.py:319` **debt_or_payment_reference** — balance = money(item["balance"])
+- `billing_statement_excel.py:320` **debt_or_payment_reference** — if balance > 0:
+- `billing_statement_excel.py:322` **debt_or_payment_reference** — elif balance < 0:
+- `billing_statement_excel.py:327` **debt_or_payment_reference** — charges_text = []
+- `billing_statement_excel.py:328` **debt_or_payment_reference** — for ch in item["charges"]:
+- `billing_statement_excel.py:329` **debt_or_payment_reference** — charges_text.append(
+- `billing_statement_excel.py:345` **debt_or_payment_reference** — money(item["allocated"]),
+- `billing_statement_excel.py:346` **debt_or_payment_reference** — money(item["unallocated"]),
+- `billing_statement_excel.py:347` **debt_or_payment_reference** — balance,
+- `billing_statement_excel.py:349` **debt_or_payment_reference** — "\n".join(charges_text),
+- `billing_statement_excel.py:356` **debt_or_payment_reference** — # Debtors
+- `billing_statement_excel.py:360` **debt_or_payment_reference** — debtors = [
+- `billing_statement_excel.py:362` **debt_or_payment_reference** — if item["balance"] > 0.01
+- `billing_statement_excel.py:364` **debt_or_payment_reference** — for item in sorted(debtors, key=lambda x: (-x["balance"], apt_sort_key(x["apt"]))):
+- `billing_statement_excel.py:367` **debt_or_payment_reference** — money(item["balance"]),
+- `billing_statement_excel.py:372` **debt_or_payment_reference** — for ch in item["charges"]
+- `billing_statement_excel.py:375` **debt_or_payment_reference** — add_table(ws, "Debtors")
+- `billing_statement_excel.py:383` **debt_or_payment_reference** — if item["balance"] < -0.01 or item["unallocated"] > 0.01
+- `billing_statement_excel.py:385` **debt_or_payment_reference** — for item in sorted(over, key=lambda x: (x["balance"], apt_sort_key(x["apt"]))):
+- `billing_statement_excel.py:388` **debt_or_payment_reference** — money(-item["balance"]) if item["balance"] < 0 else 0,
+- `billing_statement_excel.py:391` **debt_or_payment_reference** — money(item["unallocated"]),
+- `billing_statement_excel.py:396` **debt_or_payment_reference** — # Charges details
+- `billing_statement_excel.py:400` **debt_or_payment_reference** — "Услуга", "Начислено", "Распределено", "Остаток"
+- `billing_statement_excel.py:402` **debt_or_payment_reference** — for ch in data["charges"]:
+- `billing_statement_excel.py:404` **debt_or_payment_reference** — allocated = 0
+- `billing_statement_excel.py:407` **debt_or_payment_reference** — for ch2 in item["charges"]:
+- `billing_statement_excel.py:409` **debt_or_payment_reference** — allocated = ch2["allocated"]
+- `billing_statement_excel.py:419` **debt_or_payment_reference** — money(allocated),
+- `billing_statement_excel.py:420` **debt_or_payment_reference** — money(amount - allocated),
+- `billing_statement_excel.py:422` **debt_or_payment_reference** — add_table(ws, "Charges")
+- `billing_statement_excel.py:433` **debt_or_payment_reference** — allocated = 0
+- `billing_statement_excel.py:434` **debt_or_payment_reference** — unallocated = 0
+- `billing_statement_excel.py:438` **debt_or_payment_reference** — allocated = p2["allocated"]
+- `billing_statement_excel.py:439` **debt_or_payment_reference** — unallocated = p2["unallocated"]
+- `billing_statement_excel.py:449` **debt_or_payment_reference** — money(allocated),
+- `billing_statement_excel.py:450` **debt_or_payment_reference** — money(unallocated),
+- `billing_statement_excel.py:457` **debt_or_payment_reference** — # Unallocated payments
+- `billing_statement_excel.py:460` **debt_or_payment_reference** — "payment_id", "Дата", "Квартира", "Номер", "Оплачено", "Распределено", "Остаток", "Источник", "Комментарий"
+- `billing_statement_excel.py:464` **debt_or_payment_reference** — if p["unallocated"] > 0.01:
+- `billing_statement_excel.py:471` **debt_or_payment_reference** — money(p["allocated"]),
+- `billing_statement_excel.py:472` **debt_or_payment_reference** — money(p["unallocated"]),
+- `billing_statement_excel.py:476` **debt_or_payment_reference** — add_table(ws, "UnallocatedPayments")
+- `billing_statement_excel.py:501` **debt_or_payment_reference** — ws.append(["Charges total", money(sum(float(ch["amount"] or 0) for ch in data["charges"]))])
+- `billing_statement_excel.py:511` **debt_or_payment_reference** — description="Excel billing statement: charges, payments, balances, work queues."
+- `billing_statement_excel.py:530` **debt_or_payment_reference** — total_charges = sum(float(ch["amount"] or 0) for ch in data["charges"])
+- `billing_statement_excel.py:540` **debt_or_payment_reference** — print("Charges total:", money(total_charges))
+- `Bots/handlers/cashier_operator.py:60` **debt_or_payment_reference** — ["💸 Передача между кассами", "🏦 Остатки касс"],
+- `Bots/handlers/cashier_operator.py:233` **debt_or_payment_reference** — elif "AMOUNT" in upper or "BALANCE" in upper or "PRICE" in upper:
+- `Bots/handlers/cashier_operator.py:331` **debt_or_payment_reference** — # Cashboxes / balances
+- `Bots/handlers/cashier_operator.py:369` **debt_or_payment_reference** — SELECT cashbox_code, cashbox_name, current_balance, is_active, comment
+- `Bots/handlers/cashier_operator.py:382` **debt_or_payment_reference** — def calculated_cashbox_balance(cur: sqlite3.Cursor, code: str) -> float:
+- `Bots/handlers/cashier_operator.py:384` **debt_or_payment_reference** — "SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?",
+- `Bots/handlers/cashier_operator.py:391` **debt_or_payment_reference** — initial = float(row["initial_balance"] or 0)
+- `Bots/handlers/cashier_operator.py:409` **debt_or_payment_reference** — def recalc_and_store_cashbox_balance(cur: sqlite3.Cursor, code: str) -> float:
+- `Bots/handlers/cashier_operator.py:410` **debt_or_payment_reference** — balance = calculated_cashbox_balance(cur, code)
+- `Bots/handlers/cashier_operator.py:412` **debt_or_payment_reference** — if "current_balance" in cols:
+- `Bots/handlers/cashier_operator.py:413` **debt_or_payment_reference** — values = {"current_balance": balance}
+- `Bots/handlers/cashier_operator.py:422` **debt_or_payment_reference** — return balance
+- `Bots/handlers/cashier_operator.py:425` **debt_or_payment_reference** — def format_cashbox_balances() -> str:
+- `Bots/handlers/cashier_operator.py:429` **debt_or_payment_reference** — lines = ["🏦 Остатки касс", ""]
+- `Bots/handlers/cashier_operator.py:432` **debt_or_payment_reference** — balance = calculated_cashbox_balance(cur, code)
+- `Bots/handlers/cashier_operator.py:435` **debt_or_payment_reference** — f"   {money(balance)} грн."
+- `Bots/handlers/cashier_operator.py:448` **debt_or_payment_reference** — # Units, receipts and charges
+- `Bots/handlers/cashier_operator.py:537` **debt_or_payment_reference** — "UNALLOCATED": "🟠 Не разнесено",
+- `Bots/handlers/cashier_operator.py:538` **debt_or_payment_reference** — "PARTIAL": "🟡 Разнесено частично",
+- `Bots/handlers/cashier_operator.py:539` **debt_or_payment_reference** — "ALLOCATED": "✅ Разнесено",
+- `Bots/handlers/cashier_operator.py:570` **debt_or_payment_reference** — Allocation remains UNALLOCATED.
+- `Bots/handlers/cashier_operator.py:573` **debt_or_payment_reference** — receipt only, no payment and no cashbox balance change.
+- `Bots/handlers/cashier_operator.py:649` **debt_or_payment_reference** — "UNALLOCATED" if kind == "CASH_RECEIVED" else "NOT_APPLICABLE"
+- `Bots/handlers/cashier_operator.py:806` **debt_or_payment_reference** — balance = recalc_and_store_cashbox_balance(cur, cashbox_code)
+- `Bots/handlers/cashier_operator.py:820` **debt_or_payment_reference** — f"{data.get('period_code') or ''},UNALLOCATED"
+- `Bots/handlers/cashier_operator.py:831` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `Bots/handlers/cashier_operator.py:905` **debt_or_payment_reference** — def list_recent_receipts(*, limit: int = 20, unallocated_only: bool = False) -> list[dict]:
+- `Bots/handlers/cashier_operator.py:911` **debt_or_payment_reference** — if unallocated_only:
+- `Bots/handlers/cashier_operator.py:915` **debt_or_payment_reference** — "COALESCE(r.allocation_status, 'UNALLOCATED') IN ('UNALLOCATED', 'PARTIAL')",
+- `Bots/handlers/cashier_operator.py:947` **debt_or_payment_reference** — if not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:949` **debt_or_payment_reference** — cols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:951` **debt_or_payment_reference** — "allocated_amount" if "allocated_amount" in cols else None
+- `Bots/handlers/cashier_operator.py:957` **debt_or_payment_reference** — f"FROM payment_allocations WHERE payment_id = ?",
+- `Bots/handlers/cashier_operator.py:971` **debt_or_payment_reference** — def receipt_unallocated_amount(receipt: dict) -> float:
+- `Bots/handlers/cashier_operator.py:986` **debt_or_payment_reference** — def list_open_charges_for_receipt(receipt_id: int) -> list[dict]:
+- `Bots/handlers/cashier_operator.py:996` **debt_or_payment_reference** — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:999` **debt_or_payment_reference** — ccols = table_columns(cur, "charges")
+- `Bots/handlers/cashier_operator.py:1000` **debt_or_payment_reference** — acols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:1002` **debt_or_payment_reference** — "allocated_amount" if "allocated_amount" in acols else None
+- `Bots/handlers/cashier_operator.py:1050` **debt_or_payment_reference** — COALESCE(SUM(pa.{q(acol)}), 0) AS allocated_amount
+- `Bots/handlers/cashier_operator.py:1051` **debt_or_payment_reference** — FROM charges c
+- `Bots/handlers/cashier_operator.py:1052` **debt_or_payment_reference** — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `Bots/handlers/cashier_operator.py:1065` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `Bots/handlers/cashier_operator.py:1066` **debt_or_payment_reference** — item["outstanding_amount"] = max(
+- `Bots/handlers/cashier_operator.py:1068` **debt_or_payment_reference** — item["charge_amount"] - item["allocated_amount"],
+- `Bots/handlers/cashier_operator.py:1098` **debt_or_payment_reference** — unallocated = max(
+- `Bots/handlers/cashier_operator.py:1104` **debt_or_payment_reference** — charges = {item["charge_id"]: item for item in list_open_charges_for_receipt(receipt_id)}
+- `Bots/handlers/cashier_operator.py:1105` **debt_or_payment_reference** — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:1112` **debt_or_payment_reference** — maximum = min(unallocated, float(charge["outstanding_amount"]))
+- `Bots/handlers/cashier_operator.py:1116` **debt_or_payment_reference** — f"(остаток платежа {money(unallocated)}, "
+- `Bots/handlers/cashier_operator.py:1117` **debt_or_payment_reference** — f"остаток начисления {money(charge['outstanding_amount'])})."
+- `Bots/handlers/cashier_operator.py:1122` **debt_or_payment_reference** — "payment_allocations",
+- `Bots/handlers/cashier_operator.py:1127` **debt_or_payment_reference** — "allocated_amount": amount,
+- `Bots/handlers/cashier_operator.py:1137` **debt_or_payment_reference** — new_status = "ALLOCATED" if remaining < 0.00001 else "PARTIAL"
+- `Bots/handlers/cashier_operator.py:1154` **debt_or_payment_reference** — table_name="payment_allocations",
+- `Bots/handlers/cashier_operator.py:1185` **debt_or_payment_reference** — def void_unallocated_receipt(receipt_id: int, *, operator_id: int, reason: str) -> dict:
+- `Bots/handlers/cashier_operator.py:1215` **debt_or_payment_reference** — allocated = receipt_allocation_total(cur, payment_id)
+- `Bots/handlers/cashier_operator.py:1216` **debt_or_payment_reference** — if allocated > 0.00001:
+- `Bots/handlers/cashier_operator.py:1302` **debt_or_payment_reference** — balance = recalc_and_store_cashbox_balance(cur, cashbox_code)
+- `Bots/handlers/cashier_operator.py:1321` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `Bots/handlers/cashier_operator.py:1330` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `Bots/handlers/cashier_operator.py:1410` **debt_or_payment_reference** — from_balance = recalc_and_store_cashbox_balance(cur, from_code)
+- `Bots/handlers/cashier_operator.py:1411` **debt_or_payment_reference** — to_balance = recalc_and_store_cashbox_balance(cur, to_code)
+- `Bots/handlers/cashier_operator.py:1430` **debt_or_payment_reference** — "from_balance_after": from_balance,
+- `Bots/handlers/cashier_operator.py:1431` **debt_or_payment_reference** — "to_balance_after": to_balance,
+- `Bots/handlers/cashier_operator.py:1439` **debt_or_payment_reference** — "from_balance": from_balance,
+- `Bots/handlers/cashier_operator.py:1440` **debt_or_payment_reference** — "to_balance": to_balance,
+- `Bots/handlers/cashier_operator.py:1455` **debt_or_payment_reference** — unallocated = receipt_unallocated_amount(receipt)
+- `Bots/handlers/cashier_operator.py:1472` **debt_or_payment_reference** — lines.append(f"Остаток неразнесённой оплаты: {money(unallocated)} грн.")
+- `Bots/handlers/cashier_operator.py:1507` **debt_or_payment_reference** — def format_charge_list(receipt: dict, charges: list[dict]) -> str:
+- `Bots/handlers/cashier_operator.py:1511` **debt_or_payment_reference** — f"Не разнесено: {money(receipt_unallocated_amount(receipt))} грн.",
+- `Bots/handlers/cashier_operator.py:1517` **debt_or_payment_reference** — if not charges:
+- `Bots/handlers/cashier_operator.py:1525` **debt_or_payment_reference** — for item in charges:
+- `Bots/handlers/cashier_operator.py:1530` **debt_or_payment_reference** — f"остаток {money(item['outstanding_amount'])} грн."
+- `Bots/handlers/cashier_operator.py:1543` **debt_or_payment_reference** — "остаток кассы не меняется."
+- `Bots/handlers/cashier_operator.py:1642` **debt_or_payment_reference** — "Эта запись не является оплатой и не меняет остаток кассы.\n"
+- `Bots/handlers/cashier_operator.py:1670` **debt_or_payment_reference** — if receipt.get("allocation_status") == "UNALLOCATED":
+- `Bots/handlers/cashier_operator.py:1689` **debt_or_payment_reference** — unallocated_only: bool,
+- `Bots/handlers/cashier_operator.py:1691` **debt_or_payment_reference** — receipts = list_recent_receipts(limit=30, unallocated_only=unallocated_only)
+- `Bots/handlers/cashier_operator.py:1694` **debt_or_payment_reference** — if unallocated_only
+- `Bots/handlers/cashier_operator.py:1700` **debt_or_payment_reference** — state["cashier_receipt_list_unallocated"] = bool(unallocated_only)
+- `Bots/handlers/cashier_operator.py:1746` **debt_or_payment_reference** — async def show_open_charges(
+- `Bots/handlers/cashier_operator.py:1757` **debt_or_payment_reference** — charges = list_open_charges_for_receipt(receipt_id)
+- `Bots/handlers/cashier_operator.py:1764` **debt_or_payment_reference** — for charge in charges:
+- `Bots/handlers/cashier_operator.py:1768` **debt_or_payment_reference** — f"{money(charge['outstanding_amount'])}"
+- `Bots/handlers/cashier_operator.py:1780` **debt_or_payment_reference** — format_charge_list(receipt, charges),
+- `Bots/handlers/cashier_operator.py:1825` **debt_or_payment_reference** — "Платёж и остаток кассы не изменятся.",
+- `Bots/handlers/cashier_operator.py:1910` **debt_or_payment_reference** — await show_receipt_list(update, user_states, user_id, unallocated_only=True)
+- `Bots/handlers/cashier_operator.py:1913` **debt_or_payment_reference** — await show_receipt_list(update, user_states, user_id, unallocated_only=False)
+- `Bots/handlers/cashier_operator.py:1915` **debt_or_payment_reference** — if message_text == "🏦 Остатки касс":
+- `Bots/handlers/cashier_operator.py:1917` **debt_or_payment_reference** — format_cashbox_balances(),
+- `Bots/handlers/cashier_operator.py:2199` **debt_or_payment_reference** — await show_open_charges(update, user_states, user_id, receipt_id)
+- `Bots/handlers/cashier_operator.py:2202` **debt_or_payment_reference** — await show_receipt_list(update, user_states, user_id, unallocated_only=True)
+- `Bots/handlers/cashier_operator.py:2222` **debt_or_payment_reference** — result = void_unallocated_receipt(
+- `Bots/handlers/cashier_operator.py:2232` **debt_or_payment_reference** — f"Касса: {money(result['cashbox_balance'])} грн.\n"
+- `Bots/handlers/cashier_operator.py:2255` **debt_or_payment_reference** — charges = {
+- `Bots/handlers/cashier_operator.py:2257` **debt_or_payment_reference** — for item in list_open_charges_for_receipt(int(state.get("cashier_receipt_id")))
+- `Bots/handlers/cashier_operator.py:2259` **debt_or_payment_reference** — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:2265` **debt_or_payment_reference** — receipt_unallocated_amount(receipt),
+- `Bots/handlers/cashier_operator.py:2266` **debt_or_payment_reference** — float(charge["outstanding_amount"]),
+- `Bots/handlers/cashier_operator.py:2272` **debt_or_payment_reference** — f"Квитанция: {money(receipt_unallocated_amount(receipt))} грн. не разнесено.\n"
+- `Bots/handlers/cashier_operator.py:2273` **debt_or_payment_reference** — f"Начисление: {money(charge['outstanding_amount'])} грн. остаток.\n"
+- `Bots/handlers/cashier_operator.py:2281` **debt_or_payment_reference** — await show_open_charges(
+- `Bots/handlers/cashier_operator.py:2300` **debt_or_payment_reference** — f"Остаток квитанции: {money(result['remaining'])} грн."
+- `Bots/handlers/cashier_operator.py:2415` **debt_or_payment_reference** — f"{state['transfer_from']}: {money(result['from_balance'])} грн.\n"
+- `Bots/handlers/cashier_operator.py:2416` **debt_or_payment_reference** — f"{state['transfer_to']}: {money(result['to_balance'])} грн."
+- `Bots/handlers/cashier_operator_v2.py:35` **debt_or_payment_reference** — calc_cashbox_balance,
+- `Bots/handlers/cashier_operator_v2.py:51` **debt_or_payment_reference** — open_charges,
+- `Bots/handlers/cashier_operator_v2.py:69` **debt_or_payment_reference** — ["⚖️ Сверка", "🏦 Остатки касс"],
+- `Bots/handlers/cashier_operator_v2.py:195` **debt_or_payment_reference** — if charge and abs(float(state.get("amount") or 0) - float(charge["outstanding_amount"])) < 0.00001
+- `Bots/handlers/cashier_operator_v2.py:219` **debt_or_payment_reference** — if charge and abs(float(state.get("amount") or 0) - float(charge["outstanding_amount"])) < 0.00001
+- `Bots/handlers/cashier_operator_v2.py:249` **debt_or_payment_reference** — "Платёж и остаток кассы не изменятся.",
+- `Bots/handlers/cashier_operator_v2.py:260` **debt_or_payment_reference** — rows = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:268` **debt_or_payment_reference** — state["amount"] = float(rows[0]["outstanding_amount"])
+- `Bots/handlers/cashier_operator_v2.py:393` **debt_or_payment_reference** — if charge and abs(amount - float(charge["outstanding_amount"])) < 0.00001:
+- `Bots/handlers/cashier_operator_v2.py:417` **debt_or_payment_reference** — f"Касса {state['cashbox_code']}: {money(result['cashbox_balance'])} грн.\n"
+- `Bots/handlers/cashier_operator_v2.py:489` **debt_or_payment_reference** — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:492` **debt_or_payment_reference** — included = [item for item in charges if text(item.get("apartment_number")) not in exclusions]
+- `Bots/handlers/cashier_operator_v2.py:493` **debt_or_payment_reference** — total = sum(float(overrides.get(text(item.get("apartment_number")), item["outstanding_amount"])) for item in included)
+- `Bots/handlers/cashier_operator_v2.py:497` **debt_or_payment_reference** — value = float(overrides.get(number, item["outstanding_amount"]))
+- `Bots/handlers/cashier_operator_v2.py:520` **debt_or_payment_reference** — charges = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:526` **debt_or_payment_reference** — state["batch_charges"] = charges
+- `Bots/handlers/cashier_operator_v2.py:527` **debt_or_payment_reference** — valid_numbers = {text(item.get("apartment_number")) for item in charges}
+- `Bots/handlers/cashier_operator_v2.py:555` **debt_or_payment_reference** — "сумма каждой строки = точный остаток начисления.",
+- `Bots/handlers/cashier_operator_v2.py:641` **debt_or_payment_reference** — f"Неразнесённые наличные: {data['unallocated_cash']}",
+- `Bots/handlers/cashier_operator_v2.py:720` **debt_or_payment_reference** — if message_text == "🏦 Остатки касс":
+- `Bots/handlers/cashier_operator_v2.py:724` **debt_or_payment_reference** — lines = ["🏦 Остатки физических касс", ""]
+- `Bots/handlers/cashier_operator_v2.py:727` **debt_or_payment_reference** — lines.append(f"{_cashbox_label(code)}: {money(calc_cashbox_balance(cur, code))} грн.")
+- `Bots/handlers/cashier_operator_v2.py:886` **debt_or_payment_reference** — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:887` **debt_or_payment_reference** — if not charges:
+- `Bots/handlers/cashier_operator_v2.py:897` **debt_or_payment_reference** — charges=charges,
+- `Bots/handlers/cashier_operator_v2.py:912` **debt_or_payment_reference** — f"Остаток кассы {state['cashbox_code']}: {money(result['cashbox_balance'])} грн."
+- `Bots/handlers/cashier_operator_v2.py:930` **debt_or_payment_reference** — "Сумма не может быть больше остатка начисления.",
+- `Bots/handlers/cashier_operator_v2.py:962` **debt_or_payment_reference** — valid = {text(item.get("apartment_number")): item for item in state.get("batch_charges") or []}
+- `Bots/handlers/cashier_operator_v2.py:971` **debt_or_payment_reference** — if amount > float(valid[number]["outstanding_amount"]) + 0.00001:
+- `Bots/handlers/cashier_operator_v2.py:973` **debt_or_payment_reference** — f"Нельзя больше остатка {money(valid[number]['outstanding_amount'])} грн."
+- `Bots/handlers/client_portal.py:8` **debt_or_payment_reference** — - парковочный счёт: начисления, оплаты, остаток — только чтение;
+- `Bots/handlers/client_portal.py:69` **debt_or_payment_reference** — "parking_balance": "💳 Состояние счёта",
+- `Bots/handlers/client_portal.py:70` **debt_or_payment_reference** — "parking_charges": "📅 Начисления",
+- `Bots/handlers/client_portal.py:101` **debt_or_payment_reference** — "charges_title": "📅 Начисления парковки — кв. {unit}",
+- `Bots/handlers/client_portal.py:104` **debt_or_payment_reference** — "allocated": "Учтено по начислениям",
+- `Bots/handlers/client_portal.py:105` **debt_or_payment_reference** — "due": "К оплате по начислениям",
+- `Bots/handlers/client_portal.py:107` **debt_or_payment_reference** — "unallocated": "Нераспределённые оплаты",
+- `Bots/handlers/client_portal.py:108` **debt_or_payment_reference** — "no_charges": "Начислений пока нет.",
+- `Bots/handlers/client_portal.py:160` **remote_order_flow_reference** — "remote_saved": "✅ Обращение #{id} принято.\n\nСтатус: новое.\nОператор рассмотрит его отдельно.",
+- `Bots/handlers/client_portal.py:204` **debt_or_payment_reference** — "parking_balance": "💳 Стан рахунку",
+- `Bots/handlers/client_portal.py:205` **debt_or_payment_reference** — "parking_charges": "📅 Нарахування",
+- `Bots/handlers/client_portal.py:236` **debt_or_payment_reference** — "charges_title": "📅 Нарахування паркування — кв. {unit}",
+- `Bots/handlers/client_portal.py:239` **debt_or_payment_reference** — "allocated": "Зараховано до нарахувань",
+- `Bots/handlers/client_portal.py:240` **debt_or_payment_reference** — "due": "До сплати за нарахуваннями",
+- `Bots/handlers/client_portal.py:242` **debt_or_payment_reference** — "unallocated": "Нерозподілені оплати",
+- `Bots/handlers/client_portal.py:243` **debt_or_payment_reference** — "no_charges": "Нарахувань поки немає.",
+- `Bots/handlers/client_portal.py:295` **remote_order_flow_reference** — "remote_saved": "✅ Звернення #{id} прийнято.\n\nСтатус: нове.\nОператор розгляне його окремо.",
+- `Bots/handlers/client_portal.py:339` **debt_or_payment_reference** — "parking_balance": "💳 Account status",
+- `Bots/handlers/client_portal.py:340` **debt_or_payment_reference** — "parking_charges": "📅 Charges",
+- `Bots/handlers/client_portal.py:371` **debt_or_payment_reference** — "charges_title": "📅 Parking charges — apartment {unit}",
+- `Bots/handlers/client_portal.py:374` **debt_or_payment_reference** — "allocated": "Allocated to charges",
+- `Bots/handlers/client_portal.py:375` **debt_or_payment_reference** — "due": "Outstanding on charges",
+- `Bots/handlers/client_portal.py:377` **debt_or_payment_reference** — "unallocated": "Unallocated payments",
+- `Bots/handlers/client_portal.py:378` **debt_or_payment_reference** — "no_charges": "There are no charges yet.",
+- `Bots/handlers/client_portal.py:430` **remote_order_flow_reference** — "remote_saved": "✅ Request #{id} received.\n\nStatus: new.\nThe operator will review it separately.",
+- `Bots/handlers/client_portal.py:490` **debt_or_payment_reference** — [tr(lang, "parking_balance")],
+- `Bots/handlers/client_portal.py:491` **debt_or_payment_reference** — [tr(lang, "parking_charges"), tr(lang, "parking_payments")],
+- `Bots/handlers/client_portal.py:1032` **debt_or_payment_reference** — "allocated_amount" if "allocated_amount" in columns else None
+- `Bots/handlers/client_portal.py:1039` **debt_or_payment_reference** — "charges": [],
+- `Bots/handlers/client_portal.py:1042` **debt_or_payment_reference** — "allocated_total": 0.0,
+- `Bots/handlers/client_portal.py:1043` **debt_or_payment_reference** — "outstanding_total": 0.0,
+- `Bots/handlers/client_portal.py:1045` **debt_or_payment_reference** — "unallocated_total": 0.0,
+- `Bots/handlers/client_portal.py:1051` **debt_or_payment_reference** — if not table_exists(cur, "charges"):
+- `Bots/handlers/client_portal.py:1052` **debt_or_payment_reference** — result["error"] = "charges table missing"
+- `Bots/handlers/client_portal.py:1055` **debt_or_payment_reference** — charge_columns = table_columns(cur, "charges")
+- `Bots/handlers/client_portal.py:1056` **debt_or_payment_reference** — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `Bots/handlers/client_portal.py:1084` **debt_or_payment_reference** — allocation_select = "0 AS allocated_amount"
+- `Bots/handlers/client_portal.py:1092` **debt_or_payment_reference** — f'COALESCE(SUM(pa."{amount_col}"), 0) AS allocated_amount'
+- `Bots/handlers/client_portal.py:1102` **debt_or_payment_reference** — FROM charges c
+- `Bots/handlers/client_portal.py:1113` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `Bots/handlers/client_portal.py:1114` **debt_or_payment_reference** — item["outstanding_amount"] = max(0.0, item["amount"] - item["allocated_amount"])
+- `Bots/handlers/client_portal.py:1115` **debt_or_payment_reference** — result["charges"].append(item)
+- `Bots/handlers/client_portal.py:1117` **debt_or_payment_reference** — result["charged_total"] = sum(x["amount"] for x in result["charges"])
+- `Bots/handlers/client_portal.py:1118` **debt_or_payment_reference** — result["allocated_total"] = sum(x["allocated_amount"] for x in result["charges"])
+- `Bots/handlers/client_portal.py:1119` **debt_or_payment_reference** — result["outstanding_total"] = sum(x["outstanding_amount"] for x in result["charges"])
+- `Bots/handlers/client_portal.py:1121` **debt_or_payment_reference** — for item in result["charges"]:
+- `Bots/handlers/client_portal.py:1147` **debt_or_payment_reference** — pay_alloc_select = "0 AS allocated_amount"
+- `Bots/handlers/client_portal.py:1155` **debt_or_payment_reference** — f'COALESCE(SUM(pa2."{amount_col}"), 0) AS allocated_amount'
+- `Bots/handlers/client_portal.py:1176` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `Bots/handlers/client_portal.py:1177` **debt_or_payment_reference** — item["unallocated_amount"] = max(
+- `Bots/handlers/client_portal.py:1178` **debt_or_payment_reference** — 0.0, item["amount"] - item["allocated_amount"]
+- `Bots/handlers/client_portal.py:1183` **debt_or_payment_reference** — result["unallocated_total"] = sum(x["unallocated_amount"] for x in result["payments"])
+- `Bots/handlers/client_portal.py:1224` **debt_or_payment_reference** — elif not billing["charges"]:
+- `Bots/handlers/client_portal.py:1225` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal.py:1229` **debt_or_payment_reference** — f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",
+- `Bots/handlers/client_portal.py:1246` **debt_or_payment_reference** — if not billing["charges"] and not billing["payments"]:
+- `Bots/handlers/client_portal.py:1247` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal.py:1252` **debt_or_payment_reference** — f"{tr(lang, 'allocated')}: {money(billing['allocated_total'])} грн",
+- `Bots/handlers/client_portal.py:1253` **debt_or_payment_reference** — f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",
+- `Bots/handlers/client_portal.py:1256` **debt_or_payment_reference** — if billing["unallocated_total"] > 0.009:
+- `Bots/handlers/client_portal.py:1257` **debt_or_payment_reference** — lines.append(f"{tr(lang, 'unallocated')}: {money(billing['unallocated_total'])} грн")
+- `Bots/handlers/client_portal.py:1263` **debt_or_payment_reference** — def _format_charges(data: dict, billing: dict, lang: str) -> str:
+- `Bots/handlers/client_portal.py:1265` **debt_or_payment_reference** — lines = [tr(lang, "charges_title", unit=unit_code), ""]
+- `Bots/handlers/client_portal.py:1269` **debt_or_payment_reference** — if not billing["charges"]:
+- `Bots/handlers/client_portal.py:1270` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal.py:1273` **debt_or_payment_reference** — for row in billing["charges"][:10]:
+- `Bots/handlers/client_portal.py:1278` **debt_or_payment_reference** — f"{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"
+- `Bots/handlers/client_portal.py:1310` **remote_order_flow_reference** — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal.py:1323` **remote_order_flow_reference** — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal.py:1331` **remote_order_flow_reference** — FROM remote_requests
+- `Bots/handlers/client_portal.py:1341` **remote_order_flow_reference** — def _create_remote_request(
+- `Bots/handlers/client_portal.py:1353` **remote_order_flow_reference** — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal.py:1386` **remote_order_flow_reference** — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1412` **remote_order_flow_reference** — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1434` **remote_order_flow_reference** — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1458` **remote_order_flow_reference** — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal.py:1470` **remote_order_flow_reference** — UPDATE remote_requests
+- `Bots/handlers/client_portal.py:1498` **remote_order_flow_reference** — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1517` **remote_order_flow_reference** — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal.py:1678` **remote_order_flow_reference** — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal.py:1689` **remote_order_flow_reference** — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal.py:2093` **debt_or_payment_reference** — if message_text == tr(lang, "parking_balance"):
+- `Bots/handlers/client_portal.py:2095` **debt_or_payment_reference** — elif message_text == tr(lang, "parking_charges"):
+- `Bots/handlers/client_portal.py:2096` **debt_or_payment_reference** — await update.message.reply_text(_format_charges(data, billing, lang), reply_markup=kb(parking_menu_keyboard(lang)))
+- `Bots/handlers/client_portal.py:2108` **remote_order_flow_reference** — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/client_portal.py:2161` **remote_order_flow_reference** — request_id = _create_remote_request(
+- `Bots/handlers/client_portal.py:2171` **remote_order_flow_reference** — await update.message.reply_text(tr(lang, "remote_saved", id=request_id), reply_markup=kb(remotes_menu_keyboard(lang)))
+- `Bots/handlers/client_portal_safe_linking.py:8` **debt_or_payment_reference** — - парковочный счёт: начисления, оплаты, остаток — только чтение;
+- `Bots/handlers/client_portal_safe_linking.py:69` **debt_or_payment_reference** — "parking_balance": "💳 Состояние счёта",
+- `Bots/handlers/client_portal_safe_linking.py:70` **debt_or_payment_reference** — "parking_charges": "📅 Начисления",
+- `Bots/handlers/client_portal_safe_linking.py:101` **debt_or_payment_reference** — "charges_title": "📅 Начисления парковки — кв. {unit}",
+- `Bots/handlers/client_portal_safe_linking.py:104` **debt_or_payment_reference** — "allocated": "Учтено по начислениям",
+- `Bots/handlers/client_portal_safe_linking.py:105` **debt_or_payment_reference** — "due": "К оплате по начислениям",
+- `Bots/handlers/client_portal_safe_linking.py:107` **debt_or_payment_reference** — "unallocated": "Нераспределённые оплаты",
+- `Bots/handlers/client_portal_safe_linking.py:108` **debt_or_payment_reference** — "no_charges": "Начислений пока нет.",
+- `Bots/handlers/client_portal_safe_linking.py:160` **remote_order_flow_reference** — "remote_saved": "✅ Обращение #{id} принято.\n\nСтатус: новое.\nОператор рассмотрит его отдельно.",
+- `Bots/handlers/client_portal_safe_linking.py:204` **debt_or_payment_reference** — "parking_balance": "💳 Стан рахунку",
+- `Bots/handlers/client_portal_safe_linking.py:205` **debt_or_payment_reference** — "parking_charges": "📅 Нарахування",
+- `Bots/handlers/client_portal_safe_linking.py:236` **debt_or_payment_reference** — "charges_title": "📅 Нарахування паркування — кв. {unit}",
+- `Bots/handlers/client_portal_safe_linking.py:239` **debt_or_payment_reference** — "allocated": "Зараховано до нарахувань",
+- `Bots/handlers/client_portal_safe_linking.py:240` **debt_or_payment_reference** — "due": "До сплати за нарахуваннями",
+- `Bots/handlers/client_portal_safe_linking.py:242` **debt_or_payment_reference** — "unallocated": "Нерозподілені оплати",
+- `Bots/handlers/client_portal_safe_linking.py:243` **debt_or_payment_reference** — "no_charges": "Нарахувань поки немає.",
+- `Bots/handlers/client_portal_safe_linking.py:295` **remote_order_flow_reference** — "remote_saved": "✅ Звернення #{id} прийнято.\n\nСтатус: нове.\nОператор розгляне його окремо.",
+- `Bots/handlers/client_portal_safe_linking.py:339` **debt_or_payment_reference** — "parking_balance": "💳 Account status",
+- `Bots/handlers/client_portal_safe_linking.py:340` **debt_or_payment_reference** — "parking_charges": "📅 Charges",
+- `Bots/handlers/client_portal_safe_linking.py:371` **debt_or_payment_reference** — "charges_title": "📅 Parking charges — apartment {unit}",
+- `Bots/handlers/client_portal_safe_linking.py:374` **debt_or_payment_reference** — "allocated": "Allocated to charges",
+- `Bots/handlers/client_portal_safe_linking.py:375` **debt_or_payment_reference** — "due": "Outstanding on charges",
+- `Bots/handlers/client_portal_safe_linking.py:377` **debt_or_payment_reference** — "unallocated": "Unallocated payments",
+- `Bots/handlers/client_portal_safe_linking.py:378` **debt_or_payment_reference** — "no_charges": "There are no charges yet.",
+- `Bots/handlers/client_portal_safe_linking.py:430` **remote_order_flow_reference** — "remote_saved": "✅ Request #{id} received.\n\nStatus: new.\nThe operator will review it separately.",
+- `Bots/handlers/client_portal_safe_linking.py:490` **debt_or_payment_reference** — [tr(lang, "parking_balance")],
+- `Bots/handlers/client_portal_safe_linking.py:491` **debt_or_payment_reference** — [tr(lang, "parking_charges"), tr(lang, "parking_payments")],
+- `Bots/handlers/client_portal_safe_linking.py:1032` **debt_or_payment_reference** — "allocated_amount" if "allocated_amount" in columns else None
+- `Bots/handlers/client_portal_safe_linking.py:1039` **debt_or_payment_reference** — "charges": [],
+- `Bots/handlers/client_portal_safe_linking.py:1042` **debt_or_payment_reference** — "allocated_total": 0.0,
+- `Bots/handlers/client_portal_safe_linking.py:1043` **debt_or_payment_reference** — "outstanding_total": 0.0,
+- `Bots/handlers/client_portal_safe_linking.py:1045` **debt_or_payment_reference** — "unallocated_total": 0.0,
+- `Bots/handlers/client_portal_safe_linking.py:1051` **debt_or_payment_reference** — if not table_exists(cur, "charges"):
+- `Bots/handlers/client_portal_safe_linking.py:1052` **debt_or_payment_reference** — result["error"] = "charges table missing"
+- `Bots/handlers/client_portal_safe_linking.py:1055` **debt_or_payment_reference** — charge_columns = table_columns(cur, "charges")
+- `Bots/handlers/client_portal_safe_linking.py:1056` **debt_or_payment_reference** — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `Bots/handlers/client_portal_safe_linking.py:1084` **debt_or_payment_reference** — allocation_select = "0 AS allocated_amount"
+- `Bots/handlers/client_portal_safe_linking.py:1092` **debt_or_payment_reference** — f'COALESCE(SUM(pa."{amount_col}"), 0) AS allocated_amount'
+- `Bots/handlers/client_portal_safe_linking.py:1102` **debt_or_payment_reference** — FROM charges c
+- `Bots/handlers/client_portal_safe_linking.py:1113` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `Bots/handlers/client_portal_safe_linking.py:1114` **debt_or_payment_reference** — item["outstanding_amount"] = max(0.0, item["amount"] - item["allocated_amount"])
+- `Bots/handlers/client_portal_safe_linking.py:1115` **debt_or_payment_reference** — result["charges"].append(item)
+- `Bots/handlers/client_portal_safe_linking.py:1117` **debt_or_payment_reference** — result["charged_total"] = sum(x["amount"] for x in result["charges"])
+- `Bots/handlers/client_portal_safe_linking.py:1118` **debt_or_payment_reference** — result["allocated_total"] = sum(x["allocated_amount"] for x in result["charges"])
+- `Bots/handlers/client_portal_safe_linking.py:1119` **debt_or_payment_reference** — result["outstanding_total"] = sum(x["outstanding_amount"] for x in result["charges"])
+- `Bots/handlers/client_portal_safe_linking.py:1121` **debt_or_payment_reference** — for item in result["charges"]:
+- `Bots/handlers/client_portal_safe_linking.py:1147` **debt_or_payment_reference** — pay_alloc_select = "0 AS allocated_amount"
+- `Bots/handlers/client_portal_safe_linking.py:1155` **debt_or_payment_reference** — f'COALESCE(SUM(pa2."{amount_col}"), 0) AS allocated_amount'
+- `Bots/handlers/client_portal_safe_linking.py:1176` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `Bots/handlers/client_portal_safe_linking.py:1177` **debt_or_payment_reference** — item["unallocated_amount"] = max(
+- `Bots/handlers/client_portal_safe_linking.py:1178` **debt_or_payment_reference** — 0.0, item["amount"] - item["allocated_amount"]
+- `Bots/handlers/client_portal_safe_linking.py:1183` **debt_or_payment_reference** — result["unallocated_total"] = sum(x["unallocated_amount"] for x in result["payments"])
+- `Bots/handlers/client_portal_safe_linking.py:1224` **debt_or_payment_reference** — elif not billing["charges"]:
+- `Bots/handlers/client_portal_safe_linking.py:1225` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal_safe_linking.py:1229` **debt_or_payment_reference** — f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",
+- `Bots/handlers/client_portal_safe_linking.py:1246` **debt_or_payment_reference** — if not billing["charges"] and not billing["payments"]:
+- `Bots/handlers/client_portal_safe_linking.py:1247` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal_safe_linking.py:1252` **debt_or_payment_reference** — f"{tr(lang, 'allocated')}: {money(billing['allocated_total'])} грн",
+- `Bots/handlers/client_portal_safe_linking.py:1253` **debt_or_payment_reference** — f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",
+- `Bots/handlers/client_portal_safe_linking.py:1256` **debt_or_payment_reference** — if billing["unallocated_total"] > 0.009:
+- `Bots/handlers/client_portal_safe_linking.py:1257` **debt_or_payment_reference** — lines.append(f"{tr(lang, 'unallocated')}: {money(billing['unallocated_total'])} грн")
+- `Bots/handlers/client_portal_safe_linking.py:1263` **debt_or_payment_reference** — def _format_charges(data: dict, billing: dict, lang: str) -> str:
+- `Bots/handlers/client_portal_safe_linking.py:1265` **debt_or_payment_reference** — lines = [tr(lang, "charges_title", unit=unit_code), ""]
+- `Bots/handlers/client_portal_safe_linking.py:1269` **debt_or_payment_reference** — if not billing["charges"]:
+- `Bots/handlers/client_portal_safe_linking.py:1270` **debt_or_payment_reference** — lines.append(tr(lang, "no_charges"))
+- `Bots/handlers/client_portal_safe_linking.py:1273` **debt_or_payment_reference** — for row in billing["charges"][:10]:
+- `Bots/handlers/client_portal_safe_linking.py:1278` **debt_or_payment_reference** — f"{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"
+- `Bots/handlers/client_portal_safe_linking.py:1310` **remote_order_flow_reference** — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal_safe_linking.py:1323` **remote_order_flow_reference** — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal_safe_linking.py:1331` **remote_order_flow_reference** — FROM remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1341` **remote_order_flow_reference** — def _create_remote_request(
+- `Bots/handlers/client_portal_safe_linking.py:1353` **remote_order_flow_reference** — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal_safe_linking.py:1386` **remote_order_flow_reference** — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1412` **remote_order_flow_reference** — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1434` **remote_order_flow_reference** — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1458` **remote_order_flow_reference** — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal_safe_linking.py:1470` **remote_order_flow_reference** — UPDATE remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1498` **remote_order_flow_reference** — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1517` **remote_order_flow_reference** — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal_safe_linking.py:1678` **remote_order_flow_reference** — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal_safe_linking.py:1689` **remote_order_flow_reference** — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal_safe_linking.py:2093` **debt_or_payment_reference** — if message_text == tr(lang, "parking_balance"):
+- `Bots/handlers/client_portal_safe_linking.py:2095` **debt_or_payment_reference** — elif message_text == tr(lang, "parking_charges"):
+- `Bots/handlers/client_portal_safe_linking.py:2096` **debt_or_payment_reference** — await update.message.reply_text(_format_charges(data, billing, lang), reply_markup=kb(parking_menu_keyboard(lang)))
+- `Bots/handlers/client_portal_safe_linking.py:2108` **remote_order_flow_reference** — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/client_portal_safe_linking.py:2161` **remote_order_flow_reference** — request_id = _create_remote_request(
+- `Bots/handlers/client_portal_safe_linking.py:2171` **remote_order_flow_reference** — await update.message.reply_text(tr(lang, "remote_saved", id=request_id), reply_markup=kb(remotes_menu_keyboard(lang)))
+- `Bots/handlers/client_portal_v2.py:37` **remote_order_flow_reference** — create_payment_notice,
+- `Bots/handlers/client_portal_v2.py:42` **debt_or_payment_reference** — open_charges,
+- `Bots/handlers/client_portal_v2.py:164` **debt_or_payment_reference** — "It does not change balance, cashbox, or gate access until the "
+- `Bots/handlers/client_portal_v2.py:248` **debt_or_payment_reference** — [base.tr(lang, "parking_balance")],
+- `Bots/handlers/client_portal_v2.py:249` **debt_or_payment_reference** — [base.tr(lang, "parking_charges"), base.tr(lang, "parking_payments")],
+- `Bots/handlers/client_portal_v2.py:323` **debt_or_payment_reference** — def _charge_buttons(state: dict, charges: list[dict], lang: str) -> list[list[str]]:
+- `Bots/handlers/client_portal_v2.py:326` **debt_or_payment_reference** — for charge in charges:
+- `Bots/handlers/client_portal_v2.py:330` **debt_or_payment_reference** — f"{money(charge['outstanding_amount'])}"
+- `Bots/handlers/client_portal_v2.py:349` **debt_or_payment_reference** — f"{base.tr(lang, 'parking_charges')}: {service_label(service)}",
+- `Bots/handlers/client_portal_v2.py:409` **debt_or_payment_reference** — charges = open_charges(
+- `Bots/handlers/client_portal_v2.py:413` **debt_or_payment_reference** — if len(charges) == 1:
+- `Bots/handlers/client_portal_v2.py:414` **debt_or_payment_reference** — charge = charges[0]
+- `Bots/handlers/client_portal_v2.py:422` **debt_or_payment_reference** — state["amount"] = float(charge["outstanding_amount"])
+- `Bots/handlers/client_portal_v2.py:425` **debt_or_payment_reference** — if charges:
+- `Bots/handlers/client_portal_v2.py:429` **debt_or_payment_reference** — reply_markup=kb(_charge_buttons(state, charges, lang)),
+- `Bots/handlers/client_portal_v2.py:527` **debt_or_payment_reference** — if message_text == base.tr(lang, "parking_balance"):
+- `Bots/handlers/client_portal_v2.py:530` **debt_or_payment_reference** — if message_text == base.tr(lang, "parking_charges"):
+- `Bots/handlers/client_portal_v2.py:531` **debt_or_payment_reference** — await update.message.reply_text(base._format_charges(data, billing, lang), reply_markup=kb(_parking_keyboard(lang)))
+- `Bots/handlers/client_portal_v2.py:584` **debt_or_payment_reference** — state["amount"] = float(charge["outstanding_amount"])
+- `Bots/handlers/client_portal_v2.py:625` **remote_order_flow_reference** — result = create_payment_notice(
+- `Bots/handlers/client_portal_v3.py:10` **remote_order_flow_reference** — Сам процесс находится в service_orders_workspace.py и подключается
+- `Bots/handlers/client_portal_v3.py:87` **remote_order_flow_reference** — # service_orders_workspace. All other v2 behaviour remains unchanged.
+- `Bots/handlers/commercial_contract_editor.py:260` **debt_or_payment_reference** — c.payment_due_day, c.grace_days,
+- `Bots/handlers/commercial_contract_editor.py:261` **debt_or_payment_reference** — c.reminder_days_before_due, c.warning_days_overdue,
+- `Bots/handlers/commercial_contract_editor.py:262` **debt_or_payment_reference** — c.suspension_candidate_days_overdue, c.internal_note,
+- `Bots/handlers/commercial_contract_editor.py:306` **debt_or_payment_reference** — SELECT outstanding_amount, access_blocking_outstanding_amount,
+- `Bots/handlers/commercial_contract_editor.py:307` **debt_or_payment_reference** — first_open_due_date
+- `Bots/handlers/commercial_contract_editor.py:308` **debt_or_payment_reference** — FROM v_commercial_contract_debt_summary
+- `Bots/handlers/commercial_contract_editor.py:311` **debt_or_payment_reference** — debt = cur.fetchone()
+- `Bots/handlers/commercial_contract_editor.py:312` **debt_or_payment_reference** — result["debt"] = float(debt[0] or 0) if debt else 0.0
+- `Bots/handlers/commercial_contract_editor.py:313` **debt_or_payment_reference** — result["blocking_debt"] = float(debt[1] or 0) if debt else 0.0
+- `Bots/handlers/commercial_contract_editor.py:314` **debt_or_payment_reference** — result["first_due"] = debt[2] if debt else None
+- `Bots/handlers/commercial_contract_editor.py:316` **debt_or_payment_reference** — result["debt"] = result["blocking_debt"] = 0.0
+- `Bots/handlers/commercial_contract_editor.py:317` **debt_or_payment_reference** — result["first_due"] = None
+- `Bots/handlers/commercial_contract_editor.py:427` **debt_or_payment_reference** — unit_id, status, payment_due_day, grace_days,
+- `Bots/handlers/commercial_contract_editor.py:428` **debt_or_payment_reference** — reminder_days_before_due, warning_days_overdue,
+- `Bots/handlers/commercial_contract_editor.py:429` **debt_or_payment_reference** — suspension_candidate_days_overdue, internal_note,
+- `Bots/handlers/commercial_contract_editor.py:457` **debt_or_payment_reference** — "valid_from", "valid_to", "payment_due_day", "grace_days",
+- `Bots/handlers/commercial_contract_editor.py:458` **debt_or_payment_reference** — "reminder_days_before_due", "warning_days_overdue",
+- `Bots/handlers/commercial_contract_editor.py:459` **debt_or_payment_reference** — "suspension_candidate_days_overdue", "internal_note",
+- `Bots/handlers/commercial_contract_editor.py:545` **debt_or_payment_reference** — currency, blocks_phone_access_on_debt, is_active,
+- `Bots/handlers/commercial_contract_editor.py:557` **debt_or_payment_reference** — field_name="item_name,calculation_mode,blocks_phone_access_on_debt",
+- `Bots/handlers/commercial_contract_editor.py:570` **debt_or_payment_reference** — allowed = {"item_name", "fixed_amount", "rate_amount", "quantity_default", "blocks_phone_access_on_debt", "is_active"}
+- `Bots/handlers/commercial_contract_editor.py:786` **debt_or_payment_reference** — f"Оплата до: {contract.get('payment_due_day')} числа",
+- `Bots/handlers/commercial_contract_editor.py:788` **debt_or_payment_reference** — f"Напомнить за: {contract.get('reminder_days_before_due')} дн.",
+- `Bots/handlers/commercial_contract_editor.py:789` **debt_or_payment_reference** — f"Предупреждение через: {contract.get('warning_days_overdue')} дн.",
+- `Bots/handlers/commercial_contract_editor.py:790` **debt_or_payment_reference** — f"Кандидат на отключение через: {contract.get('suspension_candidate_days_overdue')} дн.",
+- `Bots/handlers/commercial_contract_editor.py:796` **debt_or_payment_reference** — f"Долг: {float(contract.get('debt') or 0):g} грн.",
+- `Bots/handlers/commercial_contract_editor.py:797` **debt_or_payment_reference** — f"Блокирующий доступ долг: {float(contract.get('blocking_debt') or 0):g} грн.",
+- `Bots/handlers/commercial_contract_editor.py:811` **debt_or_payment_reference** — lines.append(f"{i}. {mark} {item.get('item_name') or 'без названия'}\n   {label_mode(item.get('calculation_mode'))}\n   {item_amount(item)}\n   Блокирует доступ при долге: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}")
+- `Bots/handlers/commercial_contract_editor.py:822` **debt_or_payment_reference** — f"Блокирует доступ: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}",
+- `Bots/handlers/commercial_contract_editor.py:860` **debt_or_payment_reference** — status = {"ACTIVE": "✅ активно", "WARNING": "⚠️ предупреждение", "SUSPENSION_CANDIDATE": "🟠 кандидат", "SUSPENDED_DEBT": "⛔ отключено вручную", "MANUAL_BLOCK": "🔒 ручная блокировка", "CLOSED": "⚪ закрыто"}
+- `Bots/handlers/commercial_contract_editor.py:1236` **debt_or_payment_reference** — "📆 День оплаты": ("payment_due_day", 1, 31, "День оплаты"),
+- `Bots/handlers/commercial_contract_editor.py:1238` **debt_or_payment_reference** — "🔔 Напомнить за": ("reminder_days_before_due", 0, 365, "Срок напоминания"),
+- `Bots/handlers/commercial_contract_editor.py:1239` **debt_or_payment_reference** — "⚠️ Предупреждение через": ("warning_days_overdue", 0, 365, "Срок предупреждения"),
+- `Bots/handlers/commercial_contract_editor.py:1240` **debt_or_payment_reference** — "⛔ Кандидат на отключение": ("suspension_candidate_days_overdue", 0, 365, "Срок кандидата"),
+- `Bots/handlers/commercial_contract_editor.py:1257` **debt_or_payment_reference** — elif field in {"payment_due_day", "grace_days", "reminder_days_before_due", "warning_days_overdue", "suspension_candidate_days_overdue"}:
+- `Bots/handlers/commercial_contract_editor.py:1439` **debt_or_payment_reference** — update_item(item_id, "blocks_phone_access_on_debt", blocks, user_id)
+- `Bots/handlers/guard_workspace.py:132` **debt_or_payment_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace.py:132` **remote_order_flow_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace.py:186` **debt_or_payment_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace.py:186` **remote_order_flow_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace.py:201` **debt_or_payment_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace.py:201` **remote_order_flow_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace.py:277` **debt_or_payment_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace.py:277` **remote_order_flow_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace.py:310` **debt_or_payment_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace.py:310` **remote_order_flow_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace.py:314` **debt_or_payment_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace.py:314` **remote_order_flow_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace.py:328` **debt_or_payment_reference** — f"Касса O после операции: {money(result['cashbox_balance'])} грн.\n\n"
+- `Bots/handlers/guard_workspace.py:492` **debt_or_payment_reference** — f"Остаток O: {money(result['cashbox_balance'])} грн.\n"
+- `Bots/handlers/guard_workspace.py:506` **remote_order_flow_reference** — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace.py:512` **remote_order_flow_reference** — FROM remote_requests
+- `Bots/handlers/guard_workspace.py:653` **debt_or_payment_reference** — "Это физическая отметка; складской остаток будет вести отдельный модуль."
+- `Bots/handlers/guard_workspace.py:660` **remote_order_flow_reference** — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace.py:693` **remote_order_flow_reference** — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace.py:730` **remote_order_flow_reference** — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace.py:746` **remote_order_flow_reference** — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:765` **remote_order_flow_reference** — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace.py:777` **remote_order_flow_reference** — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:785` **remote_order_flow_reference** — resource="remote_requests",
+- `Bots/handlers/guard_workspace.py:789` **remote_order_flow_reference** — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:132` **debt_or_payment_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:132` **remote_order_flow_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:186` **debt_or_payment_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:186` **remote_order_flow_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:201` **debt_or_payment_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:201` **remote_order_flow_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:277` **debt_or_payment_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:277` **remote_order_flow_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:310` **debt_or_payment_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:310` **remote_order_flow_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:314` **debt_or_payment_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:314` **remote_order_flow_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:328` **debt_or_payment_reference** — f"Касса O после операции: {money(result['cashbox_balance'])} грн.\n\n"
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:495` **debt_or_payment_reference** — f"Остаток O: {money(result['cashbox_balance'])} грн.\n"
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:509` **remote_order_flow_reference** — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:515` **remote_order_flow_reference** — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:656` **debt_or_payment_reference** — "Это физическая отметка; складской остаток будет вести отдельный модуль."
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:663` **remote_order_flow_reference** — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:696` **remote_order_flow_reference** — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:733` **remote_order_flow_reference** — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:749` **remote_order_flow_reference** — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:768` **remote_order_flow_reference** — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:780` **remote_order_flow_reference** — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:788` **remote_order_flow_reference** — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:792` **remote_order_flow_reference** — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:132` **debt_or_payment_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:132` **remote_order_flow_reference** — "payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:186` **debt_or_payment_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:186` **remote_order_flow_reference** — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:201` **debt_or_payment_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:201` **remote_order_flow_reference** — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:277` **debt_or_payment_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:277` **remote_order_flow_reference** — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:310` **debt_or_payment_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:310` **remote_order_flow_reference** — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:314` **debt_or_payment_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:314` **remote_order_flow_reference** — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:328` **debt_or_payment_reference** — f"Касса O после операции: {money(result['cashbox_balance'])} грн.\n\n"
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:492` **debt_or_payment_reference** — f"Остаток O: {money(result['cashbox_balance'])} грн.\n"
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:506` **remote_order_flow_reference** — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:512` **remote_order_flow_reference** — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:653` **debt_or_payment_reference** — "Это физическая отметка; складской остаток будет вести отдельный модуль."
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:660` **remote_order_flow_reference** — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:693` **remote_order_flow_reference** — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:730` **remote_order_flow_reference** — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:746` **remote_order_flow_reference** — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:765` **remote_order_flow_reference** — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:777` **remote_order_flow_reference** — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:785` **remote_order_flow_reference** — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:789` **remote_order_flow_reference** — target_table="remote_requests",
+- `Bots/handlers/profile_parking_time_test_workspace.py:24` **remote_order_flow_reference** — from service_orders_core import get_conn, text
+- `Bots/handlers/profile_verification_workspace.py:27` **remote_order_flow_reference** — from service_orders_core import get_conn, text
+- `Bots/handlers/service_orders_workspace.py:6` **debt_or_payment_reference** — interest with quantity -> payment notice -> confirmed cashier payment
+- `Bots/handlers/service_orders_workspace.py:35` **remote_order_flow_reference** — from cashier_v2_core import create_payment_notice
+- `Bots/handlers/service_orders_workspace.py:37` **remote_order_flow_reference** — from service_orders_core import (
+- `Bots/handlers/service_orders_workspace.py:39` **remote_order_flow_reference** — create_remote_asset,
+- `Bots/handlers/service_orders_workspace.py:48` **debt_or_payment_reference** — INTEREST,
+- `Bots/handlers/service_orders_workspace.py:50` **remote_order_flow_reference** — PAYMENT_NOTICE,
+- `Bots/handlers/service_orders_workspace.py:51` **remote_order_flow_reference** — NEW_REMOTE_PROFILE,
+- `Bots/handlers/service_orders_workspace.py:52` **debt_or_payment_reference** — attach_payment_notice_to_interest,
+- `Bots/handlers/service_orders_workspace.py:52` **remote_order_flow_reference** — attach_payment_notice_to_interest,
+- `Bots/handlers/service_orders_workspace.py:53` **debt_or_payment_reference** — create_service_interest,
+- `Bots/handlers/service_orders_workspace.py:53` **remote_order_flow_reference** — create_service_interest,
+- `Bots/handlers/service_orders_workspace.py:56` **debt_or_payment_reference** — get_service_interest,
+- `Bots/handlers/service_orders_workspace.py:58` **remote_order_flow_reference** — issue_new_remotes_from_batch,
+- `Bots/handlers/service_orders_workspace.py:59` **debt_or_payment_reference** — list_resident_service_interests,
+- `Bots/handlers/service_orders_workspace.py:63` **debt_or_payment_reference** — reconcile_paid_service_interests,
+- `Bots/handlers/service_orders_workspace.py:65` **debt_or_payment_reference** — unpaid_interest_totals,
+- `Bots/handlers/service_orders_workspace.py:70` **debt_or_payment_reference** — create_phone_barrier_access_interest,
+- `Bots/handlers/service_orders_workspace.py:71` **debt_or_payment_reference** — phone_access_summary_for_interest,
+- `Bots/handlers/service_orders_workspace.py:78` **remote_order_flow_reference** — MODULE = "service_orders_ui"
+- `Bots/handlers/service_orders_workspace.py:109` **debt_or_payment_reference** — "create_interest": "✅ Зафиксировать намерение",
+- `Bots/handlers/service_orders_workspace.py:111` **debt_or_payment_reference** — "interest_saved": "✅ Намерение записано. Настоящий заказ появится после подтверждённой оплаты.",
+- `Bots/handlers/service_orders_workspace.py:144` **debt_or_payment_reference** — "interest_status": "Намерение",
+- `Bots/handlers/service_orders_workspace.py:146` **remote_order_flow_reference** — "awaiting_payment": "Ожидает подтверждения оплаты",
+- `Bots/handlers/service_orders_workspace.py:149` **remote_order_flow_reference** — "ready_for_issue": "Готов к выдаче",
+- `Bots/handlers/service_orders_workspace.py:174` **debt_or_payment_reference** — "create_interest": "✅ Зафіксувати намір",
+- `Bots/handlers/service_orders_workspace.py:176` **debt_or_payment_reference** — "interest_saved": "✅ Намір записано. Справжнє замовлення з’явиться після підтвердженої оплати.",
+- `Bots/handlers/service_orders_workspace.py:209` **debt_or_payment_reference** — "interest_status": "Намір",
+- `Bots/handlers/service_orders_workspace.py:211` **remote_order_flow_reference** — "awaiting_payment": "Очікує підтвердження оплати",
+- `Bots/handlers/service_orders_workspace.py:214` **remote_order_flow_reference** — "ready_for_issue": "Готово до видачі",
+- `Bots/handlers/service_orders_workspace.py:236` **debt_or_payment_reference** — "create_interest": "✅ Record intent",
+- `Bots/handlers/service_orders_workspace.py:238` **debt_or_payment_reference** — "interest_saved": "✅ Intent recorded. A real order will be created after payment confirmation.",
+- `Bots/handlers/service_orders_workspace.py:268` **debt_or_payment_reference** — "interest_status": "Interest",
+- `Bots/handlers/service_orders_workspace.py:270` **remote_order_flow_reference** — "awaiting_payment": "Awaiting payment confirmation",
+- `Bots/handlers/service_orders_workspace.py:273` **remote_order_flow_reference** — "ready_for_issue": "Ready for issue",
+- `Bots/handlers/service_orders_workspace.py:279` **remote_order_flow_reference** — NEW_REMOTE_PROFILE: "new_remote",
+- `Bots/handlers/service_orders_workspace.py:286` **remote_order_flow_reference** — "AWAITING_PAYMENT": "💳 Очікує оплату",
+- `Bots/handlers/service_orders_workspace.py:291` **remote_order_flow_reference** — "READY_FOR_ISSUE": "📤 Готово до видачі",
+- `Bots/handlers/service_orders_workspace.py:308` **debt_or_payment_reference** — "debt_note": (
+- `Bots/handlers/service_orders_workspace.py:309` **debt_or_payment_reference** — "При подтверждённой задолженности действует предупреждение; "
+- `Bots/handlers/service_orders_workspace.py:312` **debt_or_payment_reference** — "debt_mode": "Проверка парковочной задолженности: требуется подтверждение оператора.",
+- `Bots/handlers/service_orders_workspace.py:329` **debt_or_payment_reference** — "debt_note": (
+- `Bots/handlers/service_orders_workspace.py:330` **debt_or_payment_reference** — "За підтвердженої заборгованості надсилається попередження; "
+- `Bots/handlers/service_orders_workspace.py:333` **debt_or_payment_reference** — "debt_mode": "Перевірка заборгованості за паркування: потрібне підтвердження оператора.",
+- `Bots/handlers/service_orders_workspace.py:350` **debt_or_payment_reference** — "debt_note": (
+- `Bots/handlers/service_orders_workspace.py:354` **debt_or_payment_reference** — "debt_mode": "Parking-debt check: operator confirmation is required.",
+- `Bots/handlers/service_orders_workspace.py:386` **debt_or_payment_reference** — def _phone_access_summary_for_interest(interest_id: int | None) -> dict | None:
+- `Bots/handlers/service_orders_workspace.py:387` **debt_or_payment_reference** — if not interest_id:
+- `Bots/handlers/service_orders_workspace.py:390` **debt_or_payment_reference** — return phone_access_summary_for_interest(int(interest_id))
+- `Bots/handlers/service_orders_workspace.py:515` **remote_order_flow_reference** — "service_orders",
+- `Bots/handlers/service_orders_workspace.py:531` **debt_or_payment_reference** — reconcile_paid_service_interests(conn=conn)
+- `Bots/handlers/service_orders_workspace.py:582` **remote_order_flow_reference** — from service_orders_core import effective_price
+- `Bots/handlers/service_orders_workspace.py:628` **remote_order_flow_reference** — NEW_REMOTE_PROFILE,
+- `Bots/handlers/service_orders_workspace.py:694` **debt_or_payment_reference** — f"Сума: {money(order.get('amount_due_snapshot'))} {order.get('currency') or 'UAH'}",
+- `Bots/handlers/service_orders_workspace.py:701` **debt_or_payment_reference** — def _interest_card(interest: dict, lang: str) -> str:
+- `Bots/handlers/service_orders_workspace.py:702` **debt_or_payment_reference** — status = text(interest.get("interest_status"))
+- `Bots/handlers/service_orders_workspace.py:704` **debt_or_payment_reference** — INTEREST: tr(lang, "interest_status"),
+- `Bots/handlers/service_orders_workspace.py:705` **remote_order_flow_reference** — PAYMENT_NOTICE: tr(lang, "awaiting_payment"),
+- `Bots/handlers/service_orders_workspace.py:708` **debt_or_payment_reference** — phone_summary = _phone_access_summary_for_interest(interest.get("id"))
+- `Bots/handlers/service_orders_workspace.py:711` **debt_or_payment_reference** — f"№: {interest.get('interest_number')}",
+- `Bots/handlers/service_orders_workspace.py:712` **debt_or_payment_reference** — f"Квартира: {interest.get('apartment_number') or '-'}",
+- `Bots/handlers/service_orders_workspace.py:713` **debt_or_payment_reference** — f"Послуга: {interest.get('service_name_snapshot') or interest.get('service_item_code')}",
+- `Bots/handlers/service_orders_workspace.py:719` **debt_or_payment_reference** — f"{tr(lang, 'phone_number')}: {phone_summary.get('phone_normalized') or _requested_phone(interest) or '-'}",
+- `Bots/handlers/service_orders_workspace.py:725` **debt_or_payment_reference** — lines.append(f"Кількість: {interest.get('quantity')}")
+- `Bots/handlers/service_orders_workspace.py:726` **debt_or_payment_reference** — if _requested_phone(interest):
+- `Bots/handlers/service_orders_workspace.py:727` **debt_or_payment_reference** — lines.append(f"Телефон доступу: {_requested_phone(interest)}")
+- `Bots/handlers/service_orders_workspace.py:729` **debt_or_payment_reference** — f"Сума: {money(interest.get('amount_due_snapshot'))} {interest.get('currency') or 'UAH'}",
+- `Bots/handlers/service_orders_workspace.py:791` **debt_or_payment_reference** — "SUSPENDED_FOR_DEBT": "⚠️",
+- `Bots/handlers/service_orders_workspace.py:792` **debt_or_payment_reference** — "DEACTIVATED_FOR_DEBT": "⛔",
+- `Bots/handlers/service_orders_workspace.py:946` **debt_or_payment_reference** — phone_tr(lang, 'debt_mode'),
+- `Bots/handlers/service_orders_workspace.py:947` **debt_or_payment_reference** — phone_tr(lang, 'debt_note'),
+- `Bots/handlers/service_orders_workspace.py:965` **debt_or_payment_reference** — [[tr(lang, "create_interest")], [tr(lang, "cancel"), BACK], [HOME]]
+- `Bots/handlers/service_orders_workspace.py:969` **debt_or_payment_reference** — def _create_interest_from_state(state: dict, user_id: int) -> dict:
+- `Bots/handlers/service_orders_workspace.py:979` **debt_or_payment_reference** — return create_phone_barrier_access_interest(
+- `Bots/handlers/service_orders_workspace.py:987` **debt_or_payment_reference** — parking_debt_check_mode=text(gate.get("parking_debt_check_mode")) or "MANUAL_REVIEW",
+- `Bots/handlers/service_orders_workspace.py:988` **debt_or_payment_reference** — parking_debt_check_note=text(gate.get("parking_debt_check_note")),
+- `Bots/handlers/service_orders_workspace.py:990` **debt_or_payment_reference** — return create_service_interest(
+- `Bots/handlers/service_orders_workspace.py:990` **remote_order_flow_reference** — return create_service_interest(
+- `Bots/handlers/service_orders_workspace.py:999` **debt_or_payment_reference** — def _notice_for_interest(interest: dict, state: dict, notice_type: str) -> dict:
+- `Bots/handlers/service_orders_workspace.py:1001` **debt_or_payment_reference** — "service_code": interest.get("service_code") or interest.get("service_item_code"),
+- `Bots/handlers/service_orders_workspace.py:1002` **debt_or_payment_reference** — "service_item_code": interest.get("service_item_code"),
+- `Bots/handlers/service_orders_workspace.py:1004` **debt_or_payment_reference** — "service_name": interest.get("service_name_snapshot"),
+- `Bots/handlers/service_orders_workspace.py:1006` **remote_order_flow_reference** — return create_payment_notice(
+- `Bots/handlers/service_orders_workspace.py:1013` **debt_or_payment_reference** — amount=float(interest.get("amount_due_snapshot") or 0),
+- `Bots/handlers/service_orders_workspace.py:1015` **debt_or_payment_reference** — f"Намір {interest.get('interest_number')}; кількість {interest.get('quantity')}."
+- `Bots/handlers/service_orders_workspace.py:1017` **debt_or_payment_reference** — f" Телефон доступу: {_requested_phone(interest)}."
+- `Bots/handlers/service_orders_workspace.py:1018` **debt_or_payment_reference** — if _requested_phone(interest) else ""
+- `Bots/handlers/service_orders_workspace.py:1024` **debt_or_payment_reference** — (_phone_access_summary_for_interest(interest.get("id")) or {}).get("points") or []
+- `Bots/handlers/service_orders_workspace.py:1028` **debt_or_payment_reference** — if _phone_access_summary_for_interest(interest.get("id")) else ""
+- `Bots/handlers/service_orders_workspace.py:1047` **remote_order_flow_reference** — FROM service_orders
+- `Bots/handlers/service_orders_workspace.py:1054` **debt_or_payment_reference** — interests = list_resident_service_interests(int(state["account"]["id"]), conn=conn)
+- `Bots/handlers/service_orders_workspace.py:1060` **debt_or_payment_reference** — for row in interests:
+- `Bots/handlers/service_orders_workspace.py:1061` **debt_or_payment_reference** — label = f"📝 {row['interest_number']} | {row.get('service_name_snapshot')} | ×{row.get('quantity')}"
+- `Bots/handlers/service_orders_workspace.py:1062` **debt_or_payment_reference** — mapping[label] = ("interest", int(row["id"]))
+- `Bots/handlers/service_orders_workspace.py:1064` **debt_or_payment_reference** — lines.append(f"{row['interest_number']} | {row.get('interest_status')} | ×{row.get('quantity')}")
+- `Bots/handlers/service_orders_workspace.py:1077` **debt_or_payment_reference** — async def _show_interest_card(update: Update, state: dict, interest_id: int, lang: str) -> None:
+- `Bots/handlers/service_orders_workspace.py:1078` **debt_or_payment_reference** — interest = get_service_interest(interest_id)
+- `Bots/handlers/service_orders_workspace.py:1079` **debt_or_payment_reference** — if int(interest.get("resident_account_id") or -1) != int(state["account"]["id"]):
+- `Bots/handlers/service_orders_workspace.py:1082` **debt_or_payment_reference** — state["mode"] = "resident_interest_card"
+- `Bots/handlers/service_orders_workspace.py:1083` **debt_or_payment_reference** — state["interest_id"] = int(interest_id)
+- `Bots/handlers/service_orders_workspace.py:1085` **debt_or_payment_reference** — if text(interest.get("interest_status")) == INTEREST:
+- `Bots/handlers/service_orders_workspace.py:1088` **debt_or_payment_reference** — await update.message.reply_text(_interest_card(interest, lang), reply_markup=kb(rows))
+- `Bots/handlers/service_orders_workspace.py:1123` **remote_order_flow_reference** — elif text(offer.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+- `Bots/handlers/service_orders_workspace.py:1200` **debt_or_payment_reference** — if message_text == tr(lang, "create_interest"):
+- `Bots/handlers/service_orders_workspace.py:1202` **debt_or_payment_reference** — interest = _create_interest_from_state(state, user_id)
+- `Bots/handlers/service_orders_workspace.py:1206` **debt_or_payment_reference** — await update.message.reply_text(tr(lang, "interest_saved"))
+- `Bots/handlers/service_orders_workspace.py:1207` **debt_or_payment_reference** — await _show_interest_card(update, state, int(interest["id"]), lang)
+- `Bots/handlers/service_orders_workspace.py:1218` **debt_or_payment_reference** — if kind == "interest":
+- `Bots/handlers/service_orders_workspace.py:1219` **debt_or_payment_reference** — await _show_interest_card(update, state, record_id, lang)
+- `Bots/handlers/service_orders_workspace.py:1225` **debt_or_payment_reference** — if mode == "resident_interest_card":
+- `Bots/handlers/service_orders_workspace.py:1227` **debt_or_payment_reference** — interest = get_service_interest(int(state["interest_id"]))
+- `Bots/handlers/service_orders_workspace.py:1230` **debt_or_payment_reference** — notice = _notice_for_interest(interest, state, notice_type)
+- `Bots/handlers/service_orders_workspace.py:1231` **debt_or_payment_reference** — attach_payment_notice_to_interest(int(interest["id"]), notice)
+- `Bots/handlers/service_orders_workspace.py:1231` **remote_order_flow_reference** — attach_payment_notice_to_interest(int(interest["id"]), notice)
+- `Bots/handlers/service_orders_workspace.py:1236` **debt_or_payment_reference** — await _show_interest_card(update, state, int(interest["id"]), lang)
+- `Bots/handlers/service_orders_workspace.py:1284` **remote_order_flow_reference** — FROM service_orders o
+- `Bots/handlers/service_orders_workspace.py:1306` **remote_order_flow_reference** — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Bots/handlers/service_orders_workspace.py:1384` **remote_order_flow_reference** — "REMOTE_BATCH_ISSUED": "issue_new",
+- `Bots/handlers/service_orders_workspace.py:1415` **remote_order_flow_reference** — if text(order.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+- `Bots/handlers/service_orders_workspace.py:1426` **remote_order_flow_reference** — asset = create_remote_asset(
+- `Bots/handlers/service_orders_workspace.py:1440` **remote_order_flow_reference** — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Bots/handlers/service_orders_workspace.py:1450` **remote_order_flow_reference** — from service_orders_core import confirm_order_step
+- `Bots/handlers/service_orders_workspace.py:1452` **remote_order_flow_reference** — return confirm_order_step(order_id=int(order["id"]), step_code="REMOTE_PROGRAMMED", actor_id=user_id, note="Перепрошивка выполнена.", source_context="service_orders_workspace")
+- `Bots/handlers/service_orders_workspace.py:1460` **remote_order_flow_reference** — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Bots/handlers/service_orders_workspace.py:1636` **remote_order_flow_reference** — issue_new_remotes_from_batch(service_order_id=int(order["id"]), actor_id=user_id)
+- `Bots/handlers/service_orders_workspace.py:1696` **remote_order_flow_reference** — async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:
+- `Bots/handlers/unit_registry_editor - Copy.py:917` **debt_or_payment_reference** — await update.message.reply_text("Недостаточно прав на изменение реестра.")
+- `Bots/handlers/unit_registry_editor.py:958` **debt_or_payment_reference** — await update.message.reply_text("Недостаточно прав на изменение реестра.")
+- `Bots/parking_bot - Copy.py:1056` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `Bots/parking_bot.py:1114` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1098` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:1065` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1097` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1097` **debt_or_payment_reference** — "Здесь будут начисления, оплаты и задолженность.",
+- `cashier_journal.py:143` **debt_or_payment_reference** — "name": "Сверка остатка кассы",
+- `cashier_journal.py:311` **debt_or_payment_reference** — Заполняет обязательные старые поля, которые могут остаться от ранней
+- `cashier_journal.py:338` **debt_or_payment_reference** — elif any(word in name_upper for word in ("AMOUNT", "PRICE", "SUM", "BALANCE")):
+- `cashier_journal.py:645` **debt_or_payment_reference** — "initial_balance": 0,
+- `cashier_journal.py:646` **debt_or_payment_reference** — "current_balance": 0,
+- `cashier_journal.py:661` **debt_or_payment_reference** — def recalc_cashbox_balance(cur, cashbox_code):
+- `cashier_journal.py:662` **debt_or_payment_reference** — cur.execute("SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?", (cashbox_code,))
+- `cashier_journal.py:678` **debt_or_payment_reference** — balance = initial + delta
+- `cashier_journal.py:685` **debt_or_payment_reference** — {"current_balance": balance, "updated_at": now_db()},
+- `cashier_journal.py:687` **debt_or_payment_reference** — return balance
+- `cashier_journal.py:695` **debt_or_payment_reference** — result[code] = recalc_cashbox_balance(cur, code)
+- `cashier_journal.py:754` **debt_or_payment_reference** — if not table_exists(cur, "charges"):
+- `cashier_journal.py:757` **debt_or_payment_reference** — cols = table_columns(cur, "charges")
+- `cashier_journal.py:773` **debt_or_payment_reference** — FROM charges
+- `cashier_journal.py:788` **debt_or_payment_reference** — FROM charges
+- `cashier_journal.py:803` **debt_or_payment_reference** — def allocated_amount_for_charge(cur, charge_id):
+- `cashier_journal.py:804` **debt_or_payment_reference** — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:807` **debt_or_payment_reference** — cols = table_columns(cur, "payment_allocations")
+- `cashier_journal.py:808` **debt_or_payment_reference** — amount_col = "amount" if "amount" in cols else ("allocated_amount" if "allocated_amount" in cols else None)
+- `cashier_journal.py:813` **debt_or_payment_reference** — f"SELECT COALESCE(SUM({amount_col}), 0) FROM payment_allocations WHERE charge_id = ?",
+- `cashier_journal.py:820` **debt_or_payment_reference** — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:823` **debt_or_payment_reference** — return insert_dynamic(cur, "payment_allocations", {
+- `cashier_journal.py:827` **debt_or_payment_reference** — "allocated_amount": float(amount),
+- `cashier_journal.py:892` **debt_or_payment_reference** — def command_balance(args):
+- `cashier_journal.py:902` **debt_or_payment_reference** — SELECT cashbox_code, cashbox_name, currency, current_balance, is_active
+- `cashier_journal.py:909` **debt_or_payment_reference** — SELECT cashbox_code, cashbox_name, currency, current_balance, is_active
+- `cashier_journal.py:917` **debt_or_payment_reference** — print("ОСТАТКИ КАСС")
+- `cashier_journal.py:924` **debt_or_payment_reference** — print(f"{box['cashbox_code']:10} {box['cashbox_name']:28} {money(box['current_balance']):>10} {box['currency']}")
+- `cashier_journal.py:947` **debt_or_payment_reference** — ), 0) AS balance
+- `cashier_journal.py:970` **debt_or_payment_reference** — f"{money(row['balance']):>10} UAH"
+- `cashier_journal.py:1017` **debt_or_payment_reference** — available = max(0.0, float(charge["amount"] or 0) - allocated_amount_for_charge(cur, charge_id))
+- `cashier_journal.py:1096` **debt_or_payment_reference** — new_balance = recalc_cashbox_balance(cur, cashbox_code)
+- `cashier_journal.py:1130` **debt_or_payment_reference** — print("Остаток кассы:", money(new_balance), "UAH")
+- `cashier_journal.py:1192` **debt_or_payment_reference** — new_balance = recalc_cashbox_balance(cur, cashbox_code)
+- `cashier_journal.py:1221` **debt_or_payment_reference** — print("Остаток кассы:", money(new_balance), "UAH")
+- `cashier_journal.py:1304` **debt_or_payment_reference** — from_balance = recalc_cashbox_balance(cur, from_code)
+- `cashier_journal.py:1305` **debt_or_payment_reference** — to_balance = recalc_cashbox_balance(cur, to_code)
+- `cashier_journal.py:1336` **debt_or_payment_reference** — print(f"{from_code}:", money(from_balance), "UAH")
+- `cashier_journal.py:1337` **debt_or_payment_reference** — print(f"{to_code}:", money(to_balance), "UAH")
+- `cashier_journal.py:1501` **debt_or_payment_reference** — SELECT cashbox_code, cashbox_name, currency, current_balance
+- `cashier_journal.py:1513` **debt_or_payment_reference** — COALESCE(SUM(CASE WHEN direction='in' THEN amount WHEN direction='out' THEN -amount ELSE 0 END), 0) AS balance
+- `cashier_journal.py:1519` **debt_or_payment_reference** — service_balances = [dict(row) for row in cur.fetchall()]
+- `cashier_journal.py:1534` **debt_or_payment_reference** — "ОСТАТКИ КАСС:",
+- `cashier_journal.py:1538` **debt_or_payment_reference** — lines.append(f"  {box['cashbox_code']}: {money(box['current_balance'])} {box['currency']} — {box['cashbox_name']}")
+- `cashier_journal.py:1540` **debt_or_payment_reference** — lines.extend(["", "ОСТАТКИ ПО СТАТЬЯМ:", "cashbox | item | base service | balance", "-" * 120])
+- `cashier_journal.py:1541` **debt_or_payment_reference** — for row in service_balances:
+- `cashier_journal.py:1542` **debt_or_payment_reference** — lines.append(f"{row['cashbox_code']} | {row['item_code']} | {row['base_code']} | {money(row['balance'])}")
+- `cashier_journal.py:1592` **debt_or_payment_reference** — ws2 = wb.create_sheet("Остатки касс")
+- `cashier_journal.py:1593` **debt_or_payment_reference** — ws2.append(["Касса", "Название", "Валюта", "Остаток"])
+- `cashier_journal.py:1597` **debt_or_payment_reference** — box["currency"], box["current_balance"],
+- `cashier_journal.py:1600` **debt_or_payment_reference** — ws3 = wb.create_sheet("Остатки по статьям")
+- `cashier_journal.py:1601` **debt_or_payment_reference** — ws3.append(["Касса", "Код статьи", "Базовый сервис", "Остаток"])
+- `cashier_journal.py:1602` **debt_or_payment_reference** — for row in service_balances:
+- `cashier_journal.py:1605` **debt_or_payment_reference** — row["base_code"], row["balance"],
+- `cashier_journal.py:1640` **debt_or_payment_reference** — description="Журнал кассира ОСББ: платежи, расходы, передачи, остатки и сервисные статьи."
+- `cashier_journal.py:1644` **debt_or_payment_reference** — p_balance = sub.add_parser("balance", help="Остатки касс")
+- `cashier_journal.py:1645` **debt_or_payment_reference** — p_balance.add_argument("--cashbox", default="")
+- `cashier_journal.py:1646` **debt_or_payment_reference** — p_balance.add_argument("--recalc", action="store_true")
+- `cashier_journal.py:1647` **debt_or_payment_reference** — p_balance.add_argument("--by-service", action="store_true")
+- `cashier_journal.py:1648` **debt_or_payment_reference** — p_balance.set_defaults(func=command_balance)
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:12` **remote_order_flow_reference** — - connects service_orders_workspace to parking_bot in memory;
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:47` **remote_order_flow_reference** — WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:49` **remote_order_flow_reference** — SERVICE_PATCHER = ROOT / "patch_parking_bot_service_orders_v1.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:160` **debt_or_payment_reference** — No resident order, payment, interest, supplier batch or remote record is
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:196` **remote_order_flow_reference** — ("service_orders", "VIEW", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:197` **remote_order_flow_reference** — ("service_orders", "CREATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:198` **remote_order_flow_reference** — ("service_orders", "UPDATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:199` **remote_order_flow_reference** — ("service_orders", "CONFIRM", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:205` **remote_order_flow_reference** — ("service_orders", "VIEW", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:206` **remote_order_flow_reference** — ("service_orders", "CREATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:207` **remote_order_flow_reference** — ("service_orders", "UPDATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:208` **remote_order_flow_reference** — ("service_orders", "CONFIRM", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:372` **debt_or_payment_reference** — workflow deliberately promotes a paid interest after cashier confirmation,
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:382` **debt_or_payment_reference** — "reconcile_paid_service_interests(conn=conn)",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:383` **remote_order_flow_reference** — "NEW_REMOTE_PROFILE",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:386` **remote_order_flow_reference** — "issue_new_remotes_from_batch(",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:391` **remote_order_flow_reference** — "В service_orders_workspace.py не установлена готовая версия "
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:403` **remote_order_flow_reference** — "service_orders_core",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:409` **remote_order_flow_reference** — "handlers.service_orders_workspace",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:522` **remote_order_flow_reference** — "service_orders",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:525` **remote_order_flow_reference** — "remote_order_details",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:527` **debt_or_payment_reference** — "service_order_interests",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:527` **remote_order_flow_reference** — "service_order_interests",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:556` **remote_order_flow_reference** — FROM service_orders
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:668` **remote_order_flow_reference** — print("  - service_orders workspace: simplified paid-preorder workflow verified")
+- `cashier_v2_core.py:169` **debt_or_payment_reference** — "charges",
+- `cashier_v2_core.py:170` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core.py:172` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core.py:172` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core.py:323` **debt_or_payment_reference** — # Charges and default values
+- `cashier_v2_core.py:327` **debt_or_payment_reference** — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core.py:330` **debt_or_payment_reference** — if "allocated_amount" in cols:
+- `cashier_v2_core.py:331` **debt_or_payment_reference** — return "allocated_amount"
+- `cashier_v2_core.py:337` **debt_or_payment_reference** — def open_charges(
+- `cashier_v2_core.py:347` **debt_or_payment_reference** — Return open charges using the schema actually present in the database.
+- `cashier_v2_core.py:355` **debt_or_payment_reference** — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core.py:358` **debt_or_payment_reference** — ccols = table_columns(cur, "charges")
+- `cashier_v2_core.py:470` **debt_or_payment_reference** — COALESCE(SUM(pa.{allocation_col}), 0) AS allocated_amount
+- `cashier_v2_core.py:471` **debt_or_payment_reference** — FROM charges c
+- `cashier_v2_core.py:473` **debt_or_payment_reference** — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core.py:487` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `cashier_v2_core.py:488` **debt_or_payment_reference** — item["outstanding_amount"] = round(
+- `cashier_v2_core.py:489` **debt_or_payment_reference** — max(0.0, item["charge_amount"] - item["allocated_amount"]),
+- `cashier_v2_core.py:504` **debt_or_payment_reference** — rows = open_charges(
+- `cashier_v2_core.py:538` **debt_or_payment_reference** — def calc_cashbox_balance(cur: sqlite3.Cursor, cashbox_code: str) -> float:
+- `cashier_v2_core.py:539` **debt_or_payment_reference** — return v1.recalc_and_store_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core.py:599` **debt_or_payment_reference** — "allocation_status": "UNALLOCATED",
+- `cashier_v2_core.py:600` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core.py:633` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core.py:664` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core.py:689` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core.py:694` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core.py:702` **debt_or_payment_reference** — {"allocation_status": "ALLOCATED"},
+- `cashier_v2_core.py:705` **debt_or_payment_reference** — balance = calc_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core.py:727` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `cashier_v2_core.py:737` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `cashier_v2_core.py:781` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core.py:810` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core.py:823` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core.py:828` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core.py:865` **remote_order_flow_reference** — def create_payment_notice(
+- `cashier_v2_core.py:889` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core.py:889` **remote_order_flow_reference** — FROM payment_notices
+- `cashier_v2_core.py:922` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core.py:922` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core.py:945` **debt_or_payment_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core.py:945` **remote_order_flow_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core.py:952` **remote_order_flow_reference** — action_type="resident_payment_notice_created",
+- `cashier_v2_core.py:953` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:953` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:985` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core.py:985` **remote_order_flow_reference** — FROM payment_notices
+- `cashier_v2_core.py:1008` **debt_or_payment_reference** — FROM payment_notices n
+- `cashier_v2_core.py:1008` **remote_order_flow_reference** — FROM payment_notices n
+- `cashier_v2_core.py:1025` **debt_or_payment_reference** — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core.py:1025` **remote_order_flow_reference** — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core.py:1070` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core.py:1070` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core.py:1089` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:1089` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:1120` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core.py:1120` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core.py:1136` **remote_order_flow_reference** — action_type="resident_payment_notice_rejected",
+- `cashier_v2_core.py:1137` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:1137` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:1165` **debt_or_payment_reference** — charges: list[dict],
+- `cashier_v2_core.py:1173` **debt_or_payment_reference** — if not charges:
+- `cashier_v2_core.py:1207` **debt_or_payment_reference** — for charge in charges:
+- `cashier_v2_core.py:1218` **debt_or_payment_reference** — "amount_expected": charge["outstanding_amount"],
+- `cashier_v2_core.py:1233` **debt_or_payment_reference** — amount = float(amount_overrides.get(apartment_no, charge["outstanding_amount"]))
+- `cashier_v2_core.py:1234` **debt_or_payment_reference** — if amount <= 0 or amount > float(charge["outstanding_amount"]) + 0.00001:
+- `cashier_v2_core.py:1237` **debt_or_payment_reference** — f"{money(charge['outstanding_amount'])} грн."
+- `cashier_v2_core.py:1268` **debt_or_payment_reference** — "amount_expected": charge["outstanding_amount"],
+- `cashier_v2_core.py:1296` **debt_or_payment_reference** — balance = calc_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core.py:1318` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `cashier_v2_core.py:1329` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `cashier_v2_core.py:1392` **debt_or_payment_reference** — "unallocated_cash": 0,
+- `cashier_v2_core.py:1396` **debt_or_payment_reference** — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core.py:1396` **remote_order_flow_reference** — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core.py:1407` **debt_or_payment_reference** — AND COALESCE(allocation_status, 'UNALLOCATED') IN ('UNALLOCATED', 'PARTIAL')
+- `cashier_v2_core.py:1410` **debt_or_payment_reference** — result["unallocated_cash"] = int(cur.fetchone()[0] or 0)
+- `cashier_v2_core.py:1520` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core.py:1520` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core.py:1539` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core.py:1539` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:146` **debt_or_payment_reference** — "charges",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:147` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:149` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:149` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:300` **debt_or_payment_reference** — # Charges and default values
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:304` **debt_or_payment_reference** — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:307` **debt_or_payment_reference** — if "allocated_amount" in cols:
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:308` **debt_or_payment_reference** — return "allocated_amount"
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:313` **debt_or_payment_reference** — def open_charges(
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:323` **debt_or_payment_reference** — Return open charges using the schema actually present in the database.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:331` **debt_or_payment_reference** — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:334` **debt_or_payment_reference** — ccols = table_columns(cur, "charges")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:345` **debt_or_payment_reference** — # to convert legacy charges(apartment_number) to a physical unit id.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:450` **debt_or_payment_reference** — COALESCE(SUM(pa.{allocation_col}), 0) AS allocated_amount
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:451` **debt_or_payment_reference** — FROM charges c
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:453` **debt_or_payment_reference** — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:467` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:468` **debt_or_payment_reference** — item["outstanding_amount"] = round(
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:469` **debt_or_payment_reference** — max(0.0, item["charge_amount"] - item["allocated_amount"]),
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:484` **debt_or_payment_reference** — rows = open_charges(
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:518` **debt_or_payment_reference** — def calc_cashbox_balance(cur: sqlite3.Cursor, cashbox_code: str) -> float:
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:519` **debt_or_payment_reference** — return v1.recalc_and_store_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:579` **debt_or_payment_reference** — "allocation_status": "UNALLOCATED",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:580` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:613` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:644` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:669` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:674` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:682` **debt_or_payment_reference** — {"allocation_status": "ALLOCATED"},
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:685` **debt_or_payment_reference** — balance = calc_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:707` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:717` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:761` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:790` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:803` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:808` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:845` **remote_order_flow_reference** — def create_payment_notice(
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:869` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:869` **remote_order_flow_reference** — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:902` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:902` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:925` **debt_or_payment_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:925` **remote_order_flow_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:932` **remote_order_flow_reference** — action_type="resident_payment_notice_created",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:933` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:933` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:965` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:965` **remote_order_flow_reference** — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:988` **debt_or_payment_reference** — FROM payment_notices n
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:988` **remote_order_flow_reference** — FROM payment_notices n
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1005` **debt_or_payment_reference** — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1005` **remote_order_flow_reference** — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1050` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1050` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1069` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1069` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1100` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1100` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1116` **remote_order_flow_reference** — action_type="resident_payment_notice_rejected",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1117` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1117` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1145` **debt_or_payment_reference** — charges: list[dict],
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1153` **debt_or_payment_reference** — if not charges:
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1187` **debt_or_payment_reference** — for charge in charges:
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1198` **debt_or_payment_reference** — "amount_expected": charge["outstanding_amount"],
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1213` **debt_or_payment_reference** — amount = float(amount_overrides.get(apartment_no, charge["outstanding_amount"]))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1214` **debt_or_payment_reference** — if amount <= 0 or amount > float(charge["outstanding_amount"]) + 0.00001:
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1217` **debt_or_payment_reference** — f"{money(charge['outstanding_amount'])} грн."
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1248` **debt_or_payment_reference** — "amount_expected": charge["outstanding_amount"],
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1276` **debt_or_payment_reference** — balance = calc_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1298` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1309` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1372` **debt_or_payment_reference** — "unallocated_cash": 0,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1376` **debt_or_payment_reference** — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1376` **remote_order_flow_reference** — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1387` **debt_or_payment_reference** — AND COALESCE(allocation_status, 'UNALLOCATED') IN ('UNALLOCATED', 'PARTIAL')
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1390` **debt_or_payment_reference** — result["unallocated_cash"] = int(cur.fetchone()[0] or 0)
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1500` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1500` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1519` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1519` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:146` **debt_or_payment_reference** — "charges",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:147` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:149` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:149` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:300` **debt_or_payment_reference** — # Charges and default values
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:304` **debt_or_payment_reference** — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:307` **debt_or_payment_reference** — if "allocated_amount" in cols:
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:308` **debt_or_payment_reference** — return "allocated_amount"
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:312` **debt_or_payment_reference** — def open_charges(
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:324` **debt_or_payment_reference** — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:327` **debt_or_payment_reference** — ccols = table_columns(cur, "charges")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:394` **debt_or_payment_reference** — COALESCE(SUM(pa.{acol}), 0) AS allocated_amount
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:395` **debt_or_payment_reference** — FROM charges c
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:397` **debt_or_payment_reference** — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:410` **debt_or_payment_reference** — item["allocated_amount"] = float(item["allocated_amount"] or 0)
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:411` **debt_or_payment_reference** — item["outstanding_amount"] = round(
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:412` **debt_or_payment_reference** — max(0.0, item["charge_amount"] - item["allocated_amount"]),
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:428` **debt_or_payment_reference** — rows = open_charges(
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:462` **debt_or_payment_reference** — def calc_cashbox_balance(cur: sqlite3.Cursor, cashbox_code: str) -> float:
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:463` **debt_or_payment_reference** — return v1.recalc_and_store_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:523` **debt_or_payment_reference** — "allocation_status": "UNALLOCATED",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:524` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:557` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:588` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:613` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:618` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:626` **debt_or_payment_reference** — {"allocation_status": "ALLOCATED"},
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:629` **debt_or_payment_reference** — balance = calc_cashbox_balance(cur, cashbox_code)
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:651` **debt_or_payment_reference** — "cashbox_balance_after": balance,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:661` **debt_or_payment_reference** — "cashbox_balance": balance,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:705` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:734` **remote_order_flow_reference** — "payment_notice_id": notice_id,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:747` **debt_or_payment_reference** — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:752` **debt_or_payment_reference** — "allocated_amount": amount,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:789` **remote_order_flow_reference** — def create_payment_notice(
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:813` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:813` **remote_order_flow_reference** — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:846` **debt_or_payment_reference** — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:846` **remote_order_flow_reference** — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:869` **debt_or_payment_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:869` **remote_order_flow_reference** — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:876` **remote_order_flow_reference** — action_type="resident_payment_notice_created",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:877` **debt_or_payment_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:877` **remote_order_flow_reference** — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:909` **debt_or_payment_reference** — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:909` **remote_order_flow_reference** — FROM payment_notices
+- ... and 2551 more

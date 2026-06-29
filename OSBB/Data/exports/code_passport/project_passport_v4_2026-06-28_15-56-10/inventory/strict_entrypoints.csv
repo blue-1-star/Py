@@ -1,0 +1,190 @@
+﻿path,lines,kind,reasons
+audit_composite_apartments.py,178,cli_main_guard,has __main__ guard
+audit_logger.py,297,cli_main_guard,has __main__ guard
+audit_osbb_telegram_messages.py,201,cli_main_guard,has __main__ guard
+audit_registry.py,256,cli_main_guard,has __main__ guard
+audit_tbot_quarantine.py,469,cli_main_guard,has __main__ guard
+billing/build_parking_time_review_tasks.py,196,cli_main_guard,has __main__ guard
+billing/import_ohorona_parking_time.py,435,cli_main_guard,has __main__ guard
+billing/import_ohorona_parking_time_simple_preview.py,472,cli_main_guard,has __main__ guard
+billing/import_parking_time_hints_from_ohorona.py,366,cli_main_guard,has __main__ guard
+billing/migrate_add_parking_billing.py,173,cli_main_guard,has __main__ guard
+billing/report_parking_time_review_tasks.py,233,cli_main_guard,has __main__ guard
+billing/report_parking_time_with_hints.py,494,cli_main_guard,has __main__ guard
+billing_reconciliation_report.py,396,cli_main_guard,has __main__ guard
+billing_statement_excel.py,551,cli_main_guard,has __main__ guard
+Bots/data_park_bot.py,155,telegram_runtime,has __main__ guard; has telegram Application/run_polling
+Bots/hello.py,72,telegram_runtime,has __main__ guard; has telegram Application/run_polling
+Bots/parking_bot.py,1359,telegram_runtime,has __main__ guard; has telegram Application/run_polling
+build_plate_candidates.py,329,cli_main_guard,has __main__ guard
+build_plate_evidence_by_digits_and_apartment.py,343,cli_main_guard,has __main__ guard
+build_plate_evidence_from_telegram.py,175,cli_main_guard,has __main__ guard
+build_verification_tasks.py,231,cli_main_guard,has __main__ guard
+cashier_journal.py,1731,cli_main_guard,has __main__ guard
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,708,run_script,filename starts with run_; has __main__ guard
+cashier_v2_preflight.py,486,cli_main_guard,has __main__ guard
+cashier_v2_preflight_compat.py,317,cli_main_guard,has __main__ guard
+CHECK_guard_sandbox_service_orders.py,493,cli_main_guard,has __main__ guard
+CHECK_guard_sandbox_service_orders_v2.py,471,cli_main_guard,has __main__ guard
+CHECK_phone_barrier_access_operational_sandbox.py,77,cli_main_guard,has __main__ guard
+CHECK_phone_barrier_access_sandbox_schema.py,129,cli_main_guard,has __main__ guard
+CHECK_profile_button_early_route_fix.py,62,cli_main_guard,has __main__ guard
+CHECK_profile_confirmation_ready_visibility_fix.py,37,cli_main_guard,has __main__ guard
+CHECK_profile_critical_codes_fix.py,40,cli_main_guard,has __main__ guard
+CHECK_profile_parking_time_test_sandbox.py,97,cli_main_guard,has __main__ guard
+CHECK_profile_test_candidate_apartment_40.py,356,cli_main_guard,has __main__ guard
+CHECK_profile_verification_sandbox.py,40,cli_main_guard,has __main__ guard
+CHECK_profile_verification_terminology_v2.py,57,cli_main_guard,has __main__ guard
+CHECK_service_code_compatibility_phone_v2.py,122,cli_main_guard,has __main__ guard
+Collect_sheets.py,143,cli_main_guard,has __main__ guard
+Collect_sheets1.py,169,cli_main_guard,has __main__ guard
+Collect_word_tables.py,105,cli_main_guard,has __main__ guard
+commercial_contracts.py,1312,cli_main_guard,has __main__ guard
+commercial_notification_delivery.py,256,cli_main_guard,has __main__ guard
+create_clean_live_sandbox.py,460,cli_main_guard,has __main__ guard
+create_isolated_live_sandbox_v2.py,458,cli_main_guard,has __main__ guard
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,175,cli_main_guard,has __main__ guard
+Data/audit_databases.py,68,cli_main_guard,has __main__ guard
+Data/Audit_for_merge.py,39,cli_main_guard,has __main__ guard
+Data/car_registry.py,54,cli_main_guard,has __main__ guard
+Data/check_passport_columns.py,37,cli_main_guard,has __main__ guard
+Data/clean_base_01.py,55,cli_main_guard,has __main__ guard
+Data/clean_base_02.py,44,cli_main_guard,has __main__ guard
+Data/Clean_Data.py,276,cli_main_guard,has __main__ guard
+Data/conflicts.py,39,cli_main_guard,has __main__ guard
+Data/create_payment_sheet.py,62,cli_main_guard,has __main__ guard
+Data/debug_conflict.py,65,cli_main_guard,has __main__ guard
+Data/final_merge.py,68,cli_main_guard,has __main__ guard
+Data/merge_all.py,71,cli_main_guard,has __main__ guard
+Data/run_direct_merge.py,82,run_script,filename starts with run_; has __main__ guard
+Data/run_flat_merge.py,64,run_script,filename starts with run_; has __main__ guard
+Data/run_smart_merge.py,64,run_script,filename starts with run_
+diagnose_osbb_audit.py,333,cli_main_guard,has __main__ guard
+diagnose_sandbox_charges.py,207,cli_main_guard,has __main__ guard
+extract_telegram_remote_facts.py,270,cli_main_guard,has __main__ guard
+extract_telegram_vehicle_facts.py,415,cli_main_guard,has __main__ guard
+FIND_actual_service_order_state.py,436,cli_main_guard,has __main__ guard
+find_sandbox_telegram_id.py,149,cli_main_guard,has __main__ guard
+FIX_live_services_sandbox_payment_schema.py,348,cli_main_guard,has __main__ guard
+fix_parking_bot_language_gate.py,143,cli_main_guard,has __main__ guard
+fix_source_ref_schema.py,310,cli_main_guard,has __main__ guard
+generate_parking_charges.py,492,cli_main_guard,has __main__ guard
+guard_workspace_preflight.py,337,cli_main_guard,has __main__ guard
+guard_workspace_preflight_v2.py,337,cli_main_guard,has __main__ guard
+import_house_registry.py,166,cli_main_guard,has __main__ guard
+import_ohorona_list1_to_central_cashbox.py,909,cli_main_guard,has __main__ guard
+import_ohorona_sheet1_payments.py,800,cli_main_guard,has __main__ guard
+import_ohorona_to_cashbox.py,977,cli_main_guard,has __main__ guard
+import_osbb_telegram_messages.py,233,cli_main_guard,has __main__ guard
+import_paper_parking.py,324,cli_main_guard,has __main__ guard
+import_tbot_quarantine.py,150,cli_main_guard,has __main__ guard
+init_osbb_db.py,226,cli_main_guard,has __main__ guard
+init_osbb_quarantine_db.py,71,cli_main_guard,has __main__ guard
+init_osbb_telegram_db.py,133,cli_main_guard,has __main__ guard
+inspect_osbb_folder_filter.py,56,cli_main_guard,has __main__ guard
+INSTALL_cashier_route_after_phone_v2.py,101,cli_main_guard,has __main__ guard
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,143,cli_main_guard,has __main__ guard
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,111,cli_main_guard,has __main__ guard
+INSTALL_phone_barrier_access_v2.py,139,cli_main_guard,has __main__ guard
+INSTALL_profile_button_early_route_fix.py,78,cli_main_guard,has __main__ guard
+INSTALL_profile_confirmation_ready_visibility_fix.py,76,cli_main_guard,has __main__ guard
+INSTALL_profile_critical_codes_fix.py,76,cli_main_guard,has __main__ guard
+INSTALL_profile_parking_time_test_v1.py,125,cli_main_guard,has __main__ guard
+INSTALL_profile_verification_terminology_v2.py,123,cli_main_guard,has __main__ guard
+INSTALL_profile_verification_v1.py,52,cli_main_guard,has __main__ guard
+INSTALL_service_code_compatibility_phone_v2.py,101,cli_main_guard,has __main__ guard
+install_service_orders_ui.py,136,cli_main_guard,has __main__ guard
+list_osbb_folder_dialogs.py,106,cli_main_guard,has __main__ guard
+list_osbb_included_peers.py,154,cli_main_guard,has __main__ guard
+list_telegram_dialogs.py,113,cli_main_guard,has __main__ guard
+list_telegram_folders.py,60,cli_main_guard,has __main__ guard
+manage_staff_access.py,450,cli_main_guard,has __main__ guard
+manage_staff_access_v2.py,450,cli_main_guard,has __main__ guard
+migrate_access_control_and_guard.py,557,cli_main_guard,has __main__ guard
+migrate_add_normalized_fields.py,65,cli_main_guard,has __main__ guard
+migrate_add_verification_evidence.py,53,cli_main_guard,has __main__ guard
+migrate_add_verification_tasks.py,83,cli_main_guard,has __main__ guard
+migrate_apartment_link_requests.py,203,cli_main_guard,has __main__ guard
+migrate_apartment_verification.py,109,cli_main_guard,has __main__ guard
+migrate_billing_core.py,199,cli_main_guard,has __main__ guard
+migrate_bot_core.py,366,cli_main_guard,has __main__ guard
+migrate_cashier_core.py,341,cli_main_guard,has __main__ guard
+migrate_cashier_operator_editor.py,558,cli_main_guard,has __main__ guard
+migrate_cashier_v2.py,513,cli_main_guard,has __main__ guard
+migrate_cashier_v2_compat.py,684,cli_main_guard,has __main__ guard
+migrate_charge_adjustments.py,405,cli_main_guard,has __main__ guard
+migrate_commercial_contract_core.py,936,cli_main_guard,has __main__ guard
+migrate_operator_audit_log.py,103,cli_main_guard,has __main__ guard
+migrate_operator_audit_log_v2.py,188,cli_main_guard,has __main__ guard
+MIGRATE_phone_barrier_access_operational_sandbox.py,151,cli_main_guard,has __main__ guard
+MIGRATE_phone_barrier_access_sandbox.py,152,cli_main_guard,has __main__ guard
+MIGRATE_profile_parking_time_test_sandbox.py,110,cli_main_guard,has __main__ guard
+MIGRATE_profile_verification_sandbox.py,63,cli_main_guard,has __main__ guard
+migrate_remote_requests.py,238,cli_main_guard,has __main__ guard
+migrate_service_items.py,463,cli_main_guard,has __main__ guard
+migrate_service_orders_and_fulfillment.py,770,cli_main_guard,has __main__ guard
+MIGRATE_simplified_services_sandbox.py,147,cli_main_guard,has __main__ guard
+migrate_unit_registry_composite_groups.py,786,cli_main_guard,has __main__ guard
+normalize_registry_fields.py,207,cli_main_guard,has __main__ guard
+parking_billing_statement.py,475,cli_main_guard,has __main__ guard
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,919,run_script,filename starts with run_; has __main__ guard
+patch_cashier_v2_core_period_and_schemafix.py,184,cli_main_guard,has __main__ guard
+patch_cashier_v2_core_schemafix.py,205,cli_main_guard,has __main__ guard
+patch_guard_workspace_default_cash_note.py,181,cli_main_guard,has __main__ guard
+patch_guard_workspace_direct_notice_confirm.py,134,cli_main_guard,has __main__ guard
+patch_parking_bot_cashier_operator.py,212,cli_main_guard,has __main__ guard
+patch_parking_bot_client_cabinet.py,163,cli_main_guard,has __main__ guard
+patch_parking_bot_client_portal.py,203,cli_main_guard,has __main__ guard
+patch_parking_bot_guard_workspace_v2.py,281,cli_main_guard,has __main__ guard
+patch_parking_bot_guard_workspace_v3.py,257,cli_main_guard,has __main__ guard
+patch_parking_bot_guard_workspace_v4.py,267,cli_main_guard,has __main__ guard
+patch_parking_bot_launch_queues_menu.py,127,cli_main_guard,has __main__ guard
+patch_parking_bot_service_orders_ui_v1.py,324,cli_main_guard,has __main__ guard
+plate_consensus_apply.py,369,cli_main_guard,has __main__ guard
+plate_consensus_report.py,705,cli_main_guard,has __main__ guard
+plate_consensus_report_v3.py,635,cli_main_guard,has __main__ guard
+plate_consensus_top6.py,102,cli_main_guard,has __main__ guard
+prepare_live_service_test.py,344,cli_main_guard,has __main__ guard
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,865,run_script,filename starts with run_; has __main__ guard
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,831,run_script,filename starts with run_; has __main__ guard
+repair_confirmed_unit_seed_notes.py,140,cli_main_guard,has __main__ guard
+report_bot_admins.py,163,cli_main_guard,has __main__ guard
+report_plate_candidates.py,268,cli_main_guard,has __main__ guard
+report_verification_evidence.py,197,cli_main_guard,has __main__ guard
+report_verification_tasks.py,164,cli_main_guard,has __main__ guard
+report_verification_tasks_enriched.py,268,cli_main_guard,has __main__ guard
+reset_service_catalog.py,628,cli_main_guard,has __main__ guard
+restore_resident_apartment_link.py,321,cli_main_guard,has __main__ guard
+RETIRE_legacy_new_remote_test_orders_sandbox.py,118,cli_main_guard,has __main__ guard
+run_bot_guard_sandbox.py,236,run_script,filename starts with run_; has __main__ guard
+run_bot_guard_sandbox_v2.py,236,run_script,filename starts with run_; has __main__ guard
+run_bot_guard_sandbox_v3.py,236,run_script,filename starts with run_; has __main__ guard
+run_bot_live_service_sandbox_v4.py,250,run_script,filename starts with run_; has __main__ guard
+run_bot_live_services_sandbox_v1.py,919,run_script,filename starts with run_; has __main__ guard
+run_bot_sandbox_v2.py,286,run_script,filename starts with run_; has __main__ guard
+search_vehicle_by_plate_fragment.py,244,cli_main_guard,has __main__ guard
+seed_bot_admins.py,179,cli_main_guard,has __main__ guard
+seed_commercial_unit_placeholders.py,395,cli_main_guard,has __main__ guard
+seed_parking_tariffs.py,166,cli_main_guard,has __main__ guard
+service_orders_preflight.py,438,cli_main_guard,has __main__ guard
+supervisor_dashboard.py,647,cli_main_guard,has __main__ guard
+switch_parking_bot_to_cashier_v2.py,135,cli_main_guard,has __main__ guard
+telegram_test_login.py,42,cli_main_guard,has __main__ guard
+telegram_test_login_manual.py,65,cli_main_guard,has __main__ guard
+test_db_access_unit_resolver.py,82,cli_main_guard,has __main__ guard
+tools/cashier_parking_payments_audit_v4.py,616,cli_main_guard,has __main__ guard
+tools/cashier_unpaid_preview.py,203,cli_main_guard,has __main__ guard
+tools/cashier_unpaid_preview_v2.py,260,cli_main_guard,has __main__ guard
+tools/cashier_unpaid_preview_v3.py,580,cli_main_guard,has __main__ guard
+tools/db_schema_compare.py,407,cli_main_guard,has __main__ guard
+tools/db_schema_snapshot.py,361,cli_main_guard,has __main__ guard
+tools/db_schema_snapshot_full.py,356,cli_main_guard,has __main__ guard
+tools/project_code_search.py,154,cli_main_guard,has __main__ guard
+tools/project_passport.py,613,cli_main_guard,has __main__ guard
+tools/project_passport_v2.py,658,cli_main_guard,has __main__ guard
+tools/project_passport_v3_classifier.py,631,telegram_runtime,has __main__ guard; has telegram Application/run_polling
+tools/project_passport_v4_runtime_schema_audit.py,716,telegram_runtime,has __main__ guard; has telegram Application/run_polling
+unit_resolver.py,551,cli_main_guard,has __main__ guard
+vehicle_data_quality_tasks.py,381,cli_main_guard,has __main__ guard
+vehicle_verification_tasks.py,596,cli_main_guard,has __main__ guard
+Word_table_to_Excel.py,62,cli_main_guard,has __main__ guard

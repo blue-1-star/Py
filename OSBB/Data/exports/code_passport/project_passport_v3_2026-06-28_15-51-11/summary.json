@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-06-28 15:51:11",
+  "root": "G:\\Programming\\Py\\OSBB",
+  "out_dir": "G:\\Programming\\Py\\OSBB\\Data\\exports\\code_passport\\project_passport_v3_2026-06-28_15-51-11",
+  "scope": "source-focused; generated data and DB folders excluded",
+  "files": 330,
+  "python_modules": 260,
+  "functions": 3692,
+  "entrypoints": 195,
+  "categories": {
+    "source_module": 29,
+    "import_cleanup_audit": 20,
+    "report_export": 18,
+    "installer_patch_migration": 56,
+    "runtime_or_cli_entrypoint": 49,
+    "legacy_or_backup": 28,
+    "bot_handler": 18,
+    "non_python_support": 42,
+    "runtime_entrypoint": 13,
+    "test_or_diagnostic": 28,
+    "documentation": 18,
+    "tooling": 11
+  },
+  "themes": {
+    "access_control": 198,
+    "cashier": 160,
+    "schema_db": 243,
+    "telegram_bot": 195,
+    "parking_time": 141,
+    "remote": 87,
+    "service_orders": 80
+  }
+}

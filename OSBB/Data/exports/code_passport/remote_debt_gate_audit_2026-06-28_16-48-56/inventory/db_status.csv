@@ -1,0 +1,2 @@
+﻿mode,db_path,db_error,has_charges,has_payment_allocations,has_payments,has_remote_requests,has_service_orders,has_service_order_interests,has_remote_order_details,has_payment_notices
+test,G:\Programming\Py\OSBB\Data\db\osbb_test.db,,True,True,True,True,False,False,False,True

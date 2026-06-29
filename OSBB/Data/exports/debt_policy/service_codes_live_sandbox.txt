@@ -1,0 +1,195 @@
+DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+
+====================================================================================================
+TABLE: charges
+====================================================================================================
+COLUMNS:
+id, period_code, apartment_number, vehicle_id, service_code, quantity, unit_price, amount, currency, status, source, created_by, comment, created_at, updated_at, service_item_code, base_service_code, service_type, gross_amount, adjustment_amount, net_amount, adjustment_public_note, adjustment_internal_note, adjustment_updated_at, commercial_contract_id, commercial_contract_item_id, commercial_due_date
+
+DISTINCT VALUES:
+- period_code:
+    2026-05_2026-06
+- service_code:
+    PARKING_DAY
+    PARKING_NIGHT
+- amount:
+    400.0
+    1000.0
+- service_item_code:
+- base_service_code:
+
+SAMPLE ROWS:
+(1, '2026-05_2026-06', '1', 1, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:38', '2026-06-18 15:29:38', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(2, '2026-05_2026-06', '2', 2, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(3, '2026-05_2026-06', '8', 3, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(4, '2026-05_2026-06', '10', 4, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(5, '2026-05_2026-06', '12', 5, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(6, '2026-05_2026-06', '13', 6, 'PARKING_DAY', 2.0, 200.0, 400.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Day', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 400.0, 0.0, 400.0, None, None, None, None, None, None)
+(7, '2026-05_2026-06', '13', 9, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(8, '2026-05_2026-06', '14', 7, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(9, '2026-05_2026-06', '27', 15, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(10, '2026-05_2026-06', '29', 16, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(11, '2026-05_2026-06', '30', 17, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(12, '2026-05_2026-06', '38', 18, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(13, '2026-05_2026-06', '38', 19, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(14, '2026-05_2026-06', '56', 67, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(15, '2026-05_2026-06', '69', 24, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(16, '2026-05_2026-06', '69', 25, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(17, '2026-05_2026-06', '71', 26, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(18, '2026-05_2026-06', '82', 28, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(19, '2026-05_2026-06', '89', 65, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+(20, '2026-05_2026-06', '89', 66, 'PARKING_NIGHT', 2.0, 500.0, 1000.0, 'UAH', 'unpaid', 'system', 'generate_parking_charges.py', 'Generated from vehicles.parking_time=Night', '2026-06-18 15:29:40', '2026-06-18 15:29:40', None, None, None, 1000.0, 0.0, 1000.0, None, None, None, None, None, None)
+
+====================================================================================================
+TABLE: service_items
+====================================================================================================
+COLUMNS:
+id, service_item_code, service_code, service_item_name, service_type, period_code, sequence_no, amount_default, currency, date_from, date_to, status, is_active, description, comment, created_at, updated_at
+
+DISTINCT VALUES:
+- service_item_code:
+    01_BarrierPhoneConnect
+    01_BarrierRepair
+    01_Imp
+    04_26_Night
+    05_26_Day
+    05_26_Night
+    06_26_Day
+    06_26_Night
+    07_26_Day
+    HIST_05_26_Unclassified
+    HIST_06_26_Unclassified
+    TEST_PHONE_ACCESS_CONNECT
+    TEST_REMOTE_NEW
+    TEST_REMOTE_REFURBISHED
+    TEST_REMOTE_REPROGRAM_OWN
+- service_code:
+    BARRIER_PHONE_CONNECT
+    BARRIER_REPAIR
+    HISTORICAL_UNCLASSIFIED
+    IMPROVEMENT
+    PARKING_DAY
+    PARKING_NIGHT
+    TEST_PHONE_ACCESS_CONNECT
+    TEST_REMOTE_NEW
+    TEST_REMOTE_REFURBISHED
+    TEST_REMOTE_REPROGRAM_OWN
+- service_item_name:
+    Благоустройство — сбор 01
+    Исторические нераспределённые операции — 2026-05
+    Исторические нераспределённые операции — 2026-06
+    Парковка Day — 2026-05
+    Парковка Day — 2026-06
+    Парковка Day — 2026-07
+    Парковка Night — 2026-04
+    Парковка Night — 2026-05
+    Парковка Night — 2026-06
+    Подключение / повторное подключение телефонного доступа
+    Ремонт шлагбаума — сбор 01
+    ТЕСТ — восстановленный пульт
+    ТЕСТ — новый пульт
+    ТЕСТ — перепрошивка собственного пульта
+    ТЕСТ — подключение телефонного доступа
+- period_code:
+    2026-04
+    2026-05
+    2026-06
+    2026-07
+
+SAMPLE ROWS:
+(1, '01_BarrierPhoneConnect', 'BARRIER_PHONE_CONNECT', 'Подключение / повторное подключение телефонного доступа', 'ONE_TIME', None, 1, 200.0, 'UAH', None, None, 'active', 1, 'Оплата подключения номера к GSM-модулю. Повторно требуется после любого отключения.', 'Тариф 200 грн.', '2026-06-22 20:07:24', '2026-06-22 20:07:24')
+(2, 'HIST_05_26_Unclassified', 'HISTORICAL_UNCLASSIFIED', 'Исторические нераспределённые операции — 2026-05', 'HISTORICAL', '2026-05', None, None, 'UAH', None, None, 'active', 1, 'Строка Охорона.xlsx с неполными реквизитами', 'Требует последующей классификации по найденным бумажным документам', '2026-06-22 20:55:57', '2026-06-22 20:55:57')
+(3, '05_26_Night', 'PARKING_NIGHT', 'Парковка Night — 2026-05', 'MONTHLY', '2026-05', None, None, 'UAH', '2026-05-01', '2026-05-31', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 20:55:57', '2026-06-22 22:53:02')
+(4, '01_BarrierRepair', 'BARRIER_REPAIR', 'Ремонт шлагбаума — сбор 01', 'FUNDRAISING', None, 1, 1000.0, 'UAH', None, None, 'active', 1, 'Исторический сбор из Охорона.xlsx, обозначение Ш', 'Ш = ремонт/сбор на шлагбаум', '2026-06-22 20:55:57', '2026-06-22 20:55:57')
+(5, '05_26_Day', 'PARKING_DAY', 'Парковка Day — 2026-05', 'MONTHLY', '2026-05', None, None, 'UAH', '2026-05-01', '2026-05-31', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 20:55:57', '2026-06-22 22:53:02')
+(6, '06_26_Night', 'PARKING_NIGHT', 'Парковка Night — 2026-06', 'MONTHLY', '2026-06', None, None, 'UAH', '2026-06-01', '2026-06-30', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 20:55:57', '2026-06-22 22:53:02')
+(7, 'HIST_06_26_Unclassified', 'HISTORICAL_UNCLASSIFIED', 'Исторические нераспределённые операции — 2026-06', 'HISTORICAL', '2026-06', None, None, 'UAH', None, None, 'active', 1, 'Строка Охорона.xlsx с неполными реквизитами', 'Требует последующей классификации по найденным бумажным документам', '2026-06-22 20:55:57', '2026-06-22 20:55:57')
+(8, '01_Imp', 'IMPROVEMENT', 'Благоустройство — сбор 01', 'FUNDRAISING', None, 1, None, 'UAH', None, None, 'active', 1, 'Исторический сбор из Охорона.xlsx, обозначение Б', 'Описание сбора уточняется', '2026-06-22 20:55:57', '2026-06-22 20:55:57')
+(9, '06_26_Day', 'PARKING_DAY', 'Парковка Day — 2026-06', 'MONTHLY', '2026-06', None, None, 'UAH', '2026-06-01', '2026-06-30', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 22:53:02', '2026-06-22 22:53:02')
+(10, '04_26_Night', 'PARKING_NIGHT', 'Парковка Night — 2026-04', 'MONTHLY', '2026-04', None, None, 'UAH', '2026-04-01', '2026-04-30', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 22:53:02', '2026-06-22 22:53:02')
+(11, '07_26_Day', 'PARKING_DAY', 'Парковка Day — 2026-07', 'MONTHLY', '2026-07', None, None, 'UAH', '2026-07-01', '2026-07-31', 'active', 1, 'Историческая статья, созданная при импорте Лист1 Охорона.xlsx', 'Дата платежа техническая: использован последний день календарного месяца.', '2026-06-22 22:53:02', '2026-06-22 22:53:02')
+(12, 'TEST_REMOTE_REPROGRAM_OWN', 'TEST_REMOTE_REPROGRAM_OWN', 'ТЕСТ — перепрошивка собственного пульта', 'ONE_TIME', None, 1000, 1.0, 'UAH', '2026-06-26', None, 'active', 1, 'Только live sandbox. Не утверждённый тариф.', 'Управляется через каталог услуг.', '2026-06-26 20:53:46', '2026-06-26 20:53:46')
+(13, 'TEST_REMOTE_NEW', 'TEST_REMOTE_NEW', 'ТЕСТ — новый пульт', 'ONE_TIME', None, 1000, 2.0, 'UAH', '2026-06-26', None, 'active', 1, 'Только live sandbox. Не утверждённый тариф.', 'Управляется через каталог услуг.', '2026-06-26 20:53:46', '2026-06-26 20:53:46')
+(14, 'TEST_REMOTE_REFURBISHED', 'TEST_REMOTE_REFURBISHED', 'ТЕСТ — восстановленный пульт', 'ONE_TIME', None, 1000, 3.0, 'UAH', '2026-06-26', None, 'active', 1, 'Только live sandbox. Не утверждённый тариф.', 'Управляется через каталог услуг.', '2026-06-26 20:53:46', '2026-06-26 20:53:46')
+(15, 'TEST_PHONE_ACCESS_CONNECT', 'TEST_PHONE_ACCESS_CONNECT', 'ТЕСТ — подключение телефонного доступа', 'ONE_TIME', None, 1000, 4.0, 'UAH', '2026-06-26', None, 'active', 1, 'Только live sandbox. Не утверждённый тариф.', 'Управляется через каталог услуг.', '2026-06-26 20:53:46', '2026-06-26 20:53:46')
+
+====================================================================================================
+TABLE: service_catalog
+====================================================================================================
+COLUMNS:
+id, service_code, service_group, service_name, unit, is_active, comment, created_at, updated_at, service_type, category, is_monthly, is_fundraising, is_commercial, is_access_control, is_cash_collectable
+
+DISTINCT VALUES:
+- service_code:
+    BARRIER_PHONE
+    BARRIER_PHONE_CONNECT
+    BARRIER_REPAIR
+    COMMERCIAL_CONTRACT
+    GUEST_PARKING
+    HISTORICAL_UNCLASSIFIED
+    IMPROVEMENT
+    PARKING_DAY
+    PARKING_EQUIPMENT
+    PARKING_NIGHT
+    PARK_PLACE_RENT
+    PARK_PLACE_SALE
+    TEST_PHONE_ACCESS_CONNECT
+    TEST_REMOTE_NEW
+    TEST_REMOTE_REFURBISHED
+    TEST_REMOTE_REPROGRAM_OWN
+- service_name:
+    Аренда паркоместа
+    Благоустройство
+    Гостевая парковка
+    Индивидуальная услуга коммерческого договора
+    Историческая нераспределённая операция
+    Оборудование парковки
+    Парковка Day
+    Парковка Night
+    Подключение / повторное подключение телефонного доступа
+    Продажа паркоместа
+    Ремонт / сбор на шлагбаум
+    ТЕСТ — восстановленный пульт
+    ТЕСТ — новый пульт
+    ТЕСТ — перепрошивка собственного пульта
+    ТЕСТ — подключение телефонного доступа
+    Телефонный доступ к шлагбауму
+
+SAMPLE ROWS:
+(1, 'PARKING_DAY', 'MONTHLY', 'Парковка Day', 'service', 1, '', '2026-06-22 20:07:24', '2026-06-22 22:53:02', 'MONTHLY', 'PARKING', 1, 0, 0, 0, 1)
+(2, 'PARKING_NIGHT', 'MONTHLY', 'Парковка Night', 'service', 1, '', '2026-06-22 20:07:24', '2026-06-22 22:53:02', 'MONTHLY', 'PARKING', 1, 0, 0, 0, 1)
+(5, 'BARRIER_PHONE', 'MONTHLY', 'Телефонный доступ к шлагбауму', 'service', 1, 'Ежемесячный платный сервис для зарегистрированного номера телефона. Начисляется автоматически только при отсутствии долга по PARKING_DAY/PARKING_NIGHT. Доступ может быть отключён при появлении такого долга.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'MONTHLY', 'ACCESS', 1, 0, 0, 1, 1)
+(6, 'IMPROVEMENT', 'FUNDRAISING', 'Благоустройство', 'service', 1, '', '2026-06-22 20:07:24', '2026-06-22 20:55:57', 'FUNDRAISING', 'IMPROVEMENT', 0, 1, 0, 0, 1)
+(7, 'PARKING_EQUIPMENT', 'FUNDRAISING', 'Оборудование парковки', 'service', 1, 'Камеры, видеорегистратор, распознавание номеров, сеть и иное оборудование парковки.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'FUNDRAISING', 'EQUIPMENT', 0, 1, 0, 0, 1)
+(8, 'BARRIER_REPAIR', 'FUNDRAISING', 'Ремонт / сбор на шлагбаум', 'service', 1, '', '2026-06-22 20:07:24', '2026-06-22 20:55:57', 'FUNDRAISING', 'BARRIER', 0, 1, 0, 0, 1)
+(9, 'GUEST_PARKING', 'COMMERCIAL', 'Гостевая парковка', 'service', 1, 'Коммерческий сервис гостевой парковки. Тарифы и правила задаются отдельными статьями service_items.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'COMMERCIAL', 'PARKING', 0, 0, 1, 0, 1)
+(10, 'PARK_PLACE_RENT', 'COMMERCIAL', 'Аренда паркоместа', 'service', 1, 'Коммерческая аренда паркоместа.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'COMMERCIAL', 'PARKING_ASSET', 0, 0, 1, 0, 1)
+(11, 'PARK_PLACE_SALE', 'COMMERCIAL', 'Продажа паркоместа', 'service', 1, 'Коммерческая продажа паркоместа. Детальный учёт мест будет отдельным модулем.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'COMMERCIAL', 'PARKING_ASSET', 0, 0, 1, 0, 1)
+(12, 'BARRIER_PHONE_CONNECT', 'ACCESS_CONTROL', 'Подключение / повторное подключение телефонного доступа', 'service', 1, 'Разовая услуга подключения или повторного подключения номера к GSM-модулю. Тариф: 200 грн. После отключения номер должен пройти эту услугу заново.', '2026-06-22 20:07:24', '2026-06-22 20:07:24', 'ONE_TIME', 'ACCESS', 0, 0, 0, 1, 1)
+(13, 'HISTORICAL_UNCLASSIFIED', 'HISTORICAL', 'Историческая нераспределённая операция', 'service', 1, '', '2026-06-22 20:55:57', '2026-06-22 20:55:57', 'HISTORICAL', 'HISTORICAL', 0, 0, 0, 0, 1)
+(14, 'COMMERCIAL_CONTRACT', 'COMMERCIAL', 'Индивидуальная услуга коммерческого договора', 'contract', 1, 'Классификатор начислений по индивидуальным договорам КП. Цена определяется строкой договора, не service_tariffs.', '2026-06-24 12:30:30', '2026-06-24 12:30:30', 'CONTRACT', 'COMMERCIAL', 0, 0, 1, 0, 1)
+(15, 'TEST_REMOTE_REPROGRAM_OWN', 'ACCESS_CONTROL', 'ТЕСТ — перепрошивка собственного пульта', 'service', 1, 'Только live sandbox. Не утверждённый тариф.', '2026-06-26 20:53:46', '2026-06-26 20:53:46', 'ONE_TIME', 'REMOTE', 0, 0, 0, 0, 1)
+(16, 'TEST_REMOTE_NEW', 'ACCESS_CONTROL', 'ТЕСТ — новый пульт', 'service', 1, 'Только live sandbox. Не утверждённый тариф.', '2026-06-26 20:53:46', '2026-06-26 20:53:46', 'ONE_TIME', 'REMOTE', 0, 0, 0, 0, 1)
+(17, 'TEST_REMOTE_REFURBISHED', 'ACCESS_CONTROL', 'ТЕСТ — восстановленный пульт', 'service', 1, 'Только live sandbox. Не утверждённый тариф.', '2026-06-26 20:53:46', '2026-06-26 20:53:46', 'ONE_TIME', 'REMOTE', 0, 0, 0, 0, 1)
+(18, 'TEST_PHONE_ACCESS_CONNECT', 'ACCESS_CONTROL', 'ТЕСТ — подключение телефонного доступа', 'service', 1, 'Только live sandbox. Не утверждённый тариф.', '2026-06-26 20:53:46', '2026-06-26 20:53:46', 'ONE_TIME', 'ACCESS', 0, 0, 0, 1, 1)
+
+====================================================================================================
+TABLE: service_tariffs
+====================================================================================================
+COLUMNS:
+id, service_code, amount, currency, valid_from, valid_to, is_active, comment, created_at
+
+DISTINCT VALUES:
+- service_code:
+    GUEST_NIGHT
+    PARKING_DAY
+    PARKING_NIGHT
+- amount:
+    50.0
+    200.0
+    500.0
+
+SAMPLE ROWS:
+(1, 'GUEST_NIGHT', 50.0, 'UAH', '2026-01-01', None, 1, 'Initial guest night tariff', '2026-06-18 12:10:14')
+(2, 'PARKING_DAY', 200.0, 'UAH', '2026-05-01', None, 1, 'Parking Day tariff from 01.05.2026', '2026-06-18 13:42:50')
+(3, 'PARKING_NIGHT', 500.0, 'UAH', '2026-05-01', None, 1, 'Parking Night tariff from 01.05.2026', '2026-06-18 13:42:52')

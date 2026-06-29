@@ -1,0 +1,376 @@
+# Remote / Pult Debt Gate Audit
+
+## Summary
+
+- Generated: `2026-06-28 16:48:56`
+- Root: `G:\Programming\Py\OSBB`
+- DB mode: **test**
+- DB path: `G:\Programming\Py\OSBB\Data\db\osbb_test.db`
+- DB error: `-`
+- has charges/payment_allocations/payments: **True / True / True**
+- has remote_requests: **True**
+- has service_orders/service_order_interests/remote_order_details: **False / False / False**
+- files scanned: **79**
+- functions scanned: **516**
+- remote-flow functions without debt words: **93**
+- remote-flow functions with debt words: **13**
+- debt/payment helper functions: **150**
+- high-priority suspects: **59**
+
+## Interpretation
+
+Functions in `REMOTE_FLOW_NO_DEBT_WORDS` are not automatically wrong, but they are the first places to inspect before adding a blocking rule.
+For pult ordering, the likely gate should be before creating a resident interest/order and again before physical issue.
+
+## High-priority suspects
+
+- `Bots/handlers/client_portal.py:1307-1312` `_remote_table_ready` — remote_hits=1, write_hits=0
+  - first remote context: `1310: return table_exists(conn.cursor(), "remote_requests")`
+- `Bots/handlers/client_portal.py:1323-1338` `_remote_requests_for_account` — remote_hits=2, write_hits=0
+  - first remote context: `1323: def _remote_requests_for_account(account_id: int) -> list[dict]:`
+- `Bots/handlers/client_portal.py:1341-1399` `_create_remote_request` — remote_hits=2, write_hits=2
+  - first remote context: `1353: INSERT INTO remote_requests (`
+- `Bots/handlers/client_portal.py:1402-1423` `_admin_remote_rows` — remote_hits=1, write_hits=0
+  - first remote context: `1412: FROM remote_requests r`
+- `Bots/handlers/client_portal.py:1426-1441` `_admin_remote_request` — remote_hits=1, write_hits=0
+  - first remote context: `1434: FROM remote_requests r`
+- `Bots/handlers/client_portal.py:1444-1514` `_update_remote_status` — remote_hits=3, write_hits=2
+  - first remote context: `1458: FROM remote_requests WHERE id = ?`
+- `Bots/handlers/client_portal.py:1517-1532` `_format_my_remote_requests` — remote_hits=1, write_hits=0
+  - first remote context: `1517: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:`
+- `Bots/handlers/client_portal.py:1678-1691` `_show_my_remote_requests` — remote_hits=3, write_hits=0
+  - first remote context: `1678: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:`
+- `Bots/handlers/client_portal_safe_linking.py:1307-1312` `_remote_table_ready` — remote_hits=1, write_hits=0
+  - first remote context: `1310: return table_exists(conn.cursor(), "remote_requests")`
+- `Bots/handlers/client_portal_safe_linking.py:1323-1338` `_remote_requests_for_account` — remote_hits=2, write_hits=0
+  - first remote context: `1323: def _remote_requests_for_account(account_id: int) -> list[dict]:`
+- `Bots/handlers/client_portal_safe_linking.py:1341-1399` `_create_remote_request` — remote_hits=2, write_hits=2
+  - first remote context: `1353: INSERT INTO remote_requests (`
+- `Bots/handlers/client_portal_safe_linking.py:1402-1423` `_admin_remote_rows` — remote_hits=1, write_hits=0
+  - first remote context: `1412: FROM remote_requests r`
+- `Bots/handlers/client_portal_safe_linking.py:1426-1441` `_admin_remote_request` — remote_hits=1, write_hits=0
+  - first remote context: `1434: FROM remote_requests r`
+- `Bots/handlers/client_portal_safe_linking.py:1444-1514` `_update_remote_status` — remote_hits=3, write_hits=2
+  - first remote context: `1458: FROM remote_requests WHERE id = ?`
+- `Bots/handlers/client_portal_safe_linking.py:1517-1532` `_format_my_remote_requests` — remote_hits=1, write_hits=0
+  - first remote context: `1517: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:`
+- `Bots/handlers/client_portal_safe_linking.py:1678-1691` `_show_my_remote_requests` — remote_hits=3, write_hits=0
+  - first remote context: `1678: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:`
+- `Bots/handlers/guard_workspace.py:502-520` `_remote_rows_for_issue` — remote_hits=2, write_hits=0
+  - first remote context: `506: if not table_exists(cur, "remote_requests"):`
+- `Bots/handlers/guard_workspace.py:561-575` `_start_remote_received` — remote_hits=1, write_hits=0
+  - first remote context: `572: "📥 Пульт принят на пост O\n\n"`
+- `Bots/handlers/guard_workspace.py:658-686` `_show_remote_issue_list` — remote_hits=1, write_hits=0
+  - first remote context: `660: user_id, "remote_requests", "VIEW",`
+- `Bots/handlers/guard_workspace.py:689-697` `_remote_request` — remote_hits=1, write_hits=0
+  - first remote context: `693: cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))`
+- `Bots/handlers/guard_workspace.py:700-724` `_show_remote_issue_card` — remote_hits=1, write_hits=0
+  - first remote context: `721: ["✅ Пульт выдан"],`
+- `Bots/handlers/guard_workspace.py:727-808` `_save_remote_issued` — remote_hits=8, write_hits=2
+  - first remote context: `730: user_id, "remote_requests", "ISSUE",`
+- `Bots/handlers/guard_workspace.py:901-1150` `handle_guard_workspace_text` — remote_hits=3, write_hits=0
+  - first remote context: `955: if message_text == "📥 Пульт принят":`
+- `Bots/handlers/service_orders_workspace.py:482-495` `_phone_offer_sort_key` — remote_hits=1, write_hits=0
+  - first remote context: `492: exact_profile = 1 if profile == "PHONE_ACCESS_CONNECT" else 0`
+- `Bots/handlers/service_orders_workspace.py:512-519` `_category_allowed` — remote_hits=1, write_hits=0
+  - first remote context: `515: "service_orders",`
+- `Bots/handlers/service_orders_workspace.py:540-589` `_current_offers` — remote_hits=1, write_hits=0
+  - first remote context: `582: from service_orders_core import effective_price`
+- `Bots/handlers/service_orders_workspace.py:592-645` `_offer_buttons` — remote_hits=3, write_hits=0
+  - first remote context: `627: "REMOTE_REPROGRAM_OWN",`
+- `Bots/handlers/service_orders_workspace.py:1034-1074` `_show_resident_records` — remote_hits=1, write_hits=0
+  - first remote context: `1047: FROM service_orders`
+- `Bots/handlers/service_orders_workspace.py:1101-1250` `_handle_resident` — remote_hits=2, write_hits=1
+  - first remote context: `1123: elif text(offer.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:`
+- `Bots/handlers/service_orders_workspace.py:1261-1294` `_operator_orders` — remote_hits=1, write_hits=0
+  - first remote context: `1284: FROM service_orders o`
+- `Bots/handlers/service_orders_workspace.py:1297-1308` `_assert_order_access` — remote_hits=1, write_hits=0
+  - first remote context: `1306: resource = "service_order_steps" if action == "CONFIRM" else "service_orders"`
+- `Bots/handlers/service_orders_workspace.py:1374-1402` `_order_actions` — remote_hits=5, write_hits=0
+  - first remote context: `1384: "REMOTE_BATCH_ISSUED": "issue_new",`
+- `Bots/handlers/service_orders_workspace.py:1405-1419` `_show_operator_order` — remote_hits=1, write_hits=0
+  - first remote context: `1415: if text(order.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:`
+- `Bots/handlers/service_orders_workspace.py:1422-1446` `_receive_resident_remote` — remote_hits=1, write_hits=4
+  - first remote context: `1440: cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))`
+- `Bots/handlers/service_orders_workspace.py:1449-1452` `_program` — remote_hits=2, write_hits=0
+  - first remote context: `1450: from service_orders_core import confirm_order_step`
+- `Bots/handlers/service_orders_workspace.py:1455-1475` `_return_own_remote` — remote_hits=1, write_hits=2
+  - first remote context: `1460: row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()`
+- `Bots/handlers/service_orders_workspace.py:1550-1693` `_handle_operator` — remote_hits=4, write_hits=1
+  - first remote context: `1586: tr(lang, "issue_new"): "issue_new",`
+- `Bots/handlers/service_orders_workspace.py:1696-1742` `handle_service_orders_text` — remote_hits=1, write_hits=0
+  - first remote context: `1696: async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:`
+- `CHECK_guard_sandbox_service_orders_v2.py:434-439` `save_report` — remote_hits=1, write_hits=0
+  - first remote context: `437: report_path = LOG_DIR / f"guard_sandbox_service_orders_diagnosis_v2_{stamp}.txt"`
+- `FIND_actual_service_order_state.py:221-320` `print_service_order_details` — remote_hits=4, write_hits=0
+  - first remote context: `225: if "service_orders" not in tables:`
+- `FIX_live_services_sandbox_payment_schema.py:158-201` `map_from_service_orders` — remote_hits=8, write_hits=1
+  - first remote context: `158: def map_from_service_orders(conn: sqlite3.Connection) -> int:`
+- `phone_barrier_access_core.py:1973-2162` `activate_phone_access_subscription_for_order` — remote_hits=1, write_hits=5
+  - first remote context: `1988: from service_orders_core import confirm_order_step, get_service_order`
+- `service_orders_core.py:147-162` `required_tables` — remote_hits=2, write_hits=0
+  - first remote context: `153: "service_orders",`
+- `service_orders_core.py:312-332` `_next_order_number` — remote_hits=1, write_hits=0
+  - first remote context: `317: FROM service_orders`
+- `service_orders_core.py:366-390` `_audit_order` — remote_hits=2, write_hits=0
+  - first remote context: `382: table_name="service_orders",`
+- `service_orders_core.py:406-448` `_derive_status` — remote_hits=1, write_hits=0
+  - first remote context: `445: return "READY_FOR_ISSUE", payment_status, "READY_FOR_HANDOVER"`
+- `service_orders_core.py:451-477` `recompute_order_status` — remote_hits=1, write_hits=1
+  - first remote context: `460: UPDATE service_orders`
+- `service_orders_core.py:480-492` `get_service_order` — remote_hits=1, write_hits=0
+  - first remote context: `486: "SELECT * FROM service_orders WHERE id = ?",`
+- `service_orders_core.py:1365-1408` `service_order_summary` — remote_hits=1, write_hits=0
+  - first remote context: `1398: FROM remote_order_details`
+- `service_preorders_core.py:94-100` `simplified_tables` — remote_hits=1, write_hits=0
+  - first remote context: `96: "service_order_interests",`
+- `service_preorders_core.py:247-328` `_ensure_new_remote_preorder_profile` — remote_hits=11, write_hits=1
+  - first remote context: `247: def _ensure_new_remote_preorder_profile(cur: sqlite3.Cursor) -> list[str]:`
+- `service_preorders_core.py:475-486` `get_service_interest` — remote_hits=1, write_hits=0
+  - first remote context: `480: row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))`
+- `service_preorders_core.py:489-507` `list_resident_service_interests` — remote_hits=1, write_hits=0
+  - first remote context: `498: FROM service_order_interests`
+- `service_preorders_core.py:528-568` `attach_payment_notice_to_interest` — remote_hits=2, write_hits=3
+  - first remote context: `528: def attach_payment_notice_to_interest(`
+- `service_preorders_core.py:753-788` `supplier_demand` — remote_hits=2, write_hits=0
+  - first remote context: `766: FROM service_orders o`
+- `service_preorders_core.py:791-886` `create_supplier_batch` — remote_hits=2, write_hits=3
+  - first remote context: `809: FROM service_orders o`
+- `service_preorders_core.py:909-932` `get_supplier_batch` — remote_hits=1, write_hits=0
+  - first remote context: `923: JOIN service_orders o ON o.id = l.service_order_id`
+- `service_preorders_core.py:935-1018` `receive_supplier_batch` — remote_hits=1, write_hits=3
+  - first remote context: `1001: step_code="SUPPLIER_BATCH_RECEIVED",`
+- `service_preorders_core.py:1045-1154` `issue_new_remotes_from_batch` — remote_hits=3, write_hits=8
+  - first remote context: `1045: def issue_new_remotes_from_batch(`
+
+## Remote flow with debt words
+
+- `Bots/handlers/guard_workspace.py:604-655` `_save_remote_received` — debt_hits=1, remote_hits=2
+  - first debt context: `653: "Это физическая отметка; складской остаток будет вести отдельный модуль."`
+- `Bots/handlers/service_orders_workspace.py:969-997` `_create_interest_from_state` — debt_hits=4, remote_hits=1
+  - first debt context: `987: parking_debt_check_mode=text(gate.get("parking_debt_check_mode")) or "MANUAL_REVIEW",`
+- `CHECK_service_code_compatibility_phone_v2.py:23-117` `main` — debt_hits=1, remote_hits=3
+  - first debt context: `97: SELECT interest_number, interest_status, amount_due_snapshot, payment_notice_id`
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:45-165` `main` — debt_hits=3, remote_hits=3
+  - first debt context: `56: "amount_due_snapshot",`
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:21-109` `main` — debt_hits=1, remote_hits=3
+  - first debt context: `46: print("No matching unpaid legacy TEST new-remote orders were found.")`
+- `phone_barrier_access_service.py:30-105` `create_phone_barrier_access_interest` — debt_hits=7, remote_hits=1
+  - first debt context: `39: parking_debt_check_mode: str = "MANUAL_REVIEW",`
+- `service_orders_core.py:495-713` `create_service_order` — debt_hits=11, remote_hits=7
+  - first debt context: `506: amount_due_snapshot_override: float | None = None,`
+- `service_preorders_core.py:103-232` `ensure_simplified_service_schema` — debt_hits=1, remote_hits=5
+  - first debt context: `125: amount_due_snapshot REAL NOT NULL,`
+- `service_preorders_core.py:365-472` `create_service_interest` — debt_hits=10, remote_hits=3
+  - first debt context: `376: amount_due_snapshot_override: float | None = None,`
+- `service_preorders_core.py:623-726` `reconcile_paid_service_interests` — debt_hits=3, remote_hits=3
+  - first debt context: `652: due = float(interest.get("amount_due_snapshot") or 0)`
+- `service_preorders_core.py:729-750` `unpaid_interest_totals` — debt_hits=1, remote_hits=1
+  - first debt context: `729: def unpaid_interest_totals(*, conn: sqlite3.Connection | None = None) -> list[dict]:`
+- `tools/remote_debt_gate_audit.py:187-223` `load_db_status` — debt_hits=2, remote_hits=8
+  - first debt context: `214: has_payment_allocations="payment_allocations" in tables,`
+- `tools/remote_debt_gate_audit.py:361-533` `main` — debt_hits=52, remote_hits=18
+  - first debt context: `367: out_dir = root / "Data" / "exports" / "code_passport" / f"remote_debt_gate_audit_{stamp}"`
+
+## Debt/payment helper candidates
+
+- `Bots/handlers/cashier_operator.py:946-960` `receipt_allocation_total` — debt_hits=5
+  - first debt context: `947: if not table_exists(cur, "payment_allocations"):`
+- `Bots/handlers/cashier_operator.py:971-983` `receipt_unallocated_amount` — debt_hits=1
+  - first debt context: `971: def receipt_unallocated_amount(receipt: dict) -> float:`
+- `Bots/handlers/cashier_operator.py:986-1073` `list_open_charges_for_receipt` — debt_hits=11
+  - first debt context: `996: if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):`
+- `Bots/handlers/cashier_operator.py:1076-1182` `allocate_receipt_to_charge` — debt_hits=7
+  - first debt context: `1112: maximum = min(unallocated, float(charge["outstanding_amount"]))`
+- `Bots/handlers/cashier_operator.py:1454-1486` `format_receipt` — debt_hits=2
+  - first debt context: `1455: unallocated = receipt_unallocated_amount(receipt)`
+- `Bots/handlers/cashier_operator.py:1507-1532` `format_charge_list` — debt_hits=3
+  - first debt context: `1511: f"Не разнесено: {money(receipt_unallocated_amount(receipt))} грн.",`
+- `Bots/handlers/cashier_operator.py:1535-1544` `format_cashier_home` — debt_hits=1
+  - first debt context: `1543: "остаток кассы не меняется."`
+- `Bots/handlers/cashier_operator.py:1611-1645` `start_receipt` — debt_hits=1
+  - first debt context: `1642: "Эта запись не является оплатой и не меняет остаток кассы.\n"`
+- `Bots/handlers/cashier_operator.py:1746-1782` `show_open_charges` — debt_hits=1
+  - first debt context: `1768: f"{money(charge['outstanding_amount'])}"`
+- `Bots/handlers/cashier_operator.py:1785-1830` `preview_receipt` — debt_hits=1
+  - first debt context: `1825: "Платёж и остаток кассы не изменятся.",`
+- `Bots/handlers/cashier_operator.py:1858-2426` `handle_cashier_operator_text` — debt_hits=6
+  - first debt context: `2265: receipt_unallocated_amount(receipt),`
+- `Bots/handlers/cashier_operator_v2.py:189-210` `_entry_summary` — debt_hits=1
+  - first debt context: `195: if charge and abs(float(state.get("amount") or 0) - float(charge["outstanding_amount"])) < 0.00001`
+- `Bots/handlers/cashier_operator_v2.py:213-234` `_bank_summary` — debt_hits=1
+  - first debt context: `219: if charge and abs(float(state.get("amount") or 0) - float(charge["outstanding_amount"])) < 0.00001`
+- `Bots/handlers/cashier_operator_v2.py:237-250` `_paper_summary` — debt_hits=1
+  - first debt context: `249: "Платёж и остаток кассы не изменятся.",`
+- `Bots/handlers/cashier_operator_v2.py:253-271` `_prepare_suggested_charge` — debt_hits=1
+  - first debt context: `268: state["amount"] = float(rows[0]["outstanding_amount"])`
+- `Bots/handlers/cashier_operator_v2.py:382-471` `_create_entry` — debt_hits=1
+  - first debt context: `393: if charge and abs(amount - float(charge["outstanding_amount"])) < 0.00001:`
+- `Bots/handlers/cashier_operator_v2.py:488-516` `_batch_summary` — debt_hits=2
+  - first debt context: `493: total = sum(float(overrides.get(text(item.get("apartment_number")), item["outstanding_amount"])) for item in included)`
+- `Bots/handlers/cashier_operator_v2.py:540-561` `_start_batch` — debt_hits=1
+  - first debt context: `555: "сумма каждой строки = точный остаток начисления.",`
+- `Bots/handlers/cashier_operator_v2.py:634-651` `_show_reconciliation` — debt_hits=1
+  - first debt context: `645: "Эти числа не равны долгу. Это рабочая очередь для оператора.",`
+- `Bots/handlers/cashier_operator_v2.py:654-1097` `handle_cashier_operator_v2_text` — debt_hits=3
+  - first debt context: `912: f"Остаток кассы {state['cashbox_code']}: {money(result['cashbox_balance'])} грн."`
+- `Bots/handlers/client_portal.py:1030-1033` `_allocation_amount_column` — debt_hits=2
+  - first debt context: `1032: "allocated_amount" if "allocated_amount" in columns else None`
+- `Bots/handlers/client_portal.py:1036-1190` `_billing_data` — debt_hits=20
+  - first debt context: `1043: "outstanding_total": 0.0,`
+- `Bots/handlers/client_portal.py:1202-1235` `_format_dashboard` — debt_hits=1
+  - first debt context: `1229: f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",`
+- `Bots/handlers/client_portal.py:1238-1260` `_format_parking` — debt_hits=1
+  - first debt context: `1253: f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",`
+- `Bots/handlers/client_portal.py:1263-1280` `_format_charges` — debt_hits=1
+  - first debt context: `1278: f"{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"`
+- `Bots/handlers/client_portal_safe_linking.py:1030-1033` `_allocation_amount_column` — debt_hits=2
+  - first debt context: `1032: "allocated_amount" if "allocated_amount" in columns else None`
+- `Bots/handlers/client_portal_safe_linking.py:1036-1190` `_billing_data` — debt_hits=20
+  - first debt context: `1043: "outstanding_total": 0.0,`
+- `Bots/handlers/client_portal_safe_linking.py:1202-1235` `_format_dashboard` — debt_hits=1
+  - first debt context: `1229: f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",`
+- `Bots/handlers/client_portal_safe_linking.py:1238-1260` `_format_parking` — debt_hits=1
+  - first debt context: `1253: f"{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн",`
+- `Bots/handlers/client_portal_safe_linking.py:1263-1280` `_format_charges` — debt_hits=1
+  - first debt context: `1278: f"{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"`
+- `Bots/handlers/client_portal_v2.py:323-336` `_charge_buttons` — debt_hits=1
+  - first debt context: `330: f"{money(charge['outstanding_amount'])}"`
+- `Bots/handlers/client_portal_v2.py:407-436` `_select_charge_or_service` — debt_hits=1
+  - first debt context: `422: state["amount"] = float(charge["outstanding_amount"])`
+- `Bots/handlers/client_portal_v2.py:478-665` `handle_client_portal_text` — debt_hits=1
+  - first debt context: `584: state["amount"] = float(charge["outstanding_amount"])`
+- `Bots/handlers/commercial_contract_editor.py:253-279` `list_contracts` — debt_hits=2
+  - first debt context: `261: c.reminder_days_before_due, c.warning_days_overdue,`
+- `Bots/handlers/commercial_contract_editor.py:282-320` `get_contract` — debt_hits=14
+  - first debt context: `306: SELECT outstanding_amount, access_blocking_outstanding_amount,`
+- `Bots/handlers/commercial_contract_editor.py:416-451` `create_contract` — debt_hits=2
+  - first debt context: `428: reminder_days_before_due, warning_days_overdue,`
+- `Bots/handlers/commercial_contract_editor.py:454-486` `update_contract` — debt_hits=2
+  - first debt context: `458: "reminder_days_before_due", "warning_days_overdue",`
+- `Bots/handlers/commercial_contract_editor.py:534-566` `create_item` — debt_hits=2
+  - first debt context: `545: currency, blocks_phone_access_on_debt, is_active,`
+- `Bots/handlers/commercial_contract_editor.py:569-594` `update_item` — debt_hits=1
+  - first debt context: `570: allowed = {"item_name", "fixed_amount", "rate_amount", "quantity_default", "blocks_phone_access_on_debt", "is_active"}`
+- `Bots/handlers/commercial_contract_editor.py:775-802` `format_contract` — debt_hits=6
+  - first debt context: `789: f"Предупреждение через: {contract.get('warning_days_overdue')} дн.",`
+- `Bots/handlers/commercial_contract_editor.py:805-812` `format_items` — debt_hits=2
+  - first debt context: `811: lines.append(f"{i}. {mark} {item.get('item_name') or 'без названия'}\n   {label_mode(item.get('calculation_mode'))}\n   {item_amount(item)}\n   Блокирует доступ при долге: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}")`
+- `Bots/handlers/commercial_contract_editor.py:815-823` `format_item` — debt_hits=1
+  - first debt context: `822: f"Блокирует доступ: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}",`
+- `Bots/handlers/commercial_contract_editor.py:858-866` `format_phones` — debt_hits=1
+  - first debt context: `860: status = {"ACTIVE": "✅ активно", "WARNING": "⚠️ предупреждение", "SUSPENSION_CANDIDATE": "🟠 кандидат", "SUSPENDED_DEBT": "⛔ отключено вручную", "MANUAL_BLOCK": "🔒 ручная блокировка", "CLOSED": "⚪ закрыто"}`
+- `Bots/handlers/commercial_contract_editor.py:944-955` `show_item_card` — debt_hits=1
+  - first debt context: `949: rows = [["✏️ Наименование", "✏️ Сумма/ставка"], ["✏️ Количество", "🛡️ Доступ при долге"]]`
+- `Bots/handlers/commercial_contract_editor.py:1036-1581` `handle_commercial_contract_editor_text` — debt_hits=10
+  - first debt context: `1239: "⚠️ Предупреждение через": ("warning_days_overdue", 0, 365, "Срок предупреждения"),`
+- `Bots/handlers/guard_workspace.py:435-495` `_save_manual_cash` — debt_hits=1
+  - first debt context: `492: f"Остаток O: {money(result['cashbox_balance'])} грн.\n"`
+- `Bots/handlers/service_orders_workspace.py:664-699` `_order_card` — debt_hits=1
+  - first debt context: `694: f"Сума: {money(order.get('amount_due_snapshot'))} {order.get('currency') or 'UAH'}",`
+- `Bots/handlers/service_orders_workspace.py:701-732` `_interest_card` — debt_hits=1
+  - first debt context: `729: f"Сума: {money(interest.get('amount_due_snapshot'))} {interest.get('currency') or 'UAH'}",`
+- `Bots/handlers/service_orders_workspace.py:785-804` `_phone_point_status_lines` — debt_hits=2
+  - first debt context: `791: "SUSPENDED_FOR_DEBT": "⚠️",`
+- `Bots/handlers/service_orders_workspace.py:903-967` `_show_preview` — debt_hits=2
+  - first debt context: `946: phone_tr(lang, 'debt_mode'),`
+- `Bots/handlers/service_orders_workspace.py:999-1031` `_notice_for_interest` — debt_hits=1
+  - first debt context: `1013: amount=float(interest.get("amount_due_snapshot") or 0),`
+- `Bots/parking_bot.py:737-1342` `message_handler` — debt_hits=1
+  - first debt context: `1114: "Здесь будут начисления, оплаты и задолженность.",`
+- `CHECK_phone_barrier_access_operational_sandbox.py:12-72` `main` — debt_hits=1
+  - first debt context: `65: print("Warnings:", cur.execute("SELECT COUNT(*) FROM access_debt_warnings").fetchone()[0])`
+- `CHECK_phone_barrier_access_sandbox_schema.py:21-124` `main` — debt_hits=1
+  - first debt context: `119: "SELECT COUNT(*) FROM access_debt_warnings"`
+- `billing_reconciliation_report.py:151-239` `build_reconciliation` — debt_hits=6
+  - first debt context: `157: allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")`
+- `billing_reconciliation_report.py:284-353` `write_report` — debt_hits=5
+  - first debt context: `317: lines.append(f"Charges count              : {len(data['charges'])}")`
+- `billing_reconciliation_report.py:356-391` `main` — debt_hits=2
+  - first debt context: `384: print("Unpaid charges:", len(data["unpaid_charges"]))`
+- `billing_statement_excel.py:143-157` `load_allocations` — debt_hits=2
+  - first debt context: `144: allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")`
+- `billing_statement_excel.py:300-506` `write_xlsx` — debt_hits=8
+  - first debt context: `321: status = "ДОЛГ"`
+- `cashier_journal.py:753-800` `find_charge_for_payment` — debt_hits=2
+  - first debt context: `773: FROM charges`
+- `cashier_journal.py:803-816` `allocated_amount_for_charge` — debt_hits=6
+  - first debt context: `803: def allocated_amount_for_charge(cur, charge_id):`
+- `cashier_journal.py:819-829` `create_allocation` — debt_hits=3
+  - first debt context: `820: if not table_exists(cur, "payment_allocations"):`
+- `cashier_journal.py:977-1130` `command_income` — debt_hits=2
+  - first debt context: `1017: available = max(0.0, float(charge["amount"] or 0) - allocated_amount_for_charge(cur, charge_id))`
+- `cashier_journal.py:1133-1221` `command_expense` — debt_hits=1
+  - first debt context: `1221: print("Остаток кассы:", money(new_balance), "UAH")`
+- `cashier_journal.py:1492-1635` `command_report` — debt_hits=2
+  - first debt context: `1593: ws2.append(["Касса", "Название", "Валюта", "Остаток"])`
+- `cashier_v2_core.py:160-183` `schema_ready` — debt_hits=2
+  - first debt context: `170: "payment_allocations",`
+- `cashier_v2_core.py:326-332` `allocation_amount_column` — debt_hits=3
+  - first debt context: `327: cols = table_columns(cur, "payment_allocations")`
+- `cashier_v2_core.py:337-495` `open_charges` — debt_hits=8
+  - first debt context: `355: if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):`
+- `cashier_v2_core.py:542-738` `create_cash_receipt` — debt_hits=2
+  - first debt context: `689: "payment_allocations",`
+- `cashier_v2_core.py:741-858` `create_bank_payment` — debt_hits=2
+  - first debt context: `823: "payment_allocations",`
+- `cashier_v2_core.py:1158-1336` `create_cash_batch` — debt_hits=5
+  - first debt context: `1218: "amount_expected": charge["outstanding_amount"],`
+- `cashier_v2_core.py:1385-1418` `reconciliation_summary` — debt_hits=1
+  - first debt context: `1413: "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"`
+- `commercial_contracts.py:86-87` `has_debt` — debt_hits=2
+  - first debt context: `86: def has_debt(self) -> bool:`
+- `commercial_contracts.py:90-91` `has_access_blocking_debt` — debt_hits=2
+  - first debt context: `90: def has_access_blocking_debt(self) -> bool:`
+- `commercial_contracts.py:140-147` `table_exists` — debt_hits=2
+  - first debt context: `142: # v_commercial_contract_charge_debt / v_commercial_contract_debt_summary.`
+- `commercial_contracts.py:150-169` `schema_ready` — debt_hits=2
+  - first debt context: `159: "v_commercial_contract_charge_debt",`
+- `commercial_contracts.py:172-198` `get_contract` — debt_hits=2
+  - first debt context: `190: c.warning_days_overdue,`
+- `commercial_contracts.py:201-225` `list_active_contracts` — debt_hits=2
+  - first debt context: `218: c.warning_days_overdue,`
+- `commercial_contracts.py:228-254` `get_contract_items` — debt_hits=1
+  - first debt context: `245: blocks_phone_access_on_debt,`
+- `commercial_contracts.py:316-383` `calculate_contract_debt` — debt_hits=25
+  - first debt context: `316: def calculate_contract_debt(`
+- `commercial_contracts.py:386-434` `contract_notification_stage` — debt_hits=9
+  - first debt context: `404: debt = calculate_contract_debt(conn, contract_id, on_date=on_date)`
+- `commercial_contracts.py:437-502` `build_notification_text` — debt_hits=19
+  - first debt context: `439: debt: ContractDebt,`
+- `commercial_contracts.py:505-521` `notification_dedupe_key` — debt_hits=1
+  - first debt context: `513: Один тип сообщения одному получателю один раз на один долг/срок.`
+- `commercial_contracts.py:555-602` `create_access_action` — debt_hits=8
+  - first debt context: `562: debt: ContractDebt,`
+- `commercial_contracts.py:636-718` `queue_notification` — debt_hits=19
+  - first debt context: `641: debt: ContractDebt,`
+- `commercial_contracts.py:721-966` `queue_contract_notifications` — debt_hits=31
+  - first debt context: `749: debt = calculate_contract_debt(conn, contract_id, on_date=on_date)`
+- `commercial_contracts.py:990-1020` `list_access_action_candidates` — debt_hits=2
+  - first debt context: `1001: a.debt_amount_snapshot,`
+- `commercial_contracts.py:1023-1154` `record_manual_access_action` — debt_hits=3
+  - first debt context: `1049: debt_amount_snapshot,`
+- `commercial_contracts.py:1157-1171` `format_plan` — debt_hits=10
+  - first debt context: `1158: debt = plan["debt"]`
+- `commercial_contracts.py:1232-1307` `main` — debt_hits=1
+  - first debt context: `1234: description="Поставить в очередь Telegram-уведомления по долгам КП."`
+- `import_ohorona_sheet1_payments.py:386-462` `apply_rows` — debt_hits=2
+  - first debt context: `389: allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")`
+- `import_ohorona_to_cashbox.py:868-972` `main` — debt_hits=2
+  - first debt context: `892: help="Подтверждённый остаток кассы после исторического периода. Создаёт отдельную операцию сверки.",`
+- `parking_billing_statement.py:167-251` `build_statement` — debt_hits=5
+  - first debt context: `173: allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")`
+- `parking_billing_statement.py:264-421` `write_report` — debt_hits=11
+  - first debt context: `288: debt_rows = [x for x in rows if x["balance"] > 0.01]`
+- `phone_barrier_access_core.py:126-139` `required_phone_access_tables` — debt_hits=1
+  - first debt context: `136: "access_debt_warnings",`
+- `phone_barrier_access_core.py:166-548` `_create_schema` — debt_hits=24
+  - first debt context: `315: 'DEBT_WARNING', 'DEACTIVATING', 'DEACTIVATED_FOR_DEBT',`
+- `phone_barrier_access_core.py:858-1018` `ensure_phone_barrier_access_schema` — debt_hits=5
+  - first debt context: `941: POLICY_DEBT_GRACE_DAYS,`
+- `phone_barrier_access_core.py:1175-1255` `quote_phone_barrier_access` — debt_hits=3
+  - first debt context: `1251: "grace_days": int(values.get(POLICY_DEBT_GRACE_DAYS, "10")),`
+- `phone_barrier_access_core.py:1258-1329` `_insert_operational_schema` — debt_hits=3
+  - first debt context: `1275: parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'`
+- `phone_barrier_access_core.py:1432-1533` `create_phone_access_request_from_interest` — debt_hits=7
+  - first debt context: `1437: parking_debt_check_mode: str = "MANUAL_REVIEW",`

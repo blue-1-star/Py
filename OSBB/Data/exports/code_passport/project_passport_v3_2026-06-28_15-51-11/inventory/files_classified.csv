@@ -1,0 +1,331 @@
+﻿path,suffix,size_bytes,lines,modified_at,kind,category,confidence,reasons,themes
+access_control.py,.py,11350,400,2026-06-26 12:15:06,python,source_module,40,regular source module candidate,"access_control, cashier, schema_db, telegram_bot"
+audit_composite_apartments.py,.py,3561,178,2026-06-16 12:38:11,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, schema_db"
+audit_logger.py,.py,8248,297,2026-06-21 11:50:31,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"schema_db, telegram_bot"
+audit_osbb_telegram_messages.py,.py,4532,201,2026-06-10 13:29:28,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+audit_registry.py,.py,6855,256,2026-06-08 17:23:55,python,import_cleanup_audit,65,import/clean/audit/normalization filename,schema_db
+audit_tbot_quarantine.py,.py,13621,469,2026-06-08 19:51:16,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, parking_time, schema_db"
+billing/build_parking_time_review_tasks.py,.py,4229,196,2026-06-11 19:50:13,python,report_export,70,report/export/billing filename,"parking_time, schema_db"
+billing/import_ohorona_parking_time.py,.py,13572,435,2026-06-17 23:17:52,python,report_export,70,report/export/billing filename,"parking_time, schema_db, telegram_bot"
+billing/import_ohorona_parking_time_simple_preview.py,.py,14574,472,2026-06-18 13:48:12,python,report_export,70,report/export/billing filename,"parking_time, schema_db, telegram_bot"
+billing/import_parking_time_hints_from_ohorona.py,.py,10067,366,2026-06-11 19:14:39,python,report_export,70,report/export/billing filename,"parking_time, schema_db"
+billing/migrate_add_parking_billing.py,.py,4302,173,2026-06-11 16:45:02,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, parking_time, schema_db, telegram_bot"
+billing/report_missing_parking_time.py,.py,0,1,2026-06-11 16:46:05,python,report_export,70,report/export/billing filename,parking_time
+billing/report_parking_time_review_tasks.py,.py,6397,233,2026-06-11 20:10:37,python,report_export,70,report/export/billing filename,"access_control, parking_time, schema_db, telegram_bot"
+billing/report_parking_time_with_hints.py,.py,14069,494,2026-06-11 21:34:07,python,report_export,70,report/export/billing filename,"access_control, parking_time, schema_db, telegram_bot"
+billing_reconciliation_report.py,.py,15127,396,2026-06-19 16:13:33,python,report_export,70,report/export/billing filename,"access_control, cashier, parking_time, schema_db"
+billing_statement_excel.py,.py,17301,551,2026-06-20 21:47:19,python,report_export,70,report/export/billing filename,"access_control, cashier, parking_time, schema_db"
+Bots/data_park_bot.py,.py,4181,155,2026-06-06 18:08:05,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"parking_time, remote, schema_db, telegram_bot"
+Bots/db_access - Copy.py,.py,127095,4914,2026-06-21 13:56:45,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/db_access.py,.py,161700,6012,2026-06-23 19:50:58,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/__init___.py,.py,0,1,2026-06-14 21:01:57,python,bot_handler,88,telegram handler/workspace module,
+Bots/handlers/agreement - Copy.py,.py,17445,542,2026-06-16 21:00:57,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, parking_time, schema_db, telegram_bot"
+Bots/handlers/agreement.py,.py,17595,542,2026-06-17 12:09:08,python,bot_handler,88,telegram handler/workspace module,"access_control, parking_time, schema_db, telegram_bot"
+Bots/handlers/audit_viewer - Copy.py,.py,6569,231,2026-06-21 17:48:34,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"schema_db, telegram_bot"
+Bots/handlers/audit_viewer.py,.py,10760,366,2026-06-24 21:56:50,python,bot_handler,88,telegram handler/workspace module,"schema_db, telegram_bot"
+Bots/handlers/cashier_operator.py,.py,92137,2427,2026-06-25 14:39:13,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, schema_db, telegram_bot"
+Bots/handlers/cashier_operator_v2.py,.py,45714,1098,2026-06-25 17:41:58,python,bot_handler,88,telegram handler/workspace module,"cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/client_portal.py,.py,92802,2184,2026-06-25 10:58:36,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/client_portal_safe_linking.py,.py,92802,2184,2026-06-25 10:58:36,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/client_portal_v2.py,.py,29207,666,2026-06-25 17:42:42,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, remote, telegram_bot"
+Bots/handlers/client_portal_v3.py,.py,2859,97,2026-06-26 20:40:59,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, remote, service_orders, telegram_bot"
+Bots/handlers/commercial_contract_editor.py,.py,77589,1582,2026-06-24 12:58:23,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, schema_db, telegram_bot"
+Bots/handlers/guard_workspace.py,.py,42309,1151,2026-06-26 18:28:39,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,.py,40166,1141,2026-06-26 13:40:55,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,.py,41786,1144,2026-06-26 16:25:03,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/handlers/profile_parking_time_test_workspace.py,.py,12491,365,2026-06-28 12:11:31,python,bot_handler,88,telegram handler/workspace module,"parking_time, service_orders, telegram_bot"
+Bots/handlers/profile_verification_workspace.py,.py,30339,768,2026-06-27 21:55:14,python,bot_handler,88,telegram handler/workspace module,"access_control, parking_time, schema_db, service_orders, telegram_bot"
+Bots/handlers/service_orders_workspace.py,.py,80889,1743,2026-06-27 21:22:52,python,bot_handler,88,telegram handler/workspace module,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09,.before_phone_access_ui_fix_2026-06-27_16-47-09,62448,0,2026-06-27 16:45:04,other,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, service_orders"
+Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29,.before_phone_access_ui_fix_2026-06-27_16-52-29,62448,0,2026-06-27 16:50:16,other,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, service_orders"
+Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40,.before_phone_access_ui_fix_v3_2026-06-27_17-22-40,64990,0,2026-06-27 17:20:34,other,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, service_orders"
+Bots/handlers/unit_registry_editor - Copy.py,.py,35618,1036,2026-06-24 12:58:07,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, schema_db, telegram_bot"
+Bots/handlers/unit_registry_editor.py,.py,37465,1077,2026-06-25 09:28:35,python,bot_handler,88,telegram handler/workspace module,"access_control, schema_db, telegram_bot"
+Bots/handlers/vehicle_card_editor.py,.py,19343,595,2026-06-21 14:44:28,python,bot_handler,88,telegram handler/workspace module,"parking_time, schema_db, telegram_bot"
+Bots/handlers/vehicle_full_list.py,.py,3283,127,2026-06-21 15:42:54,python,bot_handler,88,telegram handler/workspace module,"parking_time, schema_db, telegram_bot"
+Bots/handlers/vehicle_verification.py,.py,18573,519,2026-06-20 16:39:02,python,bot_handler,88,telegram handler/workspace module,"cashier, schema_db, telegram_bot"
+Bots/hello.py,.py,2297,72,2026-06-07 10:51:29,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"parking_time, remote, telegram_bot"
+Bots/parking_bot - Copy.py,.py,43814,1301,2026-06-21 17:14:37,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, parking_time, remote, schema_db, telegram_bot"
+Bots/parking_bot.py,.py,46470,1359,2026-06-25 14:45:11,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,.py,45846,1343,2026-06-25 12:21:29,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,.py,43055,1310,2026-06-23 21:29:34,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, parking_time, remote, schema_db, telegram_bot"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,.py,45801,1342,2026-06-25 10:25:52,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, parking_time, remote, schema_db, telegram_bot"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,.py,45801,1342,2026-06-25 10:45:39,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, parking_time, remote, schema_db, telegram_bot"
+Bots/Start_OSBB_Bot.bat,.bat,142,9,2026-06-07 11:25:49,script,non_python_support,45,non-python support file,telegram_bot
+Bots/Start_OSBB_Guard_Sandbox_Bot.bat,.bat,1433,41,2026-06-26 16:41:16,script,non_python_support,45,non-python support file,"access_control, cashier, telegram_bot"
+Bots/Start_OSBB_Guard_Sandbox_Bot_v2.bat,.bat,1276,41,2026-06-26 17:28:19,script,non_python_support,45,non-python support file,"access_control, cashier"
+build_plate_candidates.py,.py,8972,329,2026-06-10 22:19:49,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,schema_db
+build_plate_evidence_by_digits_and_apartment.py,.py,9905,343,2026-06-10 21:26:24,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, schema_db, telegram_bot"
+build_plate_evidence_from_telegram.py,.py,4422,175,2026-06-10 20:53:32,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, schema_db, telegram_bot"
+build_verification_tasks.py,.py,5926,231,2026-06-09 11:34:37,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,schema_db
+cashier_journal.py,.py,59752,1731,2026-06-22 19:53:24,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, parking_time, schema_db, telegram_bot"
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,.py,25095,708,2026-06-27 20:00:41,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+cashier_v2_core.py,.py,56934,1556,2026-06-25 23:17:40,python,source_module,40,regular source module candidate,"cashier, parking_time, remote, schema_db, telegram_bot"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,.py,56511,1536,2026-06-25 23:17:38,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"cashier, parking_time, remote, schema_db, telegram_bot"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,.py,54232,1480,2026-06-25 22:19:22,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"cashier, parking_time, remote, schema_db, telegram_bot"
+cashier_v2_preflight.py,.py,16996,486,2026-06-25 18:35:51,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db"
+cashier_v2_preflight_compat.py,.py,11464,317,2026-06-25 19:45:55,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db"
+CHECK_guard_sandbox_service_orders.py,.py,15629,493,2026-06-27 11:43:52,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+CHECK_guard_sandbox_service_orders_v2.py,.py,14466,471,2026-06-27 11:50:08,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+CHECK_phone_barrier_access_operational_sandbox.py,.py,2921,77,2026-06-27 19:31:22,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, schema_db"
+CHECK_phone_barrier_access_sandbox_schema.py,.py,3761,129,2026-06-27 19:14:06,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, schema_db"
+CHECK_profile_button_early_route_fix.py,.py,1914,62,2026-06-27 21:42:12,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"cashier, schema_db, telegram_bot"
+CHECK_profile_confirmation_ready_visibility_fix.py,.py,1095,37,2026-06-27 21:55:13,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,
+CHECK_profile_critical_codes_fix.py,.py,1174,40,2026-06-27 21:45:58,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,parking_time
+CHECK_profile_parking_time_test_sandbox.py,.py,2764,97,2026-06-28 12:11:29,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"parking_time, schema_db"
+CHECK_profile_test_candidate_apartment_40.py,.py,10492,356,2026-06-27 22:23:22,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"cashier, parking_time, schema_db, telegram_bot"
+CHECK_profile_verification_sandbox.py,.py,2596,40,2026-06-27 20:48:58,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,schema_db
+CHECK_profile_verification_terminology_v2.py,.py,2258,57,2026-06-27 21:22:50,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, parking_time, service_orders"
+CHECK_service_code_compatibility_phone_v2.py,.py,3831,122,2026-06-27 20:18:29,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, schema_db, service_orders"
+Collect_sheets.py,.py,6999,143,2026-05-25 00:13:21,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db"
+Collect_sheets1.py,.py,7755,169,2026-05-25 00:31:17,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db"
+Collect_word_tables.py,.py,4840,105,2026-05-24 22:24:37,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,
+commercial_contracts.py,.py,44434,1312,2026-06-24 12:20:29,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, parking_time, schema_db, telegram_bot"
+commercial_notification_delivery.py,.py,8671,256,2026-06-24 12:20:40,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"parking_time, schema_db, telegram_bot"
+create_clean_live_sandbox.py,.py,15790,460,2026-06-26 20:04:47,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+create_isolated_live_sandbox_v2.py,.py,16061,458,2026-06-26 20:12:35,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat,.bat,866,39,2026-06-27 12:15:02,script,non_python_support,45,non-python support file,"cashier, service_orders"
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,.py,5882,175,2026-06-27 12:15:02,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"cashier, parking_time, schema_db, service_orders"
+Data/audit_databases.py,.py,2855,68,2026-06-06 22:27:20,python,import_cleanup_audit,65,import/clean/audit/normalization filename,schema_db
+Data/Audit_for_merge.py,.py,1819,39,2026-05-31 18:25:31,python,import_cleanup_audit,65,import/clean/audit/normalization filename,
+Data/car_registry.py,.py,2452,54,2026-06-01 22:29:27,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,access_control
+Data/check_passport_columns.py,.py,1612,37,2026-05-30 20:22:19,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,
+Data/Clean_Base.py,.py,1515,36,2026-05-31 16:39:50,python,import_cleanup_audit,65,import/clean/audit/normalization filename,access_control
+Data/clean_base_01.py,.py,2265,55,2026-06-06 20:40:29,python,import_cleanup_audit,65,import/clean/audit/normalization filename,parking_time
+Data/clean_base_02.py,.py,1741,44,2026-06-06 21:05:30,python,import_cleanup_audit,65,import/clean/audit/normalization filename,parking_time
+Data/Clean_Data.py,.py,11358,276,2026-05-25 22:21:54,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, parking_time"
+Data/conflicts.py,.py,1752,39,2026-05-31 21:58:07,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,
+Data/create_payment_sheet.py,.py,2583,62,2026-06-08 14:51:29,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, parking_time"
+Data/debug_conflict.py,.py,3099,65,2026-06-01 21:29:11,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,
+Data/final_merge.py,.py,3395,68,2026-05-31 17:33:53,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db"
+Data/merge_all.py,.py,3492,71,2026-05-31 16:47:09,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db"
+Data/rub_flat_merge.py,.py,2432,54,2026-06-06 11:53:08,python,source_module,40,regular source module candidate,parking_time
+Data/run_direct_merge.py,.py,4160,82,2026-05-31 15:34:09,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, parking_time, schema_db"
+Data/run_flat_merge.py,.py,3047,64,2026-06-06 11:57:35,python,runtime_entrypoint,90,runtime-style entrypoint filename,parking_time
+Data/run_smart_merge.py,.py,2478,64,2026-06-04 22:44:32,python,runtime_entrypoint,90,runtime-style entrypoint filename,parking_time
+diagnose_osbb_audit.py,.py,11819,333,2026-06-24 20:15:43,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,schema_db
+diagnose_sandbox_charges.py,.py,7277,207,2026-06-25 22:20:08,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"cashier, schema_db"
+Docs/OSBB_Business_Handoff_2026-06-27/DO_NOT_UPLOAD_SECRETS.md,.md,517,13,2026-06-27 22:42:29,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, schema_db, telegram_bot"
+Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md,.md,10639,208,2026-06-27 22:42:29,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md,.md,2331,29,2026-06-27 22:42:29,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, schema_db, telegram_bot"
+Docs/OSBB_Business_Handoff_2026-06-27/SHA256SUMS.txt,.txt,494,6,2026-06-27 22:42:30,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,
+Docs/OSBB_Business_Handoff_2026-06-27/START_OSBB_BUSINESS_CHAT_2026-06-28.txt,.txt,807,12,2026-06-27 22:42:29,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"parking_time, schema_db, telegram_bot"
+Docs/OSBB_Business_Handoff_2026-06-27/TRANSFER_CHECKLIST_2026-06-27.txt,.txt,1223,36,2026-06-27 22:42:29,doc,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, telegram_bot"
+extract_telegram_remote_facts.py,.py,7899,270,2026-06-10 14:43:36,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, remote, schema_db, service_orders, telegram_bot"
+extract_telegram_vehicle_facts.py,.py,12182,415,2026-06-10 20:22:15,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, remote, schema_db, telegram_bot"
+FIND_actual_service_order_state.py,.py,14151,436,2026-06-27 11:56:43,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+find_sandbox_telegram_id.py,.py,5204,149,2026-06-26 13:45:55,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, schema_db, telegram_bot"
+FIX_live_services_sandbox_payment_schema.py,.py,11425,348,2026-06-27 12:24:35,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, schema_db, service_orders, telegram_bot"
+fix_parking_bot_language_gate.py,.py,5239,143,2026-06-25 10:43:26,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,telegram_bot
+fix_source_ref_schema.py,.py,10500,310,2026-06-27 10:40:17,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, schema_db, service_orders, telegram_bot"
+generate_parking_charges.py,.py,14720,492,2026-06-18 18:26:33,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, parking_time, schema_db, telegram_bot"
+Generate_Stetement.py,.py,6347,77,2026-05-28 16:26:38,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, telegram_bot"
+guard_workspace_preflight.py,.py,13315,337,2026-06-26 12:37:35,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, schema_db, telegram_bot"
+guard_workspace_preflight_v2.py,.py,13318,337,2026-06-26 12:53:18,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, schema_db, telegram_bot"
+import_house_registry.py,.py,4177,166,2026-06-08 16:45:38,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, schema_db"
+import_ohorona_list1_to_central_cashbox.py,.py,33949,909,2026-06-22 22:46:36,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"cashier, parking_time, schema_db, telegram_bot"
+import_ohorona_sheet1_payments.py,.py,27500,800,2026-06-19 13:21:20,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, cashier, parking_time, schema_db"
+import_ohorona_to_cashbox.py,.py,38040,977,2026-06-22 20:40:10,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+import_osbb_telegram_messages.py,.py,5077,233,2026-06-10 13:17:40,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"schema_db, telegram_bot"
+import_paper_parking.py,.py,8262,324,2026-06-08 16:52:55,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, parking_time, schema_db, telegram_bot"
+import_tbot_quarantine.py,.py,3946,150,2026-06-08 19:42:40,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, schema_db"
+init_osbb_db.py,.py,5786,226,2026-06-07 21:48:08,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db, telegram_bot"
+init_osbb_quarantine_db.py,.py,1531,71,2026-06-08 18:53:14,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, schema_db"
+init_osbb_telegram_db.py,.py,3017,133,2026-06-09 16:36:08,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, remote, schema_db, telegram_bot"
+inspect_osbb_folder_filter.py,.py,1408,56,2026-06-10 13:03:24,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+INSTALL_cashier_route_after_phone_v2.py,.py,2907,101,2026-06-27 20:00:40,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, service_orders"
+INSTALL_PHONE_ACCESS_UI_FIX.bat,.bat,1314,50,2026-06-27 16:45:04,script,non_python_support,45,non-python support file,"access_control, service_orders"
+INSTALL_PHONE_ACCESS_UI_FIX_v2.bat,.bat,379,14,2026-06-27 16:50:16,script,non_python_support,45,non-python support file,access_control
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,.py,4180,143,2026-06-27 16:50:16,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, service_orders"
+INSTALL_PHONE_ACCESS_UI_FIX_v3.bat,.bat,337,12,2026-06-27 17:20:35,script,non_python_support,45,non-python support file,access_control
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,.py,3352,111,2026-06-27 17:20:34,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, service_orders"
+INSTALL_phone_barrier_access_v2.py,.py,4471,139,2026-06-27 19:31:21,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, schema_db, service_orders, telegram_bot"
+INSTALL_profile_button_early_route_fix.py,.py,2354,78,2026-06-27 21:42:12,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db"
+INSTALL_profile_confirmation_ready_visibility_fix.py,.py,2272,76,2026-06-27 21:55:12,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db"
+INSTALL_profile_critical_codes_fix.py,.py,2212,76,2026-06-27 21:45:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"parking_time, schema_db"
+INSTALL_profile_parking_time_test_v1.py,.py,3872,125,2026-06-28 12:11:29,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"parking_time, schema_db"
+INSTALL_profile_verification_terminology_v2.py,.py,3931,123,2026-06-27 21:22:50,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, service_orders"
+INSTALL_profile_verification_v1.py,.py,2801,52,2026-06-27 20:48:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, service_orders"
+INSTALL_service_code_compatibility_phone_v2.py,.py,3511,101,2026-06-27 20:18:29,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, service_orders"
+install_service_orders_ui.py,.py,13153,136,2026-06-26 20:40:59,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, service_orders, telegram_bot"
+list_osbb_folder_dialogs.py,.py,2726,106,2026-06-10 12:59:47,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+list_osbb_included_peers.py,.py,4390,154,2026-06-10 13:11:03,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, schema_db, telegram_bot"
+list_telegram_dialogs.py,.py,2740,113,2026-06-10 12:17:40,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+list_telegram_folders.py,.py,1404,60,2026-06-10 12:54:24,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+manage_staff_access.py,.py,15382,450,2026-06-26 12:32:58,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, remote, schema_db, telegram_bot"
+manage_staff_access_v2.py,.py,15382,450,2026-06-26 13:43:50,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, remote, schema_db, telegram_bot"
+mark_audit_enabled.py,.py,392,9,2026-06-21 12:26:18,python,import_cleanup_audit,65,import/clean/audit/normalization filename,
+migrate_access_control_and_guard.py,.py,20953,557,2026-06-26 12:32:09,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, schema_db, telegram_bot"
+migrate_add_normalized_fields.py,.py,1991,65,2026-06-08 20:28:30,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, schema_db"
+migrate_add_verification_evidence.py,.py,1129,53,2026-06-10 20:52:00,python,installer_patch_migration,85,installer/patch/migration/preflight filename,schema_db
+migrate_add_verification_tasks.py,.py,1828,83,2026-06-09 11:10:15,python,installer_patch_migration,85,installer/patch/migration/preflight filename,schema_db
+migrate_apartment_link_requests.py,.py,7078,203,2026-06-25 10:58:55,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, telegram_bot"
+migrate_apartment_verification.py,.py,2587,109,2026-06-14 15:11:05,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, telegram_bot"
+migrate_billing_core.py,.py,6273,199,2026-06-18 15:06:15,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+migrate_bot_core.py,.py,8731,366,2026-06-12 16:34:40,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, telegram_bot"
+migrate_cashier_core.py,.py,12118,341,2026-06-21 10:17:07,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+migrate_cashier_operator_editor.py,.py,19620,558,2026-06-25 14:38:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+migrate_cashier_v2.py,.py,18071,513,2026-06-25 17:39:59,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+migrate_cashier_v2_compat.py,.py,24064,684,2026-06-25 19:44:05,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+migrate_charge_adjustments.py,.py,16298,405,2026-06-22 20:20:13,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+migrate_commercial_contract_core.py,.py,34881,936,2026-06-24 12:19:57,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+migrate_operator_audit_log.py,.py,2183,103,2026-06-16 22:17:17,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, telegram_bot"
+migrate_operator_audit_log_v2.py,.py,5223,188,2026-06-17 14:46:56,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, telegram_bot"
+MIGRATE_phone_barrier_access_operational_sandbox.py,.py,4797,151,2026-06-27 19:31:21,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, schema_db, service_orders, telegram_bot"
+MIGRATE_phone_barrier_access_sandbox.py,.py,4640,152,2026-06-27 19:14:05,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db, service_orders"
+MIGRATE_profile_parking_time_test_sandbox.py,.py,3108,110,2026-06-28 12:11:28,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db"
+MIGRATE_profile_verification_sandbox.py,.py,2576,63,2026-06-27 20:48:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,schema_db
+migrate_remote_requests.py,.py,7689,238,2026-06-25 10:19:15,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, remote, schema_db, telegram_bot"
+migrate_service_items.py,.py,17800,463,2026-06-22 13:08:05,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+migrate_service_orders_and_fulfillment.py,.py,30195,770,2026-06-26 19:39:26,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+MIGRATE_simplified_services_sandbox.py,.py,4511,147,2026-06-27 14:09:06,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"schema_db, service_orders"
+migrate_unit_registry_composite_groups.py,.py,26739,786,2026-06-23 17:32:45,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, schema_db, telegram_bot"
+normalize_registry_fields.py,.py,5888,207,2026-06-08 21:59:45,python,import_cleanup_audit,65,import/clean/audit/normalization filename,"access_control, schema_db, telegram_bot"
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,.py,30195,770,2026-06-26 19:39:26,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,.py,19165,571,2026-06-26 19:39:26,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, schema_db, service_orders, telegram_bot"
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,.py,33797,1126,2026-06-26 19:39:26,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,.py,17539,438,2026-06-26 19:39:26,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+parking_billing_statement.py,.py,15670,475,2026-06-19 14:57:09,python,report_export,70,report/export/billing filename,"access_control, cashier, parking_time, schema_db"
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,.py,12491,365,2026-06-28 12:11:31,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"parking_time, service_orders, telegram_bot"
+parking_time_test_payload/profile_parking_time_test_core.py,.py,25134,828,2026-06-28 12:11:31,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,.py,33905,919,2026-06-28 12:11:31,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+patch_cashier_v2_core_period_and_schemafix.py,.py,15987,184,2026-06-25 23:13:53,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, telegram_bot"
+patch_cashier_v2_core_schemafix.py,.py,13532,205,2026-06-25 21:35:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+patch_guard_workspace_default_cash_note.py,.py,7009,181,2026-06-26 16:07:08,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, telegram_bot"
+patch_guard_workspace_direct_notice_confirm.py,.py,5098,134,2026-06-26 18:26:15,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, schema_db, telegram_bot"
+patch_parking_bot_cashier_operator.py,.py,6514,212,2026-06-25 14:39:28,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"cashier, telegram_bot"
+patch_parking_bot_client_cabinet.py,.py,5289,163,2026-06-25 09:53:04,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"parking_time, telegram_bot"
+patch_parking_bot_client_portal.py,.py,7096,203,2026-06-25 10:20:10,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"remote, telegram_bot"
+patch_parking_bot_guard_workspace_v2.py,.py,9872,281,2026-06-26 12:36:23,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, telegram_bot"
+patch_parking_bot_guard_workspace_v3.py,.py,8636,257,2026-06-26 12:52:06,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, telegram_bot"
+patch_parking_bot_guard_workspace_v4.py,.py,9165,267,2026-06-26 17:25:49,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, telegram_bot"
+patch_parking_bot_launch_queues_menu.py,.py,3706,127,2026-06-25 11:40:58,python,installer_patch_migration,85,installer/patch/migration/preflight filename,remote
+patch_parking_bot_service_orders_ui_v1.py,.py,11423,324,2026-06-26 20:40:59,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, service_orders, telegram_bot"
+patch_parking_bot_service_orders_v1.py,.py,3161,104,2026-06-27 12:15:01,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, remote, service_orders, telegram_bot"
+phone_barrier_access_core.py,.py,73351,2163,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+phone_barrier_access_service.py,.py,6503,208,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, schema_db, service_orders, telegram_bot"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,.py,74980,1614,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,.py,73351,2163,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,.py,6503,208,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, schema_db, service_orders, telegram_bot"
+phone_barrier_access_v2_payload/service_orders_core.py,.py,42469,1338,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+phone_barrier_access_v2_payload/service_preorders_core.py,.py,44033,1147,2026-06-27 19:31:23,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+plate_consensus_apply.py,.py,10374,369,2026-06-20 13:55:25,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+plate_consensus_report.py,.py,24343,705,2026-06-20 13:27:19,python,report_export,70,report/export/billing filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+plate_consensus_report_v3.py,.py,22527,635,2026-06-20 11:33:31,python,report_export,70,report/export/billing filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+plate_consensus_top6.py,.py,2793,102,2026-06-20 11:42:52,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,schema_db
+prepare_live_service_test.py,.py,12718,344,2026-06-26 20:40:59,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,.py,31628,865,2026-06-27 21:42:13,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,.py,30339,768,2026-06-27 21:55:14,python,source_module,40,regular source module candidate,"access_control, parking_time, schema_db, service_orders, telegram_bot"
+profile_parking_time_test_core.py,.py,25134,828,2026-06-28 12:11:31,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, cashier, parking_time, schema_db, telegram_bot"
+profile_verification_core.py,.py,49558,1557,2026-06-27 21:22:51,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, schema_db, telegram_bot"
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,.py,30085,765,2026-06-27 21:45:58,python,source_module,40,regular source module candidate,"access_control, parking_time, schema_db, service_orders, telegram_bot"
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,.py,27756,714,2026-06-27 20:49:00,python,source_module,40,regular source module candidate,"access_control, parking_time, schema_db, service_orders, telegram_bot"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,.py,80603,1736,2026-06-27 20:49:00,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+profile_verification_payload/profile_verification_core.py,.py,48300,1531,2026-06-27 20:49:00,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, schema_db, telegram_bot"
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,.py,30322,831,2026-06-27 20:49:00,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,.py,29933,760,2026-06-27 21:22:52,python,source_module,40,regular source module candidate,"access_control, parking_time, schema_db, service_orders, telegram_bot"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,.py,80889,1743,2026-06-27 21:22:52,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+profile_verification_terminology_v2_payload/profile_verification_core.py,.py,49558,1557,2026-06-27 21:22:51,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, schema_db, telegram_bot"
+README_APARTMENT_40_PROFILE_TEST_PREFLIGHT.txt,.txt,1468,54,2026-06-27 22:23:23,doc,documentation,70,documentation/text file,"cashier, parking_time, schema_db"
+README_CASHIER_ROUTE_FIX.txt,.txt,1633,44,2026-06-27 17:34:24,doc,documentation,70,documentation/text file,cashier
+README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2.txt,.txt,1785,75,2026-06-27 20:00:41,doc,documentation,70,documentation/text file,"access_control, cashier, schema_db, telegram_bot"
+README_LIVE_SERVICE_UI.txt,.txt,708,19,2026-06-26 20:40:59,doc,documentation,70,documentation/text file,"access_control, remote, schema_db, service_orders, telegram_bot"
+README_LIVE_SERVICES_SANDBOX.txt,.txt,2640,68,2026-06-27 12:15:02,doc,documentation,70,documentation/text file,"access_control, cashier, remote, service_orders, telegram_bot"
+README_PHONE_ACCESS_FIX.txt,.txt,3140,52,2026-06-27 16:45:04,doc,documentation,70,documentation/text file,"access_control, cashier, remote, service_orders"
+README_PHONE_ACCESS_FIX_v2.txt,.txt,1650,30,2026-06-27 16:50:16,doc,documentation,70,documentation/text file,"access_control, service_orders"
+README_PHONE_ACCESS_FIX_v3.txt,.txt,1829,31,2026-06-27 17:20:35,doc,documentation,70,documentation/text file,"access_control, remote, telegram_bot"
+README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION.txt,.txt,3594,93,2026-06-27 19:14:07,doc,documentation,70,documentation/text file,"access_control, cashier, parking_time, remote, schema_db"
+README_PHONE_BARRIER_ACCESS_V2.txt,.txt,7674,152,2026-06-27 19:31:23,doc,documentation,70,documentation/text file,"access_control, cashier, parking_time, remote, schema_db"
+README_PROFILE_BUTTON_EARLY_ROUTE_FIX.txt,.txt,2342,70,2026-06-27 21:42:13,doc,documentation,70,documentation/text file,"cashier, remote, schema_db"
+README_PROFILE_CONFIRMATION_READY_VISIBILITY_FIX.txt,.txt,1680,57,2026-06-27 21:55:14,doc,documentation,70,documentation/text file,"parking_time, schema_db"
+README_PROFILE_CRITICAL_CODES_FIX.txt,.txt,2367,65,2026-06-27 21:45:58,doc,documentation,70,documentation/text file,"parking_time, schema_db"
+README_PROFILE_PARKING_TIME_TEST_V1.txt,.txt,4612,111,2026-06-28 12:11:30,doc,documentation,70,documentation/text file,"parking_time, telegram_bot"
+README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt,.txt,5419,120,2026-06-27 21:22:51,doc,documentation,70,documentation/text file,"access_control, parking_time, schema_db, telegram_bot"
+README_PROFILE_VERIFICATION_V1.txt,.txt,4022,77,2026-06-27 20:49:00,doc,documentation,70,documentation/text file,"access_control, parking_time, telegram_bot"
+README_SERVICE_CODE_COMPATIBILITY_PHONE_V2.txt,.txt,2119,89,2026-06-27 20:18:30,doc,documentation,70,documentation/text file,"access_control, cashier, schema_db, service_orders, telegram_bot"
+README_SIMPLIFIED_SERVICES.txt,.txt,3933,88,2026-06-27 13:29:01,doc,documentation,70,documentation/text file,"access_control, cashier, remote, schema_db, service_orders"
+repair_confirmed_unit_seed_notes.py,.py,4334,140,2026-06-24 20:37:25,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+report_bot_admins.py,.py,4291,163,2026-06-12 19:36:31,python,report_export,70,report/export/billing filename,"access_control, cashier, schema_db, telegram_bot"
+report_plate_candidates.py,.py,6312,268,2026-06-11 11:02:27,python,report_export,70,report/export/billing filename,schema_db
+report_verification_evidence.py,.py,5496,197,2026-06-10 21:04:29,python,report_export,70,report/export/billing filename,"schema_db, telegram_bot"
+report_verification_tasks.py,.py,3751,164,2026-06-09 12:25:53,python,report_export,70,report/export/billing filename,schema_db
+report_verification_tasks_enriched.py,.py,7182,268,2026-06-10 21:57:10,python,report_export,70,report/export/billing filename,schema_db
+reset_service_catalog.py,.py,23157,628,2026-06-22 19:53:08,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, parking_time, schema_db, telegram_bot"
+restore_resident_apartment_link.py,.py,10643,321,2026-06-25 12:49:59,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+RETIRE_legacy_new_remote_test_orders_sandbox.py,.py,4377,118,2026-06-27 13:29:00,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"cashier, remote, schema_db, service_orders, telegram_bot"
+run_bot_guard_sandbox.py,.py,7550,236,2026-06-26 12:38:25,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, telegram_bot"
+run_bot_guard_sandbox_v2.py,.py,7553,236,2026-06-26 13:44:44,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, telegram_bot"
+run_bot_guard_sandbox_v3.py,.py,7553,236,2026-06-26 17:27:16,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, telegram_bot"
+run_bot_live_service_sandbox_v4.py,.py,8293,250,2026-06-26 20:40:59,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+run_bot_live_services_sandbox_v1.py,.py,33905,919,2026-06-28 12:11:31,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+run_bot_sandbox_v2.py,.py,9548,286,2026-06-25 21:09:41,python,runtime_entrypoint,90,runtime-style entrypoint filename,"access_control, cashier, schema_db, telegram_bot"
+RUN_CHECK_cashier_route_after_phone_v2.bat,.bat,297,14,2026-06-27 20:00:41,script,non_python_support,45,non-python support file,"access_control, cashier, telegram_bot"
+RUN_CHECK_guard_sandbox_service_orders.bat,.bat,951,44,2026-06-27 11:44:42,script,non_python_support,45,non-python support file,"access_control, schema_db, service_orders"
+RUN_CHECK_guard_sandbox_service_orders_v2.bat,.bat,809,40,2026-06-27 11:50:26,script,non_python_support,45,non-python support file,"access_control, schema_db, service_orders"
+RUN_CHECK_phone_barrier_access_operational_sandbox.bat,.bat,294,12,2026-06-27 19:31:23,script,non_python_support,45,non-python support file,access_control
+RUN_CHECK_phone_barrier_access_sandbox_schema.bat,.bat,315,14,2026-06-27 19:14:06,script,non_python_support,45,non-python support file,"access_control, schema_db"
+RUN_CHECK_profile_button_early_route_fix.bat,.bat,332,12,2026-06-27 21:42:13,script,non_python_support,45,non-python support file,"schema_db, telegram_bot"
+RUN_CHECK_profile_confirmation_ready_visibility_fix.bat,.bat,319,12,2026-06-27 21:55:14,script,non_python_support,45,non-python support file,
+RUN_CHECK_profile_critical_codes_fix.bat,.bat,296,12,2026-06-27 21:45:58,script,non_python_support,45,non-python support file,
+RUN_CHECK_profile_parking_time_test_sandbox.bat,.bat,267,11,2026-06-28 12:11:30,script,non_python_support,45,non-python support file,parking_time
+RUN_CHECK_profile_test_candidate_apartment_40.bat,.bat,331,14,2026-06-27 22:23:23,script,non_python_support,45,non-python support file,
+RUN_CHECK_profile_verification_sandbox.bat,.bat,309,11,2026-06-27 20:48:59,script,non_python_support,45,non-python support file,
+RUN_CHECK_profile_verification_terminology_v2.bat,.bat,321,12,2026-06-27 21:22:51,script,non_python_support,45,non-python support file,
+RUN_CHECK_service_code_compatibility_phone_v2.bat,.bat,306,14,2026-06-27 20:18:30,script,non_python_support,45,non-python support file,access_control
+RUN_FIND_actual_service_order_state.bat,.bat,795,40,2026-06-27 11:56:04,script,non_python_support,45,non-python support file,"schema_db, service_orders"
+RUN_FIX_live_services_sandbox_payment_schema.bat,.bat,1101,47,2026-06-27 12:24:42,script,non_python_support,45,non-python support file,"cashier, schema_db"
+RUN_fix_source_ref_schema.bat,.bat,807,42,2026-06-27 10:41:04,script,non_python_support,45,non-python support file,schema_db
+RUN_INSTALL_cashier_route_after_phone_v2.bat,.bat,321,14,2026-06-27 20:00:41,script,non_python_support,45,non-python support file,"access_control, cashier"
+RUN_INSTALL_phone_barrier_access_v2.bat,.bat,404,13,2026-06-27 19:31:21,script,non_python_support,45,non-python support file,access_control
+RUN_INSTALL_profile_button_early_route_fix.bat,.bat,310,12,2026-06-27 21:42:12,script,non_python_support,45,non-python support file,
+RUN_INSTALL_profile_confirmation_ready_visibility_fix.bat,.bat,329,12,2026-06-27 21:55:13,script,non_python_support,45,non-python support file,
+RUN_INSTALL_profile_critical_codes_fix.bat,.bat,302,12,2026-06-27 21:45:58,script,non_python_support,45,non-python support file,
+RUN_INSTALL_profile_parking_time_test_v1.bat,.bat,342,12,2026-06-28 12:11:29,script,non_python_support,45,non-python support file,parking_time
+RUN_INSTALL_profile_verification_terminology_v2.bat,.bat,327,12,2026-06-27 21:22:51,script,non_python_support,45,non-python support file,
+RUN_INSTALL_profile_verification_v1.bat,.bat,338,11,2026-06-27 20:48:59,script,non_python_support,45,non-python support file,
+RUN_INSTALL_service_code_compatibility_phone_v2.bat,.bat,341,14,2026-06-27 20:18:30,script,non_python_support,45,non-python support file,access_control
+RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat,.bat,353,12,2026-06-27 19:31:22,script,non_python_support,45,non-python support file,access_control
+RUN_MIGRATE_phone_barrier_access_sandbox.bat,.bat,411,15,2026-06-27 19:14:06,script,non_python_support,45,non-python support file,"access_control, schema_db"
+RUN_MIGRATE_profile_parking_time_test_sandbox.bat,.bat,321,12,2026-06-28 12:11:30,script,non_python_support,45,non-python support file,parking_time
+RUN_MIGRATE_profile_verification_sandbox.bat,.bat,348,11,2026-06-27 20:48:59,script,non_python_support,45,non-python support file,schema_db
+RUN_MIGRATE_simplified_services_sandbox.bat,.bat,803,34,2026-06-27 13:29:00,script,non_python_support,45,non-python support file,
+RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat,.bat,469,15,2026-06-27 13:29:01,script,non_python_support,45,non-python support file,remote
+search_vehicle_by_plate_fragment.py,.py,6654,244,2026-06-19 12:31:20,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, parking_time, schema_db"
+seed_bot_admins.py,.py,4354,179,2026-06-12 19:25:55,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, schema_db, telegram_bot"
+seed_commercial_unit_placeholders.py,.py,13405,395,2026-06-23 21:35:48,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, schema_db, telegram_bot"
+seed_parking_tariffs.py,.py,3635,166,2026-06-18 16:40:57,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"parking_time, schema_db, telegram_bot"
+service_catalog_admin_core.py,.py,19165,571,2026-06-26 19:39:26,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, schema_db, service_orders, telegram_bot"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,.py,75679,1632,2026-06-27 20:18:31,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+service_code_compatibility_payload/service_orders_core.py,.py,44925,1409,2026-06-27 20:18:30,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+service_code_compatibility_payload/service_preorders_core.py,.py,44217,1155,2026-06-27 20:18:31,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+service_orders_core.py,.py,44925,1409,2026-06-27 20:18:30,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,.py,33797,1126,2026-06-26 19:39:26,python,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+service_orders_preflight.py,.py,17539,438,2026-06-26 19:39:26,python,installer_patch_migration,85,installer/patch/migration/preflight filename,"access_control, cashier, remote, schema_db, service_orders, telegram_bot"
+service_preorders_core.py,.py,44217,1155,2026-06-27 20:18:31,python,source_module,40,regular source module candidate,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+Start_OSBB_Guard_Sandbox_Bot_v2.bat,.bat,1276,41,2026-06-26 17:28:19,script,non_python_support,45,non-python support file,"access_control, cashier"
+Start_OSBB_Live_Service_Sandbox_Bot.bat,.bat,1176,38,2026-06-26 20:50:39,script,non_python_support,45,non-python support file,"remote, telegram_bot"
+Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat,.bat,1169,38,2026-06-26 20:13:28,script,legacy_or_backup,90,historical/copy/date-stamped/foundation package,"access_control, remote, telegram_bot"
+Start_OSBB_Live_Services_Sandbox_Bot_v1.bat,.bat,981,45,2026-06-27 12:15:02,script,non_python_support,45,non-python support file,"access_control, schema_db"
+STOP_old_guard_sandbox_bots.bat,.bat,727,17,2026-06-27 12:15:02,script,non_python_support,45,non-python support file,access_control
+supervisor_dashboard.py,.py,22698,647,2026-06-20 20:53:50,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, parking_time, schema_db"
+switch_parking_bot_to_cashier_v2.py,.py,4455,135,2026-06-25 17:44:55,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,cashier
+telegram_test_login.py,.py,896,42,2026-06-10 11:16:16,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, schema_db, telegram_bot"
+telegram_test_login_manual.py,.py,1570,65,2026-06-10 12:01:32,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, schema_db, telegram_bot"
+test.py,.py,379,1,2026-06-26 14:01:06,python,source_module,40,regular source module candidate,"access_control, cashier"
+test_db_access_unit_resolver.py,.py,2112,82,2026-06-23 19:52:48,python,test_or_diagnostic,75,test/sandbox/check/diagnostic filename,"access_control, schema_db"
+tools/cashier_parking_payments_audit_v4.py,.py,25358,616,2026-06-28 15:00:06,python,tooling,90,under tools/,"access_control, cashier, parking_time, schema_db"
+tools/cashier_unpaid_preview.py,.py,6925,203,2026-06-28 14:33:48,python,tooling,90,under tools/,"access_control, cashier, parking_time, schema_db"
+tools/cashier_unpaid_preview_v2.py,.py,9893,260,2026-06-28 14:40:18,python,tooling,90,under tools/,"access_control, cashier, parking_time, schema_db"
+tools/cashier_unpaid_preview_v3.py,.py,23367,580,2026-06-28 14:45:04,python,tooling,90,under tools/,"access_control, cashier, parking_time, schema_db"
+tools/db_schema_compare.py,.py,15179,407,2026-06-28 13:06:21,python,tooling,90,under tools/,"schema_db, telegram_bot"
+tools/db_schema_snapshot.py,.py,11427,361,2026-06-28 14:12:57,python,tooling,90,under tools/,"cashier, parking_time, schema_db, telegram_bot"
+tools/db_schema_snapshot_full.py,.py,12341,356,2026-06-28 14:18:01,python,tooling,90,under tools/,"cashier, parking_time, schema_db, telegram_bot"
+tools/project_code_search.py,.py,5307,154,2026-06-28 15:20:00,python,tooling,90,under tools/,remote
+tools/project_passport.py,.py,18712,613,2026-06-28 15:29:51,python,tooling,90,under tools/,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+tools/project_passport_v2.py,.py,20064,658,2026-06-28 15:35:09,python,tooling,90,under tools/,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+tools/project_passport_v3_classifier.py,.py,23984,631,2026-06-28 15:50:13,python,tooling,90,under tools/,"access_control, cashier, parking_time, remote, schema_db, service_orders, telegram_bot"
+unit_resolver.py,.py,18020,551,2026-06-23 18:13:03,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"schema_db, telegram_bot"
+utils.py,.py,7694,268,2026-06-09 12:13:57,python,source_module,40,regular source module candidate,access_control
+vehicle_data_quality_tasks.py,.py,13913,381,2026-06-19 17:05:43,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"cashier, parking_time, schema_db, telegram_bot"
+vehicle_verification_tasks.py,.py,17586,596,2026-06-19 17:48:00,python,runtime_or_cli_entrypoint,78,contains main/argparse/telegram application hint,"access_control, cashier, parking_time, schema_db, telegram_bot"
+Word_table_to_Excel.py,.py,2659,62,2026-05-24 21:16:30,python,report_export,70,report/export/billing filename,

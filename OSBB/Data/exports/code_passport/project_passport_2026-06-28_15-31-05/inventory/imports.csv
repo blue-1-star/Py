@@ -1,0 +1,2103 @@
+﻿path,line,kind,module,names
+access_control.py,16,from,__future__,annotations
+access_control.py,18,import,,sqlite3
+access_control.py,19,import,,sys
+access_control.py,20,from,datetime,datetime
+access_control.py,21,from,pathlib,Path
+access_control.py,22,from,typing,Any
+access_control.py,29,from,config,"paths, USE_TEST_DB"
+access_control.py,32,from,audit_logger,audit_log
+audit_composite_apartments.py,3,from,pathlib,Path
+audit_composite_apartments.py,4,import,,sys
+audit_composite_apartments.py,10,import,,re
+audit_composite_apartments.py,11,import,,sqlite3
+audit_composite_apartments.py,13,from,config,paths
+audit_logger.py,1,from,pathlib,Path
+audit_logger.py,2,import,,sys
+audit_logger.py,3,import,,sqlite3
+audit_logger.py,4,from,datetime,datetime
+audit_logger.py,5,import,,json
+audit_logger.py,14,from,config,"paths, USE_TEST_DB"
+audit_logger.py,283,import,,argparse
+audit_osbb_telegram_messages.py,1,from,pathlib,Path
+audit_osbb_telegram_messages.py,2,import,,sys
+audit_osbb_telegram_messages.py,3,import,,sqlite3
+audit_osbb_telegram_messages.py,4,import,,re
+audit_osbb_telegram_messages.py,5,from,datetime,datetime
+audit_osbb_telegram_messages.py,13,from,config,paths
+audit_registry.py,1,from,pathlib,Path
+audit_registry.py,2,import,,sys
+audit_registry.py,3,import,,sqlite3
+audit_registry.py,4,from,datetime,datetime
+audit_registry.py,12,from,config,paths
+audit_tbot_quarantine.py,1,from,pathlib,Path
+audit_tbot_quarantine.py,2,import,,sys
+audit_tbot_quarantine.py,3,import,,sqlite3
+audit_tbot_quarantine.py,4,from,datetime,datetime
+audit_tbot_quarantine.py,12,from,config,paths
+audit_tbot_quarantine.py,13,from,utils,"norm_text, norm_apartment"
+billing/build_parking_time_review_tasks.py,1,from,pathlib,Path
+billing/build_parking_time_review_tasks.py,2,import,,sys
+billing/build_parking_time_review_tasks.py,3,import,,sqlite3
+billing/build_parking_time_review_tasks.py,4,from,datetime,datetime
+billing/build_parking_time_review_tasks.py,14,from,config,paths
+billing/import_ohorona_parking_time.py,1,from,pathlib,Path
+billing/import_ohorona_parking_time.py,2,import,,sys
+billing/import_ohorona_parking_time.py,3,import,,sqlite3
+billing/import_ohorona_parking_time.py,4,import,,re
+billing/import_ohorona_parking_time.py,5,import,,argparse
+billing/import_ohorona_parking_time.py,6,from,datetime,datetime
+billing/import_ohorona_parking_time.py,7,from,collections,defaultdict
+billing/import_ohorona_parking_time.py,9,from,openpyxl,load_workbook
+billing/import_ohorona_parking_time.py,20,from,config,paths
+billing/import_ohorona_parking_time_simple_preview.py,1,from,pathlib,Path
+billing/import_ohorona_parking_time_simple_preview.py,2,import,,sys
+billing/import_ohorona_parking_time_simple_preview.py,3,import,,sqlite3
+billing/import_ohorona_parking_time_simple_preview.py,4,import,,re
+billing/import_ohorona_parking_time_simple_preview.py,5,import,,argparse
+billing/import_ohorona_parking_time_simple_preview.py,6,from,datetime,datetime
+billing/import_ohorona_parking_time_simple_preview.py,7,from,collections,defaultdict
+billing/import_ohorona_parking_time_simple_preview.py,9,from,openpyxl,load_workbook
+billing/import_ohorona_parking_time_simple_preview.py,20,from,config,paths
+billing/import_parking_time_hints_from_ohorona.py,1,from,pathlib,Path
+billing/import_parking_time_hints_from_ohorona.py,2,import,,sys
+billing/import_parking_time_hints_from_ohorona.py,3,import,,sqlite3
+billing/import_parking_time_hints_from_ohorona.py,4,import,,re
+billing/import_parking_time_hints_from_ohorona.py,5,from,datetime,datetime
+billing/import_parking_time_hints_from_ohorona.py,6,from,collections,defaultdict
+billing/import_parking_time_hints_from_ohorona.py,8,from,openpyxl,load_workbook
+billing/import_parking_time_hints_from_ohorona.py,18,from,config,paths
+billing/migrate_add_parking_billing.py,1,from,pathlib,Path
+billing/migrate_add_parking_billing.py,2,import,,sys
+billing/migrate_add_parking_billing.py,3,import,,sqlite3
+billing/migrate_add_parking_billing.py,4,from,datetime,datetime
+billing/migrate_add_parking_billing.py,12,from,config,paths
+billing/report_parking_time_review_tasks.py,1,from,pathlib,Path
+billing/report_parking_time_review_tasks.py,2,import,,sys
+billing/report_parking_time_review_tasks.py,3,import,,sqlite3
+billing/report_parking_time_review_tasks.py,4,from,datetime,datetime
+billing/report_parking_time_review_tasks.py,5,from,collections,defaultdict
+billing/report_parking_time_review_tasks.py,15,from,config,paths
+billing/report_parking_time_review_tasks.py,16,from,utils,apartment_sort_sql
+billing/report_parking_time_with_hints.py,1,from,pathlib,Path
+billing/report_parking_time_with_hints.py,2,import,,sys
+billing/report_parking_time_with_hints.py,3,import,,sqlite3
+billing/report_parking_time_with_hints.py,4,import,,re
+billing/report_parking_time_with_hints.py,5,from,datetime,datetime
+billing/report_parking_time_with_hints.py,6,from,collections,defaultdict
+billing/report_parking_time_with_hints.py,8,from,openpyxl,load_workbook
+billing/report_parking_time_with_hints.py,18,from,config,paths
+billing_reconciliation_report.py,1,from,pathlib,Path
+billing_reconciliation_report.py,2,import,,sys
+billing_reconciliation_report.py,3,import,,sqlite3
+billing_reconciliation_report.py,4,import,,argparse
+billing_reconciliation_report.py,5,from,datetime,datetime
+billing_reconciliation_report.py,12,from,config,"paths, USE_TEST_DB"
+billing_statement_excel.py,1,from,pathlib,Path
+billing_statement_excel.py,2,import,,sys
+billing_statement_excel.py,3,import,,sqlite3
+billing_statement_excel.py,4,import,,argparse
+billing_statement_excel.py,5,from,datetime,datetime
+billing_statement_excel.py,6,from,collections,defaultdict
+billing_statement_excel.py,8,from,openpyxl,Workbook
+billing_statement_excel.py,9,from,openpyxl.styles,"Font, PatternFill, Border, Side, Alignment"
+billing_statement_excel.py,10,from,openpyxl.utils,get_column_letter
+billing_statement_excel.py,11,from,openpyxl.worksheet.table,"Table, TableStyleInfo"
+billing_statement_excel.py,19,from,config,"paths, USE_TEST_DB"
+Bots/data_park_bot.py,1,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/data_park_bot.py,2,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/db_access - Copy.py,1,from,pathlib,Path
+Bots/db_access - Copy.py,2,import,,sys
+Bots/db_access - Copy.py,3,import,,sqlite3
+Bots/db_access - Copy.py,4,import,,re
+Bots/db_access - Copy.py,5,from,datetime,datetime
+Bots/db_access - Copy.py,17,from,config,"paths, USE_TEST_DB"
+Bots/db_access.py,1,from,pathlib,Path
+Bots/db_access.py,2,import,,sys
+Bots/db_access.py,3,import,,sqlite3
+Bots/db_access.py,4,import,,re
+Bots/db_access.py,5,from,datetime,datetime
+Bots/db_access.py,17,from,config,"paths, USE_TEST_DB"
+Bots/db_access.py,4936,from,unit_resolver,resolve_unit_ref
+Bots/handlers/agreement - Copy.py,1,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/agreement - Copy.py,3,from,Bots.db_access,"get_verification_stats, format_verification_stats, get_next_apartment_for_verification, get_apartments_by_verification_status, set_apartment_verification_status, format_verification_apartment_list, format_apartment_agreement_card, get_agreement_dashboard, format_agreement_dashboard, apply_agreement_suggestion, get_tariff_review_stats, format_tariff_review_stats, get_next_vehicle_without_tariff, format_tariff_vehicle_card, apply_vehicle_tariff, apply_best_tariff_hint, get_vehicle_by_id, format_vehicle_edit_menu_card, set_vehicle_plate_from_text, set_vehicle_model_from_text, set_vehicle_tariff_from_text"
+Bots/handlers/agreement.py,1,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/agreement.py,3,from,Bots.db_access,"get_verification_stats, format_verification_stats, get_next_apartment_for_verification, get_apartments_by_verification_status, set_apartment_verification_status, format_verification_apartment_list, format_apartment_agreement_card, get_agreement_dashboard, format_agreement_dashboard, apply_agreement_suggestion, get_tariff_review_stats, format_tariff_review_stats, get_next_vehicle_without_tariff, format_tariff_vehicle_card, apply_vehicle_tariff, apply_best_tariff_hint, get_vehicle_by_id, format_vehicle_edit_menu_card, set_vehicle_plate_from_text, set_vehicle_model_from_text, set_vehicle_tariff_from_text"
+Bots/handlers/audit_viewer - Copy.py,1,from,pathlib,Path
+Bots/handlers/audit_viewer - Copy.py,2,import,,sqlite3
+Bots/handlers/audit_viewer - Copy.py,3,import,,sys
+Bots/handlers/audit_viewer - Copy.py,5,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/audit_viewer - Copy.py,16,from,config,"paths, USE_TEST_DB"
+Bots/handlers/audit_viewer.py,18,from,__future__,annotations
+Bots/handlers/audit_viewer.py,20,from,pathlib,Path
+Bots/handlers/audit_viewer.py,21,import,,sqlite3
+Bots/handlers/audit_viewer.py,22,import,,sys
+Bots/handlers/audit_viewer.py,23,from,typing,Any
+Bots/handlers/audit_viewer.py,25,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/audit_viewer.py,36,from,config,"paths, USE_TEST_DB"
+Bots/handlers/cashier_operator.py,23,from,__future__,annotations
+Bots/handlers/cashier_operator.py,25,from,datetime,"date, datetime"
+Bots/handlers/cashier_operator.py,26,from,pathlib,Path
+Bots/handlers/cashier_operator.py,27,import,,re
+Bots/handlers/cashier_operator.py,28,import,,sqlite3
+Bots/handlers/cashier_operator.py,29,import,,sys
+Bots/handlers/cashier_operator.py,30,from,typing,Any
+Bots/handlers/cashier_operator.py,31,from,uuid,uuid4
+Bots/handlers/cashier_operator.py,33,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/cashier_operator.py,44,from,config,"paths, USE_TEST_DB"
+Bots/handlers/cashier_operator.py,45,from,audit_logger,audit_log
+Bots/handlers/cashier_operator.py,46,from,unit_resolver,resolve_unit_ref
+Bots/handlers/cashier_operator.py,318,from,db_access,get_admin_record
+Bots/handlers/cashier_operator_v2.py,16,from,__future__,annotations
+Bots/handlers/cashier_operator_v2.py,18,from,pathlib,Path
+Bots/handlers/cashier_operator_v2.py,19,import,,sys
+Bots/handlers/cashier_operator_v2.py,20,from,typing,Any
+Bots/handlers/cashier_operator_v2.py,22,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/cashier_operator_v2.py,31,from,handlers,cashier_operator as v1
+Bots/handlers/cashier_operator_v2.py,32,from,cashier_v2_core,"CASH_CODES, BANK_CODE, calc_cashbox_balance, confirm_bank_notice, confirm_cash_notice, create_bank_payment, create_cash_batch, create_cash_receipt, create_paper_note, get_conn, get_notice, get_unit_by_id, historical_imports, list_open_notices, money, next_month, normalize_date, normalize_period, open_charges, parse_amount, reconciliation_summary, reject_notice, resolve_physical_unit, schema_ready, service_label, service_options, table_columns, text, today"
+Bots/handlers/client_portal.py,21,from,__future__,annotations
+Bots/handlers/client_portal.py,23,from,datetime,datetime
+Bots/handlers/client_portal.py,24,from,pathlib,Path
+Bots/handlers/client_portal.py,25,import,,re
+Bots/handlers/client_portal.py,26,import,,sqlite3
+Bots/handlers/client_portal.py,27,import,,sys
+Bots/handlers/client_portal.py,28,from,typing,Any
+Bots/handlers/client_portal.py,30,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/client_portal.py,41,from,config,"paths, USE_TEST_DB"
+Bots/handlers/client_portal.py,44,from,audit_logger,audit_log
+Bots/handlers/client_portal_safe_linking.py,21,from,__future__,annotations
+Bots/handlers/client_portal_safe_linking.py,23,from,datetime,datetime
+Bots/handlers/client_portal_safe_linking.py,24,from,pathlib,Path
+Bots/handlers/client_portal_safe_linking.py,25,import,,re
+Bots/handlers/client_portal_safe_linking.py,26,import,,sqlite3
+Bots/handlers/client_portal_safe_linking.py,27,import,,sys
+Bots/handlers/client_portal_safe_linking.py,28,from,typing,Any
+Bots/handlers/client_portal_safe_linking.py,30,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/client_portal_safe_linking.py,41,from,config,"paths, USE_TEST_DB"
+Bots/handlers/client_portal_safe_linking.py,44,from,audit_logger,audit_log
+Bots/handlers/client_portal_v2.py,18,from,__future__,annotations
+Bots/handlers/client_portal_v2.py,20,from,pathlib,Path
+Bots/handlers/client_portal_v2.py,21,import,,sys
+Bots/handlers/client_portal_v2.py,22,from,typing,Any
+Bots/handlers/client_portal_v2.py,24,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/client_portal_v2.py,34,from,handlers,client_portal as base
+Bots/handlers/client_portal_v2.py,35,from,cashier_v2_core,"CASH_CODES, create_payment_notice, list_resident_notices, money, next_month, normalize_period, open_charges, parse_amount, service_label, service_options, text"
+Bots/handlers/client_portal_v3.py,14,from,__future__,annotations
+Bots/handlers/client_portal_v3.py,16,from,pathlib,Path
+Bots/handlers/client_portal_v3.py,17,import,,sys
+Bots/handlers/client_portal_v3.py,26,from,handlers,client_portal as base
+Bots/handlers/client_portal_v3.py,27,from,handlers,client_portal_v2 as v2
+Bots/handlers/commercial_contract_editor.py,20,from,__future__,annotations
+Bots/handlers/commercial_contract_editor.py,22,from,datetime,datetime
+Bots/handlers/commercial_contract_editor.py,23,from,pathlib,Path
+Bots/handlers/commercial_contract_editor.py,24,import,,re
+Bots/handlers/commercial_contract_editor.py,25,import,,sqlite3
+Bots/handlers/commercial_contract_editor.py,26,import,,sys
+Bots/handlers/commercial_contract_editor.py,27,from,typing,Any
+Bots/handlers/commercial_contract_editor.py,29,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/commercial_contract_editor.py,39,from,config,"paths, USE_TEST_DB"
+Bots/handlers/commercial_contract_editor.py,40,from,audit_logger,"audit_field_change, audit_log"
+Bots/handlers/commercial_contract_editor.py,1025,from,handlers.unit_registry_editor,show_unit_card
+Bots/handlers/commercial_contract_editor.py,1027,from,unit_registry_editor,show_unit_card
+Bots/handlers/guard_workspace.py,14,from,__future__,annotations
+Bots/handlers/guard_workspace.py,16,from,pathlib,Path
+Bots/handlers/guard_workspace.py,17,from,datetime,datetime
+Bots/handlers/guard_workspace.py,18,import,,sqlite3
+Bots/handlers/guard_workspace.py,19,import,,sys
+Bots/handlers/guard_workspace.py,20,from,typing,Any
+Bots/handlers/guard_workspace.py,22,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/guard_workspace.py,31,from,access_control,"has_guard_workspace_access, has_permission, schema_ready as access_schema_ready, text, write_business_access_audit"
+Bots/handlers/guard_workspace.py,38,from,cashier_v2_core,"create_cash_receipt, get_conn, get_notice, get_unit_by_id, money, next_month, parse_amount, resolve_physical_unit, service_label, service_options, table_columns, table_exists, today"
+Bots/handlers/guard_workspace.py,292,from,cashier_v2_core,confirm_cash_notice
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,14,from,__future__,annotations
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,16,from,pathlib,Path
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,17,from,datetime,datetime
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,18,import,,sqlite3
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,19,import,,sys
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,20,from,typing,Any
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,22,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,31,from,access_control,"has_guard_workspace_access, has_permission, schema_ready as access_schema_ready, text, write_business_access_audit"
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,38,from,cashier_v2_core,"create_cash_receipt, get_conn, get_notice, get_unit_by_id, money, next_month, parse_amount, resolve_physical_unit, service_label, service_options, table_columns, table_exists, today"
+Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,292,from,cashier_v2_core,confirm_cash_notice
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,14,from,__future__,annotations
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,16,from,pathlib,Path
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,17,from,datetime,datetime
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,18,import,,sqlite3
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,19,import,,sys
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,20,from,typing,Any
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,22,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,31,from,access_control,"has_guard_workspace_access, has_permission, schema_ready as access_schema_ready, text, write_business_access_audit"
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,38,from,cashier_v2_core,"create_cash_receipt, get_conn, get_notice, get_unit_by_id, money, next_month, parse_amount, resolve_physical_unit, service_label, service_options, table_columns, table_exists, today"
+Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,292,from,cashier_v2_core,confirm_cash_notice
+Bots/handlers/profile_parking_time_test_workspace.py,9,from,__future__,annotations
+Bots/handlers/profile_parking_time_test_workspace.py,11,from,pathlib,Path
+Bots/handlers/profile_parking_time_test_workspace.py,12,import,,sys
+Bots/handlers/profile_parking_time_test_workspace.py,13,from,typing,Any
+Bots/handlers/profile_parking_time_test_workspace.py,15,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/profile_parking_time_test_workspace.py,24,from,service_orders_core,"get_conn, text"
+Bots/handlers/profile_parking_time_test_workspace.py,25,from,profile_parking_time_test_core,"PARKING_TIME_LABELS, STATUS_OPEN, STATUS_PENDING_OPERATOR, TEST_TARGET_APARTMENT, close_test_session, decide_test_session, get_test_session, list_test_sessions, open_test_session, propose_parking_time, session_for_display, test_candidate"
+Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+Bots/handlers/profile_verification_workspace.py,14,import,,sys
+Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+Bots/handlers/service_orders_workspace.py,20,import,,re
+Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+Bots/handlers/service_orders_workspace.py,22,import,,sys
+Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+Bots/handlers/service_orders_workspace.py,75,from,profile_verification_core,phone_access_eligibility
+Bots/handlers/service_orders_workspace.py,1450,from,service_orders_core,confirm_order_step
+Bots/handlers/service_orders_workspace.py,582,from,service_orders_core,effective_price
+Bots/handlers/unit_registry_editor - Copy.py,22,from,__future__,annotations
+Bots/handlers/unit_registry_editor - Copy.py,24,from,datetime,datetime
+Bots/handlers/unit_registry_editor - Copy.py,25,from,pathlib,Path
+Bots/handlers/unit_registry_editor - Copy.py,26,import,,re
+Bots/handlers/unit_registry_editor - Copy.py,27,import,,sqlite3
+Bots/handlers/unit_registry_editor - Copy.py,28,import,,sys
+Bots/handlers/unit_registry_editor - Copy.py,29,from,typing,Any
+Bots/handlers/unit_registry_editor - Copy.py,31,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/unit_registry_editor - Copy.py,42,from,config,"paths, USE_TEST_DB"
+Bots/handlers/unit_registry_editor - Copy.py,43,from,audit_logger,"audit_field_change, audit_log"
+Bots/handlers/unit_registry_editor - Copy.py,46,from,handlers.commercial_contract_editor,handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor - Copy.py,54,from,Bots.db_access,can_write
+Bots/handlers/unit_registry_editor - Copy.py,49,from,commercial_contract_editor,handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor - Copy.py,57,from,db_access,can_write
+Bots/handlers/unit_registry_editor.py,22,from,__future__,annotations
+Bots/handlers/unit_registry_editor.py,24,from,datetime,datetime
+Bots/handlers/unit_registry_editor.py,25,from,pathlib,Path
+Bots/handlers/unit_registry_editor.py,26,import,,re
+Bots/handlers/unit_registry_editor.py,27,import,,sqlite3
+Bots/handlers/unit_registry_editor.py,28,import,,sys
+Bots/handlers/unit_registry_editor.py,29,from,typing,Any
+Bots/handlers/unit_registry_editor.py,31,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/unit_registry_editor.py,42,from,config,"paths, USE_TEST_DB"
+Bots/handlers/unit_registry_editor.py,43,from,audit_logger,"audit_field_change, audit_log"
+Bots/handlers/unit_registry_editor.py,46,from,handlers.commercial_contract_editor,handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor.py,54,from,Bots.db_access,can_write
+Bots/handlers/unit_registry_editor.py,49,from,commercial_contract_editor,handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor.py,57,from,db_access,can_write
+Bots/handlers/vehicle_card_editor.py,2,from,pathlib,Path
+Bots/handlers/vehicle_card_editor.py,3,import,,sqlite3
+Bots/handlers/vehicle_card_editor.py,4,import,,sys
+Bots/handlers/vehicle_card_editor.py,5,import,,re
+Bots/handlers/vehicle_card_editor.py,7,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/vehicle_card_editor.py,18,from,config,"paths, USE_TEST_DB"
+Bots/handlers/vehicle_card_editor.py,19,from,audit_logger,audit_field_change
+Bots/handlers/vehicle_full_list.py,1,from,pathlib,Path
+Bots/handlers/vehicle_full_list.py,2,import,,sqlite3
+Bots/handlers/vehicle_full_list.py,3,import,,sys
+Bots/handlers/vehicle_full_list.py,5,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/vehicle_full_list.py,16,from,config,"paths, USE_TEST_DB"
+Bots/handlers/vehicle_verification.py,1,from,datetime,datetime
+Bots/handlers/vehicle_verification.py,2,from,pathlib,Path
+Bots/handlers/vehicle_verification.py,3,import,,sqlite3
+Bots/handlers/vehicle_verification.py,4,import,,sys
+Bots/handlers/vehicle_verification.py,5,import,,re
+Bots/handlers/vehicle_verification.py,7,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/handlers/vehicle_verification.py,18,from,config,"paths, USE_TEST_DB"
+Bots/handlers/vehicle_verification.py,19,from,plate_consensus_report,"DEFAULT_PERIOD_CODE, build_consensus, normalize_plate"
+Bots/hello.py,1,from,telegram,Update
+Bots/hello.py,2,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/hello.py,3,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot - Copy.py,1,from,pathlib,Path
+Bots/parking_bot - Copy.py,2,import,,sys
+Bots/parking_bot - Copy.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot - Copy.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot - Copy.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot - Copy.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot - Copy.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot - Copy.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot - Copy.py,19,from,config,paths
+Bots/parking_bot - Copy.py,24,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot - Copy.py,30,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot - Copy.py,64,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+Bots/parking_bot.py,1,from,pathlib,Path
+Bots/parking_bot.py,2,import,,sys
+Bots/parking_bot.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot.py,11,from,handlers.client_portal,"handle_client_portal_text, client_menu_keyboard, client_welcome_text"
+Bots/parking_bot.py,16,from,handlers.cashier_operator,handle_cashier_operator_text
+Bots/parking_bot.py,17,from,handlers.unit_registry_editor,handle_unit_registry_editor_text
+Bots/parking_bot.py,26,from,config,paths
+Bots/parking_bot.py,31,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot.py,37,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot.py,71,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,1,from,pathlib,Path
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,2,import,,sys
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,11,from,handlers.client_portal,"handle_client_portal_text, client_menu_keyboard, client_welcome_text"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,16,from,handlers.unit_registry_editor,handle_unit_registry_editor_text
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,25,from,config,paths
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,30,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,36,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,70,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,1,from,pathlib,Path
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,2,import,,sys
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,11,from,handlers.unit_registry_editor,handle_unit_registry_editor_text
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,20,from,config,paths
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,25,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,31,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py,65,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,1,from,pathlib,Path
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,2,import,,sys
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,11,from,handlers.client_portal,"handle_client_portal_text, client_menu_keyboard, client_welcome_text"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,16,from,handlers.unit_registry_editor,handle_unit_registry_editor_text
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,25,from,config,paths
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,30,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,36,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,70,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,1,from,pathlib,Path
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,2,import,,sys
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,4,from,telegram,"Update, ReplyKeyboardMarkup"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,5,from,telegram.ext,"Application, CommandHandler, MessageHandler, ContextTypes, filters"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,7,from,handlers.vehicle_verification,handle_vehicle_verification_text
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,8,from,handlers.vehicle_card_editor,handle_vehicle_card_editor_text
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,9,from,handlers.vehicle_full_list,handle_vehicle_full_list_text
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,10,from,handlers.audit_viewer,handle_audit_viewer_text
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,11,from,handlers.client_portal,"handle_client_portal_text, client_menu_keyboard, client_welcome_text"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,16,from,handlers.unit_registry_editor,handle_unit_registry_editor_text
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,25,from,config,paths
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,30,from,telegram_osbb,"TOKEN, SUPER_ADMIN_IDS, ADMIN_IDS"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,36,from,Bots.db_access,"upsert_resident_account_from_telegram, get_resident_account, link_resident_to_apartment, get_apartment_vehicles, format_vehicle_list, find_apartment, get_resident_accounts_summary, format_resident_accounts_summary, get_resident_accounts_by_filter, format_resident_accounts_list, get_resident_account_by_telegram_id, format_resident_account_card, mark_resident_operator_verified, unlink_resident_account, get_next_vehicle_for_review, set_vehicle_day, set_vehicle_night, set_vehicle_inactive, skip_vehicle_review, get_vehicle_review_stats, format_vehicle_review_card, get_vehicles_by_status, format_vehicles_admin_list, get_apartment_card, format_apartment_card, get_vehicle_by_id_for_apartment, format_vehicle_card_for_edit, update_vehicle_parking_status, update_vehicle_plate, update_vehicle_model"
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,70,from,Bots.handlers.agreement,"AGREEMENT_MENU, AGREEMENT_ACTION_MENU, show_agreement_menu, show_next_agreement_apartment, show_agreement_list, show_agreement_stats, handle_waiting_agreement_apartment, handle_agreement_card_action, handle_agreement_menu_text"
+build_plate_candidates.py,1,from,pathlib,Path
+build_plate_candidates.py,2,import,,sys
+build_plate_candidates.py,3,import,,sqlite3
+build_plate_candidates.py,4,from,datetime,datetime
+build_plate_candidates.py,5,from,collections,defaultdict
+build_plate_candidates.py,13,from,config,paths
+build_plate_evidence_by_digits_and_apartment.py,1,from,pathlib,Path
+build_plate_evidence_by_digits_and_apartment.py,2,import,,sys
+build_plate_evidence_by_digits_and_apartment.py,3,import,,sqlite3
+build_plate_evidence_by_digits_and_apartment.py,4,from,datetime,datetime
+build_plate_evidence_by_digits_and_apartment.py,12,from,config,paths
+build_plate_evidence_from_telegram.py,1,from,pathlib,Path
+build_plate_evidence_from_telegram.py,2,import,,sys
+build_plate_evidence_from_telegram.py,3,import,,sqlite3
+build_plate_evidence_from_telegram.py,4,from,datetime,datetime
+build_plate_evidence_from_telegram.py,12,from,config,paths
+build_verification_tasks.py,1,from,pathlib,Path
+build_verification_tasks.py,2,import,,sys
+build_verification_tasks.py,3,import,,sqlite3
+build_verification_tasks.py,4,from,datetime,datetime
+build_verification_tasks.py,12,from,config,paths
+cashier_journal.py,1,from,pathlib,Path
+cashier_journal.py,2,import,,sys
+cashier_journal.py,3,import,,sqlite3
+cashier_journal.py,4,import,,argparse
+cashier_journal.py,5,from,datetime,datetime
+cashier_journal.py,6,from,uuid,uuid4
+cashier_journal.py,14,from,config,"paths, USE_TEST_DB"
+cashier_journal.py,15,from,audit_logger,audit_log
+cashier_journal.py,1564,from,openpyxl,Workbook
+cashier_journal.py,1565,from,openpyxl.styles,"Font, PatternFill, Alignment"
+cashier_journal.py,1566,from,openpyxl.utils,get_column_letter
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,23,import,,copy
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,25,import,,os
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,29,import,,sys
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,89,import,,config
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py,142,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+cashier_v2_core.py,12,from,__future__,annotations
+cashier_v2_core.py,14,from,datetime,"date, datetime"
+cashier_v2_core.py,15,from,pathlib,Path
+cashier_v2_core.py,16,import,,re
+cashier_v2_core.py,17,import,,sqlite3
+cashier_v2_core.py,18,import,,sys
+cashier_v2_core.py,19,from,typing,Any
+cashier_v2_core.py,20,from,uuid,uuid4
+cashier_v2_core.py,29,from,config,"paths, USE_TEST_DB"
+cashier_v2_core.py,30,from,audit_logger,audit_log
+cashier_v2_core.py,31,from,unit_resolver,resolve_unit_ref
+cashier_v2_core.py,35,from,handlers,cashier_operator as v1
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,12,from,__future__,annotations
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,14,from,datetime,"date, datetime"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,15,from,pathlib,Path
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,16,import,,re
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,17,import,,sqlite3
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,18,import,,sys
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,19,from,typing,Any
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,20,from,uuid,uuid4
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,29,from,config,"paths, USE_TEST_DB"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,30,from,audit_logger,audit_log
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,31,from,unit_resolver,resolve_unit_ref
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,35,from,handlers,cashier_operator as v1
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,12,from,__future__,annotations
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,14,from,datetime,"date, datetime"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,15,from,pathlib,Path
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,16,import,,re
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,17,import,,sqlite3
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,18,import,,sys
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,19,from,typing,Any
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,20,from,uuid,uuid4
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,29,from,config,"paths, USE_TEST_DB"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,30,from,audit_logger,audit_log
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,31,from,unit_resolver,resolve_unit_ref
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,35,from,handlers,cashier_operator as v1
+cashier_v2_preflight.py,27,from,__future__,annotations
+cashier_v2_preflight.py,29,import,,importlib.util
+cashier_v2_preflight.py,30,import,,sqlite3
+cashier_v2_preflight.py,31,import,,sys
+cashier_v2_preflight.py,32,import,,traceback
+cashier_v2_preflight.py,33,from,datetime,datetime
+cashier_v2_preflight.py,34,from,pathlib,Path
+cashier_v2_preflight.py,35,from,typing,Any
+cashier_v2_preflight.py,46,from,config,"paths, USE_TEST_DB"
+cashier_v2_preflight_compat.py,11,from,__future__,annotations
+cashier_v2_preflight_compat.py,13,import,,importlib.util
+cashier_v2_preflight_compat.py,14,import,,sqlite3
+cashier_v2_preflight_compat.py,15,import,,sys
+cashier_v2_preflight_compat.py,16,import,,traceback
+cashier_v2_preflight_compat.py,17,from,datetime,datetime
+cashier_v2_preflight_compat.py,18,from,pathlib,Path
+cashier_v2_preflight_compat.py,28,from,config,"paths, USE_TEST_DB"
+CHECK_guard_sandbox_service_orders.py,22,from,__future__,annotations
+CHECK_guard_sandbox_service_orders.py,24,import,,importlib.util
+CHECK_guard_sandbox_service_orders.py,25,import,,re
+CHECK_guard_sandbox_service_orders.py,26,import,,sqlite3
+CHECK_guard_sandbox_service_orders.py,27,import,,sys
+CHECK_guard_sandbox_service_orders.py,28,import,,traceback
+CHECK_guard_sandbox_service_orders.py,29,from,datetime,datetime
+CHECK_guard_sandbox_service_orders.py,30,from,pathlib,Path
+CHECK_guard_sandbox_service_orders.py,31,from,typing,"Any, Iterable"
+CHECK_guard_sandbox_service_orders_v2.py,18,from,__future__,annotations
+CHECK_guard_sandbox_service_orders_v2.py,20,import,,importlib.util
+CHECK_guard_sandbox_service_orders_v2.py,21,import,,sqlite3
+CHECK_guard_sandbox_service_orders_v2.py,22,import,,sys
+CHECK_guard_sandbox_service_orders_v2.py,23,import,,traceback
+CHECK_guard_sandbox_service_orders_v2.py,24,from,datetime,datetime
+CHECK_guard_sandbox_service_orders_v2.py,25,from,pathlib,Path
+CHECK_guard_sandbox_service_orders_v2.py,26,from,typing,"Any, Iterable"
+CHECK_phone_barrier_access_operational_sandbox.py,4,from,__future__,annotations
+CHECK_phone_barrier_access_operational_sandbox.py,6,import,,argparse
+CHECK_phone_barrier_access_operational_sandbox.py,7,import,,sqlite3
+CHECK_phone_barrier_access_operational_sandbox.py,8,import,,sys
+CHECK_phone_barrier_access_operational_sandbox.py,9,from,pathlib,Path
+CHECK_phone_barrier_access_operational_sandbox.py,21,from,phone_barrier_access_core,"OPERATIONAL_SCHEMA_MIGRATION_CODE, required_phone_access_operational_tables, table_exists"
+CHECK_phone_barrier_access_sandbox_schema.py,4,from,__future__,annotations
+CHECK_phone_barrier_access_sandbox_schema.py,6,import,,sqlite3
+CHECK_phone_barrier_access_sandbox_schema.py,7,import,,sys
+CHECK_phone_barrier_access_sandbox_schema.py,8,from,pathlib,Path
+CHECK_phone_barrier_access_sandbox_schema.py,26,from,phone_barrier_access_core,"ACCESS_POLICY_SET, TARIFF_CONNECT, TARIFF_MONTHLY, required_phone_access_tables, table_exists"
+CHECK_profile_button_early_route_fix.py,8,from,__future__,annotations
+CHECK_profile_button_early_route_fix.py,10,import,,sys
+CHECK_profile_button_early_route_fix.py,11,from,pathlib,Path
+CHECK_profile_button_early_route_fix.py,28,import,,run_bot_live_services_sandbox_v1 as runner
+CHECK_profile_confirmation_ready_visibility_fix.py,4,from,pathlib,Path
+CHECK_profile_critical_codes_fix.py,4,from,pathlib,Path
+CHECK_profile_parking_time_test_sandbox.py,8,from,__future__,annotations
+CHECK_profile_parking_time_test_sandbox.py,10,import,,sqlite3
+CHECK_profile_parking_time_test_sandbox.py,11,import,,sys
+CHECK_profile_parking_time_test_sandbox.py,12,from,pathlib,Path
+CHECK_profile_parking_time_test_sandbox.py,26,from,profile_parking_time_test_core,"TEST_SCHEMA_MIGRATION_CODE, TEST_TARGET_APARTMENT, required_test_tables, table_exists, test_candidate"
+CHECK_profile_test_candidate_apartment_40.py,24,from,__future__,annotations
+CHECK_profile_test_candidate_apartment_40.py,26,import,,argparse
+CHECK_profile_test_candidate_apartment_40.py,27,import,,sqlite3
+CHECK_profile_test_candidate_apartment_40.py,28,import,,sys
+CHECK_profile_test_candidate_apartment_40.py,29,from,pathlib,Path
+CHECK_profile_test_candidate_apartment_40.py,30,from,typing,Any
+CHECK_profile_verification_sandbox.py,3,from,__future__,annotations
+CHECK_profile_verification_sandbox.py,4,import,,sqlite3
+CHECK_profile_verification_sandbox.py,5,import,,sys
+CHECK_profile_verification_sandbox.py,6,from,pathlib,Path
+CHECK_profile_verification_sandbox.py,12,from,profile_verification_core,"PROFILE_POLICY_SET, PROFILE_SCHEMA_MIGRATION_CODE"
+CHECK_profile_verification_terminology_v2.py,4,from,pathlib,Path
+CHECK_service_code_compatibility_phone_v2.py,6,from,__future__,annotations
+CHECK_service_code_compatibility_phone_v2.py,8,import,,sqlite3
+CHECK_service_code_compatibility_phone_v2.py,9,from,pathlib,Path
+Collect_sheets.py,1,import,,os
+Collect_sheets.py,2,import,,pandas as pd
+Collect_sheets1.py,1,import,,os
+Collect_sheets1.py,2,import,,pandas as pd
+Collect_word_tables.py,1,import,,os
+Collect_word_tables.py,2,from,docx,Document
+Collect_word_tables.py,3,from,openpyxl,Workbook
+Collect_word_tables.py,4,from,openpyxl.utils,get_column_letter
+commercial_contracts.py,15,from,__future__,annotations
+commercial_contracts.py,17,from,dataclasses,"dataclass, asdict"
+commercial_contracts.py,18,from,datetime,"date, datetime, timedelta"
+commercial_contracts.py,19,from,pathlib,Path
+commercial_contracts.py,20,import,,argparse
+commercial_contracts.py,21,import,,json
+commercial_contracts.py,22,import,,sqlite3
+commercial_contracts.py,23,import,,sys
+commercial_contracts.py,24,from,typing,"Any, Iterable"
+commercial_contracts.py,31,from,config,"paths, USE_TEST_DB"
+commercial_contracts.py,32,from,audit_logger,audit_log
+commercial_notification_delivery.py,19,from,__future__,annotations
+commercial_notification_delivery.py,21,from,pathlib,Path
+commercial_notification_delivery.py,22,from,datetime,datetime
+commercial_notification_delivery.py,23,import,,asyncio
+commercial_notification_delivery.py,24,import,,sqlite3
+commercial_notification_delivery.py,25,import,,sys
+commercial_notification_delivery.py,26,from,typing,Any
+commercial_notification_delivery.py,33,from,config,"paths, USE_TEST_DB"
+commercial_notification_delivery.py,34,from,audit_logger,audit_log
+create_clean_live_sandbox.py,28,from,__future__,annotations
+create_clean_live_sandbox.py,30,import,,argparse
+create_clean_live_sandbox.py,31,import,,importlib.util
+create_clean_live_sandbox.py,32,import,,shutil
+create_clean_live_sandbox.py,33,import,,sqlite3
+create_clean_live_sandbox.py,34,import,,sys
+create_clean_live_sandbox.py,35,import,,traceback
+create_clean_live_sandbox.py,36,from,datetime,datetime
+create_clean_live_sandbox.py,37,from,pathlib,Path
+create_clean_live_sandbox.py,38,from,types,SimpleNamespace
+create_clean_live_sandbox.py,39,from,typing,Any
+create_clean_live_sandbox.py,49,import,,config
+create_isolated_live_sandbox_v2.py,28,from,__future__,annotations
+create_isolated_live_sandbox_v2.py,30,import,,argparse
+create_isolated_live_sandbox_v2.py,31,import,,importlib.util
+create_isolated_live_sandbox_v2.py,32,import,,shutil
+create_isolated_live_sandbox_v2.py,33,import,,sqlite3
+create_isolated_live_sandbox_v2.py,34,import,,sys
+create_isolated_live_sandbox_v2.py,35,import,,traceback
+create_isolated_live_sandbox_v2.py,36,from,datetime,datetime
+create_isolated_live_sandbox_v2.py,37,from,pathlib,Path
+create_isolated_live_sandbox_v2.py,38,from,types,SimpleNamespace
+create_isolated_live_sandbox_v2.py,39,from,typing,Any
+create_isolated_live_sandbox_v2.py,49,import,,config
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,13,from,__future__,annotations
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,15,import,,shutil
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,16,import,,sqlite3
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,17,from,datetime,datetime
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,18,from,pathlib,Path
+Data/audit_databases.py,1,import,,pandas as pd
+Data/audit_databases.py,2,import,,os
+Data/audit_databases.py,3,import,,glob
+Data/audit_databases.py,4,from,datetime,datetime
+Data/Audit_for_merge.py,1,import,,pandas as pd
+Data/Audit_for_merge.py,2,import,,os
+Data/Audit_for_merge.py,3,import,,re
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,17,from,__future__,annotations
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,19,import,,argparse
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,20,import,,copy
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,21,import,,importlib.util
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,22,import,,os
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,23,import,,shutil
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,24,import,,sqlite3
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,25,import,,subprocess
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,26,import,,sys
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,27,import,,traceback
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,28,from,datetime,datetime
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,29,from,pathlib,Path
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,30,from,types,"ModuleType, SimpleNamespace"
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,31,from,typing,Any
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,86,import,,config
+Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py,139,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,23,import,,copy
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,25,import,,os
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,29,import,,sys
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,91,import,,config
+Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py,144,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,20,import,,re
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,22,import,,sys
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, text"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,46,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,1120,from,service_orders_core,confirm_order_step
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py,456,from,service_orders_core,effective_price
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,24,from,__future__,annotations
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,26,import,,calendar
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,27,import,,json
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,28,import,,sqlite3
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,29,from,datetime,"date, datetime"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py,30,from,typing,"Any, Iterable"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,15,from,__future__,annotations
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,17,from,datetime,"date, datetime"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,18,from,pathlib,Path
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,19,import,,sqlite3
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,20,import,,sys
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,21,from,typing,Any
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,32,from,audit_logger,audit_log
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py,37,from,access_control,has_permission
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py,19,from,__future__,annotations
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py,21,from,datetime,datetime
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py,22,import,,sqlite3
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py,23,from,typing,Any
+Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py,25,from,service_orders_core,"confirm_order_step, create_remote_asset, create_service_order, effective_price, get_conn, get_service_order, get_service_workflow, link_payment_to_order, now_db, record_remote_movement, table_columns, table_exists, text"
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,23,import,,copy
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,25,import,,os
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,29,import,,sys
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,91,import,,config
+Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py,144,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,10,from,__future__,annotations
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,12,from,pathlib,Path
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,13,import,,sqlite3
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,14,import,,sys
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,15,from,typing,Any
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,10,from,__future__,annotations
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,12,from,pathlib,Path
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,13,import,,sqlite3
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,14,import,,sys
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,15,from,typing,Any
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,20,import,,re
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,22,import,,sys
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,1339,from,service_orders_core,confirm_order_step
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py,569,from,service_orders_core,effective_price
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,23,import,,copy
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,25,import,,os
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,29,import,,sys
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,89,import,,config
+Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py,142,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,14,import,,sys
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,20,import,,re
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,22,import,,sys
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,75,from,profile_verification_core,phone_access_eligibility
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,1443,from,service_orders_core,confirm_order_step
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py,582,from,service_orders_core,effective_price
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,32,from,__future__,annotations
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,34,import,,hashlib
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,35,import,,json
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,36,import,,sqlite3
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,37,from,datetime,datetime
+Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py,38,from,typing,Any
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,20,import,,re
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,22,import,,sys
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, text"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,46,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,66,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,1321,from,service_orders_core,confirm_order_step
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py,551,from,service_orders_core,effective_price
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,15,from,__future__,annotations
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,17,from,datetime,"date, datetime"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,18,from,pathlib,Path
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,19,import,,sqlite3
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,20,import,,sys
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,21,from,typing,Any
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,32,from,audit_logger,audit_log
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py,37,from,access_control,has_permission
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,19,from,__future__,annotations
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,21,from,datetime,datetime
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,22,import,,sqlite3
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,23,from,typing,Any
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,25,from,service_orders_core,"confirm_order_step, create_remote_asset, create_service_order, effective_price, get_conn, get_service_order, get_service_workflow, link_payment_to_order, now_db, record_remote_movement, table_columns, table_exists, text"
+Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py,677,from,phone_barrier_access_service,promote_paid_phone_barrier_access_interest
+Data/car_registry.py,1,import,,pandas as pd
+Data/car_registry.py,2,import,,os
+Data/check_passport_columns.py,1,import,,pandas as pd
+Data/check_passport_columns.py,2,import,,os
+Data/Clean_Base.py,1,import,,pandas as pd
+Data/Clean_Base.py,2,import,,re
+Data/clean_base_01.py,1,import,,pandas as pd
+Data/clean_base_01.py,2,import,,re
+Data/clean_base_01.py,3,import,,os
+Data/clean_base_01.py,4,from,datetime,datetime
+Data/clean_base_02.py,1,import,,pandas as pd
+Data/clean_base_02.py,2,import,,os
+Data/clean_base_02.py,3,from,datetime,datetime
+Data/Clean_Data.py,1,import,,os
+Data/Clean_Data.py,2,import,,re
+Data/Clean_Data.py,3,import,,pandas as pd
+Data/conflicts.py,1,import,,pandas as pd
+Data/conflicts.py,2,import,,os
+Data/conflicts.py,3,import,,re
+Data/create_payment_sheet.py,1,import,,pandas as pd
+Data/create_payment_sheet.py,2,import,,os
+Data/create_payment_sheet.py,3,import,,glob
+Data/create_payment_sheet.py,4,from,openpyxl,Workbook
+Data/create_payment_sheet.py,5,from,openpyxl.styles,"Border, Side"
+Data/debug_conflict.py,1,import,,pandas as pd
+Data/debug_conflict.py,8,import,,pandas as pd
+Data/debug_conflict.py,9,import,,os
+Data/final_merge.py,1,import,,pandas as pd
+Data/final_merge.py,2,import,,re
+Data/final_merge.py,3,import,,os
+Data/merge_all.py,1,import,,pandas as pd
+Data/merge_all.py,2,import,,re
+Data/merge_all.py,3,import,,os
+Data/rub_flat_merge.py,1,import,,pandas as pd
+Data/rub_flat_merge.py,2,import,,os
+Data/run_direct_merge.py,1,import,,os
+Data/run_direct_merge.py,2,import,,re
+Data/run_direct_merge.py,3,import,,pandas as pd
+Data/run_flat_merge.py,1,import,,pandas as pd
+Data/run_flat_merge.py,2,import,,os
+Data/run_smart_merge.py,1,import,,pandas as pd
+Data/run_smart_merge.py,2,import,,os
+diagnose_osbb_audit.py,15,from,__future__,annotations
+diagnose_osbb_audit.py,17,from,datetime,datetime
+diagnose_osbb_audit.py,18,from,pathlib,Path
+diagnose_osbb_audit.py,19,import,,importlib
+diagnose_osbb_audit.py,20,import,,inspect
+diagnose_osbb_audit.py,21,import,,sqlite3
+diagnose_osbb_audit.py,22,import,,sys
+diagnose_osbb_audit.py,23,import,,traceback
+diagnose_sandbox_charges.py,18,from,__future__,annotations
+diagnose_sandbox_charges.py,20,import,,argparse
+diagnose_sandbox_charges.py,21,import,,sqlite3
+diagnose_sandbox_charges.py,22,from,pathlib,Path
+extract_telegram_remote_facts.py,1,from,pathlib,Path
+extract_telegram_remote_facts.py,2,import,,sys
+extract_telegram_remote_facts.py,3,import,,sqlite3
+extract_telegram_remote_facts.py,4,import,,re
+extract_telegram_remote_facts.py,5,from,datetime,datetime
+extract_telegram_remote_facts.py,13,from,config,paths
+extract_telegram_remote_facts.py,14,from,utils,"normalize_plate, apartment_sort_sql"
+extract_telegram_vehicle_facts.py,1,from,pathlib,Path
+extract_telegram_vehicle_facts.py,2,import,,sys
+extract_telegram_vehicle_facts.py,3,import,,sqlite3
+extract_telegram_vehicle_facts.py,4,import,,re
+extract_telegram_vehicle_facts.py,5,from,datetime,datetime
+extract_telegram_vehicle_facts.py,13,from,config,paths
+extract_telegram_vehicle_facts.py,14,from,utils,"normalize_plate, normalize_phone"
+FIND_actual_service_order_state.py,19,from,__future__,annotations
+FIND_actual_service_order_state.py,21,import,,os
+FIND_actual_service_order_state.py,22,import,,sqlite3
+FIND_actual_service_order_state.py,23,import,,subprocess
+FIND_actual_service_order_state.py,24,import,,traceback
+FIND_actual_service_order_state.py,25,from,datetime,datetime
+FIND_actual_service_order_state.py,26,from,pathlib,Path
+FIND_actual_service_order_state.py,27,from,typing,"Any, Iterable"
+find_sandbox_telegram_id.py,13,from,__future__,annotations
+find_sandbox_telegram_id.py,15,import,,argparse
+find_sandbox_telegram_id.py,16,import,,sqlite3
+find_sandbox_telegram_id.py,17,from,pathlib,Path
+FIX_live_services_sandbox_payment_schema.py,26,from,__future__,annotations
+FIX_live_services_sandbox_payment_schema.py,28,import,,shutil
+FIX_live_services_sandbox_payment_schema.py,29,import,,sqlite3
+FIX_live_services_sandbox_payment_schema.py,30,import,,sys
+FIX_live_services_sandbox_payment_schema.py,31,import,,traceback
+FIX_live_services_sandbox_payment_schema.py,32,from,datetime,datetime
+FIX_live_services_sandbox_payment_schema.py,33,from,pathlib,Path
+fix_parking_bot_language_gate.py,19,from,__future__,annotations
+fix_parking_bot_language_gate.py,21,from,datetime,datetime
+fix_parking_bot_language_gate.py,22,from,pathlib,Path
+fix_parking_bot_language_gate.py,23,import,,argparse
+fix_parking_bot_language_gate.py,24,import,,re
+fix_parking_bot_language_gate.py,25,import,,shutil
+fix_source_ref_schema.py,16,from,__future__,annotations
+fix_source_ref_schema.py,18,import,,re
+fix_source_ref_schema.py,19,import,,shutil
+fix_source_ref_schema.py,20,import,,sqlite3
+fix_source_ref_schema.py,21,import,,sys
+fix_source_ref_schema.py,22,from,datetime,datetime
+fix_source_ref_schema.py,23,from,pathlib,Path
+fix_source_ref_schema.py,24,from,typing,Iterable
+generate_parking_charges.py,7,from,pathlib,Path
+generate_parking_charges.py,8,import,,sys
+generate_parking_charges.py,9,import,,sqlite3
+generate_parking_charges.py,10,import,,argparse
+generate_parking_charges.py,11,from,datetime,datetime
+generate_parking_charges.py,19,from,config,"paths, USE_TEST_DB"
+guard_workspace_preflight.py,16,from,__future__,annotations
+guard_workspace_preflight.py,18,import,,argparse
+guard_workspace_preflight.py,19,import,,copy
+guard_workspace_preflight.py,20,import,,importlib.util
+guard_workspace_preflight.py,21,import,,os
+guard_workspace_preflight.py,22,import,,sqlite3
+guard_workspace_preflight.py,23,import,,sys
+guard_workspace_preflight.py,24,import,,traceback
+guard_workspace_preflight.py,25,from,datetime,datetime
+guard_workspace_preflight.py,26,from,pathlib,Path
+guard_workspace_preflight.py,27,from,types,SimpleNamespace
+guard_workspace_preflight.py,205,import,,config
+guard_workspace_preflight_v2.py,16,from,__future__,annotations
+guard_workspace_preflight_v2.py,18,import,,argparse
+guard_workspace_preflight_v2.py,19,import,,copy
+guard_workspace_preflight_v2.py,20,import,,importlib.util
+guard_workspace_preflight_v2.py,21,import,,os
+guard_workspace_preflight_v2.py,22,import,,sqlite3
+guard_workspace_preflight_v2.py,23,import,,sys
+guard_workspace_preflight_v2.py,24,import,,traceback
+guard_workspace_preflight_v2.py,25,from,datetime,datetime
+guard_workspace_preflight_v2.py,26,from,pathlib,Path
+guard_workspace_preflight_v2.py,27,from,types,SimpleNamespace
+guard_workspace_preflight_v2.py,205,import,,config
+import_house_registry.py,2,from,pathlib,Path
+import_house_registry.py,3,import,,sys
+import_house_registry.py,4,import,,sqlite3
+import_house_registry.py,5,from,datetime,datetime
+import_house_registry.py,7,import,,pandas as pd
+import_house_registry.py,15,from,config,paths
+import_ohorona_list1_to_central_cashbox.py,17,from,__future__,annotations
+import_ohorona_list1_to_central_cashbox.py,19,from,pathlib,Path
+import_ohorona_list1_to_central_cashbox.py,20,import,,argparse
+import_ohorona_list1_to_central_cashbox.py,21,import,,re
+import_ohorona_list1_to_central_cashbox.py,22,import,,sqlite3
+import_ohorona_list1_to_central_cashbox.py,23,import,,sys
+import_ohorona_list1_to_central_cashbox.py,24,import,,zipfile
+import_ohorona_list1_to_central_cashbox.py,25,import,,xml.etree.ElementTree as ET
+import_ohorona_list1_to_central_cashbox.py,26,from,calendar,monthrange
+import_ohorona_list1_to_central_cashbox.py,27,from,datetime,datetime
+import_ohorona_list1_to_central_cashbox.py,28,from,decimal,"Decimal, InvalidOperation"
+import_ohorona_list1_to_central_cashbox.py,35,from,config,"paths, USE_TEST_DB"
+import_ohorona_list1_to_central_cashbox.py,36,from,audit_logger,audit_log
+import_ohorona_list1_to_central_cashbox.py,37,from,cashier_journal,"now_db, norm_text, norm_apartment, table_exists, table_columns, insert_dynamic, update_dynamic, ensure_service_catalog, ensure_service_item, recalc_cashbox_balance, find_vehicle, create_cashbox_operation, duplicate_operation_exists, money"
+import_ohorona_list1_to_central_cashbox.py,314,from,cashier_journal,update_dynamic_by
+import_ohorona_sheet1_payments.py,1,from,pathlib,Path
+import_ohorona_sheet1_payments.py,2,import,,sys
+import_ohorona_sheet1_payments.py,3,import,,sqlite3
+import_ohorona_sheet1_payments.py,4,import,,argparse
+import_ohorona_sheet1_payments.py,5,import,,re
+import_ohorona_sheet1_payments.py,6,from,datetime,datetime
+import_ohorona_sheet1_payments.py,7,from,decimal,"Decimal, InvalidOperation"
+import_ohorona_sheet1_payments.py,8,from,openpyxl,load_workbook
+import_ohorona_sheet1_payments.py,15,from,config,"paths, USE_TEST_DB"
+import_ohorona_to_cashbox.py,1,from,pathlib,Path
+import_ohorona_to_cashbox.py,2,import,,sys
+import_ohorona_to_cashbox.py,3,import,,sqlite3
+import_ohorona_to_cashbox.py,4,import,,argparse
+import_ohorona_to_cashbox.py,5,import,,re
+import_ohorona_to_cashbox.py,6,from,datetime,datetime
+import_ohorona_to_cashbox.py,7,from,decimal,"Decimal, InvalidOperation"
+import_ohorona_to_cashbox.py,9,from,openpyxl,load_workbook
+import_ohorona_to_cashbox.py,17,from,config,"paths, USE_TEST_DB"
+import_ohorona_to_cashbox.py,18,from,audit_logger,audit_log
+import_ohorona_to_cashbox.py,21,from,cashier_journal,"get_conn, now_db, norm_text, norm_apartment, normalize_plate, normalize_period, monthly_item_code, table_exists, table_columns, insert_dynamic, update_dynamic, ensure_cashbox, recalc_cashbox_balance, find_vehicle, get_service_type, ensure_service_catalog, ensure_service_item, create_cashbox_operation, duplicate_operation_exists, money"
+import_osbb_telegram_messages.py,1,from,pathlib,Path
+import_osbb_telegram_messages.py,2,import,,sys
+import_osbb_telegram_messages.py,3,import,,asyncio
+import_osbb_telegram_messages.py,4,import,,sqlite3
+import_osbb_telegram_messages.py,5,from,datetime,datetime
+import_osbb_telegram_messages.py,7,from,telethon,TelegramClient
+import_osbb_telegram_messages.py,8,from,telethon.tl.functions.messages,GetDialogFiltersRequest
+import_osbb_telegram_messages.py,9,from,telethon.tl.types,"User, Chat, Channel"
+import_osbb_telegram_messages.py,17,from,config,paths
+import_osbb_telegram_messages.py,21,from,telegram_osbb,"API_ID, API_HASH"
+import_paper_parking.py,1,from,pathlib,Path
+import_paper_parking.py,2,import,,sys
+import_paper_parking.py,3,import,,sqlite3
+import_paper_parking.py,4,from,datetime,datetime
+import_paper_parking.py,6,import,,pandas as pd
+import_paper_parking.py,14,from,config,paths
+import_tbot_quarantine.py,1,from,pathlib,Path
+import_tbot_quarantine.py,2,import,,sys
+import_tbot_quarantine.py,3,import,,sqlite3
+import_tbot_quarantine.py,4,from,datetime,datetime
+import_tbot_quarantine.py,6,import,,pandas as pd
+import_tbot_quarantine.py,14,from,config,paths
+import_tbot_quarantine.py,15,from,utils,"norm_text, norm_apartment"
+init_osbb_db.py,1,from,pathlib,Path
+init_osbb_db.py,2,import,,sqlite3
+init_osbb_db.py,3,from,datetime,datetime
+init_osbb_db.py,4,import,,sys
+init_osbb_db.py,13,from,config,paths
+init_osbb_quarantine_db.py,1,from,pathlib,Path
+init_osbb_quarantine_db.py,2,import,,sys
+init_osbb_quarantine_db.py,3,import,,sqlite3
+init_osbb_quarantine_db.py,4,from,datetime,datetime
+init_osbb_quarantine_db.py,12,from,config,paths
+init_osbb_telegram_db.py,1,from,pathlib,Path
+init_osbb_telegram_db.py,2,import,,sys
+init_osbb_telegram_db.py,3,import,,sqlite3
+init_osbb_telegram_db.py,4,from,datetime,datetime
+init_osbb_telegram_db.py,12,from,config,paths
+inspect_osbb_folder_filter.py,1,from,pathlib,Path
+inspect_osbb_folder_filter.py,2,import,,sys
+inspect_osbb_folder_filter.py,3,import,,asyncio
+inspect_osbb_folder_filter.py,5,from,telethon,TelegramClient
+inspect_osbb_folder_filter.py,6,from,telethon.tl.functions.messages,GetDialogFiltersRequest
+inspect_osbb_folder_filter.py,14,from,config,paths
+inspect_osbb_folder_filter.py,18,from,telegram_osbb,"API_ID, API_HASH"
+INSTALL_cashier_route_after_phone_v2.py,19,from,__future__,annotations
+INSTALL_cashier_route_after_phone_v2.py,21,import,,argparse
+INSTALL_cashier_route_after_phone_v2.py,22,import,,py_compile
+INSTALL_cashier_route_after_phone_v2.py,23,import,,shutil
+INSTALL_cashier_route_after_phone_v2.py,24,import,,sys
+INSTALL_cashier_route_after_phone_v2.py,25,from,datetime,datetime
+INSTALL_cashier_route_after_phone_v2.py,26,from,pathlib,Path
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,21,from,__future__,annotations
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,23,import,,argparse
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,24,import,,os
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,25,import,,shutil
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,26,import,,stat
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,27,import,,subprocess
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,28,import,,sys
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,29,import,,tempfile
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,30,from,datetime,datetime
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,31,from,pathlib,Path
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,7,from,__future__,annotations
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,9,import,,argparse
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,10,import,,os
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,11,import,,shutil
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,12,import,,stat
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,13,import,,subprocess
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,14,import,,sys
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,15,from,datetime,datetime
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,16,from,pathlib,Path
+INSTALL_phone_barrier_access_v2.py,9,from,__future__,annotations
+INSTALL_phone_barrier_access_v2.py,11,import,,argparse
+INSTALL_phone_barrier_access_v2.py,12,import,,py_compile
+INSTALL_phone_barrier_access_v2.py,13,import,,shutil
+INSTALL_phone_barrier_access_v2.py,14,import,,sys
+INSTALL_phone_barrier_access_v2.py,15,from,datetime,datetime
+INSTALL_phone_barrier_access_v2.py,16,from,pathlib,Path
+INSTALL_profile_button_early_route_fix.py,11,from,__future__,annotations
+INSTALL_profile_button_early_route_fix.py,13,import,,py_compile
+INSTALL_profile_button_early_route_fix.py,14,import,,shutil
+INSTALL_profile_button_early_route_fix.py,15,from,datetime,datetime
+INSTALL_profile_button_early_route_fix.py,16,from,pathlib,Path
+INSTALL_profile_confirmation_ready_visibility_fix.py,11,from,__future__,annotations
+INSTALL_profile_confirmation_ready_visibility_fix.py,13,import,,py_compile
+INSTALL_profile_confirmation_ready_visibility_fix.py,14,import,,shutil
+INSTALL_profile_confirmation_ready_visibility_fix.py,15,from,datetime,datetime
+INSTALL_profile_confirmation_ready_visibility_fix.py,16,from,pathlib,Path
+INSTALL_profile_critical_codes_fix.py,11,from,__future__,annotations
+INSTALL_profile_critical_codes_fix.py,13,import,,py_compile
+INSTALL_profile_critical_codes_fix.py,14,import,,shutil
+INSTALL_profile_critical_codes_fix.py,15,from,datetime,datetime
+INSTALL_profile_critical_codes_fix.py,16,from,pathlib,Path
+INSTALL_profile_parking_time_test_v1.py,9,from,__future__,annotations
+INSTALL_profile_parking_time_test_v1.py,11,import,,py_compile
+INSTALL_profile_parking_time_test_v1.py,12,import,,shutil
+INSTALL_profile_parking_time_test_v1.py,13,from,datetime,datetime
+INSTALL_profile_parking_time_test_v1.py,14,from,pathlib,Path
+INSTALL_profile_verification_terminology_v2.py,14,from,__future__,annotations
+INSTALL_profile_verification_terminology_v2.py,16,import,,py_compile
+INSTALL_profile_verification_terminology_v2.py,17,import,,shutil
+INSTALL_profile_verification_terminology_v2.py,18,from,datetime,datetime
+INSTALL_profile_verification_terminology_v2.py,19,from,pathlib,Path
+INSTALL_profile_verification_v1.py,3,from,__future__,annotations
+INSTALL_profile_verification_v1.py,4,import,,py_compile
+INSTALL_profile_verification_v1.py,5,import,,shutil
+INSTALL_profile_verification_v1.py,6,from,datetime,datetime
+INSTALL_profile_verification_v1.py,7,from,pathlib,Path
+INSTALL_service_code_compatibility_phone_v2.py,9,from,__future__,annotations
+INSTALL_service_code_compatibility_phone_v2.py,11,import,,argparse
+INSTALL_service_code_compatibility_phone_v2.py,12,import,,py_compile
+INSTALL_service_code_compatibility_phone_v2.py,13,import,,shutil
+INSTALL_service_code_compatibility_phone_v2.py,14,from,datetime,datetime
+INSTALL_service_code_compatibility_phone_v2.py,15,from,pathlib,Path
+install_service_orders_ui.py,10,from,__future__,annotations
+install_service_orders_ui.py,12,import,,argparse
+install_service_orders_ui.py,13,import,,shutil
+install_service_orders_ui.py,14,from,datetime,datetime
+install_service_orders_ui.py,15,from,pathlib,Path
+list_osbb_folder_dialogs.py,1,from,pathlib,Path
+list_osbb_folder_dialogs.py,2,import,,sys
+list_osbb_folder_dialogs.py,3,import,,asyncio
+list_osbb_folder_dialogs.py,4,from,datetime,datetime
+list_osbb_folder_dialogs.py,6,from,telethon,TelegramClient
+list_osbb_folder_dialogs.py,7,from,telethon.tl.types,"User, Chat, Channel"
+list_osbb_folder_dialogs.py,15,from,config,paths
+list_osbb_folder_dialogs.py,19,from,telegram_osbb,"API_ID, API_HASH"
+list_osbb_included_peers.py,1,from,pathlib,Path
+list_osbb_included_peers.py,2,import,,sys
+list_osbb_included_peers.py,3,import,,asyncio
+list_osbb_included_peers.py,4,from,datetime,datetime
+list_osbb_included_peers.py,6,from,telethon,TelegramClient
+list_osbb_included_peers.py,7,from,telethon.tl.functions.messages,GetDialogFiltersRequest
+list_osbb_included_peers.py,8,from,telethon.tl.types,"User, Chat, Channel"
+list_osbb_included_peers.py,16,from,config,paths
+list_osbb_included_peers.py,20,from,telegram_osbb,"API_ID, API_HASH"
+list_telegram_dialogs.py,1,from,pathlib,Path
+list_telegram_dialogs.py,2,import,,sys
+list_telegram_dialogs.py,3,import,,asyncio
+list_telegram_dialogs.py,4,from,datetime,datetime
+list_telegram_dialogs.py,6,from,telethon,TelegramClient
+list_telegram_dialogs.py,7,from,telethon.tl.types,"User, Chat, Channel"
+list_telegram_dialogs.py,15,from,config,paths
+list_telegram_dialogs.py,19,from,telegram_osbb,"API_ID, API_HASH"
+list_telegram_folders.py,1,from,pathlib,Path
+list_telegram_folders.py,2,import,,sys
+list_telegram_folders.py,3,import,,asyncio
+list_telegram_folders.py,5,from,telethon,TelegramClient
+list_telegram_folders.py,6,from,telethon.tl.functions.messages,GetDialogFiltersRequest
+list_telegram_folders.py,14,from,config,paths
+list_telegram_folders.py,18,from,telegram_osbb,"API_ID, API_HASH"
+manage_staff_access.py,34,from,__future__,annotations
+manage_staff_access.py,36,import,,argparse
+manage_staff_access.py,37,import,,sqlite3
+manage_staff_access.py,38,import,,sys
+manage_staff_access.py,39,from,datetime,datetime
+manage_staff_access.py,40,from,pathlib,Path
+manage_staff_access.py,41,from,typing,Any
+manage_staff_access.py,49,from,config,"paths, USE_TEST_DB"
+manage_staff_access.py,50,from,access_control,"get_db_file, has_permission, norm_scope_type, norm_scope_value, schema_ready, text"
+manage_staff_access.py,60,from,audit_logger,audit_log
+manage_staff_access_v2.py,34,from,__future__,annotations
+manage_staff_access_v2.py,36,import,,argparse
+manage_staff_access_v2.py,37,import,,sqlite3
+manage_staff_access_v2.py,38,import,,sys
+manage_staff_access_v2.py,39,from,datetime,datetime
+manage_staff_access_v2.py,40,from,pathlib,Path
+manage_staff_access_v2.py,41,from,typing,Any
+manage_staff_access_v2.py,49,from,config,"paths, USE_TEST_DB"
+manage_staff_access_v2.py,50,from,access_control,"get_db_file, has_permission, norm_scope_type, norm_scope_value, schema_ready, text"
+manage_staff_access_v2.py,60,from,audit_logger,audit_log
+mark_audit_enabled.py,1,from,audit_logger,audit_system_event
+migrate_access_control_and_guard.py,22,from,__future__,annotations
+migrate_access_control_and_guard.py,24,import,,argparse
+migrate_access_control_and_guard.py,25,import,,sqlite3
+migrate_access_control_and_guard.py,26,import,,sys
+migrate_access_control_and_guard.py,27,from,datetime,datetime
+migrate_access_control_and_guard.py,28,from,pathlib,Path
+migrate_access_control_and_guard.py,29,from,typing,Any
+migrate_access_control_and_guard.py,36,from,config,"paths, USE_TEST_DB"
+migrate_access_control_and_guard.py,39,from,audit_logger,audit_log
+migrate_add_normalized_fields.py,1,from,pathlib,Path
+migrate_add_normalized_fields.py,2,import,,sys
+migrate_add_normalized_fields.py,3,import,,sqlite3
+migrate_add_normalized_fields.py,11,from,config,paths
+migrate_add_verification_evidence.py,1,from,pathlib,Path
+migrate_add_verification_evidence.py,2,import,,sys
+migrate_add_verification_evidence.py,3,import,,sqlite3
+migrate_add_verification_evidence.py,11,from,config,paths
+migrate_add_verification_tasks.py,1,from,pathlib,Path
+migrate_add_verification_tasks.py,2,import,,sys
+migrate_add_verification_tasks.py,3,import,,sqlite3
+migrate_add_verification_tasks.py,11,from,config,paths
+migrate_apartment_link_requests.py,18,from,__future__,annotations
+migrate_apartment_link_requests.py,20,import,,argparse
+migrate_apartment_link_requests.py,21,import,,sqlite3
+migrate_apartment_link_requests.py,22,import,,sys
+migrate_apartment_link_requests.py,23,from,datetime,datetime
+migrate_apartment_link_requests.py,24,from,pathlib,Path
+migrate_apartment_link_requests.py,31,from,config,"paths, USE_TEST_DB"
+migrate_apartment_link_requests.py,34,from,audit_logger,audit_log
+migrate_apartment_verification.py,1,from,pathlib,Path
+migrate_apartment_verification.py,2,import,,sys
+migrate_apartment_verification.py,3,import,,sqlite3
+migrate_apartment_verification.py,4,from,datetime,datetime
+migrate_apartment_verification.py,13,from,config,"paths, USE_TEST_DB"
+migrate_billing_core.py,1,from,pathlib,Path
+migrate_billing_core.py,2,import,,sys
+migrate_billing_core.py,3,import,,sqlite3
+migrate_billing_core.py,11,from,config,"paths, USE_TEST_DB"
+migrate_bot_core.py,1,from,pathlib,Path
+migrate_bot_core.py,2,import,,sys
+migrate_bot_core.py,3,import,,sqlite3
+migrate_bot_core.py,4,from,datetime,datetime
+migrate_bot_core.py,13,from,config,paths
+migrate_cashier_core.py,1,from,pathlib,Path
+migrate_cashier_core.py,2,import,,sys
+migrate_cashier_core.py,3,import,,sqlite3
+migrate_cashier_core.py,4,import,,argparse
+migrate_cashier_core.py,5,from,datetime,datetime
+migrate_cashier_core.py,13,from,config,"paths, USE_TEST_DB"
+migrate_cashier_operator_editor.py,29,from,__future__,annotations
+migrate_cashier_operator_editor.py,31,import,,argparse
+migrate_cashier_operator_editor.py,32,import,,sqlite3
+migrate_cashier_operator_editor.py,33,import,,sys
+migrate_cashier_operator_editor.py,34,from,datetime,datetime
+migrate_cashier_operator_editor.py,35,from,pathlib,Path
+migrate_cashier_operator_editor.py,42,from,config,"paths, USE_TEST_DB"
+migrate_cashier_operator_editor.py,45,from,audit_logger,audit_log
+migrate_cashier_v2.py,21,from,__future__,annotations
+migrate_cashier_v2.py,23,import,,argparse
+migrate_cashier_v2.py,24,import,,sqlite3
+migrate_cashier_v2.py,25,import,,sys
+migrate_cashier_v2.py,26,from,datetime,datetime
+migrate_cashier_v2.py,27,from,pathlib,Path
+migrate_cashier_v2.py,34,from,config,"paths, USE_TEST_DB"
+migrate_cashier_v2.py,37,from,audit_logger,audit_log
+migrate_cashier_v2_compat.py,21,from,__future__,annotations
+migrate_cashier_v2_compat.py,23,import,,argparse
+migrate_cashier_v2_compat.py,24,import,,sqlite3
+migrate_cashier_v2_compat.py,25,import,,sys
+migrate_cashier_v2_compat.py,26,from,datetime,datetime
+migrate_cashier_v2_compat.py,27,from,pathlib,Path
+migrate_cashier_v2_compat.py,28,from,typing,Any
+migrate_cashier_v2_compat.py,35,from,config,"paths, USE_TEST_DB"
+migrate_cashier_v2_compat.py,38,from,audit_logger,audit_log
+migrate_charge_adjustments.py,1,from,pathlib,Path
+migrate_charge_adjustments.py,2,import,,sys
+migrate_charge_adjustments.py,3,import,,sqlite3
+migrate_charge_adjustments.py,4,import,,argparse
+migrate_charge_adjustments.py,5,from,datetime,datetime
+migrate_charge_adjustments.py,12,from,config,"paths, USE_TEST_DB"
+migrate_charge_adjustments.py,15,from,audit_logger,audit_log
+migrate_commercial_contract_core.py,27,from,__future__,annotations
+migrate_commercial_contract_core.py,29,from,datetime,datetime
+migrate_commercial_contract_core.py,30,from,pathlib,Path
+migrate_commercial_contract_core.py,31,import,,argparse
+migrate_commercial_contract_core.py,32,import,,sqlite3
+migrate_commercial_contract_core.py,33,import,,sys
+migrate_commercial_contract_core.py,34,from,typing,Any
+migrate_commercial_contract_core.py,41,from,config,"paths, USE_TEST_DB"
+migrate_commercial_contract_core.py,44,from,audit_logger,audit_log
+migrate_operator_audit_log.py,1,from,pathlib,Path
+migrate_operator_audit_log.py,2,import,,sys
+migrate_operator_audit_log.py,3,import,,sqlite3
+migrate_operator_audit_log.py,11,from,config,"paths, USE_TEST_DB"
+migrate_operator_audit_log_v2.py,1,from,pathlib,Path
+migrate_operator_audit_log_v2.py,2,import,,sys
+migrate_operator_audit_log_v2.py,3,import,,sqlite3
+migrate_operator_audit_log_v2.py,11,from,config,"paths, USE_TEST_DB"
+MIGRATE_phone_barrier_access_operational_sandbox.py,13,from,__future__,annotations
+MIGRATE_phone_barrier_access_operational_sandbox.py,15,import,,argparse
+MIGRATE_phone_barrier_access_operational_sandbox.py,16,import,,shutil
+MIGRATE_phone_barrier_access_operational_sandbox.py,17,import,,sqlite3
+MIGRATE_phone_barrier_access_operational_sandbox.py,18,import,,sys
+MIGRATE_phone_barrier_access_operational_sandbox.py,19,import,,traceback
+MIGRATE_phone_barrier_access_operational_sandbox.py,20,from,datetime,datetime
+MIGRATE_phone_barrier_access_operational_sandbox.py,21,from,pathlib,Path
+MIGRATE_phone_barrier_access_operational_sandbox.py,49,from,phone_barrier_access_core,"OPERATIONAL_SCHEMA_MIGRATION_CODE, SCHEMA_MIGRATION_CODE, ensure_phone_access_operational_schema, required_phone_access_operational_tables, table_exists"
+MIGRATE_phone_barrier_access_sandbox.py,10,from,__future__,annotations
+MIGRATE_phone_barrier_access_sandbox.py,12,import,,argparse
+MIGRATE_phone_barrier_access_sandbox.py,13,import,,shutil
+MIGRATE_phone_barrier_access_sandbox.py,14,import,,sqlite3
+MIGRATE_phone_barrier_access_sandbox.py,15,import,,sys
+MIGRATE_phone_barrier_access_sandbox.py,16,import,,traceback
+MIGRATE_phone_barrier_access_sandbox.py,17,from,datetime,"date, datetime"
+MIGRATE_phone_barrier_access_sandbox.py,18,from,pathlib,Path
+MIGRATE_phone_barrier_access_sandbox.py,37,from,phone_barrier_access_core,"ensure_phone_barrier_access_schema, required_phone_access_tables, table_exists"
+MIGRATE_profile_parking_time_test_sandbox.py,8,from,__future__,annotations
+MIGRATE_profile_parking_time_test_sandbox.py,10,import,,shutil
+MIGRATE_profile_parking_time_test_sandbox.py,11,import,,sqlite3
+MIGRATE_profile_parking_time_test_sandbox.py,12,import,,sys
+MIGRATE_profile_parking_time_test_sandbox.py,13,import,,traceback
+MIGRATE_profile_parking_time_test_sandbox.py,14,from,datetime,datetime
+MIGRATE_profile_parking_time_test_sandbox.py,15,from,pathlib,Path
+MIGRATE_profile_parking_time_test_sandbox.py,30,from,profile_parking_time_test_core,ensure_test_schema
+MIGRATE_profile_verification_sandbox.py,3,from,__future__,annotations
+MIGRATE_profile_verification_sandbox.py,4,import,,shutil
+MIGRATE_profile_verification_sandbox.py,5,import,,sqlite3
+MIGRATE_profile_verification_sandbox.py,6,import,,sys
+MIGRATE_profile_verification_sandbox.py,7,import,,traceback
+MIGRATE_profile_verification_sandbox.py,8,from,datetime,datetime
+MIGRATE_profile_verification_sandbox.py,9,from,pathlib,Path
+MIGRATE_profile_verification_sandbox.py,19,from,profile_verification_core,ensure_profile_verification_schema
+migrate_remote_requests.py,18,from,__future__,annotations
+migrate_remote_requests.py,20,from,datetime,datetime
+migrate_remote_requests.py,21,from,pathlib,Path
+migrate_remote_requests.py,22,import,,argparse
+migrate_remote_requests.py,23,import,,sqlite3
+migrate_remote_requests.py,24,import,,sys
+migrate_remote_requests.py,31,from,config,"paths, USE_TEST_DB"
+migrate_remote_requests.py,34,from,audit_logger,audit_log
+migrate_service_items.py,1,from,pathlib,Path
+migrate_service_items.py,2,import,,sys
+migrate_service_items.py,3,import,,sqlite3
+migrate_service_items.py,4,import,,argparse
+migrate_service_items.py,5,from,datetime,datetime
+migrate_service_items.py,12,from,config,"paths, USE_TEST_DB"
+migrate_service_items.py,13,from,audit_logger,audit_log
+migrate_service_orders_and_fulfillment.py,28,from,__future__,annotations
+migrate_service_orders_and_fulfillment.py,30,import,,argparse
+migrate_service_orders_and_fulfillment.py,31,import,,sqlite3
+migrate_service_orders_and_fulfillment.py,32,import,,sys
+migrate_service_orders_and_fulfillment.py,33,from,datetime,datetime
+migrate_service_orders_and_fulfillment.py,34,from,pathlib,Path
+migrate_service_orders_and_fulfillment.py,35,from,typing,Any
+migrate_service_orders_and_fulfillment.py,42,from,config,"paths, USE_TEST_DB"
+migrate_service_orders_and_fulfillment.py,45,from,audit_logger,audit_log
+MIGRATE_simplified_services_sandbox.py,11,from,__future__,annotations
+MIGRATE_simplified_services_sandbox.py,13,import,,shutil
+MIGRATE_simplified_services_sandbox.py,14,import,,sqlite3
+MIGRATE_simplified_services_sandbox.py,15,import,,sys
+MIGRATE_simplified_services_sandbox.py,16,import,,traceback
+MIGRATE_simplified_services_sandbox.py,17,from,datetime,datetime
+MIGRATE_simplified_services_sandbox.py,18,from,pathlib,Path
+MIGRATE_simplified_services_sandbox.py,53,import,,config
+MIGRATE_simplified_services_sandbox.py,67,from,service_preorders_core,ensure_simplified_service_schema
+migrate_unit_registry_composite_groups.py,22,from,__future__,annotations
+migrate_unit_registry_composite_groups.py,24,from,collections,defaultdict
+migrate_unit_registry_composite_groups.py,25,from,datetime,datetime
+migrate_unit_registry_composite_groups.py,26,from,pathlib,Path
+migrate_unit_registry_composite_groups.py,27,import,,argparse
+migrate_unit_registry_composite_groups.py,28,import,,re
+migrate_unit_registry_composite_groups.py,29,import,,sqlite3
+migrate_unit_registry_composite_groups.py,30,import,,sys
+migrate_unit_registry_composite_groups.py,38,from,config,"paths, USE_TEST_DB"
+migrate_unit_registry_composite_groups.py,41,from,audit_logger,audit_log
+normalize_registry_fields.py,1,from,pathlib,Path
+normalize_registry_fields.py,2,import,,sys
+normalize_registry_fields.py,3,import,,sqlite3
+normalize_registry_fields.py,4,import,,re
+normalize_registry_fields.py,5,from,datetime,datetime
+normalize_registry_fields.py,6,from,utils,"norm_text, normalize_phone, normalize_plate, normalize_color, normalize_car_model"
+normalize_registry_fields.py,19,from,config,paths
+normalize_registry_fields.py,20,from,utils,norm_text
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,28,from,__future__,annotations
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,30,import,,argparse
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,31,import,,sqlite3
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,32,import,,sys
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,33,from,datetime,datetime
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,34,from,pathlib,Path
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,35,from,typing,Any
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,42,from,config,"paths, USE_TEST_DB"
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py,45,from,audit_logger,audit_log
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,16,from,__future__,annotations
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,18,from,datetime,"datetime, timedelta"
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,19,from,pathlib,Path
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,20,import,,sqlite3
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,21,import,,sys
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,22,from,typing,Any
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,29,from,service_orders_core,"get_conn, now_db, schema_ready, table_columns, table_exists, text"
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py,39,from,access_control,has_permission
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,15,from,__future__,annotations
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,17,from,datetime,"date, datetime"
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,18,from,pathlib,Path
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,19,import,,sqlite3
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,20,import,,sys
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,21,from,typing,Any
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,32,from,audit_logger,audit_log
+OSBB_Service_Orders_Foundation_v1/service_orders_core.py,37,from,access_control,has_permission
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,21,from,__future__,annotations
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,23,import,,argparse
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,24,import,,copy
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,25,import,,importlib.util
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,26,import,,os
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,27,import,,sqlite3
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,28,import,,sys
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,29,import,,traceback
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,30,from,datetime,datetime
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,31,from,pathlib,Path
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,32,from,types,SimpleNamespace
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py,226,import,,config
+parking_billing_statement.py,1,from,pathlib,Path
+parking_billing_statement.py,2,import,,sys
+parking_billing_statement.py,3,import,,sqlite3
+parking_billing_statement.py,4,import,,argparse
+parking_billing_statement.py,5,from,datetime,datetime
+parking_billing_statement.py,13,from,config,"paths, USE_TEST_DB"
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,9,from,__future__,annotations
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,11,from,pathlib,Path
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,12,import,,sys
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,13,from,typing,Any
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,15,from,telegram,"ReplyKeyboardMarkup, Update"
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,24,from,service_orders_core,"get_conn, text"
+parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py,25,from,profile_parking_time_test_core,"PARKING_TIME_LABELS, STATUS_OPEN, STATUS_PENDING_OPERATOR, TEST_TARGET_APARTMENT, close_test_session, decide_test_session, get_test_session, list_test_sessions, open_test_session, propose_parking_time, session_for_display, test_candidate"
+parking_time_test_payload/profile_parking_time_test_core.py,21,from,__future__,annotations
+parking_time_test_payload/profile_parking_time_test_core.py,23,import,,json
+parking_time_test_payload/profile_parking_time_test_core.py,24,import,,sqlite3
+parking_time_test_payload/profile_parking_time_test_core.py,25,from,datetime,datetime
+parking_time_test_payload/profile_parking_time_test_core.py,26,from,typing,Any
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,23,import,,copy
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,25,import,,os
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,29,import,,sys
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,95,import,,config
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py,148,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+patch_cashier_v2_core_period_and_schemafix.py,20,from,__future__,annotations
+patch_cashier_v2_core_period_and_schemafix.py,22,import,,argparse
+patch_cashier_v2_core_period_and_schemafix.py,23,import,,base64
+patch_cashier_v2_core_period_and_schemafix.py,24,import,,copy
+patch_cashier_v2_core_period_and_schemafix.py,25,import,,os
+patch_cashier_v2_core_period_and_schemafix.py,26,import,,sys
+patch_cashier_v2_core_period_and_schemafix.py,27,import,,traceback
+patch_cashier_v2_core_period_and_schemafix.py,28,from,datetime,datetime
+patch_cashier_v2_core_period_and_schemafix.py,29,from,pathlib,Path
+patch_cashier_v2_core_period_and_schemafix.py,30,from,types,SimpleNamespace
+patch_cashier_v2_core_period_and_schemafix.py,98,import,,config
+patch_cashier_v2_core_schemafix.py,25,from,__future__,annotations
+patch_cashier_v2_core_schemafix.py,27,import,,argparse
+patch_cashier_v2_core_schemafix.py,28,import,,copy
+patch_cashier_v2_core_schemafix.py,29,import,,importlib.util
+patch_cashier_v2_core_schemafix.py,30,import,,os
+patch_cashier_v2_core_schemafix.py,31,import,,re
+patch_cashier_v2_core_schemafix.py,32,import,,sqlite3
+patch_cashier_v2_core_schemafix.py,33,import,,sys
+patch_cashier_v2_core_schemafix.py,34,import,,traceback
+patch_cashier_v2_core_schemafix.py,35,from,datetime,datetime
+patch_cashier_v2_core_schemafix.py,36,from,pathlib,Path
+patch_cashier_v2_core_schemafix.py,37,from,types,SimpleNamespace
+patch_cashier_v2_core_schemafix.py,110,import,,config
+patch_guard_workspace_default_cash_note.py,16,from,__future__,annotations
+patch_guard_workspace_default_cash_note.py,18,import,,argparse
+patch_guard_workspace_default_cash_note.py,19,import,,shutil
+patch_guard_workspace_default_cash_note.py,20,from,datetime,datetime
+patch_guard_workspace_default_cash_note.py,21,from,pathlib,Path
+patch_guard_workspace_direct_notice_confirm.py,15,from,__future__,annotations
+patch_guard_workspace_direct_notice_confirm.py,17,import,,argparse
+patch_guard_workspace_direct_notice_confirm.py,18,import,,shutil
+patch_guard_workspace_direct_notice_confirm.py,19,from,datetime,datetime
+patch_guard_workspace_direct_notice_confirm.py,20,from,pathlib,Path
+patch_parking_bot_cashier_operator.py,12,from,__future__,annotations
+patch_parking_bot_cashier_operator.py,14,from,datetime,datetime
+patch_parking_bot_cashier_operator.py,15,from,pathlib,Path
+patch_parking_bot_cashier_operator.py,16,import,,argparse
+patch_parking_bot_cashier_operator.py,17,import,,shutil
+patch_parking_bot_client_cabinet.py,16,from,__future__,annotations
+patch_parking_bot_client_cabinet.py,18,from,datetime,datetime
+patch_parking_bot_client_cabinet.py,19,from,pathlib,Path
+patch_parking_bot_client_cabinet.py,20,import,,argparse
+patch_parking_bot_client_cabinet.py,21,import,,shutil
+patch_parking_bot_client_portal.py,14,from,__future__,annotations
+patch_parking_bot_client_portal.py,16,from,datetime,datetime
+patch_parking_bot_client_portal.py,17,from,pathlib,Path
+patch_parking_bot_client_portal.py,18,import,,argparse
+patch_parking_bot_client_portal.py,19,import,,shutil
+patch_parking_bot_guard_workspace_v2.py,15,from,__future__,annotations
+patch_parking_bot_guard_workspace_v2.py,17,import,,argparse
+patch_parking_bot_guard_workspace_v2.py,18,import,,shutil
+patch_parking_bot_guard_workspace_v2.py,19,from,datetime,datetime
+patch_parking_bot_guard_workspace_v2.py,20,from,pathlib,Path
+patch_parking_bot_guard_workspace_v3.py,14,from,__future__,annotations
+patch_parking_bot_guard_workspace_v3.py,16,import,,argparse
+patch_parking_bot_guard_workspace_v3.py,17,import,,shutil
+patch_parking_bot_guard_workspace_v3.py,18,from,datetime,datetime
+patch_parking_bot_guard_workspace_v3.py,19,from,pathlib,Path
+patch_parking_bot_guard_workspace_v4.py,14,from,__future__,annotations
+patch_parking_bot_guard_workspace_v4.py,16,import,,argparse
+patch_parking_bot_guard_workspace_v4.py,17,import,,shutil
+patch_parking_bot_guard_workspace_v4.py,18,from,datetime,datetime
+patch_parking_bot_guard_workspace_v4.py,19,from,pathlib,Path
+patch_parking_bot_launch_queues_menu.py,10,from,__future__,annotations
+patch_parking_bot_launch_queues_menu.py,12,from,datetime,datetime
+patch_parking_bot_launch_queues_menu.py,13,from,pathlib,Path
+patch_parking_bot_launch_queues_menu.py,14,import,,argparse
+patch_parking_bot_launch_queues_menu.py,15,import,,shutil
+patch_parking_bot_service_orders_ui_v1.py,11,from,__future__,annotations
+patch_parking_bot_service_orders_ui_v1.py,13,import,,argparse
+patch_parking_bot_service_orders_ui_v1.py,14,import,,shutil
+patch_parking_bot_service_orders_ui_v1.py,15,from,datetime,datetime
+patch_parking_bot_service_orders_ui_v1.py,16,from,pathlib,Path
+patch_parking_bot_service_orders_v1.py,12,from,__future__,annotations
+patch_parking_bot_service_orders_v1.py,14,from,pathlib,Path
+phone_barrier_access_core.py,24,from,__future__,annotations
+phone_barrier_access_core.py,26,import,,calendar
+phone_barrier_access_core.py,27,import,,json
+phone_barrier_access_core.py,28,import,,re
+phone_barrier_access_core.py,29,import,,sqlite3
+phone_barrier_access_core.py,30,from,datetime,"date, datetime"
+phone_barrier_access_core.py,31,from,typing,"Any, Iterable"
+phone_barrier_access_core.py,1987,from,access_control,has_permission
+phone_barrier_access_core.py,1988,from,service_orders_core,"confirm_order_step, get_service_order"
+phone_barrier_access_service.py,9,from,__future__,annotations
+phone_barrier_access_service.py,11,from,datetime,"date, datetime"
+phone_barrier_access_service.py,12,import,,sqlite3
+phone_barrier_access_service.py,13,from,typing,Iterable
+phone_barrier_access_service.py,15,from,phone_barrier_access_core,"activate_phone_access_subscription_for_order, create_phone_access_request_from_interest, ensure_phone_access_operational_schema, normalise_access_point_codes, normalise_phone_number, phone_access_request_summary, phone_access_subscription_summary_for_order, promote_paid_phone_access_request, quote_phone_barrier_access"
+phone_barrier_access_service.py,26,from,service_orders_core,"get_conn, text"
+phone_barrier_access_service.py,27,from,service_preorders_core,"create_service_interest, ensure_simplified_service_schema"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,20,import,,re
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,22,import,,sys
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, text"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,46,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,66,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,1321,from,service_orders_core,confirm_order_step
+phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py,551,from,service_orders_core,effective_price
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,24,from,__future__,annotations
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,26,import,,calendar
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,27,import,,json
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,28,import,,re
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,29,import,,sqlite3
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,30,from,datetime,"date, datetime"
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,31,from,typing,"Any, Iterable"
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,1987,from,access_control,has_permission
+phone_barrier_access_v2_payload/phone_barrier_access_core.py,1988,from,service_orders_core,"confirm_order_step, get_service_order"
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,9,from,__future__,annotations
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,11,from,datetime,"date, datetime"
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,12,import,,sqlite3
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,13,from,typing,Iterable
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,15,from,phone_barrier_access_core,"activate_phone_access_subscription_for_order, create_phone_access_request_from_interest, ensure_phone_access_operational_schema, normalise_access_point_codes, normalise_phone_number, phone_access_request_summary, phone_access_subscription_summary_for_order, promote_paid_phone_access_request, quote_phone_barrier_access"
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,26,from,service_orders_core,"get_conn, text"
+phone_barrier_access_v2_payload/phone_barrier_access_service.py,27,from,service_preorders_core,"create_service_interest, ensure_simplified_service_schema"
+phone_barrier_access_v2_payload/service_orders_core.py,15,from,__future__,annotations
+phone_barrier_access_v2_payload/service_orders_core.py,17,from,datetime,"date, datetime"
+phone_barrier_access_v2_payload/service_orders_core.py,18,from,pathlib,Path
+phone_barrier_access_v2_payload/service_orders_core.py,19,import,,sqlite3
+phone_barrier_access_v2_payload/service_orders_core.py,20,import,,sys
+phone_barrier_access_v2_payload/service_orders_core.py,21,from,typing,Any
+phone_barrier_access_v2_payload/service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+phone_barrier_access_v2_payload/service_orders_core.py,32,from,audit_logger,audit_log
+phone_barrier_access_v2_payload/service_orders_core.py,37,from,access_control,has_permission
+phone_barrier_access_v2_payload/service_preorders_core.py,19,from,__future__,annotations
+phone_barrier_access_v2_payload/service_preorders_core.py,21,from,datetime,datetime
+phone_barrier_access_v2_payload/service_preorders_core.py,22,import,,sqlite3
+phone_barrier_access_v2_payload/service_preorders_core.py,23,from,typing,Any
+phone_barrier_access_v2_payload/service_preorders_core.py,25,from,service_orders_core,"confirm_order_step, create_remote_asset, create_service_order, effective_price, get_conn, get_service_order, get_service_workflow, link_payment_to_order, now_db, record_remote_movement, table_columns, table_exists, text"
+phone_barrier_access_v2_payload/service_preorders_core.py,677,from,phone_barrier_access_service,promote_paid_phone_barrier_access_interest
+plate_consensus_apply.py,1,from,pathlib,Path
+plate_consensus_apply.py,2,import,,sys
+plate_consensus_apply.py,3,import,,sqlite3
+plate_consensus_apply.py,4,import,,argparse
+plate_consensus_apply.py,5,from,datetime,datetime
+plate_consensus_apply.py,13,from,config,"paths, USE_TEST_DB"
+plate_consensus_apply.py,15,from,plate_consensus_report,"DEFAULT_PERIOD_CODE, build_consensus, get_db_file, normalize_plate"
+plate_consensus_report.py,1,from,pathlib,Path
+plate_consensus_report.py,2,import,,sys
+plate_consensus_report.py,3,import,,sqlite3
+plate_consensus_report.py,4,import,,argparse
+plate_consensus_report.py,5,import,,re
+plate_consensus_report.py,6,from,datetime,datetime
+plate_consensus_report.py,7,from,difflib,SequenceMatcher
+plate_consensus_report.py,8,from,collections,"defaultdict, Counter"
+plate_consensus_report.py,16,from,config,"paths, USE_TEST_DB"
+plate_consensus_report_v3.py,1,from,pathlib,Path
+plate_consensus_report_v3.py,2,import,,sys
+plate_consensus_report_v3.py,3,import,,sqlite3
+plate_consensus_report_v3.py,4,import,,argparse
+plate_consensus_report_v3.py,5,import,,re
+plate_consensus_report_v3.py,6,from,datetime,datetime
+plate_consensus_report_v3.py,7,from,difflib,SequenceMatcher
+plate_consensus_report_v3.py,8,from,collections,"defaultdict, Counter"
+plate_consensus_report_v3.py,16,from,config,"paths, USE_TEST_DB"
+plate_consensus_top6.py,1,from,pathlib,Path
+plate_consensus_top6.py,2,import,,sys
+plate_consensus_top6.py,3,import,,argparse
+plate_consensus_top6.py,4,from,datetime,datetime
+plate_consensus_top6.py,12,from,config,"paths, USE_TEST_DB"
+plate_consensus_top6.py,13,from,plate_consensus_report,"DEFAULT_PERIOD_CODE, build_consensus, format_consensus_item, get_db_file, get_quarantine_db_file"
+prepare_live_service_test.py,14,from,__future__,annotations
+prepare_live_service_test.py,16,import,,argparse
+prepare_live_service_test.py,17,import,,copy
+prepare_live_service_test.py,18,import,,importlib.util
+prepare_live_service_test.py,19,import,,os
+prepare_live_service_test.py,20,import,,re
+prepare_live_service_test.py,21,import,,sqlite3
+prepare_live_service_test.py,22,import,,sys
+prepare_live_service_test.py,23,from,datetime,"date, datetime"
+prepare_live_service_test.py,24,from,pathlib,Path
+prepare_live_service_test.py,25,from,types,SimpleNamespace
+prepare_live_service_test.py,26,from,typing,Any
+prepare_live_service_test.py,176,import,,config
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,23,import,,copy
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,25,import,,os
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,29,import,,sys
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,91,import,,config
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py,144,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,14,import,,sys
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+profile_parking_time_test_core.py,21,from,__future__,annotations
+profile_parking_time_test_core.py,23,import,,json
+profile_parking_time_test_core.py,24,import,,sqlite3
+profile_parking_time_test_core.py,25,from,datetime,datetime
+profile_parking_time_test_core.py,26,from,typing,Any
+profile_verification_core.py,32,from,__future__,annotations
+profile_verification_core.py,34,import,,hashlib
+profile_verification_core.py,35,import,,json
+profile_verification_core.py,36,import,,sqlite3
+profile_verification_core.py,37,from,datetime,datetime
+profile_verification_core.py,38,from,typing,Any
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,14,import,,sys
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,14,import,,sys
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+profile_verification_payload/Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,20,import,,re
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,22,import,,sys
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,75,from,profile_verification_core,phone_access_eligibility
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,1443,from,service_orders_core,confirm_order_step
+profile_verification_payload/Bots/handlers/service_orders_workspace.py,582,from,service_orders_core,effective_price
+profile_verification_payload/profile_verification_core.py,32,from,__future__,annotations
+profile_verification_payload/profile_verification_core.py,34,import,,hashlib
+profile_verification_payload/profile_verification_core.py,35,import,,json
+profile_verification_payload/profile_verification_core.py,36,import,,sqlite3
+profile_verification_payload/profile_verification_core.py,37,from,datetime,datetime
+profile_verification_payload/profile_verification_core.py,38,from,typing,Any
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,22,import,,argparse
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,23,import,,copy
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,25,import,,os
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,26,import,,shutil
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,29,import,,sys
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,30,import,,traceback
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,91,import,,config
+profile_verification_payload/run_bot_live_services_sandbox_v1.py,144,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,10,from,__future__,annotations
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,12,from,pathlib,Path
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,13,import,,sqlite3
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,14,import,,sys
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,15,from,typing,Any
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,17,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,26,from,handlers,client_portal as resident_portal
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,27,from,service_orders_core,"get_conn, text"
+profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py,28,from,profile_verification_core,"REQUEST_GENERAL_CORRECTION, REQUEST_PARKING_TIME, STATUS_READY, confirm_profile, create_general_correction_request, create_parking_time_request, declare_no_vehicle, ensure_profile_verification_schema, get_profile_request, list_pending_profile_requests, mark_welcome_shown, profile_snapshot, resolve_profile_request"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,20,import,,re
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,22,import,,sys
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,75,from,profile_verification_core,phone_access_eligibility
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,1450,from,service_orders_core,confirm_order_step
+profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py,582,from,service_orders_core,effective_price
+profile_verification_terminology_v2_payload/profile_verification_core.py,32,from,__future__,annotations
+profile_verification_terminology_v2_payload/profile_verification_core.py,34,import,,hashlib
+profile_verification_terminology_v2_payload/profile_verification_core.py,35,import,,json
+profile_verification_terminology_v2_payload/profile_verification_core.py,36,import,,sqlite3
+profile_verification_terminology_v2_payload/profile_verification_core.py,37,from,datetime,datetime
+profile_verification_terminology_v2_payload/profile_verification_core.py,38,from,typing,Any
+repair_confirmed_unit_seed_notes.py,21,from,__future__,annotations
+repair_confirmed_unit_seed_notes.py,23,from,datetime,datetime
+repair_confirmed_unit_seed_notes.py,24,from,pathlib,Path
+repair_confirmed_unit_seed_notes.py,25,import,,argparse
+repair_confirmed_unit_seed_notes.py,26,import,,sqlite3
+repair_confirmed_unit_seed_notes.py,27,import,,sys
+repair_confirmed_unit_seed_notes.py,34,from,config,"paths, USE_TEST_DB"
+repair_confirmed_unit_seed_notes.py,35,from,audit_logger,audit_field_change
+report_bot_admins.py,1,from,pathlib,Path
+report_bot_admins.py,2,import,,sys
+report_bot_admins.py,3,import,,sqlite3
+report_bot_admins.py,4,from,datetime,datetime
+report_bot_admins.py,13,from,config,paths
+report_plate_candidates.py,1,from,pathlib,Path
+report_plate_candidates.py,2,import,,sys
+report_plate_candidates.py,3,import,,sqlite3
+report_plate_candidates.py,4,from,datetime,datetime
+report_plate_candidates.py,12,from,config,paths
+report_plate_candidates.py,13,from,utils,apartment_sort_sql
+report_verification_evidence.py,1,from,pathlib,Path
+report_verification_evidence.py,2,import,,sys
+report_verification_evidence.py,3,import,,sqlite3
+report_verification_evidence.py,4,from,datetime,datetime
+report_verification_evidence.py,12,from,config,paths
+report_verification_evidence.py,13,from,utils,apartment_sort_sql
+report_verification_tasks.py,1,from,pathlib,Path
+report_verification_tasks.py,2,import,,sys
+report_verification_tasks.py,3,import,,sqlite3
+report_verification_tasks.py,4,from,datetime,datetime
+report_verification_tasks.py,5,from,utils,apartment_sort_sql
+report_verification_tasks.py,13,from,config,paths
+report_verification_tasks_enriched.py,1,from,pathlib,Path
+report_verification_tasks_enriched.py,2,import,,sys
+report_verification_tasks_enriched.py,3,import,,sqlite3
+report_verification_tasks_enriched.py,4,from,datetime,datetime
+report_verification_tasks_enriched.py,5,from,collections,defaultdict
+report_verification_tasks_enriched.py,13,from,config,paths
+report_verification_tasks_enriched.py,14,from,utils,apartment_sort_sql
+reset_service_catalog.py,1,from,pathlib,Path
+reset_service_catalog.py,2,import,,sys
+reset_service_catalog.py,3,import,,sqlite3
+reset_service_catalog.py,4,import,,argparse
+reset_service_catalog.py,5,from,datetime,datetime
+reset_service_catalog.py,13,from,config,"paths, USE_TEST_DB"
+reset_service_catalog.py,16,from,audit_logger,audit_log
+restore_resident_apartment_link.py,24,from,__future__,annotations
+restore_resident_apartment_link.py,26,import,,argparse
+restore_resident_apartment_link.py,27,import,,sqlite3
+restore_resident_apartment_link.py,28,import,,sys
+restore_resident_apartment_link.py,29,from,datetime,datetime
+restore_resident_apartment_link.py,30,from,pathlib,Path
+restore_resident_apartment_link.py,31,from,typing,Any
+restore_resident_apartment_link.py,38,from,config,"paths, USE_TEST_DB"
+restore_resident_apartment_link.py,41,from,audit_logger,audit_log
+RETIRE_legacy_new_remote_test_orders_sandbox.py,9,from,__future__,annotations
+RETIRE_legacy_new_remote_test_orders_sandbox.py,11,import,,shutil
+RETIRE_legacy_new_remote_test_orders_sandbox.py,12,import,,sqlite3
+RETIRE_legacy_new_remote_test_orders_sandbox.py,13,from,datetime,datetime
+RETIRE_legacy_new_remote_test_orders_sandbox.py,14,from,pathlib,Path
+run_bot_guard_sandbox.py,16,from,__future__,annotations
+run_bot_guard_sandbox.py,18,import,,argparse
+run_bot_guard_sandbox.py,19,import,,copy
+run_bot_guard_sandbox.py,20,import,,importlib.util
+run_bot_guard_sandbox.py,21,import,,os
+run_bot_guard_sandbox.py,22,import,,sqlite3
+run_bot_guard_sandbox.py,23,import,,sys
+run_bot_guard_sandbox.py,24,import,,traceback
+run_bot_guard_sandbox.py,25,from,pathlib,Path
+run_bot_guard_sandbox.py,26,from,types,SimpleNamespace
+run_bot_guard_sandbox.py,27,from,typing,Any
+run_bot_guard_sandbox.py,85,import,,config
+run_bot_guard_sandbox_v2.py,16,from,__future__,annotations
+run_bot_guard_sandbox_v2.py,18,import,,argparse
+run_bot_guard_sandbox_v2.py,19,import,,copy
+run_bot_guard_sandbox_v2.py,20,import,,importlib.util
+run_bot_guard_sandbox_v2.py,21,import,,os
+run_bot_guard_sandbox_v2.py,22,import,,sqlite3
+run_bot_guard_sandbox_v2.py,23,import,,sys
+run_bot_guard_sandbox_v2.py,24,import,,traceback
+run_bot_guard_sandbox_v2.py,25,from,pathlib,Path
+run_bot_guard_sandbox_v2.py,26,from,types,SimpleNamespace
+run_bot_guard_sandbox_v2.py,27,from,typing,Any
+run_bot_guard_sandbox_v2.py,85,import,,config
+run_bot_guard_sandbox_v3.py,16,from,__future__,annotations
+run_bot_guard_sandbox_v3.py,18,import,,argparse
+run_bot_guard_sandbox_v3.py,19,import,,copy
+run_bot_guard_sandbox_v3.py,20,import,,importlib.util
+run_bot_guard_sandbox_v3.py,21,import,,os
+run_bot_guard_sandbox_v3.py,22,import,,sqlite3
+run_bot_guard_sandbox_v3.py,23,import,,sys
+run_bot_guard_sandbox_v3.py,24,import,,traceback
+run_bot_guard_sandbox_v3.py,25,from,pathlib,Path
+run_bot_guard_sandbox_v3.py,26,from,types,SimpleNamespace
+run_bot_guard_sandbox_v3.py,27,from,typing,Any
+run_bot_guard_sandbox_v3.py,85,import,,config
+run_bot_live_service_sandbox_v4.py,11,from,__future__,annotations
+run_bot_live_service_sandbox_v4.py,13,import,,argparse
+run_bot_live_service_sandbox_v4.py,14,import,,copy
+run_bot_live_service_sandbox_v4.py,15,import,,importlib.util
+run_bot_live_service_sandbox_v4.py,16,import,,os
+run_bot_live_service_sandbox_v4.py,17,import,,sqlite3
+run_bot_live_service_sandbox_v4.py,18,import,,sys
+run_bot_live_service_sandbox_v4.py,19,import,,traceback
+run_bot_live_service_sandbox_v4.py,20,from,pathlib,Path
+run_bot_live_service_sandbox_v4.py,21,from,types,SimpleNamespace
+run_bot_live_service_sandbox_v4.py,22,from,typing,Any
+run_bot_live_service_sandbox_v4.py,79,import,,config
+run_bot_live_services_sandbox_v1.py,20,from,__future__,annotations
+run_bot_live_services_sandbox_v1.py,22,import,,argparse
+run_bot_live_services_sandbox_v1.py,23,import,,copy
+run_bot_live_services_sandbox_v1.py,24,import,,importlib.util
+run_bot_live_services_sandbox_v1.py,25,import,,os
+run_bot_live_services_sandbox_v1.py,26,import,,shutil
+run_bot_live_services_sandbox_v1.py,27,import,,sqlite3
+run_bot_live_services_sandbox_v1.py,28,import,,subprocess
+run_bot_live_services_sandbox_v1.py,29,import,,sys
+run_bot_live_services_sandbox_v1.py,30,import,,traceback
+run_bot_live_services_sandbox_v1.py,31,from,datetime,datetime
+run_bot_live_services_sandbox_v1.py,32,from,pathlib,Path
+run_bot_live_services_sandbox_v1.py,33,from,types,"ModuleType, SimpleNamespace"
+run_bot_live_services_sandbox_v1.py,34,from,typing,Any
+run_bot_live_services_sandbox_v1.py,95,import,,config
+run_bot_live_services_sandbox_v1.py,148,from,telegram_osbb,"ADMIN_IDS, SUPER_ADMIN_IDS"
+run_bot_sandbox_v2.py,29,from,__future__,annotations
+run_bot_sandbox_v2.py,31,import,,argparse
+run_bot_sandbox_v2.py,32,import,,copy
+run_bot_sandbox_v2.py,33,import,,os
+run_bot_sandbox_v2.py,34,import,,sqlite3
+run_bot_sandbox_v2.py,35,import,,sys
+run_bot_sandbox_v2.py,36,import,,traceback
+run_bot_sandbox_v2.py,37,from,pathlib,Path
+run_bot_sandbox_v2.py,38,from,types,SimpleNamespace
+run_bot_sandbox_v2.py,39,from,typing,Any
+run_bot_sandbox_v2.py,50,import,,importlib.util
+run_bot_sandbox_v2.py,148,import,,config
+search_vehicle_by_plate_fragment.py,1,from,pathlib,Path
+search_vehicle_by_plate_fragment.py,2,import,,sys
+search_vehicle_by_plate_fragment.py,3,import,,sqlite3
+search_vehicle_by_plate_fragment.py,4,import,,argparse
+search_vehicle_by_plate_fragment.py,5,import,,re
+search_vehicle_by_plate_fragment.py,6,from,difflib,SequenceMatcher
+search_vehicle_by_plate_fragment.py,14,from,config,"paths, USE_TEST_DB"
+seed_bot_admins.py,1,from,pathlib,Path
+seed_bot_admins.py,2,import,,sys
+seed_bot_admins.py,3,import,,sqlite3
+seed_bot_admins.py,4,from,datetime,datetime
+seed_bot_admins.py,13,from,config,paths
+seed_bot_admins.py,18,from,telegram_osbb,"SUPER_ADMIN_IDS, ADMIN_IDS"
+seed_commercial_unit_placeholders.py,20,from,__future__,annotations
+seed_commercial_unit_placeholders.py,22,from,datetime,datetime
+seed_commercial_unit_placeholders.py,23,from,pathlib,Path
+seed_commercial_unit_placeholders.py,24,import,,argparse
+seed_commercial_unit_placeholders.py,25,import,,sqlite3
+seed_commercial_unit_placeholders.py,26,import,,sys
+seed_commercial_unit_placeholders.py,33,from,config,"paths, USE_TEST_DB"
+seed_commercial_unit_placeholders.py,34,from,audit_logger,audit_log
+seed_parking_tariffs.py,1,from,pathlib,Path
+seed_parking_tariffs.py,2,import,,sys
+seed_parking_tariffs.py,3,import,,sqlite3
+seed_parking_tariffs.py,11,from,config,"paths, USE_TEST_DB"
+service_catalog_admin_core.py,16,from,__future__,annotations
+service_catalog_admin_core.py,18,from,datetime,"datetime, timedelta"
+service_catalog_admin_core.py,19,from,pathlib,Path
+service_catalog_admin_core.py,20,import,,sqlite3
+service_catalog_admin_core.py,21,import,,sys
+service_catalog_admin_core.py,22,from,typing,Any
+service_catalog_admin_core.py,29,from,service_orders_core,"get_conn, now_db, schema_ready, table_columns, table_exists, text"
+service_catalog_admin_core.py,39,from,access_control,has_permission
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,17,from,__future__,annotations
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,19,from,pathlib,Path
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,20,import,,re
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,21,import,,sqlite3
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,22,import,,sys
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,23,from,typing,Any
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,25,from,telegram,"ReplyKeyboardMarkup, Update"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,34,from,access_control,"has_permission, write_access_audit"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,35,from,cashier_v2_core,create_payment_notice
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,36,from,handlers,client_portal as resident_portal
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,37,from,service_orders_core,"activate_access_credential, create_remote_asset, get_conn, money, record_remote_movement, service_order_summary, table_columns, text"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,47,from,service_preorders_core,"INTEREST, PAID_ORDER_CREATED, PAYMENT_NOTICE, NEW_REMOTE_PROFILE, attach_payment_notice_to_interest, create_service_interest, create_supplier_batch, ensure_simplified_service_schema, get_service_interest, get_supplier_batch, issue_new_remotes_from_batch, list_resident_service_interests, list_supplier_batches, order_supply_link, receive_supplier_batch, reconcile_paid_service_interests, supplier_demand, unpaid_interest_totals"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,67,from,phone_barrier_access_core,"BARRIER_FAR_01, BARRIER_NEAR_02"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,68,from,phone_barrier_access_service,"activate_phone_barrier_access_order, create_phone_barrier_access_interest, phone_access_summary_for_interest, phone_access_summary_for_order, phone_barrier_quote"
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,1339,from,service_orders_core,confirm_order_step
+service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py,569,from,service_orders_core,effective_price
+service_code_compatibility_payload/service_orders_core.py,15,from,__future__,annotations
+service_code_compatibility_payload/service_orders_core.py,17,from,datetime,"date, datetime"
+service_code_compatibility_payload/service_orders_core.py,18,from,pathlib,Path
+service_code_compatibility_payload/service_orders_core.py,19,import,,sqlite3
+service_code_compatibility_payload/service_orders_core.py,20,import,,sys
+service_code_compatibility_payload/service_orders_core.py,21,from,typing,Any
+service_code_compatibility_payload/service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+service_code_compatibility_payload/service_orders_core.py,32,from,audit_logger,audit_log
+service_code_compatibility_payload/service_orders_core.py,37,from,access_control,has_permission
+service_code_compatibility_payload/service_preorders_core.py,19,from,__future__,annotations
+service_code_compatibility_payload/service_preorders_core.py,21,from,datetime,datetime
+service_code_compatibility_payload/service_preorders_core.py,22,import,,sqlite3
+service_code_compatibility_payload/service_preorders_core.py,23,from,typing,Any
+service_code_compatibility_payload/service_preorders_core.py,25,from,service_orders_core,"confirm_order_step, create_remote_asset, create_service_order, effective_price, get_conn, get_service_order, get_service_workflow, link_payment_to_order, now_db, record_remote_movement, table_columns, table_exists, text"
+service_code_compatibility_payload/service_preorders_core.py,685,from,phone_barrier_access_service,promote_paid_phone_barrier_access_interest
+service_orders_core.py,15,from,__future__,annotations
+service_orders_core.py,17,from,datetime,"date, datetime"
+service_orders_core.py,18,from,pathlib,Path
+service_orders_core.py,19,import,,sqlite3
+service_orders_core.py,20,import,,sys
+service_orders_core.py,21,from,typing,Any
+service_orders_core.py,29,from,config,"paths, USE_TEST_DB"
+service_orders_core.py,32,from,audit_logger,audit_log
+service_orders_core.py,37,from,access_control,has_permission
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,15,from,__future__,annotations
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,17,from,datetime,"date, datetime"
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,18,from,pathlib,Path
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,19,import,,sqlite3
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,20,import,,sys
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,21,from,typing,Any
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,29,from,config,"paths, USE_TEST_DB"
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,32,from,audit_logger,audit_log
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,37,from,access_control,has_permission
+service_orders_preflight.py,21,from,__future__,annotations
+service_orders_preflight.py,23,import,,argparse
+service_orders_preflight.py,24,import,,copy
+service_orders_preflight.py,25,import,,importlib.util
+service_orders_preflight.py,26,import,,os
+service_orders_preflight.py,27,import,,sqlite3
+service_orders_preflight.py,28,import,,sys
+service_orders_preflight.py,29,import,,traceback
+service_orders_preflight.py,30,from,datetime,datetime
+service_orders_preflight.py,31,from,pathlib,Path
+service_orders_preflight.py,32,from,types,SimpleNamespace
+service_orders_preflight.py,226,import,,config
+service_preorders_core.py,19,from,__future__,annotations
+service_preorders_core.py,21,from,datetime,datetime
+service_preorders_core.py,22,import,,sqlite3
+service_preorders_core.py,23,from,typing,Any
+service_preorders_core.py,25,from,service_orders_core,"confirm_order_step, create_remote_asset, create_service_order, effective_price, get_conn, get_service_order, get_service_workflow, link_payment_to_order, now_db, record_remote_movement, table_columns, table_exists, text"
+service_preorders_core.py,685,from,phone_barrier_access_service,promote_paid_phone_barrier_access_interest
+supervisor_dashboard.py,1,from,pathlib,Path
+supervisor_dashboard.py,2,import,,sys
+supervisor_dashboard.py,3,import,,sqlite3
+supervisor_dashboard.py,4,import,,argparse
+supervisor_dashboard.py,5,from,datetime,"datetime, timedelta"
+supervisor_dashboard.py,6,from,collections,Counter
+supervisor_dashboard.py,14,from,config,"paths, USE_TEST_DB"
+supervisor_dashboard.py,17,from,plate_consensus_report,"DEFAULT_PERIOD_CODE, build_consensus"
+supervisor_dashboard.py,453,from,openpyxl,Workbook
+supervisor_dashboard.py,454,from,openpyxl.styles,"Font, PatternFill, Alignment, Border, Side"
+supervisor_dashboard.py,455,from,openpyxl.utils,get_column_letter
+switch_parking_bot_to_cashier_v2.py,13,from,__future__,annotations
+switch_parking_bot_to_cashier_v2.py,15,from,datetime,datetime
+switch_parking_bot_to_cashier_v2.py,16,from,pathlib,Path
+switch_parking_bot_to_cashier_v2.py,17,import,,argparse
+switch_parking_bot_to_cashier_v2.py,18,import,,shutil
+telegram_test_login.py,1,from,pathlib,Path
+telegram_test_login.py,2,import,,sys
+telegram_test_login.py,4,from,telethon,TelegramClient
+telegram_test_login.py,12,from,config,paths
+telegram_test_login.py,14,import,,sys
+telegram_test_login.py,18,from,telegram_osbb,"API_ID, API_HASH, PHONE"
+telegram_test_login.py,41,import,,asyncio
+telegram_test_login_manual.py,1,from,pathlib,Path
+telegram_test_login_manual.py,2,import,,sys
+telegram_test_login_manual.py,3,import,,asyncio
+telegram_test_login_manual.py,5,from,telethon,TelegramClient
+telegram_test_login_manual.py,13,from,config,paths
+telegram_test_login_manual.py,17,from,telegram_osbb,"API_ID, API_HASH, PHONE"
+test_db_access_unit_resolver.py,10,from,__future__,annotations
+test_db_access_unit_resolver.py,12,from,pathlib,Path
+test_db_access_unit_resolver.py,13,import,,sys
+test_db_access_unit_resolver.py,22,import,,db_access
+tools/cashier_parking_payments_audit_v4.py,22,from,__future__,annotations
+tools/cashier_parking_payments_audit_v4.py,24,import,,argparse
+tools/cashier_parking_payments_audit_v4.py,25,import,,csv
+tools/cashier_parking_payments_audit_v4.py,26,import,,sqlite3
+tools/cashier_parking_payments_audit_v4.py,27,import,,sys
+tools/cashier_parking_payments_audit_v4.py,28,from,collections,defaultdict
+tools/cashier_parking_payments_audit_v4.py,29,from,datetime,datetime
+tools/cashier_parking_payments_audit_v4.py,30,from,pathlib,Path
+tools/cashier_parking_payments_audit_v4.py,31,from,typing,"Any, Dict, List, Sequence, Tuple"
+tools/cashier_parking_payments_audit_v4.py,39,from,config,"USE_TEST_DB, paths"
+tools/cashier_parking_payments_audit_v4.py,354,from,openpyxl.utils,get_column_letter
+tools/cashier_parking_payments_audit_v4.py,365,from,openpyxl,Workbook
+tools/cashier_parking_payments_audit_v4.py,366,from,openpyxl.styles,"Alignment, Font, PatternFill"
+tools/cashier_parking_payments_audit_v4.py,367,from,openpyxl.worksheet.table,"Table, TableStyleInfo"
+tools/cashier_unpaid_preview.py,1,from,pathlib,Path
+tools/cashier_unpaid_preview.py,2,import,,sys
+tools/cashier_unpaid_preview.py,3,import,,sqlite3
+tools/cashier_unpaid_preview.py,4,from,datetime,datetime
+tools/cashier_unpaid_preview.py,16,from,config,"paths, USE_TEST_DB"
+tools/cashier_unpaid_preview_v2.py,1,from,pathlib,Path
+tools/cashier_unpaid_preview_v2.py,2,import,,sys
+tools/cashier_unpaid_preview_v2.py,3,import,,sqlite3
+tools/cashier_unpaid_preview_v2.py,4,import,,argparse
+tools/cashier_unpaid_preview_v2.py,5,from,datetime,datetime
+tools/cashier_unpaid_preview_v2.py,16,from,config,"paths, USE_TEST_DB"
+tools/cashier_unpaid_preview_v3.py,21,from,__future__,annotations
+tools/cashier_unpaid_preview_v3.py,23,import,,argparse
+tools/cashier_unpaid_preview_v3.py,24,import,,csv
+tools/cashier_unpaid_preview_v3.py,25,import,,sqlite3
+tools/cashier_unpaid_preview_v3.py,26,import,,sys
+tools/cashier_unpaid_preview_v3.py,27,from,collections,defaultdict
+tools/cashier_unpaid_preview_v3.py,28,from,datetime,datetime
+tools/cashier_unpaid_preview_v3.py,29,from,pathlib,Path
+tools/cashier_unpaid_preview_v3.py,30,from,typing,"Any, Dict, Iterable, List, Optional, Sequence, Tuple"
+tools/cashier_unpaid_preview_v3.py,43,from,config,"USE_TEST_DB, paths"
+tools/cashier_unpaid_preview_v3.py,316,from,openpyxl.utils,get_column_letter
+tools/cashier_unpaid_preview_v3.py,328,from,openpyxl,Workbook
+tools/cashier_unpaid_preview_v3.py,329,from,openpyxl.styles,"Alignment, Font, PatternFill"
+tools/cashier_unpaid_preview_v3.py,330,from,openpyxl.worksheet.table,"Table, TableStyleInfo"
+tools/db_schema_compare.py,6,from,__future__,annotations
+tools/db_schema_compare.py,8,import,,argparse
+tools/db_schema_compare.py,9,import,,difflib
+tools/db_schema_compare.py,10,import,,json
+tools/db_schema_compare.py,11,import,,sqlite3
+tools/db_schema_compare.py,12,import,,sys
+tools/db_schema_compare.py,13,from,datetime,datetime
+tools/db_schema_compare.py,14,from,pathlib,Path
+tools/db_schema_compare.py,15,from,typing,"Any, Dict, List, Tuple"
+tools/db_schema_compare.py,34,from,config,paths
+tools/db_schema_compare.py,375,from,config,paths
+tools/db_schema_snapshot.py,10,from,__future__,annotations
+tools/db_schema_snapshot.py,12,import,,argparse
+tools/db_schema_snapshot.py,13,import,,json
+tools/db_schema_snapshot.py,14,import,,sqlite3
+tools/db_schema_snapshot.py,15,import,,sys
+tools/db_schema_snapshot.py,16,from,collections,defaultdict
+tools/db_schema_snapshot.py,17,from,datetime,datetime
+tools/db_schema_snapshot.py,18,from,pathlib,Path
+tools/db_schema_snapshot.py,19,from,typing,"Any, Dict, List, Tuple"
+tools/db_schema_snapshot.py,41,from,config,paths
+tools/db_schema_snapshot_full.py,17,from,__future__,annotations
+tools/db_schema_snapshot_full.py,19,import,,argparse
+tools/db_schema_snapshot_full.py,20,import,,json
+tools/db_schema_snapshot_full.py,21,import,,sqlite3
+tools/db_schema_snapshot_full.py,22,import,,sys
+tools/db_schema_snapshot_full.py,23,from,collections,defaultdict
+tools/db_schema_snapshot_full.py,24,from,datetime,datetime
+tools/db_schema_snapshot_full.py,25,from,pathlib,Path
+tools/db_schema_snapshot_full.py,26,from,typing,"Any, Dict, List, Tuple"
+tools/db_schema_snapshot_full.py,68,from,config,"paths, USE_TEST_DB"
+tools/project_code_search.py,5,from,pathlib,Path
+tools/project_code_search.py,6,from,datetime,datetime
+tools/project_code_search.py,7,import,,sys
+tools/project_code_search.py,8,import,,argparse
+tools/project_passport.py,19,from,__future__,annotations
+tools/project_passport.py,21,import,,ast
+tools/project_passport.py,22,import,,csv
+tools/project_passport.py,23,import,,json
+tools/project_passport.py,24,import,,os
+tools/project_passport.py,25,import,,re
+tools/project_passport.py,26,import,,sys
+tools/project_passport.py,27,from,dataclasses,"asdict, dataclass"
+tools/project_passport.py,28,from,datetime,datetime
+tools/project_passport.py,29,from,pathlib,Path
+tools/project_passport.py,30,from,typing,"Iterable, Any"
+unit_resolver.py,19,from,__future__,annotations
+unit_resolver.py,21,from,dataclasses,"asdict, dataclass, field"
+unit_resolver.py,22,from,pathlib,Path
+unit_resolver.py,23,import,,argparse
+unit_resolver.py,24,import,,json
+unit_resolver.py,25,import,,re
+unit_resolver.py,26,import,,sqlite3
+unit_resolver.py,27,import,,sys
+unit_resolver.py,28,from,typing,"Any, Literal"
+unit_resolver.py,35,from,config,"paths, USE_TEST_DB"
+utils.py,1,import,,re
+utils.py,2,import,,pandas as pd
+vehicle_data_quality_tasks.py,1,from,pathlib,Path
+vehicle_data_quality_tasks.py,2,import,,sys
+vehicle_data_quality_tasks.py,3,import,,sqlite3
+vehicle_data_quality_tasks.py,4,import,,argparse
+vehicle_data_quality_tasks.py,5,import,,re
+vehicle_data_quality_tasks.py,6,from,datetime,datetime
+vehicle_data_quality_tasks.py,7,from,difflib,SequenceMatcher
+vehicle_data_quality_tasks.py,14,from,config,"paths, USE_TEST_DB"
+vehicle_verification_tasks.py,1,from,pathlib,Path
+vehicle_verification_tasks.py,2,import,,sys
+vehicle_verification_tasks.py,3,import,,sqlite3
+vehicle_verification_tasks.py,4,import,,argparse
+vehicle_verification_tasks.py,5,import,,re
+vehicle_verification_tasks.py,6,from,datetime,datetime
+vehicle_verification_tasks.py,7,from,difflib,SequenceMatcher
+vehicle_verification_tasks.py,15,from,config,"paths, USE_TEST_DB"
+Word_table_to_Excel.py,1,import,,os
+Word_table_to_Excel.py,2,from,docx,Document
+Word_table_to_Excel.py,3,from,openpyxl,Workbook
+Word_table_to_Excel.py,4,from,openpyxl.utils,get_column_letter

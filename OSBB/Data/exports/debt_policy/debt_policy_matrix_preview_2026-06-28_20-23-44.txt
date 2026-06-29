@@ -1,0 +1,30 @@
+OSBB debt policy matrix preview - READ ONLY
+Generated: 2026-06-28 20:23:44
+DB mode: explicit
+DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Services found: 17
+
+Columns:
+ - debt_source_default: этот сервисный долг должен считаться блокирующим
+ - block_remote_order_default: блокировать заказ нового пульта
+ - block_remote_issue_default: блокировать выдачу пульта
+ - block_phone_access_order_default: блокировать подключение телефонного доступа
+ - operator_decision/operator_note: будущие поля для ручной политики
+
+BARRIER_PHONE_CONNECT | 01_BarrierPhoneConnect | Подключение / повторное подключение телефонного доступа | debt=YES | remote_order=YES | remote_issue=YES | phone=YES
+BARRIER_REPAIR | 01_BarrierRepair | Ремонт шлагбаума — сбор 01 | debt=YES | remote_order=YES | remote_issue=YES | phone=YES
+HISTORICAL_UNCLASSIFIED | HIST_05_26_Unclassified | Исторические нераспределённые операции — 2026-05 | debt=NO | remote_order=NO | remote_issue=NO | phone=NO
+HISTORICAL_UNCLASSIFIED | HIST_06_26_Unclassified | Исторические нераспределённые операции — 2026-06 | debt=NO | remote_order=NO | remote_issue=NO | phone=NO
+IMPROVEMENT | 01_Imp | Благоустройство — сбор 01 | debt=NO | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_DAY | - | PARKING_DAY | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_DAY | 05_26_Day | Парковка Day — 2026-05 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_DAY | 06_26_Day | Парковка Day — 2026-06 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_DAY | 07_26_Day | Парковка Day — 2026-07 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_NIGHT | - | PARKING_NIGHT | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_NIGHT | 04_26_Night | Парковка Night — 2026-04 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_NIGHT | 05_26_Night | Парковка Night — 2026-05 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+PARKING_NIGHT | 06_26_Night | Парковка Night — 2026-06 | debt=YES | remote_order=NO | remote_issue=NO | phone=NO
+TEST_PHONE_ACCESS_CONNECT | TEST_PHONE_ACCESS_CONNECT | ТЕСТ — подключение телефонного доступа | debt=YES | remote_order=YES | remote_issue=YES | phone=YES
+TEST_REMOTE_NEW | TEST_REMOTE_NEW | ТЕСТ — новый пульт | debt=NO | remote_order=YES | remote_issue=YES | phone=NO
+TEST_REMOTE_REFURBISHED | TEST_REMOTE_REFURBISHED | ТЕСТ — восстановленный пульт | debt=NO | remote_order=YES | remote_issue=YES | phone=NO
+TEST_REMOTE_REPROGRAM_OWN | TEST_REMOTE_REPROGRAM_OWN | ТЕСТ — перепрошивка собственного пульта | debt=NO | remote_order=YES | remote_issue=YES | phone=NO

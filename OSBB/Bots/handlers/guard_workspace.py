@@ -499,6 +499,146 @@ async def _save_manual_cash(
 # Remote physical handovers
 # ---------------------------------------------------------------------------
 
+
+# OSBB_REMOTE_DEBT_GATE_V1_GUARD_HELPERS
+def _remote_gate_allocation_amount_column(columns) -> str | None:
+    if "amount" in columns:
+        return "amount"
+    if "allocated_amount" in columns:
+        return "allocated_amount"
+    return None
+
+
+def _remote_gate_service_is_blocking(service_code: object) -> bool:
+    service = text(service_code).upper()
+    if not service:
+        return False
+    return (
+        service.startswith("PARKING")
+        or service.startswith("BARRIER")
+        or "PARK" in service
+        or "ШЛАГ" in service
+        or "SHLAG" in service
+    )
+
+
+def _remote_gate_block_message(apartment_number: object, amount: float, reason: str = "") -> str:
+    apt = text(apartment_number) or "-"
+    if reason:
+        return (
+            f"⚠️ По кв.{apt} невозможно автоматически проверить задолженность. "
+            "Выдача пульта через пост O временно недоступна. "
+            "Направьте жильца к оператору ОСББ для сверки."
+        )
+    return (
+        f"⚠️ По кв.{apt} есть задолженность за парковку / доступ к шлагбауму: "
+        f"{amount:.2f} грн. "
+        "Пульт нельзя выдавать до оплаты или сверки с оператором."
+    )
+
+
+def _remote_gate_debt_for_apartment(cur, apartment_number: object) -> dict:
+    """
+    Read-only debt gate for physical remote issue.
+
+    Checks charges minus payment_allocations for PARKING/BARRIER services.
+    Does not write anything to DB.
+    """
+    apt = text(apartment_number)
+    if not apt:
+        return {
+            "allowed": False,
+            "outstanding_total": 0.0,
+            "message": _remote_gate_block_message("-", 0.0, "missing apartment_number"),
+        }
+
+    if not table_exists(cur, "charges"):
+        return {
+            "allowed": False,
+            "outstanding_total": 0.0,
+            "message": _remote_gate_block_message(apt, 0.0, "charges table missing"),
+        }
+
+    charge_cols = table_columns(cur, "charges")
+    if "apartment_number" not in charge_cols or "amount" not in charge_cols:
+        return {
+            "allowed": False,
+            "outstanding_total": 0.0,
+            "message": _remote_gate_block_message(apt, 0.0, "charge link columns missing"),
+        }
+
+    service_expr = (
+        "COALESCE(c.base_service_code, c.service_code, '')"
+        if "base_service_code" in charge_cols and "service_code" in charge_cols
+        else ("COALESCE(c.service_code, '')" if "service_code" in charge_cols else "''")
+    )
+    period_expr = "COALESCE(c.period_code, '')" if "period_code" in charge_cols else "''"
+    status_filter = (
+        "AND COALESCE(c.charge_status, '') <> 'cancelled'"
+        if "charge_status" in charge_cols
+        else (
+            "AND COALESCE(c.status, '') <> 'cancelled'"
+            if "status" in charge_cols else ""
+        )
+    )
+
+    allocation_join = ""
+    allocation_select = "0 AS allocated_amount"
+    if table_exists(cur, "payment_allocations"):
+        alloc_cols = table_columns(cur, "payment_allocations")
+        amount_col = _remote_gate_allocation_amount_column(alloc_cols)
+        if amount_col and "charge_id" in alloc_cols:
+            allocation_join = (
+                f'LEFT JOIN payment_allocations pa ON pa.charge_id = c.id'
+            )
+            allocation_select = (
+                f'COALESCE(SUM(pa."{amount_col}"), 0) AS allocated_amount'
+            )
+
+    cur.execute(f"""
+        SELECT
+            c.id AS charge_id,
+            {service_expr} AS service_code,
+            {period_expr} AS period_code,
+            c.amount AS amount,
+            {allocation_select}
+        FROM charges c
+        {allocation_join}
+        WHERE c.apartment_number = ?
+        {status_filter}
+        GROUP BY c.id
+        ORDER BY {period_expr}, c.id
+    """, (apt,))
+
+    total = 0.0
+    rows = []
+    for row in cur.fetchall():
+        item = dict(row)
+        if not _remote_gate_service_is_blocking(item.get("service_code")):
+            continue
+        amount = float(item.get("amount") or 0)
+        allocated = float(item.get("allocated_amount") or 0)
+        rest = max(0.0, amount - allocated)
+        if rest > 0.01:
+            total += rest
+            item["outstanding_amount"] = rest
+            rows.append(item)
+
+    if total > 0.01:
+        return {
+            "allowed": False,
+            "outstanding_total": round(total, 2),
+            "rows": rows,
+            "message": _remote_gate_block_message(apt, total),
+        }
+
+    return {
+        "allowed": True,
+        "outstanding_total": 0.0,
+        "rows": [],
+        "message": "",
+    }
+
 def _remote_rows_for_issue() -> list[dict]:
     conn = get_conn()
     try:
@@ -703,24 +843,43 @@ async def _show_remote_issue_card(update: Update, state: dict, request_id: int) 
         await update.message.reply_text("Заявка не найдена или уже закрыта.")
         return
 
+    conn = get_conn()
+    try:
+        gate = _remote_gate_debt_for_apartment(conn.cursor(), row.get("apartment_number"))
+    finally:
+        conn.close()
+
     state["mode"] = "remote_issue_card"
     state["remote_request_id"] = int(request_id)
-    await update.message.reply_text(
-        "\n".join([
-            f"🔑 Заявка #{row['id']}",
+
+    lines = [
+        f"🔑 Заявка #{row['id']}",
+        "",
+        f"Квартира: {row.get('apartment_number') or '-'}",
+        f"Вид: {row.get('request_kind') or '-'}",
+        f"Количество: {row.get('quantity') or 1}",
+        f"Комментарий жителя: {row.get('resident_comment') or '—'}",
+        f"Статус: {row.get('status')}",
+        "",
+    ]
+
+    if not gate.get("allowed"):
+        lines.extend([
+            gate.get("message") or "⚠️ Выдача пульта временно недоступна.",
             "",
-            f"Квартира: {row.get('apartment_number') or '-'}",
-            f"Вид: {row.get('request_kind') or '-'}",
-            f"Количество: {row.get('quantity') or 1}",
-            f"Комментарий жителя: {row.get('resident_comment') or '—'}",
-            f"Статус: {row.get('status')}",
-            "",
-            "Подтверждайте только после фактической выдачи пульта.",
-        ]),
-        reply_markup=kb([
+            "Действие доступно только после оплаты или ручной сверки оператором.",
+        ])
+        buttons = [["⬅️ К заявкам", HOME]]
+    else:
+        lines.append("Подтверждайте только после фактической выдачи пульта.")
+        buttons = [
             ["✅ Пульт выдан"],
             ["⬅️ К заявкам", HOME],
-        ]),
+        ]
+
+    await update.message.reply_text(
+        "\n".join(lines),
+        reply_markup=kb(buttons),
     )
 
 
@@ -752,6 +911,10 @@ async def _save_remote_issued(update: Update, state: dict, user_id: int, note: s
         request = dict(row)
         if request.get("status") not in {"NEW", "IN_REVIEW"}:
             raise ValueError("Заявка уже обработана другим сотрудником.")
+
+        gate = _remote_gate_debt_for_apartment(cur, request.get("apartment_number"))
+        if not gate.get("allowed"):
+            raise ValueError(gate.get("message") or "Выдача пульта временно недоступна из-за задолженности.")
 
         event_id = _insert_remote_event(
             conn,

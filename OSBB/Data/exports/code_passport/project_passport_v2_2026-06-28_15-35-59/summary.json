@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-28 15:35:59",
+  "root": "G:\\Programming\\Py\\OSBB",
+  "out_dir": "G:\\Programming\\Py\\OSBB\\Data\\exports\\code_passport\\project_passport_v2_2026-06-28_15-35-59",
+  "scope": "source-focused; Data/exports, Data/db, Data/logs, Data/raw excluded",
+  "files_total": 329,
+  "python_modules": 259,
+  "functions": 3677,
+  "classes": 21,
+  "imports": 1919,
+  "todos": 29,
+  "db_table_refs": 7707,
+  "lines_total": 136613,
+  "python_lines_total": 134067
+}

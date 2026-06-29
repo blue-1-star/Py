@@ -1,0 +1,6 @@
+﻿name,unique,origin,partial,columns,sql
+idx_service_catalog_group,0,c,0,service_group,CREATE INDEX idx_service_catalog_group ON service_catalog(service_group)
+idx_service_catalog_active,0,c,0,is_active,CREATE INDEX idx_service_catalog_active ON service_catalog(is_active)
+idx_service_catalog_type,0,c,0,service_type,CREATE INDEX idx_service_catalog_type ON service_catalog(service_type)
+idx_service_catalog_code,0,c,0,service_code,CREATE INDEX idx_service_catalog_code ON service_catalog(service_code)
+sqlite_autoindex_service_catalog_1,1,u,0,service_code,

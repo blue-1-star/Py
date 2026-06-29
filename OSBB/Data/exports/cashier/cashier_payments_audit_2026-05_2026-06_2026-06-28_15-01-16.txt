@@ -1,0 +1,45 @@
+OSBB parking payments audit - READ ONLY
+Generated: 2026-06-28 15:01:16
+USE_TEST_DB: True
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Period: 2026-05_2026-06
+Services: PARKING_DAY, PARKING_NIGHT, BARRIER_PHONE
+
+STATUS SUMMARY
+------------------------------------------------------------------------------------------
+status | rows | charged | paid | balance
+ALL | 95 | 74600 | 8900 | 65700
+PAID | 3 | 3000 | 3000 | 0
+UNPAID | 84 | 64200 | 0 | 64200
+PARTIAL | 6 | 6000 | 3200 | 2800
+OVERPAID | 2 | 1400 | 2700 | -1300
+PROBLEMS | 8 | 7400 | 5900 | 1500
+
+SUMMARY BY ENTRANCE
+------------------------------------------------------------------------------------------
+entr | rows | charged | paid | balance | problems
+1 | 8 | 7400 | 0 | 7400 | 0
+2 | 36 | 36000 | 2500 | 33500 | 3
+3 | 7 | 3400 | 1000 | 2400 | 0
+4 | 12 | 9000 | 5400 | 3600 | 5
+5 | 12 | 8400 | 0 | 8400 | 0
+6 | 20 | 10400 | 0 | 10400 | 0
+
+PROBLEMS
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+entrance | apartment | charge_id | vehicle_id | service | service_item | period | plate | model | parking_time | charge_amount | paid_amount | balance_amount | overpaid_amount | payment_status | apt_charge_count | same_service_charge_count | sibling_vehicles | flags | hint
+2 | 30 | 11 | 17 | PARKING_NIGHT |  | 2026-05_2026-06 | KA0186CM | TOYOTA | Night | 1000.0 | 500.0 | 500.0 | 0.0 | PARTIAL | 1 | 1 |  | PARTIAL_SINGLE_CHARGE | Оплата меньше начисления; простой пары внутри квартиры не видно
+2 | 71 | 17 | 26 | PARKING_NIGHT |  | 2026-05_2026-06 | BM1253BX | SKODA | Night | 1000.0 | 500.0 | 500.0 | 0.0 | PARTIAL | 1 | 1 |  | PARTIAL_SINGLE_CHARGE | Оплата меньше начисления; простой пары внутри квартиры не видно
+2 | 98 | 23 | 78 | PARKING_NIGHT |  | 2026-05_2026-06 | AA3804KI | VOLVO | Night | 1000.0 | 500.0 | 500.0 | 0.0 | PARTIAL | 1 | 1 |  | PARTIAL_SINGLE_CHARGE | Оплата меньше начисления; простой пары внутри квартиры не видно
+4 | 159 | 52 | 87 | PARKING_NIGHT |  | 2026-05_2026-06 | KA5689BB | LEXUS | Night | 1000.0 | 1500.0 | -500.0 | 500.0 | OVERPAID | 1 | 1 |  | OVERPAID_NO_SIBLING_UNDERPAID | Переплата есть, но второй недоплаченной машины той же квартиры/услуги не найдено
+4 | 161 | 54 | 89 | PARKING_NIGHT |  | 2026-05_2026-06 | AA5003MX | LEXUS | Night | 1000.0 | 500.0 | 500.0 | 0.0 | PARTIAL | 2 | 2 | charge=55 vehicle=90 AA9868KC rest=500 | PARTIAL_MULTI_VEHICLE_APT | Недоплата при нескольких начислениях квартиры: проверить распределение между авто
+4 | 161 | 55 | 90 | PARKING_NIGHT |  | 2026-05_2026-06 | AA9868KC | AUDI | Night | 1000.0 | 500.0 | 500.0 | 0.0 | PARTIAL | 2 | 2 | charge=54 vehicle=89 AA5003MX rest=500 | PARTIAL_MULTI_VEHICLE_APT | Недоплата при нескольких начислениях квартиры: проверить распределение между авто
+4 | 162 | 56 | 91 | PARKING_DAY |  | 2026-05_2026-06 | AA5557TE | MERCEDES | Day | 400.0 | 1200.0 | -800.0 | 800.0 | OVERPAID | 1 | 1 |  | OVERPAID_NO_SIBLING_UNDERPAID | Переплата есть, но второй недоплаченной машины той же квартиры/услуги не найдено
+4 | 167 | 57 | 92 | PARKING_NIGHT |  | 2026-05_2026-06 | AA4477OH | TOYOTA | Night | 1000.0 | 700.0 | 300.0 | 0.0 | PARTIAL | 1 | 1 |  | PARTIAL_SINGLE_CHARGE | Оплата меньше начисления; простой пары внутри квартиры не видно
+
+PERIODS IN CHARGES
+--------------------------------------------------------------------------------------------------------------
+period_code | service | item | rows | amount | paid | balance
+2026-05_2026-06 | PARKING_DAY | - | 34 | 13600 | 1200 | 12400
+2026-05_2026-06 | PARKING_NIGHT | - | 61 | 61000 | 7700 | 53300
+READ ONLY COMPLETED

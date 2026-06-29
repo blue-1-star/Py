@@ -1,0 +1,661 @@
+====================================================================================================
+OSBB DATABASE SCHEMA COMPARISON
+====================================================================================================
+Generated : 2026-06-28 13:09:32
+PROD DB   : G:\Programming\Py\OSBB\Data\db\osbb.db
+TEST DB   : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+SQLite PROD: 3.50.4
+SQLite TEST: 3.50.4
+
+SUMMARY
+----------------------------------------------------------------------------------------------------
+PROD tables: 21
+TEST tables: 52
+Tables only in PROD: 0
+Tables only in TEST: 31
+Tables with structural differences: 2
+Views different: 0
+Triggers different: 0
+
+TABLES ONLY IN PROD
+----------------------------------------------------------------------------------------------------
+(none)
+
+TABLES ONLY IN TEST
+----------------------------------------------------------------------------------------------------
+- adjustment_assignments
+- adjustment_catalog
+- apartment_link_requests
+- bank_transactions
+- barrier_phone_access
+- cashbox_operations
+- cashboxes
+- cashier_batch_items
+- cashier_batches
+- cashier_receipts
+- cashier_reconciliation_cases
+- charge_adjustments
+- charges
+- commercial_access_actions
+- commercial_access_phones
+- commercial_contract_items
+- commercial_contract_recipients
+- commercial_contracts
+- commercial_notifications
+- payment_allocations
+- payment_notices
+- payments
+- remote_requests
+- service_catalog
+- service_items
+- service_tariffs
+- unit_aliases
+- unit_contacts
+- unit_group_aliases
+- unit_group_members
+- unit_groups
+
+VIEWS ONLY IN PROD
+----------------------------------------------------------------------------------------------------
+(none)
+
+VIEWS ONLY IN TEST
+----------------------------------------------------------------------------------------------------
+- v_commercial_contract_charge_debt
+- v_commercial_contract_debt_summary
+- v_unit_group_registry
+
+VIEWS DIFFERENT
+----------------------------------------------------------------------------------------------------
+(none)
+
+TRIGGERS ONLY IN PROD
+----------------------------------------------------------------------------------------------------
+(none)
+
+TRIGGERS ONLY IN TEST
+----------------------------------------------------------------------------------------------------
+(none)
+
+TRIGGERS DIFFERENT
+----------------------------------------------------------------------------------------------------
+(none)
+
+TABLE STRUCTURAL DIFFERENCES
+====================================================================================================
+
+TABLE apartments
+----------------------------------------------------------------------------------------------------
+Columns only in TEST: unit_type, unit_code, entrance_number, official_number, display_name, area_sqm, record_status, source_note, internal_note, unit_updated_at
+Column order differs.
+Indexes differ:
+  PROD: []
+  TEST: [{"name": "idx_apartments_unit_code_unique", "unique": 1, "origin": "c", "partial": 1, "columns": ["unit_code"]}]
+CREATE SQL differs. Unified diff preview:
+  --- PROD.apartments
+  +++ TEST.apartments
+  @@ -12,4 +12,4 @@
+           created_by TEXT,
+           updated_at TEXT,
+           updated_by TEXT
+  -    )
+  +    , unit_type TEXT DEFAULT 'RESIDENTIAL', unit_code TEXT, entrance_number INTEGER, official_number TEXT, display_name TEXT, area_sqm REAL, record_status TEXT DEFAULT 'LEGACY', source_note TEXT, internal_note TEXT, unit_updated_at TEXT)
+
+TABLE operator_audit_log
+----------------------------------------------------------------------------------------------------
+Columns only in PROD: operator_telegram_id, operator_username, operator_name, entity_type, entity_id, apartment_number, vehicle_id, row_label
+Columns only in TEST: operator_id, user_id, actor_type, row_id
+Columns changed:
+  - action_type
+    PROD: ('action_type', 'TEXT', 1, '', 0)
+    TEST: ('action_type', 'TEXT', 0, '', 0)
+  - created_at
+    PROD: ('created_at', 'TEXT', 1, '', 0)
+    TEST: ('created_at', 'TEXT', 0, '', 0)
+Column order differs.
+Indexes differ:
+  PROD: [{"name": "idx_operator_audit_action", "unique": 0, "origin": "c", "partial": 0, "columns": ["action_type"]}, {"name": "idx_operator_audit_action_status", "unique": 0, "origin": "c", "partial": 0, "columns": ["action_status"]}, {"name": "idx_operator_audit_apartment", "unique": 0, "origin": "c", "partial": 0, "columns": ["apartment_number"]}, {"name": "idx_operator_audit_created_at", "unique": 0, "origin": "c", "partial": 0, "columns": ["created_at"]}, {"name": "idx_operator_audit_field", "unique": 0, "origin": "c", "partial": 0, "columns": ["table_name", "field_name"]}, {"name": "idx_operator_audit_operator", "unique": 0, "origin": "c", "partial": 0, "columns": ["operator_telegram_id"]}, {"name": "idx_operator_audit_review_status", "unique": 0, "origin": "c", "partial": 0, "columns": ["review_status"]}, {"name": "idx_operator_audit_vehicle", "unique": 0, "origin": "c", "partial": 0, "columns": ["vehicle_id"]}]
+  TEST: [{"name": "idx_operator_audit_action", "unique": 0, "origin": "c", "partial": 0, "columns": ["action_type"]}, {"name": "idx_operator_audit_actor", "unique": 0, "origin": "c", "partial": 0, "columns": ["actor_type"]}, {"name": "idx_operator_audit_created", "unique": 0, "origin": "c", "partial": 0, "columns": ["created_at"]}, {"name": "idx_operator_audit_operator", "unique": 0, "origin": "c", "partial": 0, "columns": ["operator_id"]}, {"name": "idx_operator_audit_review", "unique": 0, "origin": "c", "partial": 0, "columns": ["review_status"]}, {"name": "idx_operator_audit_table_row", "unique": 0, "origin": "c", "partial": 0, "columns": ["table_name", "row_id"]}, {"name": "idx_operator_audit_user", "unique": 0, "origin": "c", "partial": 0, "columns": ["user_id"]}]
+CREATE SQL differs. Unified diff preview:
+  --- PROD.operator_audit_log
+  +++ TEST.operator_audit_log
+  @@ -1,21 +1,17 @@
+   CREATE TABLE operator_audit_log (
+  -        id INTEGER PRIMARY KEY AUTOINCREMENT,
+  -
+  -        created_at TEXT NOT NULL,
+  -
+  -        operator_telegram_id TEXT,
+  -        operator_username TEXT,
+  -        operator_name TEXT,
+  -
+  -        action_type TEXT NOT NULL,
+  -        entity_type TEXT,
+  -        entity_id TEXT,
+  -
+  -        apartment_number TEXT,
+  -        vehicle_id INTEGER,
+  -
+  -        old_value TEXT,
+  -        new_value TEXT,
+  -
+  -        comment TEXT
+  -    , db_mode TEXT, db_file TEXT, table_name TEXT, field_name TEXT, row_label TEXT, action_status TEXT DEFAULT 'applied', review_status TEXT DEFAULT 'pending', reviewed_by TEXT, reviewed_at TEXT, review_comment TEXT, source_context TEXT, extra_json TEXT)
+  +            id INTEGER PRIMARY KEY AUTOINCREMENT,
+  +            created_at TEXT,
+  +            operator_id TEXT,
+  +            user_id TEXT,
+  +            actor_type TEXT,
+  +            action_type TEXT,
+  +            table_name TEXT,
+  +            row_id TEXT,
+  +            field_name TEXT,
+  +            old_value TEXT,
+  +            new_value TEXT,
+  +            action_status TEXT DEFAULT 'applied',
+  +            review_status TEXT DEFAULT 'pending',
+  +            source_context TEXT,
+  +            comment TEXT
+  +        , db_mode TEXT, db_file TEXT, reviewed_by TEXT, reviewed_at TEXT, review_comment TEXT, extra_json TEXT)
+
+COLUMN USAGE: PROD
+====================================================================================================
+action: audit_log
+action_status: operator_audit_log
+action_type: operator_audit_log
+actor_name: audit_log
+actor_role: audit_log
+amount: events, extracted_facts
+apartment_id: apartment_verification, contact_methods, events, persons, resident_accounts, vehicles, verification_tasks
+apartment_number: apartment_verification, apartments, extracted_facts, operator_audit_log, parking_time_review_tasks, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+bot_value: verification_log
+can_manage_bot: bot_admins
+can_manage_payments: bot_admins
+can_manage_users: bot_admins
+can_read: bot_admins
+can_write: bot_admins
+candidate_normalized: verification_candidates
+candidate_type: verification_candidates
+candidate_value: verification_candidates, verification_tasks
+car_color: tbot_parking_import, vehicles
+car_color_normalized: vehicles
+car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+car_model_normalized: vehicles
+comment: apartment_verification, audit_log, events, extracted_facts, operator_audit_log, schema_info, verification_evidence, verification_log, verification_tasks
+confidence: extracted_facts
+confidence_label: verification_candidates
+confidence_score: verification_candidates
+contact_owner: contact_methods
+contact_type: contact_methods
+contact_value: contact_methods
+context_json: bot_user_sessions
+created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+created_by: apartments, contact_methods, events, parking_time_review_tasks, persons, vehicles, verification_candidates, verification_tasks
+current_parking_time: parking_time_review_tasks
+current_state: bot_user_sessions
+db_file: operator_audit_log
+db_mode: operator_audit_log
+decided_at: verification_candidates
+decided_by: verification_candidates
+decision: parking_time_review_tasks, verification_candidates
+decision_comment: parking_time_review_tasks, verification_candidates
+display_name: bot_admins
+entity_id: operator_audit_log
+entity_type: operator_audit_log
+entrance: apartments
+entrance_source: apartments
+event_group: events
+event_time: audit_log, events
+event_type: events
+evidence_type: verification_evidence
+evidence_value: verification_evidence
+extra_json: operator_audit_log
+fact_date: extracted_facts
+fact_type: extracted_facts
+field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+file_path: events, raw_messages
+final_value: verification_log
+full_name: persons, tbot_parking_import
+has_photo: raw_messages
+id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+imported_at: raw_messages, tbot_parking_import
+imported_by: tbot_parking_import
+is_active: bot_admins
+is_primary: contact_methods
+language_code: resident_accounts
+last_seen_at: resident_accounts
+license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+license_plate_normalized: vehicles
+main_value: verification_tasks
+match_type: verification_evidence
+match_types: verification_candidates
+message_datetime: raw_messages
+message_text: raw_messages
+new_value: audit_log, operator_audit_log
+normalized_candidate_value: verification_tasks
+normalized_main_value: verification_tasks
+normalized_value: verification_evidence
+notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+object_id: verification_tasks
+object_table: verification_tasks
+object_type: apartments
+old_value: audit_log, operator_audit_log
+operator_name: operator_audit_log
+operator_telegram_id: operator_audit_log
+operator_username: operator_audit_log
+ownership_type: persons, tbot_parking_import
+ownership_type_raw: tbot_parking_import
+paper_value: verification_log
+parking_time: vehicles
+person_id: contact_methods
+person_role: persons
+phone_raw: persons, tbot_parking_import
+plate_format_status: vehicles
+priority: parking_time_review_tasks, verification_tasks
+processed_status: raw_messages
+raw_message_id: extracted_facts
+reason: verification_candidates
+record_id: audit_log
+related_record_id: events
+related_table: events
+resolution: verification_tasks
+resolution_comment: verification_tasks
+resolved_at: verification_tasks
+resolved_by: verification_tasks
+review_comment: operator_audit_log
+review_status: operator_audit_log
+reviewed_at: operator_audit_log, parking_time_review_tasks
+reviewed_by: operator_audit_log, parking_time_review_tasks
+role: bot_admins, resident_accounts
+row_label: operator_audit_log
+schema_version: schema_info
+sender_name: raw_messages
+sender_user_id: raw_messages
+sender_username: raw_messages
+source: apartments, audit_log, contact_methods, events, persons, tbot_parking_import, vehicles
+source_context: operator_audit_log
+source_db: verification_evidence
+source_details: parking_time_review_tasks
+source_id: message_sources, raw_messages
+source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+source_names: verification_candidates
+source_record_id: verification_evidence, verification_tasks
+source_table: verification_evidence
+source_type: message_sources
+status: apartment_verification, apartments, events, extracted_facts, parking_time_review_tasks, resident_accounts, vehicles, verification_candidates, verification_log, verification_tasks
+status_raw: tbot_parking_import
+suggested_day_count: parking_time_review_tasks
+suggested_night_count: parking_time_review_tasks
+suggestion: verification_tasks
+table_name: audit_log, operator_audit_log
+task_group: verification_tasks
+task_id: verification_candidates, verification_evidence
+task_type: parking_time_review_tasks, verification_tasks
+telegram_first_name: resident_accounts
+telegram_last_name: resident_accounts
+telegram_user_id: audit_log, bot_admins, bot_user_sessions, contact_methods, resident_accounts
+telegram_username: bot_admins, contact_methods, resident_accounts
+total_area: apartments
+updated_at: apartment_verification, apartments, bot_admins, bot_user_sessions, contact_methods, persons, resident_accounts, vehicles
+updated_by: apartments, contact_methods, persons, vehicles
+username: audit_log
+vehicle_id: operator_audit_log, parking_time_review_tasks
+verified_at: apartment_verification, resident_accounts, verification_log
+verified_by: apartment_verification, verification_log
+
+COLUMN USAGE: TEST
+====================================================================================================
+access_phone_id: commercial_access_actions
+access_purpose: commercial_access_phones
+access_status: barrier_phone_access
+action: audit_log
+action_status: commercial_access_actions, operator_audit_log
+action_type: commercial_access_actions, operator_audit_log
+actor_name: audit_log
+actor_role: audit_log
+actor_type: cashbox_operations, cashier_batches, operator_audit_log
+adjustment_amount: charges
+adjustment_assignment_id: charge_adjustments
+adjustment_code: adjustment_assignments, adjustment_catalog, charge_adjustments
+adjustment_internal_note: charges
+adjustment_name: adjustment_catalog
+adjustment_public_note: charges
+adjustment_type: adjustment_assignments, adjustment_catalog, charge_adjustments
+adjustment_updated_at: charges
+alias_kind: unit_aliases, unit_group_aliases
+alias_normalized: unit_aliases, unit_group_aliases
+alias_text: unit_aliases, unit_group_aliases
+allocation_status: cashier_receipts
+amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+amount_default: service_items
+amount_expected: cashier_batch_items
+amount_received: cashier_batch_items
+apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+applied_amount: charge_adjustments
+applied_at: cashier_batches
+applied_by: charge_adjustments
+approval_reference: adjustment_assignments
+approved_by: adjustment_assignments
+area_sqm: apartments
+bank_name: bank_transactions
+bank_transaction_id: payments
+base_service_code: adjustment_assignments, cashbox_operations, charges, payment_allocations, payments
+batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+batch_status: cashier_batches
+batch_type: cashier_batches
+blocked_at: barrier_phone_access
+blocked_by: barrier_phone_access
+blocks_phone_access_on_debt: commercial_contract_items
+bot_value: verification_log
+calculation_kind: adjustment_assignments, charge_adjustments
+calculation_mode: commercial_contract_items
+calculation_value: adjustment_assignments
+can_manage_bot: bot_admins
+can_manage_payments: bot_admins
+can_manage_users: bot_admins
+can_read: bot_admins
+can_write: bot_admins
+cancelled_at: commercial_notifications
+cancelled_by: commercial_notifications
+candidate_normalized: verification_candidates
+candidate_type: verification_candidates
+candidate_value: verification_candidates, verification_tasks
+car_color: tbot_parking_import, vehicles
+car_color_normalized: vehicles
+car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+car_model_normalized: vehicles
+case_status: cashier_reconciliation_cases
+case_type: cashier_reconciliation_cases
+cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+cashbox_name: cashboxes
+cashbox_operation_id: cashier_receipts, payments
+cashier_batch_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+cashier_entry_status: payments
+cashier_receipt_id: cashbox_operations, payments
+category: service_catalog
+charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+charge_ids_json: commercial_notifications
+closed_at: remote_requests
+comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+commercial_contract_id: cashbox_operations, charges, payments
+commercial_contract_item_id: charges
+commercial_due_date: charges
+commercial_unit_id: cashbox_operations, payments
+confidence: extracted_facts
+confidence_label: verification_candidates
+confidence_score: verification_candidates
+confirmed_at: cashier_receipts, payment_notices
+confirmed_by: cashier_receipts
+contact_id: adjustment_assignments, barrier_phone_access
+contact_name: unit_contacts
+contact_owner: contact_methods
+contact_phone: unit_contacts
+contact_role: unit_contacts
+contact_type: contact_methods
+contact_value: contact_methods
+context_json: bot_user_sessions
+contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+contract_number: commercial_contracts
+counterparty_name: commercial_contracts
+counterparty_type: commercial_contracts
+created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events, operator_audit_log, parking_time_review_tasks, payment_allocations, payment_notices, payments, persons, remote_requests, resident_accounts, schema_info, service_catalog, service_items, service_tariffs, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles, verification_candidates, verification_evidence, verification_tasks
+created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+credit_remaining_amount: adjustment_assignments
+credit_total_amount: adjustment_assignments
+currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+current_apartment_id: apartment_link_requests
+current_apartment_number: apartment_link_requests
+current_balance: cashboxes
+current_parking_time: parking_time_review_tasks
+current_state: bot_user_sessions
+date_from: service_items
+date_to: service_items
+days_overdue_snapshot: commercial_access_actions, commercial_notifications
+db_file: operator_audit_log
+db_mode: operator_audit_log
+debt_amount: barrier_phone_access
+debt_amount_snapshot: commercial_access_actions, commercial_notifications
+decided_at: verification_candidates
+decided_by: verification_candidates
+decision: parking_time_review_tasks, verification_candidates
+decision_comment: parking_time_review_tasks, verification_candidates
+declared_amount: payment_notices
+declared_at: payment_notices
+declared_cashbox_code: payment_notices
+declared_period_code: payment_notices
+declared_service_code: payment_notices
+declared_service_item_code: payment_notices
+dedupe_key: commercial_notifications
+default_amount: cashier_batches
+default_calculation_kind: adjustment_catalog
+default_calculation_value: adjustment_catalog
+default_tariff: cashier_batches
+delivery_error: commercial_notifications
+description: cashier_reconciliation_cases, service_items
+designation_status: cashier_receipts
+direction: cashbox_operations
+display_name: apartments, bot_admins, unit_groups
+document_date: cashier_receipts
+entrance: apartments
+entrance_number: apartments
+entrance_source: apartments
+entry_status: bank_transactions, cashier_receipts
+event_group: events
+event_time: audit_log, events
+event_type: events
+evidence_text: payment_notices
+evidence_type: cashier_receipts, verification_evidence
+evidence_value: verification_evidence
+exception_note: cashier_batch_items
+extra_json: operator_audit_log
+fact_date: extracted_facts
+fact_type: extracted_facts
+failed_at: commercial_notifications
+field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+file_path: events, raw_messages
+final_value: verification_log
+fixed_amount: commercial_contract_items
+full_name: persons, tbot_parking_import
+grace_days: commercial_contracts
+gross_amount: charges
+group_code: unit_groups
+group_id: unit_group_aliases, unit_group_members
+group_type: unit_groups
+has_photo: raw_messages
+id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, payment_allocations, payment_notices, payments, persons, raw_messages, remote_requests, resident_accounts, schema_info, service_catalog, service_items, service_tariffs, tbot_parking_import, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+imported_at: raw_messages, tbot_parking_import
+imported_by: tbot_parking_import
+initial_balance: cashboxes
+internal_description: adjustment_catalog
+internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+is_access_control: service_catalog
+is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+is_cash_collectable: service_catalog
+is_commercial: service_catalog
+is_fundraising: service_catalog
+is_monthly: service_catalog
+is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+is_sensitive: adjustment_catalog
+issued_at: remote_requests
+item_code: commercial_contract_items
+item_name: commercial_contract_items
+item_status: cashier_batch_items
+language_code: resident_accounts
+last_seen_at: resident_accounts
+legal_status: unit_groups
+license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+license_plate_normalized: vehicles
+main_value: verification_tasks
+match_type: verification_evidence
+match_types: verification_candidates
+matched_bank_transaction_id: payment_notices
+matched_cashier_receipt_id: payment_notices
+matched_payment_id: payment_notices
+member_order: unit_group_members
+member_role: unit_group_members
+message_datetime: raw_messages
+message_text: commercial_notifications, raw_messages
+net_amount: charges
+new_value: audit_log, operator_audit_log
+normalized_candidate_value: verification_tasks
+normalized_main_value: verification_tasks
+normalized_value: verification_evidence
+note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+notice_number: payment_notices
+notice_status: payment_notices
+notice_type: payment_notices
+notification_enabled: commercial_contract_recipients
+notification_id: commercial_access_actions
+notification_type: commercial_notifications
+object_id: verification_tasks
+object_table: verification_tasks
+object_type: apartments
+official_number: apartments
+old_value: audit_log, operator_audit_log
+operation_date: cashbox_operations
+operation_type: cashbox_operations
+operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+operator_note: apartment_link_requests, bank_transactions, payment_notices, remote_requests
+origin_cashbox_code: cashier_receipts
+origin_kind: cashier_receipts
+ownership_type: persons, tbot_parking_import
+ownership_type_raw: tbot_parking_import
+paper_ref: cashier_receipts
+paper_value: verification_log
+parking_time: vehicles
+payer_name: cashier_receipts
+payer_text: bank_transactions
+payment_channel: payments
+payment_date: payments
+payment_due_day: commercial_contracts
+payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+payment_method: payments
+payment_notice_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+performed_at: commercial_access_actions
+period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+person_id: contact_methods
+person_role: persons
+phone_display: commercial_access_phones
+phone_normalized: commercial_access_phones
+phone_number: barrier_phone_access
+phone_raw: persons, tbot_parking_import
+plate_format_status: vehicles
+priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+processed_status: raw_messages
+public_note: adjustment_assignments, charge_adjustments
+public_note_template: adjustment_catalog
+quantity: charges, remote_requests
+quantity_default: commercial_contract_items
+rate_amount: commercial_contract_items
+raw_message_id: extracted_facts
+reason: commercial_access_actions, verification_candidates
+reason_snapshot: charge_adjustments
+receipt_date: cashier_receipts
+receipt_id: cashier_batch_items
+receipt_kind: cashier_receipts
+receipt_number: cashier_receipts
+recipient_id: commercial_notifications
+recipient_name: commercial_contract_recipients
+recipient_role: commercial_contract_recipients
+record_id: audit_log
+record_status: apartments, unit_contacts, unit_groups
+reference_service_code: commercial_contract_items
+rejected_at: payment_notices
+related_bank_transaction_id: cashier_reconciliation_cases
+related_batch_id: cashier_reconciliation_cases
+related_notice_id: cashier_reconciliation_cases
+related_payment_id: cashier_reconciliation_cases
+related_receipt_id: cashier_reconciliation_cases
+related_record_id: events
+related_table: events
+reminder_days_before_due: commercial_contracts
+request_kind: remote_requests
+requested_apartment_id: apartment_link_requests
+requested_apartment_number: apartment_link_requests
+resident_account_id: apartment_link_requests, commercial_contract_recipients, payment_notices, remote_requests
+resident_comment: apartment_link_requests, payment_notices, remote_requests
+resolution: verification_tasks
+resolution_comment: verification_tasks
+resolution_note: cashier_reconciliation_cases
+resolved_at: cashier_reconciliation_cases, verification_tasks
+resolved_by: verification_tasks
+review_comment: operator_audit_log
+review_status: cashier_receipts, operator_audit_log
+reviewed_at: apartment_link_requests, operator_audit_log, parking_time_review_tasks, payment_notices, remote_requests
+reviewed_by: operator_audit_log, parking_time_review_tasks
+role: bot_admins, resident_accounts
+row_id: operator_audit_log
+schema_version: schema_info
+sender_name: raw_messages
+sender_user_id: raw_messages
+sender_username: raw_messages
+sent_at: commercial_notifications
+sequence_no: service_items
+service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+service_group: service_catalog
+service_hint: cashier_receipts
+service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+service_item_name: service_items
+service_name: service_catalog
+service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+source: apartments, audit_log, charges, contact_methods, events, payments, persons, tbot_parking_import, vehicles
+source_context: charge_adjustments, operator_audit_log
+source_db: verification_evidence
+source_details: parking_time_review_tasks
+source_id: message_sources, raw_messages
+source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+source_names: verification_candidates
+source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+source_record_id: verification_evidence, verification_tasks
+source_ref: bank_transactions, cashbox_operations
+source_table: verification_evidence
+source_text: cashier_receipts
+source_type: bank_transactions, cashbox_operations, message_sources
+status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+status_changed_at: commercial_access_phones
+status_raw: tbot_parking_import
+status_reason: barrier_phone_access, commercial_access_phones
+suggested_day_count: parking_time_review_tasks
+suggested_night_count: parking_time_review_tasks
+suggestion: verification_tasks
+suspension_candidate_days_overdue: commercial_contracts
+table_name: audit_log, operator_audit_log
+task_group: verification_tasks
+task_id: verification_candidates, verification_evidence
+task_type: parking_time_review_tasks, verification_tasks
+telegram_first_name: resident_accounts
+telegram_last_name: resident_accounts
+telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+telegram_username: bot_admins, contact_methods, resident_accounts
+total_amount: cashier_batches
+total_area: apartments
+total_rows: cashier_batches
+transaction_date: bank_transactions
+transaction_ref: bank_transactions
+transfer_group_ref: cashbox_operations
+unblocked_at: barrier_phone_access
+unblocked_by: barrier_phone_access
+unit: service_catalog
+unit_code: apartments
+unit_id: commercial_contracts
+unit_price: charges
+unit_type: apartments
+unit_updated_at: apartments
+updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_catalog, service_items, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles
+updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+user_id: operator_audit_log
+username: audit_log
+valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+value_date: bank_transactions
+vehicle_id: adjustment_assignments, cashbox_operations, charges, parking_time_review_tasks, payments
+verified_at: apartment_verification, resident_accounts, verification_log
+verified_by: apartment_verification, verification_log
+void_cashbox_operation_id: cashier_receipts
+void_payment_id: cashier_receipts
+void_reason: cashier_receipts
+voided_at: cashier_receipts
+voided_by: cashier_receipts
+warning_days_overdue: commercial_contracts

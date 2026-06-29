@@ -1,0 +1,517 @@
+﻿path,function,line,end_line,async_func,remote_flow_hits,debt_check_hits,write_flow_hits,category,first_remote_context,first_debt_context
+Bots/handlers/client_portal.py,_remote_table_ready,1307,1312,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1310: return table_exists(conn.cursor(), ""remote_requests"")",
+Bots/handlers/client_portal.py,_remote_requests_for_account,1323,1338,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1323: def _remote_requests_for_account(account_id: int) -> list[dict]:,
+Bots/handlers/client_portal.py,_create_remote_request,1341,1399,False,2,0,2,REMOTE_FLOW_NO_DEBT_WORDS,1353: INSERT INTO remote_requests (,
+Bots/handlers/client_portal.py,_admin_remote_rows,1402,1423,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1412: FROM remote_requests r,
+Bots/handlers/client_portal.py,_admin_remote_request,1426,1441,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1434: FROM remote_requests r,
+Bots/handlers/client_portal.py,_update_remote_status,1444,1514,False,3,0,2,REMOTE_FLOW_NO_DEBT_WORDS,1458: FROM remote_requests WHERE id = ?,
+Bots/handlers/client_portal.py,_format_my_remote_requests,1517,1532,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1517: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:",
+Bots/handlers/client_portal.py,_show_my_remote_requests,1678,1691,True,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1678: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:",
+Bots/handlers/client_portal.py,handle_client_portal_text,1761,2183,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"2108: await _show_my_remote_requests(update, user_states, user_id, lang)",
+Bots/handlers/client_portal_safe_linking.py,_remote_table_ready,1307,1312,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1310: return table_exists(conn.cursor(), ""remote_requests"")",
+Bots/handlers/client_portal_safe_linking.py,_remote_requests_for_account,1323,1338,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1323: def _remote_requests_for_account(account_id: int) -> list[dict]:,
+Bots/handlers/client_portal_safe_linking.py,_create_remote_request,1341,1399,False,2,0,2,REMOTE_FLOW_NO_DEBT_WORDS,1353: INSERT INTO remote_requests (,
+Bots/handlers/client_portal_safe_linking.py,_admin_remote_rows,1402,1423,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1412: FROM remote_requests r,
+Bots/handlers/client_portal_safe_linking.py,_admin_remote_request,1426,1441,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1434: FROM remote_requests r,
+Bots/handlers/client_portal_safe_linking.py,_update_remote_status,1444,1514,False,3,0,2,REMOTE_FLOW_NO_DEBT_WORDS,1458: FROM remote_requests WHERE id = ?,
+Bots/handlers/client_portal_safe_linking.py,_format_my_remote_requests,1517,1532,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1517: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:",
+Bots/handlers/client_portal_safe_linking.py,_show_my_remote_requests,1678,1691,True,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1678: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:",
+Bots/handlers/client_portal_safe_linking.py,handle_client_portal_text,1761,2183,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"2108: await _show_my_remote_requests(update, user_states, user_id, lang)",
+Bots/handlers/client_portal_v3.py,handle_client_portal_text,76,96,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,87: # service_orders_workspace. All other v2 behaviour remains unchanged.,
+Bots/handlers/guard_workspace.py,_remote_rows_for_issue,502,520,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"506: if not table_exists(cur, ""remote_requests""):",
+Bots/handlers/guard_workspace.py,_start_remote_received,561,575,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"572: ""📥 Пульт принят на пост O\n\n""",
+Bots/handlers/guard_workspace.py,_show_remote_issue_list,658,686,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"660: user_id, ""remote_requests"", ""VIEW"",",
+Bots/handlers/guard_workspace.py,_remote_request,689,697,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"693: cur.execute(""SELECT * FROM remote_requests WHERE id = ?"", (int(request_id),))",
+Bots/handlers/guard_workspace.py,_show_remote_issue_card,700,724,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"721: [""✅ Пульт выдан""],",
+Bots/handlers/guard_workspace.py,_save_remote_issued,727,808,True,8,0,2,REMOTE_FLOW_NO_DEBT_WORDS,"730: user_id, ""remote_requests"", ""ISSUE"",",
+Bots/handlers/guard_workspace.py,handle_guard_workspace_text,901,1150,True,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"955: if message_text == ""📥 Пульт принят"":",
+Bots/handlers/service_orders_workspace.py,_phone_offer_sort_key,482,495,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"492: exact_profile = 1 if profile == ""PHONE_ACCESS_CONNECT"" else 0",
+Bots/handlers/service_orders_workspace.py,_category_allowed,512,519,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"515: ""service_orders"",",
+Bots/handlers/service_orders_workspace.py,_current_offers,540,589,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,582: from service_orders_core import effective_price,
+Bots/handlers/service_orders_workspace.py,_offer_buttons,592,645,False,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"627: ""REMOTE_REPROGRAM_OWN"",",
+Bots/handlers/service_orders_workspace.py,_show_resident_records,1034,1074,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1047: FROM service_orders,
+Bots/handlers/service_orders_workspace.py,_handle_resident,1101,1250,True,2,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"1123: elif text(offer.get(""workflow_profile_code"")) == NEW_REMOTE_PROFILE:",
+Bots/handlers/service_orders_workspace.py,_operator_orders,1261,1294,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1284: FROM service_orders o,
+Bots/handlers/service_orders_workspace.py,_assert_order_access,1297,1308,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1306: resource = ""service_order_steps"" if action == ""CONFIRM"" else ""service_orders""",
+Bots/handlers/service_orders_workspace.py,_order_actions,1374,1402,False,5,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1384: ""REMOTE_BATCH_ISSUED"": ""issue_new"",",
+Bots/handlers/service_orders_workspace.py,_show_operator_order,1405,1419,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1415: if text(order.get(""workflow_profile_code"")) == NEW_REMOTE_PROFILE:",
+Bots/handlers/service_orders_workspace.py,_receive_resident_remote,1422,1446,False,1,0,4,REMOTE_FLOW_NO_DEBT_WORDS,"1440: cur.execute(""UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?"", (int(asset[""id""]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order[""id""])))",
+Bots/handlers/service_orders_workspace.py,_program,1449,1452,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1450: from service_orders_core import confirm_order_step,
+Bots/handlers/service_orders_workspace.py,_return_own_remote,1455,1475,False,1,0,2,REMOTE_FLOW_NO_DEBT_WORDS,"1460: row = cur.execute(""SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?"", (int(order[""id""]),)).fetchone()",
+Bots/handlers/service_orders_workspace.py,_handle_operator,1550,1693,True,4,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"1586: tr(lang, ""issue_new""): ""issue_new"",",
+Bots/handlers/service_orders_workspace.py,handle_service_orders_text,1696,1742,True,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"1696: async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:",
+CHECK_guard_sandbox_service_orders.py,inspect_runtime_source,200,264,False,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"240: ""service_orders_workspace"",",
+CHECK_guard_sandbox_service_orders.py,inspect_database,267,450,False,9,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"280: ""service_orders"",",
+CHECK_guard_sandbox_service_orders.py,write_report,453,458,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"456: report_path = LOG_DIR / f""guard_sandbox_service_orders_diagnosis_{stamp}.txt""",
+CHECK_guard_sandbox_service_orders_v2.py,inspect_bot_source,177,247,False,5,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"211: ""service_orders_workspace"",",
+CHECK_guard_sandbox_service_orders_v2.py,inspect_database,250,431,False,7,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"264: ""service_orders"",",
+CHECK_guard_sandbox_service_orders_v2.py,save_report,434,439,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"437: report_path = LOG_DIR / f""guard_sandbox_service_orders_diagnosis_v2_{stamp}.txt""",
+CHECK_profile_verification_terminology_v2.py,main,10,52,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"16: service = ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py""",
+FIND_actual_service_order_state.py,inspect_one_database,189,218,False,8,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"195: ""service_orders_count"": None,",
+FIND_actual_service_order_state.py,print_service_order_details,221,320,False,4,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"225: if ""service_orders"" not in tables:",
+FIND_actual_service_order_state.py,scan_databases,323,376,False,7,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"336: if item[""ok""] and ""service_orders"" in item[""tables""]",
+FIND_actual_service_order_state.py,inspect_current_sources,379,398,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"384: ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py"",",
+FIX_live_services_sandbox_payment_schema.py,map_from_service_orders,158,201,False,8,0,1,REMOTE_FLOW_NO_DEBT_WORDS,158: def map_from_service_orders(conn: sqlite3.Connection) -> int:,
+FIX_live_services_sandbox_payment_schema.py,verify_test_workflow,204,275,False,3,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"205: if not table_exists(conn, ""service_orders""):",
+FIX_live_services_sandbox_payment_schema.py,main,289,334,False,3,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"305: if not table_exists(conn, ""service_orders""):",
+create_clean_live_sandbox.py,base_workflow_counts,93,110,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"101: ""service_orders"",",
+create_clean_live_sandbox.py,main,288,455,False,2,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"341: ""services"": ROOT / ""migrate_service_orders_and_fulfillment.py"",",
+create_isolated_live_sandbox_v2.py,base_workflow_counts,93,110,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"101: ""service_orders"",",
+create_isolated_live_sandbox_v2.py,main,288,453,False,2,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"335: ""services"": ROOT / ""migrate_service_orders_and_fulfillment.py"",",
+manage_staff_access.py,print_user,108,179,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"169: (""remote_requests"", ""ISSUE""),",
+manage_staff_access_v2.py,print_user,108,179,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"169: (""remote_requests"", ""ISSUE""),",
+phone_barrier_access_core.py,activate_phone_access_subscription_for_order,1973,2162,False,1,0,5,REMOTE_FLOW_NO_DEBT_WORDS,"1988: from service_orders_core import confirm_order_step, get_service_order",
+run_bot_guard_sandbox.py,table_rows,98,125,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"106: ""remote_requests"",",
+run_bot_guard_sandbox_v2.py,table_rows,98,125,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"106: ""remote_requests"",",
+run_bot_guard_sandbox_v3.py,table_rows,98,125,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"106: ""remote_requests"",",
+run_bot_live_service_sandbox_v4.py,table_rows,92,122,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"98: ""service_orders"",",
+run_bot_live_service_sandbox_v4.py,required_files,125,135,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"134: BOTS / ""handlers"" / ""service_orders_workspace.py"",",
+run_bot_live_service_sandbox_v4.py,patched_source,138,158,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"146: ""Сначала выполните install_service_orders_ui.py --apply.""",
+run_bot_live_service_sandbox_v4.py,run_bot,161,188,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"167: ""service_orders_core"",",
+run_bot_live_services_sandbox_v1.py,ensure_sandbox_service_access,161,371,False,8,0,3,REMOTE_FLOW_NO_DEBT_WORDS,"202: (""service_orders"", ""VIEW"", ""REMOTE""),",
+run_bot_live_services_sandbox_v1.py,assert_workspace_is_compatible,373,400,False,3,0,1,REMOTE_FLOW_NO_DEBT_WORDS,"389: ""NEW_REMOTE_PROFILE"",",
+run_bot_live_services_sandbox_v1.py,purge_project_modules,402,424,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"409: ""service_orders_core"",",
+run_bot_live_services_sandbox_v1.py,live_service_preflight,722,801,False,4,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"729: ""service_orders"",",
+run_bot_live_services_sandbox_v1.py,main,837,906,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"879: print(""  - service_orders workspace: simplified paid-preorder workflow verified"")",
+service_orders_core.py,required_tables,147,162,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"153: ""service_orders"",",
+service_orders_core.py,_next_order_number,312,332,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,317: FROM service_orders,
+service_orders_core.py,_audit_order,366,390,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"382: table_name=""service_orders"",",
+service_orders_core.py,_derive_status,406,448,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"445: return ""READY_FOR_ISSUE"", payment_status, ""READY_FOR_HANDOVER""",
+service_orders_core.py,recompute_order_status,451,477,False,1,0,1,REMOTE_FLOW_NO_DEBT_WORDS,460: UPDATE service_orders,
+service_orders_core.py,get_service_order,480,492,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"486: ""SELECT * FROM service_orders WHERE id = ?"",",
+service_orders_core.py,service_order_summary,1365,1408,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,1398: FROM remote_order_details,
+service_preorders_core.py,simplified_tables,94,100,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"96: ""service_order_interests"",",
+service_preorders_core.py,_ensure_new_remote_preorder_profile,247,328,False,11,0,1,REMOTE_FLOW_NO_DEBT_WORDS,247: def _ensure_new_remote_preorder_profile(cur: sqlite3.Cursor) -> list[str]:,
+service_preorders_core.py,get_service_interest,475,486,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"480: row = _dict(cur, ""SELECT * FROM service_order_interests WHERE id = ?"", (int(interest_id),))",
+service_preorders_core.py,list_resident_service_interests,489,507,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,498: FROM service_order_interests,
+service_preorders_core.py,attach_payment_notice_to_interest,528,568,False,2,0,3,REMOTE_FLOW_NO_DEBT_WORDS,528: def attach_payment_notice_to_interest(,
+service_preorders_core.py,supplier_demand,753,788,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,766: FROM service_orders o,
+service_preorders_core.py,create_supplier_batch,791,886,False,2,0,3,REMOTE_FLOW_NO_DEBT_WORDS,809: FROM service_orders o,
+service_preorders_core.py,get_supplier_batch,909,932,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,923: JOIN service_orders o ON o.id = l.service_order_id,
+service_preorders_core.py,receive_supplier_batch,935,1018,False,1,0,3,REMOTE_FLOW_NO_DEBT_WORDS,"1001: step_code=""SUPPLIER_BATCH_RECEIVED"",",
+service_preorders_core.py,issue_new_remotes_from_batch,1045,1154,False,3,0,8,REMOTE_FLOW_NO_DEBT_WORDS,1045: def issue_new_remotes_from_batch(,
+tools/project_passport_v3_classifier.py,main,388,626,False,1,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"589: for m in sorted([m for m in modules if ""remote"" in m.themes or ""service_orders"" in m.themes or ""access_control"" in m.themes], key=lambda x: x.path):",
+tools/remote_debt_gate_audit.py,selected_files,226,264,False,2,0,0,REMOTE_FLOW_NO_DEBT_WORDS,"231: ""service_orders_core.py"",",
+Bots/handlers/guard_workspace.py,_save_remote_received,604,655,True,2,1,1,REMOTE_FLOW_WITH_DEBT_WORDS,"639: f""Пульт принят на пост O: кв.{state['unit'].get('apartment_number')}, ""","653: ""Это физическая отметка; складской остаток будет вести отдельный модуль."""
+Bots/handlers/service_orders_workspace.py,_create_interest_from_state,969,997,False,1,4,1,REMOTE_FLOW_WITH_DEBT_WORDS,990: return create_service_interest(,"987: parking_debt_check_mode=text(gate.get(""parking_debt_check_mode"")) or ""MANUAL_REVIEW"","
+CHECK_service_code_compatibility_phone_v2.py,main,23,117,False,3,1,0,REMOTE_FLOW_WITH_DEBT_WORDS,"31: core = ROOT / ""service_orders_core.py""","97: SELECT interest_number, interest_status, amount_due_snapshot, payment_notice_id"
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,main,45,165,False,3,3,2,REMOTE_FLOW_WITH_DEBT_WORDS,"53: order_columns = table_columns(conn, ""service_orders"")","56: ""amount_due_snapshot"","
+RETIRE_legacy_new_remote_test_orders_sandbox.py,main,21,109,False,3,1,5,REMOTE_FLOW_WITH_DEBT_WORDS,"26: backup = BACKUPS / f""{DB.stem}_before_retire_legacy_new_remote_tests_{stamp}{DB.suffix}""","46: print(""No matching unpaid legacy TEST new-remote orders were found."")"
+phone_barrier_access_service.py,create_phone_barrier_access_interest,30,105,False,1,7,2,REMOTE_FLOW_WITH_DEBT_WORDS,67: interest = create_service_interest(,"39: parking_debt_check_mode: str = ""MANUAL_REVIEW"","
+service_orders_core.py,create_service_order,495,713,False,7,11,4,REMOTE_FLOW_WITH_DEBT_WORDS,495: def create_service_order(,"506: amount_due_snapshot_override: float | None = None,"
+service_preorders_core.py,ensure_simplified_service_schema,103,232,False,5,1,1,REMOTE_FLOW_WITH_DEBT_WORDS,112: CREATE TABLE IF NOT EXISTS service_order_interests (,"125: amount_due_snapshot REAL NOT NULL,"
+service_preorders_core.py,create_service_interest,365,472,False,3,10,3,REMOTE_FLOW_WITH_DEBT_WORDS,365: def create_service_interest(,"376: amount_due_snapshot_override: float | None = None,"
+service_preorders_core.py,reconcile_paid_service_interests,623,726,False,3,3,2,REMOTE_FLOW_WITH_DEBT_WORDS,638: SELECT * FROM service_order_interests,"652: due = float(interest.get(""amount_due_snapshot"") or 0)"
+service_preorders_core.py,unpaid_interest_totals,729,750,False,1,1,0,REMOTE_FLOW_WITH_DEBT_WORDS,741: FROM service_order_interests,"729: def unpaid_interest_totals(*, conn: sqlite3.Connection | None = None) -> list[dict]:"
+tools/remote_debt_gate_audit.py,load_db_status,187,223,False,8,2,0,REMOTE_FLOW_WITH_DEBT_WORDS,"216: has_remote_requests=""remote_requests"" in tables,","214: has_payment_allocations=""payment_allocations"" in tables,"
+tools/remote_debt_gate_audit.py,main,361,533,False,18,52,0,REMOTE_FLOW_WITH_DEBT_WORDS,"385: ""service_orders_core.py"",","367: out_dir = root / ""Data"" / ""exports"" / ""code_passport"" / f""remote_debt_gate_audit_{stamp}"""
+Bots/handlers/cashier_operator.py,receipt_allocation_total,946,960,False,0,5,0,DEBT_OR_PAYMENT_HELPER,,"947: if not table_exists(cur, ""payment_allocations""):"
+Bots/handlers/cashier_operator.py,receipt_unallocated_amount,971,983,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,971: def receipt_unallocated_amount(receipt: dict) -> float:
+Bots/handlers/cashier_operator.py,list_open_charges_for_receipt,986,1073,False,0,11,0,DEBT_OR_PAYMENT_HELPER,,"996: if not table_exists(cur, ""charges"") or not table_exists(cur, ""payment_allocations""):"
+Bots/handlers/cashier_operator.py,allocate_receipt_to_charge,1076,1182,False,0,7,1,DEBT_OR_PAYMENT_HELPER,,"1112: maximum = min(unallocated, float(charge[""outstanding_amount""]))"
+Bots/handlers/cashier_operator.py,format_receipt,1454,1486,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,1455: unallocated = receipt_unallocated_amount(receipt)
+Bots/handlers/cashier_operator.py,format_charge_list,1507,1532,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"1511: f""Не разнесено: {money(receipt_unallocated_amount(receipt))} грн."","
+Bots/handlers/cashier_operator.py,format_cashier_home,1535,1544,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1543: ""остаток кассы не меняется."""
+Bots/handlers/cashier_operator.py,start_receipt,1611,1645,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1642: ""Эта запись не является оплатой и не меняет остаток кассы.\n"""
+Bots/handlers/cashier_operator.py,show_open_charges,1746,1782,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1768: f""{money(charge['outstanding_amount'])}"""
+Bots/handlers/cashier_operator.py,preview_receipt,1785,1830,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1825: ""Платёж и остаток кассы не изменятся."","
+Bots/handlers/cashier_operator.py,handle_cashier_operator_text,1858,2426,True,0,6,0,DEBT_OR_PAYMENT_HELPER,,"2265: receipt_unallocated_amount(receipt),"
+Bots/handlers/cashier_operator_v2.py,_entry_summary,189,210,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"195: if charge and abs(float(state.get(""amount"") or 0) - float(charge[""outstanding_amount""])) < 0.00001"
+Bots/handlers/cashier_operator_v2.py,_bank_summary,213,234,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"219: if charge and abs(float(state.get(""amount"") or 0) - float(charge[""outstanding_amount""])) < 0.00001"
+Bots/handlers/cashier_operator_v2.py,_paper_summary,237,250,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"249: ""Платёж и остаток кассы не изменятся."","
+Bots/handlers/cashier_operator_v2.py,_prepare_suggested_charge,253,271,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"268: state[""amount""] = float(rows[0][""outstanding_amount""])"
+Bots/handlers/cashier_operator_v2.py,_create_entry,382,471,True,0,1,3,DEBT_OR_PAYMENT_HELPER,,"393: if charge and abs(amount - float(charge[""outstanding_amount""])) < 0.00001:"
+Bots/handlers/cashier_operator_v2.py,_batch_summary,488,516,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"493: total = sum(float(overrides.get(text(item.get(""apartment_number"")), item[""outstanding_amount""])) for item in included)"
+Bots/handlers/cashier_operator_v2.py,_start_batch,540,561,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"555: ""сумма каждой строки = точный остаток начисления."","
+Bots/handlers/cashier_operator_v2.py,_show_reconciliation,634,651,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"645: ""Эти числа не равны долгу. Это рабочая очередь для оператора."","
+Bots/handlers/cashier_operator_v2.py,handle_cashier_operator_v2_text,654,1097,True,0,3,0,DEBT_OR_PAYMENT_HELPER,,"912: f""Остаток кассы {state['cashbox_code']}: {money(result['cashbox_balance'])} грн."""
+Bots/handlers/client_portal.py,_allocation_amount_column,1030,1033,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"1032: ""allocated_amount"" if ""allocated_amount"" in columns else None"
+Bots/handlers/client_portal.py,_billing_data,1036,1190,False,0,20,0,DEBT_OR_PAYMENT_HELPER,,"1043: ""outstanding_total"": 0.0,"
+Bots/handlers/client_portal.py,_format_dashboard,1202,1235,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1229: f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal.py,_format_parking,1238,1260,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1253: f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal.py,_format_charges,1263,1280,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1278: f""{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"""
+Bots/handlers/client_portal_safe_linking.py,_allocation_amount_column,1030,1033,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"1032: ""allocated_amount"" if ""allocated_amount"" in columns else None"
+Bots/handlers/client_portal_safe_linking.py,_billing_data,1036,1190,False,0,20,0,DEBT_OR_PAYMENT_HELPER,,"1043: ""outstanding_total"": 0.0,"
+Bots/handlers/client_portal_safe_linking.py,_format_dashboard,1202,1235,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1229: f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal_safe_linking.py,_format_parking,1238,1260,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1253: f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal_safe_linking.py,_format_charges,1263,1280,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1278: f""{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"""
+Bots/handlers/client_portal_v2.py,_charge_buttons,323,336,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"330: f""{money(charge['outstanding_amount'])}"""
+Bots/handlers/client_portal_v2.py,_select_charge_or_service,407,436,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"422: state[""amount""] = float(charge[""outstanding_amount""])"
+Bots/handlers/client_portal_v2.py,handle_client_portal_text,478,665,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"584: state[""amount""] = float(charge[""outstanding_amount""])"
+Bots/handlers/commercial_contract_editor.py,list_contracts,253,279,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"261: c.reminder_days_before_due, c.warning_days_overdue,"
+Bots/handlers/commercial_contract_editor.py,get_contract,282,320,False,0,14,0,DEBT_OR_PAYMENT_HELPER,,"306: SELECT outstanding_amount, access_blocking_outstanding_amount,"
+Bots/handlers/commercial_contract_editor.py,create_contract,416,451,False,0,2,2,DEBT_OR_PAYMENT_HELPER,,"428: reminder_days_before_due, warning_days_overdue,"
+Bots/handlers/commercial_contract_editor.py,update_contract,454,486,False,0,2,2,DEBT_OR_PAYMENT_HELPER,,"458: ""reminder_days_before_due"", ""warning_days_overdue"","
+Bots/handlers/commercial_contract_editor.py,create_item,534,566,False,0,2,2,DEBT_OR_PAYMENT_HELPER,,"545: currency, blocks_phone_access_on_debt, is_active,"
+Bots/handlers/commercial_contract_editor.py,update_item,569,594,False,0,1,2,DEBT_OR_PAYMENT_HELPER,,"570: allowed = {""item_name"", ""fixed_amount"", ""rate_amount"", ""quantity_default"", ""blocks_phone_access_on_debt"", ""is_active""}"
+Bots/handlers/commercial_contract_editor.py,format_contract,775,802,False,0,6,0,DEBT_OR_PAYMENT_HELPER,,"789: f""Предупреждение через: {contract.get('warning_days_overdue')} дн."","
+Bots/handlers/commercial_contract_editor.py,format_items,805,812,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"811: lines.append(f""{i}. {mark} {item.get('item_name') or 'без названия'}\n   {label_mode(item.get('calculation_mode'))}\n   {item_amount(item)}\n   Блокирует доступ при долге: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}"")"
+Bots/handlers/commercial_contract_editor.py,format_item,815,823,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"822: f""Блокирует доступ: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}"","
+Bots/handlers/commercial_contract_editor.py,format_phones,858,866,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"860: status = {""ACTIVE"": ""✅ активно"", ""WARNING"": ""⚠️ предупреждение"", ""SUSPENSION_CANDIDATE"": ""🟠 кандидат"", ""SUSPENDED_DEBT"": ""⛔ отключено вручную"", ""MANUAL_BLOCK"": ""🔒 ручная блокировка"", ""CLOSED"": ""⚪ закрыто""}"
+Bots/handlers/commercial_contract_editor.py,show_item_card,944,955,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"949: rows = [[""✏️ Наименование"", ""✏️ Сумма/ставка""], [""✏️ Количество"", ""🛡️ Доступ при долге""]]"
+Bots/handlers/commercial_contract_editor.py,handle_commercial_contract_editor_text,1036,1581,True,0,10,0,DEBT_OR_PAYMENT_HELPER,,"1239: ""⚠️ Предупреждение через"": (""warning_days_overdue"", 0, 365, ""Срок предупреждения""),"
+Bots/handlers/guard_workspace.py,_save_manual_cash,435,495,True,0,1,1,DEBT_OR_PAYMENT_HELPER,,"492: f""Остаток O: {money(result['cashbox_balance'])} грн.\n"""
+Bots/handlers/service_orders_workspace.py,_order_card,664,699,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"694: f""Сума: {money(order.get('amount_due_snapshot'))} {order.get('currency') or 'UAH'}"","
+Bots/handlers/service_orders_workspace.py,_interest_card,701,732,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"729: f""Сума: {money(interest.get('amount_due_snapshot'))} {interest.get('currency') or 'UAH'}"","
+Bots/handlers/service_orders_workspace.py,_phone_point_status_lines,785,804,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"791: ""SUSPENDED_FOR_DEBT"": ""⚠️"","
+Bots/handlers/service_orders_workspace.py,_show_preview,903,967,True,0,2,0,DEBT_OR_PAYMENT_HELPER,,"946: phone_tr(lang, 'debt_mode'),"
+Bots/handlers/service_orders_workspace.py,_notice_for_interest,999,1031,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1013: amount=float(interest.get(""amount_due_snapshot"") or 0),"
+Bots/parking_bot.py,message_handler,737,1342,True,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1114: ""Здесь будут начисления, оплаты и задолженность."","
+CHECK_phone_barrier_access_operational_sandbox.py,main,12,72,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"65: print(""Warnings:"", cur.execute(""SELECT COUNT(*) FROM access_debt_warnings"").fetchone()[0])"
+CHECK_phone_barrier_access_sandbox_schema.py,main,21,124,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"119: ""SELECT COUNT(*) FROM access_debt_warnings"""
+billing_reconciliation_report.py,build_reconciliation,151,239,False,0,6,0,DEBT_OR_PAYMENT_HELPER,,"157: allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+billing_reconciliation_report.py,write_report,284,353,False,0,5,0,DEBT_OR_PAYMENT_HELPER,,"317: lines.append(f""Charges count              : {len(data['charges'])}"")"
+billing_reconciliation_report.py,main,356,391,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"384: print(""Unpaid charges:"", len(data[""unpaid_charges""]))"
+billing_statement_excel.py,load_allocations,143,157,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"144: allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+billing_statement_excel.py,write_xlsx,300,506,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,"321: status = ""ДОЛГ"""
+cashier_journal.py,find_charge_for_payment,753,800,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,773: FROM charges
+cashier_journal.py,allocated_amount_for_charge,803,816,False,0,6,0,DEBT_OR_PAYMENT_HELPER,,"803: def allocated_amount_for_charge(cur, charge_id):"
+cashier_journal.py,create_allocation,819,829,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"820: if not table_exists(cur, ""payment_allocations""):"
+cashier_journal.py,command_income,977,1130,False,0,2,1,DEBT_OR_PAYMENT_HELPER,,"1017: available = max(0.0, float(charge[""amount""] or 0) - allocated_amount_for_charge(cur, charge_id))"
+cashier_journal.py,command_expense,1133,1221,False,0,1,1,DEBT_OR_PAYMENT_HELPER,,"1221: print(""Остаток кассы:"", money(new_balance), ""UAH"")"
+cashier_journal.py,command_report,1492,1635,False,0,2,1,DEBT_OR_PAYMENT_HELPER,,"1593: ws2.append([""Касса"", ""Название"", ""Валюта"", ""Остаток""])"
+cashier_v2_core.py,schema_ready,160,183,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"170: ""payment_allocations"","
+cashier_v2_core.py,allocation_amount_column,326,332,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"327: cols = table_columns(cur, ""payment_allocations"")"
+cashier_v2_core.py,open_charges,337,495,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,"355: if not table_exists(cur, ""charges"") or not table_exists(cur, ""payment_allocations""):"
+cashier_v2_core.py,create_cash_receipt,542,738,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"689: ""payment_allocations"","
+cashier_v2_core.py,create_bank_payment,741,858,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"823: ""payment_allocations"","
+cashier_v2_core.py,create_cash_batch,1158,1336,False,0,5,1,DEBT_OR_PAYMENT_HELPER,,"1218: ""amount_expected"": charge[""outstanding_amount""],"
+cashier_v2_core.py,reconciliation_summary,1385,1418,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1413: ""SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"""
+commercial_contracts.py,has_debt,86,87,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,86: def has_debt(self) -> bool:
+commercial_contracts.py,has_access_blocking_debt,90,91,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,90: def has_access_blocking_debt(self) -> bool:
+commercial_contracts.py,table_exists,140,147,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,142: # v_commercial_contract_charge_debt / v_commercial_contract_debt_summary.
+commercial_contracts.py,schema_ready,150,169,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"159: ""v_commercial_contract_charge_debt"","
+commercial_contracts.py,get_contract,172,198,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"190: c.warning_days_overdue,"
+commercial_contracts.py,list_active_contracts,201,225,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"218: c.warning_days_overdue,"
+commercial_contracts.py,get_contract_items,228,254,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"245: blocks_phone_access_on_debt,"
+commercial_contracts.py,calculate_contract_debt,316,383,False,0,25,0,DEBT_OR_PAYMENT_HELPER,,316: def calculate_contract_debt(
+commercial_contracts.py,contract_notification_stage,386,434,False,0,9,0,DEBT_OR_PAYMENT_HELPER,,"404: debt = calculate_contract_debt(conn, contract_id, on_date=on_date)"
+commercial_contracts.py,build_notification_text,437,502,False,0,19,0,DEBT_OR_PAYMENT_HELPER,,"439: debt: ContractDebt,"
+commercial_contracts.py,notification_dedupe_key,505,521,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,513: Один тип сообщения одному получателю один раз на один долг/срок.
+commercial_contracts.py,create_access_action,555,602,False,0,8,1,DEBT_OR_PAYMENT_HELPER,,"562: debt: ContractDebt,"
+commercial_contracts.py,queue_notification,636,718,False,0,19,1,DEBT_OR_PAYMENT_HELPER,,"641: debt: ContractDebt,"
+commercial_contracts.py,queue_contract_notifications,721,966,False,0,31,0,DEBT_OR_PAYMENT_HELPER,,"749: debt = calculate_contract_debt(conn, contract_id, on_date=on_date)"
+commercial_contracts.py,list_access_action_candidates,990,1020,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"1001: a.debt_amount_snapshot,"
+commercial_contracts.py,record_manual_access_action,1023,1154,False,0,3,2,DEBT_OR_PAYMENT_HELPER,,"1049: debt_amount_snapshot,"
+commercial_contracts.py,format_plan,1157,1171,False,0,10,0,DEBT_OR_PAYMENT_HELPER,,"1158: debt = plan[""debt""]"
+commercial_contracts.py,main,1232,1307,False,0,1,1,DEBT_OR_PAYMENT_HELPER,,"1234: description=""Поставить в очередь Telegram-уведомления по долгам КП."""
+import_ohorona_sheet1_payments.py,apply_rows,386,462,False,0,2,1,DEBT_OR_PAYMENT_HELPER,,"389: allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+import_ohorona_to_cashbox.py,main,868,972,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"892: help=""Подтверждённый остаток кассы после исторического периода. Создаёт отдельную операцию сверки."","
+parking_billing_statement.py,build_statement,167,251,False,0,5,0,DEBT_OR_PAYMENT_HELPER,,"173: allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+parking_billing_statement.py,write_report,264,421,False,0,11,0,DEBT_OR_PAYMENT_HELPER,,"288: debt_rows = [x for x in rows if x[""balance""] > 0.01]"
+phone_barrier_access_core.py,required_phone_access_tables,126,139,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"136: ""access_debt_warnings"","
+phone_barrier_access_core.py,_create_schema,166,548,False,0,24,0,DEBT_OR_PAYMENT_HELPER,,"315: 'DEBT_WARNING', 'DEACTIVATING', 'DEACTIVATED_FOR_DEBT',"
+phone_barrier_access_core.py,ensure_phone_barrier_access_schema,858,1018,False,0,5,1,DEBT_OR_PAYMENT_HELPER,,"941: POLICY_DEBT_GRACE_DAYS,"
+phone_barrier_access_core.py,quote_phone_barrier_access,1175,1255,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"1251: ""grace_days"": int(values.get(POLICY_DEBT_GRACE_DAYS, ""10"")),"
+phone_barrier_access_core.py,_insert_operational_schema,1258,1329,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,1275: parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+phone_barrier_access_core.py,create_phone_access_request_from_interest,1432,1533,False,0,7,2,DEBT_OR_PAYMENT_HELPER,,"1437: parking_debt_check_mode: str = ""MANUAL_REVIEW"","
+phone_barrier_access_core.py,_subscription_summary,1624,1648,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"1633: float(row.get(""amount_due_snapshot"") or 0)"
+phone_barrier_access_core.py,_insert_subscription_connect_charges,1661,1726,False,0,1,1,DEBT_OR_PAYMENT_HELPER,,"1700: amount_due_snapshot, currency, due_date, charge_status,"
+phone_barrier_access_core.py,promote_paid_phone_access_request,1729,1863,False,0,4,3,DEBT_OR_PAYMENT_HELPER,,"1774: parking_debt_check_mode, parking_debt_check_note,"
+phone_barrier_access_core.py,ensure_monthly_phone_access_charges,1866,1970,False,0,3,1,DEBT_OR_PAYMENT_HELPER,,"1876: OPEN, and debt enforcement is deliberately implemented in a later module"
+profile_verification_core.py,_create_schema,266,407,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,334: parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+profile_verification_core.py,_ensure_profile_row,729,786,False,0,2,2,DEBT_OR_PAYMENT_HELPER,,"752: parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,profile_snapshot,878,988,False,0,6,1,DEBT_OR_PAYMENT_HELPER,,955: debt_mode = MODE_CHECK_PARKING if has_parking_obligation else MODE_NO_PARKING
+profile_verification_core.py,phone_access_eligibility,991,1032,False,0,4,0,DEBT_OR_PAYMENT_HELPER,,"1021: ""parking_debt_check_mode"": snapshot[""parking_debt_check_mode""],"
+profile_verification_core.py,confirm_profile,1071,1132,False,0,5,1,DEBT_OR_PAYMENT_HELPER,,1092: debt_mode = (
+profile_verification_core.py,declare_no_vehicle,1135,1201,False,0,1,1,DEBT_OR_PAYMENT_HELPER,,"1170: parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,create_parking_time_request,1211,1306,False,0,1,2,DEBT_OR_PAYMENT_HELPER,,"1291: parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,create_general_correction_request,1309,1380,False,0,1,2,DEBT_OR_PAYMENT_HELPER,,"1365: parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,resolve_profile_request,1460,1538,False,0,1,2,DEBT_OR_PAYMENT_HELPER,,"1518: parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,profile_summary_for_display,1541,1556,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"1554: ""parking_debt_check_mode"": snapshot[""parking_debt_check_mode""],"
+reset_service_catalog.py,get_references_to_service_codes,364,389,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"372: for table_name in [""charges"", ""payments"", ""cashbox_operations"", ""payment_allocations""]:"
+reset_service_catalog.py,get_service_item_references,392,409,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"395: for table_name in [""charges"", ""payments"", ""cashbox_operations"", ""payment_allocations""]:"
+reset_service_catalog.py,clean_catalog,437,607,False,0,1,3,DEBT_OR_PAYMENT_HELPER,,"479: ""  Начисляется при регистрации номера и отсутствии долга по парковке."","
+run_bot_sandbox_v2.py,sqlite_summary,104,130,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"110: ""cashier_reconciliation_cases"","
+service_orders_core.py,link_payment_to_order,815,1049,False,0,2,3,DEBT_OR_PAYMENT_HELPER,,"933: due = order.get(""amount_due_snapshot"")"
+service_preorders_core.py,_payment_candidates,571,620,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"610: params.append(float(interest.get(""amount_due_snapshot"") or 0))"
+tools/cashier_parking_payments_audit_v4.py,get_paid_by_charge_sql,101,112,False,0,5,0,DEBT_OR_PAYMENT_HELPER,,"102: if not table_exists(cur, ""payment_allocations""):"
+tools/cashier_parking_payments_audit_v4.py,load_periods,115,143,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,135: FROM charges c
+tools/cashier_parking_payments_audit_v4.py,load_charges,158,288,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,199: FROM charges c
+tools/cashier_parking_payments_audit_v4.py,split_rows,291,299,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"295: ""UNPAID"": [r for r in rows if r[""payment_status""] == ""UNPAID""],"
+tools/cashier_parking_payments_audit_v4.py,write_xlsx,363,471,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"384: for name in [""ALL"", ""PAID"", ""UNPAID"", ""PARTIAL"", ""OVERPAID"", ""PROBLEMS""]:"
+tools/cashier_parking_payments_audit_v4.py,write_txt,474,517,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"487: for name in [""ALL"", ""PAID"", ""UNPAID"", ""PARTIAL"", ""OVERPAID"", ""PROBLEMS""]:"
+tools/cashier_parking_payments_audit_v4.py,main,544,611,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"549: parser.add_argument(""--list-periods"", action=""store_true"", help=""Only show period_code summary from charges"")"
+tools/cashier_unpaid_preview.py,require_schema,52,67,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"55: ""payment_allocations"": {""charge_id"", ""amount""},"
+tools/cashier_unpaid_preview.py,load_unpaid,70,114,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,70: def load_unpaid(cur):
+tools/cashier_unpaid_preview.py,print_group_summary,151,168,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"163: print(""entr | rows | rest_sum | problem_rows"")"
+tools/cashier_unpaid_preview.py,main,171,198,False,0,3,0,DEBT_OR_PAYMENT_HELPER,,"172: print(""OSBB cashier unpaid preview - READ ONLY"")"
+tools/cashier_unpaid_preview_v2.py,list_periods,65,122,False,0,7,0,DEBT_OR_PAYMENT_HELPER,,"80: alloc_cols = cols(cur, ""payment_allocations"") if table_exists(cur, ""payment_allocations"") else set()"
+tools/cashier_unpaid_preview_v2.py,unpaid_preview,125,240,False,0,9,0,DEBT_OR_PAYMENT_HELPER,,125: def unpaid_preview(args):
+tools/cashier_unpaid_preview_v2.py,main,243,255,False,0,4,0,DEBT_OR_PAYMENT_HELPER,,"244: parser = argparse.ArgumentParser(description=""OSBB cashier unpaid preview. READ ONLY."")"
+tools/cashier_unpaid_preview_v3.py,get_paid_by_charge_sql,105,120,False,0,7,0,DEBT_OR_PAYMENT_HELPER,,108: Current schema has payment_allocations(amount). Some older variants may have allocated_amount.
+tools/cashier_unpaid_preview_v3.py,load_periods,123,151,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"142: COALESCE(SUM(c.amount - COALESCE(p.paid_amount, 0)), 0) AS rest_sum"
+tools/cashier_unpaid_preview_v3.py,choose_period,154,164,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"160: totals[period] += float(row.get(""rest_sum"") or 0)"
+tools/cashier_unpaid_preview_v3.py,load_unpaid,167,245,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"167: def load_unpaid(conn: sqlite3.Connection, period: str, services: Sequence[str]) -> List[Dict[str, Any]]:"
+tools/cashier_unpaid_preview_v3.py,summarize_by_entrance,248,259,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"252: item = grouped.setdefault(key, {""entrance"": key, ""rows"": 0, ""rest_sum"": 0.0, ""problem_rows"": 0})"
+tools/cashier_unpaid_preview_v3.py,write_txt,262,312,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,"262: def write_txt(report_file: Path, *, db_file: Path, period: str, services: Sequence[str], period_rows: List[Dict[str, Any]], unpaid: List[Dict[str, Any]], summary: List[Dict[str, Any]]) -> None:"
+tools/cashier_unpaid_preview_v3.py,write_xlsx,326,461,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,"326: def write_xlsx(xlsx_file: Path, *, db_file: Path, period: str, services: Sequence[str], period_rows: List[Dict[str, Any]], unpaid: List[Dict[str, Any]], summary: List[Dict[str, Any]]) -> bool:"
+tools/cashier_unpaid_preview_v3.py,write_csv,464,488,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,"464: def write_csv(csv_file: Path, unpaid: List[Dict[str, Any]]) -> None:"
+tools/cashier_unpaid_preview_v3.py,print_periods,491,504,False,0,1,0,DEBT_OR_PAYMENT_HELPER,,"502: f""{r.get('rows_count')} | {money(r.get('amount_sum'))} | {money(r.get('paid_sum'))} | {money(r.get('rest_sum'))}"""
+tools/cashier_unpaid_preview_v3.py,main,507,575,False,0,17,0,DEBT_OR_PAYMENT_HELPER,,"508: parser = argparse.ArgumentParser(description=""OSBB cashier unpaid preview/export - READ ONLY"")"
+tools/project_passport.py,main,403,608,False,0,8,0,DEBT_OR_PAYMENT_HELPER,,"526: body.append(""- `03_Technical_Debt.md`"")"
+tools/project_passport_v2.py,main,447,653,False,0,7,0,DEBT_OR_PAYMENT_HELPER,,"572: body.append(""- `03_Technical_Debt.md`"")"
+tools/project_passport_v4_runtime_schema_audit.py,remote_access_scan,485,530,False,0,12,0,DEBT_OR_PAYMENT_HELPER,,"485: def remote_access_scan(py_files: list[Path], root: Path) -> tuple[list[RemoteAccessModule], list[DebtGateCandidate]]:"
+tools/project_passport_v4_runtime_schema_audit.py,main,533,711,False,0,18,0,DEBT_OR_PAYMENT_HELPER,,"588: remote_modules, debt_candidates = remote_access_scan(py_files, root)"
+tools/remote_debt_gate_audit.py,extract_function_segments,267,327,False,0,17,0,DEBT_OR_PAYMENT_HELPER,,288: debt_hits = len(DEBT_CHECK_RE.findall(segment))
+tools/remote_debt_gate_audit.py,scan_candidate_lines,330,345,False,0,2,0,DEBT_OR_PAYMENT_HELPER,,340: elif DEBT_CHECK_RE.search(line):
+Bots/data_park_bot.py,message_handler,102,130,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/db_access.py,upsert_resident_account_from_telegram,98,143,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/db_access.py,link_resident_to_apartment,317,349,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,write_audit_log,422,473,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,mark_resident_operator_verified,607,630,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,unlink_resident_account,633,658,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_parking_status,704,742,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_plate,745,785,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_model,788,828,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_parking_status,1183,1221,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_plate,1224,1263,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_model,1266,1305,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,set_apartment_verification_status,1679,1735,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/db_access.py,create_vehicle_for_apartment,3204,3252,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_from_suggestion,3255,3307,False,0,0,4,WRITE_FLOW_OTHER,,
+Bots/db_access.py,log_operator_action,4505,4583,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_parking_status,4586,4645,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_plate,4648,4710,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,update_vehicle_model,4713,4775,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,set_apartment_verification_status,4778,4853,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/db_access.py,link_resident_to_apartment,5205,5257,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/db_access.py,set_apartment_verification_status,5841,5932,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/agreement.py,handle_vehicle_edit_flow,127,238,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/agreement.py,handle_tariff_vehicle_action,242,306,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/agreement.py,handle_waiting_agreement_apartment,372,379,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/agreement.py,handle_agreement_card_action,382,484,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/agreement.py,handle_agreement_menu_text,487,541,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator.py,insert_dynamic,246,264,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator.py,update_dynamic,267,284,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator.py,recalc_and_store_cashbox_balance,409,422,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator.py,service_hint_label,502,508,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator.py,create_cashier_receipt,560,875,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator.py,void_unallocated_receipt,1185,1336,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator.py,create_cashbox_transfer,1339,1447,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/cashier_operator_v2.py,_service_buttons,162,186,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator_v2.py,_show_service_menu,282,286,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator_v2.py,_start_entry,289,322,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator_v2.py,_show_entry_review,325,336,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/cashier_operator_v2.py,_entry_manual_amount,377,379,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,remotes_menu_keyboard,497,503,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,admin_remote_menu_keyboard,506,510,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_link_requests_ready,724,729,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_create_apartment_link_request,732,804,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/client_portal.py,_list_admin_link_requests,807,834,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_get_admin_link_request,837,854,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_review_link_request,857,966,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/client_portal.py,_format_admin_link_requests,969,989,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_format_admin_link_request_card,992,1009,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_service_name,1193,1199,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_remote_status_label,1315,1316,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_remote_kind_label,1319,1320,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_format_admin_remote_list,1535,1550,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_format_admin_remote_card,1553,1568,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,show_remotes,1608,1614,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,show_admin_remotes,1617,1638,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,_start_remote_request,1694,1712,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal.py,show_admin_link_requests,1725,1755,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,remotes_menu_keyboard,497,503,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,admin_remote_menu_keyboard,506,510,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_link_requests_ready,724,729,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_create_apartment_link_request,732,804,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/client_portal_safe_linking.py,_list_admin_link_requests,807,834,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_get_admin_link_request,837,854,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_review_link_request,857,966,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/client_portal_safe_linking.py,_format_admin_link_requests,969,989,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_format_admin_link_request_card,992,1009,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_service_name,1193,1199,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_remote_status_label,1315,1316,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_remote_kind_label,1319,1320,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_format_admin_remote_list,1535,1550,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_format_admin_remote_card,1553,1568,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,show_remotes,1608,1614,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,show_admin_remotes,1617,1638,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,_start_remote_request,1694,1712,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_safe_linking.py,show_admin_link_requests,1725,1755,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/client_portal_v2.py,_service_buttons,307,320,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,normalize_phone,220,229,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,list_phones,386,397,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,get_phone,400,408,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,set_contract_status,489,531,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/commercial_contract_editor.py,create_recipient,597,644,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/commercial_contract_editor.py,update_recipient,647,674,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/commercial_contract_editor.py,create_phone,677,708,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/commercial_contract_editor.py,update_phone,711,739,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/commercial_contract_editor.py,phone_label,854,855,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,format_phone,869,879,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,show_phones,989,1002,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/commercial_contract_editor.py,show_phone_card,1005,1019,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/guard_workspace.py,_confirm_notice,270,331,True,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/guard_workspace.py,_service_buttons,338,365,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/guard_workspace.py,_insert_remote_event,523,558,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/guard_workspace.py,_select_remote_received_unit,578,601,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/profile_parking_time_test_workspace.py,_with_conn,88,98,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/profile_parking_time_test_workspace.py,handle_profile_parking_time_test_text,222,364,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/profile_verification_workspace.py,_snapshot_for,150,166,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/profile_verification_workspace.py,maybe_show_profile_welcome,274,322,True,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/profile_verification_workspace.py,show_phone_access_block,386,403,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/profile_verification_workspace.py,_show_operator_queue,432,481,True,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/profile_verification_workspace.py,_operator_request_card,484,509,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/profile_verification_workspace.py,_show_operator_request,512,543,True,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/profile_verification_workspace.py,handle_profile_verification_text,546,767,True,0,0,5,WRITE_FLOW_OTHER,,
+Bots/handlers/service_orders_workspace.py,phone_tr,372,373,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_phone_point_text,376,383,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_phone_access_summary_for_interest,386,392,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_phone_access_summary_for_order,395,401,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_service_back,423,424,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_resident_entry_texts,431,436,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_operator_entry_texts,439,440,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_phone_entry_texts,443,448,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_is_phone_offer,451,464,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_normalise_phone,467,468,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_valid_phone,471,472,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_requested_phone,475,479,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_resident_phone_offer,498,502,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,has_service_workspace_access,522,523,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_ensure_and_reconcile,526,537,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/service_orders_workspace.py,_phone_profile_gate,742,758,False,0,0,1,WRITE_FLOW_OTHER,,
+Bots/handlers/service_orders_workspace.py,_phone_profile_gate_text,761,782,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,show_resident_services,806,870,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_show_phone_access_points,873,892,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_show_quantity,895,900,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_show_interest_card,1077,1088,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_show_resident_order,1091,1098,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,show_service_operator_workspace,1311,1354,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_show_operator_orders,1357,1371,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/service_orders_workspace.py,_activate_phone,1478,1492,False,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/unit_registry_editor.py,update_unit_field,410,467,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/unit_registry_editor.py,update_primary_contact,470,530,False,0,0,3,WRITE_FLOW_OTHER,,
+Bots/handlers/unit_registry_editor.py,create_new_unit,533,627,False,0,0,2,WRITE_FLOW_OTHER,,
+Bots/handlers/unit_registry_editor.py,start_create_unit,686,694,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/unit_registry_editor.py,handle_create_flow,850,908,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/handlers/unit_registry_editor.py,handle_unit_registry_editor_text,911,1076,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/hello.py,button_handler,29,56,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/parking_bot.py,handle_waiting_apartment,318,339,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/parking_bot.py,handle_confirm_apartment,342,379,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/parking_bot.py,handle_admin_waiting_user_id,399,437,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/parking_bot.py,handle_admin_confirm_user_action,440,490,True,0,0,0,NAME_ONLY_REVIEW,,
+Bots/parking_bot.py,handle_vehicle_review_action,668,735,True,0,0,0,NAME_ONLY_REVIEW,,
+FIND_actual_service_order_state.py,save_report,401,406,False,0,0,0,NAME_ONLY_REVIEW,,
+FIX_live_services_sandbox_payment_schema.py,map_from_apartments,114,155,False,0,0,1,WRITE_FLOW_OTHER,,
+access_control.py,write_access_audit,307,345,False,0,0,1,WRITE_FLOW_OTHER,,
+audit_osbb_telegram_messages.py,save_report,54,68,False,0,0,0,NAME_ONLY_REVIEW,,
+billing_reconciliation_report.py,service_label,52,58,False,0,0,0,NAME_ONLY_REVIEW,,
+billing_statement_excel.py,service_label,63,71,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,insert_dynamic,352,368,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,update_dynamic,371,385,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,update_dynamic_by,388,405,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,service_group_for,408,419,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,get_service_meta,422,432,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,ensure_service_catalog,435,469,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,get_service_type,472,483,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,get_service_item,486,492,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,ensure_service_item,495,568,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,resolve_base_service,571,589,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,resolve_service_item,592,630,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,create_cashbox_operation,832,880,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_journal.py,command_balance,892,974,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,command_transfer,1224,1337,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,command_service_item_add,1340,1416,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_journal.py,command_service_item_list,1419,1466,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_v2_core.py,service_options,234,312,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_v2_core.py,service_label,315,319,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_v2_core.py,create_payment_notice,865,975,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_v2_core.py,confirm_cash_notice,1033,1105,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_v2_core.py,reject_notice,1108,1151,False,0,0,1,WRITE_FLOW_OTHER,,
+cashier_v2_core.py,create_paper_note,1421,1479,False,0,0,0,NAME_ONLY_REVIEW,,
+cashier_v2_core.py,confirm_bank_notice,1482,1555,False,0,0,1,WRITE_FLOW_OTHER,,
+commercial_contracts.py,get_contract_access_phones,293,313,False,0,0,0,NAME_ONLY_REVIEW,,
+commercial_contracts.py,update_phone_status,605,633,False,0,0,1,WRITE_FLOW_OTHER,,
+create_clean_live_sandbox.py,grant_guard_role,193,237,False,0,0,4,WRITE_FLOW_OTHER,,
+create_clean_live_sandbox.py,create_launcher,240,285,False,0,0,0,NAME_ONLY_REVIEW,,
+create_isolated_live_sandbox_v2.py,grant_guard_role,193,237,False,0,0,4,WRITE_FLOW_OTHER,,
+create_isolated_live_sandbox_v2.py,create_launcher,240,285,False,0,0,0,NAME_ONLY_REVIEW,,
+extract_telegram_remote_facts.py,extract_remote_count,41,49,False,0,0,0,NAME_ONLY_REVIEW,,
+extract_telegram_remote_facts.py,main,72,266,False,0,0,4,WRITE_FLOW_OTHER,,
+extract_telegram_vehicle_facts.py,is_service_chat,60,62,False,0,0,0,NAME_ONLY_REVIEW,,
+extract_telegram_vehicle_facts.py,extract_phones,70,78,False,0,0,0,NAME_ONLY_REVIEW,,
+extract_telegram_vehicle_facts.py,extract_remote_count,81,89,False,0,0,0,NAME_ONLY_REVIEW,,
+extract_telegram_vehicle_facts.py,main,186,411,False,0,0,4,WRITE_FLOW_OTHER,,
+fix_source_ref_schema.py,create_backup,173,178,False,0,0,0,NAME_ONLY_REVIEW,,
+fix_source_ref_schema.py,main,219,296,False,0,0,1,WRITE_FLOW_OTHER,,
+import_house_registry.py,import_house_registry,53,162,False,0,0,2,WRITE_FLOW_OTHER,,
+import_ohorona_sheet1_payments.py,service_code_for,280,292,False,0,0,0,NAME_ONLY_REVIEW,,
+import_ohorona_sheet1_payments.py,insert_dynamic,373,383,False,0,0,1,WRITE_FLOW_OTHER,,
+import_ohorona_to_cashbox.py,resolve_historical_service,357,439,False,0,0,0,NAME_ONLY_REVIEW,,
+import_ohorona_to_cashbox.py,apply_plans,601,801,False,0,0,1,WRITE_FLOW_OTHER,,
+import_tbot_quarantine.py,import_tbot_quarantine,39,146,False,0,0,5,WRITE_FLOW_OTHER,,
+init_osbb_telegram_db.py,init_telegram_db,19,129,False,0,0,1,WRITE_FLOW_OTHER,,
+manage_staff_access.py,ensure_principal,182,198,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access.py,grant_role,201,240,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access.py,set_permission,243,285,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access.py,write_manager_audit,288,321,False,0,0,1,WRITE_FLOW_OTHER,,
+manage_staff_access.py,main,324,445,False,0,0,1,WRITE_FLOW_OTHER,,
+manage_staff_access_v2.py,ensure_principal,182,198,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access_v2.py,grant_role,201,240,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access_v2.py,set_permission,243,285,False,0,0,2,WRITE_FLOW_OTHER,,
+manage_staff_access_v2.py,write_manager_audit,288,321,False,0,0,1,WRITE_FLOW_OTHER,,
+manage_staff_access_v2.py,main,324,445,False,0,0,1,WRITE_FLOW_OTHER,,
+parking_billing_statement.py,service_label,254,261,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,_created_tables,157,163,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,_ensure_access_point,578,604,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_core.py,_ensure_tariff,607,674,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_core.py,_ensure_policy_version,677,723,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_core.py,_ensure_policy_value,726,771,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_core.py,required_phone_access_operational_tables,1060,1061,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,normalise_phone_number,1158,1162,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,ensure_phone_access_operational_schema,1332,1397,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_core.py,_request_row,1400,1416,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,_request_points,1419,1429,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,phone_access_request_summary,1588,1621,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_core.py,phone_access_subscription_summary_for_order,1651,1658,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_service.py,promote_paid_phone_barrier_access_interest,108,122,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_service.py,phone_access_summary_for_interest,125,137,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_service.py,phone_access_summary_for_order,140,160,False,0,0,0,NAME_ONLY_REVIEW,,
+phone_barrier_access_service.py,activate_phone_barrier_access_order,163,187,False,0,0,1,WRITE_FLOW_OTHER,,
+phone_barrier_access_service.py,phone_barrier_quote,190,207,False,0,0,0,NAME_ONLY_REVIEW,,
+profile_parking_time_test_core.py,_create_schema,112,191,False,0,0,0,NAME_ONLY_REVIEW,,
+profile_parking_time_test_core.py,_event,216,244,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_parking_time_test_core.py,ensure_test_schema,247,292,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_parking_time_test_core.py,open_test_session,575,669,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_parking_time_test_core.py,propose_parking_time,672,718,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_parking_time_test_core.py,decide_test_session,721,774,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_parking_time_test_core.py,close_test_session,777,816,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,_journal,433,468,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,_ensure_policy,471,506,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,_ensure_policy_value,509,545,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,ensure_profile_verification_schema,548,672,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,_open_request_count,789,799,False,0,0,0,NAME_ONLY_REVIEW,,
+profile_verification_core.py,mark_welcome_shown,1035,1068,False,0,0,1,WRITE_FLOW_OTHER,,
+profile_verification_core.py,get_profile_request,1383,1398,False,0,0,0,NAME_ONLY_REVIEW,,
+profile_verification_core.py,list_pending_profile_requests,1401,1423,False,0,0,0,NAME_ONLY_REVIEW,,
+profile_verification_core.py,_apply_parking_time,1426,1457,False,0,0,1,WRITE_FLOW_OTHER,,
+reset_service_catalog.py,insert_dynamic,293,307,False,0,0,1,WRITE_FLOW_OTHER,,
+reset_service_catalog.py,update_service_dynamic,310,328,False,0,0,1,WRITE_FLOW_OTHER,,
+reset_service_catalog.py,upsert_service_item,331,361,False,0,0,1,WRITE_FLOW_OTHER,,
+reset_service_catalog.py,reset_sqlite_sequence,419,424,False,0,0,1,WRITE_FLOW_OTHER,,
+run_bot_live_services_sandbox_v1.py,create_backup,137,142,False,0,0,0,NAME_ONLY_REVIEW,,
+service_catalog_admin_core.py,_insert_dynamic,90,103,False,0,0,1,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,_update_dynamic,106,124,False,0,0,1,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,list_service_offers,155,204,False,0,0,0,NAME_ONLY_REVIEW,,
+service_catalog_admin_core.py,add_or_update_service_offer,207,365,False,0,0,3,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,set_service_price,368,458,False,0,0,4,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,retire_service_offer,461,512,False,0,0,2,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,restore_service_offer,515,553,False,0,0,2,WRITE_FLOW_OTHER,,
+service_catalog_admin_core.py,_fetch_service_item_or_raise,556,566,False,0,0,0,NAME_ONLY_REVIEW,,
+service_orders_core.py,_payment_for_service_order_link,90,145,False,0,0,0,NAME_ONLY_REVIEW,,
+service_orders_core.py,_service_item,211,246,False,0,0,0,NAME_ONLY_REVIEW,,
+service_orders_core.py,get_service_workflow,249,280,False,0,0,0,NAME_ONLY_REVIEW,,
+service_orders_core.py,_event,335,363,False,0,0,1,WRITE_FLOW_OTHER,,
+service_orders_core.py,_order_steps,393,403,False,0,0,0,NAME_ONLY_REVIEW,,
+service_orders_core.py,confirm_order_step,716,812,False,0,0,2,WRITE_FLOW_OTHER,,
+service_orders_core.py,link_charge_to_order,1051,1094,False,0,0,2,WRITE_FLOW_OTHER,,
+service_orders_core.py,create_remote_asset,1097,1172,False,0,0,4,WRITE_FLOW_OTHER,,
+service_orders_core.py,record_remote_movement,1175,1278,False,0,0,4,WRITE_FLOW_OTHER,,
+service_orders_core.py,activate_access_credential,1281,1348,False,0,0,2,WRITE_FLOW_OTHER,,
+service_orders_core.py,list_order_steps,1351,1362,False,0,0,0,NAME_ONLY_REVIEW,,
+service_preorders_core.py,_insert_dynamic,235,244,False,0,0,1,WRITE_FLOW_OTHER,,
+service_preorders_core.py,_service_item_snapshot,331,362,False,0,0,0,NAME_ONLY_REVIEW,,
+service_preorders_core.py,order_supply_link,1021,1042,False,0,0,0,NAME_ONLY_REVIEW,,
+tools/project_passport_v4_runtime_schema_audit.py,strict_entrypoints,399,437,False,0,0,0,NAME_ONLY_REVIEW,,

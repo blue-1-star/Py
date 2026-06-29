@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-28 15:56:10",
+  "root": "G:\\Programming\\Py\\OSBB",
+  "out_dir": "G:\\Programming\\Py\\OSBB\\Data\\exports\\code_passport\\project_passport_v4_2026-06-28_15-56-10",
+  "db_mode": "test",
+  "db_path": "G:\\Programming\\Py\\OSBB\\Data\\db\\osbb_test.db",
+  "db_error": "",
+  "db_tables": 53,
+  "python_files": 261,
+  "strict_entrypoints": 189,
+  "runtime_target": "run_bot_guard_sandbox_v3.py",
+  "runtime_nodes": 1,
+  "runtime_edges": 0,
+  "runtime_error": "",
+  "table_refs": 7732,
+  "missing_tables": 163,
+  "remote_access_modules": 172,
+  "debt_gate_candidates": 3551
+}

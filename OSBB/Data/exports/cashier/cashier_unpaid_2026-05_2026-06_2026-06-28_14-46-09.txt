@@ -1,0 +1,124 @@
+OSBB cashier unpaid preview - READ ONLY
+Generated: 2026-06-28 14:46:09
+USE_TEST_DB: True
+DB: G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Period: 2026-05_2026-06
+Services: PARKING_DAY, PARKING_NIGHT, BARRIER_PHONE
+
+PERIODS IN CHARGES
+--------------------------------------------------------------------------------------------------------------
+period_code | service | item | rows | amount | paid | rest
+--------------------------------------------------------------------------------------------------------------
+2026-05_2026-06 | PARKING_DAY | - | 34 | 13600 | 1200 | 12400
+2026-05_2026-06 | PARKING_NIGHT | - | 61 | 61000 | 7700 | 53300
+
+Unpaid / partial charges: 90
+
+SUMMARY BY ENTRANCE
+----------------------------------------------------------------------
+entr | rows | rest_sum | problem_rows
+----------------------------------------------------------------------
+1 | 8 | 7400 | 0
+2 | 35 | 33500 | 3
+3 | 6 | 2400 | 0
+4 | 9 | 4900 | 3
+5 | 12 | 8400 | 0
+6 | 20 | 10400 | 0
+----------------------------------------------------------------------
+
+DETAIL
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+entr | apt | charge | service | item | plate | model | p_time | amount | paid | rest | flags
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+1 | 1 | 1 | PARKING_NIGHT | - | AA9599EA | LEXUS | Night | 1000 | 0 | 1000 | 
+1 | 2 | 2 | PARKING_NIGHT | - | AI8756HK | MERCEDES | Night | 1000 | 0 | 1000 | 
+1 | 8 | 3 | PARKING_NIGHT | - | AA8008M | LEXUS | Night | 1000 | 0 | 1000 | 
+1 | 10 | 4 | PARKING_NIGHT | - | AA54B | AA3455 | Night | 1000 | 0 | 1000 | 
+1 | 12 | 5 | PARKING_NIGHT | - | A0448YB | AUDI | Night | 1000 | 0 | 1000 | 
+1 | 13 | 6 | PARKING_DAY | - | KA7550BC | SKODA | Day | 400 | 0 | 400 | 
+1 | 13 | 7 | PARKING_NIGHT | - | AA5472OA | - | Night | 1000 | 0 | 1000 | 
+1 | 14 | 8 | PARKING_NIGHT | - | KA1165IB | HYUNDAI | Night | 1000 | 0 | 1000 | 
+2 | 27 | 9 | PARKING_NIGHT | - | AP8170IX | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 29 | 10 | PARKING_NIGHT | - | AA5432EX | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 30 | 11 | PARKING_NIGHT | - | KA0186CM | TOYOTA | Night | 1000 | 500 | 500 | PARTIAL
+2 | 38 | 12 | PARKING_NIGHT | - | AA9437MX | KIA | Night | 1000 | 0 | 1000 | 
+2 | 38 | 13 | PARKING_NIGHT | - | AA1474IB | OPEL | Night | 1000 | 0 | 1000 | 
+2 | 56 | 14 | PARKING_NIGHT | - | KA9552TB | SUZUKI | Night | 1000 | 0 | 1000 | 
+2 | 69 | 15 | PARKING_NIGHT | - | KA6061KK | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 69 | 16 | PARKING_NIGHT | - | KA5670EB | KIA | Night | 1000 | 0 | 1000 | 
+2 | 71 | 17 | PARKING_NIGHT | - | BM1253BX | SKODA | Night | 1000 | 500 | 500 | PARTIAL
+2 | 82 | 18 | PARKING_NIGHT | - | KA1901PX | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 89 | 19 | PARKING_NIGHT | - | KA6739IE | BMW | Night | 1000 | 0 | 1000 | 
+2 | 89 | 20 | PARKING_NIGHT | - | AA0606KB | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 89 | 21 | PARKING_NIGHT | - | AA4566CT | TOYOTA | Night | 1000 | 0 | 1000 | 
+2 | 96 | 22 | PARKING_NIGHT | - | KA6144PM | AUDI | Night | 1000 | 0 | 1000 | 
+2 | 98 | 23 | PARKING_NIGHT | - | AA3804KI | VOLVO | Night | 1000 | 500 | 500 | PARTIAL
+2 | 101 | 24 | PARKING_NIGHT | - | KA6714MP | SKODA | Night | 1000 | 0 | 1000 | 
+2 | 105 | 25 | PARKING_NIGHT | - | AA3033BC | SUBARU | Night | 1000 | 0 | 1000 | 
+2 | 106 | 26 | PARKING_NIGHT | - | AA3353B | VOLKSWAGEN | Night | 1000 | 0 | 1000 | 
+2 | 107 | 27 | PARKING_NIGHT | - | A7758TE | NISSAN | Night | 1000 | 0 | 1000 | 
+2 | 120 | 28 | PARKING_NIGHT | - | AA7171EA | HONDA | Night | 1000 | 0 | 1000 | 
+2 | 122 | 29 | PARKING_NIGHT | - | KA6623MI | BMW | Night | 1000 | 0 | 1000 | 
+2 | 125 | 30 | PARKING_NIGHT | - | KA2708HO | LEXUS | Night | 1000 | 0 | 1000 | 
+2 | 125 | 31 | PARKING_NIGHT | - | AA6626HP | MERSEDES | Night | 1000 | 0 | 1000 | 
+2 | 126 | 32 | PARKING_NIGHT | - | AA8393YB | TESLA | Night | 1000 | 0 | 1000 | 
+2 | 126 | 33 | PARKING_NIGHT | - | KA7973CC | VOLKSWAGEN | Night | 1000 | 0 | 1000 | 
+2 | 129 | 34 | PARKING_NIGHT | - | KA8009B | NISSAN | Night | 1000 | 0 | 1000 | 
+2 | 129 | 35 | PARKING_NIGHT | - | KA6786PE | MERSEDES | Night | 1000 | 0 | 1000 | 
+2 | 133 | 36 | PARKING_NIGHT | - | AI5787ET | BMW | Night | 1000 | 0 | 1000 | 
+2 | 133 | 37 | PARKING_NIGHT | - | AM0808BO | MAZDA | Night | 1000 | 0 | 1000 | 
+2 | 134 | 38 | PARKING_NIGHT | - | AM1317HT | BMW | Night | 1000 | 0 | 1000 | 
+2 | 138 | 40 | PARKING_NIGHT | - | KA4288BT | JAGUAR | Night | 1000 | 0 | 1000 | 
+2 | 139 | 41 | PARKING_NIGHT | - | KA6052PK | BMW | Night | 1000 | 0 | 1000 | 
+2 | 139 | 42 | PARKING_NIGHT | - | KA7764MK | PEUGEOT | Night | 1000 | 0 | 1000 | 
+2 | 140 | 43 | PARKING_NIGHT | - | A7772C | LINCOLN | Night | 1000 | 0 | 1000 | 
+2 | 142 | 44 | PARKING_NIGHT | - | AA0721M | HONDA | Night | 1000 | 0 | 1000 | 
+3 | 144 | 45 | PARKING_DAY | - | AA9599BC | AUDI | Day | 400 | 0 | 400 | 
+3 | 144 | 46 | PARKING_DAY | - | KA9959AE | PORSCHE | Day | 400 | 0 | 400 | 
+3 | 145 | 47 | PARKING_DAY | - | AA1402MK | CHEVROLET | Day | 400 | 0 | 400 | 
+3 | 155 | 48 | PARKING_DAY | - | KA9151 | TOYOTA | Day | 400 | 0 | 400 | 
+3 | 155 | 49 | PARKING_DAY | - | AA7020 | LEXUS | Day | 400 | 0 | 400 | 
+3 | 155 | 50 | PARKING_DAY | - | KA1175 | TOYOTA | Day | 400 | 0 | 400 | 
+4 | 160 | 53 | PARKING_NIGHT | - | KA7030TH | LEXUS | Night | 1000 | 0 | 1000 | 
+4 | 161 | 54 | PARKING_NIGHT | - | AA5003MX | LEXUS | Night | 1000 | 500 | 500 | PARTIAL
+4 | 161 | 55 | PARKING_NIGHT | - | AA9868KC | AUDI | Night | 1000 | 500 | 500 | PARTIAL
+4 | 167 | 57 | PARKING_NIGHT | - | AA4477OH | TOYOTA | Night | 1000 | 700 | 300 | PARTIAL
+4 | 169 | 58 | PARKING_NIGHT | - | KA1784EA | MERCEDES | Night | 1000 | 0 | 1000 | 
+4 | 173 | 60 | PARKING_DAY | - | AA9415YC | TESLA | Day | 400 | 0 | 400 | 
+4 | 173 | 61 | PARKING_DAY | - | KA1188BK | BMW | Day | 400 | 0 | 400 | 
+4 | 173 | 62 | PARKING_DAY | - | KA2729CH | JAGUAR | Day | 400 | 0 | 400 | 
+4 | 174 | 63 | PARKING_DAY | - | AA8787BC | VOLVO | Day | 400 | 0 | 400 | 
+5 | 176 | 64 | PARKING_NIGHT | - | AA1234BT | BMW | Night | 1000 | 0 | 1000 | 
+5 | 180 | 65 | PARKING_NIGHT | - | AA5993TH | BMW | Night | 1000 | 0 | 1000 | 
+5 | 180 | 66 | PARKING_DAY | - | AA9489XK | VOLKSWAGEN | Day | 400 | 0 | 400 | 
+5 | 181 | 67 | PARKING_DAY | - | BO7254EM | VOLKSWAGEN | Day | 400 | 0 | 400 | 
+5 | 182 | 68 | PARKING_NIGHT | - | BO0125EX | BMW | Night | 1000 | 0 | 1000 | 
+5 | 182 | 69 | PARKING_NIGHT | - | BO8887BB | LAND ROVER | Night | 1000 | 0 | 1000 | 
+5 | 185 | 70 | PARKING_DAY | - | KI1302IH | KIA | Day | 400 | 0 | 400 | 
+5 | 186 | 71 | PARKING_DAY | - | AA5553EB | LEXUS | Day | 400 | 0 | 400 | 
+5 | 186 | 72 | PARKING_NIGHT | - | AA5553P | MERCEDES | Night | 1000 | 0 | 1000 | 
+5 | 187 | 73 | PARKING_DAY | - | AA7007AO | MERCEDES | Day | 400 | 0 | 400 | 
+5 | 187 | 74 | PARKING_NIGHT | - | AA7007OO | RANGE ROVER | Night | 1000 | 0 | 1000 | 
+5 | 188 | 75 | PARKING_DAY | - | AI5568AC | - | Day | 400 | 0 | 400 | 
+6 | 191 | 76 | PARKING_DAY | - | AA1677MA | MERCEDES | Day | 400 | 0 | 400 | 
+6 | 191 | 77 | PARKING_DAY | - | KA3326E | BYD | Day | 400 | 0 | 400 | 
+6 | 191 | 78 | PARKING_NIGHT | - | K5775AC | MERCEDES | Night | 1000 | 0 | 1000 | 
+6 | 194 | 79 | PARKING_NIGHT | - | AA5551IH | MERCEDES | Night | 1000 | 0 | 1000 | 
+6 | 194 | 80 | PARKING_DAY | - | KA8848AO | MERCEDES | Day | 400 | 0 | 400 | 
+6 | 195 | 81 | PARKING_NIGHT | - | AA1102AA | JEEP | Night | 1000 | 0 | 1000 | 
+6 | 195 | 82 | PARKING_DAY | - | AA8838TX | AUDI | Day | 400 | 0 | 400 | 
+6 | 196 | 83 | PARKING_DAY | - | AA9933EC | NISSAN | Day | 400 | 0 | 400 | 
+6 | 197 | 84 | PARKING_DAY | - | AA0403EM | SKODA | Day | 400 | 0 | 400 | 
+6 | 198 | 85 | PARKING_DAY | - | KA2882E | MERCEDES | Day | 400 | 0 | 400 | 
+6 | 198 | 86 | PARKING_DAY | - | KA2882TT | RANGE ROVER | Day | 400 | 0 | 400 | 
+6 | 200 | 87 | PARKING_DAY | - | AA8499AK | HONDA | Day | 400 | 0 | 400 | 
+6 | 200 | 88 | PARKING_DAY | - | AA5200HI | MERCEDES | Day | 400 | 0 | 400 | 
+6 | 201 | 89 | PARKING_DAY | - | AA4388EX | VOLKSWAGEN | Day | 400 | 0 | 400 | 
+6 | 202 | 90 | PARKING_DAY | - | KA8801BB | RANGE ROVER | Day | 400 | 0 | 400 | 
+6 | 203 | 91 | PARKING_NIGHT | - | AA5054AX | - | Night | 1000 | 0 | 1000 | 
+6 | 203 | 92 | PARKING_DAY | - | AA8069IM | - | Day | 400 | 0 | 400 | 
+6 | 205 | 93 | PARKING_DAY | - | KA2882AE | VOLKSWAGEN | Day | 400 | 0 | 400 | 
+6 | 205 | 94 | PARKING_DAY | - | KA8482II | LEXUS | Day | 400 | 0 | 400 | 
+6 | 206 | 95 | PARKING_DAY | - | AA1311BP | MERCEDES | Day | 400 | 0 | 400 | 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+READ ONLY COMPLETED

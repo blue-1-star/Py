@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-28 16:48:56",
+  "root": "G:\\Programming\\Py\\OSBB",
+  "out_dir": "G:\\Programming\\Py\\OSBB\\Data\\exports\\code_passport\\remote_debt_gate_audit_2026-06-28_16-48-56",
+  "db": {
+    "mode": "test",
+    "db_path": "G:\\Programming\\Py\\OSBB\\Data\\db\\osbb_test.db",
+    "db_error": "",
+    "has_charges": true,
+    "has_payment_allocations": true,
+    "has_payments": true,
+    "has_remote_requests": true,
+    "has_service_orders": false,
+    "has_service_order_interests": false,
+    "has_remote_order_details": false,
+    "has_payment_notices": true
+  },
+  "files_scanned": 79,
+  "functions_scanned": 516,
+  "remote_flow_no_debt_functions": 93,
+  "remote_flow_with_debt_words_functions": 13,
+  "debt_or_payment_helper_functions": 150,
+  "high_priority_suspects": 59
+}

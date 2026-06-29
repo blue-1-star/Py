@@ -1,0 +1,4148 @@
+========================================================================================================================
+OSBB DATABASE SCHEMA SNAPSHOT - FULL / READ ONLY
+========================================================================================================================
+Generated : 2026-06-28 14:30:02
+Mode      : test
+DB        : G:\Programming\Py\OSBB\Data\db\osbb_test.db
+SQLite    : 3.50.4
+
+SUMMARY
+------------------------------------------------------------------------------------------------------------------------
+tables: 52
+views: 3
+triggers: 0
+standalone_indexes: 134
+
+KEY TABLES CHECK (not a filter; full report below includes ALL tables)
+------------------------------------------------------------------------------------------------------------------------
+Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+Missing: (none)
+
+TABLE LIST
+------------------------------------------------------------------------------------------------------------------------
+- adjustment_assignments (0 rows)
+- adjustment_catalog (6 rows)
+- apartment_link_requests (0 rows)
+- apartment_verification (231 rows)
+- apartments (236 rows)
+- audit_log (0 rows)
+- bank_transactions (0 rows)
+- barrier_phone_access (0 rows)
+- bot_admins (1 rows)
+- bot_user_sessions (0 rows)
+- cashbox_operations (93 rows)
+- cashboxes (10 rows)
+- cashier_batch_items (0 rows)
+- cashier_batches (0 rows)
+- cashier_receipts (0 rows)
+- cashier_reconciliation_cases (0 rows)
+- charge_adjustments (0 rows)
+- charges (95 rows)
+- commercial_access_actions (0 rows)
+- commercial_access_phones (0 rows)
+- commercial_contract_items (0 rows)
+- commercial_contract_recipients (0 rows)
+- commercial_contracts (0 rows)
+- commercial_notifications (0 rows)
+- contact_methods (0 rows)
+- events (0 rows)
+- extracted_facts (0 rows)
+- message_sources (0 rows)
+- operator_audit_log (114 rows)
+- parking_time_review_tasks (35 rows)
+- payment_allocations (13 rows)
+- payment_notices (0 rows)
+- payments (92 rows)
+- persons (343 rows)
+- raw_messages (0 rows)
+- remote_requests (0 rows)
+- resident_accounts (1 rows)
+- schema_info (1 rows)
+- service_catalog (12 rows)
+- service_items (11 rows)
+- service_tariffs (3 rows)
+- tbot_parking_import (125 rows)
+- unit_aliases (0 rows)
+- unit_contacts (0 rows)
+- unit_group_aliases (13 rows)
+- unit_group_members (8 rows)
+- unit_groups (4 rows)
+- vehicles (130 rows)
+- verification_candidates (46 rows)
+- verification_evidence (80 rows)
+- verification_log (0 rows)
+- verification_tasks (37 rows)
+
+========================================================================================================================
+TABLE adjustment_assignments
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE adjustment_assignments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            adjustment_code TEXT NOT NULL,
+            adjustment_type TEXT NOT NULL,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            contact_id INTEGER,
+            vehicle_id INTEGER,
+            base_service_code TEXT,
+            service_item_code TEXT,
+            calculation_kind TEXT NOT NULL,
+            calculation_value REAL,
+            credit_total_amount REAL,
+            credit_remaining_amount REAL,
+            valid_from TEXT,
+            valid_to TEXT,
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            approval_reference TEXT,
+            public_note TEXT,
+            internal_note TEXT,
+            approved_by TEXT,
+            created_by TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY (adjustment_code) REFERENCES adjustment_catalog(adjustment_code)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | adjustment_code | TEXT | 1 |  | 0
+2 | adjustment_type | TEXT | 1 |  | 0
+3 | apartment_id | INTEGER | 0 |  | 0
+4 | apartment_number | TEXT | 0 |  | 0
+5 | contact_id | INTEGER | 0 |  | 0
+6 | vehicle_id | INTEGER | 0 |  | 0
+7 | base_service_code | TEXT | 0 |  | 0
+8 | service_item_code | TEXT | 0 |  | 0
+9 | calculation_kind | TEXT | 1 |  | 0
+10 | calculation_value | REAL | 0 |  | 0
+11 | credit_total_amount | REAL | 0 |  | 0
+12 | credit_remaining_amount | REAL | 0 |  | 0
+13 | valid_from | TEXT | 0 |  | 0
+14 | valid_to | TEXT | 0 |  | 0
+15 | status | TEXT | 1 | 'ACTIVE' | 0
+16 | approval_reference | TEXT | 0 |  | 0
+17 | public_note | TEXT | 0 |  | 0
+18 | internal_note | TEXT | 0 |  | 0
+19 | approved_by | TEXT | 0 |  | 0
+20 | created_by | TEXT | 0 |  | 0
+21 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+22 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_adjust_assign_status_dates | unique=0 | origin=c | partial=0 | columns=[status, valid_from, valid_to]
+- idx_adjust_assign_vehicle | unique=0 | origin=c | partial=0 | columns=[vehicle_id]
+- idx_adjust_assign_apt | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_adjust_assign_code | unique=0 | origin=c | partial=0 | columns=[adjustment_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=adjustment_catalog from=adjustment_code to=adjustment_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE adjustment_catalog
+========================================================================================================================
+Rows: 6
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE adjustment_catalog (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            adjustment_code TEXT NOT NULL UNIQUE,
+            adjustment_name TEXT NOT NULL,
+            adjustment_type TEXT NOT NULL,
+            default_calculation_kind TEXT,
+            default_calculation_value REAL,
+            is_sensitive INTEGER NOT NULL DEFAULT 0,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            public_note_template TEXT,
+            internal_description TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | adjustment_code | TEXT | 1 |  | 0
+2 | adjustment_name | TEXT | 1 |  | 0
+3 | adjustment_type | TEXT | 1 |  | 0
+4 | default_calculation_kind | TEXT | 0 |  | 0
+5 | default_calculation_value | REAL | 0 |  | 0
+6 | is_sensitive | INTEGER | 1 | 0 | 0
+7 | is_active | INTEGER | 1 | 1 | 0
+8 | public_note_template | TEXT | 0 |  | 0
+9 | internal_description | TEXT | 0 |  | 0
+10 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+11 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_adjustment_catalog_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- idx_adjustment_catalog_type | unique=0 | origin=c | partial=0 | columns=[adjustment_type]
+- sqlite_autoindex_adjustment_catalog_1 | unique=1 | origin=u | partial=0 | columns=[adjustment_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE apartment_link_requests
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE apartment_link_requests (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            resident_account_id INTEGER NOT NULL,
+            telegram_user_id TEXT NOT NULL,
+            current_apartment_id INTEGER,
+            current_apartment_number TEXT,
+            requested_apartment_id INTEGER NOT NULL,
+            requested_apartment_number TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'NEW',
+            resident_comment TEXT,
+            operator_id TEXT,
+            operator_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            reviewed_at TEXT,
+            FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id),
+            FOREIGN KEY(current_apartment_id) REFERENCES apartments(id),
+            FOREIGN KEY(requested_apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | resident_account_id | INTEGER | 1 |  | 0
+2 | telegram_user_id | TEXT | 1 |  | 0
+3 | current_apartment_id | INTEGER | 0 |  | 0
+4 | current_apartment_number | TEXT | 0 |  | 0
+5 | requested_apartment_id | INTEGER | 1 |  | 0
+6 | requested_apartment_number | TEXT | 1 |  | 0
+7 | status | TEXT | 1 | 'NEW' | 0
+8 | resident_comment | TEXT | 0 |  | 0
+9 | operator_id | TEXT | 0 |  | 0
+10 | operator_note | TEXT | 0 |  | 0
+11 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+12 | updated_at | TEXT | 0 |  | 0
+13 | reviewed_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_apartment_link_requests_requested_unit | unique=0 | origin=c | partial=0 | columns=[requested_apartment_id, status]
+- idx_apartment_link_requests_resident | unique=0 | origin=c | partial=0 | columns=[resident_account_id, status, created_at]
+- idx_apartment_link_requests_status | unique=0 | origin=c | partial=0 | columns=[status, created_at]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=requested_apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=apartments from=current_apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=2 seq=0 table=resident_accounts from=resident_account_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE apartment_verification
+========================================================================================================================
+Rows: 231
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE apartment_verification (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_id INTEGER NOT NULL,
+            apartment_number TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'new',
+            comment TEXT,
+            verified_by INTEGER,
+            verified_at TEXT,
+            created_at TEXT,
+            updated_at TEXT,
+            UNIQUE(apartment_id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 1 |  | 0
+2 | apartment_number | TEXT | 1 |  | 0
+3 | status | TEXT | 1 | 'new' | 0
+4 | comment | TEXT | 0 |  | 0
+5 | verified_by | INTEGER | 0 |  | 0
+6 | verified_at | TEXT | 0 |  | 0
+7 | created_at | TEXT | 0 |  | 0
+8 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_apartment_verification_apartment_number | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_apartment_verification_status | unique=0 | origin=c | partial=0 | columns=[status]
+- sqlite_autoindex_apartment_verification_1 | unique=1 | origin=u | partial=0 | columns=[apartment_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE apartments
+========================================================================================================================
+Rows: 236
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE apartments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_number TEXT NOT NULL UNIQUE,
+        entrance TEXT,
+        entrance_source TEXT,
+        total_area REAL,
+        object_type TEXT,
+        status TEXT DEFAULT 'active',
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT
+    , unit_type TEXT DEFAULT 'RESIDENTIAL', unit_code TEXT, entrance_number INTEGER, official_number TEXT, display_name TEXT, area_sqm REAL, record_status TEXT DEFAULT 'LEGACY', source_note TEXT, internal_note TEXT, unit_updated_at TEXT)
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_number | TEXT | 1 |  | 0
+2 | entrance | TEXT | 0 |  | 0
+3 | entrance_source | TEXT | 0 |  | 0
+4 | total_area | REAL | 0 |  | 0
+5 | object_type | TEXT | 0 |  | 0
+6 | status | TEXT | 0 | 'active' | 0
+7 | source | TEXT | 0 |  | 0
+8 | notes | TEXT | 0 |  | 0
+9 | created_at | TEXT | 0 |  | 0
+10 | created_by | TEXT | 0 |  | 0
+11 | updated_at | TEXT | 0 |  | 0
+12 | updated_by | TEXT | 0 |  | 0
+13 | unit_type | TEXT | 0 | 'RESIDENTIAL' | 0
+14 | unit_code | TEXT | 0 |  | 0
+15 | entrance_number | INTEGER | 0 |  | 0
+16 | official_number | TEXT | 0 |  | 0
+17 | display_name | TEXT | 0 |  | 0
+18 | area_sqm | REAL | 0 |  | 0
+19 | record_status | TEXT | 0 | 'LEGACY' | 0
+20 | source_note | TEXT | 0 |  | 0
+21 | internal_note | TEXT | 0 |  | 0
+22 | unit_updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_apartments_unit_code_unique | unique=1 | origin=c | partial=1 | columns=[unit_code]
+- sqlite_autoindex_apartments_1 | unique=1 | origin=u | partial=0 | columns=[apartment_number]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE audit_log
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE audit_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        event_time TEXT,
+        username TEXT,
+        table_name TEXT,
+        record_id TEXT,
+        action TEXT,
+        field_name TEXT,
+        old_value TEXT,
+        new_value TEXT,
+        comment TEXT
+    , actor_role TEXT, actor_name TEXT, source TEXT DEFAULT 'bot', telegram_user_id INTEGER)
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | event_time | TEXT | 0 |  | 0
+2 | username | TEXT | 0 |  | 0
+3 | table_name | TEXT | 0 |  | 0
+4 | record_id | TEXT | 0 |  | 0
+5 | action | TEXT | 0 |  | 0
+6 | field_name | TEXT | 0 |  | 0
+7 | old_value | TEXT | 0 |  | 0
+8 | new_value | TEXT | 0 |  | 0
+9 | comment | TEXT | 0 |  | 0
+10 | actor_role | TEXT | 0 |  | 0
+11 | actor_name | TEXT | 0 |  | 0
+12 | source | TEXT | 0 | 'bot' | 0
+13 | telegram_user_id | INTEGER | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_audit_log_event_time | unique=0 | origin=c | partial=0 | columns=[event_time]
+- idx_audit_log_table_record | unique=0 | origin=c | partial=0 | columns=[table_name, record_id]
+- idx_audit_log_actor | unique=0 | origin=c | partial=0 | columns=[telegram_user_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE bank_transactions
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE bank_transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            transaction_ref TEXT UNIQUE,
+            entry_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+            transaction_date TEXT NOT NULL,
+            value_date TEXT,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            period_code TEXT,
+            service_code TEXT,
+            service_item_code TEXT,
+            amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            payer_text TEXT,
+            bank_name TEXT,
+            source_type TEXT NOT NULL DEFAULT 'manual_operator',
+            source_ref TEXT,
+            payment_notice_id INTEGER,
+            payment_id INTEGER,
+            cashier_batch_id INTEGER,
+            operator_id TEXT,
+            operator_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+            FOREIGN KEY(payment_notice_id) REFERENCES payment_notices(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | transaction_ref | TEXT | 0 |  | 0
+2 | entry_status | TEXT | 1 | 'CONFIRMED' | 0
+3 | transaction_date | TEXT | 1 |  | 0
+4 | value_date | TEXT | 0 |  | 0
+5 | apartment_id | INTEGER | 0 |  | 0
+6 | apartment_number | TEXT | 0 |  | 0
+7 | period_code | TEXT | 0 |  | 0
+8 | service_code | TEXT | 0 |  | 0
+9 | service_item_code | TEXT | 0 |  | 0
+10 | amount | REAL | 1 | 0 | 0
+11 | currency | TEXT | 1 | 'UAH' | 0
+12 | payer_text | TEXT | 0 |  | 0
+13 | bank_name | TEXT | 0 |  | 0
+14 | source_type | TEXT | 1 | 'manual_operator' | 0
+15 | source_ref | TEXT | 0 |  | 0
+16 | payment_notice_id | INTEGER | 0 |  | 0
+17 | payment_id | INTEGER | 0 |  | 0
+18 | cashier_batch_id | INTEGER | 0 |  | 0
+19 | operator_id | TEXT | 0 |  | 0
+20 | operator_note | TEXT | 0 |  | 0
+21 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+22 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_bank_transactions_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, transaction_date]
+- idx_bank_transactions_ref | unique=0 | origin=c | partial=0 | columns=[transaction_ref]
+- sqlite_autoindex_bank_transactions_1 | unique=1 | origin=u | partial=0 | columns=[transaction_ref]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=payment_notices from=payment_notice_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE barrier_phone_access
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE barrier_phone_access (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_number TEXT,
+            contact_id INTEGER,
+            phone_number TEXT,
+            access_status TEXT NOT NULL DEFAULT 'ACTIVE',
+            status_reason TEXT,
+            blocked_by TEXT,
+            blocked_at TEXT,
+            unblocked_by TEXT,
+            unblocked_at TEXT,
+            debt_amount REAL DEFAULT 0,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_number | TEXT | 0 |  | 0
+2 | contact_id | INTEGER | 0 |  | 0
+3 | phone_number | TEXT | 0 |  | 0
+4 | access_status | TEXT | 1 | 'ACTIVE' | 0
+5 | status_reason | TEXT | 0 |  | 0
+6 | blocked_by | TEXT | 0 |  | 0
+7 | blocked_at | TEXT | 0 |  | 0
+8 | unblocked_by | TEXT | 0 |  | 0
+9 | unblocked_at | TEXT | 0 |  | 0
+10 | debt_amount | REAL | 0 | 0 | 0
+11 | comment | TEXT | 0 |  | 0
+12 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+13 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_barrier_phone_access_status | unique=0 | origin=c | partial=0 | columns=[access_status]
+- idx_barrier_phone_access_phone | unique=0 | origin=c | partial=0 | columns=[phone_number]
+- idx_barrier_phone_access_apt | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE bot_admins
+========================================================================================================================
+Rows: 1
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE bot_admins (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        telegram_user_id INTEGER UNIQUE,
+        telegram_username TEXT,
+
+        display_name TEXT,
+
+        role TEXT DEFAULT 'viewer',
+
+        can_read INTEGER DEFAULT 1,
+        can_write INTEGER DEFAULT 0,
+        can_manage_users INTEGER DEFAULT 0,
+        can_manage_payments INTEGER DEFAULT 0,
+        can_manage_bot INTEGER DEFAULT 0,
+
+        is_active INTEGER DEFAULT 1,
+
+        created_at TEXT,
+        updated_at TEXT,
+
+        notes TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | telegram_user_id | INTEGER | 0 |  | 0
+2 | telegram_username | TEXT | 0 |  | 0
+3 | display_name | TEXT | 0 |  | 0
+4 | role | TEXT | 0 | 'viewer' | 0
+5 | can_read | INTEGER | 0 | 1 | 0
+6 | can_write | INTEGER | 0 | 0 | 0
+7 | can_manage_users | INTEGER | 0 | 0 | 0
+8 | can_manage_payments | INTEGER | 0 | 0 | 0
+9 | can_manage_bot | INTEGER | 0 | 0 | 0
+10 | is_active | INTEGER | 0 | 1 | 0
+11 | created_at | TEXT | 0 |  | 0
+12 | updated_at | TEXT | 0 |  | 0
+13 | notes | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_bot_admins_role | unique=0 | origin=c | partial=0 | columns=[role]
+- idx_bot_admins_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- idx_bot_admins_telegram_user | unique=0 | origin=c | partial=0 | columns=[telegram_user_id]
+- sqlite_autoindex_bot_admins_1 | unique=1 | origin=u | partial=0 | columns=[telegram_user_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE bot_user_sessions
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE bot_user_sessions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        telegram_user_id INTEGER UNIQUE,
+
+        current_state TEXT,
+        context_json TEXT,
+
+        updated_at TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | telegram_user_id | INTEGER | 0 |  | 0
+2 | current_state | TEXT | 0 |  | 0
+3 | context_json | TEXT | 0 |  | 0
+4 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_bot_user_sessions_user | unique=0 | origin=c | partial=0 | columns=[telegram_user_id]
+- sqlite_autoindex_bot_user_sessions_1 | unique=1 | origin=u | partial=0 | columns=[telegram_user_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE cashbox_operations
+========================================================================================================================
+Rows: 93
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashbox_operations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            operation_date TEXT NOT NULL,
+            cashbox_code TEXT NOT NULL,
+            operation_type TEXT NOT NULL,
+            direction TEXT NOT NULL,
+            amount REAL NOT NULL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            period_code TEXT,
+            apartment_number TEXT,
+            vehicle_id INTEGER,
+            service_code TEXT,
+            payment_id INTEGER,
+            charge_id INTEGER,
+            batch_id TEXT,
+            source_type TEXT DEFAULT 'cashier_journal',
+            source_ref TEXT,
+            operator_id TEXT,
+            actor_type TEXT DEFAULT 'operator',
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT, "commercial_contract_id" INTEGER, "commercial_unit_id" INTEGER, "cashier_receipt_id" INTEGER, "transfer_group_ref" TEXT, "payment_notice_id" INTEGER, "cashier_batch_id" INTEGER,
+            FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code),
+            FOREIGN KEY (vehicle_id) REFERENCES vehicles(id),
+            FOREIGN KEY (payment_id) REFERENCES payments(id),
+            FOREIGN KEY (charge_id) REFERENCES charges(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | operation_date | TEXT | 1 |  | 0
+2 | cashbox_code | TEXT | 1 |  | 0
+3 | operation_type | TEXT | 1 |  | 0
+4 | direction | TEXT | 1 |  | 0
+5 | amount | REAL | 1 |  | 0
+6 | currency | TEXT | 1 | 'UAH' | 0
+7 | period_code | TEXT | 0 |  | 0
+8 | apartment_number | TEXT | 0 |  | 0
+9 | vehicle_id | INTEGER | 0 |  | 0
+10 | service_code | TEXT | 0 |  | 0
+11 | payment_id | INTEGER | 0 |  | 0
+12 | charge_id | INTEGER | 0 |  | 0
+13 | batch_id | TEXT | 0 |  | 0
+14 | source_type | TEXT | 0 | 'cashier_journal' | 0
+15 | source_ref | TEXT | 0 |  | 0
+16 | operator_id | TEXT | 0 |  | 0
+17 | actor_type | TEXT | 0 | 'operator' | 0
+18 | comment | TEXT | 0 |  | 0
+19 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+20 | service_item_code | TEXT | 0 |  | 0
+21 | base_service_code | TEXT | 0 |  | 0
+22 | service_type | TEXT | 0 |  | 0
+23 | commercial_contract_id | INTEGER | 0 |  | 0
+24 | commercial_unit_id | INTEGER | 0 |  | 0
+25 | cashier_receipt_id | INTEGER | 0 |  | 0
+26 | transfer_group_ref | TEXT | 0 |  | 0
+27 | payment_notice_id | INTEGER | 0 |  | 0
+28 | cashier_batch_id | INTEGER | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_cashbox_operations_transfer_group | unique=0 | origin=c | partial=0 | columns=[transfer_group_ref]
+- idx_cashbox_operations_cashier_receipt | unique=0 | origin=c | partial=0 | columns=[cashier_receipt_id]
+- idx_cashbox_operations_commercial_contract | unique=0 | origin=c | partial=0 | columns=[commercial_contract_id, commercial_unit_id]
+- idx_cashbox_operations_service_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_cashbox_operations_base_service | unique=0 | origin=c | partial=0 | columns=[base_service_code]
+- idx_cashbox_operations_service_item | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- idx_cashbox_operations_operator | unique=0 | origin=c | partial=0 | columns=[operator_id]
+- idx_cashbox_operations_batch | unique=0 | origin=c | partial=0 | columns=[batch_id]
+- idx_cashbox_operations_payment | unique=0 | origin=c | partial=0 | columns=[payment_id]
+- idx_cashbox_operations_vehicle | unique=0 | origin=c | partial=0 | columns=[vehicle_id]
+- idx_cashbox_operations_apt | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_cashbox_operations_cashbox | unique=0 | origin=c | partial=0 | columns=[cashbox_code]
+- idx_cashbox_operations_date | unique=0 | origin=c | partial=0 | columns=[operation_date]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=charges from=charge_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=payments from=payment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=2 seq=0 table=vehicles from=vehicle_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=3 seq=0 table=cashboxes from=cashbox_code to=cashbox_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE cashboxes
+========================================================================================================================
+Rows: 10
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashboxes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            cashbox_code TEXT NOT NULL UNIQUE,
+            cashbox_name TEXT NOT NULL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            initial_balance REAL NOT NULL DEFAULT 0,
+            current_balance REAL NOT NULL DEFAULT 0,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | cashbox_code | TEXT | 1 |  | 0
+2 | cashbox_name | TEXT | 1 |  | 0
+3 | currency | TEXT | 1 | 'UAH' | 0
+4 | initial_balance | REAL | 1 | 0 | 0
+5 | current_balance | REAL | 1 | 0 | 0
+6 | is_active | INTEGER | 1 | 1 | 0
+7 | comment | TEXT | 0 |  | 0
+8 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+9 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_cashboxes_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- idx_cashboxes_code | unique=0 | origin=c | partial=0 | columns=[cashbox_code]
+- sqlite_autoindex_cashboxes_1 | unique=1 | origin=u | partial=0 | columns=[cashbox_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE cashier_batch_items
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashier_batch_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            batch_id INTEGER NOT NULL,
+            apartment_id INTEGER,
+            apartment_number TEXT NOT NULL,
+            charge_id INTEGER,
+            receipt_id INTEGER,
+            payment_id INTEGER,
+            amount_expected REAL,
+            amount_received REAL NOT NULL DEFAULT 0,
+            cashbox_code TEXT,
+            period_code TEXT,
+            service_code TEXT,
+            service_item_code TEXT,
+            item_status TEXT NOT NULL DEFAULT 'PENDING',
+            exception_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(batch_id) REFERENCES cashier_batches(id),
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | batch_id | INTEGER | 1 |  | 0
+2 | apartment_id | INTEGER | 0 |  | 0
+3 | apartment_number | TEXT | 1 |  | 0
+4 | charge_id | INTEGER | 0 |  | 0
+5 | receipt_id | INTEGER | 0 |  | 0
+6 | payment_id | INTEGER | 0 |  | 0
+7 | amount_expected | REAL | 0 |  | 0
+8 | amount_received | REAL | 1 | 0 | 0
+9 | cashbox_code | TEXT | 0 |  | 0
+10 | period_code | TEXT | 0 |  | 0
+11 | service_code | TEXT | 0 |  | 0
+12 | service_item_code | TEXT | 0 |  | 0
+13 | item_status | TEXT | 1 | 'PENDING' | 0
+14 | exception_note | TEXT | 0 |  | 0
+15 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+16 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_cashier_batch_items_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, period_code]
+- idx_cashier_batch_items_batch | unique=0 | origin=c | partial=0 | columns=[batch_id, item_status]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=cashier_batches from=batch_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE cashier_batches
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashier_batches (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            batch_id TEXT NOT NULL UNIQUE,
+            batch_type TEXT NOT NULL,
+            period_code TEXT,
+            cashbox_code TEXT,
+            service_code TEXT,
+            default_amount REAL,
+            default_tariff TEXT,
+            operator_id TEXT,
+            actor_type TEXT DEFAULT 'operator',
+            total_rows INTEGER DEFAULT 0,
+            total_amount REAL DEFAULT 0,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            applied_at TEXT,
+            batch_status TEXT DEFAULT 'draft',
+            FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | batch_id | TEXT | 1 |  | 0
+2 | batch_type | TEXT | 1 |  | 0
+3 | period_code | TEXT | 0 |  | 0
+4 | cashbox_code | TEXT | 0 |  | 0
+5 | service_code | TEXT | 0 |  | 0
+6 | default_amount | REAL | 0 |  | 0
+7 | default_tariff | TEXT | 0 |  | 0
+8 | operator_id | TEXT | 0 |  | 0
+9 | actor_type | TEXT | 0 | 'operator' | 0
+10 | total_rows | INTEGER | 0 | 0 | 0
+11 | total_amount | REAL | 0 | 0 | 0
+12 | comment | TEXT | 0 |  | 0
+13 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+14 | applied_at | TEXT | 0 |  | 0
+15 | batch_status | TEXT | 0 | 'draft' | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_cashier_batches_operator | unique=0 | origin=c | partial=0 | columns=[operator_id]
+- idx_cashier_batches_status | unique=0 | origin=c | partial=0 | columns=[batch_status]
+- idx_cashier_batches_batch_id | unique=0 | origin=c | partial=0 | columns=[batch_id]
+- sqlite_autoindex_cashier_batches_1 | unique=1 | origin=u | partial=0 | columns=[batch_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=cashboxes from=cashbox_code to=cashbox_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE cashier_receipts
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashier_receipts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            receipt_number TEXT NOT NULL UNIQUE,
+            receipt_kind TEXT NOT NULL,
+            entry_status TEXT NOT NULL DEFAULT 'DRAFT',
+            cashbox_code TEXT,
+            receipt_date TEXT NOT NULL,
+            document_date TEXT,
+            origin_kind TEXT NOT NULL DEFAULT 'HAND_TO_HAND',
+            origin_cashbox_code TEXT,
+            payer_name TEXT,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            service_hint TEXT,
+            period_code TEXT,
+            amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            evidence_type TEXT NOT NULL DEFAULT 'ORAL',
+            paper_ref TEXT,
+            source_text TEXT,
+            designation_status TEXT NOT NULL DEFAULT 'UNSPECIFIED',
+            allocation_status TEXT NOT NULL DEFAULT 'NOT_APPLICABLE',
+            payment_id INTEGER,
+            cashbox_operation_id INTEGER,
+            void_payment_id INTEGER,
+            void_cashbox_operation_id INTEGER,
+            operator_id TEXT,
+            confirmed_by TEXT,
+            confirmed_at TEXT,
+            voided_by TEXT,
+            voided_at TEXT,
+            void_reason TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        , "payment_notice_id" INTEGER, "cashier_batch_id" INTEGER, "service_item_code" TEXT, "review_status" TEXT)
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | receipt_number | TEXT | 1 |  | 0
+2 | receipt_kind | TEXT | 1 |  | 0
+3 | entry_status | TEXT | 1 | 'DRAFT' | 0
+4 | cashbox_code | TEXT | 0 |  | 0
+5 | receipt_date | TEXT | 1 |  | 0
+6 | document_date | TEXT | 0 |  | 0
+7 | origin_kind | TEXT | 1 | 'HAND_TO_HAND' | 0
+8 | origin_cashbox_code | TEXT | 0 |  | 0
+9 | payer_name | TEXT | 0 |  | 0
+10 | apartment_id | INTEGER | 0 |  | 0
+11 | apartment_number | TEXT | 0 |  | 0
+12 | service_hint | TEXT | 0 |  | 0
+13 | period_code | TEXT | 0 |  | 0
+14 | amount | REAL | 1 | 0 | 0
+15 | currency | TEXT | 1 | 'UAH' | 0
+16 | evidence_type | TEXT | 1 | 'ORAL' | 0
+17 | paper_ref | TEXT | 0 |  | 0
+18 | source_text | TEXT | 0 |  | 0
+19 | designation_status | TEXT | 1 | 'UNSPECIFIED' | 0
+20 | allocation_status | TEXT | 1 | 'NOT_APPLICABLE' | 0
+21 | payment_id | INTEGER | 0 |  | 0
+22 | cashbox_operation_id | INTEGER | 0 |  | 0
+23 | void_payment_id | INTEGER | 0 |  | 0
+24 | void_cashbox_operation_id | INTEGER | 0 |  | 0
+25 | operator_id | TEXT | 0 |  | 0
+26 | confirmed_by | TEXT | 0 |  | 0
+27 | confirmed_at | TEXT | 0 |  | 0
+28 | voided_by | TEXT | 0 |  | 0
+29 | voided_at | TEXT | 0 |  | 0
+30 | void_reason | TEXT | 0 |  | 0
+31 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+32 | updated_at | TEXT | 0 |  | 0
+33 | payment_notice_id | INTEGER | 0 |  | 0
+34 | cashier_batch_id | INTEGER | 0 |  | 0
+35 | service_item_code | TEXT | 0 |  | 0
+36 | review_status | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_receipts_notice_v2 | unique=0 | origin=c | partial=0 | columns=[payment_notice_id]
+- idx_cashier_receipts_allocation | unique=0 | origin=c | partial=0 | columns=[allocation_status, entry_status]
+- idx_cashier_receipts_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, period_code]
+- idx_cashier_receipts_cashbox | unique=0 | origin=c | partial=0 | columns=[cashbox_code, receipt_date]
+- idx_cashier_receipts_status | unique=0 | origin=c | partial=0 | columns=[entry_status, receipt_date, id]
+- sqlite_autoindex_cashier_receipts_1 | unique=1 | origin=u | partial=0 | columns=[receipt_number]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE cashier_reconciliation_cases
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE cashier_reconciliation_cases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            case_type TEXT NOT NULL,
+            case_status TEXT NOT NULL DEFAULT 'OPEN',
+            priority TEXT NOT NULL DEFAULT 'NORMAL',
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            amount REAL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            period_code TEXT,
+            service_code TEXT,
+            related_payment_id INTEGER,
+            related_receipt_id INTEGER,
+            related_notice_id INTEGER,
+            related_bank_transaction_id INTEGER,
+            related_batch_id INTEGER,
+            description TEXT NOT NULL,
+            operator_id TEXT,
+            resolution_note TEXT,
+            resolved_at TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | case_type | TEXT | 1 |  | 0
+2 | case_status | TEXT | 1 | 'OPEN' | 0
+3 | priority | TEXT | 1 | 'NORMAL' | 0
+4 | apartment_id | INTEGER | 0 |  | 0
+5 | apartment_number | TEXT | 0 |  | 0
+6 | amount | REAL | 0 |  | 0
+7 | currency | TEXT | 1 | 'UAH' | 0
+8 | period_code | TEXT | 0 |  | 0
+9 | service_code | TEXT | 0 |  | 0
+10 | related_payment_id | INTEGER | 0 |  | 0
+11 | related_receipt_id | INTEGER | 0 |  | 0
+12 | related_notice_id | INTEGER | 0 |  | 0
+13 | related_bank_transaction_id | INTEGER | 0 |  | 0
+14 | related_batch_id | INTEGER | 0 |  | 0
+15 | description | TEXT | 1 |  | 0
+16 | operator_id | TEXT | 0 |  | 0
+17 | resolution_note | TEXT | 0 |  | 0
+18 | resolved_at | TEXT | 0 |  | 0
+19 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+20 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_cashier_reconciliation_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, case_status]
+- idx_cashier_reconciliation_status | unique=0 | origin=c | partial=0 | columns=[case_status, priority, created_at]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE charge_adjustments
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE charge_adjustments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            charge_id INTEGER NOT NULL,
+            adjustment_assignment_id INTEGER,
+            adjustment_code TEXT NOT NULL,
+            adjustment_type TEXT NOT NULL,
+            calculation_kind TEXT NOT NULL,
+            applied_amount REAL NOT NULL,
+            public_note TEXT,
+            internal_note TEXT,
+            reason_snapshot TEXT,
+            applied_by TEXT,
+            source_context TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (charge_id) REFERENCES charges(id),
+            FOREIGN KEY (adjustment_assignment_id) REFERENCES adjustment_assignments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | charge_id | INTEGER | 1 |  | 0
+2 | adjustment_assignment_id | INTEGER | 0 |  | 0
+3 | adjustment_code | TEXT | 1 |  | 0
+4 | adjustment_type | TEXT | 1 |  | 0
+5 | calculation_kind | TEXT | 1 |  | 0
+6 | applied_amount | REAL | 1 |  | 0
+7 | public_note | TEXT | 0 |  | 0
+8 | internal_note | TEXT | 0 |  | 0
+9 | reason_snapshot | TEXT | 0 |  | 0
+10 | applied_by | TEXT | 0 |  | 0
+11 | source_context | TEXT | 0 |  | 0
+12 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_charge_adjustments_code | unique=0 | origin=c | partial=0 | columns=[adjustment_code]
+- idx_charge_adjustments_assignment | unique=0 | origin=c | partial=0 | columns=[adjustment_assignment_id]
+- idx_charge_adjustments_charge | unique=0 | origin=c | partial=0 | columns=[charge_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=adjustment_assignments from=adjustment_assignment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=charges from=charge_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE charges
+========================================================================================================================
+Rows: 95
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE charges (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        period_code TEXT NOT NULL,
+        apartment_number TEXT NOT NULL,
+        vehicle_id INTEGER,
+        service_code TEXT NOT NULL,
+        quantity REAL NOT NULL DEFAULT 1,
+        unit_price REAL NOT NULL,
+        amount REAL NOT NULL,
+        currency TEXT NOT NULL DEFAULT 'UAH',
+        status TEXT NOT NULL DEFAULT 'unpaid',
+        source TEXT,
+        created_by TEXT,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT, gross_amount REAL, adjustment_amount REAL NOT NULL DEFAULT 0, net_amount REAL, adjustment_public_note TEXT, adjustment_internal_note TEXT, adjustment_updated_at TEXT, "commercial_contract_id" INTEGER, "commercial_contract_item_id" INTEGER, "commercial_due_date" TEXT,
+        FOREIGN KEY(vehicle_id)
+            REFERENCES vehicles(id),
+        FOREIGN KEY(service_code)
+            REFERENCES service_catalog(service_code)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | period_code | TEXT | 1 |  | 0
+2 | apartment_number | TEXT | 1 |  | 0
+3 | vehicle_id | INTEGER | 0 |  | 0
+4 | service_code | TEXT | 1 |  | 0
+5 | quantity | REAL | 1 | 1 | 0
+6 | unit_price | REAL | 1 |  | 0
+7 | amount | REAL | 1 |  | 0
+8 | currency | TEXT | 1 | 'UAH' | 0
+9 | status | TEXT | 1 | 'unpaid' | 0
+10 | source | TEXT | 0 |  | 0
+11 | created_by | TEXT | 0 |  | 0
+12 | comment | TEXT | 0 |  | 0
+13 | created_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+14 | updated_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+15 | service_item_code | TEXT | 0 |  | 0
+16 | base_service_code | TEXT | 0 |  | 0
+17 | service_type | TEXT | 0 |  | 0
+18 | gross_amount | REAL | 0 |  | 0
+19 | adjustment_amount | REAL | 1 | 0 | 0
+20 | net_amount | REAL | 0 |  | 0
+21 | adjustment_public_note | TEXT | 0 |  | 0
+22 | adjustment_internal_note | TEXT | 0 |  | 0
+23 | adjustment_updated_at | TEXT | 0 |  | 0
+24 | commercial_contract_id | INTEGER | 0 |  | 0
+25 | commercial_contract_item_id | INTEGER | 0 |  | 0
+26 | commercial_due_date | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_charges_commercial_contract | unique=0 | origin=c | partial=0 | columns=[commercial_contract_id, commercial_contract_item_id, commercial_due_date]
+- idx_charges_adjustment_amount | unique=0 | origin=c | partial=0 | columns=[adjustment_amount]
+- idx_charges_service_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_charges_base_service | unique=0 | origin=c | partial=0 | columns=[base_service_code]
+- idx_charges_service_item | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- idx_charges_status | unique=0 | origin=c | partial=0 | columns=[status]
+- idx_charges_service | unique=0 | origin=c | partial=0 | columns=[service_code]
+- idx_charges_vehicle | unique=0 | origin=c | partial=0 | columns=[vehicle_id]
+- idx_charges_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_charges_period | unique=0 | origin=c | partial=0 | columns=[period_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=vehicles from=vehicle_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_access_actions
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_access_actions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                access_phone_id INTEGER,
+                notification_id INTEGER,
+                action_type TEXT NOT NULL,
+                action_status TEXT NOT NULL DEFAULT 'OPEN',
+                debt_amount_snapshot REAL NOT NULL DEFAULT 0,
+                days_overdue_snapshot INTEGER NOT NULL DEFAULT 0,
+                reason TEXT,
+                operator_id TEXT,
+                performed_at TEXT,
+                comment TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+                FOREIGN KEY(access_phone_id) REFERENCES commercial_access_phones(id),
+                FOREIGN KEY(notification_id) REFERENCES commercial_notifications(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | contract_id | INTEGER | 1 |  | 0
+2 | access_phone_id | INTEGER | 0 |  | 0
+3 | notification_id | INTEGER | 0 |  | 0
+4 | action_type | TEXT | 1 |  | 0
+5 | action_status | TEXT | 1 | 'OPEN' | 0
+6 | debt_amount_snapshot | REAL | 1 | 0 | 0
+7 | days_overdue_snapshot | INTEGER | 1 | 0 | 0
+8 | reason | TEXT | 0 |  | 0
+9 | operator_id | TEXT | 0 |  | 0
+10 | performed_at | TEXT | 0 |  | 0
+11 | comment | TEXT | 0 |  | 0
+12 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+13 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_commercial_actions_contract_status | unique=0 | origin=c | partial=0 | columns=[contract_id, action_status, action_type]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=commercial_notifications from=notification_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=commercial_access_phones from=access_phone_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=2 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_access_phones
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_access_phones (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                phone_normalized TEXT NOT NULL,
+                phone_display TEXT,
+                access_purpose TEXT NOT NULL DEFAULT 'STAFF',
+                status TEXT NOT NULL DEFAULT 'ACTIVE',
+                status_reason TEXT,
+                status_changed_at TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | contract_id | INTEGER | 1 |  | 0
+2 | phone_normalized | TEXT | 1 |  | 0
+3 | phone_display | TEXT | 0 |  | 0
+4 | access_purpose | TEXT | 1 | 'STAFF' | 0
+5 | status | TEXT | 1 | 'ACTIVE' | 0
+6 | status_reason | TEXT | 0 |  | 0
+7 | status_changed_at | TEXT | 0 |  | 0
+8 | note | TEXT | 0 |  | 0
+9 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+10 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- ux_commercial_phone_per_contract | unique=1 | origin=c | partial=0 | columns=[contract_id, phone_normalized]
+- idx_commercial_access_phone_contract_status | unique=0 | origin=c | partial=0 | columns=[contract_id, status]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_contract_items
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_contract_items (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                item_code TEXT,
+                item_name TEXT NOT NULL,
+                reference_service_code TEXT,
+                calculation_mode TEXT NOT NULL DEFAULT 'FIXED_MONTHLY',
+                fixed_amount REAL,
+                rate_amount REAL,
+                quantity_default REAL NOT NULL DEFAULT 1,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                blocks_phone_access_on_debt INTEGER NOT NULL DEFAULT 0,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                valid_from TEXT,
+                valid_to TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | contract_id | INTEGER | 1 |  | 0
+2 | item_code | TEXT | 0 |  | 0
+3 | item_name | TEXT | 1 |  | 0
+4 | reference_service_code | TEXT | 0 |  | 0
+5 | calculation_mode | TEXT | 1 | 'FIXED_MONTHLY' | 0
+6 | fixed_amount | REAL | 0 |  | 0
+7 | rate_amount | REAL | 0 |  | 0
+8 | quantity_default | REAL | 1 | 1 | 0
+9 | currency | TEXT | 1 | 'UAH' | 0
+10 | blocks_phone_access_on_debt | INTEGER | 1 | 0 | 0
+11 | is_active | INTEGER | 1 | 1 | 0
+12 | valid_from | TEXT | 0 |  | 0
+13 | valid_to | TEXT | 0 |  | 0
+14 | note | TEXT | 0 |  | 0
+15 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+16 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_commercial_contract_items_contract | unique=0 | origin=c | partial=0 | columns=[contract_id, is_active, valid_from, valid_to]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_contract_recipients
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_contract_recipients (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                resident_account_id INTEGER,
+                telegram_user_id TEXT,
+                recipient_name TEXT,
+                recipient_role TEXT NOT NULL DEFAULT 'REPRESENTATIVE',
+                is_primary INTEGER NOT NULL DEFAULT 0,
+                notification_enabled INTEGER NOT NULL DEFAULT 1,
+                status TEXT NOT NULL DEFAULT 'ACTIVE',
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+                FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | contract_id | INTEGER | 1 |  | 0
+2 | resident_account_id | INTEGER | 0 |  | 0
+3 | telegram_user_id | TEXT | 0 |  | 0
+4 | recipient_name | TEXT | 0 |  | 0
+5 | recipient_role | TEXT | 1 | 'REPRESENTATIVE' | 0
+6 | is_primary | INTEGER | 1 | 0 | 0
+7 | notification_enabled | INTEGER | 1 | 1 | 0
+8 | status | TEXT | 1 | 'ACTIVE' | 0
+9 | note | TEXT | 0 |  | 0
+10 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+11 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_commercial_recipients_telegram | unique=0 | origin=c | partial=0 | columns=[telegram_user_id]
+- idx_commercial_recipients_contract_status | unique=0 | origin=c | partial=0 | columns=[contract_id, notification_enabled, status]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=resident_accounts from=resident_account_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_contracts
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_contracts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                unit_id INTEGER NOT NULL,
+                contract_number TEXT,
+                counterparty_type TEXT NOT NULL DEFAULT 'UNKNOWN',
+                counterparty_name TEXT,
+                status TEXT NOT NULL DEFAULT 'DRAFT',
+                valid_from TEXT,
+                valid_to TEXT,
+                payment_due_day INTEGER NOT NULL DEFAULT 10,
+                grace_days INTEGER NOT NULL DEFAULT 0,
+                reminder_days_before_due INTEGER NOT NULL DEFAULT 3,
+                warning_days_overdue INTEGER NOT NULL DEFAULT 3,
+                suspension_candidate_days_overdue INTEGER NOT NULL DEFAULT 7,
+                internal_note TEXT,
+                created_by TEXT,
+                updated_by TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(unit_id) REFERENCES apartments(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | unit_id | INTEGER | 1 |  | 0
+2 | contract_number | TEXT | 0 |  | 0
+3 | counterparty_type | TEXT | 1 | 'UNKNOWN' | 0
+4 | counterparty_name | TEXT | 0 |  | 0
+5 | status | TEXT | 1 | 'DRAFT' | 0
+6 | valid_from | TEXT | 0 |  | 0
+7 | valid_to | TEXT | 0 |  | 0
+8 | payment_due_day | INTEGER | 1 | 10 | 0
+9 | grace_days | INTEGER | 1 | 0 | 0
+10 | reminder_days_before_due | INTEGER | 1 | 3 | 0
+11 | warning_days_overdue | INTEGER | 1 | 3 | 0
+12 | suspension_candidate_days_overdue | INTEGER | 1 | 7 | 0
+13 | internal_note | TEXT | 0 |  | 0
+14 | created_by | TEXT | 0 |  | 0
+15 | updated_by | TEXT | 0 |  | 0
+16 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+17 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- ux_commercial_one_active_contract_per_unit | unique=1 | origin=c | partial=1 | columns=[unit_id]
+- idx_commercial_contracts_unit_status | unique=0 | origin=c | partial=0 | columns=[unit_id, status, valid_from, valid_to]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=unit_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE commercial_notifications
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE commercial_notifications (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                recipient_id INTEGER,
+                telegram_user_id TEXT,
+                notification_type TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'DRAFT',
+                dedupe_key TEXT NOT NULL,
+                charge_ids_json TEXT,
+                debt_amount_snapshot REAL NOT NULL DEFAULT 0,
+                days_overdue_snapshot INTEGER NOT NULL DEFAULT 0,
+                message_text TEXT NOT NULL,
+                created_by TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                sent_at TEXT,
+                failed_at TEXT,
+                delivery_error TEXT,
+                cancelled_at TEXT,
+                cancelled_by TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+                FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+            )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | contract_id | INTEGER | 1 |  | 0
+2 | recipient_id | INTEGER | 0 |  | 0
+3 | telegram_user_id | TEXT | 0 |  | 0
+4 | notification_type | TEXT | 1 |  | 0
+5 | status | TEXT | 1 | 'DRAFT' | 0
+6 | dedupe_key | TEXT | 1 |  | 0
+7 | charge_ids_json | TEXT | 0 |  | 0
+8 | debt_amount_snapshot | REAL | 1 | 0 | 0
+9 | days_overdue_snapshot | INTEGER | 1 | 0 | 0
+10 | message_text | TEXT | 1 |  | 0
+11 | created_by | TEXT | 0 |  | 0
+12 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+13 | sent_at | TEXT | 0 |  | 0
+14 | failed_at | TEXT | 0 |  | 0
+15 | delivery_error | TEXT | 0 |  | 0
+16 | cancelled_at | TEXT | 0 |  | 0
+17 | cancelled_by | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- ux_commercial_notification_dedupe | unique=1 | origin=c | partial=0 | columns=[dedupe_key]
+- idx_commercial_notifications_contract | unique=0 | origin=c | partial=0 | columns=[contract_id, notification_type]
+- idx_commercial_notifications_queue | unique=0 | origin=c | partial=0 | columns=[status, created_at]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=commercial_contract_recipients from=recipient_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE contact_methods
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE contact_methods (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        person_id INTEGER,
+        contact_type TEXT,
+        contact_value TEXT,
+        telegram_user_id TEXT,
+        telegram_username TEXT,
+        contact_owner TEXT,
+        is_primary INTEGER DEFAULT 0,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+        FOREIGN KEY(person_id) REFERENCES persons(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 0 |  | 0
+2 | person_id | INTEGER | 0 |  | 0
+3 | contact_type | TEXT | 0 |  | 0
+4 | contact_value | TEXT | 0 |  | 0
+5 | telegram_user_id | TEXT | 0 |  | 0
+6 | telegram_username | TEXT | 0 |  | 0
+7 | contact_owner | TEXT | 0 |  | 0
+8 | is_primary | INTEGER | 0 | 0 | 0
+9 | source | TEXT | 0 |  | 0
+10 | notes | TEXT | 0 |  | 0
+11 | created_at | TEXT | 0 |  | 0
+12 | created_by | TEXT | 0 |  | 0
+13 | updated_at | TEXT | 0 |  | 0
+14 | updated_by | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=persons from=person_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE events
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        event_time TEXT,
+        event_group TEXT,
+        event_type TEXT,
+        amount REAL,
+        status TEXT,
+        source TEXT,
+        related_table TEXT,
+        related_record_id TEXT,
+        file_path TEXT,
+        comment TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 0 |  | 0
+2 | event_time | TEXT | 0 |  | 0
+3 | event_group | TEXT | 0 |  | 0
+4 | event_type | TEXT | 0 |  | 0
+5 | amount | REAL | 0 |  | 0
+6 | status | TEXT | 0 |  | 0
+7 | source | TEXT | 0 |  | 0
+8 | related_table | TEXT | 0 |  | 0
+9 | related_record_id | TEXT | 0 |  | 0
+10 | file_path | TEXT | 0 |  | 0
+11 | comment | TEXT | 0 |  | 0
+12 | created_at | TEXT | 0 |  | 0
+13 | created_by | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE extracted_facts
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE extracted_facts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        raw_message_id INTEGER,
+        apartment_number TEXT,
+        fact_type TEXT,
+        amount REAL,
+        fact_date TEXT,
+        confidence REAL,
+        status TEXT DEFAULT 'new',
+        comment TEXT,
+        FOREIGN KEY(raw_message_id) REFERENCES raw_messages(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | raw_message_id | INTEGER | 0 |  | 0
+2 | apartment_number | TEXT | 0 |  | 0
+3 | fact_type | TEXT | 0 |  | 0
+4 | amount | REAL | 0 |  | 0
+5 | fact_date | TEXT | 0 |  | 0
+6 | confidence | REAL | 0 |  | 0
+7 | status | TEXT | 0 | 'new' | 0
+8 | comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=raw_messages from=raw_message_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE message_sources
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE message_sources (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        source_type TEXT,
+        source_name TEXT,
+        source_id TEXT,
+        notes TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | source_type | TEXT | 0 |  | 0
+2 | source_name | TEXT | 0 |  | 0
+3 | source_id | TEXT | 0 |  | 0
+4 | notes | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE operator_audit_log
+========================================================================================================================
+Rows: 114
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE operator_audit_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            created_at TEXT,
+            operator_id TEXT,
+            user_id TEXT,
+            actor_type TEXT,
+            action_type TEXT,
+            table_name TEXT,
+            row_id TEXT,
+            field_name TEXT,
+            old_value TEXT,
+            new_value TEXT,
+            action_status TEXT DEFAULT 'applied',
+            review_status TEXT DEFAULT 'pending',
+            source_context TEXT,
+            comment TEXT
+        , db_mode TEXT, db_file TEXT, reviewed_by TEXT, reviewed_at TEXT, review_comment TEXT, extra_json TEXT)
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | created_at | TEXT | 0 |  | 0
+2 | operator_id | TEXT | 0 |  | 0
+3 | user_id | TEXT | 0 |  | 0
+4 | actor_type | TEXT | 0 |  | 0
+5 | action_type | TEXT | 0 |  | 0
+6 | table_name | TEXT | 0 |  | 0
+7 | row_id | TEXT | 0 |  | 0
+8 | field_name | TEXT | 0 |  | 0
+9 | old_value | TEXT | 0 |  | 0
+10 | new_value | TEXT | 0 |  | 0
+11 | action_status | TEXT | 0 | 'applied' | 0
+12 | review_status | TEXT | 0 | 'pending' | 0
+13 | source_context | TEXT | 0 |  | 0
+14 | comment | TEXT | 0 |  | 0
+15 | db_mode | TEXT | 0 |  | 0
+16 | db_file | TEXT | 0 |  | 0
+17 | reviewed_by | TEXT | 0 |  | 0
+18 | reviewed_at | TEXT | 0 |  | 0
+19 | review_comment | TEXT | 0 |  | 0
+20 | extra_json | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_operator_audit_table_row | unique=0 | origin=c | partial=0 | columns=[table_name, row_id]
+- idx_operator_audit_user | unique=0 | origin=c | partial=0 | columns=[user_id]
+- idx_operator_audit_review | unique=0 | origin=c | partial=0 | columns=[review_status]
+- idx_operator_audit_action | unique=0 | origin=c | partial=0 | columns=[action_type]
+- idx_operator_audit_actor | unique=0 | origin=c | partial=0 | columns=[actor_type]
+- idx_operator_audit_operator | unique=0 | origin=c | partial=0 | columns=[operator_id]
+- idx_operator_audit_created | unique=0 | origin=c | partial=0 | columns=[created_at]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE parking_time_review_tasks
+========================================================================================================================
+Rows: 35
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE parking_time_review_tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        apartment_number TEXT,
+
+        vehicle_id INTEGER,
+        license_plate TEXT,
+        car_model TEXT,
+
+        current_parking_time TEXT,
+
+        suggested_day_count INTEGER,
+        suggested_night_count INTEGER,
+
+        task_type TEXT,
+        priority INTEGER DEFAULT 50,
+
+        source_name TEXT,
+        source_details TEXT,
+
+        status TEXT DEFAULT 'new',
+
+        created_at TEXT,
+        created_by TEXT,
+
+        reviewed_at TEXT,
+        reviewed_by TEXT,
+
+        decision TEXT,
+        decision_comment TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_number | TEXT | 0 |  | 0
+2 | vehicle_id | INTEGER | 0 |  | 0
+3 | license_plate | TEXT | 0 |  | 0
+4 | car_model | TEXT | 0 |  | 0
+5 | current_parking_time | TEXT | 0 |  | 0
+6 | suggested_day_count | INTEGER | 0 |  | 0
+7 | suggested_night_count | INTEGER | 0 |  | 0
+8 | task_type | TEXT | 0 |  | 0
+9 | priority | INTEGER | 0 | 50 | 0
+10 | source_name | TEXT | 0 |  | 0
+11 | source_details | TEXT | 0 |  | 0
+12 | status | TEXT | 0 | 'new' | 0
+13 | created_at | TEXT | 0 |  | 0
+14 | created_by | TEXT | 0 |  | 0
+15 | reviewed_at | TEXT | 0 |  | 0
+16 | reviewed_by | TEXT | 0 |  | 0
+17 | decision | TEXT | 0 |  | 0
+18 | decision_comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_ptrt_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_ptrt_status | unique=0 | origin=c | partial=0 | columns=[status]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE payment_allocations
+========================================================================================================================
+Rows: 13
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE payment_allocations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        payment_id INTEGER NOT NULL,
+        charge_id INTEGER NOT NULL,
+        amount REAL NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT,
+        FOREIGN KEY(payment_id)
+            REFERENCES payments(id),
+        FOREIGN KEY(charge_id)
+            REFERENCES charges(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | payment_id | INTEGER | 1 |  | 0
+2 | charge_id | INTEGER | 1 |  | 0
+3 | amount | REAL | 1 |  | 0
+4 | created_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+5 | service_item_code | TEXT | 0 |  | 0
+6 | base_service_code | TEXT | 0 |  | 0
+7 | service_type | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_payment_allocations_service_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_payment_allocations_base_service | unique=0 | origin=c | partial=0 | columns=[base_service_code]
+- idx_payment_allocations_service_item | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=charges from=charge_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=payments from=payment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE payment_notices
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE payment_notices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            notice_number TEXT NOT NULL UNIQUE,
+            notice_type TEXT NOT NULL,
+            notice_status TEXT NOT NULL DEFAULT 'NEW',
+            resident_account_id INTEGER NOT NULL,
+            telegram_user_id TEXT NOT NULL,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            declared_cashbox_code TEXT,
+            declared_period_code TEXT,
+            declared_service_code TEXT,
+            declared_service_item_code TEXT,
+            declared_amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            declared_at TEXT NOT NULL,
+            resident_comment TEXT,
+            evidence_text TEXT,
+            matched_cashier_receipt_id INTEGER,
+            matched_bank_transaction_id INTEGER,
+            matched_payment_id INTEGER,
+            operator_id TEXT,
+            operator_note TEXT,
+            reviewed_at TEXT,
+            confirmed_at TEXT,
+            rejected_at TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id),
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | notice_number | TEXT | 1 |  | 0
+2 | notice_type | TEXT | 1 |  | 0
+3 | notice_status | TEXT | 1 | 'NEW' | 0
+4 | resident_account_id | INTEGER | 1 |  | 0
+5 | telegram_user_id | TEXT | 1 |  | 0
+6 | apartment_id | INTEGER | 0 |  | 0
+7 | apartment_number | TEXT | 0 |  | 0
+8 | declared_cashbox_code | TEXT | 0 |  | 0
+9 | declared_period_code | TEXT | 0 |  | 0
+10 | declared_service_code | TEXT | 0 |  | 0
+11 | declared_service_item_code | TEXT | 0 |  | 0
+12 | declared_amount | REAL | 1 | 0 | 0
+13 | currency | TEXT | 1 | 'UAH' | 0
+14 | declared_at | TEXT | 1 |  | 0
+15 | resident_comment | TEXT | 0 |  | 0
+16 | evidence_text | TEXT | 0 |  | 0
+17 | matched_cashier_receipt_id | INTEGER | 0 |  | 0
+18 | matched_bank_transaction_id | INTEGER | 0 |  | 0
+19 | matched_payment_id | INTEGER | 0 |  | 0
+20 | operator_id | TEXT | 0 |  | 0
+21 | operator_note | TEXT | 0 |  | 0
+22 | reviewed_at | TEXT | 0 |  | 0
+23 | confirmed_at | TEXT | 0 |  | 0
+24 | rejected_at | TEXT | 0 |  | 0
+25 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+26 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_payment_notices_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, notice_status]
+- idx_payment_notices_status | unique=0 | origin=c | partial=0 | columns=[notice_status, declared_at]
+- sqlite_autoindex_payment_notices_1 | unique=1 | origin=u | partial=0 | columns=[notice_number]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=resident_accounts from=resident_account_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE payments
+========================================================================================================================
+Rows: 92
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE payments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        payment_date TEXT,
+        period_code TEXT,
+        apartment_number TEXT NOT NULL,
+        vehicle_id INTEGER,
+        amount REAL NOT NULL,
+        currency TEXT NOT NULL DEFAULT 'UAH',
+        payment_method TEXT,
+        source TEXT,
+        created_by TEXT,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP, cashbox_code TEXT, cashbox_operation_id INTEGER, cashier_batch_id TEXT, operator_id TEXT, service_item_code TEXT, base_service_code TEXT, service_type TEXT, "commercial_contract_id" INTEGER, "commercial_unit_id" INTEGER, "cashier_receipt_id" INTEGER, "cashier_entry_status" TEXT, "payment_notice_id" INTEGER, "bank_transaction_id" INTEGER, "payment_channel" TEXT,
+        FOREIGN KEY(vehicle_id)
+            REFERENCES vehicles(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | payment_date | TEXT | 0 |  | 0
+2 | period_code | TEXT | 0 |  | 0
+3 | apartment_number | TEXT | 1 |  | 0
+4 | vehicle_id | INTEGER | 0 |  | 0
+5 | amount | REAL | 1 |  | 0
+6 | currency | TEXT | 1 | 'UAH' | 0
+7 | payment_method | TEXT | 0 |  | 0
+8 | source | TEXT | 0 |  | 0
+9 | created_by | TEXT | 0 |  | 0
+10 | comment | TEXT | 0 |  | 0
+11 | created_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+12 | cashbox_code | TEXT | 0 |  | 0
+13 | cashbox_operation_id | INTEGER | 0 |  | 0
+14 | cashier_batch_id | TEXT | 0 |  | 0
+15 | operator_id | TEXT | 0 |  | 0
+16 | service_item_code | TEXT | 0 |  | 0
+17 | base_service_code | TEXT | 0 |  | 0
+18 | service_type | TEXT | 0 |  | 0
+19 | commercial_contract_id | INTEGER | 0 |  | 0
+20 | commercial_unit_id | INTEGER | 0 |  | 0
+21 | cashier_receipt_id | INTEGER | 0 |  | 0
+22 | cashier_entry_status | TEXT | 0 |  | 0
+23 | payment_notice_id | INTEGER | 0 |  | 0
+24 | bank_transaction_id | INTEGER | 0 |  | 0
+25 | payment_channel | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_payments_bank_v2 | unique=0 | origin=c | partial=0 | columns=[bank_transaction_id]
+- idx_payments_notice_v2 | unique=0 | origin=c | partial=0 | columns=[payment_notice_id]
+- idx_payments_cashier_receipt | unique=0 | origin=c | partial=0 | columns=[cashier_receipt_id]
+- idx_payments_commercial_contract | unique=0 | origin=c | partial=0 | columns=[commercial_contract_id, commercial_unit_id]
+- idx_payments_service_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_payments_base_service | unique=0 | origin=c | partial=0 | columns=[base_service_code]
+- idx_payments_service_item | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- idx_payments_operator | unique=0 | origin=c | partial=0 | columns=[operator_id]
+- idx_payments_cashier_batch | unique=0 | origin=c | partial=0 | columns=[cashier_batch_id]
+- idx_payments_cashbox_operation | unique=0 | origin=c | partial=0 | columns=[cashbox_operation_id]
+- idx_payments_cashbox_code | unique=0 | origin=c | partial=0 | columns=[cashbox_code]
+- idx_payments_date | unique=0 | origin=c | partial=0 | columns=[payment_date]
+- idx_payments_vehicle | unique=0 | origin=c | partial=0 | columns=[vehicle_id]
+- idx_payments_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_payments_period | unique=0 | origin=c | partial=0 | columns=[period_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=vehicles from=vehicle_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE persons
+========================================================================================================================
+Rows: 343
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE persons (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        full_name TEXT,
+        phone_raw TEXT,
+        ownership_type TEXT,
+        person_role TEXT,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 0 |  | 0
+2 | full_name | TEXT | 0 |  | 0
+3 | phone_raw | TEXT | 0 |  | 0
+4 | ownership_type | TEXT | 0 |  | 0
+5 | person_role | TEXT | 0 |  | 0
+6 | source | TEXT | 0 |  | 0
+7 | notes | TEXT | 0 |  | 0
+8 | created_at | TEXT | 0 |  | 0
+9 | created_by | TEXT | 0 |  | 0
+10 | updated_at | TEXT | 0 |  | 0
+11 | updated_by | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE raw_messages
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE raw_messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        source_id INTEGER,
+        message_datetime TEXT,
+        sender_name TEXT,
+        sender_username TEXT,
+        sender_user_id TEXT,
+        message_text TEXT,
+        has_photo INTEGER DEFAULT 0,
+        file_path TEXT,
+        imported_at TEXT,
+        processed_status TEXT DEFAULT 'new',
+        FOREIGN KEY(source_id) REFERENCES message_sources(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | source_id | INTEGER | 0 |  | 0
+2 | message_datetime | TEXT | 0 |  | 0
+3 | sender_name | TEXT | 0 |  | 0
+4 | sender_username | TEXT | 0 |  | 0
+5 | sender_user_id | TEXT | 0 |  | 0
+6 | message_text | TEXT | 0 |  | 0
+7 | has_photo | INTEGER | 0 | 0 | 0
+8 | file_path | TEXT | 0 |  | 0
+9 | imported_at | TEXT | 0 |  | 0
+10 | processed_status | TEXT | 0 | 'new' | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=message_sources from=source_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE remote_requests
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE remote_requests (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            resident_account_id INTEGER NOT NULL,
+            telegram_user_id TEXT NOT NULL,
+            apartment_id INTEGER NOT NULL,
+            apartment_number TEXT NOT NULL,
+            request_kind TEXT NOT NULL DEFAULT 'FIRST',
+            quantity INTEGER NOT NULL DEFAULT 1,
+            resident_comment TEXT,
+            status TEXT NOT NULL DEFAULT 'NEW',
+            operator_id TEXT,
+            operator_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            reviewed_at TEXT,
+            issued_at TEXT,
+            closed_at TEXT,
+            FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id),
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | resident_account_id | INTEGER | 1 |  | 0
+2 | telegram_user_id | TEXT | 1 |  | 0
+3 | apartment_id | INTEGER | 1 |  | 0
+4 | apartment_number | TEXT | 1 |  | 0
+5 | request_kind | TEXT | 1 | 'FIRST' | 0
+6 | quantity | INTEGER | 1 | 1 | 0
+7 | resident_comment | TEXT | 0 |  | 0
+8 | status | TEXT | 1 | 'NEW' | 0
+9 | operator_id | TEXT | 0 |  | 0
+10 | operator_note | TEXT | 0 |  | 0
+11 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+12 | updated_at | TEXT | 0 |  | 0
+13 | reviewed_at | TEXT | 0 |  | 0
+14 | issued_at | TEXT | 0 |  | 0
+15 | closed_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_remote_requests_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id, created_at]
+- idx_remote_requests_status | unique=0 | origin=c | partial=0 | columns=[status, created_at]
+- idx_remote_requests_resident | unique=0 | origin=c | partial=0 | columns=[resident_account_id, status, created_at]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=resident_accounts from=resident_account_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE resident_accounts
+========================================================================================================================
+Rows: 1
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE resident_accounts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        telegram_user_id INTEGER UNIQUE,
+        telegram_username TEXT,
+
+        telegram_first_name TEXT,
+        telegram_last_name TEXT,
+
+        apartment_id INTEGER,
+        apartment_number TEXT,
+
+        role TEXT DEFAULT 'resident',
+        status TEXT DEFAULT 'new',
+
+        language_code TEXT DEFAULT 'ru',
+
+        created_at TEXT,
+        updated_at TEXT,
+        verified_at TEXT,
+        last_seen_at TEXT,
+
+        notes TEXT,
+
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | telegram_user_id | INTEGER | 0 |  | 0
+2 | telegram_username | TEXT | 0 |  | 0
+3 | telegram_first_name | TEXT | 0 |  | 0
+4 | telegram_last_name | TEXT | 0 |  | 0
+5 | apartment_id | INTEGER | 0 |  | 0
+6 | apartment_number | TEXT | 0 |  | 0
+7 | role | TEXT | 0 | 'resident' | 0
+8 | status | TEXT | 0 | 'new' | 0
+9 | language_code | TEXT | 0 | 'ru' | 0
+10 | created_at | TEXT | 0 |  | 0
+11 | updated_at | TEXT | 0 |  | 0
+12 | verified_at | TEXT | 0 |  | 0
+13 | last_seen_at | TEXT | 0 |  | 0
+14 | notes | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_resident_accounts_role | unique=0 | origin=c | partial=0 | columns=[role]
+- idx_resident_accounts_status | unique=0 | origin=c | partial=0 | columns=[status]
+- idx_resident_accounts_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_resident_accounts_telegram_user | unique=0 | origin=c | partial=0 | columns=[telegram_user_id]
+- sqlite_autoindex_resident_accounts_1 | unique=1 | origin=u | partial=0 | columns=[telegram_user_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE schema_info
+========================================================================================================================
+Rows: 1
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE schema_info (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        schema_version TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        comment TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | schema_version | TEXT | 1 |  | 0
+2 | created_at | TEXT | 1 |  | 0
+3 | comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE service_catalog
+========================================================================================================================
+Rows: 12
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE service_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        service_code TEXT NOT NULL UNIQUE,
+        service_group TEXT NOT NULL,
+        service_name TEXT NOT NULL,
+        unit TEXT NOT NULL,
+        is_active INTEGER NOT NULL DEFAULT 1,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    , service_type TEXT, category TEXT, is_monthly INTEGER NOT NULL DEFAULT 0, is_fundraising INTEGER NOT NULL DEFAULT 0, is_commercial INTEGER NOT NULL DEFAULT 0, is_access_control INTEGER NOT NULL DEFAULT 0, is_cash_collectable INTEGER NOT NULL DEFAULT 1)
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | service_code | TEXT | 1 |  | 0
+2 | service_group | TEXT | 1 |  | 0
+3 | service_name | TEXT | 1 |  | 0
+4 | unit | TEXT | 1 |  | 0
+5 | is_active | INTEGER | 1 | 1 | 0
+6 | comment | TEXT | 0 |  | 0
+7 | created_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+8 | updated_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+9 | service_type | TEXT | 0 |  | 0
+10 | category | TEXT | 0 |  | 0
+11 | is_monthly | INTEGER | 1 | 0 | 0
+12 | is_fundraising | INTEGER | 1 | 0 | 0
+13 | is_commercial | INTEGER | 1 | 0 | 0
+14 | is_access_control | INTEGER | 1 | 0 | 0
+15 | is_cash_collectable | INTEGER | 1 | 1 | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_service_catalog_group | unique=0 | origin=c | partial=0 | columns=[service_group]
+- idx_service_catalog_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- idx_service_catalog_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_service_catalog_code | unique=0 | origin=c | partial=0 | columns=[service_code]
+- sqlite_autoindex_service_catalog_1 | unique=1 | origin=u | partial=0 | columns=[service_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE service_items
+========================================================================================================================
+Rows: 11
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE service_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            service_item_code TEXT NOT NULL UNIQUE,
+            service_code TEXT NOT NULL,
+            service_item_name TEXT NOT NULL,
+            service_type TEXT NOT NULL,
+            period_code TEXT,
+            sequence_no INTEGER,
+            amount_default REAL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            date_from TEXT,
+            date_to TEXT,
+            status TEXT NOT NULL DEFAULT 'active',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            description TEXT,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY (service_code) REFERENCES service_catalog(service_code)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | service_item_code | TEXT | 1 |  | 0
+2 | service_code | TEXT | 1 |  | 0
+3 | service_item_name | TEXT | 1 |  | 0
+4 | service_type | TEXT | 1 |  | 0
+5 | period_code | TEXT | 0 |  | 0
+6 | sequence_no | INTEGER | 0 |  | 0
+7 | amount_default | REAL | 0 |  | 0
+8 | currency | TEXT | 1 | 'UAH' | 0
+9 | date_from | TEXT | 0 |  | 0
+10 | date_to | TEXT | 0 |  | 0
+11 | status | TEXT | 1 | 'active' | 0
+12 | is_active | INTEGER | 1 | 1 | 0
+13 | description | TEXT | 0 |  | 0
+14 | comment | TEXT | 0 |  | 0
+15 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+16 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_service_items_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- idx_service_items_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- idx_service_items_period | unique=0 | origin=c | partial=0 | columns=[period_code]
+- idx_service_items_service | unique=0 | origin=c | partial=0 | columns=[service_code]
+- idx_service_items_code | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- sqlite_autoindex_service_items_1 | unique=1 | origin=u | partial=0 | columns=[service_item_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE service_tariffs
+========================================================================================================================
+Rows: 3
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE service_tariffs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        service_code TEXT NOT NULL,
+        amount REAL NOT NULL,
+        currency TEXT NOT NULL DEFAULT 'UAH',
+        valid_from TEXT NOT NULL,
+        valid_to TEXT,
+        is_active INTEGER NOT NULL DEFAULT 1,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(service_code)
+            REFERENCES service_catalog(service_code)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | service_code | TEXT | 1 |  | 0
+2 | amount | REAL | 1 |  | 0
+3 | currency | TEXT | 1 | 'UAH' | 0
+4 | valid_from | TEXT | 1 |  | 0
+5 | valid_to | TEXT | 0 |  | 0
+6 | is_active | INTEGER | 1 | 1 | 0
+7 | comment | TEXT | 0 |  | 0
+8 | created_at | TEXT | 0 | CURRENT_TIMESTAMP | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_service_tariffs_code_dates | unique=0 | origin=c | partial=0 | columns=[service_code, valid_from, valid_to]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE tbot_parking_import
+========================================================================================================================
+Rows: 125
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE tbot_parking_import (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        ownership_type TEXT,
+        ownership_type_raw TEXT,
+
+        full_name TEXT,
+        phone_raw TEXT,
+        apartment_number TEXT,
+
+        car_model TEXT,
+        car_color TEXT,
+        license_plate TEXT,
+        status_raw TEXT,
+
+        source TEXT,
+        imported_at TEXT,
+        imported_by TEXT,
+
+        notes TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | ownership_type | TEXT | 0 |  | 0
+2 | ownership_type_raw | TEXT | 0 |  | 0
+3 | full_name | TEXT | 0 |  | 0
+4 | phone_raw | TEXT | 0 |  | 0
+5 | apartment_number | TEXT | 0 |  | 0
+6 | car_model | TEXT | 0 |  | 0
+7 | car_color | TEXT | 0 |  | 0
+8 | license_plate | TEXT | 0 |  | 0
+9 | status_raw | TEXT | 0 |  | 0
+10 | source | TEXT | 0 |  | 0
+11 | imported_at | TEXT | 0 |  | 0
+12 | imported_by | TEXT | 0 |  | 0
+13 | notes | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE unit_aliases
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE unit_aliases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_id INTEGER NOT NULL,
+            alias_text TEXT NOT NULL,
+            alias_normalized TEXT NOT NULL,
+            alias_kind TEXT NOT NULL DEFAULT 'SEARCH',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY (apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 1 |  | 0
+2 | alias_text | TEXT | 1 |  | 0
+3 | alias_normalized | TEXT | 1 |  | 0
+4 | alias_kind | TEXT | 1 | 'SEARCH' | 0
+5 | is_active | INTEGER | 1 | 1 | 0
+6 | note | TEXT | 0 |  | 0
+7 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+8 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_unit_aliases_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- idx_unit_aliases_unique_active | unique=1 | origin=c | partial=1 | columns=[alias_normalized]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE unit_contacts
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE unit_contacts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_id INTEGER NOT NULL,
+            contact_name TEXT,
+            contact_phone TEXT,
+            contact_role TEXT NOT NULL DEFAULT 'PRIMARY',
+            is_primary INTEGER NOT NULL DEFAULT 1,
+            record_status TEXT NOT NULL DEFAULT 'DRAFT',
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 1 |  | 0
+2 | contact_name | TEXT | 0 |  | 0
+3 | contact_phone | TEXT | 0 |  | 0
+4 | contact_role | TEXT | 1 | 'PRIMARY' | 0
+5 | is_primary | INTEGER | 1 | 1 | 0
+6 | record_status | TEXT | 1 | 'DRAFT' | 0
+7 | note | TEXT | 0 |  | 0
+8 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+9 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_unit_contacts_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- idx_unit_contacts_primary | unique=1 | origin=c | partial=1 | columns=[apartment_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE unit_group_aliases
+========================================================================================================================
+Rows: 13
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE unit_group_aliases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_id INTEGER NOT NULL,
+            alias_text TEXT NOT NULL,
+            alias_normalized TEXT NOT NULL,
+            alias_kind TEXT NOT NULL,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            source_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(alias_normalized, is_active),
+            FOREIGN KEY(group_id) REFERENCES unit_groups(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | group_id | INTEGER | 1 |  | 0
+2 | alias_text | TEXT | 1 |  | 0
+3 | alias_normalized | TEXT | 1 |  | 0
+4 | alias_kind | TEXT | 1 |  | 0
+5 | is_active | INTEGER | 1 | 1 | 0
+6 | source_note | TEXT | 0 |  | 0
+7 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+8 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_unit_group_aliases_group | unique=0 | origin=c | partial=0 | columns=[group_id]
+- sqlite_autoindex_unit_group_aliases_1 | unique=1 | origin=u | partial=0 | columns=[alias_normalized, is_active]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=unit_groups from=group_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE unit_group_members
+========================================================================================================================
+Rows: 8
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE unit_group_members (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_id INTEGER NOT NULL,
+            apartment_id INTEGER NOT NULL,
+            member_order INTEGER NOT NULL DEFAULT 1,
+            member_role TEXT NOT NULL DEFAULT 'MEMBER',
+            source_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(group_id, apartment_id),
+            FOREIGN KEY(group_id) REFERENCES unit_groups(id),
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | group_id | INTEGER | 1 |  | 0
+2 | apartment_id | INTEGER | 1 |  | 0
+3 | member_order | INTEGER | 1 | 1 | 0
+4 | member_role | TEXT | 1 | 'MEMBER' | 0
+5 | source_note | TEXT | 0 |  | 0
+6 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+7 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_unit_group_members_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- sqlite_autoindex_unit_group_members_1 | unique=1 | origin=u | partial=0 | columns=[group_id, apartment_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- id=1 seq=0 table=unit_groups from=group_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE unit_groups
+========================================================================================================================
+Rows: 4
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE unit_groups (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_code TEXT NOT NULL UNIQUE,
+            group_type TEXT NOT NULL DEFAULT 'COMPOSITE_LOOKUP',
+            display_name TEXT,
+            legal_status TEXT NOT NULL DEFAULT 'UNKNOWN',
+            record_status TEXT NOT NULL DEFAULT 'LEGACY_LOOKUP',
+            source_note TEXT,
+            internal_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | group_code | TEXT | 1 |  | 0
+2 | group_type | TEXT | 1 | 'COMPOSITE_LOOKUP' | 0
+3 | display_name | TEXT | 0 |  | 0
+4 | legal_status | TEXT | 1 | 'UNKNOWN' | 0
+5 | record_status | TEXT | 1 | 'LEGACY_LOOKUP' | 0
+6 | source_note | TEXT | 0 |  | 0
+7 | internal_note | TEXT | 0 |  | 0
+8 | created_at | TEXT | 1 | CURRENT_TIMESTAMP | 0
+9 | updated_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_unit_groups_status | unique=0 | origin=c | partial=0 | columns=[record_status, legal_status]
+- sqlite_autoindex_unit_groups_1 | unique=1 | origin=u | partial=0 | columns=[group_code]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE vehicles
+========================================================================================================================
+Rows: 130
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE vehicles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        license_plate TEXT,
+        car_model TEXT,
+        car_color TEXT,
+        parking_time TEXT,
+        status TEXT,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT, license_plate_normalized TEXT, plate_format_status TEXT, car_model_normalized TEXT, car_color_normalized TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 0 |  | 0
+2 | license_plate | TEXT | 0 |  | 0
+3 | car_model | TEXT | 0 |  | 0
+4 | car_color | TEXT | 0 |  | 0
+5 | parking_time | TEXT | 0 |  | 0
+6 | status | TEXT | 0 |  | 0
+7 | source | TEXT | 0 |  | 0
+8 | notes | TEXT | 0 |  | 0
+9 | created_at | TEXT | 0 |  | 0
+10 | created_by | TEXT | 0 |  | 0
+11 | updated_at | TEXT | 0 |  | 0
+12 | updated_by | TEXT | 0 |  | 0
+13 | license_plate_normalized | TEXT | 0 |  | 0
+14 | plate_format_status | TEXT | 0 |  | 0
+15 | car_model_normalized | TEXT | 0 |  | 0
+16 | car_color_normalized | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE verification_candidates
+========================================================================================================================
+Rows: 46
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE verification_candidates (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        task_id INTEGER,
+
+        candidate_type TEXT,
+        candidate_value TEXT,
+        candidate_normalized TEXT,
+
+        confidence_label TEXT,
+        confidence_score INTEGER,
+
+        source_names TEXT,
+        match_types TEXT,
+
+        reason TEXT,
+        status TEXT DEFAULT 'new',
+
+        created_at TEXT,
+        created_by TEXT,
+
+        decided_at TEXT,
+        decided_by TEXT,
+        decision TEXT,
+        decision_comment TEXT,
+
+        FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | task_id | INTEGER | 0 |  | 0
+2 | candidate_type | TEXT | 0 |  | 0
+3 | candidate_value | TEXT | 0 |  | 0
+4 | candidate_normalized | TEXT | 0 |  | 0
+5 | confidence_label | TEXT | 0 |  | 0
+6 | confidence_score | INTEGER | 0 |  | 0
+7 | source_names | TEXT | 0 |  | 0
+8 | match_types | TEXT | 0 |  | 0
+9 | reason | TEXT | 0 |  | 0
+10 | status | TEXT | 0 | 'new' | 0
+11 | created_at | TEXT | 0 |  | 0
+12 | created_by | TEXT | 0 |  | 0
+13 | decided_at | TEXT | 0 |  | 0
+14 | decided_by | TEXT | 0 |  | 0
+15 | decision | TEXT | 0 |  | 0
+16 | decision_comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_verification_candidates_status | unique=0 | origin=c | partial=0 | columns=[status]
+- idx_verification_candidates_task | unique=0 | origin=c | partial=0 | columns=[task_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=verification_tasks from=task_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE verification_evidence
+========================================================================================================================
+Rows: 80
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE verification_evidence (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        task_id INTEGER,
+
+        source_name TEXT,
+        source_db TEXT,
+        source_table TEXT,
+        source_record_id TEXT,
+
+        evidence_type TEXT,
+        evidence_value TEXT,
+        normalized_value TEXT,
+        match_type TEXT,
+
+        comment TEXT,
+        created_at TEXT,
+
+        FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | task_id | INTEGER | 0 |  | 0
+2 | source_name | TEXT | 0 |  | 0
+3 | source_db | TEXT | 0 |  | 0
+4 | source_table | TEXT | 0 |  | 0
+5 | source_record_id | TEXT | 0 |  | 0
+6 | evidence_type | TEXT | 0 |  | 0
+7 | evidence_value | TEXT | 0 |  | 0
+8 | normalized_value | TEXT | 0 |  | 0
+9 | match_type | TEXT | 0 |  | 0
+10 | comment | TEXT | 0 |  | 0
+11 | created_at | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_verification_evidence_task | unique=0 | origin=c | partial=0 | columns=[task_id]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=verification_tasks from=task_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+TABLE verification_log
+========================================================================================================================
+Rows: 0
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE verification_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_number TEXT,
+        field_name TEXT,
+        paper_value TEXT,
+        bot_value TEXT,
+        final_value TEXT,
+        status TEXT,
+        verified_by TEXT,
+        verified_at TEXT,
+        comment TEXT
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_number | TEXT | 0 |  | 0
+2 | field_name | TEXT | 0 |  | 0
+3 | paper_value | TEXT | 0 |  | 0
+4 | bot_value | TEXT | 0 |  | 0
+5 | final_value | TEXT | 0 |  | 0
+6 | status | TEXT | 0 |  | 0
+7 | verified_by | TEXT | 0 |  | 0
+8 | verified_at | TEXT | 0 |  | 0
+9 | comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+(none)
+
+========================================================================================================================
+TABLE verification_tasks
+========================================================================================================================
+Rows: 37
+
+CREATE TABLE
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE verification_tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        apartment_id INTEGER,
+        apartment_number TEXT,
+
+        task_group TEXT,
+        task_type TEXT,
+
+        priority INTEGER DEFAULT 100,
+        status TEXT DEFAULT 'new',
+
+        source_name TEXT,
+        source_record_id TEXT,
+
+        object_table TEXT,
+        object_id INTEGER,
+        field_name TEXT,
+
+        main_value TEXT,
+        candidate_value TEXT,
+        normalized_main_value TEXT,
+        normalized_candidate_value TEXT,
+
+        suggestion TEXT,
+        comment TEXT,
+
+        created_at TEXT,
+        created_by TEXT,
+
+        resolved_at TEXT,
+        resolved_by TEXT,
+        resolution TEXT,
+        resolution_comment TEXT,
+
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+COLUMNS
+------------------------------------------------------------------------------------------------------------------------
+cid | name | type | notnull | default | pk
+----------------------------------------------------------------------------------------------------
+0 | id | INTEGER | 0 |  | 1
+1 | apartment_id | INTEGER | 0 |  | 0
+2 | apartment_number | TEXT | 0 |  | 0
+3 | task_group | TEXT | 0 |  | 0
+4 | task_type | TEXT | 0 |  | 0
+5 | priority | INTEGER | 0 | 100 | 0
+6 | status | TEXT | 0 | 'new' | 0
+7 | source_name | TEXT | 0 |  | 0
+8 | source_record_id | TEXT | 0 |  | 0
+9 | object_table | TEXT | 0 |  | 0
+10 | object_id | INTEGER | 0 |  | 0
+11 | field_name | TEXT | 0 |  | 0
+12 | main_value | TEXT | 0 |  | 0
+13 | candidate_value | TEXT | 0 |  | 0
+14 | normalized_main_value | TEXT | 0 |  | 0
+15 | normalized_candidate_value | TEXT | 0 |  | 0
+16 | suggestion | TEXT | 0 |  | 0
+17 | comment | TEXT | 0 |  | 0
+18 | created_at | TEXT | 0 |  | 0
+19 | created_by | TEXT | 0 |  | 0
+20 | resolved_at | TEXT | 0 |  | 0
+21 | resolved_by | TEXT | 0 |  | 0
+22 | resolution | TEXT | 0 |  | 0
+23 | resolution_comment | TEXT | 0 |  | 0
+
+INDEXES
+------------------------------------------------------------------------------------------------------------------------
+- idx_verification_tasks_type | unique=0 | origin=c | partial=0 | columns=[task_type]
+- idx_verification_tasks_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- idx_verification_tasks_status | unique=0 | origin=c | partial=0 | columns=[status]
+
+FOREIGN KEYS
+------------------------------------------------------------------------------------------------------------------------
+- id=0 seq=0 table=apartments from=apartment_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+
+========================================================================================================================
+VIEWS
+========================================================================================================================
+
+VIEW v_commercial_contract_charge_debt
+------------------------------------------------------------------------------------------------------------------------
+CREATE VIEW v_commercial_contract_charge_debt AS
+        SELECT
+            c.id AS charge_id,
+            c.commercial_contract_id,
+            c.commercial_contract_item_id,
+            c.commercial_due_date,
+            c.amount AS charge_amount,
+            COALESCE(SUM(pa."amount"), 0) AS allocated_amount,
+            CASE
+                WHEN c.amount - COALESCE(SUM(pa."amount"), 0) > 0
+                THEN c.amount - COALESCE(SUM(pa."amount"), 0)
+                ELSE 0
+            END AS outstanding_amount,
+            COALESCE(i.blocks_phone_access_on_debt, 0) AS blocks_phone_access_on_debt
+        FROM charges c
+        LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+        LEFT JOIN commercial_contract_items i
+          ON i.id = c.commercial_contract_item_id
+        WHERE c.commercial_contract_id IS NOT NULL
+        AND COALESCE(c."status", '') <> 'cancelled'
+        GROUP BY c.id
+
+VIEW v_commercial_contract_debt_summary
+------------------------------------------------------------------------------------------------------------------------
+CREATE VIEW v_commercial_contract_debt_summary AS
+        SELECT
+            d.commercial_contract_id,
+            COALESCE(SUM(d.outstanding_amount), 0) AS outstanding_amount,
+            COALESCE(SUM(
+                CASE
+                    WHEN d.blocks_phone_access_on_debt = 1
+                    THEN d.outstanding_amount
+                    ELSE 0
+                END
+            ), 0) AS access_blocking_outstanding_amount,
+            MIN(
+                CASE
+                    WHEN d.outstanding_amount > 0
+                    THEN d.commercial_due_date
+                    ELSE NULL
+                END
+            ) AS first_open_due_date
+        FROM v_commercial_contract_charge_debt d
+        GROUP BY d.commercial_contract_id
+
+VIEW v_unit_group_registry
+------------------------------------------------------------------------------------------------------------------------
+CREATE VIEW v_unit_group_registry AS
+        SELECT
+            g.id AS group_id,
+            g.group_code,
+            g.group_type,
+            g.display_name,
+            g.legal_status,
+            g.record_status,
+            (
+                SELECT GROUP_CONCAT(a.apartment_number, ' + ')
+                FROM unit_group_members gm
+                JOIN apartments a ON a.id = gm.apartment_id
+                WHERE gm.group_id = g.id
+                ORDER BY gm.member_order
+            ) AS members,
+            (
+                SELECT GROUP_CONCAT(ga.alias_text, ' | ')
+                FROM unit_group_aliases ga
+                WHERE ga.group_id = g.id
+                  AND ga.is_active = 1
+            ) AS aliases
+        FROM unit_groups g
+
+========================================================================================================================
+TRIGGERS
+========================================================================================================================
+(none)
+
+========================================================================================================================
+STANDALONE INDEXES
+========================================================================================================================
+
+INDEX idx_adjust_assign_apt
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjust_assign_apt ON adjustment_assignments(apartment_number)
+
+INDEX idx_adjust_assign_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjust_assign_code ON adjustment_assignments(adjustment_code)
+
+INDEX idx_adjust_assign_status_dates
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjust_assign_status_dates ON adjustment_assignments(status, valid_from, valid_to)
+
+INDEX idx_adjust_assign_vehicle
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjust_assign_vehicle ON adjustment_assignments(vehicle_id)
+
+INDEX idx_adjustment_catalog_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjustment_catalog_active ON adjustment_catalog(is_active)
+
+INDEX idx_adjustment_catalog_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_adjustment_catalog_type ON adjustment_catalog(adjustment_type)
+
+INDEX idx_apartment_link_requests_requested_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_apartment_link_requests_requested_unit
+            ON apartment_link_requests(requested_apartment_id, status)
+            
+
+INDEX idx_apartment_link_requests_resident
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_apartment_link_requests_resident
+            ON apartment_link_requests(resident_account_id, status, created_at)
+            
+
+INDEX idx_apartment_link_requests_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_apartment_link_requests_status
+            ON apartment_link_requests(status, created_at)
+            
+
+INDEX idx_apartment_verification_apartment_number
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_apartment_verification_apartment_number
+        ON apartment_verification(apartment_number)
+    
+
+INDEX idx_apartment_verification_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_apartment_verification_status
+        ON apartment_verification(status)
+    
+
+INDEX idx_apartments_unit_code_unique
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX idx_apartments_unit_code_unique
+        ON apartments(unit_code)
+        WHERE unit_code IS NOT NULL
+          AND TRIM(unit_code) <> ''
+    
+
+INDEX idx_audit_log_actor
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_audit_log_actor
+    ON audit_log(telegram_user_id)
+    
+
+INDEX idx_audit_log_event_time
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_audit_log_event_time
+        ON audit_log(event_time)
+        
+
+INDEX idx_audit_log_table_record
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_audit_log_table_record
+    ON audit_log(table_name, record_id)
+    
+
+INDEX idx_bank_transactions_ref
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bank_transactions_ref
+            ON bank_transactions(transaction_ref)
+            
+
+INDEX idx_bank_transactions_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bank_transactions_unit
+            ON bank_transactions(apartment_id, apartment_number, transaction_date)
+            
+
+INDEX idx_barrier_phone_access_apt
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_barrier_phone_access_apt ON barrier_phone_access(apartment_number)
+
+INDEX idx_barrier_phone_access_phone
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_barrier_phone_access_phone ON barrier_phone_access(phone_number)
+
+INDEX idx_barrier_phone_access_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_barrier_phone_access_status ON barrier_phone_access(access_status)
+
+INDEX idx_bot_admins_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bot_admins_active
+    ON bot_admins(is_active)
+    
+
+INDEX idx_bot_admins_role
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bot_admins_role
+    ON bot_admins(role)
+    
+
+INDEX idx_bot_admins_telegram_user
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bot_admins_telegram_user
+    ON bot_admins(telegram_user_id)
+    
+
+INDEX idx_bot_user_sessions_user
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_bot_user_sessions_user
+    ON bot_user_sessions(telegram_user_id)
+    
+
+INDEX idx_cashbox_operations_apt
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_apt ON cashbox_operations(apartment_number)
+
+INDEX idx_cashbox_operations_base_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_base_service ON cashbox_operations(base_service_code)
+
+INDEX idx_cashbox_operations_batch
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_batch ON cashbox_operations(batch_id)
+
+INDEX idx_cashbox_operations_cashbox
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_cashbox ON cashbox_operations(cashbox_code)
+
+INDEX idx_cashbox_operations_cashier_receipt
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_cashier_receipt
+            ON cashbox_operations(cashier_receipt_id)
+            
+
+INDEX idx_cashbox_operations_commercial_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_commercial_contract
+            ON cashbox_operations(commercial_contract_id, commercial_unit_id)
+            
+
+INDEX idx_cashbox_operations_date
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_date ON cashbox_operations(operation_date)
+
+INDEX idx_cashbox_operations_operator
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_operator ON cashbox_operations(operator_id)
+
+INDEX idx_cashbox_operations_payment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_payment ON cashbox_operations(payment_id)
+
+INDEX idx_cashbox_operations_service_item
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_service_item ON cashbox_operations(service_item_code)
+
+INDEX idx_cashbox_operations_service_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_service_type ON cashbox_operations(service_type)
+
+INDEX idx_cashbox_operations_transfer_group
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_transfer_group
+            ON cashbox_operations(transfer_group_ref)
+            
+
+INDEX idx_cashbox_operations_vehicle
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashbox_operations_vehicle ON cashbox_operations(vehicle_id)
+
+INDEX idx_cashboxes_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashboxes_active ON cashboxes(is_active)
+
+INDEX idx_cashboxes_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashboxes_code ON cashboxes(cashbox_code)
+
+INDEX idx_cashier_batch_items_batch
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_batch_items_batch
+            ON cashier_batch_items(batch_id, item_status)
+            
+
+INDEX idx_cashier_batch_items_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_batch_items_unit
+            ON cashier_batch_items(apartment_id, apartment_number, period_code)
+            
+
+INDEX idx_cashier_batches_batch_id
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_batches_batch_id ON cashier_batches(batch_id)
+
+INDEX idx_cashier_batches_operator
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_batches_operator ON cashier_batches(operator_id)
+
+INDEX idx_cashier_batches_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_batches_status ON cashier_batches(batch_status)
+
+INDEX idx_cashier_receipts_allocation
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_receipts_allocation
+            ON cashier_receipts(allocation_status, entry_status)
+            
+
+INDEX idx_cashier_receipts_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_receipts_apartment
+            ON cashier_receipts(apartment_id, apartment_number, period_code)
+            
+
+INDEX idx_cashier_receipts_cashbox
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_receipts_cashbox
+            ON cashier_receipts(cashbox_code, receipt_date)
+            
+
+INDEX idx_cashier_receipts_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_receipts_status
+            ON cashier_receipts(entry_status, receipt_date, id)
+            
+
+INDEX idx_cashier_reconciliation_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_reconciliation_status
+            ON cashier_reconciliation_cases(case_status, priority, created_at)
+            
+
+INDEX idx_cashier_reconciliation_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_cashier_reconciliation_unit
+            ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)
+            
+
+INDEX idx_charge_adjustments_assignment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charge_adjustments_assignment ON charge_adjustments(adjustment_assignment_id)
+
+INDEX idx_charge_adjustments_charge
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charge_adjustments_charge ON charge_adjustments(charge_id)
+
+INDEX idx_charge_adjustments_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charge_adjustments_code ON charge_adjustments(adjustment_code)
+
+INDEX idx_charges_adjustment_amount
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_adjustment_amount ON charges(adjustment_amount)
+
+INDEX idx_charges_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_apartment ON charges(apartment_number)
+
+INDEX idx_charges_base_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_base_service ON charges(base_service_code)
+
+INDEX idx_charges_commercial_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_commercial_contract
+                ON charges(commercial_contract_id, commercial_contract_item_id, commercial_due_date)
+                
+
+INDEX idx_charges_period
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_period ON charges(period_code)
+
+INDEX idx_charges_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_service ON charges(service_code)
+
+INDEX idx_charges_service_item
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_service_item ON charges(service_item_code)
+
+INDEX idx_charges_service_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_service_type ON charges(service_type)
+
+INDEX idx_charges_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_status ON charges(status)
+
+INDEX idx_charges_vehicle
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_charges_vehicle ON charges(vehicle_id)
+
+INDEX idx_commercial_access_phone_contract_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_access_phone_contract_status
+            ON commercial_access_phones(contract_id, status)
+            
+
+INDEX idx_commercial_actions_contract_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_actions_contract_status
+            ON commercial_access_actions(contract_id, action_status, action_type)
+            
+
+INDEX idx_commercial_contract_items_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_contract_items_contract
+            ON commercial_contract_items(contract_id, is_active, valid_from, valid_to)
+            
+
+INDEX idx_commercial_contracts_unit_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_contracts_unit_status
+            ON commercial_contracts(unit_id, status, valid_from, valid_to)
+            
+
+INDEX idx_commercial_notifications_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_notifications_contract
+            ON commercial_notifications(contract_id, notification_type)
+            
+
+INDEX idx_commercial_notifications_queue
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_notifications_queue
+            ON commercial_notifications(status, created_at)
+            
+
+INDEX idx_commercial_recipients_contract_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_recipients_contract_status
+            ON commercial_contract_recipients(contract_id, notification_enabled, status)
+            
+
+INDEX idx_commercial_recipients_telegram
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_commercial_recipients_telegram
+            ON commercial_contract_recipients(telegram_user_id)
+            
+
+INDEX idx_operator_audit_action
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_action ON operator_audit_log(action_type)
+
+INDEX idx_operator_audit_actor
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_actor ON operator_audit_log(actor_type)
+
+INDEX idx_operator_audit_created
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_created ON operator_audit_log(created_at)
+
+INDEX idx_operator_audit_operator
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_operator ON operator_audit_log(operator_id)
+
+INDEX idx_operator_audit_review
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_review ON operator_audit_log(review_status)
+
+INDEX idx_operator_audit_table_row
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_table_row ON operator_audit_log(table_name, row_id)
+
+INDEX idx_operator_audit_user
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_operator_audit_user ON operator_audit_log(user_id)
+
+INDEX idx_payment_allocations_base_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payment_allocations_base_service ON payment_allocations(base_service_code)
+
+INDEX idx_payment_allocations_service_item
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payment_allocations_service_item ON payment_allocations(service_item_code)
+
+INDEX idx_payment_allocations_service_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payment_allocations_service_type ON payment_allocations(service_type)
+
+INDEX idx_payment_notices_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payment_notices_status
+            ON payment_notices(notice_status, declared_at)
+            
+
+INDEX idx_payment_notices_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payment_notices_unit
+            ON payment_notices(apartment_id, apartment_number, notice_status)
+            
+
+INDEX idx_payments_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_apartment ON payments(apartment_number)
+
+INDEX idx_payments_bank_v2
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_bank_v2
+            ON payments(bank_transaction_id)
+            
+
+INDEX idx_payments_base_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_base_service ON payments(base_service_code)
+
+INDEX idx_payments_cashbox_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_cashbox_code ON payments(cashbox_code)
+
+INDEX idx_payments_cashbox_operation
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_cashbox_operation ON payments(cashbox_operation_id)
+
+INDEX idx_payments_cashier_batch
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_cashier_batch ON payments(cashier_batch_id)
+
+INDEX idx_payments_cashier_receipt
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_cashier_receipt
+            ON payments(cashier_receipt_id)
+            
+
+INDEX idx_payments_commercial_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_commercial_contract
+            ON payments(commercial_contract_id, commercial_unit_id)
+            
+
+INDEX idx_payments_date
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_date ON payments(payment_date)
+
+INDEX idx_payments_notice_v2
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_notice_v2
+            ON payments(payment_notice_id)
+            
+
+INDEX idx_payments_operator
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_operator ON payments(operator_id)
+
+INDEX idx_payments_period
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_period ON payments(period_code)
+
+INDEX idx_payments_service_item
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_service_item ON payments(service_item_code)
+
+INDEX idx_payments_service_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_service_type ON payments(service_type)
+
+INDEX idx_payments_vehicle
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_payments_vehicle ON payments(vehicle_id)
+
+INDEX idx_ptrt_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_ptrt_apartment
+    ON parking_time_review_tasks(apartment_number)
+    
+
+INDEX idx_ptrt_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_ptrt_status
+    ON parking_time_review_tasks(status)
+    
+
+INDEX idx_receipts_notice_v2
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_receipts_notice_v2
+            ON cashier_receipts(payment_notice_id)
+            
+
+INDEX idx_remote_requests_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_remote_requests_apartment
+            ON remote_requests(apartment_id, created_at)
+            
+
+INDEX idx_remote_requests_resident
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_remote_requests_resident
+            ON remote_requests(resident_account_id, status, created_at)
+            
+
+INDEX idx_remote_requests_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_remote_requests_status
+            ON remote_requests(status, created_at)
+            
+
+INDEX idx_resident_accounts_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_resident_accounts_apartment
+    ON resident_accounts(apartment_number)
+    
+
+INDEX idx_resident_accounts_role
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_resident_accounts_role
+    ON resident_accounts(role)
+    
+
+INDEX idx_resident_accounts_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_resident_accounts_status
+    ON resident_accounts(status)
+    
+
+INDEX idx_resident_accounts_telegram_user
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_resident_accounts_telegram_user
+    ON resident_accounts(telegram_user_id)
+    
+
+INDEX idx_service_catalog_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_catalog_active ON service_catalog(is_active)
+
+INDEX idx_service_catalog_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_catalog_code ON service_catalog(service_code)
+
+INDEX idx_service_catalog_group
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_catalog_group ON service_catalog(service_group)
+
+INDEX idx_service_catalog_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_catalog_type ON service_catalog(service_type)
+
+INDEX idx_service_items_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_items_active ON service_items(is_active)
+
+INDEX idx_service_items_code
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_items_code ON service_items(service_item_code)
+
+INDEX idx_service_items_period
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_items_period ON service_items(period_code)
+
+INDEX idx_service_items_service
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_items_service ON service_items(service_code)
+
+INDEX idx_service_items_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_items_type ON service_items(service_type)
+
+INDEX idx_service_tariffs_code_dates
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_service_tariffs_code_dates ON service_tariffs(service_code, valid_from, valid_to)
+
+INDEX idx_unit_aliases_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_unit_aliases_apartment
+        ON unit_aliases(apartment_id)
+    
+
+INDEX idx_unit_aliases_unique_active
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX idx_unit_aliases_unique_active
+        ON unit_aliases(alias_normalized)
+        WHERE is_active = 1
+    
+
+INDEX idx_unit_contacts_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_unit_contacts_apartment
+        ON unit_contacts(apartment_id)
+    
+
+INDEX idx_unit_contacts_primary
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX idx_unit_contacts_primary
+        ON unit_contacts(apartment_id)
+        WHERE is_primary = 1
+    
+
+INDEX idx_unit_group_aliases_group
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_unit_group_aliases_group
+        ON unit_group_aliases(group_id)
+    
+
+INDEX idx_unit_group_members_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_unit_group_members_apartment
+        ON unit_group_members(apartment_id)
+    
+
+INDEX idx_unit_groups_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_unit_groups_status
+        ON unit_groups(record_status, legal_status)
+    
+
+INDEX idx_verification_candidates_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_candidates_status
+    ON verification_candidates(status)
+    
+
+INDEX idx_verification_candidates_task
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_candidates_task
+    ON verification_candidates(task_id)
+    
+
+INDEX idx_verification_evidence_task
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_evidence_task
+    ON verification_evidence(task_id)
+    
+
+INDEX idx_verification_tasks_apartment
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_tasks_apartment
+    ON verification_tasks(apartment_number)
+    
+
+INDEX idx_verification_tasks_status
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_tasks_status
+    ON verification_tasks(status)
+    
+
+INDEX idx_verification_tasks_type
+------------------------------------------------------------------------------------------------------------------------
+CREATE INDEX idx_verification_tasks_type
+    ON verification_tasks(task_type)
+    
+
+INDEX ux_commercial_notification_dedupe
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX ux_commercial_notification_dedupe
+            ON commercial_notifications(dedupe_key)
+        
+
+INDEX ux_commercial_one_active_contract_per_unit
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX ux_commercial_one_active_contract_per_unit
+            ON commercial_contracts(unit_id)
+            WHERE status = 'ACTIVE'
+        
+
+INDEX ux_commercial_phone_per_contract
+------------------------------------------------------------------------------------------------------------------------
+CREATE UNIQUE INDEX ux_commercial_phone_per_contract
+            ON commercial_access_phones(contract_id, phone_normalized)
+        
+
+========================================================================================================================
+COLUMN USAGE
+========================================================================================================================
+access_phone_id: commercial_access_actions
+access_purpose: commercial_access_phones
+access_status: barrier_phone_access
+action: audit_log
+action_status: commercial_access_actions, operator_audit_log
+action_type: commercial_access_actions, operator_audit_log
+actor_name: audit_log
+actor_role: audit_log
+actor_type: cashbox_operations, cashier_batches, operator_audit_log
+adjustment_amount: charges
+adjustment_assignment_id: charge_adjustments
+adjustment_code: adjustment_assignments, adjustment_catalog, charge_adjustments
+adjustment_internal_note: charges
+adjustment_name: adjustment_catalog
+adjustment_public_note: charges
+adjustment_type: adjustment_assignments, adjustment_catalog, charge_adjustments
+adjustment_updated_at: charges
+alias_kind: unit_aliases, unit_group_aliases
+alias_normalized: unit_aliases, unit_group_aliases
+alias_text: unit_aliases, unit_group_aliases
+allocation_status: cashier_receipts
+amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+amount_default: service_items
+amount_expected: cashier_batch_items
+amount_received: cashier_batch_items
+apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+applied_amount: charge_adjustments
+applied_at: cashier_batches
+applied_by: charge_adjustments
+approval_reference: adjustment_assignments
+approved_by: adjustment_assignments
+area_sqm: apartments
+bank_name: bank_transactions
+bank_transaction_id: payments
+base_service_code: adjustment_assignments, cashbox_operations, charges, payment_allocations, payments
+batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+batch_status: cashier_batches
+batch_type: cashier_batches
+blocked_at: barrier_phone_access
+blocked_by: barrier_phone_access
+blocks_phone_access_on_debt: commercial_contract_items
+bot_value: verification_log
+calculation_kind: adjustment_assignments, charge_adjustments
+calculation_mode: commercial_contract_items
+calculation_value: adjustment_assignments
+can_manage_bot: bot_admins
+can_manage_payments: bot_admins
+can_manage_users: bot_admins
+can_read: bot_admins
+can_write: bot_admins
+cancelled_at: commercial_notifications
+cancelled_by: commercial_notifications
+candidate_normalized: verification_candidates
+candidate_type: verification_candidates
+candidate_value: verification_candidates, verification_tasks
+car_color: tbot_parking_import, vehicles
+car_color_normalized: vehicles
+car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+car_model_normalized: vehicles
+case_status: cashier_reconciliation_cases
+case_type: cashier_reconciliation_cases
+cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+cashbox_name: cashboxes
+cashbox_operation_id: cashier_receipts, payments
+cashier_batch_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+cashier_entry_status: payments
+cashier_receipt_id: cashbox_operations, payments
+category: service_catalog
+charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+charge_ids_json: commercial_notifications
+closed_at: remote_requests
+comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+commercial_contract_id: cashbox_operations, charges, payments
+commercial_contract_item_id: charges
+commercial_due_date: charges
+commercial_unit_id: cashbox_operations, payments
+confidence: extracted_facts
+confidence_label: verification_candidates
+confidence_score: verification_candidates
+confirmed_at: cashier_receipts, payment_notices
+confirmed_by: cashier_receipts
+contact_id: adjustment_assignments, barrier_phone_access
+contact_name: unit_contacts
+contact_owner: contact_methods
+contact_phone: unit_contacts
+contact_role: unit_contacts
+contact_type: contact_methods
+contact_value: contact_methods
+context_json: bot_user_sessions
+contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+contract_number: commercial_contracts
+counterparty_name: commercial_contracts
+counterparty_type: commercial_contracts
+created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events, operator_audit_log, parking_time_review_tasks, payment_allocations, payment_notices, payments, persons, remote_requests, resident_accounts, schema_info, service_catalog, service_items, service_tariffs, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles, verification_candidates, verification_evidence, verification_tasks
+created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+credit_remaining_amount: adjustment_assignments
+credit_total_amount: adjustment_assignments
+currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+current_apartment_id: apartment_link_requests
+current_apartment_number: apartment_link_requests
+current_balance: cashboxes
+current_parking_time: parking_time_review_tasks
+current_state: bot_user_sessions
+date_from: service_items
+date_to: service_items
+days_overdue_snapshot: commercial_access_actions, commercial_notifications
+db_file: operator_audit_log
+db_mode: operator_audit_log
+debt_amount: barrier_phone_access
+debt_amount_snapshot: commercial_access_actions, commercial_notifications
+decided_at: verification_candidates
+decided_by: verification_candidates
+decision: parking_time_review_tasks, verification_candidates
+decision_comment: parking_time_review_tasks, verification_candidates
+declared_amount: payment_notices
+declared_at: payment_notices
+declared_cashbox_code: payment_notices
+declared_period_code: payment_notices
+declared_service_code: payment_notices
+declared_service_item_code: payment_notices
+dedupe_key: commercial_notifications
+default_amount: cashier_batches
+default_calculation_kind: adjustment_catalog
+default_calculation_value: adjustment_catalog
+default_tariff: cashier_batches
+delivery_error: commercial_notifications
+description: cashier_reconciliation_cases, service_items
+designation_status: cashier_receipts
+direction: cashbox_operations
+display_name: apartments, bot_admins, unit_groups
+document_date: cashier_receipts
+entrance: apartments
+entrance_number: apartments
+entrance_source: apartments
+entry_status: bank_transactions, cashier_receipts
+event_group: events
+event_time: audit_log, events
+event_type: events
+evidence_text: payment_notices
+evidence_type: cashier_receipts, verification_evidence
+evidence_value: verification_evidence
+exception_note: cashier_batch_items
+extra_json: operator_audit_log
+fact_date: extracted_facts
+fact_type: extracted_facts
+failed_at: commercial_notifications
+field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+file_path: events, raw_messages
+final_value: verification_log
+fixed_amount: commercial_contract_items
+full_name: persons, tbot_parking_import
+grace_days: commercial_contracts
+gross_amount: charges
+group_code: unit_groups
+group_id: unit_group_aliases, unit_group_members
+group_type: unit_groups
+has_photo: raw_messages
+id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, payment_allocations, payment_notices, payments, persons, raw_messages, remote_requests, resident_accounts, schema_info, service_catalog, service_items, service_tariffs, tbot_parking_import, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+imported_at: raw_messages, tbot_parking_import
+imported_by: tbot_parking_import
+initial_balance: cashboxes
+internal_description: adjustment_catalog
+internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+is_access_control: service_catalog
+is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+is_cash_collectable: service_catalog
+is_commercial: service_catalog
+is_fundraising: service_catalog
+is_monthly: service_catalog
+is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+is_sensitive: adjustment_catalog
+issued_at: remote_requests
+item_code: commercial_contract_items
+item_name: commercial_contract_items
+item_status: cashier_batch_items
+language_code: resident_accounts
+last_seen_at: resident_accounts
+legal_status: unit_groups
+license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+license_plate_normalized: vehicles
+main_value: verification_tasks
+match_type: verification_evidence
+match_types: verification_candidates
+matched_bank_transaction_id: payment_notices
+matched_cashier_receipt_id: payment_notices
+matched_payment_id: payment_notices
+member_order: unit_group_members
+member_role: unit_group_members
+message_datetime: raw_messages
+message_text: commercial_notifications, raw_messages
+net_amount: charges
+new_value: audit_log, operator_audit_log
+normalized_candidate_value: verification_tasks
+normalized_main_value: verification_tasks
+normalized_value: verification_evidence
+note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+notice_number: payment_notices
+notice_status: payment_notices
+notice_type: payment_notices
+notification_enabled: commercial_contract_recipients
+notification_id: commercial_access_actions
+notification_type: commercial_notifications
+object_id: verification_tasks
+object_table: verification_tasks
+object_type: apartments
+official_number: apartments
+old_value: audit_log, operator_audit_log
+operation_date: cashbox_operations
+operation_type: cashbox_operations
+operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+operator_note: apartment_link_requests, bank_transactions, payment_notices, remote_requests
+origin_cashbox_code: cashier_receipts
+origin_kind: cashier_receipts
+ownership_type: persons, tbot_parking_import
+ownership_type_raw: tbot_parking_import
+paper_ref: cashier_receipts
+paper_value: verification_log
+parking_time: vehicles
+payer_name: cashier_receipts
+payer_text: bank_transactions
+payment_channel: payments
+payment_date: payments
+payment_due_day: commercial_contracts
+payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+payment_method: payments
+payment_notice_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+performed_at: commercial_access_actions
+period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+person_id: contact_methods
+person_role: persons
+phone_display: commercial_access_phones
+phone_normalized: commercial_access_phones
+phone_number: barrier_phone_access
+phone_raw: persons, tbot_parking_import
+plate_format_status: vehicles
+priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+processed_status: raw_messages
+public_note: adjustment_assignments, charge_adjustments
+public_note_template: adjustment_catalog
+quantity: charges, remote_requests
+quantity_default: commercial_contract_items
+rate_amount: commercial_contract_items
+raw_message_id: extracted_facts
+reason: commercial_access_actions, verification_candidates
+reason_snapshot: charge_adjustments
+receipt_date: cashier_receipts
+receipt_id: cashier_batch_items
+receipt_kind: cashier_receipts
+receipt_number: cashier_receipts
+recipient_id: commercial_notifications
+recipient_name: commercial_contract_recipients
+recipient_role: commercial_contract_recipients
+record_id: audit_log
+record_status: apartments, unit_contacts, unit_groups
+reference_service_code: commercial_contract_items
+rejected_at: payment_notices
+related_bank_transaction_id: cashier_reconciliation_cases
+related_batch_id: cashier_reconciliation_cases
+related_notice_id: cashier_reconciliation_cases
+related_payment_id: cashier_reconciliation_cases
+related_receipt_id: cashier_reconciliation_cases
+related_record_id: events
+related_table: events
+reminder_days_before_due: commercial_contracts
+request_kind: remote_requests
+requested_apartment_id: apartment_link_requests
+requested_apartment_number: apartment_link_requests
+resident_account_id: apartment_link_requests, commercial_contract_recipients, payment_notices, remote_requests
+resident_comment: apartment_link_requests, payment_notices, remote_requests
+resolution: verification_tasks
+resolution_comment: verification_tasks
+resolution_note: cashier_reconciliation_cases
+resolved_at: cashier_reconciliation_cases, verification_tasks
+resolved_by: verification_tasks
+review_comment: operator_audit_log
+review_status: cashier_receipts, operator_audit_log
+reviewed_at: apartment_link_requests, operator_audit_log, parking_time_review_tasks, payment_notices, remote_requests
+reviewed_by: operator_audit_log, parking_time_review_tasks
+role: bot_admins, resident_accounts
+row_id: operator_audit_log
+schema_version: schema_info
+sender_name: raw_messages
+sender_user_id: raw_messages
+sender_username: raw_messages
+sent_at: commercial_notifications
+sequence_no: service_items
+service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+service_group: service_catalog
+service_hint: cashier_receipts
+service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+service_item_name: service_items
+service_name: service_catalog
+service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+source: apartments, audit_log, charges, contact_methods, events, payments, persons, tbot_parking_import, vehicles
+source_context: charge_adjustments, operator_audit_log
+source_db: verification_evidence
+source_details: parking_time_review_tasks
+source_id: message_sources, raw_messages
+source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+source_names: verification_candidates
+source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+source_record_id: verification_evidence, verification_tasks
+source_ref: bank_transactions, cashbox_operations
+source_table: verification_evidence
+source_text: cashier_receipts
+source_type: bank_transactions, cashbox_operations, message_sources
+status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+status_changed_at: commercial_access_phones
+status_raw: tbot_parking_import
+status_reason: barrier_phone_access, commercial_access_phones
+suggested_day_count: parking_time_review_tasks
+suggested_night_count: parking_time_review_tasks
+suggestion: verification_tasks
+suspension_candidate_days_overdue: commercial_contracts
+table_name: audit_log, operator_audit_log
+task_group: verification_tasks
+task_id: verification_candidates, verification_evidence
+task_type: parking_time_review_tasks, verification_tasks
+telegram_first_name: resident_accounts
+telegram_last_name: resident_accounts
+telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+telegram_username: bot_admins, contact_methods, resident_accounts
+total_amount: cashier_batches
+total_area: apartments
+total_rows: cashier_batches
+transaction_date: bank_transactions
+transaction_ref: bank_transactions
+transfer_group_ref: cashbox_operations
+unblocked_at: barrier_phone_access
+unblocked_by: barrier_phone_access
+unit: service_catalog
+unit_code: apartments
+unit_id: commercial_contracts
+unit_price: charges
+unit_type: apartments
+unit_updated_at: apartments
+updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_catalog, service_items, unit_aliases, unit_contacts, unit_group_aliases, unit_group_members, unit_groups, vehicles
+updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+user_id: operator_audit_log
+username: audit_log
+valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+value_date: bank_transactions
+vehicle_id: adjustment_assignments, cashbox_operations, charges, parking_time_review_tasks, payments
+verified_at: apartment_verification, resident_accounts, verification_log
+verified_by: apartment_verification, verification_log
+void_cashbox_operation_id: cashier_receipts
+void_payment_id: cashier_receipts
+void_reason: cashier_receipts
+voided_at: cashier_receipts
+voided_by: cashier_receipts
+warning_days_overdue: commercial_contracts

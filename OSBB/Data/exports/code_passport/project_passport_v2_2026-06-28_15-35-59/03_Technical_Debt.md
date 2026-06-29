@@ -1,0 +1,31 @@
+# Technical Debt Markers
+
+- `cashier_v2_core.py:578` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core.py:583` **temp** — "receipt_number": temp,
+- `cashier_v2_core.py:919` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core.py:924` **temp** — "notice_number": temp,
+- `cashier_v2_core.py:1179` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core.py:1184` **temp** — "batch_number": temp,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:558` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:563` **temp** — "receipt_number": temp,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:899` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:904` **temp** — "notice_number": temp,
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1159` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1164` **temp** — "batch_number": temp,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:502` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:507` **temp** — "receipt_number": temp,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:843` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:848` **temp** — "notice_number": temp,
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1103` **temp** — temp = "TMP-" + uuid4().hex.upper()
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1108` **temp** — "batch_number": temp,
+- `README_PHONE_ACCESS_FIX_v3.txt:17` **временно** — - даже если Telegram временно не покажет клавиатуру, введённый номер
+- `reset_service_catalog.py:554` **временно** — # если окружение временно не может записать аудит.
+- `tools/project_passport.py:12` **TODO** — - TODO/FIXME/HACK;
+- `tools/project_passport.py:142` **TODO** — TODO_RE = re.compile(r"\b(TODO|FIXME|HACK|XXX|DEPRECATED|TEMP|ВРЕМЕННО|Костыль|костыль)\b", re.IGNORECASE)
+- `tools/project_passport.py:513` **TODO** — body.append(f"- TODO/FIXME markers: **{summary['todos']}**")
+- `tools/project_passport.py:569` **TODO** — mod_lines.append(f"- TODO/FIXME: {m.todos}")
+- `tools/project_passport.py:605` **TODO** — print(f"TODO/FIXME: {summary['todos']}")
+- `tools/project_passport_v2.py:163` **TODO** — TODO_RE = re.compile(r"\b(TODO|FIXME|HACK|XXX|DEPRECATED|TEMP|ВРЕМЕННО|Костыль|костыль)\b", re.IGNORECASE)
+- `tools/project_passport_v2.py:558` **TODO** — body.append(f"- TODO/FIXME markers: **{summary['todos']}**")
+- `tools/project_passport_v2.py:614` **TODO** — mod_lines.append(f"- TODO/FIXME: {m.todos}")
+- `tools/project_passport_v2.py:650` **TODO** — print(f"TODO/FIXME: {summary['todos']}")

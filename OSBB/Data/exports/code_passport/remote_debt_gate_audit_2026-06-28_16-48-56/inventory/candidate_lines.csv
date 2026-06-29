@@ -1,0 +1,1047 @@
+﻿path,line,kind,context
+access_control.py,324,remote_write,INSERT INTO access_audit_log (
+billing_reconciliation_report.py,157,debt_check,"allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+billing_reconciliation_report.py,175,debt_check,unpaid_charges = []
+billing_reconciliation_report.py,198,debt_check,unpaid_charges.append(item)
+billing_reconciliation_report.py,233,debt_check,"""unpaid_charges"": unpaid_charges,"
+billing_reconciliation_report.py,317,debt_check,"lines.append(f""Charges count              : {len(data['charges'])}"")"
+billing_reconciliation_report.py,327,debt_check,"lines.append(f""Unpaid charges             : {len(data['unpaid_charges'])}"")"
+billing_reconciliation_report.py,337,debt_check,"write_section(lines, ""3. UNPAID_CHARGES — начисления без оплаты"", data[""unpaid_charges""], format_charge_line)"
+billing_reconciliation_report.py,384,debt_check,"print(""Unpaid charges:"", len(data[""unpaid_charges""]))"
+billing_statement_excel.py,144,debt_check,"allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+billing_statement_excel.py,321,debt_check,"status = ""ДОЛГ"""
+billing_statement_excel.py,356,debt_check,# Debtors
+billing_statement_excel.py,358,debt_check,"ws.append([""Квартира"", ""Долг"", ""Начислено"", ""Оплачено"", ""Авто/начисления""])"
+billing_statement_excel.py,360,debt_check,debtors = [
+billing_statement_excel.py,364,debt_check,"for item in sorted(debtors, key=lambda x: (-x[""balance""], apt_sort_key(x[""apt""]))):"
+billing_statement_excel.py,375,debt_check,"add_table(ws, ""Debtors"")"
+billing_statement_excel.py,400,debt_check,"""Услуга"", ""Начислено"", ""Распределено"", ""Остаток"""
+billing_statement_excel.py,460,debt_check,"""payment_id"", ""Дата"", ""Квартира"", ""Номер"", ""Оплачено"", ""Распределено"", ""Остаток"", ""Источник"", ""Комментарий"""
+Bots/handlers/cashier_operator.py,947,debt_check,"if not table_exists(cur, ""payment_allocations""):"
+Bots/handlers/cashier_operator.py,949,debt_check,"cols = table_columns(cur, ""payment_allocations"")"
+Bots/handlers/cashier_operator.py,951,debt_check,"""allocated_amount"" if ""allocated_amount"" in cols else None"
+Bots/handlers/cashier_operator.py,957,debt_check,"f""FROM payment_allocations WHERE payment_id = ?"","
+Bots/handlers/cashier_operator.py,971,debt_check,def receipt_unallocated_amount(receipt: dict) -> float:
+Bots/handlers/cashier_operator.py,996,debt_check,"if not table_exists(cur, ""charges"") or not table_exists(cur, ""payment_allocations""):"
+Bots/handlers/cashier_operator.py,1000,debt_check,"acols = table_columns(cur, ""payment_allocations"")"
+Bots/handlers/cashier_operator.py,1002,debt_check,"""allocated_amount"" if ""allocated_amount"" in acols else None"
+Bots/handlers/cashier_operator.py,1050,debt_check,"COALESCE(SUM(pa.{q(acol)}), 0) AS allocated_amount"
+Bots/handlers/cashier_operator.py,1051,debt_check,FROM charges c
+Bots/handlers/cashier_operator.py,1052,debt_check,LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+Bots/handlers/cashier_operator.py,1065,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+Bots/handlers/cashier_operator.py,1066,debt_check,"item[""outstanding_amount""] = max("
+Bots/handlers/cashier_operator.py,1068,debt_check,"item[""charge_amount""] - item[""allocated_amount""],"
+Bots/handlers/cashier_operator.py,1112,debt_check,"maximum = min(unallocated, float(charge[""outstanding_amount""]))"
+Bots/handlers/cashier_operator.py,1116,debt_check,"f""(остаток платежа {money(unallocated)}, """
+Bots/handlers/cashier_operator.py,1117,debt_check,"f""остаток начисления {money(charge['outstanding_amount'])})."""
+Bots/handlers/cashier_operator.py,1122,debt_check,"""payment_allocations"","
+Bots/handlers/cashier_operator.py,1127,debt_check,"""allocated_amount"": amount,"
+Bots/handlers/cashier_operator.py,1154,debt_check,"table_name=""payment_allocations"","
+Bots/handlers/cashier_operator.py,1455,debt_check,unallocated = receipt_unallocated_amount(receipt)
+Bots/handlers/cashier_operator.py,1472,debt_check,"lines.append(f""Остаток неразнесённой оплаты: {money(unallocated)} грн."")"
+Bots/handlers/cashier_operator.py,1511,debt_check,"f""Не разнесено: {money(receipt_unallocated_amount(receipt))} грн."","
+Bots/handlers/cashier_operator.py,1530,debt_check,"f""остаток {money(item['outstanding_amount'])} грн."""
+Bots/handlers/cashier_operator.py,1543,debt_check,"""остаток кассы не меняется."""
+Bots/handlers/cashier_operator.py,1642,debt_check,"""Эта запись не является оплатой и не меняет остаток кассы.\n"""
+Bots/handlers/cashier_operator.py,1768,debt_check,"f""{money(charge['outstanding_amount'])}"""
+Bots/handlers/cashier_operator.py,1825,debt_check,"""Платёж и остаток кассы не изменятся."","
+Bots/handlers/cashier_operator.py,2265,debt_check,"receipt_unallocated_amount(receipt),"
+Bots/handlers/cashier_operator.py,2266,debt_check,"float(charge[""outstanding_amount""]),"
+Bots/handlers/cashier_operator.py,2272,debt_check,"f""Квитанция: {money(receipt_unallocated_amount(receipt))} грн. не разнесено.\n"""
+Bots/handlers/cashier_operator.py,2273,debt_check,"f""Начисление: {money(charge['outstanding_amount'])} грн. остаток.\n"""
+Bots/handlers/cashier_operator.py,2300,debt_check,"f""Остаток квитанции: {money(result['remaining'])} грн."""
+Bots/handlers/cashier_operator_v2.py,195,debt_check,"if charge and abs(float(state.get(""amount"") or 0) - float(charge[""outstanding_amount""])) < 0.00001"
+Bots/handlers/cashier_operator_v2.py,219,debt_check,"if charge and abs(float(state.get(""amount"") or 0) - float(charge[""outstanding_amount""])) < 0.00001"
+Bots/handlers/cashier_operator_v2.py,249,debt_check,"""Платёж и остаток кассы не изменятся."","
+Bots/handlers/cashier_operator_v2.py,268,debt_check,"state[""amount""] = float(rows[0][""outstanding_amount""])"
+Bots/handlers/cashier_operator_v2.py,393,debt_check,"if charge and abs(amount - float(charge[""outstanding_amount""])) < 0.00001:"
+Bots/handlers/cashier_operator_v2.py,493,debt_check,"total = sum(float(overrides.get(text(item.get(""apartment_number"")), item[""outstanding_amount""])) for item in included)"
+Bots/handlers/cashier_operator_v2.py,497,debt_check,"value = float(overrides.get(number, item[""outstanding_amount""]))"
+Bots/handlers/cashier_operator_v2.py,555,debt_check,"""сумма каждой строки = точный остаток начисления."","
+Bots/handlers/cashier_operator_v2.py,645,debt_check,"""Эти числа не равны долгу. Это рабочая очередь для оператора."","
+Bots/handlers/cashier_operator_v2.py,912,debt_check,"f""Остаток кассы {state['cashbox_code']}: {money(result['cashbox_balance'])} грн."""
+Bots/handlers/cashier_operator_v2.py,971,debt_check,"if amount > float(valid[number][""outstanding_amount""]) + 0.00001:"
+Bots/handlers/cashier_operator_v2.py,973,debt_check,"f""Нельзя больше остатка {money(valid[number]['outstanding_amount'])} грн."""
+Bots/handlers/client_portal.py,8,debt_check,"- парковочный счёт: начисления, оплаты, остаток — только чтение;"
+Bots/handlers/client_portal.py,375,debt_check,"""due"": ""Outstanding on charges"","
+Bots/handlers/client_portal.py,1032,debt_check,"""allocated_amount"" if ""allocated_amount"" in columns else None"
+Bots/handlers/client_portal.py,1043,debt_check,"""outstanding_total"": 0.0,"
+Bots/handlers/client_portal.py,1056,debt_check,"alloc_table = ""payment_allocations"" if table_exists(cur, ""payment_allocations"") else None"
+Bots/handlers/client_portal.py,1084,debt_check,"allocation_select = ""0 AS allocated_amount"""
+Bots/handlers/client_portal.py,1092,debt_check,"f'COALESCE(SUM(pa.""{amount_col}""), 0) AS allocated_amount'"
+Bots/handlers/client_portal.py,1102,debt_check,FROM charges c
+Bots/handlers/client_portal.py,1113,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+Bots/handlers/client_portal.py,1114,debt_check,"item[""outstanding_amount""] = max(0.0, item[""amount""] - item[""allocated_amount""])"
+Bots/handlers/client_portal.py,1118,debt_check,"result[""allocated_total""] = sum(x[""allocated_amount""] for x in result[""charges""])"
+Bots/handlers/client_portal.py,1119,debt_check,"result[""outstanding_total""] = sum(x[""outstanding_amount""] for x in result[""charges""])"
+Bots/handlers/client_portal.py,1147,debt_check,"pay_alloc_select = ""0 AS allocated_amount"""
+Bots/handlers/client_portal.py,1155,debt_check,"f'COALESCE(SUM(pa2.""{amount_col}""), 0) AS allocated_amount'"
+Bots/handlers/client_portal.py,1176,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+Bots/handlers/client_portal.py,1177,debt_check,"item[""unallocated_amount""] = max("
+Bots/handlers/client_portal.py,1178,debt_check,"0.0, item[""amount""] - item[""allocated_amount""]"
+Bots/handlers/client_portal.py,1183,debt_check,"result[""unallocated_total""] = sum(x[""unallocated_amount""] for x in result[""payments""])"
+Bots/handlers/client_portal.py,1229,debt_check,"f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal.py,1253,debt_check,"f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal.py,1278,debt_check,"f""{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"""
+Bots/handlers/client_portal.py,1310,remote_flow,"return table_exists(conn.cursor(), ""remote_requests"")"
+Bots/handlers/client_portal.py,1323,remote_flow,def _remote_requests_for_account(account_id: int) -> list[dict]:
+Bots/handlers/client_portal.py,1331,remote_flow,FROM remote_requests
+Bots/handlers/client_portal.py,1353,remote_flow,INSERT INTO remote_requests (
+Bots/handlers/client_portal.py,1386,remote_flow,"table_name=""remote_requests"","
+Bots/handlers/client_portal.py,1412,remote_flow,FROM remote_requests r
+Bots/handlers/client_portal.py,1434,remote_flow,FROM remote_requests r
+Bots/handlers/client_portal.py,1458,remote_flow,FROM remote_requests WHERE id = ?
+Bots/handlers/client_portal.py,1470,remote_flow,UPDATE remote_requests
+Bots/handlers/client_portal.py,1498,remote_flow,"table_name=""remote_requests"","
+Bots/handlers/client_portal.py,1517,remote_flow,"def _format_my_remote_requests(rows: list[dict], lang: str) -> str:"
+Bots/handlers/client_portal.py,1678,remote_flow,"async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:"
+Bots/handlers/client_portal.py,1689,remote_flow,"_format_my_remote_requests(_remote_requests_for_account(int(data[""account""][""id""])), lang),"
+Bots/handlers/client_portal.py,2108,remote_flow,"await _show_my_remote_requests(update, user_states, user_id, lang)"
+Bots/handlers/client_portal_safe_linking.py,8,debt_check,"- парковочный счёт: начисления, оплаты, остаток — только чтение;"
+Bots/handlers/client_portal_safe_linking.py,375,debt_check,"""due"": ""Outstanding on charges"","
+Bots/handlers/client_portal_safe_linking.py,1032,debt_check,"""allocated_amount"" if ""allocated_amount"" in columns else None"
+Bots/handlers/client_portal_safe_linking.py,1043,debt_check,"""outstanding_total"": 0.0,"
+Bots/handlers/client_portal_safe_linking.py,1056,debt_check,"alloc_table = ""payment_allocations"" if table_exists(cur, ""payment_allocations"") else None"
+Bots/handlers/client_portal_safe_linking.py,1084,debt_check,"allocation_select = ""0 AS allocated_amount"""
+Bots/handlers/client_portal_safe_linking.py,1092,debt_check,"f'COALESCE(SUM(pa.""{amount_col}""), 0) AS allocated_amount'"
+Bots/handlers/client_portal_safe_linking.py,1102,debt_check,FROM charges c
+Bots/handlers/client_portal_safe_linking.py,1113,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+Bots/handlers/client_portal_safe_linking.py,1114,debt_check,"item[""outstanding_amount""] = max(0.0, item[""amount""] - item[""allocated_amount""])"
+Bots/handlers/client_portal_safe_linking.py,1118,debt_check,"result[""allocated_total""] = sum(x[""allocated_amount""] for x in result[""charges""])"
+Bots/handlers/client_portal_safe_linking.py,1119,debt_check,"result[""outstanding_total""] = sum(x[""outstanding_amount""] for x in result[""charges""])"
+Bots/handlers/client_portal_safe_linking.py,1147,debt_check,"pay_alloc_select = ""0 AS allocated_amount"""
+Bots/handlers/client_portal_safe_linking.py,1155,debt_check,"f'COALESCE(SUM(pa2.""{amount_col}""), 0) AS allocated_amount'"
+Bots/handlers/client_portal_safe_linking.py,1176,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+Bots/handlers/client_portal_safe_linking.py,1177,debt_check,"item[""unallocated_amount""] = max("
+Bots/handlers/client_portal_safe_linking.py,1178,debt_check,"0.0, item[""amount""] - item[""allocated_amount""]"
+Bots/handlers/client_portal_safe_linking.py,1183,debt_check,"result[""unallocated_total""] = sum(x[""unallocated_amount""] for x in result[""payments""])"
+Bots/handlers/client_portal_safe_linking.py,1229,debt_check,"f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal_safe_linking.py,1253,debt_check,"f""{tr(lang, 'due')}: {money(billing['outstanding_total'])} грн"","
+Bots/handlers/client_portal_safe_linking.py,1278,debt_check,"f""{tr(lang, 'due').lower()}: {money(row['outstanding_amount'])} грн"""
+Bots/handlers/client_portal_safe_linking.py,1310,remote_flow,"return table_exists(conn.cursor(), ""remote_requests"")"
+Bots/handlers/client_portal_safe_linking.py,1323,remote_flow,def _remote_requests_for_account(account_id: int) -> list[dict]:
+Bots/handlers/client_portal_safe_linking.py,1331,remote_flow,FROM remote_requests
+Bots/handlers/client_portal_safe_linking.py,1353,remote_flow,INSERT INTO remote_requests (
+Bots/handlers/client_portal_safe_linking.py,1386,remote_flow,"table_name=""remote_requests"","
+Bots/handlers/client_portal_safe_linking.py,1412,remote_flow,FROM remote_requests r
+Bots/handlers/client_portal_safe_linking.py,1434,remote_flow,FROM remote_requests r
+Bots/handlers/client_portal_safe_linking.py,1458,remote_flow,FROM remote_requests WHERE id = ?
+Bots/handlers/client_portal_safe_linking.py,1470,remote_flow,UPDATE remote_requests
+Bots/handlers/client_portal_safe_linking.py,1498,remote_flow,"table_name=""remote_requests"","
+Bots/handlers/client_portal_safe_linking.py,1517,remote_flow,"def _format_my_remote_requests(rows: list[dict], lang: str) -> str:"
+Bots/handlers/client_portal_safe_linking.py,1678,remote_flow,"async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:"
+Bots/handlers/client_portal_safe_linking.py,1689,remote_flow,"_format_my_remote_requests(_remote_requests_for_account(int(data[""account""][""id""])), lang),"
+Bots/handlers/client_portal_safe_linking.py,2108,remote_flow,"await _show_my_remote_requests(update, user_states, user_id, lang)"
+Bots/handlers/client_portal_v2.py,330,debt_check,"f""{money(charge['outstanding_amount'])}"""
+Bots/handlers/client_portal_v2.py,422,debt_check,"state[""amount""] = float(charge[""outstanding_amount""])"
+Bots/handlers/client_portal_v2.py,584,debt_check,"state[""amount""] = float(charge[""outstanding_amount""])"
+Bots/handlers/client_portal_v3.py,10,remote_flow,Сам процесс находится в service_orders_workspace.py и подключается
+Bots/handlers/client_portal_v3.py,87,remote_flow,# service_orders_workspace. All other v2 behaviour remains unchanged.
+Bots/handlers/commercial_contract_editor.py,261,debt_check,"c.reminder_days_before_due, c.warning_days_overdue,"
+Bots/handlers/commercial_contract_editor.py,262,debt_check,"c.suspension_candidate_days_overdue, c.internal_note,"
+Bots/handlers/commercial_contract_editor.py,306,debt_check,"SELECT outstanding_amount, access_blocking_outstanding_amount,"
+Bots/handlers/commercial_contract_editor.py,308,debt_check,FROM v_commercial_contract_debt_summary
+Bots/handlers/commercial_contract_editor.py,311,debt_check,debt = cur.fetchone()
+Bots/handlers/commercial_contract_editor.py,312,debt_check,"result[""debt""] = float(debt[0] or 0) if debt else 0.0"
+Bots/handlers/commercial_contract_editor.py,313,debt_check,"result[""blocking_debt""] = float(debt[1] or 0) if debt else 0.0"
+Bots/handlers/commercial_contract_editor.py,314,debt_check,"result[""first_due""] = debt[2] if debt else None"
+Bots/handlers/commercial_contract_editor.py,316,debt_check,"result[""debt""] = result[""blocking_debt""] = 0.0"
+Bots/handlers/commercial_contract_editor.py,428,debt_check,"reminder_days_before_due, warning_days_overdue,"
+Bots/handlers/commercial_contract_editor.py,429,debt_check,"suspension_candidate_days_overdue, internal_note,"
+Bots/handlers/commercial_contract_editor.py,458,debt_check,"""reminder_days_before_due"", ""warning_days_overdue"","
+Bots/handlers/commercial_contract_editor.py,459,debt_check,"""suspension_candidate_days_overdue"", ""internal_note"","
+Bots/handlers/commercial_contract_editor.py,545,debt_check,"currency, blocks_phone_access_on_debt, is_active,"
+Bots/handlers/commercial_contract_editor.py,557,debt_check,"field_name=""item_name,calculation_mode,blocks_phone_access_on_debt"","
+Bots/handlers/commercial_contract_editor.py,570,debt_check,"allowed = {""item_name"", ""fixed_amount"", ""rate_amount"", ""quantity_default"", ""blocks_phone_access_on_debt"", ""is_active""}"
+Bots/handlers/commercial_contract_editor.py,683,remote_write,INSERT INTO commercial_access_phones (
+Bots/handlers/commercial_contract_editor.py,724,remote_write,"cur.execute(""UPDATE commercial_access_phones SET status=?, status_changed_at=?, updated_at=? WHERE id=?"", (value, now_db(), now_db(), int(phone_id)))"
+Bots/handlers/commercial_contract_editor.py,726,remote_write,"cur.execute(""UPDATE commercial_access_phones SET access_purpose=?, updated_at=? WHERE id=?"", (value, now_db(), int(phone_id)))"
+Bots/handlers/commercial_contract_editor.py,789,debt_check,"f""Предупреждение через: {contract.get('warning_days_overdue')} дн."","
+Bots/handlers/commercial_contract_editor.py,790,debt_check,"f""Кандидат на отключение через: {contract.get('suspension_candidate_days_overdue')} дн."","
+Bots/handlers/commercial_contract_editor.py,796,debt_check,"f""Долг: {float(contract.get('debt') or 0):g} грн."","
+Bots/handlers/commercial_contract_editor.py,797,debt_check,"f""Блокирующий доступ долг: {float(contract.get('blocking_debt') or 0):g} грн."","
+Bots/handlers/commercial_contract_editor.py,811,debt_check,"lines.append(f""{i}. {mark} {item.get('item_name') or 'без названия'}\n   {label_mode(item.get('calculation_mode'))}\n   {item_amount(item)}\n   Блокирует доступ при долге: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}"")"
+Bots/handlers/commercial_contract_editor.py,822,debt_check,"f""Блокирует доступ: {'Да' if int(item.get('blocks_phone_access_on_debt') or 0) else 'Нет'}"","
+Bots/handlers/commercial_contract_editor.py,860,debt_check,"status = {""ACTIVE"": ""✅ активно"", ""WARNING"": ""⚠️ предупреждение"", ""SUSPENSION_CANDIDATE"": ""🟠 кандидат"", ""SUSPENDED_DEBT"": ""⛔ отключено вручную"", ""MANUAL_BLOCK"": ""🔒 ручная блокировка"", ""CLOSED"": ""⚪ закрыто""}"
+Bots/handlers/commercial_contract_editor.py,949,debt_check,"rows = [[""✏️ Наименование"", ""✏️ Сумма/ставка""], [""✏️ Количество"", ""🛡️ Доступ при долге""]]"
+Bots/handlers/commercial_contract_editor.py,1239,debt_check,"""⚠️ Предупреждение через"": (""warning_days_overdue"", 0, 365, ""Срок предупреждения""),"
+Bots/handlers/commercial_contract_editor.py,1240,debt_check,"""⛔ Кандидат на отключение"": (""suspension_candidate_days_overdue"", 0, 365, ""Срок кандидата""),"
+Bots/handlers/commercial_contract_editor.py,1257,debt_check,"elif field in {""payment_due_day"", ""grace_days"", ""reminder_days_before_due"", ""warning_days_overdue"", ""suspension_candidate_days_overdue""}:"
+Bots/handlers/commercial_contract_editor.py,1307,debt_check,"await update.message.reply_text(""Блокировать телефонный доступ при долге по этому условию?"", reply_markup=kb(BLOCK_MENU))"
+Bots/handlers/commercial_contract_editor.py,1325,debt_check,"await update.message.reply_text(f""Количество взято из площади помещения: {area:g} м².\n\nБлокировать доступ при долге?"", reply_markup=kb(BLOCK_MENU))"
+Bots/handlers/commercial_contract_editor.py,1332,debt_check,"await update.message.reply_text(""Блокировать телефонный доступ при долге по этому условию?"", reply_markup=kb(BLOCK_MENU))"
+Bots/handlers/commercial_contract_editor.py,1345,debt_check,"await update.message.reply_text(""Блокировать доступ при долге по этому условию?"", reply_markup=kb(BLOCK_MENU))"
+Bots/handlers/commercial_contract_editor.py,1395,debt_check,"if value == ""🛡️ Доступ при долге"":"
+Bots/handlers/commercial_contract_editor.py,1439,debt_check,"update_item(item_id, ""blocks_phone_access_on_debt"", blocks, user_id)"
+Bots/handlers/guard_workspace.py,65,remote_flow,"[""📥 Пульт принят"", ""📤 Пульт выдан""],"
+Bots/handlers/guard_workspace.py,492,debt_check,"f""Остаток O: {money(result['cashbox_balance'])} грн.\n"""
+Bots/handlers/guard_workspace.py,506,remote_flow,"if not table_exists(cur, ""remote_requests""):"
+Bots/handlers/guard_workspace.py,512,remote_flow,FROM remote_requests
+Bots/handlers/guard_workspace.py,538,remote_write,INSERT INTO remote_handover_events (
+Bots/handlers/guard_workspace.py,572,remote_flow,"""📥 Пульт принят на пост O\n\n"""
+Bots/handlers/guard_workspace.py,639,remote_flow,"f""Пульт принят на пост O: кв.{state['unit'].get('apartment_number')}, """
+Bots/handlers/guard_workspace.py,652,remote_flow,"f""✅ Пульт принят на пост O.\nСобытие: #{event_id}\n"""
+Bots/handlers/guard_workspace.py,653,debt_check,"""Это физическая отметка; складской остаток будет вести отдельный модуль."""
+Bots/handlers/guard_workspace.py,660,remote_flow,"user_id, ""remote_requests"", ""VIEW"","
+Bots/handlers/guard_workspace.py,693,remote_flow,"cur.execute(""SELECT * FROM remote_requests WHERE id = ?"", (int(request_id),))"
+Bots/handlers/guard_workspace.py,721,remote_flow,"[""✅ Пульт выдан""],"
+Bots/handlers/guard_workspace.py,730,remote_flow,"user_id, ""remote_requests"", ""ISSUE"","
+Bots/handlers/guard_workspace.py,746,remote_flow,"""SELECT * FROM remote_requests WHERE id = ?"","
+Bots/handlers/guard_workspace.py,765,remote_flow,"rcols = table_columns(cur, ""remote_requests"")"
+Bots/handlers/guard_workspace.py,777,remote_flow,"f""UPDATE remote_requests SET {assignments} WHERE id = ?"","
+Bots/handlers/guard_workspace.py,785,remote_flow,"resource=""remote_requests"","
+Bots/handlers/guard_workspace.py,789,remote_flow,"target_table=""remote_requests"","
+Bots/handlers/guard_workspace.py,792,remote_flow,"f""Пульт выдан с поста O. Event={event_id}; """
+Bots/handlers/guard_workspace.py,805,remote_flow,"f""✅ Пульт выдан.\nЗаявка #{request_id} закрыта как ISSUED.\n"""
+Bots/handlers/guard_workspace.py,955,remote_flow,"if message_text == ""📥 Пульт принят"":"
+Bots/handlers/guard_workspace.py,958,remote_flow,"if message_text == ""📤 Пульт выдан"":"
+Bots/handlers/guard_workspace.py,1126,remote_flow,"if message_text == ""✅ Пульт выдан"":"
+Bots/handlers/profile_parking_time_test_workspace.py,24,remote_flow,"from service_orders_core import get_conn, text"
+Bots/handlers/profile_verification_workspace.py,27,remote_flow,"from service_orders_core import get_conn, text"
+Bots/handlers/service_orders_workspace.py,37,remote_flow,from service_orders_core import (
+Bots/handlers/service_orders_workspace.py,39,remote_write,"create_remote_asset,"
+Bots/handlers/service_orders_workspace.py,42,remote_write,"record_remote_movement,"
+Bots/handlers/service_orders_workspace.py,51,remote_flow,"NEW_REMOTE_PROFILE,"
+Bots/handlers/service_orders_workspace.py,52,remote_flow,"attach_payment_notice_to_interest,"
+Bots/handlers/service_orders_workspace.py,53,remote_flow,"create_service_interest,"
+Bots/handlers/service_orders_workspace.py,58,remote_flow,"issue_new_remotes_from_batch,"
+Bots/handlers/service_orders_workspace.py,65,debt_check,"unpaid_interest_totals,"
+Bots/handlers/service_orders_workspace.py,78,remote_flow,"MODULE = ""service_orders_ui"""
+Bots/handlers/service_orders_workspace.py,93,remote_flow,"""new_remote"": ""🆕 Получить новые пульты"","
+Bots/handlers/service_orders_workspace.py,132,remote_flow,"""issue_new"": ""📤 Выдать новые пульты жильцу"","
+Bots/handlers/service_orders_workspace.py,149,remote_flow,"""ready_for_issue"": ""Готов к выдаче"","
+Bots/handlers/service_orders_workspace.py,158,remote_flow,"""new_remote"": ""🆕 Отримати нові пульти"","
+Bots/handlers/service_orders_workspace.py,197,remote_flow,"""issue_new"": ""📤 Видати нові пульти мешканцю"","
+Bots/handlers/service_orders_workspace.py,214,remote_flow,"""ready_for_issue"": ""Готово до видачі"","
+Bots/handlers/service_orders_workspace.py,220,remote_flow,"""new_remote"": ""🆕 Get new remotes"","
+Bots/handlers/service_orders_workspace.py,256,remote_flow,"""issue_new"": ""📤 Issue new remotes"","
+Bots/handlers/service_orders_workspace.py,273,remote_flow,"""ready_for_issue"": ""Ready for issue"","
+Bots/handlers/service_orders_workspace.py,278,remote_flow,"""REMOTE_REPROGRAM_OWN"": ""reprogram"","
+Bots/handlers/service_orders_workspace.py,279,remote_flow,"NEW_REMOTE_PROFILE: ""new_remote"","
+Bots/handlers/service_orders_workspace.py,280,remote_flow,"""REMOTE_REFURBISHED_FROM_STOCK"": ""refurbished"","
+Bots/handlers/service_orders_workspace.py,281,remote_flow,"""PHONE_ACCESS_CONNECT"": ""phone"","
+Bots/handlers/service_orders_workspace.py,291,remote_flow,"""READY_FOR_ISSUE"": ""📤 Готово до видачі"","
+Bots/handlers/service_orders_workspace.py,308,debt_check,"""debt_note"": ("
+Bots/handlers/service_orders_workspace.py,309,debt_check,"""При подтверждённой задолженности действует предупреждение; """
+Bots/handlers/service_orders_workspace.py,312,debt_check,"""debt_mode"": ""Проверка парковочной задолженности: требуется подтверждение оператора."","
+Bots/handlers/service_orders_workspace.py,329,debt_check,"""debt_note"": ("
+Bots/handlers/service_orders_workspace.py,330,debt_check,"""За підтвердженої заборгованості надсилається попередження; """
+Bots/handlers/service_orders_workspace.py,333,debt_check,"""debt_mode"": ""Перевірка заборгованості за паркування: потрібне підтвердження оператора."","
+Bots/handlers/service_orders_workspace.py,350,debt_check,"""debt_note"": ("
+Bots/handlers/service_orders_workspace.py,351,debt_check,"""A confirmed arrears case triggers a warning; after the configured """
+Bots/handlers/service_orders_workspace.py,354,debt_check,"""debt_mode"": ""Parking-debt check: operator confirmation is required."","
+Bots/handlers/service_orders_workspace.py,492,remote_flow,"exact_profile = 1 if profile == ""PHONE_ACCESS_CONNECT"" else 0"
+Bots/handlers/service_orders_workspace.py,515,remote_flow,"""service_orders"","
+Bots/handlers/service_orders_workspace.py,582,remote_flow,from service_orders_core import effective_price
+Bots/handlers/service_orders_workspace.py,627,remote_flow,"""REMOTE_REPROGRAM_OWN"","
+Bots/handlers/service_orders_workspace.py,628,remote_flow,"NEW_REMOTE_PROFILE,"
+Bots/handlers/service_orders_workspace.py,629,remote_flow,"""REMOTE_REFURBISHED_FROM_STOCK"","
+Bots/handlers/service_orders_workspace.py,694,debt_check,"f""Сума: {money(order.get('amount_due_snapshot'))} {order.get('currency') or 'UAH'}"","
+Bots/handlers/service_orders_workspace.py,729,debt_check,"f""Сума: {money(interest.get('amount_due_snapshot'))} {interest.get('currency') or 'UAH'}"","
+Bots/handlers/service_orders_workspace.py,791,debt_check,"""SUSPENDED_FOR_DEBT"": ""⚠️"","
+Bots/handlers/service_orders_workspace.py,792,debt_check,"""DEACTIVATED_FOR_DEBT"": ""⛔"","
+Bots/handlers/service_orders_workspace.py,946,debt_check,"phone_tr(lang, 'debt_mode'),"
+Bots/handlers/service_orders_workspace.py,947,debt_check,"phone_tr(lang, 'debt_note'),"
+Bots/handlers/service_orders_workspace.py,987,debt_check,"parking_debt_check_mode=text(gate.get(""parking_debt_check_mode"")) or ""MANUAL_REVIEW"","
+Bots/handlers/service_orders_workspace.py,988,debt_check,"parking_debt_check_note=text(gate.get(""parking_debt_check_note"")),"
+Bots/handlers/service_orders_workspace.py,990,remote_flow,return create_service_interest(
+Bots/handlers/service_orders_workspace.py,1013,debt_check,"amount=float(interest.get(""amount_due_snapshot"") or 0),"
+Bots/handlers/service_orders_workspace.py,1047,remote_flow,FROM service_orders
+Bots/handlers/service_orders_workspace.py,1123,remote_flow,"elif text(offer.get(""workflow_profile_code"")) == NEW_REMOTE_PROFILE:"
+Bots/handlers/service_orders_workspace.py,1231,remote_flow,"attach_payment_notice_to_interest(int(interest[""id""]), notice)"
+Bots/handlers/service_orders_workspace.py,1284,remote_flow,FROM service_orders o
+Bots/handlers/service_orders_workspace.py,1306,remote_flow,"resource = ""service_order_steps"" if action == ""CONFIRM"" else ""service_orders"""
+Bots/handlers/service_orders_workspace.py,1384,remote_flow,"""REMOTE_BATCH_ISSUED"": ""issue_new"","
+Bots/handlers/service_orders_workspace.py,1392,remote_flow,"""issue_new"": tr(lang, ""issue_new""),"
+Bots/handlers/service_orders_workspace.py,1399,remote_flow,"elif code == ""SUPPLIER_BATCH_RECEIVED"":"
+Bots/handlers/service_orders_workspace.py,1415,remote_flow,"if text(order.get(""workflow_profile_code"")) == NEW_REMOTE_PROFILE:"
+Bots/handlers/service_orders_workspace.py,1426,remote_write,asset = create_remote_asset(
+Bots/handlers/service_orders_workspace.py,1432,remote_write,result = record_remote_movement(
+Bots/handlers/service_orders_workspace.py,1440,remote_flow,"cur.execute(""UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?"", (int(asset[""id""]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order[""id""])))"
+Bots/handlers/service_orders_workspace.py,1450,remote_flow,from service_orders_core import confirm_order_step
+Bots/handlers/service_orders_workspace.py,1452,remote_flow,"return confirm_order_step(order_id=int(order[""id""]), step_code=""REMOTE_PROGRAMMED"", actor_id=user_id, note=""Перепрошивка выполнена."", source_context=""service_orders_workspace"")"
+Bots/handlers/service_orders_workspace.py,1460,remote_flow,"row = cur.execute(""SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?"", (int(order[""id""]),)).fetchone()"
+Bots/handlers/service_orders_workspace.py,1463,remote_write,result = record_remote_movement(
+Bots/handlers/service_orders_workspace.py,1586,remote_flow,"tr(lang, ""issue_new""): ""issue_new"","
+Bots/handlers/service_orders_workspace.py,1635,remote_flow,"elif action == ""issue_new"":"
+Bots/handlers/service_orders_workspace.py,1636,remote_flow,"issue_new_remotes_from_batch(service_order_id=int(order[""id""]), actor_id=user_id)"
+Bots/handlers/service_orders_workspace.py,1696,remote_flow,"async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:"
+Bots/parking_bot.py,1114,debt_check,"""Здесь будут начисления, оплаты и задолженность."","
+cashier_journal.py,773,debt_check,FROM charges
+cashier_journal.py,788,debt_check,FROM charges
+cashier_journal.py,803,debt_check,"def allocated_amount_for_charge(cur, charge_id):"
+cashier_journal.py,804,debt_check,"if not table_exists(cur, ""payment_allocations""):"
+cashier_journal.py,807,debt_check,"cols = table_columns(cur, ""payment_allocations"")"
+cashier_journal.py,808,debt_check,"amount_col = ""amount"" if ""amount"" in cols else (""allocated_amount"" if ""allocated_amount"" in cols else None)"
+cashier_journal.py,813,debt_check,"f""SELECT COALESCE(SUM({amount_col}), 0) FROM payment_allocations WHERE charge_id = ?"","
+cashier_journal.py,820,debt_check,"if not table_exists(cur, ""payment_allocations""):"
+cashier_journal.py,823,debt_check,"return insert_dynamic(cur, ""payment_allocations"", {"
+cashier_journal.py,827,debt_check,"""allocated_amount"": float(amount),"
+cashier_journal.py,1017,debt_check,"available = max(0.0, float(charge[""amount""] or 0) - allocated_amount_for_charge(cur, charge_id))"
+cashier_journal.py,1130,debt_check,"print(""Остаток кассы:"", money(new_balance), ""UAH"")"
+cashier_journal.py,1221,debt_check,"print(""Остаток кассы:"", money(new_balance), ""UAH"")"
+cashier_journal.py,1593,debt_check,"ws2.append([""Касса"", ""Название"", ""Валюта"", ""Остаток""])"
+cashier_journal.py,1601,debt_check,"ws3.append([""Касса"", ""Код статьи"", ""Базовый сервис"", ""Остаток""])"
+cashier_v2_core.py,170,debt_check,"""payment_allocations"","
+cashier_v2_core.py,176,debt_check,"""cashier_reconciliation_cases"","
+cashier_v2_core.py,327,debt_check,"cols = table_columns(cur, ""payment_allocations"")"
+cashier_v2_core.py,330,debt_check,"if ""allocated_amount"" in cols:"
+cashier_v2_core.py,331,debt_check,"return ""allocated_amount"""
+cashier_v2_core.py,355,debt_check,"if not table_exists(cur, ""charges"") or not table_exists(cur, ""payment_allocations""):"
+cashier_v2_core.py,470,debt_check,"COALESCE(SUM(pa.{allocation_col}), 0) AS allocated_amount"
+cashier_v2_core.py,471,debt_check,FROM charges c
+cashier_v2_core.py,473,debt_check,LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+cashier_v2_core.py,487,debt_check,"item[""allocated_amount""] = float(item[""allocated_amount""] or 0)"
+cashier_v2_core.py,488,debt_check,"item[""outstanding_amount""] = round("
+cashier_v2_core.py,489,debt_check,"max(0.0, item[""charge_amount""] - item[""allocated_amount""]),"
+cashier_v2_core.py,689,debt_check,"""payment_allocations"","
+cashier_v2_core.py,694,debt_check,"""allocated_amount"": amount,"
+cashier_v2_core.py,823,debt_check,"""payment_allocations"","
+cashier_v2_core.py,828,debt_check,"""allocated_amount"": amount,"
+cashier_v2_core.py,1218,debt_check,"""amount_expected"": charge[""outstanding_amount""],"
+cashier_v2_core.py,1233,debt_check,"amount = float(amount_overrides.get(apartment_no, charge[""outstanding_amount""]))"
+cashier_v2_core.py,1234,debt_check,"if amount <= 0 or amount > float(charge[""outstanding_amount""]) + 0.00001:"
+cashier_v2_core.py,1237,debt_check,"f""{money(charge['outstanding_amount'])} грн."""
+cashier_v2_core.py,1268,debt_check,"""amount_expected"": charge[""outstanding_amount""],"
+cashier_v2_core.py,1413,debt_check,"""SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"""
+CHECK_guard_sandbox_service_orders.py,41,remote_flow,"WORKSPACE = BOTS_DIR / ""handlers"" / ""service_orders_workspace.py"""
+CHECK_guard_sandbox_service_orders.py,240,remote_flow,"""service_orders_workspace"","
+CHECK_guard_sandbox_service_orders.py,241,remote_flow,"""handle_service_orders_text"","
+CHECK_guard_sandbox_service_orders.py,245,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders.py,280,remote_flow,"""service_orders"","
+CHECK_guard_sandbox_service_orders.py,283,remote_flow,"""remote_order_details"","
+CHECK_guard_sandbox_service_orders.py,285,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders.py,330,remote_flow,"""service_orders"","
+CHECK_guard_sandbox_service_orders.py,374,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders.py,442,remote_flow,"say(""  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,"")"
+CHECK_guard_sandbox_service_orders.py,444,remote_flow,"say(""  - If it is present, but the screen still falls back to old 'remote_requests',"")"
+CHECK_guard_sandbox_service_orders.py,445,remote_flow,"say(""    inspect roles/permissions for resource=service_orders, action=VIEW,"")"
+CHECK_guard_sandbox_service_orders.py,456,remote_flow,"report_path = LOG_DIR / f""guard_sandbox_service_orders_diagnosis_{stamp}.txt"""
+CHECK_guard_sandbox_service_orders_v2.py,43,remote_flow,"WORKSPACE = BOTS_DIR / ""handlers"" / ""service_orders_workspace.py"""
+CHECK_guard_sandbox_service_orders_v2.py,211,remote_flow,"""service_orders_workspace"","
+CHECK_guard_sandbox_service_orders_v2.py,212,remote_flow,"""handle_service_orders_text"","
+CHECK_guard_sandbox_service_orders_v2.py,216,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders_v2.py,238,remote_flow,"say(f""service_orders_workspace.py: {len(workspace_source.splitlines())} lines"")"
+CHECK_guard_sandbox_service_orders_v2.py,240,remote_flow,"""def handle_service_orders_text"","
+CHECK_guard_sandbox_service_orders_v2.py,264,remote_flow,"""service_orders"","
+CHECK_guard_sandbox_service_orders_v2.py,267,remote_flow,"""remote_order_details"","
+CHECK_guard_sandbox_service_orders_v2.py,269,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders_v2.py,314,remote_flow,"""service_orders"","
+CHECK_guard_sandbox_service_orders_v2.py,358,remote_flow,"""remote_requests"","
+CHECK_guard_sandbox_service_orders_v2.py,426,remote_flow,"say(""  1) Whether the runtime-patched parking_bot imports and calls service_orders_workspace."")"
+CHECK_guard_sandbox_service_orders_v2.py,429,remote_flow,"say(""  4) Whether roles/permissions permit service_orders VIEW for REMOTE / ACCESS."")"
+CHECK_guard_sandbox_service_orders_v2.py,437,remote_flow,"report_path = LOG_DIR / f""guard_sandbox_service_orders_diagnosis_v2_{stamp}.txt"""
+CHECK_phone_barrier_access_operational_sandbox.py,65,debt_check,"print(""Warnings:"", cur.execute(""SELECT COUNT(*) FROM access_debt_warnings"").fetchone()[0])"
+CHECK_phone_barrier_access_sandbox_schema.py,119,debt_check,"""SELECT COUNT(*) FROM access_debt_warnings"""
+CHECK_profile_verification_terminology_v2.py,16,remote_flow,"service = ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py"""
+CHECK_service_code_compatibility_phone_v2.py,31,remote_flow,"core = ROOT / ""service_orders_core.py"""
+CHECK_service_code_compatibility_phone_v2.py,33,remote_flow,"workspace = ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py"""
+CHECK_service_code_compatibility_phone_v2.py,97,debt_check,"SELECT interest_number, interest_status, amount_due_snapshot, payment_notice_id"
+CHECK_service_code_compatibility_phone_v2.py,98,remote_flow,FROM service_order_interests
+commercial_contracts.py,6,debt_check,- считает задолженность по общему charges/payment_allocations ledger;
+commercial_contracts.py,54,debt_check,"""SUSPENDED_DEBT"","
+commercial_contracts.py,72,debt_check,class ContractDebt:
+commercial_contracts.py,78,debt_check,outstanding_amount: float
+commercial_contracts.py,79,debt_check,access_blocking_outstanding_amount: float
+commercial_contracts.py,81,debt_check,days_overdue: int
+commercial_contracts.py,82,debt_check,overdue_charge_ids: list[int]
+commercial_contracts.py,86,debt_check,def has_debt(self) -> bool:
+commercial_contracts.py,87,debt_check,return self.outstanding_amount > 0.00001
+commercial_contracts.py,90,debt_check,def has_access_blocking_debt(self) -> bool:
+commercial_contracts.py,91,debt_check,return self.access_blocking_outstanding_amount > 0.00001
+commercial_contracts.py,142,debt_check,# v_commercial_contract_charge_debt / v_commercial_contract_debt_summary.
+commercial_contracts.py,159,debt_check,"""v_commercial_contract_charge_debt"","
+commercial_contracts.py,160,debt_check,"""v_commercial_contract_debt_summary"","
+commercial_contracts.py,190,debt_check,"c.warning_days_overdue,"
+commercial_contracts.py,191,debt_check,"c.suspension_candidate_days_overdue,"
+commercial_contracts.py,218,debt_check,"c.warning_days_overdue,"
+commercial_contracts.py,219,debt_check,c.suspension_candidate_days_overdue
+commercial_contracts.py,245,debt_check,"blocks_phone_access_on_debt,"
+commercial_contracts.py,316,debt_check,def calculate_contract_debt(
+commercial_contracts.py,321,debt_check,) -> ContractDebt:
+commercial_contracts.py,334,debt_check,"allocated_amount,"
+commercial_contracts.py,335,debt_check,"outstanding_amount,"
+commercial_contracts.py,336,debt_check,blocks_phone_access_on_debt
+commercial_contracts.py,337,debt_check,FROM v_commercial_contract_charge_debt
+commercial_contracts.py,339,debt_check,AND outstanding_amount > 0.00001
+commercial_contracts.py,344,debt_check,"outstanding = sum(float(row[""outstanding_amount""] or 0) for row in rows)"
+commercial_contracts.py,347,debt_check,"if int(row[""blocks_phone_access_on_debt""] or 0) == 1"
+commercial_contracts.py,349,debt_check,blocking_outstanding = sum(
+commercial_contracts.py,350,debt_check,"float(row[""outstanding_amount""] or 0)"
+commercial_contracts.py,360,debt_check,"days_overdue = max((current_date - first_due).days, 0) if first_due else 0"
+commercial_contracts.py,362,debt_check,overdue_ids = []
+commercial_contracts.py,367,debt_check,"overdue_ids.append(int(row[""charge_id""]))"
+commercial_contracts.py,368,debt_check,"if int(row[""blocks_phone_access_on_debt""] or 0) == 1:"
+commercial_contracts.py,371,debt_check,return ContractDebt(
+commercial_contracts.py,377,debt_check,"outstanding_amount=round(outstanding, 2),"
+commercial_contracts.py,378,debt_check,"access_blocking_outstanding_amount=round(blocking_outstanding, 2),"
+commercial_contracts.py,380,debt_check,"days_overdue=days_overdue,"
+commercial_contracts.py,381,debt_check,"overdue_charge_ids=overdue_ids,"
+commercial_contracts.py,404,debt_check,"debt = calculate_contract_debt(conn, contract_id, on_date=on_date)"
+commercial_contracts.py,407,debt_check,if not debt.has_debt:
+commercial_contracts.py,410,debt_check,due = parse_iso_date(debt.first_open_due_date)
+commercial_contracts.py,418,debt_check,"suspension_days = int(contract.get(""suspension_candidate_days_overdue"") or 0)"
+commercial_contracts.py,419,debt_check,"warning_days = int(contract.get(""warning_days_overdue"") or 0)"
+commercial_contracts.py,423,debt_check,debt.has_access_blocking_debt
+commercial_contracts.py,439,debt_check,"debt: ContractDebt,"
+commercial_contracts.py,448,debt_check,"""WARNING"": ""⚠️ Предупреждение о задолженности"","
+commercial_contracts.py,450,debt_check,"""ACCESS_RESTORED"": ""✅ Задолженность погашена"","
+commercial_contracts.py,464,debt_check,"""Задолженность по договору погашена."","
+commercial_contracts.py,471,debt_check,"f""Текущая задолженность: {money(debt.outstanding_amount)} грн."","
+commercial_contracts.py,474,debt_check,if debt.first_open_due_date:
+commercial_contracts.py,475,debt_check,"lines.append(f""Самый ранний срок оплаты: {debt.first_open_due_date}."")"
+commercial_contracts.py,477,debt_check,if debt.days_overdue > 0:
+commercial_contracts.py,478,debt_check,"lines.append(f""Просрочка: {debt.days_overdue} дн."")"
+commercial_contracts.py,488,debt_check,"""Просим погасить задолженность. """
+commercial_contracts.py,489,debt_check,"""При дальнейшем непогашении может быть рассмотрено """
+commercial_contracts.py,495,debt_check,"f""Задолженность по условиям, связанным с доступом: """
+commercial_contracts.py,496,debt_check,"f""{money(debt.access_blocking_outstanding_amount)} грн."","
+commercial_contracts.py,513,debt_check,Один тип сообщения одному получателю один раз на один долг/срок.
+commercial_contracts.py,562,debt_check,"debt: ContractDebt,"
+commercial_contracts.py,576,remote_write,INSERT INTO commercial_access_actions (
+commercial_contracts.py,582,debt_check,"debt_amount_snapshot,"
+commercial_contracts.py,583,debt_check,"days_overdue_snapshot,"
+commercial_contracts.py,595,debt_check,"float(debt.outstanding_amount),"
+commercial_contracts.py,596,debt_check,"int(debt.days_overdue),"
+commercial_contracts.py,617,remote_write,UPDATE commercial_access_phones
+commercial_contracts.py,641,debt_check,"debt: ContractDebt,"
+commercial_contracts.py,650,debt_check,"first_due_date=debt.first_open_due_date,"
+commercial_contracts.py,655,debt_check,"message_text = build_notification_text(contract, debt, notification_type)"
+commercial_contracts.py,666,debt_check,"debt_amount_snapshot,"
+commercial_contracts.py,667,debt_check,"days_overdue_snapshot,"
+commercial_contracts.py,680,debt_check,debt.access_blocking_charge_ids
+commercial_contracts.py,682,debt_check,"else debt.overdue_charge_ids,"
+commercial_contracts.py,685,debt_check,"float(debt.outstanding_amount),"
+commercial_contracts.py,686,debt_check,"int(debt.days_overdue),"
+commercial_contracts.py,701,debt_check,"field_name=""notification_type,status,debt_amount_snapshot"","
+commercial_contracts.py,705,debt_check,"f""{money(debt.outstanding_amount)}"""
+commercial_contracts.py,713,debt_check,"""days_overdue"": debt.days_overdue,"
+commercial_contracts.py,749,debt_check,"debt = calculate_contract_debt(conn, contract_id, on_date=on_date)"
+commercial_contracts.py,763,debt_check,"""debt"": asdict(debt),"
+commercial_contracts.py,773,debt_check,# Долг погашен: не надо автоматически «включать GSM».
+commercial_contracts.py,775,debt_check,if not debt.has_debt:
+commercial_contracts.py,778,debt_check,"if current_status == ""SUSPENDED_DEBT"":"
+commercial_contracts.py,787,debt_check,"debt=debt,"
+commercial_contracts.py,789,debt_check,"""Задолженность погашена. """
+commercial_contracts.py,808,debt_check,"""Долг погашен. Физическое восстановление """
+commercial_contracts.py,819,debt_check,"""reason"": ""Задолженность погашена до ручного отключения."","
+commercial_contracts.py,826,debt_check,"reason=""Задолженность погашена до ручного отключения."","
+commercial_contracts.py,837,debt_check,"debt=debt,"
+commercial_contracts.py,854,debt_check,# Она будет видна оператору как долг без Telegram-привязки.
+commercial_contracts.py,867,debt_check,"debt=debt,"
+commercial_contracts.py,884,debt_check,# который договор явно разрешает блокировать при долге.
+commercial_contracts.py,885,debt_check,"if stage == ""ACCESS_SUSPENSION_NOTICE"" and debt.has_access_blocking_debt:"
+commercial_contracts.py,888,debt_check,"if status in {""CLOSED"", ""MANUAL_BLOCK"", ""SUSPENDED_DEBT""}:"
+commercial_contracts.py,906,debt_check,"""Просроченная задолженность по условиям договора, """
+commercial_contracts.py,916,debt_check,"debt=debt,"
+commercial_contracts.py,943,debt_check,"""debt"": debt.outstanding_amount,"
+commercial_contracts.py,956,debt_check,"""reason"": ""Просроченная задолженность: уведомление-предупреждение."","
+commercial_contracts.py,963,debt_check,"reason=""Просроченная задолженность: уведомление-предупреждение."","
+commercial_contracts.py,1001,debt_check,"a.debt_amount_snapshot,"
+commercial_contracts.py,1002,debt_check,"a.days_overdue_snapshot,"
+commercial_contracts.py,1049,debt_check,"debt_amount_snapshot,"
+commercial_contracts.py,1050,debt_check,days_overdue_snapshot
+commercial_contracts.py,1064,remote_write,UPDATE commercial_access_actions
+commercial_contracts.py,1091,debt_check,"new_phone_status = ""SUSPENDED_DEBT"""
+commercial_contracts.py,1113,remote_write,UPDATE commercial_access_actions
+commercial_contracts.py,1158,debt_check,"debt = plan[""debt""]"
+commercial_contracts.py,1163,debt_check,"f""Долг: {money(debt['outstanding_amount'])} грн"","
+commercial_contracts.py,1164,debt_check,"f""Долг, блокирующий доступ: {money(debt['access_blocking_outstanding_amount'])} грн"","
+commercial_contracts.py,1165,debt_check,"f""Просрочка: {debt['days_overdue']} дн."","
+commercial_contracts.py,1234,debt_check,"description=""Поставить в очередь Telegram-уведомления по долгам КП."""
+create_clean_live_sandbox.py,101,remote_flow,"""service_orders"","
+create_clean_live_sandbox.py,222,remote_write,INSERT INTO access_user_roles (
+create_clean_live_sandbox.py,341,remote_flow,"""services"": ROOT / ""migrate_service_orders_and_fulfillment.py"","
+create_clean_live_sandbox.py,400,remote_flow,"""service_orders"","
+create_isolated_live_sandbox_v2.py,9,debt_check,- сохраняет исторический базовый остаток и существующие операции osbb_test.db
+create_isolated_live_sandbox_v2.py,101,remote_flow,"""service_orders"","
+create_isolated_live_sandbox_v2.py,222,remote_write,INSERT INTO access_user_roles (
+create_isolated_live_sandbox_v2.py,335,remote_flow,"""services"": ROOT / ""migrate_service_orders_and_fulfillment.py"","
+create_isolated_live_sandbox_v2.py,396,remote_flow,"""service_orders"","
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,53,remote_flow,"order_columns = table_columns(conn, ""service_orders"")"
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,56,debt_check,"""amount_due_snapshot"","
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,66,remote_flow,"""service_orders schema is incompatible: missing """
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,78,remote_flow,FROM service_orders
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,87,debt_check,"due = float(order[""amount_due_snapshot""] or 0)"
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,90,debt_check,"""The open order has no positive amount_due_snapshot; """
+FIND_actual_service_order_state.py,11,remote_flow,3) finds databases that really contain service_orders;
+FIND_actual_service_order_state.py,195,remote_flow,"""service_orders_count"": None,"
+FIND_actual_service_order_state.py,196,remote_flow,"""remote_requests_count"": None,"
+FIND_actual_service_order_state.py,207,remote_flow,"if ""service_orders"" in tables:"
+FIND_actual_service_order_state.py,208,remote_flow,"result[""service_orders_count""] = count_rows(conn, ""service_orders"")"
+FIND_actual_service_order_state.py,209,remote_flow,"if ""remote_requests"" in tables:"
+FIND_actual_service_order_state.py,210,remote_flow,"result[""remote_requests_count""] = count_rows(conn, ""remote_requests"")"
+FIND_actual_service_order_state.py,225,remote_flow,"if ""service_orders"" not in tables:"
+FIND_actual_service_order_state.py,236,remote_flow,"""service_orders"","
+FIND_actual_service_order_state.py,300,remote_flow,"if ""remote_order_details"" in tables:"
+FIND_actual_service_order_state.py,303,remote_flow,"""remote_order_details"","
+FIND_actual_service_order_state.py,336,remote_flow,"if item[""ok""] and ""service_orders"" in item[""tables""]"
+FIND_actual_service_order_state.py,348,remote_flow,"f""service_orders={item['service_orders_count']!r} | """
+FIND_actual_service_order_state.py,349,remote_flow,"f""remote_requests={item['remote_requests_count']!r} | """
+FIND_actual_service_order_state.py,358,remote_flow,"""No database below this project contains the service_orders table. """
+FIND_actual_service_order_state.py,366,remote_flow,"if int(item[""service_orders_count""] or 0) > 0"
+FIND_actual_service_order_state.py,384,remote_flow,"ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py"","
+FIX_live_services_sandbox_payment_schema.py,19,remote_flow,via service_orders.
+FIX_live_services_sandbox_payment_schema.py,158,remote_flow,def map_from_service_orders(conn: sqlite3.Connection) -> int:
+FIX_live_services_sandbox_payment_schema.py,160,remote_flow,Fallback mapping for a service-order sandbox: use service_orders itself.
+FIX_live_services_sandbox_payment_schema.py,163,remote_flow,"if not table_exists(conn, ""service_orders""):"
+FIX_live_services_sandbox_payment_schema.py,164,remote_flow,"emit(""INFO: table service_orders is absent; skip fallback mapping."")"
+FIX_live_services_sandbox_payment_schema.py,167,remote_flow,"order_columns = columns(conn, ""service_orders"")"
+FIX_live_services_sandbox_payment_schema.py,179,remote_flow,FROM service_orders AS o
+FIX_live_services_sandbox_payment_schema.py,191,remote_flow,FROM service_orders AS o
+FIX_live_services_sandbox_payment_schema.py,200,remote_flow,"emit(f""Mapped via service_orders fallback: {changed} payment row(s)."")"
+FIX_live_services_sandbox_payment_schema.py,205,remote_flow,"if not table_exists(conn, ""service_orders""):"
+FIX_live_services_sandbox_payment_schema.py,206,remote_flow,"raise RuntimeError(""Missing service_orders; wrong database selected."")"
+FIX_live_services_sandbox_payment_schema.py,211,remote_flow,FROM service_orders
+FIX_live_services_sandbox_payment_schema.py,305,remote_flow,"if not table_exists(conn, ""service_orders""):"
+FIX_live_services_sandbox_payment_schema.py,307,remote_flow,"""Wrong database: table service_orders is missing. """
+FIX_live_services_sandbox_payment_schema.py,324,remote_flow,map_from_service_orders(conn)
+fix_source_ref_schema.py,6,remote_flow,1. Reads Bots\handlers\service_orders_workspace.py.
+fix_source_ref_schema.py,30,remote_flow,"HANDLER_PATH = PROJECT_ROOT / ""Bots"" / ""handlers"" / ""service_orders_workspace.py"""
+import_ohorona_sheet1_payments.py,389,debt_check,"allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+import_ohorona_to_cashbox.py,892,debt_check,"help=""Подтверждённый остаток кассы после исторического периода. Создаёт отдельную операцию сверки."","
+import_ohorona_to_cashbox.py,897,debt_check,"help=""Касса, для которой применяется подтверждённый остаток."","
+manage_staff_access.py,169,remote_flow,"(""remote_requests"", ""ISSUE""),"
+manage_staff_access.py,226,remote_write,UPDATE access_user_roles
+manage_staff_access.py,232,remote_write,INSERT INTO access_user_roles (
+manage_staff_access.py,271,remote_write,UPDATE access_user_permissions
+manage_staff_access.py,277,remote_write,INSERT INTO access_user_permissions (
+manage_staff_access.py,297,remote_write,INSERT INTO access_audit_log (
+manage_staff_access_v2.py,169,remote_flow,"(""remote_requests"", ""ISSUE""),"
+manage_staff_access_v2.py,226,remote_write,UPDATE access_user_roles
+manage_staff_access_v2.py,232,remote_write,INSERT INTO access_user_roles (
+manage_staff_access_v2.py,271,remote_write,UPDATE access_user_permissions
+manage_staff_access_v2.py,277,remote_write,INSERT INTO access_user_permissions (
+manage_staff_access_v2.py,297,remote_write,INSERT INTO access_audit_log (
+parking_billing_statement.py,173,debt_check,"allocations_table = pick_table(cur, ""payment_allocations"", ""service_payment_allocations"")"
+parking_billing_statement.py,218,debt_check,"charge[""allocated_amount""] = allocated"
+parking_billing_statement.py,232,debt_check,"payment[""allocated_amount""] = allocated"
+parking_billing_statement.py,233,debt_check,"payment[""unallocated_amount""] = amount - allocated"
+parking_billing_statement.py,288,debt_check,"debt_rows = [x for x in rows if x[""balance""] > 0.01]"
+parking_billing_statement.py,301,debt_check,"lines.append(f""Debtors                 : {len(debt_rows)}"")"
+parking_billing_statement.py,315,debt_check,"status = ""DEBT"""
+parking_billing_statement.py,333,debt_check,"lines.append(""DEBTORS"")"
+parking_billing_statement.py,335,debt_check,"lines.append(""apt | debt | charged | paid"")"
+parking_billing_statement.py,338,debt_check,if not debt_rows:
+parking_billing_statement.py,341,debt_check,"for item in sorted(debt_rows, key=lambda x: (-x[""balance""], apt_sort_key(x[""apartment_number""]))):"
+parking_billing_statement.py,402,debt_check,"f""allocated={money(ch.get('allocated_amount', 0))} | """
+parking_billing_statement.py,416,debt_check,"f""allocated={money(p.get('allocated_amount', 0))} | """
+parking_billing_statement.py,417,debt_check,"f""unallocated={money(p.get('unallocated_amount', 0))} | """
+phone_barrier_access_core.py,17,debt_check,- debt warnings;
+phone_barrier_access_core.py,21,debt_check,"All prices and debt-deactivation terms are data, never hard-coded in workflows."
+phone_barrier_access_core.py,45,debt_check,"POLICY_DEBT_GRACE_DAYS = ""PHONE_ACCESS_DEBT_GRACE_DAYS"""
+phone_barrier_access_core.py,48,debt_check,"POLICY_DEFAULT_PARKING_DEBT_MODE = ""PHONE_ACCESS_DEFAULT_PARKING_DEBT_MODE"""
+phone_barrier_access_core.py,136,debt_check,"""access_debt_warnings"","
+phone_barrier_access_core.py,315,debt_check,"'DEBT_WARNING', 'DEACTIVATING', 'DEACTIVATED_FOR_DEBT',"
+phone_barrier_access_core.py,318,debt_check,parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+phone_barrier_access_core.py,319,debt_check,CHECK(parking_debt_check_mode IN (
+phone_barrier_access_core.py,324,debt_check,"parking_debt_check_note TEXT,"
+phone_barrier_access_core.py,325,debt_check,"parking_debt_mode_set_by TEXT,"
+phone_barrier_access_core.py,326,debt_check,"parking_debt_mode_set_at TEXT,"
+phone_barrier_access_core.py,363,debt_check,"'PENDING_ACTIVATION', 'ACTIVE', 'SUSPENDED_FOR_DEBT',"
+phone_barrier_access_core.py,364,debt_check,"'DEACTIVATED_FOR_DEBT', 'DEACTIVATED_MANUAL',"
+phone_barrier_access_core.py,402,debt_check,"amount_due_snapshot REAL NOT NULL CHECK(amount_due_snapshot >= 0),"
+phone_barrier_access_core.py,407,debt_check,"'DRAFT', 'OPEN', 'PAID', 'OVERDUE', 'WAIVED', 'CANCELLED'"
+phone_barrier_access_core.py,437,debt_check,CREATE TABLE IF NOT EXISTS access_debt_warnings (
+phone_barrier_access_core.py,441,debt_check,debt_source TEXT NOT NULL
+phone_barrier_access_core.py,442,debt_check,CHECK(debt_source IN (
+phone_barrier_access_core.py,443,debt_check,"'PARKING_ARREARS',"
+phone_barrier_access_core.py,444,debt_check,'PHONE_ACCESS_SUBSCRIPTION_ARREARS'
+phone_barrier_access_core.py,447,debt_check,"debt_amount_snapshot REAL NOT NULL CHECK(debt_amount_snapshot >= 0),"
+phone_barrier_access_core.py,469,debt_check,CREATE INDEX IF NOT EXISTS idx_access_debt_warnings_due
+phone_barrier_access_core.py,470,debt_check,"ON access_debt_warnings(warning_status, deactivate_due_at, subscription_id)"
+phone_barrier_access_core.py,475,debt_check,CREATE UNIQUE INDEX IF NOT EXISTS ux_access_debt_warning_open
+phone_barrier_access_core.py,476,debt_check,"ON access_debt_warnings(subscription_id, debt_source)"
+phone_barrier_access_core.py,596,remote_write,INSERT INTO access_points (
+phone_barrier_access_core.py,648,remote_write,INSERT INTO access_tariff_versions (
+phone_barrier_access_core.py,706,remote_write,INSERT INTO access_policy_versions (
+phone_barrier_access_core.py,755,remote_write,INSERT INTO access_policy_values (
+phone_barrier_access_core.py,941,debt_check,"POLICY_DEBT_GRACE_DAYS,"
+phone_barrier_access_core.py,944,debt_check,"""Grace period after a confirmed debt warning, in calendar days."","
+phone_barrier_access_core.py,959,debt_check,"POLICY_DEFAULT_PARKING_DEBT_MODE,"
+phone_barrier_access_core.py,962,debt_check,"""Safe default: no automatic parking-debt action until verified."","
+phone_barrier_access_core.py,968,debt_check,"""Re-access after debt deactivation creates a new subscription."","
+phone_barrier_access_core.py,990,remote_write,INSERT INTO access_schema_migrations (
+phone_barrier_access_core.py,1027,debt_check,# durable bridge between a resident's unpaid interest and the later paid order.
+phone_barrier_access_core.py,1251,debt_check,"""grace_days"": int(values.get(POLICY_DEBT_GRACE_DAYS, ""10"")),"
+phone_barrier_access_core.py,1252,debt_check,"""default_parking_debt_check_mode"": values.get("
+phone_barrier_access_core.py,1253,debt_check,"POLICY_DEFAULT_PARKING_DEBT_MODE, ""MANUAL_REVIEW"""
+phone_barrier_access_core.py,1275,debt_check,parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+phone_barrier_access_core.py,1276,debt_check,CHECK(parking_debt_check_mode IN (
+phone_barrier_access_core.py,1281,debt_check,"parking_debt_check_note TEXT,"
+phone_barrier_access_core.py,1371,remote_write,INSERT INTO access_schema_migrations (
+phone_barrier_access_core.py,1437,debt_check,"parking_debt_check_mode: str = ""MANUAL_REVIEW"","
+phone_barrier_access_core.py,1438,debt_check,"parking_debt_check_note: str = """","
+phone_barrier_access_core.py,1444,debt_check,"mode = text(parking_debt_check_mode).upper() or ""MANUAL_REVIEW"""
+phone_barrier_access_core.py,1451,debt_check,"raise ValueError(""Некорректный режим проверки парковочной задолженности."")"
+phone_barrier_access_core.py,1467,remote_write,INSERT INTO phone_access_requests (
+phone_barrier_access_core.py,1470,debt_check,"parking_debt_check_mode, parking_debt_check_note, policy_version_id,"
+phone_barrier_access_core.py,1485,debt_check,"text(parking_debt_check_note) or None,"
+phone_barrier_access_core.py,1496,remote_write,INSERT INTO phone_access_request_points (
+phone_barrier_access_core.py,1633,debt_check,"float(row.get(""amount_due_snapshot"") or 0)"
+phone_barrier_access_core.py,1696,remote_write,INSERT INTO phone_access_subscription_charges (
+phone_barrier_access_core.py,1700,debt_check,"amount_due_snapshot, currency, due_date, charge_status,"
+phone_barrier_access_core.py,1771,remote_write,INSERT INTO phone_access_subscriptions (
+phone_barrier_access_core.py,1774,debt_check,"parking_debt_check_mode, parking_debt_check_note,"
+phone_barrier_access_core.py,1787,debt_check,"text(request.get(""parking_debt_check_mode"")) or ""MANUAL_REVIEW"","
+phone_barrier_access_core.py,1788,debt_check,"request.get(""parking_debt_check_note""),"
+phone_barrier_access_core.py,1802,remote_write,INSERT INTO phone_access_subscription_points (
+phone_barrier_access_core.py,1820,remote_write,UPDATE phone_access_requests
+phone_barrier_access_core.py,1876,debt_check,"OPEN, and debt enforcement is deliberately implemented in a later module"
+phone_barrier_access_core.py,1877,debt_check,once the payment/parking debt sources are connected.
+phone_barrier_access_core.py,1931,remote_write,INSERT INTO phone_access_subscription_charges (
+phone_barrier_access_core.py,1935,debt_check,"unit_price_snapshot, amount_due_snapshot, currency,"
+phone_barrier_access_core.py,1988,remote_flow,"from service_orders_core import confirm_order_step, get_service_order"
+phone_barrier_access_core.py,2048,remote_write,INSERT INTO service_access_credentials (
+phone_barrier_access_core.py,2075,remote_write,UPDATE phone_access_subscription_points
+phone_barrier_access_core.py,2115,remote_write,UPDATE phone_access_subscriptions
+phone_barrier_access_core.py,2125,remote_write,UPDATE phone_access_subscriptions
+phone_barrier_access_core.py,2134,remote_write,UPDATE phone_access_requests
+phone_barrier_access_service.py,26,remote_flow,"from service_orders_core import get_conn, text"
+phone_barrier_access_service.py,27,remote_flow,"from service_preorders_core import create_service_interest, ensure_simplified_service_schema"
+phone_barrier_access_service.py,39,debt_check,"parking_debt_check_mode: str = ""MANUAL_REVIEW"","
+phone_barrier_access_service.py,40,debt_check,"parking_debt_check_note: str = """","
+phone_barrier_access_service.py,67,remote_flow,interest = create_service_interest(
+phone_barrier_access_service.py,81,debt_check,"amount_due_snapshot_override=float(quote[""connection_total""]),"
+phone_barrier_access_service.py,89,debt_check,"parking_debt_check_mode=parking_debt_check_mode,"
+phone_barrier_access_service.py,90,debt_check,"parking_debt_check_note=parking_debt_check_note,"
+profile_verification_core.py,334,debt_check,parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+profile_verification_core.py,335,debt_check,CHECK(parking_debt_check_mode IN (
+profile_verification_core.py,752,debt_check,"parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,772,debt_check,"verification_status, parking_debt_check_mode, created_at, updated_at"
+profile_verification_core.py,955,debt_check,debt_mode = MODE_CHECK_PARKING if has_parking_obligation else MODE_NO_PARKING
+profile_verification_core.py,957,debt_check,debt_mode = MODE_MANUAL
+profile_verification_core.py,963,debt_check,"SET last_snapshot_hash = ?, parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,966,debt_check,"(signature, debt_mode, now, int(profile[""id""])),"
+profile_verification_core.py,984,debt_check,"""parking_debt_check_mode"": debt_mode,"
+profile_verification_core.py,1021,debt_check,"""parking_debt_check_mode"": snapshot[""parking_debt_check_mode""],"
+profile_verification_core.py,1022,debt_check,"""parking_debt_check_note"": ("
+profile_verification_core.py,1026,debt_check,"if snapshot[""parking_debt_check_mode""] == MODE_CHECK_PARKING"
+profile_verification_core.py,1092,debt_check,debt_mode = (
+profile_verification_core.py,1103,debt_check,"last_snapshot_hash = ?, parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,1112,debt_check,"debt_mode,"
+profile_verification_core.py,1125,debt_check,"payload={""parking_debt_check_mode"": debt_mode},"
+profile_verification_core.py,1170,debt_check,"parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,1291,debt_check,"parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,1365,debt_check,"parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,1518,debt_check,"parking_debt_check_mode = ?, updated_at = ?"
+profile_verification_core.py,1554,debt_check,"""parking_debt_check_mode"": snapshot[""parking_debt_check_mode""],"
+reset_service_catalog.py,26,debt_check,# если отсутствует долг по PARKING_DAY/PARKING_NIGHT.
+reset_service_catalog.py,76,debt_check,"""Начисляется автоматически только при отсутствии долга по PARKING_DAY/PARKING_NIGHT. """
+reset_service_catalog.py,77,debt_check,"""Доступ может быть отключён при появлении такого долга."""
+reset_service_catalog.py,372,debt_check,"for table_name in [""charges"", ""payments"", ""cashbox_operations"", ""payment_allocations""]:"
+reset_service_catalog.py,395,debt_check,"for table_name in [""charges"", ""payments"", ""cashbox_operations"", ""payment_allocations""]:"
+reset_service_catalog.py,479,debt_check,"""  Начисляется при регистрации номера и отсутствии долга по парковке."","
+RETIRE_legacy_new_remote_test_orders_sandbox.py,3,debt_check,"Retire only obsolete, unpaid TEST new-remote orders in the live-services sandbox."
+RETIRE_legacy_new_remote_test_orders_sandbox.py,26,remote_flow,"backup = BACKUPS / f""{DB.stem}_before_retire_legacy_new_remote_tests_{stamp}{DB.suffix}"""
+RETIRE_legacy_new_remote_test_orders_sandbox.py,34,remote_flow,FROM service_orders o
+RETIRE_legacy_new_remote_test_orders_sandbox.py,46,debt_check,"print(""No matching unpaid legacy TEST new-remote orders were found."")"
+RETIRE_legacy_new_remote_test_orders_sandbox.py,52,remote_flow,UPDATE service_orders
+RETIRE_legacy_new_remote_test_orders_sandbox.py,62,remote_write,UPDATE service_order_steps
+RETIRE_legacy_new_remote_test_orders_sandbox.py,88,remote_write,"""UPDATE remote_assets SET inventory_status='AVAILABLE', updated_at=? WHERE id=?"","
+RETIRE_legacy_new_remote_test_orders_sandbox.py,93,remote_write,INSERT INTO remote_asset_movements (
+run_bot_guard_sandbox.py,106,remote_flow,"""remote_requests"","
+run_bot_guard_sandbox_v2.py,106,remote_flow,"""remote_requests"","
+run_bot_guard_sandbox_v3.py,106,remote_flow,"""remote_requests"","
+run_bot_live_service_sandbox_v4.py,31,remote_flow,"SERVICE_PATCHER = ROOT / ""patch_parking_bot_service_orders_ui_v1.py"""
+run_bot_live_service_sandbox_v4.py,32,remote_flow,"SERVICE_CORE = ROOT / ""service_orders_core.py"""
+run_bot_live_service_sandbox_v4.py,98,remote_flow,"""service_orders"","
+run_bot_live_service_sandbox_v4.py,134,remote_flow,"BOTS / ""handlers"" / ""service_orders_workspace.py"","
+run_bot_live_service_sandbox_v4.py,146,remote_flow,"""Сначала выполните install_service_orders_ui.py --apply."""
+run_bot_live_service_sandbox_v4.py,167,remote_flow,"""service_orders_core"","
+run_bot_live_service_sandbox_v4.py,179,remote_flow,"""handlers.service_orders_workspace"","
+run_bot_live_services_sandbox_v1.py,12,remote_flow,- connects service_orders_workspace to parking_bot in memory;
+run_bot_live_services_sandbox_v1.py,47,remote_flow,"WORKSPACE_FILE = BOTS_DIR / ""handlers"" / ""service_orders_workspace.py"""
+run_bot_live_services_sandbox_v1.py,49,remote_flow,"SERVICE_PATCHER = ROOT / ""patch_parking_bot_service_orders_v1.py"""
+run_bot_live_services_sandbox_v1.py,202,remote_flow,"(""service_orders"", ""VIEW"", ""REMOTE""),"
+run_bot_live_services_sandbox_v1.py,203,remote_flow,"(""service_orders"", ""CREATE"", ""REMOTE""),"
+run_bot_live_services_sandbox_v1.py,204,remote_flow,"(""service_orders"", ""UPDATE"", ""REMOTE""),"
+run_bot_live_services_sandbox_v1.py,205,remote_flow,"(""service_orders"", ""CONFIRM"", ""REMOTE""),"
+run_bot_live_services_sandbox_v1.py,211,remote_flow,"(""service_orders"", ""VIEW"", ""ACCESS""),"
+run_bot_live_services_sandbox_v1.py,212,remote_flow,"(""service_orders"", ""CREATE"", ""ACCESS""),"
+run_bot_live_services_sandbox_v1.py,213,remote_flow,"(""service_orders"", ""UPDATE"", ""ACCESS""),"
+run_bot_live_services_sandbox_v1.py,214,remote_flow,"(""service_orders"", ""CONFIRM"", ""ACCESS""),"
+run_bot_live_services_sandbox_v1.py,317,remote_write,INSERT INTO access_user_roles
+run_bot_live_services_sandbox_v1.py,345,remote_write,INSERT INTO access_role_permissions
+run_bot_live_services_sandbox_v1.py,389,remote_flow,"""NEW_REMOTE_PROFILE"","
+run_bot_live_services_sandbox_v1.py,392,remote_flow,"""issue_new_remotes_from_batch("","
+run_bot_live_services_sandbox_v1.py,397,remote_flow,"""В service_orders_workspace.py не установлена готовая версия """
+run_bot_live_services_sandbox_v1.py,409,remote_flow,"""service_orders_core"","
+run_bot_live_services_sandbox_v1.py,415,remote_flow,"""handlers.service_orders_workspace"","
+run_bot_live_services_sandbox_v1.py,729,remote_flow,"""service_orders"","
+run_bot_live_services_sandbox_v1.py,732,remote_flow,"""remote_order_details"","
+run_bot_live_services_sandbox_v1.py,734,remote_flow,"""service_order_interests"","
+run_bot_live_services_sandbox_v1.py,767,remote_flow,FROM service_orders
+run_bot_live_services_sandbox_v1.py,879,remote_flow,"print(""  - service_orders workspace: simplified paid-preorder workflow verified"")"
+run_bot_sandbox_v2.py,110,debt_check,"""cashier_reconciliation_cases"","
+service_catalog_admin_core.py,29,remote_flow,from service_orders_core import (
+service_orders_core.py,153,remote_flow,"""service_orders"","
+service_orders_core.py,160,remote_flow,"""remote_order_details"","
+service_orders_core.py,317,remote_flow,FROM service_orders
+service_orders_core.py,347,remote_write,INSERT INTO service_order_events (
+service_orders_core.py,382,remote_flow,"table_name=""service_orders"","
+service_orders_core.py,387,remote_flow,"source_context=""service_orders_core"","
+service_orders_core.py,445,remote_flow,"return ""READY_FOR_ISSUE"", payment_status, ""READY_FOR_HANDOVER"""
+service_orders_core.py,460,remote_flow,UPDATE service_orders
+service_orders_core.py,486,remote_flow,"""SELECT * FROM service_orders WHERE id = ?"","
+service_orders_core.py,495,remote_flow,def create_service_order(
+service_orders_core.py,506,debt_check,"amount_due_snapshot_override: float | None = None,"
+service_orders_core.py,534,remote_flow,"""service_orders"","
+service_orders_core.py,545,debt_check,"amount_due_snapshot_override,"
+service_orders_core.py,551,debt_check,if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
+service_orders_core.py,556,debt_check,"amount_due = round(float(amount_due_snapshot_override), 2)"
+service_orders_core.py,557,debt_check,if unit_price < 0 or amount_due < 0:
+service_orders_core.py,560,debt_check,if abs(expected - amount_due) > 0.01:
+service_orders_core.py,572,debt_check,amount_due = (
+service_orders_core.py,583,remote_flow,INSERT INTO service_orders (
+service_orders_core.py,588,debt_check,"quantity, unit_price_snapshot, amount_due_snapshot, currency,"
+service_orders_core.py,608,debt_check,"amount_due,"
+service_orders_core.py,637,remote_write,INSERT INTO service_order_steps (
+service_orders_core.py,659,remote_flow,INSERT INTO remote_order_details (
+service_orders_core.py,670,remote_flow,"if profile == ""REMOTE_REPROGRAM_OWN"""
+service_orders_core.py,673,remote_flow,"1 if profile == ""REMOTE_REPROGRAM_OWN"" else 0,"
+service_orders_core.py,676,remote_flow,"""REMOTE_REFURBISHED_FROM_STOCK"","
+service_orders_core.py,692,debt_check,"f""quantity={quantity}; amount={amount_due}"""
+service_orders_core.py,770,remote_write,UPDATE service_order_steps
+service_orders_core.py,933,debt_check,"due = order.get(""amount_due_snapshot"")"
+service_orders_core.py,948,debt_check,"raise ValueError(""Нельзя привязать больше, чем остаток по заявке."")"
+service_orders_core.py,975,remote_write,INSERT INTO service_order_payment_links (
+service_orders_core.py,1066,remote_write,INSERT INTO service_order_charge_links (
+service_orders_core.py,1097,remote_write,def create_remote_asset(
+service_orders_core.py,1125,remote_write,INSERT INTO remote_assets (
+service_orders_core.py,1149,remote_write,INSERT INTO remote_asset_movements (
+service_orders_core.py,1175,remote_write,def record_remote_movement(
+service_orders_core.py,1211,remote_write,UPDATE remote_assets
+service_orders_core.py,1228,remote_write,INSERT INTO remote_asset_movements (
+service_orders_core.py,1306,remote_write,INSERT INTO service_access_credentials (
+service_orders_core.py,1398,remote_flow,FROM remote_order_details
+service_preorders_core.py,6,debt_check,"- an unpaid resident request is an interest record, not an operational order;"
+service_preorders_core.py,12,remote_flow,- existing service_orders stay immutable historical records.
+service_preorders_core.py,25,remote_flow,from service_orders_core import (
+service_preorders_core.py,27,remote_write,"create_remote_asset,"
+service_preorders_core.py,28,remote_flow,"create_service_order,"
+service_preorders_core.py,35,remote_write,"record_remote_movement,"
+service_preorders_core.py,57,remote_flow,"NEW_REMOTE_OLD_PROFILE = ""REMOTE_NEW_FROM_STOCK"""
+service_preorders_core.py,58,remote_flow,"NEW_REMOTE_PROFILE = ""REMOTE_NEW_PREORDER"""
+service_preorders_core.py,96,remote_flow,"""service_order_interests"","
+service_preorders_core.py,112,remote_flow,CREATE TABLE IF NOT EXISTS service_order_interests (
+service_preorders_core.py,125,debt_check,"amount_due_snapshot REAL NOT NULL,"
+service_preorders_core.py,142,remote_flow,"ON service_order_interests(resident_account_id, id)"
+service_preorders_core.py,148,remote_flow,ON service_order_interests(payment_notice_id)
+service_preorders_core.py,154,remote_flow,ON service_order_interests(payment_id)
+service_preorders_core.py,222,remote_flow,changes.extend(_ensure_new_remote_preorder_profile(cur))
+service_preorders_core.py,247,remote_flow,def _ensure_new_remote_preorder_profile(cur: sqlite3.Cursor) -> list[str]:
+service_preorders_core.py,257,remote_flow,"(NEW_REMOTE_PROFILE,),"
+service_preorders_core.py,263,remote_flow,"(NEW_REMOTE_OLD_PROFILE,),"
+service_preorders_core.py,269,remote_flow,"""profile_code"": NEW_REMOTE_PROFILE,"
+service_preorders_core.py,284,remote_flow,"(NEW_REMOTE_PROFILE,),"
+service_preorders_core.py,290,remote_flow,"(NEW_REMOTE_OLD_PROFILE,),"
+service_preorders_core.py,296,remote_flow,"(""SUPPLIER_BATCH_RECEIVED"", ""Поставка отримана"", ""SUPPLY"", 30),"
+service_preorders_core.py,297,remote_flow,"(""REMOTE_BATCH_ISSUED"", ""Пульти видано мешканцю"", ""ISSUE"", 40),"
+service_preorders_core.py,303,remote_flow,"""profile_code"": NEW_REMOTE_PROFILE,"
+service_preorders_core.py,324,remote_flow,"(NEW_REMOTE_PROFILE, NEW_REMOTE_OLD_PROFILE),"
+service_preorders_core.py,365,remote_flow,def create_service_interest(
+service_preorders_core.py,376,debt_check,"amount_due_snapshot_override: float | None = None,"
+service_preorders_core.py,398,debt_check,"amount_due_snapshot_override,"
+service_preorders_core.py,404,debt_check,if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
+service_preorders_core.py,409,debt_check,"amount_due = round(float(amount_due_snapshot_override), 2)"
+service_preorders_core.py,410,debt_check,if price < 0 or amount_due < 0:
+service_preorders_core.py,413,debt_check,if abs(expected - amount_due) > 0.01:
+service_preorders_core.py,427,debt_check,"amount_due = round(float(price) * quantity, 2)"
+service_preorders_core.py,429,remote_flow,"interest_number = _number(""SI"", cur, ""service_order_interests"", ""interest_number"")"
+service_preorders_core.py,432,remote_flow,INSERT INTO service_order_interests (
+service_preorders_core.py,437,debt_check,"amount_due_snapshot, currency, interest_status,"
+service_preorders_core.py,454,debt_check,"amount_due,"
+service_preorders_core.py,480,remote_flow,"row = _dict(cur, ""SELECT * FROM service_order_interests WHERE id = ?"", (int(interest_id),))"
+service_preorders_core.py,498,remote_flow,FROM service_order_interests
+service_preorders_core.py,528,remote_flow,def attach_payment_notice_to_interest(
+service_preorders_core.py,549,remote_flow,UPDATE service_order_interests
+service_preorders_core.py,610,debt_check,"params.append(float(interest.get(""amount_due_snapshot"") or 0))"
+service_preorders_core.py,638,remote_flow,SELECT * FROM service_order_interests
+service_preorders_core.py,652,debt_check,"due = float(interest.get(""amount_due_snapshot"") or 0)"
+service_preorders_core.py,655,remote_flow,order = create_service_order(
+service_preorders_core.py,665,debt_check,"amount_due_snapshot_override=float(interest.get(""amount_due_snapshot"") or 0),"
+service_preorders_core.py,695,remote_flow,UPDATE service_order_interests
+service_preorders_core.py,729,debt_check,"def unpaid_interest_totals(*, conn: sqlite3.Connection | None = None) -> list[dict]:"
+service_preorders_core.py,741,remote_flow,FROM service_order_interests
+service_preorders_core.py,766,remote_flow,FROM service_orders o
+service_preorders_core.py,784,remote_flow,"(NEW_REMOTE_PROFILE,),"
+service_preorders_core.py,809,remote_flow,FROM service_orders o
+service_preorders_core.py,827,remote_flow,"(NEW_REMOTE_PROFILE, service_item_code),"
+service_preorders_core.py,837,remote_write,INSERT INTO remote_supplier_batches (
+service_preorders_core.py,861,remote_write,INSERT INTO remote_supplier_batch_links (
+service_preorders_core.py,923,remote_flow,JOIN service_orders o ON o.id = l.service_order_id
+service_preorders_core.py,961,remote_write,UPDATE remote_supplier_batches
+service_preorders_core.py,993,remote_write,UPDATE remote_supplier_batch_links
+service_preorders_core.py,1001,remote_flow,"step_code=""SUPPLIER_BATCH_RECEIVED"","
+service_preorders_core.py,1045,remote_flow,def issue_new_remotes_from_batch(
+service_preorders_core.py,1058,remote_flow,"if text(order.get(""workflow_profile_code"")) != NEW_REMOTE_PROFILE:"
+service_preorders_core.py,1074,remote_write,asset = create_remote_asset(
+service_preorders_core.py,1086,remote_write,record_remote_movement(
+service_preorders_core.py,1095,remote_flow,"confirm_step_code=""REMOTE_BATCH_ISSUED"","
+service_preorders_core.py,1100,remote_write,UPDATE remote_assets
+service_preorders_core.py,1108,remote_write,INSERT INTO remote_order_issued_assets (
+service_preorders_core.py,1121,remote_write,UPDATE remote_supplier_batch_links
+service_preorders_core.py,1131,remote_write,UPDATE remote_supplier_batches
+tools/cashier_parking_payments_audit_v4.py,6,debt_check,"#   - читает charges, payment_allocations, payments, vehicles, apartments;"
+tools/cashier_parking_payments_audit_v4.py,9,debt_check,"#       AllCharges, Paid, Unpaid, Partial, Overpaid, Problems, Periods, Summary;"
+tools/cashier_parking_payments_audit_v4.py,102,debt_check,"if not table_exists(cur, ""payment_allocations""):"
+tools/cashier_parking_payments_audit_v4.py,104,debt_check,"cols = table_columns(cur, ""payment_allocations"")"
+tools/cashier_parking_payments_audit_v4.py,105,debt_check,"amount_col = ""amount"" if ""amount"" in cols else (""allocated_amount"" if ""allocated_amount"" in cols else None)"
+tools/cashier_parking_payments_audit_v4.py,110,debt_check,FROM payment_allocations
+tools/cashier_parking_payments_audit_v4.py,135,debt_check,FROM charges c
+tools/cashier_parking_payments_audit_v4.py,199,debt_check,FROM charges c
+tools/cashier_parking_payments_audit_v4.py,231,debt_check,"status = ""UNPAID"""
+tools/cashier_parking_payments_audit_v4.py,256,debt_check,"sibling_underpaid = [r for r in siblings_same_service if float(r.get(""charge_amount"") or 0) - float(r.get(""paid_amount"") or 0) > EPS]"
+tools/cashier_parking_payments_audit_v4.py,267,debt_check,if sibling_underpaid:
+tools/cashier_parking_payments_audit_v4.py,268,debt_check,"total_sibling_rest = sum(float(r.get(""charge_amount"") or 0) - float(r.get(""paid_amount"") or 0) for r in sibling_underpaid)"
+tools/cashier_parking_payments_audit_v4.py,269,debt_check,"flags.append(""OVERPAID_HAS_SIBLING_UNDERPAID"")"
+tools/cashier_parking_payments_audit_v4.py,270,debt_check,"hints.append(f""Вероятно оплата за второе авто этой квартиры; у соседних начислений остаток {money(total_sibling_rest)}"")"
+tools/cashier_parking_payments_audit_v4.py,272,debt_check,"flags.append(""OVERPAID_NO_SIBLING_UNDERPAID"")"
+tools/cashier_parking_payments_audit_v4.py,295,debt_check,"""UNPAID"": [r for r in rows if r[""payment_status""] == ""UNPAID""],"
+tools/cashier_parking_payments_audit_v4.py,384,debt_check,"for name in [""ALL"", ""PAID"", ""UNPAID"", ""PARTIAL"", ""OVERPAID"", ""PROBLEMS""]:"
+tools/cashier_parking_payments_audit_v4.py,401,debt_check,"(""Unpaid"", split[""UNPAID""]),"
+tools/cashier_parking_payments_audit_v4.py,487,debt_check,"for name in [""ALL"", ""PAID"", ""UNPAID"", ""PARTIAL"", ""OVERPAID"", ""PROBLEMS""]:"
+tools/cashier_parking_payments_audit_v4.py,549,debt_check,"parser.add_argument(""--list-periods"", action=""store_true"", help=""Only show period_code summary from charges"")"
+tools/cashier_parking_payments_audit_v4.py,599,debt_check,"print(""Unpaid:"", len(split[""UNPAID""]))"
+tools/cashier_unpaid_preview.py,6,debt_check,# cashier_unpaid_preview.py
+tools/cashier_unpaid_preview.py,55,debt_check,"""payment_allocations"": {""charge_id"", ""amount""},"
+tools/cashier_unpaid_preview.py,70,debt_check,def load_unpaid(cur):
+tools/cashier_unpaid_preview.py,79,debt_check,FROM payment_allocations
+tools/cashier_unpaid_preview.py,98,debt_check,FROM charges c
+tools/cashier_unpaid_preview.py,163,debt_check,"print(""entr | rows | rest_sum | problem_rows"")"
+tools/cashier_unpaid_preview.py,172,debt_check,"print(""OSBB cashier unpaid preview - READ ONLY"")"
+tools/cashier_unpaid_preview.py,190,debt_check,rows = load_unpaid(cur)
+tools/cashier_unpaid_preview.py,193,debt_check,"print(""Unpaid / partial charges:"", len(rows))"
+tools/cashier_unpaid_preview_v2.py,8,debt_check,# Put it into: G:\Programming\Py\OSBB\tools\cashier_unpaid_preview_v2.py
+tools/cashier_unpaid_preview_v2.py,80,debt_check,"alloc_cols = cols(cur, ""payment_allocations"") if table_exists(cur, ""payment_allocations"") else set()"
+tools/cashier_unpaid_preview_v2.py,85,debt_check,"if table_exists(cur, ""payment_allocations"") and ""charge_id"" in alloc_cols and ""amount"" in alloc_cols:"
+tools/cashier_unpaid_preview_v2.py,86,debt_check,"paid_subquery = ""(SELECT COALESCE(SUM(pa.amount),0) FROM payment_allocations pa WHERE pa.charge_id = c.id)"""
+tools/cashier_unpaid_preview_v2.py,107,debt_check,"COALESCE(SUM(({amount_expr}) - ({paid_subquery})),0) AS rest_sum"
+tools/cashier_unpaid_preview_v2.py,108,debt_check,FROM charges c
+tools/cashier_unpaid_preview_v2.py,118,debt_check,"print(f""{r['period_code']} | {r['service_code']} | {r['service_item_code']} | {r['rows_count']} | {money(r['amount_sum'])} | {money(r['paid_sum'])} | {money(r['rest_sum'])}"")"
+tools/cashier_unpaid_preview_v2.py,125,debt_check,def unpaid_preview(args):
+tools/cashier_unpaid_preview_v2.py,128,debt_check,"print_header(""OSBB cashier unpaid preview - READ ONLY"")"
+tools/cashier_unpaid_preview_v2.py,144,debt_check,"alloc_cols = cols(cur, ""payment_allocations"") if table_exists(cur, ""payment_allocations"") else set()"
+tools/cashier_unpaid_preview_v2.py,149,debt_check,"if table_exists(cur, ""payment_allocations"") and ""charge_id"" in alloc_cols and ""amount"" in alloc_cols:"
+tools/cashier_unpaid_preview_v2.py,150,debt_check,"paid_subquery = ""(SELECT COALESCE(SUM(pa.amount),0) FROM payment_allocations pa WHERE pa.charge_id = c.id)"""
+tools/cashier_unpaid_preview_v2.py,189,debt_check,FROM charges c
+tools/cashier_unpaid_preview_v2.py,197,debt_check,"print(""Unpaid / partial charges:"", len(rows))"
+tools/cashier_unpaid_preview_v2.py,219,debt_check,"print(""entr | rows | rest_sum | problem_rows"")"
+tools/cashier_unpaid_preview_v2.py,244,debt_check,"parser = argparse.ArgumentParser(description=""OSBB cashier unpaid preview. READ ONLY."")"
+tools/cashier_unpaid_preview_v2.py,245,debt_check,"parser.add_argument(""--period"", default="""", help=""Exact period_code from charges. Empty means all periods."")"
+tools/cashier_unpaid_preview_v2.py,247,debt_check,"parser.add_argument(""--list-periods"", action=""store_true"", help=""List real period_code values from charges and exit."")"
+tools/cashier_unpaid_preview_v2.py,255,debt_check,unpaid_preview(args)
+tools/cashier_unpaid_preview_v3.py,1,debt_check,# cashier_unpaid_preview_v3.py
+tools/cashier_unpaid_preview_v3.py,2,debt_check,# OSBB cashier unpaid preview / export - READ ONLY
+tools/cashier_unpaid_preview_v3.py,6,debt_check,#   - читает начисления charges и оплаты payment_allocations/payments;
+tools/cashier_unpaid_preview_v3.py,12,debt_check,#   python .\OSBB\tools\cashier_unpaid_preview_v3.py
+tools/cashier_unpaid_preview_v3.py,16,debt_check,#   python .\OSBB\tools\cashier_unpaid_preview_v3.py --period 2026-05_2026-06
+tools/cashier_unpaid_preview_v3.py,19,debt_check,#   python .\OSBB\tools\cashier_unpaid_preview_v3.py --list-periods
+tools/cashier_unpaid_preview_v3.py,34,debt_check,# File is expected at: G:\Programming\Py\OSBB\tools\cashier_unpaid_preview_v3.py
+tools/cashier_unpaid_preview_v3.py,108,debt_check,Current schema has payment_allocations(amount). Some older variants may have allocated_amount.
+tools/cashier_unpaid_preview_v3.py,110,debt_check,"if not table_exists(cur, ""payment_allocations""):"
+tools/cashier_unpaid_preview_v3.py,112,debt_check,"cols = table_columns(cur, ""payment_allocations"")"
+tools/cashier_unpaid_preview_v3.py,113,debt_check,"amount_col = ""amount"" if ""amount"" in cols else (""allocated_amount"" if ""allocated_amount"" in cols else None)"
+tools/cashier_unpaid_preview_v3.py,118,debt_check,FROM payment_allocations
+tools/cashier_unpaid_preview_v3.py,142,debt_check,"COALESCE(SUM(c.amount - COALESCE(p.paid_amount, 0)), 0) AS rest_sum"
+tools/cashier_unpaid_preview_v3.py,143,debt_check,FROM charges c
+tools/cashier_unpaid_preview_v3.py,160,debt_check,"totals[period] += float(row.get(""rest_sum"") or 0)"
+tools/cashier_unpaid_preview_v3.py,163,debt_check,# period with largest unpaid rest; tie by text descending
+tools/cashier_unpaid_preview_v3.py,167,debt_check,"def load_unpaid(conn: sqlite3.Connection, period: str, services: Sequence[str]) -> List[Dict[str, Any]]:"
+tools/cashier_unpaid_preview_v3.py,207,debt_check,FROM charges c
+tools/cashier_unpaid_preview_v3.py,252,debt_check,"item = grouped.setdefault(key, {""entrance"": key, ""rows"": 0, ""rest_sum"": 0.0, ""problem_rows"": 0})"
+tools/cashier_unpaid_preview_v3.py,254,debt_check,"item[""rest_sum""] += float(row.get(""rest_amount"") or 0)"
+tools/cashier_unpaid_preview_v3.py,262,debt_check,"def write_txt(report_file: Path, *, db_file: Path, period: str, services: Sequence[str], period_rows: List[Dict[str, Any]], unpaid: List[Dict[str, Any]], summary: List[Dict[str, Any]]) -> None:"
+tools/cashier_unpaid_preview_v3.py,264,debt_check,"lines.append(""OSBB cashier unpaid preview - READ ONLY"")"
+tools/cashier_unpaid_preview_v3.py,278,debt_check,"f""{r.get('rows_count')} | {money(r.get('amount_sum'))} | {money(r.get('paid_sum'))} | {money(r.get('rest_sum'))}"""
+tools/cashier_unpaid_preview_v3.py,281,debt_check,"lines.append(f""Unpaid / partial charges: {len(unpaid)}"")"
+tools/cashier_unpaid_preview_v3.py,285,debt_check,"lines.append(""entr | rows | rest_sum | problem_rows"")"
+tools/cashier_unpaid_preview_v3.py,288,debt_check,"lines.append(f""{r['entrance']} | {r['rows']} | {money(r['rest_sum'])} | {r['problem_rows']}"")"
+tools/cashier_unpaid_preview_v3.py,295,debt_check,for r in unpaid:
+tools/cashier_unpaid_preview_v3.py,326,debt_check,"def write_xlsx(xlsx_file: Path, *, db_file: Path, period: str, services: Sequence[str], period_rows: List[Dict[str, Any]], unpaid: List[Dict[str, Any]], summary: List[Dict[str, Any]]) -> bool:"
+tools/cashier_unpaid_preview_v3.py,338,debt_check,"ws.append([""OSBB cashier unpaid preview"", ""READ ONLY""])"
+tools/cashier_unpaid_preview_v3.py,347,debt_check,"ws.append([r[""entrance""], r[""rows""], float(r[""rest_sum""] or 0), r[""problem_rows""]])"
+tools/cashier_unpaid_preview_v3.py,349,debt_check,"ws2 = wb.create_sheet(""Unpaid"")"
+tools/cashier_unpaid_preview_v3.py,355,debt_check,for r in unpaid:
+tools/cashier_unpaid_preview_v3.py,383,debt_check,"float(r.get(""rest_sum"") or 0),"
+tools/cashier_unpaid_preview_v3.py,388,debt_check,for r in unpaid:
+tools/cashier_unpaid_preview_v3.py,432,debt_check,"for sheet_name in [""Unpaid"", ""Problems""]:"
+tools/cashier_unpaid_preview_v3.py,464,debt_check,"def write_csv(csv_file: Path, unpaid: List[Dict[str, Any]]) -> None:"
+tools/cashier_unpaid_preview_v3.py,472,debt_check,for r in unpaid:
+tools/cashier_unpaid_preview_v3.py,502,debt_check,"f""{r.get('rows_count')} | {money(r.get('amount_sum'))} | {money(r.get('paid_sum'))} | {money(r.get('rest_sum'))}"""
+tools/cashier_unpaid_preview_v3.py,508,debt_check,"parser = argparse.ArgumentParser(description=""OSBB cashier unpaid preview/export - READ ONLY"")"
+tools/cashier_unpaid_preview_v3.py,510,debt_check,"parser.add_argument(""--period"", default="""", help=""Exact period_code. If omitted, auto-selects period with largest unpaid rest."")"
+tools/cashier_unpaid_preview_v3.py,512,debt_check,"parser.add_argument(""--list-periods"", action=""store_true"", help=""Only show period_code summary from charges"")"
+tools/cashier_unpaid_preview_v3.py,533,debt_check,"unpaid = load_unpaid(conn, period, services)"
+tools/cashier_unpaid_preview_v3.py,534,debt_check,summary = summarize_by_entrance(unpaid)
+tools/cashier_unpaid_preview_v3.py,542,debt_check,"base = export_dir / f""cashier_unpaid_{safe_period}_{stamp}"""
+tools/cashier_unpaid_preview_v3.py,547,debt_check,"write_txt(txt_file, db_file=db_file, period=period, services=services, period_rows=period_rows, unpaid=unpaid, summary=summary)"
+tools/cashier_unpaid_preview_v3.py,550,debt_check,"wrote_xlsx = write_xlsx(xlsx_file, db_file=db_file, period=period, services=services, period_rows=period_rows, unpaid=unpaid, summary=summary)"
+tools/cashier_unpaid_preview_v3.py,552,debt_check,"write_csv(csv_file, unpaid)"
+tools/cashier_unpaid_preview_v3.py,554,debt_check,"total_rest = sum(float(r.get(""rest_amount"") or 0) for r in unpaid)"
+tools/cashier_unpaid_preview_v3.py,555,debt_check,"problem_rows = sum(int(r.get(""problem"") or 0) for r in unpaid)"
+tools/cashier_unpaid_preview_v3.py,557,debt_check,"print(""OSBB cashier unpaid preview/export - READ ONLY"")"
+tools/cashier_unpaid_preview_v3.py,564,debt_check,"print(""Unpaid / partial rows:"", len(unpaid))"
+tools/project_code_search.py,12,remote_flow,"""Заявка оператора"", ""remote"", ""remote_requests"", ""SO-"", ""RB-"","
+tools/project_passport.py,101,debt_check,"""payment_allocations"","
+tools/project_passport.py,107,debt_check,"""cashier_reconciliation_cases"","
+tools/project_passport.py,114,remote_flow,"""remote_requests"","
+tools/project_passport.py,116,remote_flow,"""service_orders"","
+tools/project_passport.py,119,remote_flow,"""service_order_interests"","
+tools/project_passport.py,122,remote_flow,"""remote_order_details"","
+tools/project_passport.py,526,debt_check,"body.append(""- `03_Technical_Debt.md`"")"
+tools/project_passport.py,575,debt_check,# Technical debt md
+tools/project_passport.py,576,debt_check,debt_lines = []
+tools/project_passport.py,579,debt_check,"debt_lines.append(f""- `{t.path}:{t.line}` **{t.marker}** — {t.text}"")"
+tools/project_passport.py,581,debt_check,"debt_lines.append(""(none)"")"
+tools/project_passport.py,582,debt_check,"write_md(out_dir / ""03_Technical_Debt.md"", ""Technical Debt Markers"", ""\n"".join(debt_lines))"
+tools/project_passport_v2.py,122,debt_check,"""payment_allocations"","
+tools/project_passport_v2.py,128,debt_check,"""cashier_reconciliation_cases"","
+tools/project_passport_v2.py,135,remote_flow,"""remote_requests"","
+tools/project_passport_v2.py,137,remote_flow,"""service_orders"","
+tools/project_passport_v2.py,140,remote_flow,"""service_order_interests"","
+tools/project_passport_v2.py,143,remote_flow,"""remote_order_details"","
+tools/project_passport_v2.py,572,debt_check,"body.append(""- `03_Technical_Debt.md`"")"
+tools/project_passport_v2.py,620,debt_check,debt_lines = []
+tools/project_passport_v2.py,623,debt_check,"debt_lines.append(f""- `{t.path}:{t.line}` **{t.marker}** — {t.text}"")"
+tools/project_passport_v2.py,625,debt_check,"debt_lines.append(""(none)"")"
+tools/project_passport_v2.py,626,debt_check,"write_md(out_dir / ""03_Technical_Debt.md"", ""Technical Debt Markers"", ""\n"".join(debt_lines))"
+tools/project_passport_v3_classifier.py,11,remote_flow,"- тематические признаки: cashier, parking_time, remote/pult, service_orders, db/schema."
+tools/project_passport_v3_classifier.py,59,remote_flow,"""service_orders"": re.compile(r""service_order|service_orders|workflow_profile|supplier_batch|remote_order"", re.IGNORECASE),"
+tools/project_passport_v3_classifier.py,589,remote_flow,"for m in sorted([m for m in modules if ""remote"" in m.themes or ""service_orders"" in m.themes or ""access_control"" in m.themes], key=lambda x: x.path):"
+tools/project_passport_v4_runtime_schema_audit.py,12,remote_flow,- отдельно подсветить модули пультов / доступа / service_orders;
+tools/project_passport_v4_runtime_schema_audit.py,13,debt_check,"- найти кандидаты мест, где нужна проверка задолженности перед заказом/выдачей пульта."
+tools/project_passport_v4_runtime_schema_audit.py,59,debt_check,"""charges"", ""payments"", ""payment_allocations"", ""cashboxes"", ""cashbox_operations"","
+tools/project_passport_v4_runtime_schema_audit.py,61,debt_check,"""cashier_reconciliation_cases"", ""service_catalog"", ""service_items"","
+tools/project_passport_v4_runtime_schema_audit.py,63,remote_flow,"""parking_time_review_tasks"", ""remote_requests"", ""remote_handover_events"","
+tools/project_passport_v4_runtime_schema_audit.py,64,remote_flow,"""service_orders"", ""service_order_items"", ""service_order_steps"","
+tools/project_passport_v4_runtime_schema_audit.py,65,remote_flow,"""service_order_interests"", ""service_workflow_profiles"", ""service_workflow_steps"","
+tools/project_passport_v4_runtime_schema_audit.py,67,remote_flow,"""remote_order_details"", ""remote_assets"", ""remote_asset_movements"","
+tools/project_passport_v4_runtime_schema_audit.py,86,remote_flow,"r""remote|пульт|пульти|пультів|service_order|service_orders|handover|access|barrier|шлагбаум|phone"","
+tools/project_passport_v4_runtime_schema_audit.py,90,debt_check,DEBT_RE = re.compile(
+tools/project_passport_v4_runtime_schema_audit.py,91,debt_check,"r""debt|задолж|борг|outstanding|due|balance|остат|rest|unpaid|partial|"""
+tools/project_passport_v4_runtime_schema_audit.py,92,debt_check,"r""charges|payment_allocations|payment_notices|allocated"","
+tools/project_passport_v4_runtime_schema_audit.py,97,remote_flow,"r""create_service_interest|create_paid|create_order|create_remote|"""
+tools/project_passport_v4_runtime_schema_audit.py,98,remote_flow,"r""INSERT\s+INTO\s+remote_requests|remote_requests|service_orders|"""
+tools/project_passport_v4_runtime_schema_audit.py,99,remote_flow,"r""NEW_REMOTE_PROFILE|PAYMENT_NOTICE|AWAITING_PAYMENT|READY_FOR_ISSUE|"""
+tools/project_passport_v4_runtime_schema_audit.py,100,remote_flow,"r""issue_new_remotes_from_batch|REMOTE_BATCH_ISSUED|remote_saved|"""
+tools/project_passport_v4_runtime_schema_audit.py,101,remote_flow,"r""service_order_interests|remote_order_details"","
+tools/project_passport_v4_runtime_schema_audit.py,150,debt_check,has_debt_words: bool
+tools/project_passport_v4_runtime_schema_audit.py,152,debt_check,debt_lines: int
+tools/project_passport_v4_runtime_schema_audit.py,157,debt_check,class DebtGateCandidate:
+tools/project_passport_v4_runtime_schema_audit.py,485,debt_check,"def remote_access_scan(py_files: list[Path], root: Path) -> tuple[list[RemoteAccessModule], list[DebtGateCandidate]]:"
+tools/project_passport_v4_runtime_schema_audit.py,487,debt_check,candidates: list[DebtGateCandidate] = []
+tools/project_passport_v4_runtime_schema_audit.py,510,debt_check,debt_count = 0
+tools/project_passport_v4_runtime_schema_audit.py,513,debt_check,if DEBT_RE.search(line):
+tools/project_passport_v4_runtime_schema_audit.py,514,debt_check,debt_count += 1
+tools/project_passport_v4_runtime_schema_audit.py,515,debt_check,"candidates.append(DebtGateCandidate(r, i, ""debt_or_payment_reference"", line.strip()[:500]))"
+tools/project_passport_v4_runtime_schema_audit.py,518,debt_check,"candidates.append(DebtGateCandidate(r, i, ""remote_order_flow_reference"", line.strip()[:500]))"
+tools/project_passport_v4_runtime_schema_audit.py,524,debt_check,"has_debt_words=debt_count > 0,"
+tools/project_passport_v4_runtime_schema_audit.py,526,debt_check,"debt_lines=debt_count,"
+tools/project_passport_v4_runtime_schema_audit.py,588,debt_check,"remote_modules, debt_candidates = remote_access_scan(py_files, root)"
+tools/project_passport_v4_runtime_schema_audit.py,596,debt_check,"write_csv(inv / ""debt_gate_candidates.csv"", debt_candidates, list(DebtGateCandidate.__dataclass_fields__.keys()))"
+tools/project_passport_v4_runtime_schema_audit.py,615,debt_check,"""debt_gate_candidates"": len(debt_candidates),"
+tools/project_passport_v4_runtime_schema_audit.py,637,debt_check,"f""- Debt-gate candidate lines: **{len(debt_candidates)}**"","
+tools/project_passport_v4_runtime_schema_audit.py,646,debt_check,"""- `inventory/debt_gate_candidates.csv`"","
+tools/project_passport_v4_runtime_schema_audit.py,681,debt_check,"f""debt_refs={m.debt_lines}, flow_refs={m.creation_lines}"""
+tools/project_passport_v4_runtime_schema_audit.py,686,debt_check,for c in debt_candidates[:1000]:
+tools/project_passport_v4_runtime_schema_audit.py,688,debt_check,if len(debt_candidates) > 1000:
+tools/project_passport_v4_runtime_schema_audit.py,689,debt_check,"dg_lines.append(f""- ... and {len(debt_candidates) - 1000} more"")"
+tools/project_passport_v4_runtime_schema_audit.py,690,debt_check,"write_md(out_dir / ""05_Debt_Gate_Candidates.md"", ""Debt Gate Candidate Lines"", dg_lines or [""(none)""])"
+tools/project_passport_v4_runtime_schema_audit.py,709,debt_check,"print(f""Debt gate candidate lines: {len(debt_candidates)}"")"
+tools/remote_debt_gate_audit.py,4,debt_check,OSBB Remote / Pult Debt Gate Audit v1 - READ ONLY
+tools/remote_debt_gate_audit.py,9,debt_check,"- определить, есть ли рядом явная проверка задолженности;"
+tools/remote_debt_gate_audit.py,10,debt_check,"- показать конкретные места, куда вероятно нужно вставить debt-gate."
+tools/remote_debt_gate_audit.py,15,debt_check,OSBB/Data/exports/code_passport/remote_debt_gate_audit_<timestamp>/
+tools/remote_debt_gate_audit.py,48,remote_flow,"r""(пульт|пульти|пультів|remote|handover|service_order|service_orders|"""
+tools/remote_debt_gate_audit.py,49,remote_flow,"r""NEW_REMOTE_PROFILE|REMOTE_|ACCESS|barrier|шлагбаум|телефон)"","
+tools/remote_debt_gate_audit.py,54,remote_flow,"r""(NEW_REMOTE_PROFILE|REMOTE_REPROGRAM_OWN|REMOTE_REFURBISHED_FROM_STOCK|"""
+tools/remote_debt_gate_audit.py,55,remote_flow,"r""PHONE_ACCESS_CONNECT|create_service_interest|attach_payment_notice_to_interest|"""
+tools/remote_debt_gate_audit.py,56,remote_flow,"r""create_paid_order|create_service_order|issue_new_remotes_from_batch|"""
+tools/remote_debt_gate_audit.py,57,remote_flow,"r""remote_requests|remote_order_details|service_order_interests|service_orders|"""
+tools/remote_debt_gate_audit.py,58,remote_flow,"r""READY_FOR_ISSUE|REMOTE_BATCH_ISSUED|SUPPLIER_BATCH_RECEIVED|"""
+tools/remote_debt_gate_audit.py,59,remote_flow,"r""INSERT\s+INTO\s+remote_requests|UPDATE\s+remote_requests|"""
+tools/remote_debt_gate_audit.py,60,remote_flow,"r""Пульт выдан|Пульт прийня|Пульт принят|new_remote|issue_new)"","
+tools/remote_debt_gate_audit.py,65,debt_check,# We are looking for blocking/checking debt semantics.
+tools/remote_debt_gate_audit.py,66,debt_check,DEBT_CHECK_RE = re.compile(
+tools/remote_debt_gate_audit.py,67,debt_check,"r""(debt|задолж|борг|arrears|overdue|outstanding|unpaid|underpaid|"""
+tools/remote_debt_gate_audit.py,68,debt_check,"r""непогаш|борж|долг|борг|остаток|залишок|rest_sum|amount_due|"""
+tools/remote_debt_gate_audit.py,69,debt_check,"r""payment_allocations|allocated_amount_for_charge|allocated_amount|"""
+tools/remote_debt_gate_audit.py,70,debt_check,"r""charges\s+c|FROM\s+charges|JOIN\s+payment_allocations|"""
+tools/remote_debt_gate_audit.py,71,debt_check,"r""cashier_reconciliation|blocking_outstanding)"","
+tools/remote_debt_gate_audit.py,77,remote_flow,"r""create_service_interest|attach_payment_notice_to_interest|"""
+tools/remote_debt_gate_audit.py,78,remote_flow,"r""issue_new_remotes_from_batch|record_remote_movement|create_remote_asset)"","
+tools/remote_debt_gate_audit.py,95,debt_check,debt_check_lines: int
+tools/remote_debt_gate_audit.py,107,debt_check,debt_check_hits: int
+tools/remote_debt_gate_audit.py,111,debt_check,first_debt_context: str
+tools/remote_debt_gate_audit.py,128,debt_check,has_payment_allocations: bool
+tools/remote_debt_gate_audit.py,130,remote_flow,has_remote_requests: bool
+tools/remote_debt_gate_audit.py,131,remote_flow,has_service_orders: bool
+tools/remote_debt_gate_audit.py,132,remote_flow,has_service_order_interests: bool
+tools/remote_debt_gate_audit.py,133,remote_flow,has_remote_order_details: bool
+tools/remote_debt_gate_audit.py,214,debt_check,"has_payment_allocations=""payment_allocations"" in tables,"
+tools/remote_debt_gate_audit.py,216,remote_flow,"has_remote_requests=""remote_requests"" in tables,"
+tools/remote_debt_gate_audit.py,217,remote_flow,"has_service_orders=""service_orders"" in tables,"
+tools/remote_debt_gate_audit.py,218,remote_flow,"has_service_order_interests=""service_order_interests"" in tables,"
+tools/remote_debt_gate_audit.py,219,remote_flow,"has_remote_order_details=""remote_order_details"" in tables,"
+tools/remote_debt_gate_audit.py,231,remote_flow,"""service_orders_core.py"","
+tools/remote_debt_gate_audit.py,234,remote_flow,"""Bots/handlers/service_orders_workspace.py"","
+tools/remote_debt_gate_audit.py,288,debt_check,debt_hits = len(DEBT_CHECK_RE.findall(segment))
+tools/remote_debt_gate_audit.py,291,debt_check,if not (remote_hits or debt_hits or write_hits or CRITICAL_NAMES_RE.search(node.name)):
+tools/remote_debt_gate_audit.py,295,debt_check,"first_debt = """""
+tools/remote_debt_gate_audit.py,299,debt_check,if not first_debt and DEBT_CHECK_RE.search(line):
+tools/remote_debt_gate_audit.py,300,debt_check,"first_debt = f""{idx}: {line.strip()[:300]}"""
+tools/remote_debt_gate_audit.py,302,debt_check,if remote_hits and debt_hits:
+tools/remote_debt_gate_audit.py,303,debt_check,"category = ""REMOTE_FLOW_WITH_DEBT_WORDS"""
+tools/remote_debt_gate_audit.py,304,debt_check,elif remote_hits and not debt_hits:
+tools/remote_debt_gate_audit.py,305,debt_check,"category = ""REMOTE_FLOW_NO_DEBT_WORDS"""
+tools/remote_debt_gate_audit.py,306,debt_check,elif debt_hits and not remote_hits:
+tools/remote_debt_gate_audit.py,307,debt_check,"category = ""DEBT_OR_PAYMENT_HELPER"""
+tools/remote_debt_gate_audit.py,320,debt_check,"debt_check_hits=debt_hits,"
+tools/remote_debt_gate_audit.py,324,debt_check,"first_debt_context=first_debt,"
+tools/remote_debt_gate_audit.py,340,debt_check,elif DEBT_CHECK_RE.search(line):
+tools/remote_debt_gate_audit.py,341,debt_check,"out.append(CandidateLine(r, i, ""debt_check"", s[:500]))"
+tools/remote_debt_gate_audit.py,367,debt_check,"out_dir = root / ""Data"" / ""exports"" / ""code_passport"" / f""remote_debt_gate_audit_{stamp}"""
+tools/remote_debt_gate_audit.py,385,remote_flow,"""service_orders_core.py"","
+tools/remote_debt_gate_audit.py,388,remote_flow,"""Bots/handlers/service_orders_workspace.py"","
+tools/remote_debt_gate_audit.py,397,debt_check,debt_lines = sum(1 for line in text.splitlines() if DEBT_CHECK_RE.search(line))
+tools/remote_debt_gate_audit.py,405,debt_check,"debt_check_lines=debt_lines,"
+tools/remote_debt_gate_audit.py,416,debt_check,"0 if f.category == ""REMOTE_FLOW_NO_DEBT_WORDS"" else"
+tools/remote_debt_gate_audit.py,417,debt_check,"1 if f.category == ""REMOTE_FLOW_WITH_DEBT_WORDS"" else"
+tools/remote_debt_gate_audit.py,418,debt_check,"2 if f.category == ""DEBT_OR_PAYMENT_HELPER"" else 3,"
+tools/remote_debt_gate_audit.py,425,debt_check,"write_csv(inv / ""functions_remote_debt_scan.csv"", funcs_sorted, list(FunctionScan.__dataclass_fields__.keys()))"
+tools/remote_debt_gate_audit.py,429,debt_check,"no_debt = [f for f in funcs_sorted if f.category == ""REMOTE_FLOW_NO_DEBT_WORDS""]"
+tools/remote_debt_gate_audit.py,430,debt_check,"with_debt = [f for f in funcs_sorted if f.category == ""REMOTE_FLOW_WITH_DEBT_WORDS""]"
+tools/remote_debt_gate_audit.py,431,debt_check,"helpers = [f for f in funcs_sorted if f.category == ""DEBT_OR_PAYMENT_HELPER""]"
+tools/remote_debt_gate_audit.py,439,debt_check,f for f in no_debt
+tools/remote_debt_gate_audit.py,441,remote_flow,"or ""service_orders_workspace.py"" in f.path"
+tools/remote_debt_gate_audit.py,442,remote_flow,"or ""service_orders_core.py"" in f.path"
+tools/remote_debt_gate_audit.py,454,debt_check,"""remote_flow_no_debt_functions"": len(no_debt),"
+tools/remote_debt_gate_audit.py,455,debt_check,"""remote_flow_with_debt_words_functions"": len(with_debt),"
+tools/remote_debt_gate_audit.py,456,debt_check,"""debt_or_payment_helper_functions"": len(helpers),"
+tools/remote_debt_gate_audit.py,469,debt_check,"md.append(f""- has charges/payment_allocations/payments: **{db.has_charges} / {db.has_payment_allocations} / {db.has_payments}**"")"
+tools/remote_debt_gate_audit.py,470,remote_flow,"md.append(f""- has remote_requests: **{db.has_remote_requests}**"")"
+tools/remote_debt_gate_audit.py,471,remote_flow,"md.append(f""- has service_orders/service_order_interests/remote_order_details: **{db.has_service_orders} / {db.has_service_order_interests} / {db.has_remote_order_details}**"")"
+tools/remote_debt_gate_audit.py,474,debt_check,"md.append(f""- remote-flow functions without debt words: **{len(no_debt)}**"")"
+tools/remote_debt_gate_audit.py,475,debt_check,"md.append(f""- remote-flow functions with debt words: **{len(with_debt)}**"")"
+tools/remote_debt_gate_audit.py,476,debt_check,"md.append(f""- debt/payment helper functions: **{len(helpers)}**"")"
+tools/remote_debt_gate_audit.py,481,debt_check,"md.append(""Functions in `REMOTE_FLOW_NO_DEBT_WORDS` are not automatically wrong, but they are the first places to inspect before adding a blocking rule."")"
+tools/remote_debt_gate_audit.py,494,debt_check,"md.append(""## Remote flow with debt words"")"
+tools/remote_debt_gate_audit.py,496,debt_check,if with_debt:
+tools/remote_debt_gate_audit.py,497,debt_check,for f in with_debt[:100]:
+tools/remote_debt_gate_audit.py,498,debt_check,"md.append(f""- `{f.path}:{f.line}-{f.end_line}` `{f.function}` — debt_hits={f.debt_check_hits}, remote_hits={f.remote_flow_hits}"")"
+tools/remote_debt_gate_audit.py,499,debt_check,if f.first_debt_context:
+tools/remote_debt_gate_audit.py,500,debt_check,"md.append(f""  - first debt context: `{f.first_debt_context}`"")"
+tools/remote_debt_gate_audit.py,504,debt_check,"md.append(""## Debt/payment helper candidates"")"
+tools/remote_debt_gate_audit.py,508,debt_check,"md.append(f""- `{f.path}:{f.line}-{f.end_line}` `{f.function}` — debt_hits={f.debt_check_hits}"")"
+tools/remote_debt_gate_audit.py,509,debt_check,if f.first_debt_context:
+tools/remote_debt_gate_audit.py,510,debt_check,"md.append(f""  - first debt context: `{f.first_debt_context}`"")"
+tools/remote_debt_gate_audit.py,514,debt_check,"write_md(out_dir / ""00_Remote_Debt_Gate_Audit.md"", ""Remote / Pult Debt Gate Audit"", md)"
+tools/remote_debt_gate_audit.py,516,debt_check,"print(""OSBB Remote / Pult Debt Gate Audit v1 - READ ONLY"")"
+tools/remote_debt_gate_audit.py,523,debt_check,"print(f""DB has charges/payment_allocations/payments: {db.has_charges}/{db.has_payment_allocations}/{db.has_payments}"")"
+tools/remote_debt_gate_audit.py,524,remote_flow,"print(f""DB has remote_requests: {db.has_remote_requests}"")"
+tools/remote_debt_gate_audit.py,525,remote_flow,"print(f""DB has service_orders/interests/details: {db.has_service_orders}/{db.has_service_order_interests}/{db.has_remote_order_details}"")"
+tools/remote_debt_gate_audit.py,528,debt_check,"print(f""Remote-flow functions WITHOUT debt words: {len(no_debt)}"")"
+tools/remote_debt_gate_audit.py,529,debt_check,"print(f""Remote-flow functions WITH debt words: {len(with_debt)}"")"
+tools/remote_debt_gate_audit.py,530,debt_check,"print(f""Debt/payment helper functions: {len(helpers)}"")"

@@ -1,0 +1,10 @@
+OSBB isolated parking_time TEST migration
+Mode: SANDBOX ONLY
+Database: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Backup: G:\Programming\Py\OSBB\Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db
+Changes:
+- created table profile_parking_time_test_events
+- created table profile_parking_time_test_schema_migrations
+- created table profile_parking_time_test_sessions
+- recorded migration PROFILE_PARKING_TIME_TEST_V1
+MIGRATION COMPLETED

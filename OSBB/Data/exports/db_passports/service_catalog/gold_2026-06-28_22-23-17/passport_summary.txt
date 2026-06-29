@@ -1,0 +1,23 @@
+OSBB Table Passport - GOLD
+Generated: 2026-06-28 22:23:23
+DB mode: explicit
+DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Table: service_catalog
+Rows: 16
+Columns: 16
+Indexes: 5
+Foreign keys: 0
+Code references: 1900
+Service codes: 16
+
+Output files:
+- 01_schema.txt
+- 02_columns.csv
+- 03_indexes.csv
+- 04_foreign_keys.csv
+- 05_code_references.csv
+- 06_service_code_usage.csv
+- 07_sample_rows.csv
+- 08_distinct_values.txt
+- 09_code_references_by_kind.txt
+- 10_architecture_notes.md

@@ -1,0 +1,1178 @@
+====================================================================================================
+COLUMN_READ_OR_MENTION
+====================================================================================================
+access_control.py:135 | is_active | AND is_active = 1
+access_control.py:162 | is_active | AND r.is_active = 1
+access_control.py:165 | is_active | AND rp.is_active = 1
+access_control.py:167 | is_active | AND ur.is_active = 1
+access_control.py:272 | is_active | ur.valid_from, ur.valid_to, ur.is_active,
+access_control.py:277 | is_active | ORDER BY ur.is_active DESC, ur.role_code, ur.scope_type, ur.scope_value
+billing_reconciliation_report.py:74 | service_code | c.service_code,
+billing_reconciliation_report.py:101 | service_code | service_expr = "p.service_code" if "service_code" in columns else "NULL"
+billing_reconciliation_report.py:119 | service_code | {service_expr} AS service_code,
+billing_reconciliation_report.py:245 | service_code | f"{service_label(c.get('service_code'))} | plate={c.get('plate') or '-'} | "
+billing_reconciliation_report.py:255 | service_code | f"service={service_label(p.get('service_code'))} | plate={p.get('plate') or '-'} | "
+billing_statement_excel.py:88 | service_code | c.service_code,
+billing_statement_excel.py:126 | service_code | {expr('service_code')} AS service_code,
+billing_statement_excel.py:331 | service_code | f"{service_label(ch.get('service_code'))}: {money(ch.get('amount'))}"
+billing_statement_excel.py:371 | service_code | f"{ch.get('plate') or '-'} {service_label(ch.get('service_code'))}: {money(ch.get('amount'))}"
+billing_statement_excel.py:417 | service_code | service_label(ch["service_code"]),
+billing_statement_excel.py:447 | service_code | service_label(p["service_code"]),
+cashier_journal.py:35 | category | "category": "PARKING",
+cashier_journal.py:45 | category | "category": "PARKING",
+cashier_journal.py:55 | category | "category": "ACCESS",
+cashier_journal.py:65 | category | "category": "ACCESS",
+cashier_journal.py:75 | IMPROVEMENT, category | "category": "IMPROVEMENT",
+cashier_journal.py:85 | category | "category": "EQUIPMENT",
+cashier_journal.py:95 | category | "category": "BARRIER",
+cashier_journal.py:105 | category | "category": "PARKING",
+cashier_journal.py:115 | category | "category": "PARKING_ASSET",
+cashier_journal.py:125 | category | "category": "PARKING_ASSET",
+cashier_journal.py:135 | category | "category": "HISTORICAL",
+cashier_journal.py:145 | category | "category": "CASHIER",
+cashier_journal.py:155 | category | "category": "CASHIER",
+cashier_journal.py:332 | service_name | elif name in {"service_name", "name", "title"}:
+cashier_journal.py:334 | service_code | elif name in {"service_code", "code"}:
+cashier_journal.py:408 | service_type | def service_group_for(service_type):
+cashier_journal.py:409 | service_type | if service_type == "MONTHLY":
+cashier_journal.py:411 | service_type | if service_type == "FUNDRAISING":
+cashier_journal.py:413 | service_type | if service_type == "COMMERCIAL":
+cashier_journal.py:415 | service_type | if service_type == "RECONCILIATION":
+cashier_journal.py:417 | service_type | if service_type == "HISTORICAL":
+cashier_journal.py:426 | category | "category": "GENERAL",
+cashier_journal.py:445 | service_code | "service_code": base_service_code,
+cashier_journal.py:446 | service_name | "service_name": meta["name"],
+cashier_journal.py:447 | service_type | "service_type": meta["type"],
+cashier_journal.py:449 | category | "category": meta["category"],
+cashier_journal.py:453 | is_access_control | "is_access_control": int(meta["access"]),
+cashier_journal.py:454 | is_cash_collectable | "is_cash_collectable": int(meta["cash"]),
+cashier_journal.py:455 | is_active | "is_active": 1,
+cashier_journal.py:475 | service_type | if "service_type" in cols:
+cashier_journal.py:500 | service_type | service_type,
+cashier_journal.py:519 | service_code | "service_code": base_service_code,
+cashier_journal.py:521 | service_type | "service_type": service_type,
+cashier_journal.py:529 | is_active | "is_active": 1,
+cashier_journal.py:539 | service_code | "service_code": base_service_code,
+cashier_journal.py:541 | service_type | "service_type": service_type,
+cashier_journal.py:544 | is_active | "is_active": 1,
+cashier_journal.py:593 | service_type | service_type = get_service_type(cur, base_service_code)
+cashier_journal.py:603 | service_code | if existing.get("service_code") != base_service_code:
+cashier_journal.py:605 | service_code | f"Статья {explicit_item!r} относится к {existing.get('service_code')}, "
+cashier_journal.py:608 | service_type | return explicit_item, service_type, existing.get("period_code") or period_code
+cashier_journal.py:610 | service_type | if service_type == "MONTHLY":
+cashier_journal.py:619 | service_type | service_type=service_type,
+cashier_journal.py:625 | service_type | return item_code, service_type, month
+cashier_journal.py:647 | is_active | "is_active": 1,
+cashier_journal.py:691 | is_active | cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1 ORDER BY cashbox_code")
+cashier_journal.py:784 | service_code | # Legacy model: monthly period + service_code.
+cashier_journal.py:785 | service_code | if "period_code" in cols and "service_code" in cols and period_code and base_service_code:
+cashier_journal.py:790 | service_code | AND service_code = ?
+cashier_journal.py:841 | service_type | service_type="",
+cashier_journal.py:867 | service_code | "service_code": base_service_code or None,        # совместимость со старой структурой
+cashier_journal.py:870 | service_type | "service_type": service_type or None,
+cashier_journal.py:902 | is_active | SELECT cashbox_code, cashbox_name, currency, current_balance, is_active
+cashier_journal.py:909 | is_active | SELECT cashbox_code, cashbox_name, currency, current_balance, is_active
+cashier_journal.py:911 | is_active | WHERE COALESCE(is_active, 1) = 1
+cashier_journal.py:940 | service_code | COALESCE(NULLIF(service_item_code, ''), NULLIF(service_code, ''), 'UNCLASSIFIED') AS item_code,
+cashier_journal.py:941 | service_code | COALESCE(NULLIF(base_service_code, ''), NULLIF(service_code, ''), 'UNCLASSIFIED') AS base_code,
+cashier_journal.py:942 | service_type | COALESCE(NULLIF(service_type, ''), 'GENERAL') AS service_type,
+cashier_journal.py:950 | service_type | GROUP BY cashbox_code, item_code, base_code, service_type
+cashier_journal.py:956 | service_type | ORDER BY cashbox_code, service_type, base_code, item_code
+cashier_journal.py:994 | service_type | service_type = get_service_type(cur, base_service_code)
+cashier_journal.py:995 | service_type | period = normalize_period(args.period, operation_date, required=(service_type == "MONTHLY"))
+cashier_journal.py:996 | service_type | item_code, service_type, item_period = resolve_service_item(
+cashier_journal.py:1028 | service_type | ("Тип услуги", service_type),
+cashier_journal.py:1049 | service_code | "service_code": base_service_code,
+cashier_journal.py:1052 | service_type | "service_type": service_type,
+cashier_journal.py:1074 | service_type | service_type=service_type,
+cashier_journal.py:1144 | service_type | service_type = get_service_type(cur, base_service_code)
+cashier_journal.py:1145 | service_type | period = normalize_period(args.period, operation_date, required=(service_type == "MONTHLY"))
+cashier_journal.py:1146 | service_type | item_code, service_type, item_period = resolve_service_item(
+cashier_journal.py:1181 | service_type | service_type=service_type,
+cashier_journal.py:1241 | service_type | service_type = get_service_type(cur, base_service_code)
+cashier_journal.py:1242 | service_type | period = normalize_period(args.period, operation_date, required=(service_type == "MONTHLY"))
+cashier_journal.py:1243 | service_type | item_code, service_type, item_period = resolve_service_item(
+cashier_journal.py:1277 | service_type | service_type=service_type,
+cashier_journal.py:1295 | service_type | service_type=service_type,
+cashier_journal.py:1343 | service_type | service_type = get_service_type(get_conn().cursor(), base_service_code) if False else meta["type"]
+cashier_journal.py:1353 | service_type | service_type = get_service_type(cur, base_service_code)
+cashier_journal.py:1364 | service_type | ("Тип", service_type),
+cashier_journal.py:1381 | service_type | service_type=service_type,
+cashier_journal.py:1406 | service_type | "service_type": service_type,
+cashier_journal.py:1425 | service_code | where.append("service_code = ?")
+cashier_journal.py:1428 | is_active | where.append("COALESCE(is_active, 1) = 1")
+cashier_journal.py:1434 | service_code | service_code,
+cashier_journal.py:1435 | service_type | service_type,
+cashier_journal.py:1445 | service_code | ORDER BY service_code, period_code, sequence_no, service_item_code
+cashier_journal.py:1462 | service_code, service_type | f"{row['service_item_code']} | {row['service_code']} | {row['service_type']} | "
+cashier_journal.py:1482 | service_code, service_type | service_code, base_service_code, service_item_code, service_type,
+cashier_journal.py:1503 | is_active | WHERE COALESCE(is_active, 1) = 1
+cashier_journal.py:1511 | service_code | COALESCE(NULLIF(service_item_code, ''), NULLIF(service_code, ''), 'UNCLASSIFIED') AS item_code,
+cashier_journal.py:1512 | service_code | COALESCE(NULLIF(base_service_code, ''), NULLIF(service_code, ''), 'UNCLASSIFIED') AS base_code,
+cashier_journal.py:1554 | service_code | f"{op['direction']} | {money(op['amount'])} | {op.get('service_item_code') or op.get('service_code') or '-'} | "
+cashier_journal.py:1586 | service_code | op.get("base_service_code") or op.get("service_code"),
+cashier_journal.py:1587 | service_type | op.get("service_item_code"), op.get("service_type"),
+cashier_v2_core.py:247 | is_active | where = ["COALESCE(is_active, 1) = 1"]
+cashier_v2_core.py:257 | service_code | service_code,
+cashier_v2_core.py:260 | service_type | service_type,
+cashier_v2_core.py:264 | id, service_code | ORDER BY service_code, sequence_no, id
+cashier_v2_core.py:270 | service_code | key = (text(item.get("service_code")), text(item.get("service_item_code")) or None)
+cashier_v2_core.py:275 | service_code | "service_code": key[0],
+cashier_v2_core.py:277 | service_name | "service_name": text(item.get("service_item_name")) or key[0],
+cashier_v2_core.py:278 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core.py:285 | is_cash_collectable | "AND COALESCE(is_cash_collectable, 1) = 1"
+cashier_v2_core.py:286 | is_cash_collectable | if "is_cash_collectable" in cols else ""
+cashier_v2_core.py:290 | service_code, service_name, service_type | SELECT service_code, service_name, service_type
+cashier_v2_core.py:292 | is_active | WHERE COALESCE(is_active, 1) = 1
+cashier_v2_core.py:294 | service_code, service_group, service_name | ORDER BY service_group, service_name, service_code
+cashier_v2_core.py:299 | service_code | key = (text(item.get("service_code")), None)
+cashier_v2_core.py:304 | service_code | "service_code": key[0],
+cashier_v2_core.py:306 | service_name | "service_name": text(item.get("service_name")) or key[0],
+cashier_v2_core.py:307 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core.py:318 | service_code, service_name | name = text(choice.get("service_name")) or text(choice.get("service_code"))
+cashier_v2_core.py:343 | service_code | service_code: str | None = None,
+cashier_v2_core.py:424 | service_code | if service_code and "service_code" in ccols:
+cashier_v2_core.py:425 | service_code | filters.append("c.service_code = ?")
+cashier_v2_core.py:426 | service_code | params.append(service_code)
+cashier_v2_core.py:457 | service_code | service_expr = "c.service_code" if "service_code" in ccols else "NULL"
+cashier_v2_core.py:467 | service_code | {service_expr} AS service_code,
+cashier_v2_core.py:501 | service_code | service_code: str,
+cashier_v2_core.py:508 | service_code | service_code=service_code,
+cashier_v2_core.py:571 | is_active | "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+cashier_v2_core.py:575 | is_active | if not box or not int(box["is_active"] or 0):
+cashier_v2_core.py:591 | service_code | "service_hint": service["service_code"],
+cashier_v2_core.py:620 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:621 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core.py:623 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core.py:653 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:654 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core.py:656 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core.py:715 | service_code | field_name="cashbox_code,amount,period_code,service_code",
+cashier_v2_core.py:717 | service_code | new_value=f"{cashbox_code},{amount},{period_code or ''},{service['service_code']}",
+cashier_v2_core.py:774 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:797 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:798 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core.py:800 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core.py:906 | service_code | service["service_code"],
+cashier_v2_core.py:933 | service_code | "declared_service_code": service["service_code"],
+cashier_v2_core.py:1048 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core.py:1050 | service_type | "service_type": "GENERAL",
+cashier_v2_core.py:1190 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:1222 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:1272 | service_code | "service_code": service["service_code"],
+cashier_v2_core.py:1310 | service_code | f"{service['service_code']},{included},{total}"
+cashier_v2_core.py:1445 | service_code | "service_hint": service["service_code"],
+cashier_v2_core.py:1502 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core.py:1504 | service_type | "service_type": "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:224 | is_active | where = ["COALESCE(is_active, 1) = 1"]
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:234 | service_code | service_code,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:237 | service_type | service_type,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:241 | id, service_code | ORDER BY service_code, sequence_no, id
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:247 | service_code | key = (text(item.get("service_code")), text(item.get("service_item_code")) or None)
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:252 | service_code | "service_code": key[0],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:254 | service_name | "service_name": text(item.get("service_item_name")) or key[0],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:255 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:262 | is_cash_collectable | "AND COALESCE(is_cash_collectable, 1) = 1"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:263 | is_cash_collectable | if "is_cash_collectable" in cols else ""
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:267 | service_code, service_name, service_type | SELECT service_code, service_name, service_type
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:269 | is_active | WHERE COALESCE(is_active, 1) = 1
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:271 | service_code, service_group, service_name | ORDER BY service_group, service_name, service_code
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:276 | service_code | key = (text(item.get("service_code")), None)
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:281 | service_code | "service_code": key[0],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:283 | service_name | "service_name": text(item.get("service_name")) or key[0],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:284 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:295 | service_code, service_name | name = text(choice.get("service_name")) or text(choice.get("service_code"))
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:319 | service_code | service_code: str | None = None,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:404 | service_code | if service_code and "service_code" in ccols:
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:405 | service_code | filters.append("c.service_code = ?")
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:406 | service_code | params.append(service_code)
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:437 | service_code | service_expr = "c.service_code" if "service_code" in ccols else "NULL"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:447 | service_code | {service_expr} AS service_code,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:481 | service_code | service_code: str,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:488 | service_code | service_code=service_code,
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:551 | is_active | "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:555 | is_active | if not box or not int(box["is_active"] or 0):
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:571 | service_code | "service_hint": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:600 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:601 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:603 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:633 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:634 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:636 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:695 | service_code | field_name="cashbox_code,amount,period_code,service_code",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:697 | service_code | new_value=f"{cashbox_code},{amount},{period_code or ''},{service['service_code']}",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:754 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:777 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:778 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:780 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:886 | service_code | service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:913 | service_code | "declared_service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1028 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1030 | service_type | "service_type": "GENERAL",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1170 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1202 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1252 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1290 | service_code | f"{service['service_code']},{included},{total}"
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1425 | service_code | "service_hint": service["service_code"],
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1482 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1484 | service_type | "service_type": "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:224 | is_active | where = ["COALESCE(is_active, 1) = 1"]
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:234 | service_code | service_code,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:237 | service_type | service_type,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:241 | id, service_code | ORDER BY service_code, sequence_no, id
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:247 | service_code | key = (text(item.get("service_code")), text(item.get("service_item_code")) or None)
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:252 | service_code | "service_code": key[0],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:254 | service_name | "service_name": text(item.get("service_item_name")) or key[0],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:255 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:262 | is_cash_collectable | "AND COALESCE(is_cash_collectable, 1) = 1"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:263 | is_cash_collectable | if "is_cash_collectable" in cols else ""
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:267 | service_code, service_name, service_type | SELECT service_code, service_name, service_type
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:269 | is_active | WHERE COALESCE(is_active, 1) = 1
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:271 | service_code, service_group, service_name | ORDER BY service_group, service_name, service_code
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:276 | service_code | key = (text(item.get("service_code")), None)
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:281 | service_code | "service_code": key[0],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:283 | service_name | "service_name": text(item.get("service_name")) or key[0],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:284 | service_type | "service_type": text(item.get("service_type")) or "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:295 | service_code, service_name | name = text(choice.get("service_name")) or text(choice.get("service_code"))
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:318 | service_code | service_code: str | None = None,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:356 | service_code | if service_code and "service_code" in ccols:
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:357 | service_code | where.append("c.service_code = ?")
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:358 | service_code | params.append(service_code)
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:380 | service_code | service_expr = "c.service_code" if "service_code" in ccols else "NULL"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:391 | service_code | {service_expr} AS service_code,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:425 | service_code | service_code: str,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:432 | service_code | service_code=service_code,
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:495 | is_active | "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:499 | is_active | if not box or not int(box["is_active"] or 0):
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:515 | service_code | "service_hint": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:544 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:545 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:547 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:577 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:578 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:580 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:639 | service_code | field_name="cashbox_code,amount,period_code,service_code",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:641 | service_code | new_value=f"{cashbox_code},{amount},{period_code or ''},{service['service_code']}",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:698 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:721 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:722 | service_code | "base_service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:724 | service_type | "service_type": service.get("service_type") or "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:830 | service_code | service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:857 | service_code | "declared_service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:972 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:974 | service_type | "service_type": "GENERAL",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1114 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1146 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1196 | service_code | "service_code": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1234 | service_code | f"{service['service_code']},{included},{total}"
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1369 | service_code | "service_hint": service["service_code"],
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1426 | service_code | "service_code": text(notice["declared_service_code"]) or "UNSPECIFIED",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1428 | service_type | "service_type": "GENERAL",
+CHECK_guard_sandbox_service_orders.py:391 | is_active | "full_name", "is_active", "status",
+CHECK_guard_sandbox_service_orders.py:405 | is_active | "role_id", "is_active", "scope_type", "scope_value",
+CHECK_guard_sandbox_service_orders.py:419 | is_active | "permission_code", "scope_type", "scope_value", "is_active",
+CHECK_guard_sandbox_service_orders.py:433 | is_active | "permission_code", "scope_type", "scope_value", "is_active",
+CHECK_guard_sandbox_service_orders_v2.py:375 | is_active | "full_name", "is_active", "status",
+CHECK_guard_sandbox_service_orders_v2.py:389 | is_active | "scope_type", "scope_value", "is_active",
+CHECK_guard_sandbox_service_orders_v2.py:403 | is_active | "permission_code", "scope_type", "scope_value", "is_active",
+CHECK_guard_sandbox_service_orders_v2.py:417 | is_active | "permission_code", "scope_type", "scope_value", "is_active",
+CHECK_phone_barrier_access_sandbox_schema.py:58 | is_active | SELECT access_point_code, display_name_uk, point_status, is_active
+CHECK_phone_barrier_access_sandbox_schema.py:65 | is_active | f"| {row['point_status']} | active={row['is_active']}"
+CHECK_service_code_compatibility_phone_v2.py:40 | service_code | "base_service_code AS service_code",
+CHECK_service_code_compatibility_phone_v2.py:43 | service_code | preorders: ["base_service_code AS service_code"],
+CHECK_service_code_compatibility_phone_v2.py:45 | service_code | "base_service_code AS service_code",
+CHECK_service_code_compatibility_phone_v2.py:63 | service_code | "service_code" if "service_code" in item_cols
+CHECK_service_code_compatibility_phone_v2.py:68 | service_code | "service_code" if "service_code" in payment_cols
+CHECK_service_code_compatibility_phone_v2.py:74 | service_code | raise RuntimeError("service_items has neither service_code nor base_service_code.")
+CHECK_service_code_compatibility_phone_v2.py:76 | service_code | raise RuntimeError("payments has neither service_code nor base_service_code.")
+commercial_contracts.py:246 | is_active | is_active,
+commercial_contracts.py:1012 | COMMERCIAL_CONTRACT, id | JOIN commercial_contracts c ON c.id = a.contract_id
+commercial_notification_delivery.py:77 | COMMERCIAL_CONTRACT, id | JOIN commercial_contracts c ON c.id = n.contract_id
+create_clean_live_sandbox.py:208 | is_active | is_active = 1,
+create_clean_live_sandbox.py:231 | is_active | is_active = 1,
+create_clean_live_sandbox.py:411 | is_active | AND is_active = 1
+create_isolated_live_sandbox_v2.py:208 | is_active | is_active = 1,
+create_isolated_live_sandbox_v2.py:231 | is_active | is_active = 1,
+create_isolated_live_sandbox_v2.py:407 | is_active | AND is_active = 1
+CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:137 | service_type | add("service_type", "ONE_TIME")
+diagnose_sandbox_charges.py:10 | service_code | - доступные периоды и service_code;
+diagnose_sandbox_charges.py:134 | service_code | if "service_code" in ccols:
+diagnose_sandbox_charges.py:137 | service_code | SELECT service_code, COUNT(*) AS n
+diagnose_sandbox_charges.py:139 | service_code | GROUP BY service_code
+diagnose_sandbox_charges.py:140 | service_code | ORDER BY n DESC, service_code
+diagnose_sandbox_charges.py:144 | service_code | print_rows("service_code, реально встречающиеся в charges", cur.fetchall())
+diagnose_sandbox_charges.py:152 | service_code | if "service_code" in ccols:
+diagnose_sandbox_charges.py:153 | service_code | conditions.append("LOWER(CAST(service_code AS TEXT)) LIKE ?")
+generate_parking_charges.py:58 | service_code | def get_active_tariff(cur, service_code, valid_on):
+generate_parking_charges.py:66 | service_code | WHERE service_code = ?
+generate_parking_charges.py:67 | is_active | AND is_active = 1
+generate_parking_charges.py:72 | service_code | """, (service_code, valid_on, valid_on))
+generate_parking_charges.py:121 | service_code | def charge_already_exists(cur, period_code, vehicle_id, service_code):
+generate_parking_charges.py:130 | service_code | AND service_code = ?
+generate_parking_charges.py:133 | service_code | """, (period_code, vehicle_id, service_code))
+generate_parking_charges.py:140 | service_code | AND service_code = ?
+generate_parking_charges.py:142 | service_code | """, (period_code, vehicle_id, service_code))
+generate_parking_charges.py:177 | service_code | service_code = parking_time_to_service_code(parking_time)
+generate_parking_charges.py:179 | service_code | if not service_code:
+generate_parking_charges.py:190 | service_code | if service_code not in tariff_cache:
+generate_parking_charges.py:191 | service_code | tariff_cache[service_code] = get_active_tariff(cur, service_code, valid_on)
+generate_parking_charges.py:193 | service_code | tariff = tariff_cache[service_code]
+generate_parking_charges.py:197 | service_code | "service_code": service_code,
+generate_parking_charges.py:209 | service_code | existing_id = charge_already_exists(cur, period_code, vehicle_id, service_code)
+generate_parking_charges.py:218 | service_code | "service_code": service_code,
+generate_parking_charges.py:291 | service_code | f"{item['service_code']} | "
+generate_parking_charges.py:312 | service_code | f"{item['service_code']} | "
+generate_parking_charges.py:323 | service_code | f"{item['service_code']} | "
+generate_parking_charges.py:330 | PARKING_DAY, service_code | day_count = sum(1 for x in charges if x["service_code"] == "PARKING_DAY")
+generate_parking_charges.py:331 | PARKING_NIGHT, service_code | night_count = sum(1 for x in charges if x["service_code"] == "PARKING_NIGHT")
+generate_parking_charges.py:332 | PARKING_DAY, service_code | day_total = sum(x["amount"] for x in charges if x["service_code"] == "PARKING_DAY")
+generate_parking_charges.py:333 | PARKING_NIGHT, service_code | night_total = sum(x["amount"] for x in charges if x["service_code"] == "PARKING_NIGHT")
+generate_parking_charges.py:366 | service_code | "service_code": item["service_code"],
+generate_parking_charges.py:372 | service_code | "source_ref": f"{period_code}:{item['vehicle_id']}:{item['service_code']}",
+generate_parking_charges.py:385 | service_code | "service_code",
+guard_workspace_preflight.py:221 | created_at, is_active | telegram_user_id, display_name, is_active, created_at
+guard_workspace_preflight.py:229 | created_at, is_active | is_active, granted_by, note, created_at
+guard_workspace_preflight_v2.py:221 | created_at, is_active | telegram_user_id, display_name, is_active, created_at
+guard_workspace_preflight_v2.py:229 | created_at, is_active | is_active, granted_by, note, created_at
+import_ohorona_list1_to_central_cashbox.py:274 | service_type | service_type="MONTHLY",
+import_ohorona_list1_to_central_cashbox.py:298 | is_active | "is_active": 1,
+import_ohorona_list1_to_central_cashbox.py:596 | service_code | "service_code": plan["base_service_code"],
+import_ohorona_list1_to_central_cashbox.py:599 | service_type | "service_type": "MONTHLY",
+import_ohorona_list1_to_central_cashbox.py:654 | service_code | "service_code": plan["base_service_code"],
+import_ohorona_list1_to_central_cashbox.py:657 | service_type | "service_type": "MONTHLY",
+import_ohorona_list1_to_central_cashbox.py:681 | service_type | service_type="MONTHLY",
+import_ohorona_sheet1_payments.py:295 | service_code | def find_charge(cur, charges_table, period_code, vehicle_id, service_code, amount):
+import_ohorona_sheet1_payments.py:296 | service_code | if not charges_table or not vehicle_id or not service_code:
+import_ohorona_sheet1_payments.py:307 | service_code | AND service_code = ?
+import_ohorona_sheet1_payments.py:309 | service_code | params = [period_code, vehicle_id, service_code]
+import_ohorona_sheet1_payments.py:347 | service_code | item["service_code"] = service_code_for(item, vehicle)
+import_ohorona_sheet1_payments.py:354 | service_code | item["service_code"],
+import_ohorona_sheet1_payments.py:431 | service_code | "service_code": item["service_code"],
+import_ohorona_sheet1_payments.py:598 | service_code | f"{item['cashbox']} | {item.get('service_code') or '-'} | "
+import_ohorona_to_cashbox.py:349 | service_type | service_type="HISTORICAL",
+import_ohorona_to_cashbox.py:369 | service_code | candidate = norm_text(payment.get("base_service_code") or payment.get("service_code"))
+import_ohorona_to_cashbox.py:388 | service_type | service_type="MONTHLY",
+import_ohorona_to_cashbox.py:396 | service_type | item_code, period, service_type = historical_item_for_unclassified(cur, operation_date)
+import_ohorona_to_cashbox.py:400 | service_type | service_type,
+import_ohorona_to_cashbox.py:411 | service_type | service_type="FUNDRAISING",
+import_ohorona_to_cashbox.py:425 | service_type | service_type="FUNDRAISING",
+import_ohorona_to_cashbox.py:432 | service_type | item_code, period, service_type = historical_item_for_unclassified(cur, operation_date)
+import_ohorona_to_cashbox.py:436 | service_type | service_type,
+import_ohorona_to_cashbox.py:455 | service_code | "service_code": base_code,
+import_ohorona_to_cashbox.py:458 | service_type | "service_type": service_type,
+import_ohorona_to_cashbox.py:483 | service_type | "service_type": "",
+import_ohorona_to_cashbox.py:560 | service_type | base, item, service_type, period, warning = resolve_historical_service(
+import_ohorona_to_cashbox.py:569 | service_type | plan["service_type"] = service_type
+import_ohorona_to_cashbox.py:644 | service_type | service_type=plan["service_type"],
+import_ohorona_to_cashbox.py:665 | service_type | service_type=plan["service_type"],
+import_ohorona_to_cashbox.py:696 | is_active | cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1")
+import_ohorona_to_cashbox.py:719 | service_type | service_type="RECONCILIATION",
+import_ohorona_to_cashbox.py:739 | service_type | service_type="RECONCILIATION",
+manage_staff_access.py:84 | is_active | SELECT role_code, role_name, description, is_active
+manage_staff_access.py:97 | is_active | WHERE role_code = ? AND is_active = 1
+manage_staff_access.py:114 | is_active | SELECT telegram_user_id, display_name, is_active, note
+manage_staff_access.py:128 | is_active | SELECT role_code, scope_type, scope_value, is_active,
+manage_staff_access.py:132 | is_active | ORDER BY is_active DESC, role_code, scope_type, scope_value
+manage_staff_access.py:147 | is_active | is_active, valid_from, valid_to, granted_by, note
+manage_staff_access.py:150 | is_active | ORDER BY is_active DESC, resource, action, scope_type, scope_value
+manage_staff_access.py:195 | is_active | is_active = 1,
+manage_staff_access_v2.py:84 | is_active | SELECT role_code, role_name, description, is_active
+manage_staff_access_v2.py:97 | is_active | WHERE role_code = ? AND is_active = 1
+manage_staff_access_v2.py:114 | is_active | SELECT telegram_user_id, display_name, is_active, note
+manage_staff_access_v2.py:128 | is_active | SELECT role_code, scope_type, scope_value, is_active,
+manage_staff_access_v2.py:132 | is_active | ORDER BY is_active DESC, role_code, scope_type, scope_value
+manage_staff_access_v2.py:147 | is_active | is_active, valid_from, valid_to, granted_by, note
+manage_staff_access_v2.py:150 | is_active | ORDER BY is_active DESC, resource, action, scope_type, scope_value
+manage_staff_access_v2.py:195 | is_active | is_active = 1,
+migrate_access_control_and_guard.py:102 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_access_control_and_guard.py:115 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_access_control_and_guard.py:131 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_access_control_and_guard.py:147 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_access_control_and_guard.py:168 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_access_control_and_guard.py:222 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_access_control_and_guard.py:231 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_access_control_and_guard.py:242 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_access_control_and_guard.py:252 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_access_control_and_guard.py:267 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_access_control_and_guard.py:376 | is_active | is_active = 1,
+migrate_access_control_and_guard.py:411 | is_active | scope_type, scope_value, effect, is_active,
+migrate_access_control_and_guard.py:430 | is_active | "CREATE INDEX idx_access_user_roles_user ON access_user_roles(telegram_user_id, is_active)",
+migrate_access_control_and_guard.py:434 | is_active | "CREATE INDEX idx_access_user_permissions_user ON access_user_permissions(telegram_user_id, resource, action, is_active)",
+migrate_access_control_and_guard.py:438 | is_active | "CREATE INDEX idx_access_role_permissions_role ON access_role_permissions(role_code, resource, action, is_active)",
+migrate_billing_core.py:37 | service_code | service_code TEXT NOT NULL UNIQUE,
+migrate_billing_core.py:39 | service_name | service_name TEXT NOT NULL,
+migrate_billing_core.py:41 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_billing_core.py:51 | service_code | service_code TEXT NOT NULL,
+migrate_billing_core.py:56 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_billing_core.py:59 | service_code | FOREIGN KEY(service_code)
+migrate_billing_core.py:70 | service_code | service_code TEXT NOT NULL,
+migrate_billing_core.py:83 | service_code | FOREIGN KEY(service_code)
+migrate_billing_core.py:121 | service_code | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_tariffs_code_dates ON service_tariffs(service_code, valid_from, valid_to)")
+migrate_billing_core.py:125 | service_code | cur.execute("CREATE INDEX IF NOT EXISTS idx_charges_service ON charges(service_code)")
+migrate_billing_core.py:141 | service_code | service_code,
+migrate_billing_core.py:143 | service_name | service_name,
+migrate_billing_core.py:152 | service_code | service_code,
+migrate_billing_core.py:157 | is_active | is_active,
+migrate_billing_core.py:171 | service_code | WHERE service_code = 'GUEST_NIGHT'
+migrate_bot_core.py:170 | is_active | is_active INTEGER DEFAULT 1,
+migrate_bot_core.py:222 | is_active | "is_active INTEGER DEFAULT 1"
+migrate_bot_core.py:247 | is_active | ON bot_admins(is_active)
+migrate_cashier_core.py:112 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_cashier_core.py:119 | is_active | cur.execute("CREATE INDEX IF NOT EXISTS idx_cashboxes_active ON cashboxes(is_active)")
+migrate_cashier_core.py:135 | service_code | service_code TEXT,
+migrate_cashier_core.py:168 | service_code | service_code TEXT,
+migrate_cashier_core.py:226 | is_active | initial_balance, current_balance, is_active,
+migrate_cashier_operator_editor.py:165 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_cashier_operator_editor.py:186 | service_code | service_code TEXT,
+migrate_cashier_operator_editor.py:315 | is_active | is_active = ?,
+migrate_cashier_operator_editor.py:329 | is_active | is_active,
+migrate_cashier_v2.py:146 | service_code | service_code TEXT,
+migrate_cashier_v2.py:179 | service_code | service_code TEXT,
+migrate_cashier_v2.py:213 | service_code | service_code TEXT,
+migrate_cashier_v2.py:239 | service_code | service_code TEXT,
+migrate_cashier_v2_compat.py:141 | service_code | service_code TEXT,
+migrate_cashier_v2_compat.py:172 | service_code | service_code TEXT,
+migrate_cashier_v2_compat.py:206 | service_code | service_code TEXT,
+migrate_cashier_v2_compat.py:230 | service_code | service_code TEXT,
+migrate_cashier_v2_compat.py:284 | service_code | "service_code": "TEXT",
+migrate_cashier_v2_compat.py:307 | service_code | "service_code": "TEXT",
+migrate_cashier_v2_compat.py:333 | service_code | "service_code": "TEXT",
+migrate_cashier_v2_compat.py:349 | service_code | "service_code": "TEXT",
+migrate_charge_adjustments.py:31 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:42 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:53 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:64 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:75 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:86 | is_active | "is_active": 1,
+migrate_charge_adjustments.py:128 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_charge_adjustments.py:142 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_charge_adjustments.py:151 | is_active | cur.execute("CREATE INDEX IF NOT EXISTS idx_adjustment_catalog_active ON adjustment_catalog(is_active)")
+migrate_charge_adjustments.py:259 | is_active | default_calculation_value=?, is_sensitive=?, is_active=?,
+migrate_charge_adjustments.py:274 | is_active | is_sensitive, is_active, public_note_template,
+migrate_commercial_contract_core.py:139 | service_code | if name in {"service_code", "code"}:
+migrate_commercial_contract_core.py:141 | service_name | elif name in {"service_name", "name", "title"}:
+migrate_commercial_contract_core.py:145 | service_type | elif name == "service_type":
+migrate_commercial_contract_core.py:147 | category | elif name == "category":
+migrate_commercial_contract_core.py:178 | service_code | "service_code": GENERIC_COMMERCIAL_SERVICE_CODE,
+migrate_commercial_contract_core.py:179 | service_name | "service_name": GENERIC_COMMERCIAL_SERVICE_NAME,
+migrate_commercial_contract_core.py:181 | service_type | "service_type": "CONTRACT",
+migrate_commercial_contract_core.py:182 | category | "category": "COMMERCIAL",
+migrate_commercial_contract_core.py:184 | is_active | "is_active": 1,
+migrate_commercial_contract_core.py:188 | is_access_control | "is_access_control": 0,
+migrate_commercial_contract_core.py:189 | is_cash_collectable | "is_cash_collectable": 1,
+migrate_commercial_contract_core.py:199 | service_code | if "service_code" not in columns:
+migrate_commercial_contract_core.py:212 | created_at, service_code | if key in columns and key not in {"service_code", "created_at"}
+migrate_commercial_contract_core.py:218 | service_code | f"WHERE service_code=?",
+migrate_commercial_contract_core.py:277 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_commercial_contract_core.py:283 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+migrate_commercial_contract_core.py:303 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+migrate_commercial_contract_core.py:323 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+migrate_commercial_contract_core.py:349 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+migrate_commercial_contract_core.py:350 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+migrate_commercial_contract_core.py:372 | COMMERCIAL_CONTRACT, id | FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+migrate_commercial_contract_core.py:420 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_commercial_contract_core.py:540 | COMMERCIAL_CONTRACT, is_active | ON commercial_contract_items(contract_id, is_active, valid_from, valid_to)
+migrate_commercial_contract_core.py:701 | COMMERCIAL_CONTRACT, id | ON i.id = c.commercial_contract_item_id
+migrate_service_items.py:46 | service_code | service_code TEXT NOT NULL UNIQUE,
+migrate_service_items.py:47 | service_name | service_name TEXT NOT NULL,
+migrate_service_items.py:48 | service_type | service_type TEXT NOT NULL,
+migrate_service_items.py:50 | category | category TEXT,
+migrate_service_items.py:54 | is_access_control | is_access_control INTEGER NOT NULL DEFAULT 0,
+migrate_service_items.py:55 | is_cash_collectable | is_cash_collectable INTEGER NOT NULL DEFAULT 1,
+migrate_service_items.py:56 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_service_items.py:64 | service_type | "service_type": "TEXT",
+migrate_service_items.py:66 | category | "category": "TEXT",
+migrate_service_items.py:70 | is_access_control | "is_access_control": "INTEGER NOT NULL DEFAULT 0",
+migrate_service_items.py:71 | is_cash_collectable | "is_cash_collectable": "INTEGER NOT NULL DEFAULT 1",
+migrate_service_items.py:72 | is_active | "is_active": "INTEGER NOT NULL DEFAULT 1",
+migrate_service_items.py:93 | service_code | service_code TEXT NOT NULL,
+migrate_service_items.py:95 | service_type | service_type TEXT NOT NULL,
+migrate_service_items.py:103 | is_active | is_active INTEGER NOT NULL DEFAULT 1,
+migrate_service_items.py:112 | service_code | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_service ON service_items(service_code)")
+migrate_service_items.py:114 | service_type | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_type ON service_items(service_type)")
+migrate_service_items.py:115 | is_active | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_active ON service_items(is_active)")
+migrate_service_items.py:151 | service_type | "service_type": "TEXT",
+migrate_service_items.py:158 | service_type | cur.execute(f"CREATE INDEX IF NOT EXISTS idx_{table}_service_type ON {table}(service_type)")
+migrate_service_items.py:162 | category, service_type | def service_group_for(service_type, category):
+migrate_service_items.py:163 | service_type | if service_type == "MONTHLY":
+migrate_service_items.py:165 | service_type | if service_type == "FUNDRAISING":
+migrate_service_items.py:167 | service_type | if service_type == "COMMERCIAL":
+migrate_service_items.py:169 | category | return category or "GENERAL"
+migrate_service_items.py:197 | service_name | elif name in {"service_name", "name", "title"}:
+migrate_service_items.py:199 | service_code | elif name in {"service_code", "code"}:
+migrate_service_items.py:259 | category, service_code, service_name, service_type | def upsert_service(cur, service_code, service_name, service_type, category,
+... and 754 more
+
+====================================================================================================
+COLUMN_WRITE_OR_SCHEMA
+====================================================================================================
+cashier_journal.py:463 | service_code | values.pop("service_code", None)
+create_clean_live_sandbox.py:203 | created_at, is_active, updated_at | telegram_user_id, display_name, is_active, note, created_at, updated_at
+create_clean_live_sandbox.py:224 | created_at, is_active, updated_at | is_active, granted_by, note, created_at, updated_at
+create_isolated_live_sandbox_v2.py:203 | created_at, is_active, updated_at | telegram_user_id, display_name, is_active, note, created_at, updated_at
+create_isolated_live_sandbox_v2.py:224 | created_at, is_active, updated_at | is_active, granted_by, note, created_at, updated_at
+guard_workspace_preflight.py:224 | is_active | ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+guard_workspace_preflight.py:234 | is_active | DO UPDATE SET is_active = 1
+guard_workspace_preflight_v2.py:224 | is_active | ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+guard_workspace_preflight_v2.py:234 | is_active | DO UPDATE SET is_active = 1
+import_ohorona_to_cashbox.py:453 | service_type | def update_payment_metadata(cur, payment_id, cashbox_code, operation_id, base_code, item_code, service_type):
+install_service_orders_ui.py:26 | id, service_code, unit | SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set only when\n    # linked money fully covers the order amount.\n    owns = conn is None\n    conn = conn or get_conn()\n    try:\n        ready, reason = schema_ready(conn)\n        if not ready:\n            raise RuntimeError(reason)\n\n        cur = conn.cursor()\n        order = get_service_order(c
+manage_staff_access.py:190 | created_at, is_active, updated_at | telegram_user_id, display_name, is_active, note, created_at, updated_at
+manage_staff_access.py:227 | is_active, updated_at | SET is_active = 1, granted_by = ?, note = ?, updated_at = ?
+manage_staff_access.py:234 | created_at, is_active, updated_at | is_active, granted_by, note, created_at, updated_at
+manage_staff_access.py:272 | is_active, updated_at | SET effect = ?, is_active = 1, granted_by = ?, note = ?, updated_at = ?
+manage_staff_access.py:279 | created_at, is_active, updated_at | effect, is_active, granted_by, note, created_at, updated_at
+manage_staff_access_v2.py:190 | created_at, is_active, updated_at | telegram_user_id, display_name, is_active, note, created_at, updated_at
+manage_staff_access_v2.py:227 | is_active, updated_at | SET is_active = 1, granted_by = ?, note = ?, updated_at = ?
+manage_staff_access_v2.py:234 | created_at, is_active, updated_at | is_active, granted_by, note, created_at, updated_at
+manage_staff_access_v2.py:272 | is_active, updated_at | SET effect = ?, is_active = 1, granted_by = ?, note = ?, updated_at = ?
+manage_staff_access_v2.py:279 | created_at, is_active, updated_at | effect, is_active, granted_by, note, created_at, updated_at
+migrate_access_control_and_guard.py:370 | created_at, is_active, updated_at | role_code, role_name, description, is_active, created_at, updated_at
+migrate_access_control_and_guard.py:401 | is_active, updated_at | SET effect = ?, is_active = 1, note = ?, updated_at = ?
+migrate_charge_adjustments.py:265 | is_active | values["is_sensitive"], values["is_active"],
+migrate_charge_adjustments.py:280 | is_active | values["is_sensitive"], values["is_active"], values["public_note_template"],
+migrate_service_items.py:226 | service_group, service_type | safe_values.setdefault("service_group", safe_values.get("service_type") or "GENERAL")
+migrate_service_items.py:287 | service_code | update_values.pop("service_code", None)
+migrate_service_items.py:326 | service_code, service_type | SET service_code=?, service_item_name=?, service_type=?, period_code=?,
+migrate_service_orders_and_fulfillment.py:390 | created_at, is_active, updated_at | description, is_active, created_at, updated_at
+migrate_service_orders_and_fulfillment.py:518 | created_at, is_active, updated_at | role_code, role_name, description, is_active, created_at, updated_at
+migrate_service_orders_and_fulfillment.py:549 | is_active, updated_at | SET effect = 'ALLOW', is_active = 1, updated_at = ?
+migrate_service_orders_and_fulfillment.py:560 | created_at, is_active, updated_at | is_active, note, created_at, updated_at
+migrate_unit_registry_composite_groups.py:538 | created_at, is_active, updated_at | alias_kind, is_active, source_note, created_at, updated_at
+phone_barrier_access_core.py:598 | created_at, is_active, updated_at | point_status, is_active, effective_from, created_at, updated_at
+prepare_live_service_test.py:101 | created_at, is_active, updated_at | telegram_user_id, display_name, is_active, note, created_at, updated_at
+prepare_live_service_test.py:122 | created_at, is_active, updated_at | is_active, granted_by, note, created_at, updated_at
+reset_service_catalog.py:310 | service_code | def update_service_dynamic(cur, service_code, values):
+reset_service_catalog.py:536 | service_code | update_service_dynamic(cur, service["service_code"], values)
+run_bot_live_services_sandbox_v1.py:319 | created_at, is_active, updated_at | is_active, note, created_at, updated_at)
+run_bot_live_services_sandbox_v1.py:347 | created_at, is_active, updated_at | effect, is_active, note, created_at, updated_at)
+service_catalog_admin_core.py:496 | is_active | SET is_active = 0,
+service_catalog_admin_core.py:532 | is_active, updated_at | {"is_active": 1, "status": "active", "date_to": None, "updated_at": now_db()},
+service_catalog_admin_core.py:537 | is_active | SET is_active = 1,
+vehicle_data_quality_tasks.py:325 | service_code | return {"updated_payments": updated, "payment_id": payment_id, "vehicle_id": vehicle_id, "apartment_number": vehicle["apartment_number"], "plate": vehicle["plate"], "service_code": service_code}
+Bots/handlers/commercial_contract_editor.py:472 | COMMERCIAL_CONTRACT, id, updated_at | f"UPDATE commercial_contracts SET {field}=?, updated_by=?, updated_at=? WHERE id=?",
+Bots/handlers/commercial_contract_editor.py:515 | COMMERCIAL_CONTRACT, id, updated_at | "UPDATE commercial_contracts SET status=?, updated_by=?, updated_at=? WHERE id=?",
+Bots/handlers/commercial_contract_editor.py:581 | COMMERCIAL_CONTRACT, id, updated_at | cur.execute(f"UPDATE commercial_contract_items SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(item_id)))
+Bots/handlers/commercial_contract_editor.py:660 | COMMERCIAL_CONTRACT, updated_at | cur.execute("UPDATE commercial_contract_recipients SET is_primary=0, updated_at=? WHERE contract_id=?", (now_db(), int(contract_id)))
+Bots/handlers/commercial_contract_editor.py:661 | COMMERCIAL_CONTRACT, id, updated_at | cur.execute(f"UPDATE commercial_contract_recipients SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(recipient_id)))
+Bots/handlers/commercial_contract_editor.py:1400 | is_active | update_item(int(item_id), "is_active", 0, user_id)
+Bots/handlers/commercial_contract_editor.py:1405 | is_active | update_item(int(item_id), "is_active", 1, user_id)
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:313 | created_at, is_active, updated_at | is_active, note, created_at, updated_at)
+cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:341 | created_at, is_active, updated_at | effect, is_active, note, created_at, updated_at)
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:390 | created_at, is_active, updated_at | description, is_active, created_at, updated_at
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:518 | created_at, is_active, updated_at | role_code, role_name, description, is_active, created_at, updated_at
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:549 | is_active, updated_at | SET effect = 'ALLOW', is_active = 1, updated_at = ?
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:560 | created_at, is_active, updated_at | is_active, note, created_at, updated_at
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:496 | is_active | SET is_active = 0,
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:532 | is_active, updated_at | {"is_active": 1, "status": "active", "date_to": None, "updated_at": now_db()},
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:537 | is_active | SET is_active = 1,
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py:319 | created_at, is_active, updated_at | is_active, note, created_at, updated_at)
+parking_time_test_payload/run_bot_live_services_sandbox_v1.py:347 | created_at, is_active, updated_at | effect, is_active, note, created_at, updated_at)
+phone_barrier_access_v2_payload/phone_barrier_access_core.py:598 | created_at, is_active, updated_at | point_status, is_active, effective_from, created_at, updated_at
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:315 | created_at, is_active, updated_at | is_active, note, created_at, updated_at)
+profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:343 | created_at, is_active, updated_at | effect, is_active, note, created_at, updated_at)
+profile_verification_payload/run_bot_live_services_sandbox_v1.py:315 | created_at, is_active, updated_at | is_active, note, created_at, updated_at)
+profile_verification_payload/run_bot_live_services_sandbox_v1.py:343 | created_at, is_active, updated_at | effect, is_active, note, created_at, updated_at)
+tools/db_table_passport.py:15 | category | - собирает distinct values по code/name/status/category/type полям;
+tools/debt_policy_matrix_preview.py:119 | service_code | return sorted(result.values(), key=lambda x: (text(x.get("service_code")), text(x.get("item_code"))))
+
+====================================================================================================
+OTHER
+====================================================================================================
+billing_reconciliation_report.py:54 | PARKING_DAY | "PARKING_DAY": "Парковка Day",
+billing_reconciliation_report.py:55 | PARKING_NIGHT | "PARKING_NIGHT": "Парковка Night",
+billing_reconciliation_report.py:57 | IMPROVEMENT | "IMPROVEMENT": "Благоустройство",
+billing_statement_excel.py:65 | PARKING_DAY | "PARKING_DAY": "Day",
+billing_statement_excel.py:66 | PARKING_NIGHT | "PARKING_NIGHT": "Night",
+billing_statement_excel.py:68 | IMPROVEMENT | "IMPROVEMENT": "Благоустройство",
+cashier_journal.py:22 | BARRIER_PHONE, IMPROVEMENT, PARKING_DAY, PARKING_NIGHT | #   PARKING_DAY, PARKING_NIGHT, BARRIER_PHONE, IMPROVEMENT ...
+cashier_journal.py:32 | PARKING_DAY | "PARKING_DAY": {
+cashier_journal.py:42 | PARKING_NIGHT | "PARKING_NIGHT": {
+cashier_journal.py:52 | BARRIER_PHONE | "BARRIER_PHONE": {
+cashier_journal.py:62 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "BARRIER_PHONE_CONNECT": {
+cashier_journal.py:72 | IMPROVEMENT | "IMPROVEMENT": {
+cashier_journal.py:82 | PARKING_EQUIPMENT | "PARKING_EQUIPMENT": {
+cashier_journal.py:92 | BARRIER_REPAIR | "BARRIER_REPAIR": {
+cashier_journal.py:102 | GUEST_PARKING | "GUEST_PARKING": {
+cashier_journal.py:112 | PARK_PLACE_RENT | "PARK_PLACE_RENT": {
+cashier_journal.py:122 | PARK_PLACE_SALE | "PARK_PLACE_SALE": {
+cashier_journal.py:132 | HISTORICAL_UNCLASSIFIED | "HISTORICAL_UNCLASSIFIED": {
+cashier_journal.py:169 | PARKING_DAY | "PARKING_DAY": "PARKING_DAY",
+cashier_journal.py:170 | PARKING_DAY | "DAY": "PARKING_DAY",
+cashier_journal.py:171 | PARKING_DAY | "ДЕНЬ": "PARKING_DAY",
+cashier_journal.py:172 | PARKING_NIGHT | "PARKING_NIGHT": "PARKING_NIGHT",
+cashier_journal.py:173 | PARKING_NIGHT | "NIGHT": "PARKING_NIGHT",
+cashier_journal.py:174 | PARKING_NIGHT | "НОЧЬ": "PARKING_NIGHT",
+cashier_journal.py:175 | PARKING_NIGHT | "СУТКИ": "PARKING_NIGHT",
+cashier_journal.py:176 | BARRIER_REPAIR | "Ш": "BARRIER_REPAIR",
+cashier_journal.py:177 | BARRIER_REPAIR | "ШЛАГБАУМ": "BARRIER_REPAIR",
+cashier_journal.py:178 | BARRIER_REPAIR | "BARRIER_REPAIR": "BARRIER_REPAIR",
+cashier_journal.py:179 | BARRIER_REPAIR | "РЕМОНТ_ШЛАГБАУМА": "BARRIER_REPAIR",
+cashier_journal.py:180 | BARRIER_PHONE | "BARRIER_PHONE": "BARRIER_PHONE",
+cashier_journal.py:181 | BARRIER_PHONE | "ТЕЛЕФОН": "BARRIER_PHONE",
+cashier_journal.py:182 | BARRIER_PHONE | "ТЕЛЕФОННЫЙ_ДОСТУП": "BARRIER_PHONE",
+cashier_journal.py:183 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "BARRIER_PHONE_CONNECT": "BARRIER_PHONE_CONNECT",
+cashier_journal.py:184 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "ПОДКЛЮЧЕНИЕ_ТЕЛЕФОНА": "BARRIER_PHONE_CONNECT",
+cashier_journal.py:185 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "ПОДКЛЮЧЕНИЕ_ШЛАГБАУМА": "BARRIER_PHONE_CONNECT",
+cashier_journal.py:186 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "ПОВТОРНОЕ_ПОДКЛЮЧЕНИЕ": "BARRIER_PHONE_CONNECT",
+cashier_journal.py:187 | IMPROVEMENT | "Б": "IMPROVEMENT",
+cashier_journal.py:188 | IMPROVEMENT | "БЛАГОУСТРОЙСТВО": "IMPROVEMENT",
+cashier_journal.py:189 | IMPROVEMENT | "БЛАГОУСТРІЙ": "IMPROVEMENT",
+cashier_journal.py:190 | IMPROVEMENT | "IMPROVEMENT": "IMPROVEMENT",
+cashier_journal.py:191 | PARKING_EQUIPMENT | "PARKING_EQUIPMENT": "PARKING_EQUIPMENT",
+cashier_journal.py:192 | PARKING_EQUIPMENT | "ОБОРУДОВАНИЕ_ПАРКОВКИ": "PARKING_EQUIPMENT",
+cashier_journal.py:193 | GUEST_PARKING | "GUEST_PARKING": "GUEST_PARKING",
+cashier_journal.py:194 | GUEST_PARKING | "ГОСТЕВАЯ_ПАРКОВКА": "GUEST_PARKING",
+cashier_journal.py:195 | PARK_PLACE_RENT | "PARK_PLACE_RENT": "PARK_PLACE_RENT",
+cashier_journal.py:196 | PARK_PLACE_SALE | "PARK_PLACE_SALE": "PARK_PLACE_SALE",
+cashier_journal.py:277 | PARKING_DAY | "PARKING_DAY": "Day",
+cashier_journal.py:278 | PARKING_NIGHT | "PARKING_NIGHT": "Night",
+cashier_journal.py:279 | BARRIER_PHONE | "BARRIER_PHONE": "BarrierPhone",
+cashier_journal.py:581 | PARKING_DAY | return "PARKING_DAY"
+cashier_journal.py:583 | PARKING_NIGHT | return "PARKING_NIGHT"
+cashier_journal.py:587 | PARKING_DAY, PARKING_NIGHT | "Укажите --service PARKING_DAY или PARKING_NIGHT, "
+commercial_contracts.py:142 | COMMERCIAL_CONTRACT | # v_commercial_contract_charge_debt / v_commercial_contract_debt_summary.
+commercial_contracts.py:153 | COMMERCIAL_CONTRACT | "commercial_contracts",
+commercial_contracts.py:154 | COMMERCIAL_CONTRACT | "commercial_contract_items",
+commercial_contracts.py:155 | COMMERCIAL_CONTRACT | "commercial_contract_recipients",
+commercial_contracts.py:159 | COMMERCIAL_CONTRACT | "v_commercial_contract_charge_debt",
+commercial_contracts.py:160 | COMMERCIAL_CONTRACT | "v_commercial_contract_debt_summary",
+commercial_contracts.py:193 | COMMERCIAL_CONTRACT | FROM commercial_contracts c
+commercial_contracts.py:220 | COMMERCIAL_CONTRACT | FROM commercial_contracts c
+commercial_contracts.py:250 | COMMERCIAL_CONTRACT | FROM commercial_contract_items
+commercial_contracts.py:276 | COMMERCIAL_CONTRACT | FROM commercial_contract_recipients r
+commercial_contracts.py:331 | COMMERCIAL_CONTRACT | commercial_contract_item_id,
+commercial_contracts.py:337 | COMMERCIAL_CONTRACT | FROM v_commercial_contract_charge_debt
+commercial_contracts.py:338 | COMMERCIAL_CONTRACT | WHERE commercial_contract_id = ?
+commercial_contracts.py:707 | COMMERCIAL_CONTRACT | source_context="commercial_contracts.py",
+commercial_contracts.py:806 | COMMERCIAL_CONTRACT | source_context="commercial_contracts.py",
+commercial_contracts.py:935 | COMMERCIAL_CONTRACT | source_context="commercial_contracts.py",
+commercial_contracts.py:1080 | COMMERCIAL_CONTRACT | source_context="commercial_contracts.py",
+commercial_contracts.py:1140 | COMMERCIAL_CONTRACT | source_context="commercial_contracts.py",
+commercial_notification_delivery.py:254 | COMMERCIAL_CONTRACT | "  python commercial_contracts.py --apply\n"
+generate_parking_charges.py:79 | PARKING_DAY | return "PARKING_DAY"
+generate_parking_charges.py:82 | PARKING_NIGHT | return "PARKING_NIGHT"
+generate_parking_charges.py:344 | PARKING_DAY | lines.append(f"PARKING_DAY   count     : {day_count}")
+generate_parking_charges.py:345 | PARKING_DAY | lines.append(f"PARKING_DAY   total     : {format_money(day_total)}")
+generate_parking_charges.py:346 | PARKING_NIGHT | lines.append(f"PARKING_NIGHT count     : {night_count}")
+generate_parking_charges.py:347 | PARKING_NIGHT | lines.append(f"PARKING_NIGHT total     : {format_money(night_total)}")
+import_ohorona_list1_to_central_cashbox.py:250 | PARKING_DAY | return "PARKING_DAY", ""
+import_ohorona_list1_to_central_cashbox.py:252 | PARKING_NIGHT | return "PARKING_NIGHT", ""
+import_ohorona_list1_to_central_cashbox.py:259 | PARKING_DAY | suffix = "Day" if base_service_code == "PARKING_DAY" else "Night"
+import_ohorona_list1_to_central_cashbox.py:265 | PARKING_DAY | label = "Day" if base_service_code == "PARKING_DAY" else "Night"
+import_ohorona_sheet1_payments.py:37 | IMPROVEMENT | "Б": "IMPROVEMENT",
+import_ohorona_sheet1_payments.py:38 | IMPROVEMENT | "БЛАГОУСТРОЙСТВО": "IMPROVEMENT",
+import_ohorona_sheet1_payments.py:39 | IMPROVEMENT | "БЛАГОУСТРІЙ": "IMPROVEMENT",
+import_ohorona_sheet1_payments.py:208 | IMPROVEMENT | if purpose not in ["PARKING", "BARRIER_CALL", "IMPROVEMENT"]:
+import_ohorona_sheet1_payments.py:283 | IMPROVEMENT | if item["purpose"] == "IMPROVEMENT":
+import_ohorona_sheet1_payments.py:284 | IMPROVEMENT | return "IMPROVEMENT"
+import_ohorona_sheet1_payments.py:288 | PARKING_DAY | return "PARKING_DAY"
+import_ohorona_sheet1_payments.py:290 | PARKING_NIGHT | return "PARKING_NIGHT"
+import_ohorona_sheet1_payments.py:564 | IMPROVEMENT | if item.get("purpose") in {"BARRIER_CALL", "IMPROVEMENT"}:
+import_ohorona_sheet1_payments.py:702 | IMPROVEMENT | improvement_income = sum(item["income"] or 0 for item in payment_rows if item["purpose"] == "IMPROVEMENT")
+import_ohorona_sheet1_payments.py:719 | IMPROVEMENT | lines.append(f"Improvement income : {improvement_income:g}")
+import_ohorona_to_cashbox.py:70 | BARRIER_REPAIR | "Ш": "BARRIER_REPAIR",
+import_ohorona_to_cashbox.py:71 | BARRIER_REPAIR | "ШЛАГБАУМ": "BARRIER_REPAIR",
+import_ohorona_to_cashbox.py:72 | BARRIER_REPAIR | "РЕМОНТ ШЛАГБАУМА": "BARRIER_REPAIR",
+import_ohorona_to_cashbox.py:74 | IMPROVEMENT | "Б": "IMPROVEMENT",
+import_ohorona_to_cashbox.py:75 | IMPROVEMENT | "БЛАГОУСТРОЙСТВО": "IMPROVEMENT",
+import_ohorona_to_cashbox.py:76 | IMPROVEMENT | "БЛАГОУСТРІЙ": "IMPROVEMENT",
+import_ohorona_to_cashbox.py:347 | HISTORICAL_UNCLASSIFIED | base_service_code="HISTORICAL_UNCLASSIFIED",
+import_ohorona_to_cashbox.py:370 | PARKING_DAY, PARKING_NIGHT | if candidate in {"PARKING_DAY", "PARKING_NIGHT"}:
+import_ohorona_to_cashbox.py:376 | PARKING_DAY | base = "PARKING_DAY"
+import_ohorona_to_cashbox.py:378 | PARKING_NIGHT | base = "PARKING_NIGHT"
+import_ohorona_to_cashbox.py:387 | PARKING_DAY | item_name=f"{'Парковка Day' if base == 'PARKING_DAY' else 'Парковка Night'} — {period}",
+import_ohorona_to_cashbox.py:398 | HISTORICAL_UNCLASSIFIED | "HISTORICAL_UNCLASSIFIED",
+import_ohorona_to_cashbox.py:405 | BARRIER_REPAIR | if purpose == "BARRIER_REPAIR":
+import_ohorona_to_cashbox.py:409 | BARRIER_REPAIR | base_service_code="BARRIER_REPAIR",
+import_ohorona_to_cashbox.py:417 | BARRIER_REPAIR | return "BARRIER_REPAIR", "01_BarrierRepair", "FUNDRAISING", "", ""
+import_ohorona_to_cashbox.py:419 | IMPROVEMENT | if purpose == "IMPROVEMENT":
+import_ohorona_to_cashbox.py:423 | IMPROVEMENT | base_service_code="IMPROVEMENT",
+import_ohorona_to_cashbox.py:430 | IMPROVEMENT | return "IMPROVEMENT", "01_Imp", "FUNDRAISING", "", ""
+import_ohorona_to_cashbox.py:434 | HISTORICAL_UNCLASSIFIED | "HISTORICAL_UNCLASSIFIED",
+migrate_billing_core.py:133 | PARKING_DAY | ("PARKING_DAY", "parking", "Парковка: дневной тариф", "month", "Обычный тариф Day для собственников"),
+migrate_billing_core.py:134 | PARKING_NIGHT | ("PARKING_NIGHT", "parking", "Парковка: суточный тариф", "month", "Обычный тариф Night для собственников"),
+migrate_commercial_contract_core.py:23 | COMMERCIAL_CONTRACT | g:/Programming/Py/venv/Scripts/python.exe G:/Programming/Py/OSBB/migrate_commercial_contract_core.py
+migrate_commercial_contract_core.py:24 | COMMERCIAL_CONTRACT | g:/Programming/Py/venv/Scripts/python.exe G:/Programming/Py/OSBB/migrate_commercial_contract_core.py --apply
+migrate_commercial_contract_core.py:49 | COMMERCIAL_CONTRACT | GENERIC_COMMERCIAL_SERVICE_CODE = "COMMERCIAL_CONTRACT"
+migrate_commercial_contract_core.py:237 | COMMERCIAL_CONTRACT | "commercial_contracts",
+migrate_commercial_contract_core.py:239 | COMMERCIAL_CONTRACT | CREATE TABLE IF NOT EXISTS commercial_contracts (
+migrate_commercial_contract_core.py:263 | COMMERCIAL_CONTRACT | "commercial_contract_items",
+migrate_commercial_contract_core.py:265 | COMMERCIAL_CONTRACT | CREATE TABLE IF NOT EXISTS commercial_contract_items (
+migrate_commercial_contract_core.py:288 | COMMERCIAL_CONTRACT | "commercial_contract_recipients",
+migrate_commercial_contract_core.py:290 | COMMERCIAL_CONTRACT | CREATE TABLE IF NOT EXISTS commercial_contract_recipients (
+migrate_commercial_contract_core.py:393 | COMMERCIAL_CONTRACT | "commercial_contracts": {
+migrate_commercial_contract_core.py:411 | COMMERCIAL_CONTRACT | "commercial_contract_items": {
+migrate_commercial_contract_core.py:427 | COMMERCIAL_CONTRACT | "commercial_contract_recipients": {
+migrate_commercial_contract_core.py:501 | COMMERCIAL_CONTRACT | "commercial_contract_id": "INTEGER",
+migrate_commercial_contract_core.py:502 | COMMERCIAL_CONTRACT | "commercial_contract_item_id": "INTEGER",
+migrate_commercial_contract_core.py:510 | COMMERCIAL_CONTRACT | "commercial_contract_id": "INTEGER",
+migrate_commercial_contract_core.py:518 | COMMERCIAL_CONTRACT | "commercial_contract_id": "INTEGER",
+migrate_commercial_contract_core.py:530 | COMMERCIAL_CONTRACT | "idx_commercial_contracts_unit_status",
+migrate_commercial_contract_core.py:532 | COMMERCIAL_CONTRACT | CREATE INDEX idx_commercial_contracts_unit_status
+migrate_commercial_contract_core.py:533 | COMMERCIAL_CONTRACT | ON commercial_contracts(unit_id, status, valid_from, valid_to)
+migrate_commercial_contract_core.py:537 | COMMERCIAL_CONTRACT | "idx_commercial_contract_items_contract",
+migrate_commercial_contract_core.py:539 | COMMERCIAL_CONTRACT | CREATE INDEX idx_commercial_contract_items_contract
+migrate_commercial_contract_core.py:547 | COMMERCIAL_CONTRACT | ON commercial_contract_recipients(contract_id, notification_enabled, status)
+migrate_commercial_contract_core.py:554 | COMMERCIAL_CONTRACT | ON commercial_contract_recipients(telegram_user_id)
+migrate_commercial_contract_core.py:590 | COMMERCIAL_CONTRACT | "idx_charges_commercial_contract",
+migrate_commercial_contract_core.py:592 | COMMERCIAL_CONTRACT | CREATE INDEX idx_charges_commercial_contract
+migrate_commercial_contract_core.py:593 | COMMERCIAL_CONTRACT | ON charges(commercial_contract_id, commercial_contract_item_id, commercial_due_date)
+migrate_commercial_contract_core.py:600 | COMMERCIAL_CONTRACT | "idx_payments_commercial_contract",
+migrate_commercial_contract_core.py:602 | COMMERCIAL_CONTRACT | CREATE INDEX idx_payments_commercial_contract
+migrate_commercial_contract_core.py:603 | COMMERCIAL_CONTRACT | ON payments(commercial_contract_id, commercial_unit_id)
+migrate_commercial_contract_core.py:609 | COMMERCIAL_CONTRACT | "idx_cashbox_operations_commercial_contract",
+migrate_commercial_contract_core.py:611 | COMMERCIAL_CONTRACT | CREATE INDEX idx_cashbox_operations_commercial_contract
+migrate_commercial_contract_core.py:612 | COMMERCIAL_CONTRACT | ON cashbox_operations(commercial_contract_id, commercial_unit_id)
+migrate_commercial_contract_core.py:625 | COMMERCIAL_CONTRACT | ON commercial_contracts(unit_id)
+migrate_commercial_contract_core.py:682 | COMMERCIAL_CONTRACT | cur.execute("DROP VIEW IF EXISTS v_commercial_contract_charge_debt")
+migrate_commercial_contract_core.py:684 | COMMERCIAL_CONTRACT | CREATE VIEW v_commercial_contract_charge_debt AS
+migrate_commercial_contract_core.py:687 | COMMERCIAL_CONTRACT | c.commercial_contract_id,
+migrate_commercial_contract_core.py:688 | COMMERCIAL_CONTRACT | c.commercial_contract_item_id,
+migrate_commercial_contract_core.py:700 | COMMERCIAL_CONTRACT | LEFT JOIN commercial_contract_items i
+migrate_commercial_contract_core.py:702 | COMMERCIAL_CONTRACT | WHERE c.commercial_contract_id IS NOT NULL
+migrate_commercial_contract_core.py:707 | COMMERCIAL_CONTRACT | cur.execute("DROP VIEW IF EXISTS v_commercial_contract_debt_summary")
+migrate_commercial_contract_core.py:709 | COMMERCIAL_CONTRACT | CREATE VIEW v_commercial_contract_debt_summary AS
+migrate_commercial_contract_core.py:711 | COMMERCIAL_CONTRACT | d.commercial_contract_id,
+migrate_commercial_contract_core.py:727 | COMMERCIAL_CONTRACT | FROM v_commercial_contract_charge_debt d
+migrate_commercial_contract_core.py:728 | COMMERCIAL_CONTRACT | GROUP BY d.commercial_contract_id
+migrate_commercial_contract_core.py:823 | COMMERCIAL_CONTRACT | "  затем создавать начисления с commercial_contract_id и commercial_due_date.",
+migrate_commercial_contract_core.py:870 | COMMERCIAL_CONTRACT | f"commercial_contract_core_{now_db().replace(':', '-').replace(' ', '_')}.txt"
+migrate_commercial_contract_core.py:881 | COMMERCIAL_CONTRACT | action_type="commercial_contract_core_migration",
+migrate_commercial_contract_core.py:882 | COMMERCIAL_CONTRACT | table_name="commercial_contracts",
+migrate_commercial_contract_core.py:887 | COMMERCIAL_CONTRACT | source_context="migrate_commercial_contract_core.py",
+migrate_service_items.py:120 | BARRIER_PHONE | CREATE TABLE IF NOT EXISTS barrier_phone_access (
+migrate_service_items.py:137 | BARRIER_PHONE | cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_apt ON barrier_phone_access(apartment_number)")
+migrate_service_items.py:138 | BARRIER_PHONE | cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_phone ON barrier_phone_access(phone_number)")
+migrate_service_items.py:139 | BARRIER_PHONE | cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_status ON barrier_phone_access(access_status)")
+migrate_service_items.py:298 | PARKING_DAY | ("PARKING_DAY", "Парковка Day", "MONTHLY", "PARKING", 1, 0, 0, 0, 1, "Ежемесячная парковка, дневной тариф"),
+migrate_service_items.py:299 | PARKING_NIGHT | ("PARKING_NIGHT", "Парковка Night", "MONTHLY", "PARKING", 1, 0, 0, 0, 1, "Ежемесячная парковка, ночной/суточный тариф"),
+migrate_service_items.py:300 | BARRIER_PHONE | ("BARRIER_PHONE", "Телефонное открытие шлагбаума", "MONTHLY", "ACCESS", 1, 0, 0, 1, 0, "Управляемый доступ; блокируется при задолженности"),
+migrate_service_items.py:301 | IMPROVEMENT | ("IMPROVEMENT", "Благоустройство", "FUNDRAISING", "IMPROVEMENT", 0, 1, 0, 0, 1, "Разметка, асфальтирование, бытовые условия охранников"),
+migrate_service_items.py:302 | PARKING_EQUIPMENT | ("PARKING_EQUIPMENT", "Оборудование парковки", "FUNDRAISING", "EQUIPMENT", 0, 1, 0, 0, 1, "Камеры, регистратор, распознавание номеров, сеть"),
+migrate_service_items.py:303 | BARRIER_REPAIR | ("BARRIER_REPAIR", "Ремонт / сбор на шлагбаум", "FUNDRAISING", "BARRIER", 0, 1, 0, 0, 1, "Ремонт и обслуживание шлагбаума"),
+migrate_service_items.py:304 | GUEST_PARKING | ("GUEST_PARKING", "Гостевая парковка", "COMMERCIAL", "PARKING", 0, 0, 1, 0, 1, "Гостевая парковка"),
+migrate_service_items.py:305 | PARK_PLACE_RENT | ("PARK_PLACE_RENT", "Аренда паркоместа", "COMMERCIAL", "PARKING_ASSET", 0, 0, 1, 0, 1, "Коммерческая аренда паркоместа"),
+migrate_service_items.py:306 | PARK_PLACE_SALE | ("PARK_PLACE_SALE", "Продажа паркоместа", "COMMERCIAL", "PARKING_ASSET", 0, 0, 1, 0, 1, "Коммерческая продажа паркоместа"),
+migrate_service_items.py:354 | IMPROVEMENT | ("01_Imp", "IMPROVEMENT", "Благоустройство — сбор 01", "FUNDRAISING",
+migrate_service_items.py:356 | PARKING_EQUIPMENT | ("01_ParkEquip", "PARKING_EQUIPMENT", "Оборудование парковки — сбор 01", "FUNDRAISING",
+migrate_service_items.py:358 | BARRIER_REPAIR | ("01_BarrierRepair", "BARRIER_REPAIR", "Ремонт шлагбаума — сбор 01", "FUNDRAISING",
+migrate_service_orders_and_fulfillment.py:433 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | Existing BARRIER_PHONE_CONNECT remains the authoritative catalog service.
+migrate_service_orders_and_fulfillment.py:643 | BARRIER_PHONE | "barrier_phone_access": {
+parking_billing_statement.py:256 | PARKING_DAY | "PARKING_DAY": "Парковка Day",
+parking_billing_statement.py:257 | PARKING_NIGHT | "PARKING_NIGHT": "Парковка Night",
+parking_billing_statement.py:259 | IMPROVEMENT | "IMPROVEMENT": "Благоустройство",
+prepare_live_service_test.py:204 | TEST_REMOTE_REPROGRAM_OWN | "service_item_code": "TEST_REMOTE_REPROGRAM_OWN",
+prepare_live_service_test.py:213 | TEST_REMOTE_NEW | "service_item_code": "TEST_REMOTE_NEW",
+prepare_live_service_test.py:222 | TEST_REMOTE_REFURBISHED | "service_item_code": "TEST_REMOTE_REFURBISHED",
+prepare_live_service_test.py:231 | TEST_PHONE_ACCESS_CONNECT | "service_item_code": "TEST_PHONE_ACCESS_CONNECT",
+reset_service_catalog.py:24 | BARRIER_PHONE | # BARRIER_PHONE — ежемесячный платный сервис с дополнительным признаком
+reset_service_catalog.py:26 | PARKING_DAY, PARKING_NIGHT | # если отсутствует долг по PARKING_DAY/PARKING_NIGHT.
+reset_service_catalog.py:28 | PARKING_DAY, PARKING_NIGHT | # Конкретные месячные статьи создаются для PARKING_DAY, PARKING_NIGHT
+reset_service_catalog.py:29 | BARRIER_PHONE | # и BARRIER_PHONE: 05_26_Day, 05_26_Night, 05_26_BarrierPhone и т. п.
+reset_service_catalog.py:76 | PARKING_DAY, PARKING_NIGHT | "Начисляется автоматически только при отсутствии долга по PARKING_DAY/PARKING_NIGHT. "
+reset_service_catalog.py:206 | BARRIER_PHONE | # Месячные статьи парковки и BARRIER_PHONE создаются генератором по периоду.
+reset_service_catalog.py:452 | BARRIER_PHONE | barrier_access_count = count_rows(cur, "barrier_phone_access") or 0
+reset_service_catalog.py:472 | BARRIER_PHONE | "Телефонных доступов barrier_phone_access: "
+reset_service_catalog.py:477 | BARRIER_PHONE | "  BARRIER_PHONE = Телефонный доступ к шлагбауму",
+reset_service_catalog.py:506 | BARRIER_PHONE | "  4. BARRIER_PHONE: ежемесячный телефонный доступ к шлагбауму.",
+reset_service_catalog.py:507 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "  5. BARRIER_PHONE_CONNECT: разовое/повторное подключение, тариф 200 грн.",
+reset_service_catalog.py:571 | BARRIER_PHONE | "Зафиксированы BARRIER_PHONE (ежемесячный телефонный доступ) и "
+reset_service_catalog.py:572 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "BARRIER_PHONE_CONNECT (подключение/повторное подключение, 200 грн)."
+reset_service_catalog.py:594 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "  01_BarrierPhoneConnect | BARRIER_PHONE_CONNECT | 200 грн",
+reset_service_catalog.py:614 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | "BARRIER_PHONE и BARRIER_PHONE_CONNECT как окончательные сервисы телефонного доступа."
+Bots/data_park_bot.py:23 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/data_park_bot.py:33 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/data_park_bot.py:43 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/data_park_bot.py:85 | IMPROVEMENT | [t["improvement"]],
+Bots/db_access - Copy.py:1936 | PARKING_DAY | PARKING_DAY_WORDS = [
+Bots/db_access - Copy.py:1944 | PARKING_NIGHT | PARKING_NIGHT_WORDS = [
+Bots/db_access - Copy.py:1959 | PARKING_NIGHT | if any(word in lower for word in PARKING_NIGHT_WORDS):
+Bots/db_access - Copy.py:1962 | PARKING_DAY | if any(word in lower for word in PARKING_DAY_WORDS):
+Bots/db_access.py:1936 | PARKING_DAY | PARKING_DAY_WORDS = [
+Bots/db_access.py:1944 | PARKING_NIGHT | PARKING_NIGHT_WORDS = [
+Bots/db_access.py:1959 | PARKING_NIGHT | if any(word in lower for word in PARKING_NIGHT_WORDS):
+Bots/db_access.py:1962 | PARKING_DAY | if any(word in lower for word in PARKING_DAY_WORDS):
+Bots/parking_bot - Copy.py:92 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot - Copy.py:104 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot - Copy.py:116 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot - Copy.py:1077 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/parking_bot.py:99 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot.py:111 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot.py:123 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot.py:1135 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:98 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:110 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:122 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1119 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:93 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:105 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:117 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:1086 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:98 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:110 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:122 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1118 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:98 | IMPROVEMENT | "improvement": "🏗 Благоустройство",
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:110 | IMPROVEMENT | "improvement": "🏗 Благоустрій",
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:122 | IMPROVEMENT | "improvement": "🏗 Improvements",
+Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1118 | IMPROVEMENT | if text in ["🏗 Благоустройство", "🏗 Благоустрій", "🏗 Improvements"]:
+Bots/handlers/cashier_operator.py:504 | PARKING_DAY | "PARKING_DAY": "Парковка Day",
+Bots/handlers/cashier_operator.py:505 | PARKING_NIGHT | "PARKING_NIGHT": "Парковка Night",
+Bots/handlers/cashier_operator.py:602 | PARKING_DAY, PARKING_NIGHT | if service_hint in {"PARKING_DAY", "PARKING_NIGHT"}
+Bots/handlers/cashier_operator.py:667 | PARKING_DAY, PARKING_NIGHT | if service_hint in {"PARKING_DAY", "PARKING_NIGHT"}
+Bots/handlers/cashier_operator.py:1026 | PARKING_DAY, PARKING_NIGHT | service_hint in {"PARKING_DAY", "PARKING_NIGHT"}
+Bots/handlers/cashier_operator.py:1227 | PARKING_DAY, PARKING_NIGHT | if text(receipt.get("service_hint")) in {"PARKING_DAY", "PARKING_NIGHT"}
+Bots/handlers/cashier_operator.py:2100 | PARKING_DAY | "☀️ Парковка Day": "PARKING_DAY",
+Bots/handlers/cashier_operator.py:2101 | PARKING_NIGHT | "🌙 Парковка Night": "PARKING_NIGHT",
+Bots/handlers/client_portal.py:181 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal.py:182 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal.py:316 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal.py:317 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal.py:335 | IMPROVEMENT | "improve": "🏗 Improvements",
+Bots/handlers/client_portal.py:408 | IMPROVEMENT | "improve_stub": "🏗 Improvements\n\nThis section is being prepared.",
+Bots/handlers/client_portal.py:451 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal.py:452 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal.py:1270 | PARKING_DAY | "PARKING_DAY": {"ru": "Парковка Day", "uk": "Паркування Day", "en": "Parking Day"},
+Bots/handlers/client_portal.py:1271 | PARKING_NIGHT | "PARKING_NIGHT": {"ru": "Парковка Night", "uk": "Паркування Night", "en": "Parking Night"},
+Bots/handlers/client_portal_safe_linking.py:181 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal_safe_linking.py:182 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal_safe_linking.py:316 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal_safe_linking.py:317 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal_safe_linking.py:335 | IMPROVEMENT | "improve": "🏗 Improvements",
+Bots/handlers/client_portal_safe_linking.py:408 | IMPROVEMENT | "improve_stub": "🏗 Improvements\n\nThis section is being prepared.",
+Bots/handlers/client_portal_safe_linking.py:451 | PARKING_DAY | "parking_day": "Day",
+Bots/handlers/client_portal_safe_linking.py:452 | PARKING_NIGHT | "parking_night": "Night",
+Bots/handlers/client_portal_safe_linking.py:1196 | PARKING_DAY | "PARKING_DAY": {"ru": "Парковка Day", "uk": "Паркування Day", "en": "Parking Day"},
+Bots/handlers/client_portal_safe_linking.py:1197 | PARKING_NIGHT | "PARKING_NIGHT": {"ru": "Парковка Night", "uk": "Паркування Night", "en": "Parking Night"},
+Bots/handlers/commercial_contract_editor.py:157 | COMMERCIAL_CONTRACT | "commercial_contracts",
+Bots/handlers/commercial_contract_editor.py:158 | COMMERCIAL_CONTRACT | "commercial_contract_items",
+Bots/handlers/commercial_contract_editor.py:159 | COMMERCIAL_CONTRACT | "commercial_contract_recipients",
+Bots/handlers/commercial_contract_editor.py:263 | COMMERCIAL_CONTRACT | (SELECT COUNT(*) FROM commercial_contract_items i
+Bots/handlers/commercial_contract_editor.py:265 | COMMERCIAL_CONTRACT | (SELECT COUNT(*) FROM commercial_contract_recipients r
+Bots/handlers/commercial_contract_editor.py:271 | COMMERCIAL_CONTRACT | FROM commercial_contracts c
+Bots/handlers/commercial_contract_editor.py:288 | COMMERCIAL_CONTRACT | (SELECT COUNT(*) FROM commercial_contract_items i
+Bots/handlers/commercial_contract_editor.py:290 | COMMERCIAL_CONTRACT | (SELECT COUNT(*) FROM commercial_contract_recipients r
+Bots/handlers/commercial_contract_editor.py:296 | COMMERCIAL_CONTRACT | FROM commercial_contracts c
+Bots/handlers/commercial_contract_editor.py:308 | COMMERCIAL_CONTRACT | FROM v_commercial_contract_debt_summary
+Bots/handlers/commercial_contract_editor.py:309 | COMMERCIAL_CONTRACT | WHERE commercial_contract_id=?
+Bots/handlers/commercial_contract_editor.py:328 | COMMERCIAL_CONTRACT | SELECT * FROM commercial_contract_items
+Bots/handlers/commercial_contract_editor.py:343 | COMMERCIAL_CONTRACT | FROM commercial_contract_items i
+Bots/handlers/commercial_contract_editor.py:360 | COMMERCIAL_CONTRACT | FROM commercial_contract_recipients r
+Bots/handlers/commercial_contract_editor.py:376 | COMMERCIAL_CONTRACT | FROM commercial_contract_recipients r
+Bots/handlers/commercial_contract_editor.py:426 | COMMERCIAL_CONTRACT | INSERT INTO commercial_contracts (
+Bots/handlers/commercial_contract_editor.py:440 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_created",
+Bots/handlers/commercial_contract_editor.py:441 | COMMERCIAL_CONTRACT | table_name="commercial_contracts", row_id=contract_id,
+Bots/handlers/commercial_contract_editor.py:444 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:476 | COMMERCIAL_CONTRACT | conn=conn, table_name="commercial_contracts", row_id=contract_id,
+Bots/handlers/commercial_contract_editor.py:479 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_field_update",
+Bots/handlers/commercial_contract_editor.py:480 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:521 | COMMERCIAL_CONTRACT | conn=conn, table_name="commercial_contracts", row_id=contract_id,
+Bots/handlers/commercial_contract_editor.py:524 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_status_update",
+Bots/handlers/commercial_contract_editor.py:525 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:542 | COMMERCIAL_CONTRACT | INSERT INTO commercial_contract_items (
+Bots/handlers/commercial_contract_editor.py:547 | COMMERCIAL_CONTRACT | ) VALUES (?, ?, 'COMMERCIAL_CONTRACT', ?, ?, ?, ?, 'UAH', ?, 1, ?, ?)
+Bots/handlers/commercial_contract_editor.py:555 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_item_created",
+Bots/handlers/commercial_contract_editor.py:556 | COMMERCIAL_CONTRACT | table_name="commercial_contract_items", row_id=item_id,
+Bots/handlers/commercial_contract_editor.py:559 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:583 | COMMERCIAL_CONTRACT | conn=conn, table_name="commercial_contract_items", row_id=item_id,
+Bots/handlers/commercial_contract_editor.py:586 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_item_update",
+Bots/handlers/commercial_contract_editor.py:587 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:612 | COMMERCIAL_CONTRACT | SELECT 1 FROM commercial_contract_recipients
+Bots/handlers/commercial_contract_editor.py:618 | COMMERCIAL_CONTRACT | SELECT COUNT(*) FROM commercial_contract_recipients
+Bots/handlers/commercial_contract_editor.py:624 | COMMERCIAL_CONTRACT | INSERT INTO commercial_contract_recipients (
+Bots/handlers/commercial_contract_editor.py:633 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_recipient_created",
+Bots/handlers/commercial_contract_editor.py:634 | COMMERCIAL_CONTRACT | table_name="commercial_contract_recipients", row_id=recipient_id,
+Bots/handlers/commercial_contract_editor.py:637 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:663 | COMMERCIAL_CONTRACT | conn=conn, table_name="commercial_contract_recipients", row_id=recipient_id,
+Bots/handlers/commercial_contract_editor.py:666 | COMMERCIAL_CONTRACT | actor_type="operator", action_type="commercial_contract_recipient_update",
+Bots/handlers/commercial_contract_editor.py:667 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:699 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:732 | COMMERCIAL_CONTRACT | source_context="commercial_contract_editor",
+Bots/handlers/commercial_contract_editor.py:902 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_list"
+Bots/handlers/commercial_contract_editor.py:903 | COMMERCIAL_CONTRACT | state["commercial_contract_map"] = mapping
+Bots/handlers/commercial_contract_editor.py:905 | COMMERCIAL_CONTRACT | state.pop("commercial_contract_id", None)
+Bots/handlers/commercial_contract_editor.py:922 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_card"
+Bots/handlers/commercial_contract_editor.py:923 | COMMERCIAL_CONTRACT | state["commercial_contract_id"] = int(contract_id)
+Bots/handlers/commercial_contract_editor.py:939 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_items"
+Bots/handlers/commercial_contract_editor.py:940 | COMMERCIAL_CONTRACT | state["commercial_contract_item_map"] = mapping
+Bots/handlers/commercial_contract_editor.py:952 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_card"
+Bots/handlers/commercial_contract_editor.py:953 | COMMERCIAL_CONTRACT | state["commercial_contract_item_id"] = int(item_id)
+Bots/handlers/commercial_contract_editor.py:954 | COMMERCIAL_CONTRACT | state["commercial_contract_id"] = int(item["contract_id"])
+Bots/handlers/commercial_contract_editor.py:969 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_recipients"
+Bots/handlers/commercial_contract_editor.py:970 | COMMERCIAL_CONTRACT | state["commercial_contract_recipient_map"] = mapping
+Bots/handlers/commercial_contract_editor.py:983 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_recipient_card"
+Bots/handlers/commercial_contract_editor.py:984 | COMMERCIAL_CONTRACT | state["commercial_contract_recipient_id"] = int(recipient_id)
+Bots/handlers/commercial_contract_editor.py:985 | COMMERCIAL_CONTRACT | state["commercial_contract_id"] = int(row["contract_id"])
+Bots/handlers/commercial_contract_editor.py:1000 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_phones"
+Bots/handlers/commercial_contract_editor.py:1001 | COMMERCIAL_CONTRACT | state["commercial_contract_phone_map"] = mapping
+Bots/handlers/commercial_contract_editor.py:1016 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_phone_card"
+Bots/handlers/commercial_contract_editor.py:1017 | COMMERCIAL_CONTRACT | state["commercial_contract_phone_id"] = int(phone_id)
+Bots/handlers/commercial_contract_editor.py:1018 | COMMERCIAL_CONTRACT | state["commercial_contract_id"] = int(row["contract_id"])
+Bots/handlers/commercial_contract_editor.py:1036 | COMMERCIAL_CONTRACT | async def handle_commercial_contract_editor_text(
+Bots/handlers/commercial_contract_editor.py:1064 | COMMERCIAL_CONTRACT | if not mode.startswith("commercial_contract_"):
+Bots/handlers/commercial_contract_editor.py:1076 | COMMERCIAL_CONTRACT | contract_id = state.get("commercial_contract_id")
+Bots/handlers/commercial_contract_editor.py:1083 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_list":
+Bots/handlers/commercial_contract_editor.py:1086 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_card":
+Bots/handlers/commercial_contract_editor.py:1092 | COMMERCIAL_CONTRACT | if mode in {"commercial_contract_dates", "commercial_contract_terms", "commercial_contract_field", "commercial_contract_counterparty_type", "commercial_contract_counterparty_name", "commercial_contract_close_confirm"}:
+Bots/handlers/commercial_contract_editor.py:1095 | COMMERCIAL_CONTRACT | if mode in {"commercial_contract_items", "commercial_contract_item_new_mode", "commercial_contract_item_new_name", "commercial_contract_item_new_amount", "commercial_contract_item_new_quantity", "commercial_contract_item_new_block", "commercial_contract_item_field", "commercial_contract_item_block", "commercial_contract_item_card"}:
+Bots/handlers/commercial_contract_editor.py:1098 | COMMERCIAL_CONTRACT | if mode in {"commercial_contract_recipients", "commercial_contract_recipient_new_name", "commercial_contract_recipient_new_id", "commercial_contract_recipient_field", "commercial_contract_recipient_card"}:
+Bots/handlers/commercial_contract_editor.py:1101 | COMMERCIAL_CONTRACT | if mode in {"commercial_contract_phones", "commercial_contract_phone_new", "commercial_contract_phone_purpose", "commercial_contract_phone_card"}:
+Bots/handlers/commercial_contract_editor.py:1108 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_list":
+Bots/handlers/commercial_contract_editor.py:1118 | COMMERCIAL_CONTRACT | selected = (state.get("commercial_contract_map") or {}).get(value)
+Bots/handlers/commercial_contract_editor.py:1131 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_card":
+Bots/handlers/commercial_contract_editor.py:1133 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_contract_field"] = "commercial_contract_field", "contract_number"
+Bots/handlers/commercial_contract_editor.py:1137 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_counterparty_type"
+Bots/handlers/commercial_contract_editor.py:1141 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_dates"
+Bots/handlers/commercial_contract_editor.py:1145 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_terms"
+Bots/handlers/commercial_contract_editor.py:1158 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_contract_field"] = "commercial_contract_field", "internal_note"
+Bots/handlers/commercial_contract_editor.py:1176 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_close_confirm"
+Bots/handlers/commercial_contract_editor.py:1188 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_close_confirm":
+Bots/handlers/commercial_contract_editor.py:1200 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_counterparty_type":
+Bots/handlers/commercial_contract_editor.py:1206 | COMMERCIAL_CONTRACT | state["commercial_contract_counterparty_type"] = chosen
+Bots/handlers/commercial_contract_editor.py:1207 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_counterparty_name"
+Bots/handlers/commercial_contract_editor.py:1211 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_counterparty_name":
+Bots/handlers/commercial_contract_editor.py:1214 | COMMERCIAL_CONTRACT | update_contract(int(contract_id), "counterparty_type", state.get("commercial_contract_counterparty_type") or "UNKNOWN", user_id)
+Bots/handlers/commercial_contract_editor.py:1219 | COMMERCIAL_CONTRACT | state.pop("commercial_contract_counterparty_type", None)
+Bots/handlers/commercial_contract_editor.py:1224 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_dates":
+Bots/handlers/commercial_contract_editor.py:1230 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_contract_field"] = "commercial_contract_field", field
+Bots/handlers/commercial_contract_editor.py:1234 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_terms":
+Bots/handlers/commercial_contract_editor.py:1246 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_field"
+Bots/handlers/commercial_contract_editor.py:1247 | COMMERCIAL_CONTRACT | state["commercial_contract_field"] = selected[0]
+Bots/handlers/commercial_contract_editor.py:1248 | COMMERCIAL_CONTRACT | state["commercial_contract_field_limits"] = selected[1:]
+Bots/handlers/commercial_contract_editor.py:1252 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_field":
+Bots/handlers/commercial_contract_editor.py:1253 | COMMERCIAL_CONTRACT | field = state.get("commercial_contract_field")
+Bots/handlers/commercial_contract_editor.py:1258 | COMMERCIAL_CONTRACT | min_v, max_v, caption = state.get("commercial_contract_field_limits", (0, 365, "Значение"))
+Bots/handlers/commercial_contract_editor.py:1266 | COMMERCIAL_CONTRACT | state.pop("commercial_contract_field", None)
+Bots/handlers/commercial_contract_editor.py:1267 | COMMERCIAL_CONTRACT | state.pop("commercial_contract_field_limits", None)
+Bots/handlers/commercial_contract_editor.py:1275 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_items":
+Bots/handlers/commercial_contract_editor.py:1277 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_mode"
+Bots/handlers/commercial_contract_editor.py:1280 | COMMERCIAL_CONTRACT | item_id = (state.get("commercial_contract_item_map") or {}).get(value)
+Bots/handlers/commercial_contract_editor.py:1287 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_new_mode":
+Bots/handlers/commercial_contract_editor.py:1294 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_name"
+Bots/handlers/commercial_contract_editor.py:1298 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_new_name":
+Bots/handlers/commercial_contract_editor.py:1306 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_block"
+Bots/handlers/commercial_contract_editor.py:1309 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_amount"
+Bots/handlers/commercial_contract_editor.py:1313 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_new_amount":
+Bots/handlers/commercial_contract_editor.py:1324 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_block"
+Bots/handlers/commercial_contract_editor.py:1327 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_quantity"
+Bots/handlers/commercial_contract_editor.py:1331 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_block"
+Bots/handlers/commercial_contract_editor.py:1335 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_new_quantity":
+Bots/handlers/commercial_contract_editor.py:1344 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_new_block"
+Bots/handlers/commercial_contract_editor.py:1348 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_new_block":
+Bots/handlers/commercial_contract_editor.py:1371 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_card":
+Bots/handlers/commercial_contract_editor.py:1372 | COMMERCIAL_CONTRACT | item_id = state.get("commercial_contract_item_id")
+Bots/handlers/commercial_contract_editor.py:1378 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_item_field"] = "commercial_contract_item_field", "item_name"
+Bots/handlers/commercial_contract_editor.py:1385 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_item_field"] = "commercial_contract_item_field", "rate_amount" if item.get("calculation_mode") == "PER_SQM_MONTHLY" else "fixed_amount"
+Bots/handlers/commercial_contract_editor.py:1392 | COMMERCIAL_CONTRACT | state["mode"], state["commercial_item_field"] = "commercial_contract_item_field", "quantity_default"
+Bots/handlers/commercial_contract_editor.py:1396 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_item_block"
+Bots/handlers/commercial_contract_editor.py:1412 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_field":
+Bots/handlers/commercial_contract_editor.py:1413 | COMMERCIAL_CONTRACT | item_id = int(state.get("commercial_contract_item_id"))
+Bots/handlers/commercial_contract_editor.py:1433 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_item_block":
+Bots/handlers/commercial_contract_editor.py:1438 | COMMERCIAL_CONTRACT | item_id = int(state.get("commercial_contract_item_id"))
+Bots/handlers/commercial_contract_editor.py:1447 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_recipients":
+Bots/handlers/commercial_contract_editor.py:1449 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_recipient_new_name"
+Bots/handlers/commercial_contract_editor.py:1452 | COMMERCIAL_CONTRACT | recipient_id = (state.get("commercial_contract_recipient_map") or {}).get(value)
+Bots/handlers/commercial_contract_editor.py:1459 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_recipient_new_name":
+Bots/handlers/commercial_contract_editor.py:1461 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_recipient_new_id"
+Bots/handlers/commercial_contract_editor.py:1465 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_recipient_new_id":
+Bots/handlers/commercial_contract_editor.py:1476 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_recipient_card":
+Bots/handlers/commercial_contract_editor.py:1477 | COMMERCIAL_CONTRACT | recipient_id = int(state.get("commercial_contract_recipient_id"))
+Bots/handlers/commercial_contract_editor.py:1483 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_recipient_field"
+Bots/handlers/commercial_contract_editor.py:1514 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_recipient_field":
+Bots/handlers/commercial_contract_editor.py:1515 | COMMERCIAL_CONTRACT | recipient_id = int(state.get("commercial_contract_recipient_id"))
+Bots/handlers/commercial_contract_editor.py:1524 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_phones":
+Bots/handlers/commercial_contract_editor.py:1526 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_phone_new"
+Bots/handlers/commercial_contract_editor.py:1529 | COMMERCIAL_CONTRACT | phone_id = (state.get("commercial_contract_phone_map") or {}).get(value)
+Bots/handlers/commercial_contract_editor.py:1536 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_phone_new":
+Bots/handlers/commercial_contract_editor.py:1546 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_phone_card":
+Bots/handlers/commercial_contract_editor.py:1547 | COMMERCIAL_CONTRACT | phone_id = int(state.get("commercial_contract_phone_id"))
+Bots/handlers/commercial_contract_editor.py:1553 | COMMERCIAL_CONTRACT | state["mode"] = "commercial_contract_phone_purpose"
+Bots/handlers/commercial_contract_editor.py:1569 | COMMERCIAL_CONTRACT | if mode == "commercial_contract_phone_purpose":
+Bots/handlers/commercial_contract_editor.py:1575 | COMMERCIAL_CONTRACT | phone_id = int(state.get("commercial_contract_phone_id"))
+Bots/handlers/unit_registry_editor - Copy.py:46 | COMMERCIAL_CONTRACT | from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor - Copy.py:49 | COMMERCIAL_CONTRACT | from commercial_contract_editor import handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor - Copy.py:51 | COMMERCIAL_CONTRACT | handle_commercial_contract_editor_text = None
+Bots/handlers/unit_registry_editor - Copy.py:887 | COMMERCIAL_CONTRACT | if handle_commercial_contract_editor_text is not None:
+Bots/handlers/unit_registry_editor - Copy.py:888 | COMMERCIAL_CONTRACT | if await handle_commercial_contract_editor_text(
+Bots/handlers/unit_registry_editor.py:46 | COMMERCIAL_CONTRACT | from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor.py:49 | COMMERCIAL_CONTRACT | from commercial_contract_editor import handle_commercial_contract_editor_text
+Bots/handlers/unit_registry_editor.py:51 | COMMERCIAL_CONTRACT | handle_commercial_contract_editor_text = None
+Bots/handlers/unit_registry_editor.py:928 | COMMERCIAL_CONTRACT | if handle_commercial_contract_editor_text is not None:
+Bots/handlers/unit_registry_editor.py:929 | COMMERCIAL_CONTRACT | if await handle_commercial_contract_editor_text(
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:433 | BARRIER_PHONE, BARRIER_PHONE_CONNECT | Existing BARRIER_PHONE_CONNECT remains the authoritative catalog service.
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:643 | BARRIER_PHONE | "barrier_phone_access": {
+tools/cashier_parking_payments_audit_v4.py:41 | BARRIER_PHONE, PARKING_DAY, PARKING_NIGHT | DEFAULT_SERVICES = ("PARKING_DAY", "PARKING_NIGHT", "BARRIER_PHONE")
+tools/cashier_parking_payments_audit_v4.py:247 | PARKING_DAY, PARKING_NIGHT | if service in {"PARKING_DAY", "PARKING_NIGHT"} and not vehicle_id:
+tools/cashier_parking_payments_audit_v4.py:249 | PARKING_DAY, PARKING_NIGHT | if service in {"PARKING_DAY", "PARKING_NIGHT"} and not parking_time:
+tools/cashier_unpaid_preview.py:8 | BARRIER_PHONE, PARKING_DAY, PARKING_NIGHT | # По умолчанию: период 2026-07, сервисы PARKING_DAY/PARKING_NIGHT/BARRIER_PHONE
+tools/cashier_unpaid_preview.py:19 | BARRIER_PHONE, PARKING_DAY, PARKING_NIGHT | SERVICE_CODES = ("PARKING_DAY", "PARKING_NIGHT", "BARRIER_PHONE")
+tools/cashier_unpaid_preview_v2.py:18 | BARRIER_PHONE, PARKING_DAY, PARKING_NIGHT | DEFAULT_SERVICES = ["PARKING_DAY", "PARKING_NIGHT", "BARRIER_PHONE"]
+tools/cashier_unpaid_preview_v3.py:45 | BARRIER_PHONE, PARKING_DAY, PARKING_NIGHT | DEFAULT_SERVICES = ("PARKING_DAY", "PARKING_NIGHT", "BARRIER_PHONE")
+tools/cashier_unpaid_preview_v3.py:233 | PARKING_DAY, PARKING_NIGHT | if service in {"PARKING_DAY", "PARKING_NIGHT"} and not vehicle_id:
+tools/cashier_unpaid_preview_v3.py:235 | PARKING_DAY, PARKING_NIGHT | if service in {"PARKING_DAY", "PARKING_NIGHT"} and not parking_time:
+tools/MIGRATE_debt_policy_rules_v1.py:73 | PARKING_DAY | ("PARKING_DAY", "REMOTE_NEW", 1, 1, 0, "HARD", "Долг по дневной парковке блокирует заказ/выдачу нового пульта."),
+tools/MIGRATE_debt_policy_rules_v1.py:74 | PARKING_NIGHT | ("PARKING_NIGHT", "REMOTE_NEW", 1, 1, 0, "HARD", "Долг по ночной парковке блокирует заказ/выдачу нового пульта."),
+tools/MIGRATE_debt_policy_rules_v1.py:76 | PARKING_DAY | ("PARKING_DAY", "REMOTE_REPROGRAM", 1, 0, 0, "SOFT", "Долг по дневной парковке требует ручного решения по перепрошивке пульта."),
+tools/MIGRATE_debt_policy_rules_v1.py:77 | PARKING_NIGHT | ("PARKING_NIGHT", "REMOTE_REPROGRAM", 1, 0, 0, "SOFT", "Долг по ночной парковке требует ручного решения по перепрошивке пульта."),
+tools/MIGRATE_debt_policy_rules_v1.py:79 | PARKING_DAY | ("PARKING_DAY", "PHONE_ACCESS_CONNECT", 1, 0, 1, "HARD", "Долг по дневной парковке блокирует подключение телефонного доступа."),
+tools/MIGRATE_debt_policy_rules_v1.py:80 | PARKING_NIGHT | ("PARKING_NIGHT", "PHONE_ACCESS_CONNECT", 1, 0, 1, "HARD", "Долг по ночной парковке блокирует подключение телефонного доступа."),
+tools/MIGRATE_debt_policy_rules_v1.py:82 | PARKING_DAY | ("PARKING_DAY", "PHONE_ACCESS_CHANGE", 0, 0, 0, "SOFT", "Изменение номера телефона пока только ручной контроль."),
+tools/MIGRATE_debt_policy_rules_v1.py:83 | PARKING_NIGHT | ("PARKING_NIGHT", "PHONE_ACCESS_CHANGE", 0, 0, 0, "SOFT", "Изменение номера телефона пока только ручной контроль."),
+tools/project_passport.py:125 | BARRIER_PHONE | "barrier_phone_access",
+tools/project_passport.py:128 | COMMERCIAL_CONTRACT | "commercial_contracts",
+tools/project_passport.py:129 | COMMERCIAL_CONTRACT | "commercial_contract_items",
+tools/project_passport_v2.py:146 | BARRIER_PHONE | "barrier_phone_access",
+tools/project_passport_v2.py:149 | COMMERCIAL_CONTRACT | "commercial_contracts",
+tools/project_passport_v2.py:150 | COMMERCIAL_CONTRACT | "commercial_contract_items",
+tools/project_passport_v4_runtime_schema_audit.py:68 | BARRIER_PHONE | "barrier_phone_access", "payment_notices", "bank_transactions",
+tools/project_passport_v4_runtime_schema_audit.py:69 | COMMERCIAL_CONTRACT | "commercial_contracts", "commercial_contract_items", "commercial_notifications",
+
+====================================================================================================
+READ_SQL
+====================================================================================================
+cashier_journal.py:441 | id, service_catalog, service_code | cur.execute("SELECT id FROM service_catalog WHERE service_code = ?", (base_service_code,))
+cashier_journal.py:477 | service_catalog, service_code, service_type | "SELECT COALESCE(service_type, '') FROM service_catalog WHERE service_code = ?",
+cashier_v2_core.py:291 | service_catalog | FROM service_catalog
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:268 | service_catalog | FROM service_catalog
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:268 | service_catalog | FROM service_catalog
+migrate_commercial_contract_core.py:203 | id, service_catalog, service_code | "SELECT id FROM service_catalog WHERE service_code=?",
+migrate_service_items.py:282 | id, service_catalog, service_code | cur.execute("SELECT id FROM service_catalog WHERE service_code = ?", (service_code,))
+reset_service_catalog.py:445 | id, service_catalog, service_code | cur.execute("SELECT service_code FROM service_catalog ORDER BY id")
+reset_service_catalog.py:526 | id, service_catalog, service_code | "SELECT id FROM service_catalog WHERE service_code = ?",
+seed_parking_tariffs.py:37 | service_catalog | FROM service_catalog
+service_catalog_admin_core.py:253 | service_catalog, service_code | "SELECT 1 FROM service_catalog WHERE service_code = ?",
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:253 | service_catalog, service_code | "SELECT 1 FROM service_catalog WHERE service_code = ?",
+tools/MIGRATE_debt_policy_rules_v1.py:133 | service_catalog | cur.execute(f"SELECT DISTINCT {col} FROM service_catalog WHERE {col} IS NOT NULL AND TRIM({col}) <> ''")
+
+====================================================================================================
+TABLE_MENTION
+====================================================================================================
+cashier_journal.py:312 | service_catalog | версии структуры. Это особенно важно для service_catalog.
+cashier_journal.py:435 | service_catalog | def ensure_service_catalog(cur, base_service_code):
+cashier_journal.py:436 | service_catalog | if not table_exists(cur, "service_catalog"):
+cashier_journal.py:437 | service_catalog | raise RuntimeError("Не найдена таблица service_catalog. Сначала выполните migrate_service_items.py.")
+cashier_journal.py:473 | service_catalog | if table_exists(cur, "service_catalog"):
+cashier_journal.py:474 | service_catalog | cols = table_columns(cur, "service_catalog")
+cashier_journal.py:514 | service_catalog | ensure_service_catalog(cur, base_service_code)
+cashier_journal.py:1352 | service_catalog | ensure_service_catalog(cur, base_service_code)
+cashier_v2_core.py:171 | service_catalog | "service_catalog",
+cashier_v2_core.py:236 | service_catalog | Сначала варианты из service_items для периода, затем общие service_catalog.
+cashier_v2_core.py:282 | service_catalog | cols = table_columns(cur, "service_catalog")
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:148 | service_catalog | "service_catalog",
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:213 | service_catalog | Сначала варианты из service_items для периода, затем общие service_catalog.
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:259 | service_catalog | cols = table_columns(cur, "service_catalog")
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:148 | service_catalog | "service_catalog",
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:213 | service_catalog | Сначала варианты из service_items для периода, затем общие service_catalog.
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:259 | service_catalog | cols = table_columns(cur, "service_catalog")
+cashier_v2_preflight.py:85 | service_catalog | "service_catalog",
+cashier_v2_preflight.py:250 | service_catalog | "service_catalog",
+cashier_v2_preflight_compat.py:139 | service_catalog | "service_catalog",
+diagnose_sandbox_charges.py:78 | service_catalog | for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+import_ohorona_list1_to_central_cashbox.py:45 | service_catalog | ensure_service_catalog,
+import_ohorona_list1_to_central_cashbox.py:268 | service_catalog | ensure_service_catalog(cur, base_service_code)
+import_ohorona_list1_to_central_cashbox.py:640 | service_catalog | ensure_service_catalog(cur, plan["base_service_code"])
+import_ohorona_to_cashbox.py:37 | service_catalog | ensure_service_catalog,
+import_ohorona_to_cashbox.py:624 | service_catalog | ensure_service_catalog(cur, plan["base_service_code"])
+migrate_billing_core.py:60 | service_catalog, service_code | REFERENCES service_catalog(service_code)
+migrate_billing_core.py:84 | service_catalog, service_code | REFERENCES service_catalog(service_code)
+migrate_billing_core.py:179 | service_catalog | "service_catalog",
+migrate_cashier_v2.py:402 | service_catalog | "service_catalog",
+migrate_commercial_contract_core.py:125 | service_catalog | Это нужно только для безопасного upsert service_catalog в БД,
+migrate_commercial_contract_core.py:171 | service_catalog | if not table_exists(cur, "service_catalog"):
+migrate_commercial_contract_core.py:172 | service_catalog | return False, "service_catalog отсутствует — пропущено"
+migrate_commercial_contract_core.py:174 | service_catalog | columns = table_columns(cur, "service_catalog")
+migrate_commercial_contract_core.py:175 | service_catalog | values: dict[str, Any] = required_fields_with_defaults(cur, "service_catalog")
+migrate_commercial_contract_core.py:200 | service_catalog, service_code | return False, "service_catalog не содержит service_code — пропущено"
+migrate_service_items.py:42 | service_catalog | def create_service_catalog(cur):
+migrate_service_items.py:78 | service_catalog | if add_column_if_missing(cur, "service_catalog", col, col_def):
+migrate_service_items.py:81 | service_catalog, service_code | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_code ON service_catalog(service_code)")
+migrate_service_items.py:82 | service_catalog, service_type | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_type ON service_catalog(service_type)")
+migrate_service_items.py:83 | service_catalog, service_group | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_group ON service_catalog(service_group)")
+migrate_service_items.py:84 | is_active, service_catalog | cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_active ON service_catalog(is_active)")
+migrate_service_items.py:108 | service_catalog, service_code | FOREIGN KEY (service_code) REFERENCES service_catalog(service_code)
+migrate_service_items.py:224 | service_catalog | if table_name == "service_catalog":
+migrate_service_items.py:296 | service_catalog | def seed_service_catalog(cur):
+migrate_service_items.py:371 | BARRIER_PHONE, service_catalog | for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+migrate_service_items.py:392 | service_catalog | catalog_added = create_service_catalog(cur)
+migrate_service_items.py:396 | service_catalog | service_ins, service_upd = seed_service_catalog(cur)
+migrate_service_items.py:405 | service_catalog | table_name="service_catalog",
+migrate_service_orders_and_fulfillment.py:483 | service_catalog | "SERVICE_CATALOG_MANAGER",
+migrate_service_orders_and_fulfillment.py:499 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_catalog", "MANAGE", "ALL", "*"),
+migrate_service_orders_and_fulfillment.py:500 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+migrate_service_orders_and_fulfillment.py:501 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+prepare_live_service_test.py:159 | service_catalog | "catalog core": ROOT / "service_catalog_admin_core.py",
+prepare_live_service_test.py:184 | service_catalog | "service_catalog_admin_core",
+prepare_live_service_test.py:191 | service_catalog | catalog = load_module(files["catalog core"], "service_catalog_admin_core")
+prepare_live_service_test.py:303 | service_catalog | 'service_catalog', '', 1, ?)
+reset_service_catalog.py:256 | service_catalog | Старый service_catalog уже мог иметь обязательные столбцы
+reset_service_catalog.py:311 | service_catalog | columns = table_columns(cur, "service_catalog")
+reset_service_catalog.py:431 | service_catalog | f"service_catalog_cleanup_{datetime.now():%Y-%m-%d_%H-%M-%S}.txt"
+reset_service_catalog.py:442 | service_catalog | if not table_exists(cur, "service_catalog"):
+reset_service_catalog.py:443 | service_catalog | raise RuntimeError("Не найдена таблица service_catalog.")
+reset_service_catalog.py:562 | service_catalog | action_type="service_catalog_cleaned",
+reset_service_catalog.py:563 | service_catalog | table_name="service_catalog",
+reset_service_catalog.py:568 | service_catalog | source_context="reset_service_catalog_v2.py",
+run_bot_live_service_sandbox_v4.py:168 | service_catalog | "service_catalog_admin_core",
+service_catalog_admin_core.py:4 | service_catalog | Слой service_catalog / service_items остаётся источником списка услуг.
+service_catalog_admin_core.py:49 | service_catalog | "service_catalog",
+service_catalog_admin_core.py:54 | service_catalog | raise PermissionError("Нет права service_catalog.MANAGE.")
+service_catalog_admin_core.py:249 | service_catalog | if not table_exists(cur, "service_catalog") or not table_exists(cur, "service_items"):
+service_catalog_admin_core.py:250 | service_catalog | raise RuntimeError("Нужны таблицы service_catalog и service_items.")
+service_catalog_admin_core.py:274 | service_catalog, service_code | cur, "service_catalog", "service_code = ?", (service_code,), catalog_values
+service_orders_preflight.py:156 | service_catalog | "catalog core": ROOT / "service_catalog_admin_core.py",
+service_orders_preflight.py:234 | service_catalog | "service_catalog_admin_core",
+service_orders_preflight.py:241 | service_catalog | catalog = load_module(files["catalog core"], "service_catalog_admin_core")
+supervisor_dashboard.py:309 | service_catalog | "service_catalog", "service_tariffs", "charges", "payments", "payment_allocations",
+Bots/handlers/cashier_operator_v2.py:9 | service_catalog | - выбор услуг из service_catalog / service_items;
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:483 | service_catalog | "SERVICE_CATALOG_MANAGER",
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:499 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_catalog", "MANAGE", "ALL", "*"),
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:500 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:501 | service_catalog | ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:4 | service_catalog | Слой service_catalog / service_items остаётся источником списка услуг.
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:49 | service_catalog | "service_catalog",
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:54 | service_catalog | raise PermissionError("Нет права service_catalog.MANAGE.")
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:249 | service_catalog | if not table_exists(cur, "service_catalog") or not table_exists(cur, "service_items"):
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:250 | service_catalog | raise RuntimeError("Нужны таблицы service_catalog и service_items.")
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:274 | service_catalog, service_code | cur, "service_catalog", "service_code = ?", (service_code,), catalog_values
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:156 | service_catalog | "catalog core": ROOT / "service_catalog_admin_core.py",
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:234 | service_catalog | "service_catalog_admin_core",
+OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:241 | service_catalog | catalog = load_module(files["catalog core"], "service_catalog_admin_core")
+tools/db_schema_snapshot.py:59 | service_catalog | "service_catalog",
+tools/db_schema_snapshot_full.py:44 | service_catalog | "service_catalog",
+tools/db_table_passport.py:23 | service_catalog | python .\OSBB\tools\db_table_passport.py service_catalog --db "G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db"
+tools/db_table_passport.py:429 | service_catalog | if table == "service_catalog":
+tools/db_table_passport.py:430 | service_catalog | lines.append("`service_catalog` выглядит как центральный справочник услуг OSBB.")
+tools/db_table_passport.py:466 | service_catalog | ap.add_argument("table", help="Table name, e.g. service_catalog")
+tools/dump_service_codes_live_sandbox.py:47 | service_catalog | for table in ["charges", "service_items", "service_catalog", "service_tariffs"]:
+tools/MIGRATE_debt_policy_rules_v1.py:129 | service_catalog | if table_exists(cur, "service_catalog"):
+tools/MIGRATE_debt_policy_rules_v1.py:130 | service_catalog | cols = table_columns(cur, "service_catalog")
+tools/project_passport.py:108 | service_catalog | "service_catalog",
+tools/project_passport_v2.py:129 | service_catalog | "service_catalog",
+tools/project_passport_v4_runtime_schema_audit.py:61 | service_catalog | "cashier_reconciliation_cases", "service_catalog", "service_items",
+
+====================================================================================================
+WRITE_OR_SCHEMA_MENTION
+====================================================================================================
+cashier_journal.py:465 | service_catalog, service_code | update_dynamic_by(cur, "service_catalog", "service_code", base_service_code, values)
+cashier_journal.py:468 | service_catalog | insert_dynamic(cur, "service_catalog", values)
+migrate_billing_core.py:35 | service_catalog | CREATE TABLE IF NOT EXISTS service_catalog (
+migrate_billing_core.py:140 | service_catalog | INSERT OR IGNORE INTO service_catalog (
+migrate_service_items.py:44 | service_catalog | CREATE TABLE IF NOT EXISTS service_catalog (
+migrate_service_items.py:289 | service_catalog, service_code | update_dynamic_by_code(cur, "service_catalog", "service_code", service_code, update_values)
+migrate_service_items.py:292 | service_catalog | insert_dynamic(cur, "service_catalog", values)
+reset_service_catalog.py:538 | service_catalog | insert_dynamic(cur, "service_catalog", values)
+service_catalog_admin_core.py:278 | service_catalog | _insert_dynamic(cur, "service_catalog", catalog_values)
+OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:278 | service_catalog | _insert_dynamic(cur, "service_catalog", catalog_values)
+
+====================================================================================================
+WRITE_SCHEMA_OR_INSERT
+====================================================================================================
+migrate_commercial_contract_core.py:225 | service_catalog | f"INSERT INTO service_catalog ({', '.join(q(key) for key in insert_columns)}) "
+
+====================================================================================================
+WRITE_UPDATE_DELETE
+====================================================================================================
+migrate_commercial_contract_core.py:216 | service_catalog | f"UPDATE service_catalog SET "
+reset_service_catalog.py:325 | service_catalog, service_code | f"UPDATE service_catalog SET {', '.join(set_parts)} WHERE service_code = ?",
+reset_service_catalog.py:549 | service_catalog, service_code | f"DELETE FROM service_catalog WHERE service_code IN ({placeholders})",

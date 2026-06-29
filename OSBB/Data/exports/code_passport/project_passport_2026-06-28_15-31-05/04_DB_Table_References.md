@@ -1,0 +1,6814 @@
+# Database Table References
+
+## `__future__`
+- `access_control.py:16` — from __future__ import annotations
+- `Bots/handlers/audit_viewer.py:18` — from __future__ import annotations
+- `Bots/handlers/cashier_operator.py:23` — from __future__ import annotations
+- `Bots/handlers/cashier_operator_v2.py:16` — from __future__ import annotations
+- `Bots/handlers/client_portal.py:21` — from __future__ import annotations
+- `Bots/handlers/client_portal_safe_linking.py:21` — from __future__ import annotations
+- `Bots/handlers/client_portal_v2.py:18` — from __future__ import annotations
+- `Bots/handlers/client_portal_v3.py:14` — from __future__ import annotations
+- `Bots/handlers/commercial_contract_editor.py:20` — from __future__ import annotations
+- `Bots/handlers/guard_workspace.py:14` — from __future__ import annotations
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:14` — from __future__ import annotations
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:14` — from __future__ import annotations
+- `Bots/handlers/profile_parking_time_test_workspace.py:9` — from __future__ import annotations
+- `Bots/handlers/profile_verification_workspace.py:10` — from __future__ import annotations
+- `Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Bots/handlers/unit_registry_editor - Copy.py:22` — from __future__ import annotations
+- `Bots/handlers/unit_registry_editor.py:22` — from __future__ import annotations
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `cashier_v2_core.py:12` — from __future__ import annotations
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:12` — from __future__ import annotations
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:12` — from __future__ import annotations
+- `cashier_v2_preflight.py:27` — from __future__ import annotations
+- `cashier_v2_preflight_compat.py:11` — from __future__ import annotations
+- `CHECK_guard_sandbox_service_orders.py:22` — from __future__ import annotations
+- `CHECK_guard_sandbox_service_orders_v2.py:18` — from __future__ import annotations
+- `CHECK_phone_barrier_access_operational_sandbox.py:4` — from __future__ import annotations
+- `CHECK_phone_barrier_access_sandbox_schema.py:4` — from __future__ import annotations
+- `CHECK_profile_button_early_route_fix.py:8` — from __future__ import annotations
+- `CHECK_profile_parking_time_test_sandbox.py:8` — from __future__ import annotations
+- `CHECK_profile_test_candidate_apartment_40.py:24` — from __future__ import annotations
+- `CHECK_profile_verification_sandbox.py:3` — from __future__ import annotations
+- `CHECK_service_code_compatibility_phone_v2.py:6` — from __future__ import annotations
+- `commercial_contracts.py:15` — from __future__ import annotations
+- `commercial_notification_delivery.py:19` — from __future__ import annotations
+- `create_clean_live_sandbox.py:28` — from __future__ import annotations
+- `create_isolated_live_sandbox_v2.py:28` — from __future__ import annotations
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:13` — from __future__ import annotations
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:17` — from __future__ import annotations
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:24` — from __future__ import annotations
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:15` — from __future__ import annotations
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:19` — from __future__ import annotations
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:10` — from __future__ import annotations
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:10` — from __future__ import annotations
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:10` — from __future__ import annotations
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:32` — from __future__ import annotations
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:15` — from __future__ import annotations
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:19` — from __future__ import annotations
+- `diagnose_osbb_audit.py:15` — from __future__ import annotations
+- `diagnose_sandbox_charges.py:18` — from __future__ import annotations
+- `FIND_actual_service_order_state.py:19` — from __future__ import annotations
+- `find_sandbox_telegram_id.py:13` — from __future__ import annotations
+- `FIX_live_services_sandbox_payment_schema.py:26` — from __future__ import annotations
+- `fix_parking_bot_language_gate.py:19` — from __future__ import annotations
+- `fix_source_ref_schema.py:16` — from __future__ import annotations
+- `guard_workspace_preflight.py:16` — from __future__ import annotations
+- `guard_workspace_preflight_v2.py:16` — from __future__ import annotations
+- `import_ohorona_list1_to_central_cashbox.py:17` — from __future__ import annotations
+- `INSTALL_cashier_route_after_phone_v2.py:19` — from __future__ import annotations
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:21` — from __future__ import annotations
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:7` — from __future__ import annotations
+- `INSTALL_phone_barrier_access_v2.py:9` — from __future__ import annotations
+- `INSTALL_profile_button_early_route_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_confirmation_ready_visibility_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_critical_codes_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_parking_time_test_v1.py:9` — from __future__ import annotations
+- `INSTALL_profile_verification_terminology_v2.py:14` — from __future__ import annotations
+- `INSTALL_profile_verification_v1.py:3` — from __future__ import annotations
+- `INSTALL_service_code_compatibility_phone_v2.py:9` — from __future__ import annotations
+- `install_service_orders_ui.py:10` — from __future__ import annotations
+- `manage_staff_access.py:34` — from __future__ import annotations
+- `manage_staff_access_v2.py:34` — from __future__ import annotations
+- `migrate_access_control_and_guard.py:22` — from __future__ import annotations
+- `migrate_apartment_link_requests.py:18` — from __future__ import annotations
+- `migrate_cashier_operator_editor.py:29` — from __future__ import annotations
+- `migrate_cashier_v2.py:21` — from __future__ import annotations
+- `migrate_cashier_v2_compat.py:21` — from __future__ import annotations
+- `migrate_commercial_contract_core.py:27` — from __future__ import annotations
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:13` — from __future__ import annotations
+- `MIGRATE_phone_barrier_access_sandbox.py:10` — from __future__ import annotations
+- `MIGRATE_profile_parking_time_test_sandbox.py:8` — from __future__ import annotations
+- `MIGRATE_profile_verification_sandbox.py:3` — from __future__ import annotations
+- `migrate_remote_requests.py:18` — from __future__ import annotations
+- `migrate_service_orders_and_fulfillment.py:28` — from __future__ import annotations
+- `MIGRATE_simplified_services_sandbox.py:11` — from __future__ import annotations
+- `migrate_unit_registry_composite_groups.py:22` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:28` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:16` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:15` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:21` — from __future__ import annotations
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:9` — from __future__ import annotations
+- `parking_time_test_payload/profile_parking_time_test_core.py:21` — from __future__ import annotations
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `patch_cashier_v2_core_period_and_schemafix.py:20` — from __future__ import annotations
+- ... and 59 more
+
+## `a`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:695` — """Return only paid, real orders not yet put into a supplier batch."""
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:746` — """Return only paid, real orders not yet put into a supplier batch."""
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11518` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11521` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11525` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11528` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11535` — >    10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11542` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16598` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16601` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16605` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16608` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16615` — >    10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16622` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18361` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18364` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18368` — 7: - a confirmed payment promotes one matching interest into a real service order;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18371` — 10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18378` — >    10: - a physical remote asset is created only when it is actually issued from a
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18385` — 10: - a physical remote asset is created only when it is actually issued from a
+- `INSTALL_service_code_compatibility_phone_v2.py:54` — # Guard against copying into a wrong unrelated folder.
+- `phone_barrier_access_v2_payload/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `phone_barrier_access_v2_payload/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `phone_barrier_access_v2_payload/service_preorders_core.py:746` — """Return only paid, real orders not yet put into a supplier batch."""
+- `service_code_compatibility_payload/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `service_code_compatibility_payload/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `service_code_compatibility_payload/service_preorders_core.py:754` — """Return only paid, real orders not yet put into a supplier batch."""
+- `service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `service_preorders_core.py:754` — """Return only paid, real orders not yet put into a supplier batch."""
+
+## `access_audit_log`
+- `access_control.py:324` — INSERT INTO access_audit_log (
+- `manage_staff_access.py:297` — INSERT INTO access_audit_log (
+- `manage_staff_access_v2.py:297` — INSERT INTO access_audit_log (
+- `prepare_live_service_test.py:296` — INSERT INTO access_audit_log (
+
+## `access_control`
+- `Bots/handlers/guard_workspace.py:31` — from access_control import (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:31` — from access_control import (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:31` — from access_control import (
+- `Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:37` — from access_control import has_permission
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:37` — from access_control import has_permission
+- `manage_staff_access.py:50` — from access_control import (
+- `manage_staff_access_v2.py:50` — from access_control import (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:39` — from access_control import has_permission
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:37` — from access_control import has_permission
+- `phone_barrier_access_core.py:1987` — from access_control import has_permission
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1987` — from access_control import has_permission
+- `phone_barrier_access_v2_payload/service_orders_core.py:37` — from access_control import has_permission
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `service_catalog_admin_core.py:39` — from access_control import has_permission
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `service_code_compatibility_payload/service_orders_core.py:37` — from access_control import has_permission
+- `service_orders_core.py:37` — from access_control import has_permission
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:37` — from access_control import has_permission
+
+## `access_debt_warnings`
+- `CHECK_phone_barrier_access_operational_sandbox.py:65` — print("Warnings:", cur.execute("SELECT COUNT(*) FROM access_debt_warnings").fetchone()[0])
+- `CHECK_phone_barrier_access_sandbox_schema.py:119` — "SELECT COUNT(*) FROM access_debt_warnings"
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:7` — - created table access_debt_warnings
+
+## `access_external_commands`
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:8` — - created table access_external_commands
+
+## `access_operation_journal`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:561` — INSERT OR IGNORE INTO access_operation_journal (
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:9` — - created table access_operation_journal
+- `phone_barrier_access_core.py:562` — INSERT OR IGNORE INTO access_operation_journal (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:562` — INSERT OR IGNORE INTO access_operation_journal (
+
+## `access_points`
+- `CHECK_phone_barrier_access_sandbox_schema.py:59` — FROM access_points
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:588` — "SELECT * FROM access_points WHERE access_point_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:595` — INSERT INTO access_points (
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:10` — - created table access_points
+- `phone_barrier_access_core.py:589` — "SELECT * FROM access_points WHERE access_point_code = ?",
+- `phone_barrier_access_core.py:596` — INSERT INTO access_points (
+- `phone_barrier_access_core.py:1127` — FROM access_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:589` — "SELECT * FROM access_points WHERE access_point_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:596` — INSERT INTO access_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1127` — FROM access_points
+
+## `access_policy_values`
+- `CHECK_phone_barrier_access_sandbox_schema.py:106` — FROM access_policy_values
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:738` — FROM access_policy_values
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:754` — INSERT INTO access_policy_values (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:800` — FROM access_policy_values
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:11` — - created table access_policy_values
+- `phone_barrier_access_core.py:739` — FROM access_policy_values
+- `phone_barrier_access_core.py:755` — INSERT INTO access_policy_values (
+- `phone_barrier_access_core.py:801` — FROM access_policy_values
+- `phone_barrier_access_core.py:1107` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:739` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:755` — INSERT INTO access_policy_values (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:801` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1107` — FROM access_policy_values
+
+## `access_policy_versions`
+- `CHECK_phone_barrier_access_sandbox_schema.py:90` — FROM access_policy_versions
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:686` — FROM access_policy_versions
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:697` — FROM access_policy_versions
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:705` — INSERT INTO access_policy_versions (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:785` — FROM access_policy_versions
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:12` — - created table access_policy_versions
+- `phone_barrier_access_core.py:687` — FROM access_policy_versions
+- `phone_barrier_access_core.py:698` — FROM access_policy_versions
+- `phone_barrier_access_core.py:706` — INSERT INTO access_policy_versions (
+- `phone_barrier_access_core.py:786` — FROM access_policy_versions
+- `phone_barrier_access_core.py:1092` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:687` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:698` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:706` — INSERT INTO access_policy_versions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:786` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1092` — FROM access_policy_versions
+
+## `access_role_permissions`
+- `access_control.py:163` — JOIN access_role_permissions rp
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:259` — FROM access_role_permissions
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:339` — INSERT INTO access_role_permissions
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:256` — FROM access_role_permissions
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:336` — INSERT INTO access_role_permissions
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:259` — FROM access_role_permissions
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:339` — INSERT INTO access_role_permissions
+- `manage_staff_access.py:96` — FROM access_role_permissions
+- `manage_staff_access_v2.py:96` — FROM access_role_permissions
+- `migrate_access_control_and_guard.py:387` — FROM access_role_permissions
+- `migrate_access_control_and_guard.py:400` — UPDATE access_role_permissions
+- `migrate_access_control_and_guard.py:409` — INSERT INTO access_role_permissions (
+- `migrate_service_orders_and_fulfillment.py:535` — FROM access_role_permissions
+- `migrate_service_orders_and_fulfillment.py:548` — UPDATE access_role_permissions
+- `migrate_service_orders_and_fulfillment.py:557` — INSERT INTO access_role_permissions (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:535` — FROM access_role_permissions
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:548` — UPDATE access_role_permissions
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:557` — INSERT INTO access_role_permissions (
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:265` — FROM access_role_permissions
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:345` — INSERT INTO access_role_permissions
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `run_bot_live_services_sandbox_v1.py:265` — FROM access_role_permissions
+- `run_bot_live_services_sandbox_v1.py:345` — INSERT INTO access_role_permissions
+
+## `access_roles`
+- `access_control.py:160` — JOIN access_roles r
+- `access_control.py:275` — LEFT JOIN access_roles r ON r.role_code = ur.role_code
+- `manage_staff_access.py:85` — FROM access_roles
+- `manage_staff_access.py:211` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+- `manage_staff_access_v2.py:85` — FROM access_roles
+- `manage_staff_access_v2.py:211` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+- `migrate_access_control_and_guard.py:369` — INSERT INTO access_roles (
+- `migrate_service_orders_and_fulfillment.py:517` — INSERT INTO access_roles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:517` — INSERT INTO access_roles (
+- `prepare_live_service_test.py:94` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+
+## `access_schema_migrations`
+- `CHECK_phone_barrier_access_operational_sandbox.py:44` — "SELECT applied_at FROM access_schema_migrations WHERE migration_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:983` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:989` — INSERT INTO access_schema_migrations (
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:13` — - created table access_schema_migrations
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:75` — "SELECT 1 FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:984` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:990` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_core.py:1365` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:1371` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:984` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:990` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1365` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1371` — INSERT INTO access_schema_migrations (
+
+## `access_tariff_versions`
+- `CHECK_phone_barrier_access_sandbox_schema.py:73` — FROM access_tariff_versions
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:623` — FROM access_tariff_versions
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:647` — INSERT INTO access_tariff_versions (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:829` — FROM access_tariff_versions
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:14` — - created table access_tariff_versions
+- `phone_barrier_access_core.py:624` — FROM access_tariff_versions
+- `phone_barrier_access_core.py:648` — INSERT INTO access_tariff_versions (
+- `phone_barrier_access_core.py:830` — FROM access_tariff_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:624` — FROM access_tariff_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:648` — INSERT INTO access_tariff_versions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:830` — FROM access_tariff_versions
+
+## `access_user_permissions`
+- `access_control.py:131` — FROM access_user_permissions
+- `manage_staff_access.py:148` — FROM access_user_permissions
+- `manage_staff_access.py:261` — FROM access_user_permissions
+- `manage_staff_access.py:271` — UPDATE access_user_permissions
+- `manage_staff_access.py:277` — INSERT INTO access_user_permissions (
+- `manage_staff_access_v2.py:148` — FROM access_user_permissions
+- `manage_staff_access_v2.py:261` — FROM access_user_permissions
+- `manage_staff_access_v2.py:271` — UPDATE access_user_permissions
+- `manage_staff_access_v2.py:277` — INSERT INTO access_user_permissions (
+
+## `access_user_roles`
+- `access_control.py:159` — FROM access_user_roles ur
+- `access_control.py:274` — FROM access_user_roles ur
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:237` — FROM access_user_roles
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:298` — FROM access_user_roles
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:311` — INSERT INTO access_user_roles
+- `create_clean_live_sandbox.py:222` — INSERT INTO access_user_roles (
+- `create_clean_live_sandbox.py:408` — FROM access_user_roles
+- `create_isolated_live_sandbox_v2.py:222` — INSERT INTO access_user_roles (
+- `create_isolated_live_sandbox_v2.py:404` — FROM access_user_roles
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:234` — FROM access_user_roles
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:295` — FROM access_user_roles
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:308` — INSERT INTO access_user_roles
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:237` — FROM access_user_roles
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:298` — FROM access_user_roles
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:311` — INSERT INTO access_user_roles
+- `guard_workspace_preflight.py:227` — INSERT INTO access_user_roles (
+- `guard_workspace_preflight_v2.py:227` — INSERT INTO access_user_roles (
+- `manage_staff_access.py:130` — FROM access_user_roles
+- `manage_staff_access.py:217` — FROM access_user_roles
+- `manage_staff_access.py:226` — UPDATE access_user_roles
+- `manage_staff_access.py:232` — INSERT INTO access_user_roles (
+- `manage_staff_access_v2.py:130` — FROM access_user_roles
+- `manage_staff_access_v2.py:217` — FROM access_user_roles
+- `manage_staff_access_v2.py:226` — UPDATE access_user_roles
+- `manage_staff_access_v2.py:232` — INSERT INTO access_user_roles (
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:243` — FROM access_user_roles
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:304` — FROM access_user_roles
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:317` — INSERT INTO access_user_roles
+- `prepare_live_service_test.py:120` — INSERT INTO access_user_roles (
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `run_bot_live_services_sandbox_v1.py:243` — FROM access_user_roles
+- `run_bot_live_services_sandbox_v1.py:304` — FROM access_user_roles
+- `run_bot_live_services_sandbox_v1.py:317` — INSERT INTO access_user_roles
+
+## `active`
+- `Data/db/sandbox/service_orders_preflight_2026-06-26_19-42-50.txt:25` — OK  retired offer hidden from active list
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9799` — 401:                 "retired offer hidden from active list": (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18324` — 401:                 "retired offer hidden from active list": (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:401` — "retired offer hidden from active list": (
+- `service_orders_preflight.py:401` — "retired offer hidden from active list": (
+
+## `adjustment_assignments`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:77` — TABLE adjustment_assignments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:83` — CREATE TABLE adjustment_assignments (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1076` — FOREIGN KEY (adjustment_assignment_id) REFERENCES adjustment_assignments(id)
+- `migrate_charge_adjustments.py:207` — FOREIGN KEY (adjustment_assignment_id) REFERENCES adjustment_assignments(id)
+
+## `adjustment_catalog`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:107` — FOREIGN KEY (adjustment_code) REFERENCES adjustment_catalog(adjustment_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:150` — TABLE adjustment_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:156` — CREATE TABLE adjustment_catalog (
+- `migrate_charge_adjustments.py:181` — FOREIGN KEY (adjustment_code) REFERENCES adjustment_catalog(adjustment_code)
+- `migrate_charge_adjustments.py:253` — cur.execute("SELECT id FROM adjustment_catalog WHERE adjustment_code = ?", (values["adjustment_code"],))
+- `migrate_charge_adjustments.py:257` — UPDATE adjustment_catalog
+- `migrate_charge_adjustments.py:271` — INSERT INTO adjustment_catalog (
+
+## `aliased`
+- `fix_source_ref_schema.py:7` — 2. Finds the table aliased as "p" in the SQL that uses p.source_ref.
+- `fix_source_ref_schema.py:243` — "Could not determine the table aliased as p from the SQL containing "
+
+## `all`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md:18` — - A barrier-access phone is a private credential and may differ from all resident/Telegram contact phones.
+
+## `alloc`
+- `tools/cashier_unpaid_preview.py:99` — LEFT JOIN alloc ON alloc.charge_id = c.id
+
+## `another`
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7110` — 359:             "The earlier reprogramming workflow was therefore run from another "
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:40` — 5. Never create a resident-facing action by impersonating or switching into another resident's client account.
+- `FIND_actual_service_order_state.py:359` — "The earlier reprogramming workflow was therefore run from another "
+
+## `apartment_link_requests`
+- `Bots/handlers/client_portal.py:744` — FROM apartment_link_requests
+- `Bots/handlers/client_portal.py:756` — INSERT INTO apartment_link_requests (
+- `Bots/handlers/client_portal.py:823` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal.py:847` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal.py:877` — FROM apartment_link_requests
+- `Bots/handlers/client_portal.py:926` — UPDATE apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:744` — FROM apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:756` — INSERT INTO apartment_link_requests (
+- `Bots/handlers/client_portal_safe_linking.py:823` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal_safe_linking.py:847` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal_safe_linking.py:877` — FROM apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:926` — UPDATE apartment_link_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:199` — TABLE apartment_link_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:205` — CREATE TABLE apartment_link_requests (
+
+## `apartment_number`
+- `FIX_live_services_sandbox_payment_schema.py:18` — 4. Resolves apartment_id from apartment_number, first via apartments and then
+
+## `apartment_verification`
+- `Bots/db_access - Copy.py:1536` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `Bots/db_access - Copy.py:1549` — FROM apartment_verification
+- `Bots/db_access - Copy.py:1577` — def get_apartment_verification_status(apartment_number):
+- `Bots/db_access - Copy.py:1591` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1627` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1662` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1679` — def set_apartment_verification_status(
+- `Bots/db_access - Copy.py:1701` — INSERT INTO apartment_verification (
+- `Bots/db_access - Copy.py:2478` — verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:2528` — def set_apartment_verification_in_progress(apartment_number, verified_by=None):
+- `Bots/db_access - Copy.py:2529` — current = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:2534` — return set_apartment_verification_status(
+- `Bots/db_access - Copy.py:3315` — - затем ставит apartment_verification = confirmed.
+- `Bots/db_access - Copy.py:3343` — ok, status = set_apartment_verification_status(
+- `Bots/db_access - Copy.py:3962` — verification = get_apartment_verification_status(status_lookup_number)
+- `Bots/db_access - Copy.py:4778` — def set_apartment_verification_status(
+- `Bots/db_access - Copy.py:4797` — old_verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:4806` — INSERT INTO apartment_verification (
+- `Bots/db_access - Copy.py:4844` — action_type="apartment_verification_status_update",
+- `Bots/db_access.py:1536` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `Bots/db_access.py:1549` — FROM apartment_verification
+- `Bots/db_access.py:1577` — def get_apartment_verification_status(apartment_number):
+- `Bots/db_access.py:1591` — FROM apartment_verification av
+- `Bots/db_access.py:1627` — FROM apartment_verification av
+- `Bots/db_access.py:1662` — FROM apartment_verification av
+- `Bots/db_access.py:1679` — def set_apartment_verification_status(
+- `Bots/db_access.py:1701` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:2478` — verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:2528` — def set_apartment_verification_in_progress(apartment_number, verified_by=None):
+- `Bots/db_access.py:2529` — current = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:2534` — return set_apartment_verification_status(
+- `Bots/db_access.py:3315` — - затем ставит apartment_verification = confirmed.
+- `Bots/db_access.py:3343` — ok, status = set_apartment_verification_status(
+- `Bots/db_access.py:3962` — verification = get_apartment_verification_status(status_lookup_number)
+- `Bots/db_access.py:4778` — def set_apartment_verification_status(
+- `Bots/db_access.py:4797` — old_verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:4806` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:4844` — action_type="apartment_verification_status_update",
+- `Bots/db_access.py:5737` — FROM apartment_verification
+- `Bots/db_access.py:5841` — def set_apartment_verification_status(
+- `Bots/db_access.py:5871` — FROM apartment_verification
+- `Bots/db_access.py:5880` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:5918` — action_type="apartment_verification_status_update",
+- `Bots/handlers/agreement - Copy.py:8` — set_apartment_verification_status,
+- `Bots/handlers/agreement - Copy.py:448` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement - Copy.py:465` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement.py:8` — set_apartment_verification_status,
+- `Bots/handlers/agreement.py:448` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement.py:465` — ok, result = set_apartment_verification_status(
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:169` — apartment_id: apartment_verification, contact_methods, events, persons, resident_accounts, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:170` — apartment_number: apartment_verification, apartments, extracted_facts, operator_audit_log, parking_time_review_tasks, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:184` — comment: apartment_verification, audit_log, events, extracted_facts, operator_audit_log, schema_info, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:285` — status: apartment_verification, apartments, events, extracted_facts, parking_time_review_tasks, resident_accounts, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:299` — updated_at: apartment_verification, apartments, bot_admins, bot_user_sessions, contact_methods, persons, resident_accounts, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:303` — verified_at: apartment_verification, resident_accounts, verification_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:304` — verified_by: apartment_verification, verification_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:654` — verified_at: apartment_verification, resident_accounts, verification_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:655` — verified_by: apartment_verification, verification_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:26` — - apartment_verification (231 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:257` — TABLE apartment_verification
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:263` — CREATE TABLE apartment_verification (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:292` — - idx_apartment_verification_apartment_number | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:293` — - idx_apartment_verification_status | unique=0 | origin=c | partial=0 | columns=[status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:294` — - sqlite_autoindex_apartment_verification_1 | unique=1 | origin=u | partial=0 | columns=[apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3159` — INDEX idx_apartment_verification_apartment_number
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3161` — CREATE INDEX idx_apartment_verification_apartment_number
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3162` — ON apartment_verification(apartment_number)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3165` — INDEX idx_apartment_verification_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3167` — CREATE INDEX idx_apartment_verification_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3168` — ON apartment_verification(status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4103` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4141` — verified_at: apartment_verification, resident_accounts, verification_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4142` — verified_by: apartment_verification, verification_log
+- `migrate_apartment_verification.py:38` — CREATE TABLE IF NOT EXISTS apartment_verification (
+- `migrate_apartment_verification.py:53` — CREATE INDEX IF NOT EXISTS idx_apartment_verification_status
+- `migrate_apartment_verification.py:54` — ON apartment_verification(status)
+- `migrate_apartment_verification.py:58` — CREATE INDEX IF NOT EXISTS idx_apartment_verification_apartment_number
+- `migrate_apartment_verification.py:59` — ON apartment_verification(apartment_number)
+- `migrate_apartment_verification.py:63` — INSERT OR IGNORE INTO apartment_verification (
+- `migrate_apartment_verification.py:82` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `migrate_apartment_verification.py:87` — FROM apartment_verification
+- `migrate_apartment_verification.py:96` — print(f"apartment_verification total: {total}")
+- `tools/project_passport.py:139` — "apartment_verification",
+
+## `apartments`
+- `audit_composite_apartments.py:1` — # audit_composite_apartments.py
+- `audit_composite_apartments.py:30` — def get_main_apartments():
+- `audit_composite_apartments.py:36` — FROM apartments
+- `audit_composite_apartments.py:85` — def split_apartments(apartment_number):
+- `audit_composite_apartments.py:99` — main_apartments = set(get_main_apartments())
+- `audit_composite_apartments.py:124` — print("No composite apartments found.")
+- `audit_composite_apartments.py:148` — parts = split_apartments(apartment_number)
+- `audit_composite_apartments.py:153` — main_apartments,
+- `audit_osbb_telegram_messages.py:109` — apartments = set()
+- `audit_osbb_telegram_messages.py:122` — apartments.add(m.group(1))
+- `audit_osbb_telegram_messages.py:153` — lines.append(f"Apartments found : {len(apartments)}")
+- `audit_osbb_telegram_messages.py:158` — lines.append("Apartments:")
+- `audit_osbb_telegram_messages.py:159` — lines.append(", ".join(sorted(apartments)[:200]))
+- `audit_registry.py:62` — "apartments",
+- `audit_registry.py:82` — report.section("APARTMENTS BY SOURCE")
+- `audit_registry.py:88` — FROM apartments
+- `audit_registry.py:97` — report.section("APARTMENTS CREATED FROM PAPER PARKING")
+- `audit_registry.py:103` — FROM apartments
+- `audit_registry.py:118` — report.section("APARTMENTS WITHOUT PERSONS")
+- `audit_registry.py:124` — FROM apartments a
+- `audit_registry.py:136` — report.section("APARTMENTS WITH MULTIPLE PERSON RECORDS")
+- `audit_registry.py:142` — FROM apartments a
+- `audit_registry.py:162` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:180` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:215` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:234` — FROM apartments
+- `audit_tbot_quarantine.py:62` — FROM apartments a
+- `audit_tbot_quarantine.py:232` — report.add(f"Main apartments        : {len(main_apts)}")
+- `audit_tbot_quarantine.py:233` — report.add(f"TBot apartments        : {len(tbot_apts)}")
+- `audit_tbot_quarantine.py:238` — report.section("APARTMENTS ONLY IN TBOT")
+- `billing/build_parking_time_review_tasks.py:90` — JOIN apartments a
+- `billing/import_ohorona_parking_time.py:168` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_ohorona_parking_time.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time.py:267` — lines.append(f"Apartments with tariff hints        : {len(hints)}")
+- `billing/import_ohorona_parking_time.py:268` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time.py:269` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_ohorona_parking_time.py:270` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/import_ohorona_parking_time.py:410` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:168` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_ohorona_parking_time_simple_preview.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:304` — lines.append(f"Apartments with tariff hints        : {len(hints)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:305` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:306` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:307` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:447` — classified = classify_apartments(hints, vehicles)
+- `billing/import_parking_time_hints_from_ohorona.py:150` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_parking_time_hints_from_ohorona.py:286` — lines.append(f"Apartments with hints              : {len(hints)}")
+- `billing/import_parking_time_hints_from_ohorona.py:287` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:288` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_parking_time_hints_from_ohorona.py:289` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/migrate_add_parking_billing.py:83` — FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+- `billing/report_parking_time_review_tasks.py:94` — lines.append(f"Apartments affected: {apt_count}")
+- `billing/report_parking_time_review_tasks.py:141` — JOIN apartments a
+- `billing/report_parking_time_with_hints.py:141` — JOIN apartments a ON a.id = v.apartment_id
+- `billing_statement_excel.py:172` — JOIN apartments a ON a.id = v.apartment_id
+- `billing_statement_excel.py:500` — ws.append(["Apartments in statement", len(data["by_apt"])])
+- `billing_statement_excel.py:539` — print("Apartments:", len(data["by_apt"]))
+- `Bots/db_access - Copy.py:307` — FROM apartments
+- `Bots/db_access - Copy.py:353` — # Apartments / vehicles
+- `Bots/db_access - Copy.py:362` — FROM apartments
+- `Bots/db_access - Copy.py:849` — JOIN apartments a
+- `Bots/db_access - Copy.py:993` — JOIN apartments a
+- `Bots/db_access - Copy.py:1056` — # REPAIR BLOCK: apartments and vehicle edit compatibility
+- `Bots/db_access - Copy.py:1073` — JOIN apartments a
+- `Bots/db_access - Copy.py:1092` — FROM apartments
+- `Bots/db_access - Copy.py:1322` — JOIN apartments a
+- `Bots/db_access - Copy.py:1462` — JOIN apartments a
+- `Bots/db_access - Copy.py:1645` — def get_apartments_by_verification_status(status, limit=30):
+- `Bots/db_access - Copy.py:2586` — def composite_exists_in_db(apartment_number, main_apartments):
+- `Bots/db_access - Copy.py:2593` — part in main_apartments
+- `Bots/db_access - Copy.py:2630` — FROM apartments
+- `Bots/db_access - Copy.py:2851` — main_apartments = _get_main_apartment_numbers()
+- `Bots/db_access - Copy.py:2864` — "apartments_not_in_db": [],
+- `Bots/db_access - Copy.py:2866` — "composite_apartments": [],
+- `Bots/db_access - Copy.py:2880` — composite_apartments = set()
+- `Bots/db_access - Copy.py:2888` — if composite_exists_in_db(apt, main_apartments):
+- `Bots/db_access - Copy.py:2889` — composite_apartments.add(
+- `Bots/db_access - Copy.py:2895` — elif apt not in main_apartments:
+- `Bots/db_access - Copy.py:2913` — dashboard["tbot"]["apartments_not_in_db"] = sorted(seen_apts)
+- `Bots/db_access - Copy.py:2915` — dashboard["tbot"]["composite_apartments"] = sorted(composite_apartments)
+- `Bots/db_access - Copy.py:2972` — apts = data["tbot"]["apartments_not_in_db"]
+- `Bots/db_access - Copy.py:2974` — composite = data["tbot"].get("composite_apartments", [])
+- `Bots/db_access - Copy.py:3570` — # Это сохраняет совместимость с кодом, который ожидает одну строку apartments.
+- `Bots/db_access - Copy.py:3582` — FROM apartments
+- `Bots/db_access - Copy.py:3610` — FROM apartments
+- `Bots/db_access - Copy.py:3667` — FROM apartments
+- `Bots/db_access - Copy.py:3678` — apartments = cur.fetchall()
+- `Bots/db_access - Copy.py:3680` — if not apartments:
+- `Bots/db_access - Copy.py:3701` — "apartment": apartments[0],
+- `Bots/db_access - Copy.py:4111` — JOIN apartments a
+- `Bots/db_access.py:307` — FROM apartments
+- `Bots/db_access.py:353` — # Apartments / vehicles
+- `Bots/db_access.py:362` — FROM apartments
+- `Bots/db_access.py:849` — JOIN apartments a
+- `Bots/db_access.py:993` — JOIN apartments a
+- `Bots/db_access.py:1056` — # REPAIR BLOCK: apartments and vehicle edit compatibility
+- `Bots/db_access.py:1073` — JOIN apartments a
+- `Bots/db_access.py:1092` — FROM apartments
+- `Bots/db_access.py:1322` — JOIN apartments a
+- `Bots/db_access.py:1462` — JOIN apartments a
+- ... and 561 more
+
+## `audit_log`
+- `access_control.py:32` — from audit_logger import audit_log
+- `access_control.py:34` — audit_log = None
+- `access_control.py:89` — "access_audit_log",
+- `access_control.py:324` — INSERT INTO access_audit_log (
+- `access_control.py:363` — operator_audit_log. Caller controls transaction commit.
+- `access_control.py:378` — if audit_log:
+- `access_control.py:379` — audit_log(
+- `audit_logger.py:48` — def ensure_audit_log(conn):
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `audit_logger.py:102` — if add_column_if_missing(cur, "operator_audit_log", col, col_def):
+- `audit_logger.py:105` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `audit_logger.py:106` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `audit_logger.py:107` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_user ON operator_audit_log(user_id)")
+- `audit_logger.py:108` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `audit_logger.py:109` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `audit_logger.py:110` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_table_row ON operator_audit_log(table_name, row_id)")
+- `audit_logger.py:111` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `audit_logger.py:116` — def audit_log(
+- `audit_logger.py:145` — ensure_audit_log(conn)
+- `audit_logger.py:168` — cols = table_columns(cur, "operator_audit_log")
+- `audit_logger.py:173` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `audit_logger.py:204` — return audit_log(
+- `audit_logger.py:232` — return audit_log(
+- `audit_logger.py:255` — audit_id = audit_log(
+- `audit_logger.py:260` — action_type="audit_logger_self_test",
+- `audit_logger.py:261` — table_name="operator_audit_log",
+- `audit_logger.py:266` — source_context="audit_logger.py self-test",
+- `audit_logger.py:268` — extra={"module": "audit_logger.py"},
+- `audit_logger.py:291` — print("audit_logger.py is a helper module.")
+- `audit_registry.py:68` — "audit_log",
+- `Bots/db_access - Copy.py:422` — def write_audit_log(
+- `Bots/db_access - Copy.py:437` — # В вашей БД audit_log уже имеет старую структуру:
+- `Bots/db_access - Copy.py:440` — INSERT INTO audit_log (
+- `Bots/db_access - Copy.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access - Copy.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access - Copy.py:4583` — return False, f"audit_log_error: {exc}"
+- `Bots/db_access.py:422` — def write_audit_log(
+- `Bots/db_access.py:437` — # В вашей БД audit_log уже имеет старую структуру:
+- `Bots/db_access.py:440` — INSERT INTO audit_log (
+- `Bots/db_access.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access.py:4583` — return False, f"audit_log_error: {exc}"
+- `Bots/handlers/audit_viewer - Copy.py:52` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer - Copy.py:83` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer - Copy.py:130` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer - Copy.py:180` — "Основной журнал: operator_audit_log.\n\n"
+- `Bots/handlers/audit_viewer.py:4` — Источник данных: ТОЛЬКО operator_audit_log.
+- `Bots/handlers/audit_viewer.py:5` — Таблица audit_log является прежней/пустой и здесь намеренно не используется.
+- `Bots/handlers/audit_viewer.py:91` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:96` — "SELECT COUNT(*) FROM operator_audit_log WHERE actor_type=?",
+- `Bots/handlers/audit_viewer.py:100` — cur.execute("SELECT COUNT(*) FROM operator_audit_log")
+- `Bots/handlers/audit_viewer.py:115` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:145` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer.py:232` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer.py:260` — "Основной журнал: operator_audit_log.\n"
+- `Bots/handlers/audit_viewer.py:261` — "Таблица audit_log не используется: она является старой и пустой.\n\n"
+- `Bots/handlers/cashier_operator.py:45` — from audit_logger import audit_log
+- `Bots/handlers/cashier_operator.py:686` — audit_log(
+- `Bots/handlers/cashier_operator.py:808` — audit_log(
+- `Bots/handlers/cashier_operator.py:836` — audit_log(
+- `Bots/handlers/cashier_operator.py:852` — audit_log(
+- `Bots/handlers/cashier_operator.py:1148` — audit_log(
+- `Bots/handlers/cashier_operator.py:1304` — audit_log(
+- `Bots/handlers/cashier_operator.py:1413` — audit_log(
+- `Bots/handlers/client_portal.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal.py:46` — audit_log = None
+- `Bots/handlers/client_portal.py:780` — if audit_log:
+- `Bots/handlers/client_portal.py:781` — audit_log(
+- `Bots/handlers/client_portal.py:907` — if audit_log:
+- `Bots/handlers/client_portal.py:908` — audit_log(
+- `Bots/handlers/client_portal.py:943` — if audit_log:
+- `Bots/handlers/client_portal.py:944` — audit_log(
+- `Bots/handlers/client_portal.py:1379` — if audit_log:
+- `Bots/handlers/client_portal.py:1380` — audit_log(
+- `Bots/handlers/client_portal.py:1491` — if audit_log:
+- `Bots/handlers/client_portal.py:1492` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal_safe_linking.py:46` — audit_log = None
+- `Bots/handlers/client_portal_safe_linking.py:780` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:781` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:907` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:908` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:943` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:944` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:1379` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:1380` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:1491` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:1492` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:12` — - фиксирует все действия в operator_audit_log.
+- `Bots/handlers/commercial_contract_editor.py:40` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/commercial_contract_editor.py:438` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:553` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:631` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:693` — audit_log(
+- `Bots/handlers/guard_workspace.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor - Copy.py:602` — audit_log(
+- ... and 420 more
+
+## `audit_logger`
+- `access_control.py:32` — from audit_logger import audit_log
+- `Bots/handlers/cashier_operator.py:45` — from audit_logger import audit_log
+- `Bots/handlers/client_portal.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal_safe_linking.py:44` — from audit_logger import audit_log
+- `Bots/handlers/commercial_contract_editor.py:40` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor - Copy.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/vehicle_card_editor.py:19` — from audit_logger import audit_field_change
+- `cashier_journal.py:15` — from audit_logger import audit_log
+- `cashier_v2_core.py:30` — from audit_logger import audit_log
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:30` — from audit_logger import audit_log
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:30` — from audit_logger import audit_log
+- `commercial_contracts.py:32` — from audit_logger import audit_log
+- `commercial_notification_delivery.py:34` — from audit_logger import audit_log
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:32` — from audit_logger import audit_log
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:32` — from audit_logger import audit_log
+- `import_ohorona_list1_to_central_cashbox.py:36` — from audit_logger import audit_log
+- `import_ohorona_to_cashbox.py:18` — from audit_logger import audit_log
+- `manage_staff_access.py:60` — from audit_logger import audit_log
+- `manage_staff_access_v2.py:60` — from audit_logger import audit_log
+- `mark_audit_enabled.py:1` — from audit_logger import audit_system_event
+- `migrate_access_control_and_guard.py:39` — from audit_logger import audit_log
+- `migrate_apartment_link_requests.py:34` — from audit_logger import audit_log
+- `migrate_cashier_operator_editor.py:45` — from audit_logger import audit_log
+- `migrate_cashier_v2.py:37` — from audit_logger import audit_log
+- `migrate_cashier_v2_compat.py:38` — from audit_logger import audit_log
+- `migrate_charge_adjustments.py:15` — from audit_logger import audit_log
+- `migrate_commercial_contract_core.py:44` — from audit_logger import audit_log
+- `migrate_remote_requests.py:34` — from audit_logger import audit_log
+- `migrate_service_items.py:13` — from audit_logger import audit_log
+- `migrate_service_orders_and_fulfillment.py:45` — from audit_logger import audit_log
+- `migrate_unit_registry_composite_groups.py:41` — from audit_logger import audit_log
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:45` — from audit_logger import audit_log
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:32` — from audit_logger import audit_log
+- `phone_barrier_access_v2_payload/service_orders_core.py:32` — from audit_logger import audit_log
+- `repair_confirmed_unit_seed_notes.py:35` — from audit_logger import audit_field_change
+- `reset_service_catalog.py:16` — from audit_logger import audit_log
+- `restore_resident_apartment_link.py:41` — from audit_logger import audit_log
+- `seed_commercial_unit_placeholders.py:34` — from audit_logger import audit_log
+- `service_code_compatibility_payload/service_orders_core.py:32` — from audit_logger import audit_log
+- `service_orders_core.py:32` — from audit_logger import audit_log
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:32` — from audit_logger import audit_log
+
+## `bank_transactions`
+- `cashier_v2_core.py:173` — "bank_transactions",
+- `cashier_v2_core.py:534` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core.py:765` — "bank_transactions",
+- `cashier_v2_core.py:817` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core.py:839` — table_name="bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:150` — "bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:514` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:745` — "bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:797` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:819` — table_name="bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:150` — "bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:458` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:689` — "bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:741` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:763` — table_name="bank_transactions",
+- `cashier_v2_preflight.py:87` — "bank_transactions",
+- `cashier_v2_preflight.py:124` — "bank_transactions": {
+- `cashier_v2_preflight.py:260` — "bank_transactions": m2.create_table_bank_transactions(cur),
+- `cashier_v2_preflight_compat.py:141` — "bank_transactions",
+- `cashier_v2_preflight_compat.py:156` — "bank_transactions": {"transaction_ref", "transaction_date", "amount", "payment_id"},
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:32` — v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+- `Data/db/sandbox/cashier_v2_preflight_compat_2026-06-25_19-47-09.txt:31` — v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:10` — bank_transactions: created
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:28` — Индексы: idx_payment_notices_status, idx_payment_notices_unit, idx_bank_transactions_ref, idx_bank_transactions_unit, idx_cashier_batch_items_batch, idx_cashier_batch_items_unit, idx_cashier_reconciliation_status, idx_cashier_reconciliation_unit, idx_payments_notice_v2, idx_payments_bank_v2, idx_receipts_notice_v2
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:29` — - bank_transactions
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:329` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:341` — bank_name: bank_transactions
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:373` — cashier_batch_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:443` — entry_status: bank_transactions, cashier_receipts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:519` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:520` — operator_note: apartment_link_requests, bank_transactions, payment_notices, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:529` — payer_text: bank_transactions
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:533` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:535` — payment_notice_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:599` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:612` — source_ref: bank_transactions, cashbox_operations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:615` — source_type: bank_transactions, cashbox_operations, message_sources
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:635` — transaction_date: bank_transactions
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:636` — transaction_ref: bank_transactions
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:652` — value_date: bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:29` — - bank_transactions (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:410` — TABLE bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:416` — CREATE TABLE bank_transactions (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:474` — - idx_bank_transactions_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, transaction_date]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:475` — - idx_bank_transactions_ref | unique=0 | origin=c | partial=0 | columns=[transaction_ref]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:476` — - sqlite_autoindex_bank_transactions_1 | unique=1 | origin=u | partial=0 | columns=[transaction_ref]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3197` — INDEX idx_bank_transactions_ref
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3199` — CREATE INDEX idx_bank_transactions_ref
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3200` — ON bank_transactions(transaction_ref)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3203` — INDEX idx_bank_transactions_unit
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3205` — CREATE INDEX idx_bank_transactions_unit
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3206` — ON bank_transactions(apartment_id, apartment_number, transaction_date)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3816` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3828` — bank_name: bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3860` — cashier_batch_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3893` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3930` — entry_status: bank_transactions, cashier_receipts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4006` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4007` — operator_note: apartment_link_requests, bank_transactions, payment_notices, remote_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4016` — payer_text: bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4020` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4022` — payment_notice_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4024` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4086` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4099` — source_ref: bank_transactions, cashbox_operations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4102` — source_type: bank_transactions, cashbox_operations, message_sources
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4122` — transaction_date: bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4123` — transaction_ref: bank_transactions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4139` — value_date: bank_transactions
+- `guard_workspace_preflight.py:256` — "999999991", "bank_transactions", "CREATE",
+- `guard_workspace_preflight_v2.py:256` — "999999991", "bank_transactions", "CREATE",
+- `migrate_cashier_v2.py:134` — def create_table_bank_transactions(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2.py:135` — existed = table_exists(cur, "bank_transactions")
+- `migrate_cashier_v2.py:137` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2.py:306` — "idx_bank_transactions_ref",
+- `migrate_cashier_v2.py:308` — CREATE INDEX idx_bank_transactions_ref
+- `migrate_cashier_v2.py:309` — ON bank_transactions(transaction_ref)
+- `migrate_cashier_v2.py:313` — "idx_bank_transactions_unit",
+- `migrate_cashier_v2.py:315` — CREATE INDEX idx_bank_transactions_unit
+- `migrate_cashier_v2.py:316` — ON bank_transactions(apartment_id, apartment_number, transaction_date)
+- `migrate_cashier_v2.py:413` — "bank_transactions": create_table_bank_transactions(cur),
+- `migrate_cashier_v2_compat.py:129` — def create_bank_transactions(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:130` — existed = table_exists(cur, "bank_transactions")
+- `migrate_cashier_v2_compat.py:132` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2_compat.py:276` — "bank_transactions": {
+- ... and 10 more
+
+## `barrier_phone_access`
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_16-17-39.txt:11` — Телефонных доступов barrier_phone_access: 0 (не удаляются данным модулем)
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_20-05-21.txt:11` — Телефонных доступов barrier_phone_access: 0 (не удаляются данным модулем)
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_20-07-25.txt:11` — Телефонных доступов barrier_phone_access: 0 (не удаляются данным модулем)
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8574` — 643:         "barrier_phone_access": {
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9068` — 643:         "barrier_phone_access": {
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:30` — - barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:310` — access_status: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:347` — blocked_at: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:348` — blocked_by: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:390` — contact_id: adjustment_assignments, barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:417` — debt_amount: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:542` — phone_number: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:619` — status_reason: barrier_phone_access, commercial_access_phones
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:638` — unblocked_at: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:639` — unblocked_by: barrier_phone_access
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:30` — - barrier_phone_access (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:484` — TABLE barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:490` — CREATE TABLE barrier_phone_access (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:528` — - idx_barrier_phone_access_status | unique=0 | origin=c | partial=0 | columns=[access_status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:529` — - idx_barrier_phone_access_phone | unique=0 | origin=c | partial=0 | columns=[phone_number]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:530` — - idx_barrier_phone_access_apt | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3209` — INDEX idx_barrier_phone_access_apt
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3211` — CREATE INDEX idx_barrier_phone_access_apt ON barrier_phone_access(apartment_number)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3213` — INDEX idx_barrier_phone_access_phone
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3215` — CREATE INDEX idx_barrier_phone_access_phone ON barrier_phone_access(phone_number)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3217` — INDEX idx_barrier_phone_access_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3219` — CREATE INDEX idx_barrier_phone_access_status ON barrier_phone_access(access_status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3797` — access_status: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3834` — blocked_at: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3835` — blocked_by: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3877` — contact_id: adjustment_assignments, barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3904` — debt_amount: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4029` — phone_number: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4106` — status_reason: barrier_phone_access, commercial_access_phones
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4125` — unblocked_at: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4126` — unblocked_by: barrier_phone_access
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_service_items.py:120` — CREATE TABLE IF NOT EXISTS barrier_phone_access (
+- `migrate_service_items.py:137` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_apt ON barrier_phone_access(apartment_number)")
+- `migrate_service_items.py:138` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_phone ON barrier_phone_access(phone_number)")
+- `migrate_service_items.py:139` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_status ON barrier_phone_access(access_status)")
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `migrate_service_orders_and_fulfillment.py:643` — "barrier_phone_access": {
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:643` — "barrier_phone_access": {
+- `reset_service_catalog.py:452` — barrier_access_count = count_rows(cur, "barrier_phone_access") or 0
+- `reset_service_catalog.py:472` — "Телефонных доступов barrier_phone_access: "
+- `tools/project_passport.py:125` — "barrier_phone_access",
+
+## `being`
+- `patch_cashier_v2_core_schemafix.py:116` — # prevent a previously loaded live module from being reused
+
+## `billing_periods`
+- `billing/migrate_add_parking_billing.py:82` — FOREIGN KEY(billing_period_id) REFERENCES billing_periods(id),
+- `billing/migrate_add_parking_billing.py:112` — FOREIGN KEY(billing_period_id) REFERENCES billing_periods(id)
+
+## `bot`
+- `migrate_bot_core.py:257` — # All critical changes from bot/operator/admin
+
+## `bot_admins`
+- `Bots/db_access - Copy.py:52` — FROM bot_admins
+- `Bots/db_access.py:52` — FROM bot_admins
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:537` — TABLE bot_admins
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:543` — CREATE TABLE bot_admins (
+- `report_bot_admins.py:42` — FROM bot_admins
+- `report_bot_admins.py:48` — FROM bot_admins
+- `report_bot_admins.py:64` — FROM bot_admins
+- `report_bot_admins.py:102` — FROM bot_admins
+- `seed_bot_admins.py:66` — INSERT INTO bot_admins (
+- `seed_bot_admins.py:131` — FROM bot_admins
+
+## `bot_user_sessions`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:598` — TABLE bot_user_sessions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:604` — CREATE TABLE bot_user_sessions (
+
+## `both`
+- `Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:529` — Read offers from both supported service-item schemas.
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:529` — Read offers from both supported service-item schemas.
+
+## `Bots`
+- `Bots/db_access - Copy.py:478` — # Add this block into Bots\db_access.py after resident account functions.
+- `Bots/db_access.py:478` — # Add this block into Bots\db_access.py after resident account functions.
+- `Bots/handlers/agreement - Copy.py:3` — from Bots.db_access import (
+- `Bots/handlers/agreement.py:3` — from Bots.db_access import (
+- `Bots/handlers/unit_registry_editor - Copy.py:54` — from Bots.db_access import can_write
+- `Bots/handlers/unit_registry_editor.py:54` — from Bots.db_access import can_write
+- `Bots/parking_bot - Copy.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot - Copy.py:30` — from Bots.db_access import (
+- `Bots/parking_bot - Copy.py:64` — from Bots.handlers.agreement import (
+- `Bots/parking_bot.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot.py:37` — from Bots.db_access import (
+- `Bots/parking_bot.py:71` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:70` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:31` — from Bots.db_access import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:65` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:70` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:70` — from Bots.handlers.agreement import (
+
+## `Business`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:6` — The user deliberately keeps the Personal and Business workspaces separate. Do **not** merge Personal into Business. The Business workspace should start as a new project using these handoff files.
+- `Docs/OSBB_Business_Handoff_2026-06-27/TRANSFER_CHECKLIST_2026-06-27.txt:7` — 2. Do NOT merge Personal into Business.
+
+## `but`
+- `fix_source_ref_schema.py:207` — f"SQLite completed ALTER TABLE but {table_name}.source_ref is still absent."
+
+## `calendar`
+- `import_ohorona_list1_to_central_cashbox.py:26` — from calendar import monthrange
+
+## `candidate`
+- `fix_source_ref_schema.py:247` — emit(f"Detected p.source_ref table candidate(s): {', '.join(candidates)}")
+
+## `cashbox_operations`
+- `Bots/handlers/cashier_operator.py:293` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:401` — FROM cashbox_operations
+- `Bots/handlers/cashier_operator.py:750` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:858` — table_name="cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1258` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1368` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1390` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1419` — table_name="cashbox_operations",
+- `Bots/handlers/guard_workspace.py:130` — "cashbox_operations",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:130` — "cashbox_operations",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:130` — "cashbox_operations",
+- `cashier_journal.py:674` — FROM cashbox_operations
+- `cashier_journal.py:749` — cur.execute("SELECT id FROM cashbox_operations WHERE source_ref = ? LIMIT 1", (source_ref,))
+- `cashier_journal.py:857` — return insert_dynamic(cur, "cashbox_operations", {
+- `cashier_journal.py:948` — FROM cashbox_operations
+- `cashier_journal.py:1200` — table_name="cashbox_operations",
+- `cashier_journal.py:1313` — table_name="cashbox_operations",
+- `cashier_journal.py:1484` — FROM cashbox_operations
+- `cashier_journal.py:1514` — FROM cashbox_operations
+- `cashier_v2_core.py:167` — "cashbox_operations",
+- `cashier_v2_core.py:643` — "cashbox_operations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:144` — "cashbox_operations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:623` — "cashbox_operations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:144` — "cashbox_operations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:567` — "cashbox_operations",
+- `cashier_v2_preflight.py:80` — "cashbox_operations",
+- `cashier_v2_preflight.py:110` — "cashbox_operations": {
+- `cashier_v2_preflight.py:157` — m1.ensure_cashbox_operations_table(cur)
+- `cashier_v2_preflight.py:211` — "idx_cashbox_operations_cashier_receipt",
+- `cashier_v2_preflight.py:213` — CREATE INDEX idx_cashbox_operations_cashier_receipt
+- `cashier_v2_preflight.py:214` — ON cashbox_operations(cashier_receipt_id)
+- `cashier_v2_preflight.py:218` — "idx_cashbox_operations_transfer_group",
+- `cashier_v2_preflight.py:220` — CREATE INDEX idx_cashbox_operations_transfer_group
+- `cashier_v2_preflight.py:221` — ON cashbox_operations(transfer_group_ref)
+- `cashier_v2_preflight.py:247` — "cashbox_operations",
+- `cashier_v2_preflight_compat.py:74` — m1.ensure_cashbox_operations_table(cur)
+- `cashier_v2_preflight_compat.py:106` — "idx_cashbox_operations_cashier_receipt",
+- `cashier_v2_preflight_compat.py:107` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `cashier_v2_preflight_compat.py:110` — "idx_cashbox_operations_transfer_group",
+- `cashier_v2_preflight_compat.py:111` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `cashier_v2_preflight_compat.py:134` — "cashbox_operations",
+- `create_clean_live_sandbox.py:96` — "cashbox_operations",
+- `create_clean_live_sandbox.py:116` — migration.ensure_cashbox_operations_table(cur)
+- `create_clean_live_sandbox.py:166` — "idx_cashbox_operations_cashier_receipt",
+- `create_clean_live_sandbox.py:167` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `create_clean_live_sandbox.py:170` — "idx_cashbox_operations_transfer_group",
+- `create_clean_live_sandbox.py:171` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `create_clean_live_sandbox.py:397` — "cashbox_operations",
+- `create_isolated_live_sandbox_v2.py:96` — "cashbox_operations",
+- `create_isolated_live_sandbox_v2.py:116` — migration.ensure_cashbox_operations_table(cur)
+- `create_isolated_live_sandbox_v2.py:166` — "idx_cashbox_operations_cashier_receipt",
+- `create_isolated_live_sandbox_v2.py:167` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `create_isolated_live_sandbox_v2.py:170` — "idx_cashbox_operations_transfer_group",
+- `create_isolated_live_sandbox_v2.py:171` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `create_isolated_live_sandbox_v2.py:393` — "cashbox_operations",
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:191` — id=6 | role_code='GUARD_O' | resource='cashbox_operations' | action='VIEW' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:30` — v1 links: {'payments': [], 'cashbox_operations': []}
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:33` — v2 links: {'cashier_receipts': [], 'payments': [], 'cashbox_operations': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:10` — cashbox_operations: 93
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:38` — cashbox_operations: 93
+- `Data/exports/cashier/cashier_operator_migration_2026-06-25_14-43-23.txt:39` — Связи cashbox_operations: cashier_receipt_id, transfer_group_ref
+- `Data/exports/cashier/cashier_operator_migration_2026-06-25_14-43-23.txt:40` — Индексы: idx_cashier_receipts_status, idx_cashier_receipts_cashbox, idx_cashier_receipts_apartment, idx_cashier_receipts_allocation, idx_payments_cashier_receipt, idx_cashbox_operations_cashier_receipt, idx_cashbox_operations_transfer_group
+- `Data/exports/cashier/cashier_operator_migration_2026-06-25_14-43-41.txt:39` — Связи cashbox_operations: нет
+- `Data/exports/cashier/cashier_operator_migration_2026-06-25_14-43-41.txt:40` — Индексы: idx_cashier_receipts_status, idx_cashier_receipts_cashbox, idx_cashier_receipts_apartment, idx_cashier_receipts_allocation, idx_payments_cashier_receipt, idx_cashbox_operations_cashier_receipt, idx_cashbox_operations_transfer_group
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:27` — cashbox_operations: payment_notice_id, cashier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6500` — 397:                     "cashbox_operations",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6569` — 393:                     "cashbox_operations",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7251` — 95:         "cashbox_operations",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7312` — 95:         "cashbox_operations",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7720` — 353:     ("GUARD_O", "cashbox_operations", "VIEW", "CASHBOX", "O", "ALLOW", "Видит операции своей кассы O."),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7727` — 353:     ("GUARD_O", "cashbox_operations", "VIEW", "CASHBOX", "O", "ALLOW", "Видит операции своей кассы O."),
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-27-30.txt:28` — cashbox_operations: commercial_contract_id, commercial_unit_id
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-30-30.txt:28` — cashbox_operations: commercial_contract_id, commercial_unit_id
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:31` — - cashbox_operations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:316` — actor_type: cashbox_operations, cashier_batches, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:329` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:343` — base_service_code: adjustment_assignments, cashbox_operations, charges, payment_allocations, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:344` — batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:370` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:373` — cashier_batch_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:375` — cashier_receipt_id: cashbox_operations, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:377` — charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:381` — commercial_contract_id: cashbox_operations, charges, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:384` — commercial_unit_id: cashbox_operations, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:437` — direction: cashbox_operations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:517` — operation_date: cashbox_operations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:518` — operation_type: cashbox_operations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:519` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:533` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:535` — payment_notice_id: bank_transactions, cashbox_operations, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:599` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:602` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- ... and 134 more
+
+## `cashboxes`
+- `billing/migrate_add_parking_billing.py:117` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `Bots/handlers/cashier_operator.py:292` — "cashboxes",
+- `Bots/handlers/cashier_operator.py:331` — # Cashboxes / balances
+- `Bots/handlers/cashier_operator.py:350` — def list_active_cashboxes(
+- `Bots/handlers/cashier_operator.py:370` — FROM cashboxes
+- `Bots/handlers/cashier_operator.py:384` — "SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?",
+- `Bots/handlers/cashier_operator.py:411` — cols = table_columns(cur, "cashboxes")
+- `Bots/handlers/cashier_operator.py:417` — f"UPDATE cashboxes SET "
+- `Bots/handlers/cashier_operator.py:430` — for box in list_active_cashboxes():
+- `Bots/handlers/cashier_operator.py:614` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `Bots/handlers/cashier_operator.py:893` — LEFT JOIN cashboxes c ON c.cashbox_code = r.cashbox_code
+- `Bots/handlers/cashier_operator.py:1571` — boxes = list_active_cashboxes(receipt_only=True)
+- `cashier_journal.py:635` — cur.execute("SELECT * FROM cashboxes WHERE cashbox_code = ?", (code,))
+- `cashier_journal.py:641` — insert_dynamic(cur, "cashboxes", {
+- `cashier_journal.py:652` — cur.execute("SELECT * FROM cashboxes WHERE cashbox_code = ?", (code,))
+- `cashier_journal.py:662` — cur.execute("SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?", (cashbox_code,))
+- `cashier_journal.py:682` — "cashboxes",
+- `cashier_journal.py:690` — def recalc_all_cashboxes(cur):
+- `cashier_journal.py:691` — cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1 ORDER BY cashbox_code")
+- `cashier_journal.py:897` — recalc_all_cashboxes(cur)
+- `cashier_journal.py:903` — FROM cashboxes
+- `cashier_journal.py:910` — FROM cashboxes
+- `cashier_journal.py:1496` — recalc_all_cashboxes(cur)
+- `cashier_journal.py:1502` — FROM cashboxes
+- `cashier_v2_core.py:166` — "cashboxes",
+- `cashier_v2_core.py:571` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:143` — "cashboxes",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:551` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:143` — "cashboxes",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:495` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_preflight.py:79` — "cashboxes",
+- `cashier_v2_preflight.py:156` — m1.ensure_cashboxes_table(cur)
+- `cashier_v2_preflight.py:161` — for code, name, active, comment in m1.CASHBOXES:
+- `cashier_v2_preflight.py:231` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `cashier_v2_preflight.py:246` — "cashboxes",
+- `cashier_v2_preflight_compat.py:73` — m1.ensure_cashboxes_table(cur)
+- `cashier_v2_preflight_compat.py:78` — for code, name, active, comment in m1.CASHBOXES:
+- `cashier_v2_preflight_compat.py:123` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `cashier_v2_preflight_compat.py:133` — "cashboxes",
+- `create_clean_live_sandbox.py:115` — migration.ensure_cashboxes_table(cur)
+- `create_clean_live_sandbox.py:121` — for code, name, active, comment in migration.CASHBOXES:
+- `create_clean_live_sandbox.py:180` — cur.execute("SELECT cashbox_code FROM cashboxes ORDER BY cashbox_code")
+- `create_clean_live_sandbox.py:185` — "cashboxes": boxes,
+- `create_clean_live_sandbox.py:423` — f"   Cashboxes: {', '.join(cash_result['cashboxes'])}",
+- `create_isolated_live_sandbox_v2.py:115` — migration.ensure_cashboxes_table(cur)
+- `create_isolated_live_sandbox_v2.py:121` — for code, name, active, comment in migration.CASHBOXES:
+- `create_isolated_live_sandbox_v2.py:180` — cur.execute("SELECT cashbox_code FROM cashboxes ORDER BY cashbox_code")
+- `create_isolated_live_sandbox_v2.py:185` — "cashboxes": boxes,
+- `create_isolated_live_sandbox_v2.py:419` — f"   Cashboxes: {', '.join(cash_result['cashboxes'])}",
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:24` — Cashboxes: O:updated, K1:updated, K2:updated, K3:updated, K4:updated, K5:updated, K6:updated, C:updated, BANK:updated, K:updated
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:493` — 614:                 "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7823` — 549:     print("Cashboxes:", ", ".join(changes))
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:32` — - cashboxes
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:370` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:371` — cashbox_name: cashboxes
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:409` — current_balance: cashboxes
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:469` — initial_balance: cashboxes
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:34` — - cashboxes (10 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:662` — FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:723` — - id=3 seq=0 table=cashboxes from=cashbox_code to=cashbox_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:726` — TABLE cashboxes
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:732` — CREATE TABLE cashboxes (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:762` — - idx_cashboxes_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:763` — - idx_cashboxes_code | unique=0 | origin=c | partial=0 | columns=[cashbox_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:764` — - sqlite_autoindex_cashboxes_1 | unique=1 | origin=u | partial=0 | columns=[cashbox_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:855` — FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:888` — - id=0 seq=0 table=cashboxes from=cashbox_code to=cashbox_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3303` — INDEX idx_cashboxes_active
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3305` — CREATE INDEX idx_cashboxes_active ON cashboxes(is_active)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3307` — INDEX idx_cashboxes_code
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3309` — CREATE INDEX idx_cashboxes_code ON cashboxes(cashbox_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3857` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3858` — cashbox_name: cashboxes
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3893` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3896` — current_balance: cashboxes
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3956` — initial_balance: cashboxes
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:82` — ### Cashboxes
+- `import_ohorona_list1_to_central_cashbox.py:286` — if not table_exists(cur, "cashboxes"):
+- `import_ohorona_list1_to_central_cashbox.py:287` — raise RuntimeError("Не найдена таблица cashboxes. Сначала выполните migrate_cashier_core.py.")
+- `import_ohorona_list1_to_central_cashbox.py:289` — cur.execute("SELECT id FROM cashboxes WHERE cashbox_code = ?", (CENTRAL_CASHBOX,))
+- `import_ohorona_list1_to_central_cashbox.py:308` — cols = table_columns(cur, "cashboxes")
+- `import_ohorona_list1_to_central_cashbox.py:315` — update_dynamic_by(cur, "cashboxes", "cashbox_code", CENTRAL_CASHBOX, update_values)
+- `import_ohorona_list1_to_central_cashbox.py:318` — insert_dynamic(cur, "cashboxes", values)
+- `import_ohorona_to_cashbox.py:696` — cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1")
+- `migrate_cashier_core.py:103` — def create_cashboxes(cur):
+- `migrate_cashier_core.py:105` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_core.py:118` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashboxes_code ON cashboxes(cashbox_code)")
+- `migrate_cashier_core.py:119` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashboxes_active ON cashboxes(is_active)")
+- ... and 32 more
+
+## `cashier_batch_items`
+- `cashier_v2_core.py:175` — "cashier_batch_items",
+- `cashier_v2_core.py:1212` — "cashier_batch_items",
+- `cashier_v2_core.py:1260` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:152` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1192` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1240` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:152` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1136` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1184` — "cashier_batch_items",
+- `cashier_v2_preflight.py:89` — "cashier_batch_items",
+- `cashier_v2_preflight.py:137` — "cashier_batch_items": {
+- `cashier_v2_preflight.py:262` — "cashier_batch_items": m2.create_table_batch_items(cur),
+- `cashier_v2_preflight_compat.py:143` — "cashier_batch_items",
+- `cashier_v2_preflight_compat.py:154` — "cashier_batch_items": {"batch_id", "apartment_number", "charge_id", "receipt_id", "payment_id"},
+- `create_clean_live_sandbox.py:99` — "cashier_batch_items",
+- `create_isolated_live_sandbox_v2.py:99` — "cashier_batch_items",
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:32` — v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+- `Data/db/sandbox/cashier_v2_preflight_compat_2026-06-25_19-47-09.txt:31` — v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:13` — cashier_batch_items: 0
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:12` — cashier_batch_items: created
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:28` — Индексы: idx_payment_notices_status, idx_payment_notices_unit, idx_bank_transactions_ref, idx_bank_transactions_unit, idx_cashier_batch_items_batch, idx_cashier_batch_items_unit, idx_cashier_reconciliation_status, idx_cashier_reconciliation_unit, idx_payments_notice_v2, idx_payments_bank_v2, idx_receipts_notice_v2
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6477` — 99:         "cashier_batch_items",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6546` — 99:         "cashier_batch_items",
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:33` — - cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:331` — amount_expected: cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:332` — amount_received: cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:344` — batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:370` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:377` — charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:450` — exception_note: cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:483` — item_status: cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:533` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:556` — receipt_id: cashier_batch_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:599` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:35` — - cashier_batch_items (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:771` — TABLE cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:777` — CREATE TABLE cashier_batch_items (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:823` — - idx_cashier_batch_items_unit | unique=0 | origin=c | partial=0 | columns=[apartment_id, apartment_number, period_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:824` — - idx_cashier_batch_items_batch | unique=0 | origin=c | partial=0 | columns=[batch_id, item_status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3311` — INDEX idx_cashier_batch_items_batch
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3313` — CREATE INDEX idx_cashier_batch_items_batch
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3314` — ON cashier_batch_items(batch_id, item_status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3317` — INDEX idx_cashier_batch_items_unit
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3319` — CREATE INDEX idx_cashier_batch_items_unit
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3320` — ON cashier_batch_items(apartment_id, apartment_number, period_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3818` — amount_expected: cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3819` — amount_received: cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3831` — batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3857` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3864` — charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3937` — exception_note: cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3970` — item_status: cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4020` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4024` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4043` — receipt_id: cashier_batch_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4086` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_cashier_v2.py:199` — existed = table_exists(cur, "cashier_batch_items")
+- `migrate_cashier_v2.py:201` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2.py:327` — "idx_cashier_batch_items_batch",
+- `migrate_cashier_v2.py:329` — CREATE INDEX idx_cashier_batch_items_batch
+- `migrate_cashier_v2.py:330` — ON cashier_batch_items(batch_id, item_status)
+- `migrate_cashier_v2.py:334` — "idx_cashier_batch_items_unit",
+- `migrate_cashier_v2.py:336` — CREATE INDEX idx_cashier_batch_items_unit
+- `migrate_cashier_v2.py:337` — ON cashier_batch_items(apartment_id, apartment_number, period_code)
+- `migrate_cashier_v2.py:415` — "cashier_batch_items": create_table_batch_items(cur),
+- `migrate_cashier_v2_compat.py:191` — def create_cashier_batch_items(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:192` — existed = table_exists(cur, "cashier_batch_items")
+- `migrate_cashier_v2_compat.py:194` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2_compat.py:322` — "cashier_batch_items": {
+- `migrate_cashier_v2_compat.py:461` — ("cashier_batch_items", "item_status", "LEGACY"),
+- `migrate_cashier_v2_compat.py:503` — "idx_cashier_batch_items_batch",
+- `migrate_cashier_v2_compat.py:504` — "CREATE INDEX idx_cashier_batch_items_batch ON cashier_batch_items(batch_id, item_status)",
+- `migrate_cashier_v2_compat.py:507` — "idx_cashier_batch_items_unit",
+- `migrate_cashier_v2_compat.py:508` — "CREATE INDEX idx_cashier_batch_items_unit ON cashier_batch_items(apartment_id, apartment_number, period_code)",
+- `migrate_cashier_v2_compat.py:554` — "cashier_batch_items": create_cashier_batch_items(cur),
+- `run_bot_sandbox_v2.py:109` — "cashier_batch_items",
+- `tools/db_schema_snapshot.py:56` — "cashier_batch_items",
+- `tools/db_schema_snapshot_full.py:41` — "cashier_batch_items",
+- `tools/project_passport.py:105` — "cashier_batch_items",
+
+## `cashier_batches`
+- `cashier_v2_core.py:174` — "cashier_batches",
+- `cashier_v2_core.py:1182` — "cashier_batches",
+- `cashier_v2_core.py:1200` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core.py:1285` — "cashier_batches",
+- `cashier_v2_core.py:1304` — table_name="cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:151` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1162` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1180` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1265` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1284` — table_name="cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:151` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1106` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1124` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1209` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1228` — table_name="cashier_batches",
+- `cashier_v2_preflight.py:88` — "cashier_batches",
+- `cashier_v2_preflight.py:130` — "cashier_batches": {
+- `cashier_v2_preflight.py:261` — "cashier_batches": m2.create_table_batches(cur),
+- `cashier_v2_preflight_compat.py:142` — "cashier_batches",
+- `cashier_v2_preflight_compat.py:153` — "cashier_batches": {"batch_number", "entrance_number", "cashbox_code", "period_code"},
+- `create_clean_live_sandbox.py:98` — "cashier_batches",
+- `create_isolated_live_sandbox_v2.py:98` — "cashier_batches",
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:32` — v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:37` — ERR cashier_batches: batch_number, entrance_number
+- `Data/db/sandbox/cashier_v2_preflight_compat_2026-06-25_19-47-09.txt:31` — v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:12` — cashier_batches: 0
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:11` — cashier_batches: already exists
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6476` — 98:         "cashier_batches",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6545` — 98:         "cashier_batches",
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:34` — - cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:316` — actor_type: cashbox_operations, cashier_batches, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:336` — applied_at: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:344` — batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:345` — batch_status: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:346` — batch_type: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:370` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:430` — default_amount: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:433` — default_tariff: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:519` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:632` — total_amount: cashier_batches
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:634` — total_rows: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:36` — - cashier_batches (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:795` — FOREIGN KEY(batch_id) REFERENCES cashier_batches(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:829` — - id=1 seq=0 table=cashier_batches from=batch_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:832` — TABLE cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:838` — CREATE TABLE cashier_batches (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:881` — - idx_cashier_batches_operator | unique=0 | origin=c | partial=0 | columns=[operator_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:882` — - idx_cashier_batches_status | unique=0 | origin=c | partial=0 | columns=[batch_status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:883` — - idx_cashier_batches_batch_id | unique=0 | origin=c | partial=0 | columns=[batch_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:884` — - sqlite_autoindex_cashier_batches_1 | unique=1 | origin=u | partial=0 | columns=[batch_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3323` — INDEX idx_cashier_batches_batch_id
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3325` — CREATE INDEX idx_cashier_batches_batch_id ON cashier_batches(batch_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3327` — INDEX idx_cashier_batches_operator
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3329` — CREATE INDEX idx_cashier_batches_operator ON cashier_batches(operator_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3331` — INDEX idx_cashier_batches_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3333` — CREATE INDEX idx_cashier_batches_status ON cashier_batches(batch_status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3803` — actor_type: cashbox_operations, cashier_batches, operator_audit_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3823` — applied_at: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3831` — batch_id: cashbox_operations, cashier_batch_items, cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3832` — batch_status: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3833` — batch_type: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3857` — cashbox_code: cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3917` — default_amount: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3920` — default_tariff: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4006` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4024` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4119` — total_amount: cashier_batches
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4121` — total_rows: cashier_batches
+- `migrate_access_control_and_guard.py:346` — # VOID, CORRECT, CASHIER_BATCHES or access-management permissions.
+- `migrate_cashier_core.py:160` — def create_cashier_batches(cur):
+- `migrate_cashier_core.py:162` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_core.py:182` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_batch_id ON cashier_batches(batch_id)")
+- `migrate_cashier_core.py:183` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_status ON cashier_batches(batch_status)")
+- `migrate_cashier_core.py:184` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_operator ON cashier_batches(operator_id)")
+- `migrate_cashier_core.py:292` — create_cashier_batches(cur)
+- `migrate_cashier_core.py:311` — print("  cashier_batches:", table_count("cashier_batches"))
+- `migrate_cashier_v2.py:169` — existed = table_exists(cur, "cashier_batches")
+- `migrate_cashier_v2.py:171` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2.py:219` — FOREIGN KEY(batch_id) REFERENCES cashier_batches(id),
+- `migrate_cashier_v2.py:320` — "idx_cashier_batches_status",
+- `migrate_cashier_v2.py:322` — CREATE INDEX idx_cashier_batches_status
+- `migrate_cashier_v2.py:323` — ON cashier_batches(entry_status, receipt_date, entrance_number)
+- `migrate_cashier_v2.py:414` — "cashier_batches": create_table_batches(cur),
+- `migrate_cashier_v2.py:466` — table_name="cashier_batches",
+- `migrate_cashier_v2_compat.py:13` — если cashier_batches уже существует, гарантированно добавляются как минимум
+- `migrate_cashier_v2_compat.py:161` — def create_cashier_batches(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:162` — existed = table_exists(cur, "cashier_batches")
+- `migrate_cashier_v2_compat.py:164` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2_compat.py:300` — "cashier_batches": {
+- ... and 20 more
+
+## `cashier_journal`
+- `import_ohorona_list1_to_central_cashbox.py:37` — from cashier_journal import (
+- `import_ohorona_list1_to_central_cashbox.py:314` — from cashier_journal import update_dynamic_by
+- `import_ohorona_to_cashbox.py:21` — from cashier_journal import (
+
+## `cashier_receipts`
+- `Bots/handlers/cashier_operator.py:294` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:624` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:660` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:677` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:692` — table_name="cashier_receipts",
+- `Bots/handlers/cashier_operator.py:795` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:814` — table_name="cashier_receipts",
+- `Bots/handlers/cashier_operator.py:892` — FROM cashier_receipts r
+- `Bots/handlers/cashier_operator.py:934` — FROM cashier_receipts r
+- `Bots/handlers/cashier_operator.py:1140` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:1290` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:1310` — table_name="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace.py:442` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace.py:470` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:474` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:823` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace.py:852` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace.py:942` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:440` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:473` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:477` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:826` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:855` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:945` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:442` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:470` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:474` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:823` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:852` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:942` — user_id, "cashier_receipts", "CREATE",
+- `cashier_v2_core.py:165` — "cashier_receipts",
+- `cashier_v2_core.py:581` — "cashier_receipts",
+- `cashier_v2_core.py:610` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core.py:677` — "cashier_receipts",
+- `cashier_v2_core.py:700` — "cashier_receipts",
+- `cashier_v2_core.py:713` — table_name="cashier_receipts",
+- `cashier_v2_core.py:1399` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core.py:1404` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core.py:1436` — "cashier_receipts",
+- `cashier_v2_core.py:1462` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core.py:1469` — table_name="cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:142` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:561` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:590` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:657` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:680` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:693` — table_name="cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1379` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1384` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1416` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1442` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1449` — table_name="cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:142` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:505` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:534` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:601` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:624` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:637` — table_name="cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1323` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1328` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1360` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1386` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1393` — table_name="cashier_receipts",
+- `cashier_v2_preflight.py:81` — "cashier_receipts",
+- `cashier_v2_preflight.py:97` — "cashier_receipts": {
+- `cashier_v2_preflight.py:158` — receipt_added = m1.ensure_cashier_receipts(cur)
+- `cashier_v2_preflight.py:173` — "idx_cashier_receipts_status",
+- `cashier_v2_preflight.py:175` — CREATE INDEX idx_cashier_receipts_status
+- `cashier_v2_preflight.py:176` — ON cashier_receipts(entry_status, receipt_date, id)
+- `cashier_v2_preflight.py:180` — "idx_cashier_receipts_cashbox",
+- `cashier_v2_preflight.py:182` — CREATE INDEX idx_cashier_receipts_cashbox
+- `cashier_v2_preflight.py:183` — ON cashier_receipts(cashbox_code, receipt_date)
+- `cashier_v2_preflight.py:187` — "idx_cashier_receipts_apartment",
+- `cashier_v2_preflight.py:189` — CREATE INDEX idx_cashier_receipts_apartment
+- `cashier_v2_preflight.py:190` — ON cashier_receipts(apartment_id, apartment_number, period_code)
+- `cashier_v2_preflight.py:194` — "idx_cashier_receipts_allocation",
+- `cashier_v2_preflight.py:196` — CREATE INDEX idx_cashier_receipts_allocation
+- `cashier_v2_preflight.py:197` — ON cashier_receipts(allocation_status, entry_status)
+- `cashier_v2_preflight.py:245` — "cashier_receipts",
+- `cashier_v2_preflight_compat.py:75` — receipt_fields = m1.ensure_cashier_receipts(cur)
+- `cashier_v2_preflight_compat.py:90` — "idx_cashier_receipts_status",
+- `cashier_v2_preflight_compat.py:91` — "CREATE INDEX idx_cashier_receipts_status ON cashier_receipts(entry_status, receipt_date, id)",
+- `cashier_v2_preflight_compat.py:94` — "idx_cashier_receipts_cashbox",
+- `cashier_v2_preflight_compat.py:95` — "CREATE INDEX idx_cashier_receipts_cashbox ON cashier_receipts(cashbox_code, receipt_date)",
+- `cashier_v2_preflight_compat.py:98` — "idx_cashier_receipts_apartment",
+- `cashier_v2_preflight_compat.py:99` — "CREATE INDEX idx_cashier_receipts_apartment ON cashier_receipts(apartment_id, apartment_number, period_code)",
+- `cashier_v2_preflight_compat.py:102` — "idx_cashier_receipts_allocation",
+- `cashier_v2_preflight_compat.py:103` — "CREATE INDEX idx_cashier_receipts_allocation ON cashier_receipts(allocation_status, entry_status)",
+- `cashier_v2_preflight_compat.py:135` — "cashier_receipts",
+- `cashier_v2_preflight_compat.py:158` — "cashier_receipts": {"payment_notice_id", "cashier_batch_id", "service_item_code"},
+- `create_clean_live_sandbox.py:95` — "cashier_receipts",
+- `create_clean_live_sandbox.py:117` — receipts_added = migration.ensure_cashier_receipts(cur)
+- `create_clean_live_sandbox.py:140` — "idx_cashier_receipts_status",
+- `create_clean_live_sandbox.py:141` — "CREATE INDEX idx_cashier_receipts_status ON cashier_receipts(entry_status, receipt_date, id)",
+- `create_clean_live_sandbox.py:144` — "idx_cashier_receipts_cashbox",
+- `create_clean_live_sandbox.py:145` — "CREATE INDEX idx_cashier_receipts_cashbox ON cashier_receipts(cashbox_code, receipt_date)",
+- `create_clean_live_sandbox.py:148` — "idx_cashier_receipts_apartment",
+- ... and 181 more
+
+## `cashier_reconciliation_cases`
+- `cashier_v2_core.py:176` — "cashier_reconciliation_cases",
+- `cashier_v2_core.py:1413` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:153` — "cashier_reconciliation_cases",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1393` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:153` — "cashier_reconciliation_cases",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1337` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_preflight.py:90` — "cashier_reconciliation_cases",
+- `cashier_v2_preflight.py:263` — "cashier_reconciliation_cases": m2.create_table_reconciliation_cases(cur),
+- `cashier_v2_preflight_compat.py:144` — "cashier_reconciliation_cases",
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:32` — v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+- `Data/db/sandbox/cashier_v2_preflight_compat_2026-06-25_19-47-09.txt:31` — v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:13` — cashier_reconciliation_cases: created
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:36` — - cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:329` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:368` — case_status: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:369` — case_type: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:435` — description: cashier_reconciliation_cases, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:519` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:545` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:566` — related_bank_transaction_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:567` — related_batch_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:568` — related_notice_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:569` — related_payment_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:570` — related_receipt_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:581` — resolution_note: cashier_reconciliation_cases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:582` — resolved_at: cashier_reconciliation_cases, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:38` — - cashier_reconciliation_cases (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:989` — TABLE cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:995` — CREATE TABLE cashier_reconciliation_cases (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3362` — ON cashier_reconciliation_cases(case_status, priority, created_at)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3368` — ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3816` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3855` — case_status: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3856` — case_type: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3893` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3922` — description: cashier_reconciliation_cases, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4006` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4024` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4032` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4053` — related_bank_transaction_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4054` — related_batch_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4055` — related_notice_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4056` — related_payment_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4057` — related_receipt_id: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4068` — resolution_note: cashier_reconciliation_cases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4069` — resolved_at: cashier_reconciliation_cases, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_cashier_v2.py:227` — existed = table_exists(cur, "cashier_reconciliation_cases")
+- `migrate_cashier_v2.py:229` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_cashier_v2.py:344` — ON cashier_reconciliation_cases(case_status, priority, created_at)
+- `migrate_cashier_v2.py:351` — ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)
+- `migrate_cashier_v2.py:416` — "cashier_reconciliation_cases": create_table_reconciliation_cases(cur),
+- `migrate_cashier_v2_compat.py:218` — existed = table_exists(cur, "cashier_reconciliation_cases")
+- `migrate_cashier_v2_compat.py:220` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_cashier_v2_compat.py:340` — "cashier_reconciliation_cases": {
+- `migrate_cashier_v2_compat.py:462` — ("cashier_reconciliation_cases", "case_status", "OPEN"),
+- `migrate_cashier_v2_compat.py:463` — ("cashier_reconciliation_cases", "priority", "NORMAL"),
+- `migrate_cashier_v2_compat.py:464` — ("cashier_reconciliation_cases", "currency", "UAH"),
+- `migrate_cashier_v2_compat.py:512` — "CREATE INDEX idx_cashier_reconciliation_status ON cashier_reconciliation_cases(case_status, priority, created_at)",
+- `migrate_cashier_v2_compat.py:516` — "CREATE INDEX idx_cashier_reconciliation_unit ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)",
+- `migrate_cashier_v2_compat.py:555` — "cashier_reconciliation_cases": create_reconciliation_cases(cur),
+- `run_bot_sandbox_v2.py:110` — "cashier_reconciliation_cases",
+- `tools/db_schema_snapshot.py:58` — "cashier_reconciliation_cases",
+- `tools/db_schema_snapshot_full.py:43` — "cashier_reconciliation_cases",
+- `tools/project_passport.py:107` — "cashier_reconciliation_cases",
+
+## `cashier_v2_core`
+- `Bots/handlers/cashier_operator_v2.py:32` — from cashier_v2_core import (
+- `Bots/handlers/client_portal_v2.py:35` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+
+## `charge_adjustments`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1055` — TABLE charge_adjustments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1061` — CREATE TABLE charge_adjustments (
+
+## `charges`
+- `billing/migrate_add_parking_billing.py:56` — CREATE TABLE IF NOT EXISTS parking_charges (
+- `billing/migrate_add_parking_billing.py:111` — FOREIGN KEY(parking_charge_id) REFERENCES parking_charges(id),
+- `billing/migrate_add_parking_billing.py:146` — CREATE INDEX IF NOT EXISTS idx_parking_charges_period
+- `billing/migrate_add_parking_billing.py:147` — ON parking_charges(billing_period_id)
+- `billing/migrate_add_parking_billing.py:151` — CREATE INDEX IF NOT EXISTS idx_parking_charges_apartment
+- `billing/migrate_add_parking_billing.py:152` — ON parking_charges(apartment_number)
+- `billing/migrate_add_parking_billing.py:156` — CREATE INDEX IF NOT EXISTS idx_parking_charges_status
+- `billing/migrate_add_parking_billing.py:157` — ON parking_charges(payment_status)
+- `billing_reconciliation_report.py:61` — def load_charges(cur, charges_table, period_code):
+- `billing_reconciliation_report.py:62` — if not charges_table:
+- `billing_reconciliation_report.py:65` — columns = table_columns(cur, charges_table)
+- `billing_reconciliation_report.py:78` — FROM {charges_table} c
+- `billing_reconciliation_report.py:155` — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_reconciliation_report.py:159` — charges = load_charges(cur, charges_table, period_code)
+- `billing_reconciliation_report.py:175` — unpaid_charges = []
+- `billing_reconciliation_report.py:176` — overallocated_charges = []
+- `billing_reconciliation_report.py:183` — for c in charges:
+- `billing_reconciliation_report.py:194` — overallocated_charges.append(item)
+- `billing_reconciliation_report.py:198` — unpaid_charges.append(item)
+- `billing_reconciliation_report.py:225` — "charges_table": charges_table,
+- `billing_reconciliation_report.py:228` — "charges": charges,
+- `billing_reconciliation_report.py:233` — "unpaid_charges": unpaid_charges,
+- `billing_reconciliation_report.py:234` — "overallocated_charges": overallocated_charges,
+- `billing_reconciliation_report.py:287` — total_charges = sum(float(c["amount"] or 0) for c in data["charges"])
+- `billing_reconciliation_report.py:309` — lines.append(f"Charges    : {data['charges_table']}")
+- `billing_reconciliation_report.py:317` — lines.append(f"Charges count              : {len(data['charges'])}")
+- `billing_reconciliation_report.py:320` — lines.append(f"Charges total              : {money(total_charges)}")
+- `billing_reconciliation_report.py:325` — lines.append(f"Fully matched charges      : {len(data['fully_matched'])}")
+- `billing_reconciliation_report.py:326` — lines.append(f"Partially paid charges     : {len(data['partially_paid'])}")
+- `billing_reconciliation_report.py:327` — lines.append(f"Unpaid charges             : {len(data['unpaid_charges'])}")
+- `billing_reconciliation_report.py:328` — lines.append(f"Overallocated charges      : {len(data['overallocated_charges'])}")
+- `billing_reconciliation_report.py:335` — write_section(lines, "1. FULLY_MATCHED_CHARGES — начисление полностью закрыто оплатой", data["fully_matched"], format_charge_line)
+- `billing_reconciliation_report.py:336` — write_section(lines, "2. PARTIALLY_PAID_CHARGES — частично оплачено", data["partially_paid"], format_charge_line)
+- `billing_reconciliation_report.py:337` — write_section(lines, "3. UNPAID_CHARGES — начисления без оплаты", data["unpaid_charges"], format_charge_line)
+- `billing_reconciliation_report.py:338` — write_section(lines, "4. OVERALLOCATED_CHARGES — к начислению привязано больше, чем начислено", data["overallocated_charges"], format_charge_line)
+- `billing_reconciliation_report.py:350` — lines.append("PARTIALLY_PAID_CHARGES: это реальные частичные оплаты или старые тарифы.")
+- `billing_reconciliation_report.py:351` — lines.append("OVERALLOCATED_CHARGES: проверить переплату или ошибочное распределение.")
+- `billing_reconciliation_report.py:384` — print("Unpaid charges:", len(data["unpaid_charges"]))
+- `billing_statement_excel.py:74` — def load_charges(cur, period_code):
+- `billing_statement_excel.py:75` — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_statement_excel.py:76` — if not charges_table:
+- `billing_statement_excel.py:79` — cols = table_columns(cur, charges_table)
+- `billing_statement_excel.py:95` — FROM {charges_table} c
+- `billing_statement_excel.py:183` — charges = load_charges(cur, period_code)
+- `billing_statement_excel.py:206` — "charges": [],
+- `billing_statement_excel.py:211` — for ch in charges:
+- `billing_statement_excel.py:223` — item["charges"].append(row)
+- `billing_statement_excel.py:243` — "charges": charges,
+- `billing_statement_excel.py:327` — charges_text = []
+- `billing_statement_excel.py:328` — for ch in item["charges"]:
+- `billing_statement_excel.py:329` — charges_text.append(
+- `billing_statement_excel.py:349` — "\n".join(charges_text),
+- `billing_statement_excel.py:372` — for ch in item["charges"]
+- `billing_statement_excel.py:396` — # Charges details
+- `billing_statement_excel.py:402` — for ch in data["charges"]:
+- `billing_statement_excel.py:407` — for ch2 in item["charges"]:
+- `billing_statement_excel.py:422` — add_table(ws, "Charges")
+- `billing_statement_excel.py:501` — ws.append(["Charges total", money(sum(float(ch["amount"] or 0) for ch in data["charges"]))])
+- `billing_statement_excel.py:511` — description="Excel billing statement: charges, payments, balances, work queues."
+- `billing_statement_excel.py:530` — total_charges = sum(float(ch["amount"] or 0) for ch in data["charges"])
+- `billing_statement_excel.py:540` — print("Charges total:", money(total_charges))
+- `Bots/handlers/cashier_operator.py:448` — # Units, receipts and charges
+- `Bots/handlers/cashier_operator.py:986` — def list_open_charges_for_receipt(receipt_id: int) -> list[dict]:
+- `Bots/handlers/cashier_operator.py:996` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:999` — ccols = table_columns(cur, "charges")
+- `Bots/handlers/cashier_operator.py:1051` — FROM charges c
+- `Bots/handlers/cashier_operator.py:1104` — charges = {item["charge_id"]: item for item in list_open_charges_for_receipt(receipt_id)}
+- `Bots/handlers/cashier_operator.py:1105` — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:1507` — def format_charge_list(receipt: dict, charges: list[dict]) -> str:
+- `Bots/handlers/cashier_operator.py:1517` — if not charges:
+- `Bots/handlers/cashier_operator.py:1525` — for item in charges:
+- `Bots/handlers/cashier_operator.py:1746` — async def show_open_charges(
+- `Bots/handlers/cashier_operator.py:1757` — charges = list_open_charges_for_receipt(receipt_id)
+- `Bots/handlers/cashier_operator.py:1764` — for charge in charges:
+- `Bots/handlers/cashier_operator.py:1780` — format_charge_list(receipt, charges),
+- `Bots/handlers/cashier_operator.py:2199` — await show_open_charges(update, user_states, user_id, receipt_id)
+- `Bots/handlers/cashier_operator.py:2255` — charges = {
+- `Bots/handlers/cashier_operator.py:2257` — for item in list_open_charges_for_receipt(int(state.get("cashier_receipt_id")))
+- `Bots/handlers/cashier_operator.py:2259` — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:2281` — await show_open_charges(
+- `Bots/handlers/cashier_operator_v2.py:51` — open_charges,
+- `Bots/handlers/cashier_operator_v2.py:260` — rows = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:489` — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:492` — included = [item for item in charges if text(item.get("apartment_number")) not in exclusions]
+- `Bots/handlers/cashier_operator_v2.py:520` — charges = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:526` — state["batch_charges"] = charges
+- `Bots/handlers/cashier_operator_v2.py:527` — valid_numbers = {text(item.get("apartment_number")) for item in charges}
+- `Bots/handlers/cashier_operator_v2.py:886` — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:887` — if not charges:
+- `Bots/handlers/cashier_operator_v2.py:897` — charges=charges,
+- `Bots/handlers/cashier_operator_v2.py:962` — valid = {text(item.get("apartment_number")): item for item in state.get("batch_charges") or []}
+- `Bots/handlers/client_portal.py:70` — "parking_charges": "📅 Начисления",
+- `Bots/handlers/client_portal.py:101` — "charges_title": "📅 Начисления парковки — кв. {unit}",
+- `Bots/handlers/client_portal.py:108` — "no_charges": "Начислений пока нет.",
+- `Bots/handlers/client_portal.py:205` — "parking_charges": "📅 Нарахування",
+- `Bots/handlers/client_portal.py:236` — "charges_title": "📅 Нарахування паркування — кв. {unit}",
+- `Bots/handlers/client_portal.py:243` — "no_charges": "Нарахувань поки немає.",
+- `Bots/handlers/client_portal.py:340` — "parking_charges": "📅 Charges",
+- `Bots/handlers/client_portal.py:371` — "charges_title": "📅 Parking charges — apartment {unit}",
+- `Bots/handlers/client_portal.py:374` — "allocated": "Allocated to charges",
+- ... and 628 more
+
+## `collections`
+- `billing/import_ohorona_parking_time.py:7` — from collections import defaultdict
+- `billing/import_ohorona_parking_time_simple_preview.py:7` — from collections import defaultdict
+- `billing/import_parking_time_hints_from_ohorona.py:6` — from collections import defaultdict
+- `billing/report_parking_time_review_tasks.py:5` — from collections import defaultdict
+- `billing/report_parking_time_with_hints.py:6` — from collections import defaultdict
+- `billing_statement_excel.py:6` — from collections import defaultdict
+- `build_plate_candidates.py:5` — from collections import defaultdict
+- `migrate_unit_registry_composite_groups.py:24` — from collections import defaultdict
+- `plate_consensus_report.py:8` — from collections import defaultdict, Counter
+- `plate_consensus_report_v3.py:8` — from collections import defaultdict, Counter
+- `report_verification_tasks_enriched.py:5` — from collections import defaultdict
+- `supervisor_dashboard.py:6` — from collections import Counter
+- `tools/cashier_parking_payments_audit_v4.py:28` — from collections import defaultdict
+- `tools/cashier_unpaid_preview_v3.py:27` — from collections import defaultdict
+- `tools/db_schema_snapshot.py:16` — from collections import defaultdict
+- `tools/db_schema_snapshot_full.py:23` — from collections import defaultdict
+
+## `commercial`
+- `Bots/handlers/commercial_contract_editor.py:1050` — # Entry from commercial unit card.
+
+## `commercial_access_actions`
+- `commercial_contracts.py:545` — FROM commercial_access_actions
+- `commercial_contracts.py:576` — INSERT INTO commercial_access_actions (
+- `commercial_contracts.py:1011` — FROM commercial_access_actions a
+- `commercial_contracts.py:1051` — FROM commercial_access_actions
+- `commercial_contracts.py:1064` — UPDATE commercial_access_actions
+- `commercial_contracts.py:1113` — UPDATE commercial_access_actions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1188` — TABLE commercial_access_actions
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1194` — CREATE TABLE commercial_access_actions (
+
+## `commercial_access_phones`
+- `Bots/handlers/commercial_contract_editor.py:269` — (SELECT COUNT(*) FROM commercial_access_phones p
+- `Bots/handlers/commercial_contract_editor.py:294` — (SELECT COUNT(*) FROM commercial_access_phones p
+- `Bots/handlers/commercial_contract_editor.py:391` — SELECT * FROM commercial_access_phones
+- `Bots/handlers/commercial_contract_editor.py:404` — cur.execute("SELECT * FROM commercial_access_phones WHERE id=?", (int(phone_id),))
+- `Bots/handlers/commercial_contract_editor.py:683` — INSERT INTO commercial_access_phones (
+- `Bots/handlers/commercial_contract_editor.py:718` — cur.execute(f"SELECT {field}, contract_id FROM commercial_access_phones WHERE id=?", (int(phone_id),))
+- `Bots/handlers/commercial_contract_editor.py:724` — cur.execute("UPDATE commercial_access_phones SET status=?, status_changed_at=?, updated_at=? WHERE id=?", (value, now_db(), now_db(), int(phone_id)))
+- `Bots/handlers/commercial_contract_editor.py:726` — cur.execute("UPDATE commercial_access_phones SET access_purpose=?, updated_at=? WHERE id=?", (value, now_db(), int(phone_id)))
+- `commercial_contracts.py:309` — FROM commercial_access_phones
+- `commercial_contracts.py:617` — UPDATE commercial_access_phones
+- `commercial_contracts.py:1014` — LEFT JOIN commercial_access_phones p ON p.id = a.access_phone_id
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1210` — FOREIGN KEY(access_phone_id) REFERENCES commercial_access_phones(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1244` — TABLE commercial_access_phones
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1250` — CREATE TABLE commercial_access_phones (
+- `migrate_commercial_contract_core.py:373` — FOREIGN KEY(access_phone_id) REFERENCES commercial_access_phones(id),
+
+## `commercial_contract_editor`
+- `Bots/handlers/unit_registry_editor - Copy.py:49` — from commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/handlers/unit_registry_editor.py:49` — from commercial_contract_editor import handle_commercial_contract_editor_text
+
+## `commercial_contract_items`
+- `Bots/handlers/commercial_contract_editor.py:158` — "commercial_contract_items",
+- `Bots/handlers/commercial_contract_editor.py:263` — (SELECT COUNT(*) FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:288` — (SELECT COUNT(*) FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:328` — SELECT * FROM commercial_contract_items
+- `Bots/handlers/commercial_contract_editor.py:343` — FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:508` — cur.execute("SELECT COUNT(*) FROM commercial_contract_items WHERE contract_id=? AND is_active=1", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:542` — INSERT INTO commercial_contract_items (
+- `Bots/handlers/commercial_contract_editor.py:556` — table_name="commercial_contract_items", row_id=item_id,
+- `Bots/handlers/commercial_contract_editor.py:576` — cur.execute(f"SELECT {field}, contract_id FROM commercial_contract_items WHERE id=?", (int(item_id),))
+- `Bots/handlers/commercial_contract_editor.py:581` — cur.execute(f"UPDATE commercial_contract_items SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(item_id)))
+- `Bots/handlers/commercial_contract_editor.py:583` — conn=conn, table_name="commercial_contract_items", row_id=item_id,
+- `Bots/handlers/commercial_contract_editor.py:939` — state["mode"] = "commercial_contract_items"
+- `Bots/handlers/commercial_contract_editor.py:1095` — if mode in {"commercial_contract_items", "commercial_contract_item_new_mode", "commercial_contract_item_new_name", "commercial_contract_item_new_amount", "commercial_contract_item_new_quantity", "commercial_contract_item_new_block", "commercial_contract_item_field", "commercial_contract_item_block", "commercial_contract_item_card"}:
+- `Bots/handlers/commercial_contract_editor.py:1275` — if mode == "commercial_contract_items":
+- `commercial_contracts.py:154` — "commercial_contract_items",
+- `commercial_contracts.py:250` — FROM commercial_contract_items
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-27-30.txt:16` — commercial_contract_items
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-30-30.txt:16` — commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:41` — - commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:349` — blocks_phone_access_on_debt: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:352` — calculation_mode: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:398` — contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:458` — fixed_amount: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:481` — item_code: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:482` — item_name: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:504` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:550` — quantity_default: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:551` — rate_amount: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:564` — reference_service_code: commercial_contract_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:650` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:651` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:43` — - commercial_contract_items (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1291` — TABLE commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1297` — CREATE TABLE commercial_contract_items (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1342` — - idx_commercial_contract_items_contract | unique=0 | origin=c | partial=0 | columns=[contract_id, is_active, valid_from, valid_to]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3054` — LEFT JOIN commercial_contract_items i
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3437` — INDEX idx_commercial_contract_items_contract
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3439` — CREATE INDEX idx_commercial_contract_items_contract
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3440` — ON commercial_contract_items(contract_id, is_active, valid_from, valid_to)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3836` — blocks_phone_access_on_debt: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3839` — calculation_mode: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3885` — contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3893` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3945` — fixed_amount: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3968` — item_code: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3969` — item_name: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3991` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4037` — quantity_default: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4038` — rate_amount: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4051` — reference_service_code: commercial_contract_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4137` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4138` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `migrate_commercial_contract_core.py:263` — "commercial_contract_items",
+- `migrate_commercial_contract_core.py:265` — CREATE TABLE IF NOT EXISTS commercial_contract_items (
+- `migrate_commercial_contract_core.py:411` — "commercial_contract_items": {
+- `migrate_commercial_contract_core.py:537` — "idx_commercial_contract_items_contract",
+- `migrate_commercial_contract_core.py:539` — CREATE INDEX idx_commercial_contract_items_contract
+- `migrate_commercial_contract_core.py:540` — ON commercial_contract_items(contract_id, is_active, valid_from, valid_to)
+- `migrate_commercial_contract_core.py:700` — LEFT JOIN commercial_contract_items i
+- `tools/project_passport.py:129` — "commercial_contract_items",
+
+## `commercial_contract_recipients`
+- `Bots/handlers/commercial_contract_editor.py:265` — (SELECT COUNT(*) FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:290` — (SELECT COUNT(*) FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:360` — FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:376` — FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:612` — SELECT 1 FROM commercial_contract_recipients
+- `Bots/handlers/commercial_contract_editor.py:618` — SELECT COUNT(*) FROM commercial_contract_recipients
+- `Bots/handlers/commercial_contract_editor.py:624` — INSERT INTO commercial_contract_recipients (
+- `Bots/handlers/commercial_contract_editor.py:654` — cur.execute(f"SELECT {field}, contract_id FROM commercial_contract_recipients WHERE id=?", (int(recipient_id),))
+- `Bots/handlers/commercial_contract_editor.py:660` — cur.execute("UPDATE commercial_contract_recipients SET is_primary=0, updated_at=? WHERE contract_id=?", (now_db(), int(contract_id)))
+- `Bots/handlers/commercial_contract_editor.py:661` — cur.execute(f"UPDATE commercial_contract_recipients SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(recipient_id)))
+- `commercial_contracts.py:276` — FROM commercial_contract_recipients r
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1349` — TABLE commercial_contract_recipients
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1355` — CREATE TABLE commercial_contract_recipients (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1487` — FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+- `migrate_commercial_contract_core.py:350` — FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+
+## `commercial_contracts`
+- `Bots/handlers/commercial_contract_editor.py:157` — "commercial_contracts",
+- `Bots/handlers/commercial_contract_editor.py:271` — FROM commercial_contracts c
+- `Bots/handlers/commercial_contract_editor.py:296` — FROM commercial_contracts c
+- `Bots/handlers/commercial_contract_editor.py:344` — JOIN commercial_contracts c ON c.id=i.contract_id
+- `Bots/handlers/commercial_contract_editor.py:426` — INSERT INTO commercial_contracts (
+- `Bots/handlers/commercial_contract_editor.py:441` — table_name="commercial_contracts", row_id=contract_id,
+- `Bots/handlers/commercial_contract_editor.py:466` — cur.execute(f"SELECT {field} FROM commercial_contracts WHERE id=?", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:472` — f"UPDATE commercial_contracts SET {field}=?, updated_by=?, updated_at=? WHERE id=?",
+- `Bots/handlers/commercial_contract_editor.py:476` — conn=conn, table_name="commercial_contracts", row_id=contract_id,
+- `Bots/handlers/commercial_contract_editor.py:495` — cur.execute("SELECT status, counterparty_name, valid_from, valid_to FROM commercial_contracts WHERE id=?", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:515` — "UPDATE commercial_contracts SET status=?, updated_by=?, updated_at=? WHERE id=?",
+- `Bots/handlers/commercial_contract_editor.py:521` — conn=conn, table_name="commercial_contracts", row_id=contract_id,
+- `commercial_contracts.py:153` — "commercial_contracts",
+- `commercial_contracts.py:193` — FROM commercial_contracts c
+- `commercial_contracts.py:220` — FROM commercial_contracts c
+- `commercial_contracts.py:707` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:806` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:935` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:1012` — JOIN commercial_contracts c ON c.id = a.contract_id
+- `commercial_contracts.py:1080` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:1140` — source_context="commercial_contracts.py",
+- `commercial_notification_delivery.py:77` — JOIN commercial_contracts c ON c.id = n.contract_id
+- `commercial_notification_delivery.py:254` — "  python commercial_contracts.py --apply\n"
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2003` — 157:         "commercial_contracts",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6228` — FILE: commercial_contracts.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6391` — 77:         JOIN commercial_contracts c ON c.id = n.contract_id
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-27-30.txt:15` — commercial_contracts
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-30-30.txt:15` — commercial_contracts
+- `Data/exports/diagnostics/audit_diagnostic_2026-06-24_20-17-19.txt:31` — #107 2026-06-24 12:30:30 | system system | commercial_contract_core_migration | commercial_contracts# | schema
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:43` — - commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:399` — contract_number: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:400` — counterparty_name: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:401` — counterparty_type: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:460` — grace_days: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:471` — internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:532` — payment_due_day: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:573` — reminder_days_before_due: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:623` — suspension_candidate_days_overdue: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:642` — unit_id: commercial_contracts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:647` — updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:650` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:651` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:661` — warning_days_overdue: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:45` — - commercial_contracts (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1209` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1241` — - id=2 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1262` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1288` — - id=0 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1315` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1346` — - id=0 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1368` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1397` — - id=1 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1400` — TABLE commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1406` — CREATE TABLE commercial_contracts (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1454` — - idx_commercial_contracts_unit_status | unique=0 | origin=c | partial=0 | columns=[unit_id, status, valid_from, valid_to]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1486` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1522` — - id=1 seq=0 table=commercial_contracts from=contract_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3443` — INDEX idx_commercial_contracts_unit_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3445` — CREATE INDEX idx_commercial_contracts_unit_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3446` — ON commercial_contracts(unit_id, status, valid_from, valid_to)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3782` — ON commercial_contracts(unit_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3886` — contract_number: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3887` — counterparty_name: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3888` — counterparty_type: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3947` — grace_days: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3958` — internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4019` — payment_due_day: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4060` — reminder_days_before_due: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4103` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4110` — suspension_candidate_days_overdue: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4129` — unit_id: commercial_contracts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4134` — updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4137` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4138` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4148` — warning_days_overdue: commercial_contracts
+- `migrate_commercial_contract_core.py:237` — "commercial_contracts",
+- `migrate_commercial_contract_core.py:239` — CREATE TABLE IF NOT EXISTS commercial_contracts (
+- `migrate_commercial_contract_core.py:283` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `migrate_commercial_contract_core.py:303` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:323` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `migrate_commercial_contract_core.py:349` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:372` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:393` — "commercial_contracts": {
+- `migrate_commercial_contract_core.py:530` — "idx_commercial_contracts_unit_status",
+- `migrate_commercial_contract_core.py:532` — CREATE INDEX idx_commercial_contracts_unit_status
+- `migrate_commercial_contract_core.py:533` — ON commercial_contracts(unit_id, status, valid_from, valid_to)
+- `migrate_commercial_contract_core.py:625` — ON commercial_contracts(unit_id)
+- `migrate_commercial_contract_core.py:882` — table_name="commercial_contracts",
+- `tools/project_passport.py:128` — "commercial_contracts",
+
+## `commercial_notification_delivery`
+- `commercial_notification_delivery.py:13` — from commercial_notification_delivery import deliver_ready_notifications
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6369` — >    13:     from commercial_notification_delivery import deliver_ready_notifications
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6376` — 13:     from commercial_notification_delivery import deliver_ready_notifications
+
+## `commercial_notifications`
+- `Bots/handlers/commercial_contract_editor.py:161` — "commercial_notifications",
+- `commercial_contracts.py:157` — "commercial_notifications",
+- `commercial_contracts.py:530` — "SELECT 1 FROM commercial_notifications WHERE dedupe_key=? LIMIT 1",
+- `commercial_contracts.py:658` — INSERT INTO commercial_notifications (
+- `commercial_contracts.py:699` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:4` — Модуль отправляет только записи commercial_notifications со статусом READY.
+- `commercial_notification_delivery.py:76` — FROM commercial_notifications n
+- `commercial_notification_delivery.py:92` — UPDATE commercial_notifications
+- `commercial_notification_delivery.py:110` — UPDATE commercial_notifications
+- `commercial_notification_delivery.py:164` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:196` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:224` — table_name="commercial_notifications",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6361` — >     4: Модуль отправляет только записи commercial_notifications со статусом READY.
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-27-30.txt:19` — commercial_notifications
+- `Data/exports/commercial/commercial_contract_core_2026-06-24_12-30-30.txt:19` — commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:44` — - commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:359` — cancelled_at: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:360` — cancelled_by: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:378` — charge_ids_json: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:398` — contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:414` — days_overdue_snapshot: commercial_access_actions, commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:418` — debt_amount_snapshot: commercial_access_actions, commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:429` — dedupe_key: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:434` — delivery_error: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:454` — failed_at: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:498` — message_text: commercial_notifications, raw_messages
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:511` — notification_type: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:559` — recipient_id: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:594` — sent_at: commercial_notifications
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:630` — telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:46` — - commercial_notifications (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1211` — FOREIGN KEY(notification_id) REFERENCES commercial_notifications(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1239` — - id=0 seq=0 table=commercial_notifications from=notification_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1461` — TABLE commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1467` — CREATE TABLE commercial_notifications (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1516` — - idx_commercial_notifications_contract | unique=0 | origin=c | partial=0 | columns=[contract_id, notification_type]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1517` — - idx_commercial_notifications_queue | unique=0 | origin=c | partial=0 | columns=[status, created_at]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3449` — INDEX idx_commercial_notifications_contract
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3451` — CREATE INDEX idx_commercial_notifications_contract
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3452` — ON commercial_notifications(contract_id, notification_type)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3455` — INDEX idx_commercial_notifications_queue
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3457` — CREATE INDEX idx_commercial_notifications_queue
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3458` — ON commercial_notifications(status, created_at)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3776` — ON commercial_notifications(dedupe_key)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3846` — cancelled_at: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3847` — cancelled_by: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3865` — charge_ids_json: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3885` — contract_id: commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3901` — days_overdue_snapshot: commercial_access_actions, commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3905` — debt_amount_snapshot: commercial_access_actions, commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3916` — dedupe_key: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3921` — delivery_error: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3941` — failed_at: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3985` — message_text: commercial_notifications, raw_messages
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3998` — notification_type: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4046` — recipient_id: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4081` — sent_at: commercial_notifications
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4103` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4117` — telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+- `migrate_commercial_contract_core.py:328` — "commercial_notifications",
+- `migrate_commercial_contract_core.py:330` — CREATE TABLE IF NOT EXISTS commercial_notifications (
+- `migrate_commercial_contract_core.py:374` — FOREIGN KEY(notification_id) REFERENCES commercial_notifications(id)
+- `migrate_commercial_contract_core.py:449` — "commercial_notifications": {
+- `migrate_commercial_contract_core.py:565` — "idx_commercial_notifications_queue",
+- `migrate_commercial_contract_core.py:567` — CREATE INDEX idx_commercial_notifications_queue
+- `migrate_commercial_contract_core.py:568` — ON commercial_notifications(status, created_at)
+- `migrate_commercial_contract_core.py:572` — "idx_commercial_notifications_contract",
+- `migrate_commercial_contract_core.py:574` — CREATE INDEX idx_commercial_notifications_contract
+- `migrate_commercial_contract_core.py:575` — ON commercial_notifications(contract_id, notification_type)
+- `migrate_commercial_contract_core.py:633` — ON commercial_notifications(dedupe_key)
+- `tools/project_passport.py:130` — "commercial_notifications",
+
+## `config`
+- `access_control.py:29` — from config import paths, USE_TEST_DB
+- `audit_composite_apartments.py:13` — from config import paths
+- `audit_logger.py:14` — from config import paths, USE_TEST_DB
+- `audit_osbb_telegram_messages.py:13` — from config import paths
+- `audit_registry.py:12` — from config import paths
+- `audit_tbot_quarantine.py:12` — from config import paths
+- `billing/build_parking_time_review_tasks.py:14` — from config import paths
+- `billing/import_ohorona_parking_time.py:20` — from config import paths
+- `billing/import_ohorona_parking_time_simple_preview.py:20` — from config import paths
+- `billing/import_parking_time_hints_from_ohorona.py:18` — from config import paths
+- `billing/migrate_add_parking_billing.py:12` — from config import paths
+- `billing/report_parking_time_review_tasks.py:15` — from config import paths
+- `billing/report_parking_time_with_hints.py:18` — from config import paths
+- `billing_reconciliation_report.py:12` — from config import paths, USE_TEST_DB
+- `billing_statement_excel.py:19` — from config import paths, USE_TEST_DB
+- `Bots/db_access - Copy.py:16` — # from config import paths
+- `Bots/db_access - Copy.py:17` — from config import paths, USE_TEST_DB
+- `Bots/db_access.py:16` — # from config import paths
+- `Bots/db_access.py:17` — from config import paths, USE_TEST_DB
+- `Bots/handlers/audit_viewer - Copy.py:16` — from config import paths, USE_TEST_DB
+- `Bots/handlers/audit_viewer.py:36` — from config import paths, USE_TEST_DB
+- `Bots/handlers/cashier_operator.py:44` — from config import paths, USE_TEST_DB
+- `Bots/handlers/client_portal.py:41` — from config import paths, USE_TEST_DB
+- `Bots/handlers/client_portal_safe_linking.py:41` — from config import paths, USE_TEST_DB
+- `Bots/handlers/commercial_contract_editor.py:39` — from config import paths, USE_TEST_DB
+- `Bots/handlers/unit_registry_editor - Copy.py:42` — from config import paths, USE_TEST_DB
+- `Bots/handlers/unit_registry_editor.py:42` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_card_editor.py:18` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_full_list.py:16` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_verification.py:18` — from config import paths, USE_TEST_DB
+- `Bots/parking_bot - Copy.py:19` — from config import paths
+- `Bots/parking_bot.py:26` — from config import paths
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:25` — from config import paths
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:20` — from config import paths
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:25` — from config import paths
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:25` — from config import paths
+- `build_plate_candidates.py:13` — from config import paths
+- `build_plate_evidence_by_digits_and_apartment.py:12` — from config import paths
+- `build_plate_evidence_from_telegram.py:12` — from config import paths
+- `build_verification_tasks.py:12` — from config import paths
+- `cashier_journal.py:14` — from config import paths, USE_TEST_DB
+- `cashier_v2_core.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_preflight.py:46` — from config import paths, USE_TEST_DB
+- `cashier_v2_preflight.py:314` — f"Mode from config: {'TEST/WORK' if USE_TEST_DB else 'PROD'}",
+- `cashier_v2_preflight_compat.py:28` — from config import paths, USE_TEST_DB
+- `commercial_contracts.py:31` — from config import paths, USE_TEST_DB
+- `commercial_notification_delivery.py:33` — from config import paths, USE_TEST_DB
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:6` — Mode from config: TEST/WORK
+- `extract_telegram_remote_facts.py:13` — from config import paths
+- `extract_telegram_vehicle_facts.py:13` — from config import paths
+- `generate_parking_charges.py:19` — from config import paths, USE_TEST_DB
+- `import_house_registry.py:15` — from config import paths
+- `import_ohorona_list1_to_central_cashbox.py:35` — from config import paths, USE_TEST_DB
+- `import_ohorona_sheet1_payments.py:15` — from config import paths, USE_TEST_DB
+- `import_ohorona_to_cashbox.py:17` — from config import paths, USE_TEST_DB
+- `import_osbb_telegram_messages.py:17` — from config import paths
+- `import_paper_parking.py:14` — from config import paths
+- `import_tbot_quarantine.py:14` — from config import paths
+- `init_osbb_db.py:13` — from config import paths
+- `init_osbb_quarantine_db.py:12` — from config import paths
+- `init_osbb_telegram_db.py:12` — from config import paths
+- `inspect_osbb_folder_filter.py:14` — from config import paths
+- `list_osbb_folder_dialogs.py:15` — from config import paths
+- `list_osbb_included_peers.py:16` — from config import paths
+- `list_telegram_dialogs.py:15` — from config import paths
+- `list_telegram_folders.py:14` — from config import paths
+- `manage_staff_access.py:49` — from config import paths, USE_TEST_DB
+- `manage_staff_access_v2.py:49` — from config import paths, USE_TEST_DB
+- `migrate_access_control_and_guard.py:36` — from config import paths, USE_TEST_DB
+- `migrate_add_normalized_fields.py:11` — from config import paths
+- `migrate_add_verification_evidence.py:11` — from config import paths
+- `migrate_add_verification_tasks.py:11` — from config import paths
+- `migrate_apartment_link_requests.py:31` — from config import paths, USE_TEST_DB
+- `migrate_apartment_verification.py:13` — from config import paths, USE_TEST_DB
+- `migrate_billing_core.py:11` — from config import paths, USE_TEST_DB
+- `migrate_bot_core.py:13` — from config import paths
+- `migrate_cashier_core.py:13` — from config import paths, USE_TEST_DB
+- `migrate_cashier_operator_editor.py:42` — from config import paths, USE_TEST_DB
+- `migrate_cashier_v2.py:34` — from config import paths, USE_TEST_DB
+- `migrate_cashier_v2_compat.py:35` — from config import paths, USE_TEST_DB
+- `migrate_charge_adjustments.py:12` — from config import paths, USE_TEST_DB
+- `migrate_commercial_contract_core.py:41` — from config import paths, USE_TEST_DB
+- `migrate_operator_audit_log.py:11` — from config import paths, USE_TEST_DB
+- `migrate_operator_audit_log_v2.py:11` — from config import paths, USE_TEST_DB
+- `migrate_remote_requests.py:31` — from config import paths, USE_TEST_DB
+- `migrate_service_items.py:12` — from config import paths, USE_TEST_DB
+- `migrate_service_orders_and_fulfillment.py:42` — from config import paths, USE_TEST_DB
+- `migrate_unit_registry_composite_groups.py:38` — from config import paths, USE_TEST_DB
+- `normalize_registry_fields.py:19` — from config import paths
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:42` — from config import paths, USE_TEST_DB
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `parking_billing_statement.py:13` — from config import paths, USE_TEST_DB
+- `phone_barrier_access_v2_payload/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `plate_consensus_apply.py:13` — from config import paths, USE_TEST_DB
+- `plate_consensus_report.py:16` — from config import paths, USE_TEST_DB
+- `plate_consensus_report_v3.py:16` — from config import paths, USE_TEST_DB
+- ... and 31 more
+
+## `consensus`
+- `Bots/handlers/vehicle_verification.py:309` — comment="Operator selected correct plate from consensus tie",
+
+## `contact`
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+- `profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+- `profile_verification_payload/profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+
+## `contact_methods`
+- `audit_registry.py:65` — "contact_methods",
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:14` — contact_methods     : 0
+- `Data/exports/audits/registry_audit_2026-06-23_17-18-21.txt:14` — contact_methods     : 0
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:169` — apartment_id: apartment_verification, contact_methods, events, persons, resident_accounts, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:188` — contact_owner: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:189` — contact_type: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:190` — contact_value: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:193` — created_by: apartments, contact_methods, events, parking_time_review_tasks, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:224` — is_primary: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:238` — notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:250` — person_id: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:275` — source: apartments, audit_log, contact_methods, events, persons, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:296` — telegram_user_id: audit_log, bot_admins, bot_user_sessions, contact_methods, resident_accounts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:297` — telegram_username: bot_admins, contact_methods, resident_accounts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:299` — updated_at: apartment_verification, apartments, bot_admins, bot_user_sessions, contact_methods, persons, resident_accounts, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:300` — updated_by: apartments, contact_methods, persons, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:392` — contact_owner: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:395` — contact_type: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:396` — contact_value: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:478` — is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:505` — notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:538` — person_id: contact_methods
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:603` — source: apartments, audit_log, charges, contact_methods, events, payments, persons, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:630` — telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:631` — telegram_username: bot_admins, contact_methods, resident_accounts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:647` — updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:47` — - contact_methods (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1525` — TABLE contact_methods
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1531` — CREATE TABLE contact_methods (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3879` — contact_owner: contact_methods
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3882` — contact_type: contact_methods
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3883` — contact_value: contact_methods
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3965` — is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3992` — notes: apartments, bot_admins, contact_methods, message_sources, persons, resident_accounts, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4025` — person_id: contact_methods
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4090` — source: apartments, audit_log, charges, contact_methods, events, payments, persons, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4117` — telegram_user_id: apartment_link_requests, audit_log, bot_admins, bot_user_sessions, commercial_contract_recipients, commercial_notifications, contact_methods, payment_notices, remote_requests, resident_accounts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4118` — telegram_username: bot_admins, contact_methods, resident_accounts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4134` — updated_by: apartments, commercial_contracts, contact_methods, persons, vehicles
+- `init_osbb_db.py:97` — CREATE TABLE IF NOT EXISTS contact_methods (
+- `tools/db_schema_snapshot.py:49` — "contact_methods",
+- `tools/db_schema_snapshot_full.py:34` — "contact_methods",
+- `tools/project_passport.py:98` — "contact_methods",
+
+## `contacts`
+- `search_vehicle_by_plate_fragment.py:84` — contact_join = f"LEFT JOIN contacts c ON c.{apartment_id_col} = a.id"
+
+## `created`
+- `migrate_add_verification_evidence.py:49` — print("verification_evidence table created successfully")
+- `migrate_add_verification_tasks.py:78` — print("verification_tasks table created successfully")
+
+## `data`
+- `CHECK_profile_verification_terminology_v2.py:48` — print(" - confirmation is separate from data completeness")
+
+## `dataclasses`
+- `commercial_contracts.py:17` — from dataclasses import dataclass, asdict
+- `tools/project_passport.py:27` — from dataclasses import asdict, dataclass
+- `unit_resolver.py:21` — from dataclasses import asdict, dataclass, field
+
+## `datetime`
+- `access_control.py:20` — from datetime import datetime
+- `audit_logger.py:4` — from datetime import datetime
+- `audit_osbb_telegram_messages.py:5` — from datetime import datetime
+- `audit_registry.py:4` — from datetime import datetime
+- `audit_tbot_quarantine.py:4` — from datetime import datetime
+- `billing/build_parking_time_review_tasks.py:4` — from datetime import datetime
+- `billing/import_ohorona_parking_time.py:6` — from datetime import datetime
+- `billing/import_ohorona_parking_time_simple_preview.py:6` — from datetime import datetime
+- `billing/import_parking_time_hints_from_ohorona.py:5` — from datetime import datetime
+- `billing/migrate_add_parking_billing.py:4` — from datetime import datetime
+- `billing/report_parking_time_review_tasks.py:4` — from datetime import datetime
+- `billing/report_parking_time_with_hints.py:5` — from datetime import datetime
+- `billing_reconciliation_report.py:5` — from datetime import datetime
+- `billing_statement_excel.py:5` — from datetime import datetime
+- `Bots/db_access - Copy.py:5` — from datetime import datetime
+- `Bots/db_access.py:5` — from datetime import datetime
+- `Bots/handlers/cashier_operator.py:25` — from datetime import date, datetime
+- `Bots/handlers/client_portal.py:23` — from datetime import datetime
+- `Bots/handlers/client_portal_safe_linking.py:23` — from datetime import datetime
+- `Bots/handlers/commercial_contract_editor.py:22` — from datetime import datetime
+- `Bots/handlers/guard_workspace.py:17` — from datetime import datetime
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:17` — from datetime import datetime
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:17` — from datetime import datetime
+- `Bots/handlers/unit_registry_editor - Copy.py:24` — from datetime import datetime
+- `Bots/handlers/unit_registry_editor.py:24` — from datetime import datetime
+- `Bots/handlers/vehicle_verification.py:1` — from datetime import datetime
+- `build_plate_candidates.py:4` — from datetime import datetime
+- `build_plate_evidence_by_digits_and_apartment.py:4` — from datetime import datetime
+- `build_plate_evidence_from_telegram.py:4` — from datetime import datetime
+- `build_verification_tasks.py:4` — from datetime import datetime
+- `cashier_journal.py:5` — from datetime import datetime
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:31` — from datetime import datetime
+- `cashier_v2_core.py:14` — from datetime import date, datetime
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:14` — from datetime import date, datetime
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:14` — from datetime import date, datetime
+- `cashier_v2_preflight.py:33` — from datetime import datetime
+- `cashier_v2_preflight_compat.py:17` — from datetime import datetime
+- `CHECK_guard_sandbox_service_orders.py:29` — from datetime import datetime
+- `CHECK_guard_sandbox_service_orders_v2.py:24` — from datetime import datetime
+- `commercial_contracts.py:18` — from datetime import date, datetime, timedelta
+- `commercial_notification_delivery.py:22` — from datetime import datetime
+- `create_clean_live_sandbox.py:36` — from datetime import datetime
+- `create_isolated_live_sandbox_v2.py:36` — from datetime import datetime
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:17` — from datetime import datetime
+- `Data/audit_databases.py:4` — from datetime import datetime
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:28` — from datetime import datetime
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:31` — from datetime import datetime
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:29` — from datetime import date, datetime
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:17` — from datetime import date, datetime
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:21` — from datetime import datetime
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:31` — from datetime import datetime
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:31` — from datetime import datetime
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:37` — from datetime import datetime
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:17` — from datetime import date, datetime
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:21` — from datetime import datetime
+- `Data/clean_base_01.py:4` — from datetime import datetime
+- `Data/clean_base_02.py:3` — from datetime import datetime
+- `diagnose_osbb_audit.py:17` — from datetime import datetime
+- `extract_telegram_remote_facts.py:5` — from datetime import datetime
+- `extract_telegram_vehicle_facts.py:5` — from datetime import datetime
+- `FIND_actual_service_order_state.py:25` — from datetime import datetime
+- `FIX_live_services_sandbox_payment_schema.py:32` — from datetime import datetime
+- `fix_parking_bot_language_gate.py:21` — from datetime import datetime
+- `fix_source_ref_schema.py:22` — from datetime import datetime
+- `generate_parking_charges.py:11` — from datetime import datetime
+- `guard_workspace_preflight.py:25` — from datetime import datetime
+- `guard_workspace_preflight_v2.py:25` — from datetime import datetime
+- `import_house_registry.py:5` — from datetime import datetime
+- `import_ohorona_list1_to_central_cashbox.py:27` — from datetime import datetime
+- `import_ohorona_sheet1_payments.py:6` — from datetime import datetime
+- `import_ohorona_to_cashbox.py:6` — from datetime import datetime
+- `import_osbb_telegram_messages.py:5` — from datetime import datetime
+- `import_paper_parking.py:4` — from datetime import datetime
+- `import_tbot_quarantine.py:4` — from datetime import datetime
+- `init_osbb_db.py:3` — from datetime import datetime
+- `init_osbb_quarantine_db.py:4` — from datetime import datetime
+- `init_osbb_telegram_db.py:4` — from datetime import datetime
+- `INSTALL_cashier_route_after_phone_v2.py:25` — from datetime import datetime
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:30` — from datetime import datetime
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:15` — from datetime import datetime
+- `INSTALL_phone_barrier_access_v2.py:15` — from datetime import datetime
+- `INSTALL_profile_button_early_route_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_confirmation_ready_visibility_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_critical_codes_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_parking_time_test_v1.py:13` — from datetime import datetime
+- `INSTALL_profile_verification_terminology_v2.py:18` — from datetime import datetime
+- `INSTALL_profile_verification_v1.py:6` — from datetime import datetime
+- `INSTALL_service_code_compatibility_phone_v2.py:14` — from datetime import datetime
+- `install_service_orders_ui.py:14` — from datetime import datetime
+- `list_osbb_folder_dialogs.py:4` — from datetime import datetime
+- `list_osbb_included_peers.py:4` — from datetime import datetime
+- `list_telegram_dialogs.py:4` — from datetime import datetime
+- `manage_staff_access.py:39` — from datetime import datetime
+- `manage_staff_access_v2.py:39` — from datetime import datetime
+- `migrate_access_control_and_guard.py:27` — from datetime import datetime
+- `migrate_apartment_link_requests.py:23` — from datetime import datetime
+- `migrate_apartment_verification.py:4` — from datetime import datetime
+- `migrate_bot_core.py:4` — from datetime import datetime
+- `migrate_cashier_core.py:5` — from datetime import datetime
+- `migrate_cashier_operator_editor.py:34` — from datetime import datetime
+- ... and 82 more
+
+## `db_access`
+- `Bots/handlers/cashier_operator.py:318` — from db_access import get_admin_record  # type: ignore
+- `Bots/handlers/unit_registry_editor - Copy.py:57` — from db_access import can_write
+- `Bots/handlers/unit_registry_editor.py:57` — from db_access import can_write
+
+## `decimal`
+- `import_ohorona_list1_to_central_cashbox.py:28` — from decimal import Decimal, InvalidOperation
+- `import_ohorona_sheet1_payments.py:7` — from decimal import Decimal, InvalidOperation
+- `import_ohorona_to_cashbox.py:7` — from decimal import Decimal, InvalidOperation
+
+## `differences`
+- `tools/db_schema_compare.py:308` — add("No structural table differences found.")
+
+## `difflib`
+- `plate_consensus_report.py:7` — from difflib import SequenceMatcher
+- `plate_consensus_report_v3.py:7` — from difflib import SequenceMatcher
+- `search_vehicle_by_plate_fragment.py:6` — from difflib import SequenceMatcher
+- `vehicle_data_quality_tasks.py:7` — from difflib import SequenceMatcher
+- `vehicle_verification_tasks.py:7` — from difflib import SequenceMatcher
+
+## `direct`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:190` — 2. Add immutable snapshots of what a resident confirmed, plus database triggers protecting audit logs from direct update/delete.
+
+## `docx`
+- `Collect_word_tables.py:2` — from docx import Document
+- `Word_table_to_Excel.py:2` — from docx import Document
+
+## `e`
+- `seed_bot_admins.py:23` — ) from e
+
+## `error`
+- `audit_tbot_quarantine.py:455` — report.add(f"source_files table error: {e}")
+
+## `events`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1581` — TABLE events
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1587` — CREATE TABLE events (
+
+## `exc`
+- `Bots/db_access.py:4941` — ) from exc
+- `Bots/handlers/cashier_operator.py:160` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-06-25.") from exc
+- `Bots/handlers/cashier_operator.py:169` — raise ValueError("Сумма: введите число, например 400 или 1250.50.") from exc
+- `Bots/handlers/commercial_contract_editor.py:194` — raise ValueError("Используйте формат даты ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `Bots/handlers/commercial_contract_editor.py:204` — raise ValueError("Введите сумму числом, например 2500 или 120.50.") from exc
+- `Bots/handlers/commercial_contract_editor.py:214` — raise ValueError(f"{caption}: введите целое число.") from exc
+- `Bots/handlers/commercial_contract_editor.py:519` — raise ValueError("У помещения уже есть другой ACTIVE договор.") from exc
+- `Bots/handlers/commercial_contract_editor.py:706` — raise ValueError("Этот номер уже есть в данном договоре.") from exc
+- `cashier_v2_core.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:123` — ) from exc
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:92` — ) from exc
+- `MIGRATE_simplified_services_sandbox.py:60` — ) from exc
+- `MIGRATE_simplified_services_sandbox.py:73` — ) from exc
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:152` — raise ValueError("Дата: ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `patch_cashier_v2_core_period_and_schemafix.py:92` — raise ValueError("Разрешена только БД из Data\\db\\sandbox.") from exc
+- `patch_cashier_v2_core_schemafix.py:101` — ) from exc
+- `prepare_live_service_test.py:67` — raise ValueError("Разрешены только БД внутри Data\\db\\sandbox.") from exc
+- `run_bot_guard_sandbox.py:55` — ) from exc
+- `run_bot_guard_sandbox_v2.py:55` — ) from exc
+- `run_bot_guard_sandbox_v3.py:55` — ) from exc
+- `run_bot_live_service_sandbox_v4.py:52` — ) from exc
+- `run_bot_sandbox_v2.py:70` — ) from exc
+- `service_catalog_admin_core.py:152` — raise ValueError("Дата: ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `supervisor_dashboard.py:459` — ) from exc
+
+## `existed`
+- `Data/exports/remotes/remote_requests_migration_2026-06-25_10-23-49.txt:7` — Table existed before: False
+- `Data/exports/remotes/remote_requests_migration_2026-06-25_10-24-18.txt:7` — Table existed before: True
+- `Data/exports/remotes/remote_requests_migration_2026-06-25_11-42-17.txt:7` — Table existed before: True
+- `Data/exports/remotes/remote_requests_migration_2026-06-25_12-05-57.txt:7` — Table existed before: True
+- `Data/exports/users/apartment_link_requests_migration_2026-06-25_11-42-33.txt:7` — Table existed before: False
+- `Data/exports/users/apartment_link_requests_migration_2026-06-25_12-07-06.txt:7` — Table existed before: True
+- `migrate_apartment_link_requests.py:149` — f"Table existed before: {existed}",
+- `migrate_apartment_link_requests.py:194` — print("Table existed before:", existed)
+- `migrate_remote_requests.py:183` — f"Table existed before: {existed}",
+- `migrate_remote_requests.py:228` — print("Table existed before:", existed)
+
+## `extracted_facts`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1633` — TABLE extracted_facts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1639` — CREATE TABLE extracted_facts (
+
+## `for`
+- `cashier_v2_preflight.py:92` — return sorted(table for table in required if not table_exists(cur, table))
+- `cashier_v2_preflight.py:252` — missing = sorted(table for table in base_required if not m2.table_exists(cur, table))
+- `CHECK_phone_barrier_access_operational_sandbox.py:35` — table for table in required_phone_access_operational_tables()
+- `CHECK_phone_barrier_access_sandbox_schema.py:42` — table for table in required_phone_access_tables()
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:127` — table for table in existing_tables
+- `migrate_cashier_v2.py:404` — missing = [table for table in base_required if not table_exists(cur, table)]
+- `run_bot_sandbox_v2.py:239` — missing = [table for table, count in summary.items() if count < 0]
+
+## `from`
+- `Bots/db_access.py:4925` — # The old implementation inferred composite references from the Telegram
+
+## `G`
+- `CHECK_guard_sandbox_service_orders.py:77` — "Put this diagnosis script directly into G:\\Programming\\Py\\OSBB\\."
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_20260627_114522.txt:9` — Put this diagnosis script directly into G:\Programming\Py\OSBB\.
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_20260627_114522.txt:21` — Put this diagnosis script directly into G:\Programming\Py\OSBB\.
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:179` — 2. Unpack package into `G:\Programming\Py\OSBB\`.
+- `MIGRATE_simplified_services_sandbox.py:6` — This migration must be launched from G:\Programming\Py\OSBB\.
+- `RUN_CHECK_guard_sandbox_service_orders.bat:28` — echo directly into G:\Programming\Py\OSBB\
+- `RUN_FIX_live_services_sandbox_payment_schema.bat:30` — echo directly into G:\Programming\Py\OSBB\
+- `RUN_fix_source_ref_schema.bat:16` — echo Put both downloaded files directly into G:\Programming\Py\OSBB\
+
+## `handlers`
+- `Bots/handlers/audit_viewer.py:15` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/handlers/cashier_operator.py:20` — from handlers.cashier_operator import handle_cashier_operator_text
+- `Bots/handlers/cashier_operator_v2.py:31` — from handlers import cashier_operator as v1
+- `Bots/handlers/client_portal_v2.py:34` — from handlers import client_portal as base
+- `Bots/handlers/client_portal_v3.py:26` — from handlers import client_portal as base
+- `Bots/handlers/client_portal_v3.py:27` — from handlers import client_portal_v2 as v2
+- `Bots/handlers/commercial_contract_editor.py:1025` — from handlers.unit_registry_editor import show_unit_card
+- `Bots/handlers/profile_verification_workspace.py:26` — from handlers import client_portal as resident_portal
+- `Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `Bots/handlers/unit_registry_editor - Copy.py:13` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/handlers/unit_registry_editor - Copy.py:46` — from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/handlers/unit_registry_editor.py:13` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/handlers/unit_registry_editor.py:46` — from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/parking_bot - Copy.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot - Copy.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot - Copy.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot - Copy.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot.py:16` — from handlers.cashier_operator import handle_cashier_operator_text
+- `Bots/parking_bot.py:17` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:11` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `cashier_v2_core.py:35` — from handlers import cashier_operator as v1
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:35` — from handlers import cashier_operator as v1
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:35` — from handlers import cashier_operator as v1
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:427` — import_anchor = "from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text"
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:429` — "from handlers.profile_verification_workspace import (\n"
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:435` — if "from handlers.profile_verification_workspace import (" not in source:
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:427` — import_anchor = "from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text"
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:429` — "from handlers.profile_verification_workspace import (\n"
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:434` — if "from handlers.profile_verification_workspace import (" not in source:
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:26` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:26` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:26` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:433` — import_anchor = "from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:435` — "from handlers.profile_verification_workspace import (\n"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:441` — if "from handlers.profile_verification_workspace import (" not in source:
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:449` — "from handlers.profile_parking_time_test_workspace import "
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:452` — if "from handlers.profile_parking_time_test_workspace import " not in source:
+- `patch_parking_bot_cashier_operator.py:24` — IMPORT_LINE = "from handlers.cashier_operator import handle_cashier_operator_text\n"
+- `patch_parking_bot_cashier_operator.py:83` — if "from handlers.cashier_operator import handle_cashier_operator_text" in source:
+- `patch_parking_bot_cashier_operator.py:87` — "from handlers.client_portal import",
+- `patch_parking_bot_cashier_operator.py:88` — "from handlers.audit_viewer import handle_audit_viewer_text\n",
+- `patch_parking_bot_cashier_operator.py:89` — "from handlers.vehicle_full_list import handle_vehicle_full_list_text\n",
+- `patch_parking_bot_cashier_operator.py:93` — client_start = source.find("from handlers.client_portal import")
+- `patch_parking_bot_cashier_operator.py:108` — if line.startswith("from handlers.") or line.startswith("import handlers.")
+- `patch_parking_bot_client_cabinet.py:29` — "from handlers.client_cabinet import handle_client_cabinet_text\n"
+- `patch_parking_bot_client_cabinet.py:57` — if "from handlers.client_cabinet import handle_client_cabinet_text" in source:
+- `patch_parking_bot_client_cabinet.py:61` — "from handlers.audit_viewer import handle_audit_viewer_text\n",
+- `patch_parking_bot_client_cabinet.py:62` — "from handlers.vehicle_full_list import handle_vehicle_full_list_text\n",
+- `patch_parking_bot_client_cabinet.py:63` — "from handlers.vehicle_card_editor import handle_vehicle_card_editor_text\n",
+- `patch_parking_bot_client_cabinet.py:74` — if line.startswith("from handlers.") or line.startswith("import handlers.")
+- `patch_parking_bot_client_portal.py:27` — "from handlers.client_portal import (\n"
+- `patch_parking_bot_client_portal.py:81` — if "from handlers.client_portal import" in source:
+- `patch_parking_bot_client_portal.py:84` — marker = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_client_portal.py:91` — if line.startswith("from handlers.")
+- `patch_parking_bot_guard_workspace_v2.py:29` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v2.py:111` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v2.py:114` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v2.py:215` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_guard_workspace_v3.py:27` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v3.py:95` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v3.py:97` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v3.py:191` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_guard_workspace_v4.py:27` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v4.py:105` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v4.py:107` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v4.py:201` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_service_orders_ui_v1.py:25` — "from handlers.service_orders_workspace import (\n"
+- `patch_parking_bot_service_orders_ui_v1.py:145` — if "from handlers.service_orders_workspace import (" in source:
+- `patch_parking_bot_service_orders_ui_v1.py:147` — anchor = "from handlers.guard_workspace import (\n"
+- ... and 35 more
+
+## `has`
+- `Bots/handlers/vehicle_verification.py:294` — raise RuntimeError("vehicles table has no license plate columns")
+- `vehicle_data_quality_tasks.py:319` — raise RuntimeError("payments table has no editable columns")
+
+## `IF`
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `billing/build_parking_time_review_tasks.py:27` — CREATE TABLE IF NOT EXISTS parking_time_review_tasks (
+- `billing/migrate_add_parking_billing.py:24` — CREATE TABLE IF NOT EXISTS parking_tariffs (
+- `billing/migrate_add_parking_billing.py:43` — CREATE TABLE IF NOT EXISTS billing_periods (
+- `billing/migrate_add_parking_billing.py:56` — CREATE TABLE IF NOT EXISTS parking_charges (
+- `billing/migrate_add_parking_billing.py:89` — CREATE TABLE IF NOT EXISTS parking_payments (
+- `billing/migrate_add_parking_billing.py:117` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `billing/migrate_add_parking_billing.py:129` — CREATE TABLE IF NOT EXISTS cash_transfers (
+- `build_plate_candidates.py:61` — CREATE TABLE IF NOT EXISTS verification_candidates (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:168` — CREATE TABLE IF NOT EXISTS access_schema_migrations (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:181` — CREATE TABLE IF NOT EXISTS access_points (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:210` — CREATE TABLE IF NOT EXISTS access_tariff_versions (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:249` — CREATE TABLE IF NOT EXISTS access_policy_versions (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:277` — CREATE TABLE IF NOT EXISTS access_policy_values (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:300` — CREATE TABLE IF NOT EXISTS phone_access_subscriptions (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:355` — CREATE TABLE IF NOT EXISTS phone_access_subscription_points (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:387` — CREATE TABLE IF NOT EXISTS phone_access_subscription_charges (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:436` — CREATE TABLE IF NOT EXISTS access_debt_warnings (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:482` — CREATE TABLE IF NOT EXISTS access_external_commands (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:519` — CREATE TABLE IF NOT EXISTS access_operation_journal (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:160` — CREATE TABLE IF NOT EXISTS remote_supplier_batches (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:188` — CREATE TABLE IF NOT EXISTS remote_supplier_batch_links (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:209` — CREATE TABLE IF NOT EXISTS remote_order_issued_assets (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:269` — CREATE TABLE IF NOT EXISTS resident_profile_schema_migrations (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:281` — CREATE TABLE IF NOT EXISTS resident_profile_policy_versions (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:302` — CREATE TABLE IF NOT EXISTS resident_profile_policy_values (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:318` — CREATE TABLE IF NOT EXISTS resident_profile_verifications (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:354` — CREATE TABLE IF NOT EXISTS resident_profile_change_requests (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:388` — CREATE TABLE IF NOT EXISTS resident_profile_operation_journal (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:160` — CREATE TABLE IF NOT EXISTS remote_supplier_batches (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:188` — CREATE TABLE IF NOT EXISTS remote_supplier_batch_links (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:209` — CREATE TABLE IF NOT EXISTS remote_order_issued_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7675` — 199:         CREATE TABLE IF NOT EXISTS remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7681` — >   199:         CREATE TABLE IF NOT EXISTS remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7955` — >    98:         CREATE TABLE IF NOT EXISTS remote_requests (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8181` — 246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8188` — >   246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8213` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8220` — >   267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8226` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8237` — 283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8244` — >   283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8675` — 246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8682` — >   246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8707` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8714` — >   267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8720` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8731` — 283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8738` — >   283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11639` — >   160:             CREATE TABLE IF NOT EXISTS remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11679` — >   188:             CREATE TABLE IF NOT EXISTS remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11695` — >   209:             CREATE TABLE IF NOT EXISTS remote_order_issued_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16719` — >   160:             CREATE TABLE IF NOT EXISTS remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16759` — >   188:             CREATE TABLE IF NOT EXISTS remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16775` — >   209:             CREATE TABLE IF NOT EXISTS remote_order_issued_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18482` — >   160:             CREATE TABLE IF NOT EXISTS remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18522` — >   188:             CREATE TABLE IF NOT EXISTS remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18538` — >   209:             CREATE TABLE IF NOT EXISTS remote_order_issued_assets (
+- `init_osbb_db.py:33` — CREATE TABLE IF NOT EXISTS schema_info (
+- `init_osbb_db.py:42` — CREATE TABLE IF NOT EXISTS apartments (
+- `init_osbb_db.py:60` — CREATE TABLE IF NOT EXISTS persons (
+- `init_osbb_db.py:78` — CREATE TABLE IF NOT EXISTS vehicles (
+- `init_osbb_db.py:97` — CREATE TABLE IF NOT EXISTS contact_methods (
+- `init_osbb_db.py:119` — CREATE TABLE IF NOT EXISTS events (
+- `init_osbb_db.py:139` — CREATE TABLE IF NOT EXISTS verification_log (
+- `init_osbb_db.py:154` — CREATE TABLE IF NOT EXISTS audit_log (
+- `init_osbb_db.py:169` — CREATE TABLE IF NOT EXISTS message_sources (
+- `init_osbb_db.py:179` — CREATE TABLE IF NOT EXISTS raw_messages (
+- `init_osbb_db.py:196` — CREATE TABLE IF NOT EXISTS extracted_facts (
+- `init_osbb_quarantine_db.py:29` — CREATE TABLE IF NOT EXISTS source_files (
+- `init_osbb_quarantine_db.py:41` — CREATE TABLE IF NOT EXISTS tbot_parking_import (
+- `init_osbb_telegram_db.py:29` — CREATE TABLE IF NOT EXISTS telegram_chats (
+- `init_osbb_telegram_db.py:41` — CREATE TABLE IF NOT EXISTS telegram_messages (
+- `init_osbb_telegram_db.py:69` — CREATE TABLE IF NOT EXISTS telegram_facts (
+- `migrate_access_control_and_guard.py:99` — CREATE TABLE IF NOT EXISTS staff_principals (
+- `migrate_access_control_and_guard.py:111` — CREATE TABLE IF NOT EXISTS access_roles (
+- `migrate_access_control_and_guard.py:123` — CREATE TABLE IF NOT EXISTS access_role_permissions (
+- `migrate_access_control_and_guard.py:141` — CREATE TABLE IF NOT EXISTS access_user_roles (
+- `migrate_access_control_and_guard.py:160` — CREATE TABLE IF NOT EXISTS access_user_permissions (
+- `migrate_access_control_and_guard.py:181` — CREATE TABLE IF NOT EXISTS access_audit_log (
+- `migrate_access_control_and_guard.py:199` — CREATE TABLE IF NOT EXISTS remote_handover_events (
+- `migrate_add_verification_evidence.py:19` — CREATE TABLE IF NOT EXISTS verification_evidence (
+- `migrate_add_verification_tasks.py:21` — CREATE TABLE IF NOT EXISTS verification_tasks (
+- `migrate_apartment_link_requests.py:84` — CREATE TABLE IF NOT EXISTS apartment_link_requests (
+- `migrate_apartment_verification.py:38` — CREATE TABLE IF NOT EXISTS apartment_verification (
+- `migrate_billing_core.py:35` — CREATE TABLE IF NOT EXISTS service_catalog (
+- `migrate_billing_core.py:49` — CREATE TABLE IF NOT EXISTS service_tariffs (
+- `migrate_billing_core.py:65` — CREATE TABLE IF NOT EXISTS charges (
+- `migrate_billing_core.py:89` — CREATE TABLE IF NOT EXISTS payments (
+- `migrate_billing_core.py:108` — CREATE TABLE IF NOT EXISTS payment_allocations (
+- `migrate_bot_core.py:44` — CREATE TABLE IF NOT EXISTS resident_accounts (
+- `migrate_bot_core.py:154` — CREATE TABLE IF NOT EXISTS bot_admins (
+- `migrate_bot_core.py:261` — CREATE TABLE IF NOT EXISTS audit_log (
+- `migrate_bot_core.py:325` — CREATE TABLE IF NOT EXISTS bot_user_sessions (
+- `migrate_cashier_core.py:43` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_cashier_core.py:105` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_core.py:124` — CREATE TABLE IF NOT EXISTS cashbox_operations (
+- `migrate_cashier_core.py:162` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- ... and 121 more
+
+## `import`
+- `billing_statement_excel.py:11` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_parking_payments_audit_v4.py:367` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_unpaid_preview_v3.py:330` — from openpyxl.worksheet.table import Table, TableStyleInfo
+
+## `in`
+- `audit_registry.py:74` — for table in tables:
+- `cashier_v2_preflight.py:92` — return sorted(table for table in required if not table_exists(cur, table))
+- `cashier_v2_preflight.py:252` — missing = sorted(table for table in base_required if not m2.table_exists(cur, table))
+- `CHECK_guard_sandbox_service_orders_v2.py:280` — for table in tables:
+- `CHECK_phone_barrier_access_operational_sandbox.py:35` — table for table in required_phone_access_operational_tables()
+- `CHECK_phone_barrier_access_sandbox_schema.py:42` — table for table in required_phone_access_tables()
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:127` — table for table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:133` — for table in ordered_tables:
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:877` — for table in created:
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `migrate_bot_core.py:349` — for table in [
+- `migrate_cashier_v2.py:404` — missing = [table for table in base_required if not table_exists(cur, table)]
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:90` — 1 for table in required_phone_access_operational_tables()
+- `migrate_service_items.py:144` — for table in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `phone_barrier_access_core.py:878` — for table in created:
+- `phone_barrier_access_core.py:1360` — for table in sorted(_operational_tables() - before):
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:878` — for table in created:
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1360` — for table in sorted(_operational_tables() - before):
+- `run_bot_guard_sandbox.py:113` — for table in tables:
+- `run_bot_guard_sandbox_v2.py:113` — for table in tables:
+- `run_bot_guard_sandbox_v3.py:113` — for table in tables:
+- `run_bot_sandbox_v2.py:118` — for table in required:
+- `supervisor_dashboard.py:307` — for table in [
+- `tools/db_schema_compare.py:159` — for table in common_tables:
+- `tools/db_schema_snapshot.py:178` — for table in tables:
+- `tools/db_schema_snapshot_full.py:165` — for table in tables:
+- `tools/project_passport.py:589` — for table in sorted(refs_by_table, key=str.lower):
+- `unit_resolver.py:205` — if not all(table_exists(conn, table) for table in needed):
+- `Word_table_to_Excel.py:28` — for index, table in enumerate(doc.tables, start=1):
+
+## `its`
+- `run_bot_sandbox_v2.py:181` — parking_bot.py executed from its true path, but only the patched source
+
+## `LIST`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:21` — TABLE LIST
+- `tools/db_schema_snapshot.py:232` — "TABLE LIST",
+- `tools/db_schema_snapshot_full.py:266` — lines.extend(["", "TABLE LIST", sub])
+
+## `listing`
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:640` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:648` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:656` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:664` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:672` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:680` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:688` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:696` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:704` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:712` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:720` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:728` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:736` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:744` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:752` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:760` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:768` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:776` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:784` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:792` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:800` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:808` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:816` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:824` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:832` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:840` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:848` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:856` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:864` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:872` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:880` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:888` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:896` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:904` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:912` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:920` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:928` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:936` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:944` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:952` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:960` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:968` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:976` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:984` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:992` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1000` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1008` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1016` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1024` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1032` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1040` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+- `Data/exports/audits/telegram_remote_facts_report_2026-06-10_14-43-47.txt:1048` — Text         : Here is the table listing the cars identified in the video, including their color, make, model, and license plate number where readable: | # | Color | Make | Model | License Plate | Notes | |---|---|---|---|---|---| | 1 | Dark Grey | BMW | 5 Series | KA 6050 PK |  | | 2 | Silver | Kia | Sportage | KA 1302 IH |  | | 3 | Silver | Mercedes-Benz | CLK-Class | KA 7848 EB |  | | 4 | Black | Skoda | Superb | KA 7320 AO |  | | 5 | Black | Skoda | Superb | CB 1586 BX |  | | 6 | Dark Grey |
+
+## `message_sources`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1675` — TABLE message_sources
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1681` — CREATE TABLE message_sources (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2113` — FOREIGN KEY(source_id) REFERENCES message_sources(id)
+- `init_osbb_db.py:191` — FOREIGN KEY(source_id) REFERENCES message_sources(id)
+
+## `missing`
+- `Bots/handlers/client_portal.py:1052` — result["error"] = "charges table missing"
+- `Bots/handlers/client_portal_safe_linking.py:1052` — result["error"] = "charges table missing"
+- `migrate_access_control_and_guard.py:309` — result[table].append("<table missing>")
+- `migrate_cashier_v2.py:280` — additions[table] = ["<table missing>"]
+- `migrate_cashier_v2_compat.py:393` — added[table].append("<table missing>")
+- `migrate_cashier_v2_compat.py:583` — plan[table] = plan.get(table, []) + ["<base table missing>"]
+
+## `name`
+- `fix_source_ref_schema.py:78` — to the actual SQLite table name. Schema prefixes are not expected in OSBB.
+- `fix_source_ref_schema.py:93` — # SQLite PRAGMA table_info expects the final table name in this project.
+- `fix_source_ref_schema.py:257` — "WARNING: table name(s) found in source but absent in osbb.db: "
+
+## `names`
+- `fix_source_ref_schema.py:134` — Locate table names assigned to alias p in the SQL statement that reads
+- `fix_source_ref_schema.py:263` — "None of the table names detected in the handler exists in osbb.db. "
+
+## `not`
+- `audit_registry.py:80` — report.add(f"{table:20}: table not found")
+- `CHECK_profile_test_candidate_apartment_40.py:128` — if table not in ordered_tables
+- `fix_source_ref_schema.py:150` — if table not in candidates:
+- `vehicle_data_quality_tasks.py:285` — raise RuntimeError("payments table not found")
+
+## `OHORONA`
+- `Data/exports/billing/ohorona_sheet1_payments_2026-05_2026-06_apply_2026-06-19_13-39-16.txt:101` — UNKNOWN PLATES FROM OHORONA
+- `Data/exports/billing/ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_11-38-22.txt:88` — UNKNOWN PLATES FROM OHORONA
+- `Data/exports/billing/ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_13-23-40.txt:101` — UNKNOWN PLATES FROM OHORONA
+- `import_ohorona_sheet1_payments.py:654` — lines.append("UNKNOWN PLATES FROM OHORONA")
+
+## `old`
+- `Bots/handlers/client_portal_v2.py:663` — # A stale v2 state should not fall into old client portal text parser.
+
+## `openpyxl`
+- `billing/import_ohorona_parking_time.py:9` — from openpyxl import load_workbook
+- `billing/import_ohorona_parking_time_simple_preview.py:9` — from openpyxl import load_workbook
+- `billing/import_parking_time_hints_from_ohorona.py:8` — from openpyxl import load_workbook
+- `billing/report_parking_time_with_hints.py:8` — from openpyxl import load_workbook
+- `billing_statement_excel.py:8` — from openpyxl import Workbook
+- `billing_statement_excel.py:9` — from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
+- `billing_statement_excel.py:10` — from openpyxl.utils import get_column_letter
+- `billing_statement_excel.py:11` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `cashier_journal.py:1564` — from openpyxl import Workbook
+- `cashier_journal.py:1565` — from openpyxl.styles import Font, PatternFill, Alignment
+- `cashier_journal.py:1566` — from openpyxl.utils import get_column_letter
+- `Collect_word_tables.py:3` — from openpyxl import Workbook
+- `Collect_word_tables.py:4` — from openpyxl.utils import get_column_letter
+- `Data/create_payment_sheet.py:4` — from openpyxl import Workbook
+- `Data/create_payment_sheet.py:5` — from openpyxl.styles import Border, Side
+- `import_ohorona_sheet1_payments.py:8` — from openpyxl import load_workbook
+- `import_ohorona_to_cashbox.py:9` — from openpyxl import load_workbook
+- `supervisor_dashboard.py:453` — from openpyxl import Workbook
+- `supervisor_dashboard.py:454` — from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+- `supervisor_dashboard.py:455` — from openpyxl.utils import get_column_letter
+- `tools/cashier_parking_payments_audit_v4.py:354` — from openpyxl.utils import get_column_letter
+- `tools/cashier_parking_payments_audit_v4.py:365` — from openpyxl import Workbook
+- `tools/cashier_parking_payments_audit_v4.py:366` — from openpyxl.styles import Alignment, Font, PatternFill
+- `tools/cashier_parking_payments_audit_v4.py:367` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_unpaid_preview_v3.py:316` — from openpyxl.utils import get_column_letter
+- `tools/cashier_unpaid_preview_v3.py:328` — from openpyxl import Workbook
+- `tools/cashier_unpaid_preview_v3.py:329` — from openpyxl.styles import Alignment, Font, PatternFill
+- `tools/cashier_unpaid_preview_v3.py:330` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `Word_table_to_Excel.py:3` — from openpyxl import Workbook
+- `Word_table_to_Excel.py:4` — from openpyxl.utils import get_column_letter
+
+## `operator_audit_log`
+- `access_control.py:363` — operator_audit_log. Caller controls transaction commit.
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `audit_logger.py:102` — if add_column_if_missing(cur, "operator_audit_log", col, col_def):
+- `audit_logger.py:105` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `audit_logger.py:106` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `audit_logger.py:107` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_user ON operator_audit_log(user_id)")
+- `audit_logger.py:108` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `audit_logger.py:109` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `audit_logger.py:110` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_table_row ON operator_audit_log(table_name, row_id)")
+- `audit_logger.py:111` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `audit_logger.py:168` — cols = table_columns(cur, "operator_audit_log")
+- `audit_logger.py:173` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `audit_logger.py:261` — table_name="operator_audit_log",
+- `Bots/db_access - Copy.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access - Copy.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/handlers/audit_viewer - Copy.py:52` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer - Copy.py:83` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer - Copy.py:130` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer - Copy.py:180` — "Основной журнал: operator_audit_log.\n\n"
+- `Bots/handlers/audit_viewer.py:4` — Источник данных: ТОЛЬКО operator_audit_log.
+- `Bots/handlers/audit_viewer.py:91` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:96` — "SELECT COUNT(*) FROM operator_audit_log WHERE actor_type=?",
+- `Bots/handlers/audit_viewer.py:100` — cur.execute("SELECT COUNT(*) FROM operator_audit_log")
+- `Bots/handlers/audit_viewer.py:115` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:145` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer.py:232` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer.py:260` — "Основной журнал: operator_audit_log.\n"
+- `Bots/handlers/commercial_contract_editor.py:12` — - фиксирует все действия в operator_audit_log.
+- `Bots/handlers/guard_workspace.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor.py:420` — в operator_audit_log той же TEST/WORK или PROD БД, что и сам редактор.
+- `Bots/handlers/vehicle_verification.py:64` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/vehicle_verification.py:67` — columns = table_columns(cur, "operator_audit_log")
+- `Bots/handlers/vehicle_verification.py:90` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2031` — 9: - пишет действия в access_audit_log и operator_audit_log.
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2676` — 9: - пишет действия в access_audit_log и operator_audit_log.
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3321` — 9: - пишет действия в access_audit_log и operator_audit_log.
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7882` — FILE: migrate_operator_audit_log.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7890` — >    93:     print("Table operator_audit_log is ready.")
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7895` — FILE: migrate_operator_audit_log_v2.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7903` — >   153:     print("operator_audit_log is ready for supervisor review.")
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:104` — TABLE operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:120` — --- PROD.operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:121` — +++ TEST.operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:123` — CREATE TABLE operator_audit_log (
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:164` — action_status: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:165` — action_type: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:170` — apartment_number: apartment_verification, apartments, extracted_facts, operator_audit_log, parking_time_review_tasks, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:184` — comment: apartment_verification, audit_log, events, extracted_facts, operator_audit_log, schema_info, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:196` — db_file: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:197` — db_mode: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:203` — entity_id: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:204` — entity_type: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:212` — extra_json: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:215` — field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:234` — new_value: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:242` — old_value: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:243` — operator_name: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:244` — operator_telegram_id: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:245` — operator_username: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:265` — review_comment: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:266` — review_status: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:267` — reviewed_at: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:268` — reviewed_by: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:270` — row_label: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:276` — source_context: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:290` — table_name: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:302` — vehicle_id: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:312` — action_status: commercial_access_actions, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:313` — action_type: commercial_access_actions, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:316` — actor_type: cashbox_operations, cashier_batches, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:415` — db_file: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:416` — db_mode: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:451` — extra_json: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:455` — field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:500` — new_value: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:516` — old_value: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:519` — operator_id: apartment_link_requests, bank_transactions, cashbox_operations, cashier_batches, cashier_receipts, cashier_reconciliation_cases, commercial_access_actions, operator_audit_log, payment_notices, payments, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:584` — review_comment: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:585` — review_status: cashier_receipts, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:586` — reviewed_at: apartment_link_requests, operator_audit_log, parking_time_review_tasks, payment_notices, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:587` — reviewed_by: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:589` — row_id: operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:604` — source_context: charge_adjustments, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:624` — table_name: audit_log, operator_audit_log
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:648` — user_id: operator_audit_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:51` — - operator_audit_log (114 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1708` — TABLE operator_audit_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1714` — CREATE TABLE operator_audit_log (
+- ... and 99 more
+
+## `OSBB`
+- `MIGRATE_simplified_services_sandbox.py:48` — config from the parent Python project directory, not from OSBB itself.
+- `tools/db_schema_compare.py:4` — # Run from OSBB project root or Py root.
+- `tools/db_schema_snapshot.py:4` — # Run from OSBB root:
+
+## `osbb_test`
+- `create_isolated_live_sandbox_v2.py:357` — "Baseline workflow counts inherited from osbb_test.db:",
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:8` — Baseline workflow counts inherited from osbb_test.db:
+
+## `paid`
+- `tools/cashier_parking_payments_audit_v4.py:136` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_parking_payments_audit_v4.py:200` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_unpaid_preview_v3.py:144` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_unpaid_preview_v3.py:208` — LEFT JOIN paid p ON p.charge_id = c.id
+
+## `PAPER`
+- `audit_registry.py:97` — report.section("APARTMENTS CREATED FROM PAPER PARKING")
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:29` — APARTMENTS CREATED FROM PAPER PARKING
+- `Data/exports/audits/registry_audit_2026-06-23_17-18-21.txt:29` — APARTMENTS CREATED FROM PAPER PARKING
+
+## `paper`
+- `plate_consensus_apply.py:89` — Consensus correction updates only vehicles from paper/main DB.
+
+## `parking_charges`
+- `billing/migrate_add_parking_billing.py:111` — FOREIGN KEY(parking_charge_id) REFERENCES parking_charges(id),
+
+## `parking_tariffs`
+- `billing/migrate_add_parking_billing.py:35` — INSERT OR IGNORE INTO parking_tariffs
+
+## `parking_time_review_tasks`
+- `billing/build_parking_time_review_tasks.py:17` — CREATED_BY = "build_parking_time_review_tasks"
+- `billing/build_parking_time_review_tasks.py:27` — CREATE TABLE IF NOT EXISTS parking_time_review_tasks (
+- `billing/build_parking_time_review_tasks.py:62` — ON parking_time_review_tasks(status)
+- `billing/build_parking_time_review_tasks.py:67` — ON parking_time_review_tasks(apartment_number)
+- `billing/build_parking_time_review_tasks.py:74` — DELETE FROM parking_time_review_tasks
+- `billing/build_parking_time_review_tasks.py:108` — INSERT INTO parking_time_review_tasks (
+- `billing/build_parking_time_review_tasks.py:177` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:67` — report_file = report_dir / f"parking_time_review_tasks_{now_ts()}.txt"
+- `billing/report_parking_time_review_tasks.py:78` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:85` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:109` — FROM parking_time_review_tasks
+- `billing/report_parking_time_with_hints.py:176` — FROM parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:170` — apartment_number: apartment_verification, apartments, extracted_facts, operator_audit_log, parking_time_review_tasks, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:182` — car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:193` — created_by: apartments, contact_methods, events, parking_time_review_tasks, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:194` — current_parking_time: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:200` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:201` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:227` — license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:254` — priority: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:267` — reviewed_at: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:268` — reviewed_by: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:278` — source_details: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:280` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:285` — status: apartment_verification, apartments, events, extracted_facts, parking_time_review_tasks, resident_accounts, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:287` — suggested_day_count: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:288` — suggested_night_count: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:293` — task_type: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:302` — vehicle_id: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:366` — car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:410` — current_parking_time: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:421` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:422` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:487` — license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:545` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:586` — reviewed_at: apartment_link_requests, operator_audit_log, parking_time_review_tasks, payment_notices, remote_requests
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:587` — reviewed_by: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:606` — source_details: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:608` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:620` — suggested_day_count: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:621` — suggested_night_count: parking_time_review_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:627` — task_type: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:653` — vehicle_id: adjustment_assignments, cashbox_operations, charges, parking_time_review_tasks, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:52` — - parking_time_review_tasks (35 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1773` — TABLE parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1779` — CREATE TABLE parking_time_review_tasks (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3596` — ON parking_time_review_tasks(apartment_number)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3602` — ON parking_time_review_tasks(status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3853` — car_model: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3897` — current_parking_time: parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3908` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3909` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3974` — license_plate: parking_time_review_tasks, tbot_parking_import, vehicles
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4032` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4073` — reviewed_at: apartment_link_requests, operator_audit_log, parking_time_review_tasks, payment_notices, remote_requests
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4074` — reviewed_by: operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4093` — source_details: parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4095` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4103` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4107` — suggested_day_count: parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4108` — suggested_night_count: parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4114` — task_type: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4140` — vehicle_id: adjustment_assignments, cashbox_operations, charges, parking_time_review_tasks, payments
+- `tools/db_schema_snapshot.py:63` — "parking_time_review_tasks",
+- `tools/db_schema_snapshot_full.py:48` — "parking_time_review_tasks",
+- `tools/project_passport.py:113` — "parking_time_review_tasks",
+
+## `PATCHED`
+- `CHECK_guard_sandbox_service_orders.py:442` — say("  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,")
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6024` — 442:         say("  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,")
+
+## `pathlib`
+- `access_control.py:21` — from pathlib import Path
+- `audit_composite_apartments.py:3` — from pathlib import Path
+- `audit_logger.py:1` — from pathlib import Path
+- `audit_osbb_telegram_messages.py:1` — from pathlib import Path
+- `audit_registry.py:1` — from pathlib import Path
+- `audit_tbot_quarantine.py:1` — from pathlib import Path
+- `billing/build_parking_time_review_tasks.py:1` — from pathlib import Path
+- `billing/import_ohorona_parking_time.py:1` — from pathlib import Path
+- `billing/import_ohorona_parking_time_simple_preview.py:1` — from pathlib import Path
+- `billing/import_parking_time_hints_from_ohorona.py:1` — from pathlib import Path
+- `billing/migrate_add_parking_billing.py:1` — from pathlib import Path
+- `billing/report_parking_time_review_tasks.py:1` — from pathlib import Path
+- `billing/report_parking_time_with_hints.py:1` — from pathlib import Path
+- `billing_reconciliation_report.py:1` — from pathlib import Path
+- `billing_statement_excel.py:1` — from pathlib import Path
+- `Bots/db_access - Copy.py:1` — from pathlib import Path
+- `Bots/db_access.py:1` — from pathlib import Path
+- `Bots/handlers/audit_viewer - Copy.py:1` — from pathlib import Path
+- `Bots/handlers/audit_viewer.py:20` — from pathlib import Path
+- `Bots/handlers/cashier_operator.py:26` — from pathlib import Path
+- `Bots/handlers/cashier_operator_v2.py:18` — from pathlib import Path
+- `Bots/handlers/client_portal.py:24` — from pathlib import Path
+- `Bots/handlers/client_portal_safe_linking.py:24` — from pathlib import Path
+- `Bots/handlers/client_portal_v2.py:20` — from pathlib import Path
+- `Bots/handlers/client_portal_v3.py:16` — from pathlib import Path
+- `Bots/handlers/commercial_contract_editor.py:23` — from pathlib import Path
+- `Bots/handlers/guard_workspace.py:16` — from pathlib import Path
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:16` — from pathlib import Path
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:16` — from pathlib import Path
+- `Bots/handlers/profile_parking_time_test_workspace.py:11` — from pathlib import Path
+- `Bots/handlers/profile_verification_workspace.py:12` — from pathlib import Path
+- `Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Bots/handlers/unit_registry_editor - Copy.py:25` — from pathlib import Path
+- `Bots/handlers/unit_registry_editor.py:25` — from pathlib import Path
+- `Bots/handlers/vehicle_card_editor.py:2` — from pathlib import Path
+- `Bots/handlers/vehicle_full_list.py:1` — from pathlib import Path
+- `Bots/handlers/vehicle_verification.py:2` — from pathlib import Path
+- `Bots/parking_bot - Copy.py:1` — from pathlib import Path
+- `Bots/parking_bot.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1` — from pathlib import Path
+- `build_plate_candidates.py:1` — from pathlib import Path
+- `build_plate_evidence_by_digits_and_apartment.py:1` — from pathlib import Path
+- `build_plate_evidence_from_telegram.py:1` — from pathlib import Path
+- `build_verification_tasks.py:1` — from pathlib import Path
+- `cashier_journal.py:1` — from pathlib import Path
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:32` — from pathlib import Path
+- `cashier_v2_core.py:15` — from pathlib import Path
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:15` — from pathlib import Path
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:15` — from pathlib import Path
+- `cashier_v2_preflight.py:34` — from pathlib import Path
+- `cashier_v2_preflight_compat.py:18` — from pathlib import Path
+- `CHECK_guard_sandbox_service_orders.py:30` — from pathlib import Path
+- `CHECK_guard_sandbox_service_orders_v2.py:25` — from pathlib import Path
+- `CHECK_phone_barrier_access_operational_sandbox.py:9` — from pathlib import Path
+- `CHECK_phone_barrier_access_sandbox_schema.py:8` — from pathlib import Path
+- `CHECK_profile_button_early_route_fix.py:11` — from pathlib import Path
+- `CHECK_profile_confirmation_ready_visibility_fix.py:4` — from pathlib import Path
+- `CHECK_profile_critical_codes_fix.py:4` — from pathlib import Path
+- `CHECK_profile_parking_time_test_sandbox.py:12` — from pathlib import Path
+- `CHECK_profile_test_candidate_apartment_40.py:29` — from pathlib import Path
+- `CHECK_profile_verification_sandbox.py:6` — from pathlib import Path
+- `CHECK_profile_verification_terminology_v2.py:4` — from pathlib import Path
+- `CHECK_service_code_compatibility_phone_v2.py:9` — from pathlib import Path
+- `commercial_contracts.py:19` — from pathlib import Path
+- `commercial_notification_delivery.py:21` — from pathlib import Path
+- `create_clean_live_sandbox.py:37` — from pathlib import Path
+- `create_isolated_live_sandbox_v2.py:37` — from pathlib import Path
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:18` — from pathlib import Path
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:29` — from pathlib import Path
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:32` — from pathlib import Path
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:18` — from pathlib import Path
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:32` — from pathlib import Path
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:12` — from pathlib import Path
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:12` — from pathlib import Path
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:32` — from pathlib import Path
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:12` — from pathlib import Path
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:18` — from pathlib import Path
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6175` — 4: from pathlib import Path
+- `diagnose_osbb_audit.py:18` — from pathlib import Path
+- `diagnose_sandbox_charges.py:22` — from pathlib import Path
+- `extract_telegram_remote_facts.py:1` — from pathlib import Path
+- `extract_telegram_vehicle_facts.py:1` — from pathlib import Path
+- `FIND_actual_service_order_state.py:26` — from pathlib import Path
+- `find_sandbox_telegram_id.py:17` — from pathlib import Path
+- `FIX_live_services_sandbox_payment_schema.py:33` — from pathlib import Path
+- `fix_parking_bot_language_gate.py:22` — from pathlib import Path
+- `fix_source_ref_schema.py:23` — from pathlib import Path
+- `generate_parking_charges.py:7` — from pathlib import Path
+- `guard_workspace_preflight.py:26` — from pathlib import Path
+- `guard_workspace_preflight_v2.py:26` — from pathlib import Path
+- `import_house_registry.py:2` — from pathlib import Path
+- `import_ohorona_list1_to_central_cashbox.py:19` — from pathlib import Path
+- `import_ohorona_sheet1_payments.py:1` — from pathlib import Path
+- ... and 129 more
+
+## `payment`
+- `vehicle_data_quality_tasks.py:277` — def apply_vehicle_plate_correction(payment_id, vehicle_id, operator_id=None, comment="vehicle quality correction from payment"):
+
+## `payment_allocations`
+- `billing_reconciliation_report.py:157` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `billing_statement_excel.py:144` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `Bots/handlers/cashier_operator.py:947` — if not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:949` — cols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:957` — f"FROM payment_allocations WHERE payment_id = ?",
+- `Bots/handlers/cashier_operator.py:996` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:1000` — acols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:1052` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `Bots/handlers/cashier_operator.py:1122` — "payment_allocations",
+- `Bots/handlers/cashier_operator.py:1154` — table_name="payment_allocations",
+- `Bots/handlers/client_portal.py:1056` — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `Bots/handlers/client_portal_safe_linking.py:1056` — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `cashier_journal.py:804` — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:807` — cols = table_columns(cur, "payment_allocations")
+- `cashier_journal.py:813` — f"SELECT COALESCE(SUM({amount_col}), 0) FROM payment_allocations WHERE charge_id = ?",
+- `cashier_journal.py:820` — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:823` — return insert_dynamic(cur, "payment_allocations", {
+- `cashier_v2_core.py:170` — "payment_allocations",
+- `cashier_v2_core.py:327` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core.py:355` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core.py:473` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core.py:689` — "payment_allocations",
+- `cashier_v2_core.py:823` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:147` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:304` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:331` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:453` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:669` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:803` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:147` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:304` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:324` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:397` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:613` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:747` — "payment_allocations",
+- `cashier_v2_preflight.py:84` — "payment_allocations",
+- `cashier_v2_preflight_compat.py:138` — "payment_allocations",
+- `commercial_contracts.py:6` — - считает задолженность по общему charges/payment_allocations ledger;
+- `Data/exports/billing/billing_reconciliation_report_2026-05_2026-06_2026-06-19_16-15-39.txt:10` — Allocations: payment_allocations
+- `Data/exports/billing/ohorona_sheet1_payments_2026-05_2026-06_apply_2026-06-19_13-39-16.txt:151` — allocations_table: payment_allocations
+- `Data/exports/billing/parking_billing_statement_2026-05_2026-06_2026-06-19_14-58-20.txt:10` — Allocations: payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:45` — - payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:329` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:343` — base_service_code: adjustment_assignments, cashbox_operations, charges, payment_allocations, payments
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:377` — charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:533` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:599` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:602` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:53` — - payment_allocations (13 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1845` — TABLE payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1851` — CREATE TABLE payment_allocations (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1878` — - idx_payment_allocations_service_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1879` — - idx_payment_allocations_base_service | unique=0 | origin=c | partial=0 | columns=[base_service_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1880` — - idx_payment_allocations_service_item | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3053` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3501` — INDEX idx_payment_allocations_base_service
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3503` — CREATE INDEX idx_payment_allocations_base_service ON payment_allocations(base_service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3505` — INDEX idx_payment_allocations_service_item
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3507` — CREATE INDEX idx_payment_allocations_service_item ON payment_allocations(service_item_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3509` — INDEX idx_payment_allocations_service_type
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3511` — CREATE INDEX idx_payment_allocations_service_type ON payment_allocations(service_type)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3816` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3830` — base_service_code: adjustment_assignments, cashbox_operations, charges, payment_allocations, payments
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3864` — charge_id: cashbox_operations, cashier_batch_items, charge_adjustments, payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4020` — payment_id: bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, payment_allocations
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4086` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4089` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt:21` — payment_allocations     : 13
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt:35` — Allocations table       : payment_allocations
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt:21` — payment_allocations     : 13
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt:35` — Allocations table       : payment_allocations
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt:21` — payment_allocations     : 13
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt:35` — Allocations table       : payment_allocations
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt:25` — payment_allocations     : 13
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt:39` — Allocations table       : payment_allocations
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt:25` — payment_allocations     : 13
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt:39` — Allocations table       : payment_allocations
+- `diagnose_sandbox_charges.py:8` — - реальную структуру charges и payment_allocations;
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `import_ohorona_sheet1_payments.py:389` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `migrate_billing_core.py:108` — CREATE TABLE IF NOT EXISTS payment_allocations (
+- `migrate_billing_core.py:183` — "payment_allocations",
+- `migrate_commercial_contract_core.py:20` — распределяется обычными payment_allocations.
+- `migrate_commercial_contract_core.py:650` — из общего charges и обычных payment_allocations.
+- `migrate_commercial_contract_core.py:655` — if not table_exists(cur, "payment_allocations"):
+- `migrate_commercial_contract_core.py:656` — return False, "payment_allocations отсутствует"
+- `migrate_commercial_contract_core.py:659` — alloc_columns = table_columns(cur, "payment_allocations")
+- `migrate_commercial_contract_core.py:670` — return False, "payment_allocations.amount/allocated_amount отсутствует"
+- `migrate_commercial_contract_core.py:699` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `migrate_service_items.py:144` — for table in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `parking_billing_statement.py:173` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `patch_cashier_v2_core_schemafix.py:44` — REPLACEMENT = '\ndef open_charges(\n    *,\n    apartment_id: int | None = None,\n    apartment_number: str | None = None,\n    entrance_number: str | None = None,\n    period_code: str | None = None,\n    service_code: str | None = None,\n    service_item_code: str | None = None,\n) -> list[dict]:\n    """\n    Return open charges using the schema actually present in the database.\n\n    Older OSBB billing tables identify a charge only by apartment_number;\n    newer ones may also have apartmen
+- `reset_service_catalog.py:372` — for table_name in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `reset_service_catalog.py:395` — for table_name in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `supervisor_dashboard.py:236` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- ... and 21 more
+
+## `payment_notices`
+- `Bots/handlers/guard_workspace.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace.py:314` — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:314` — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:314` — target_table="payment_notices",
+- `cashier_v2_core.py:172` — "payment_notices",
+- `cashier_v2_core.py:889` — FROM payment_notices
+- `cashier_v2_core.py:922` — "payment_notices",
+- `cashier_v2_core.py:945` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core.py:953` — table_name="payment_notices",
+- `cashier_v2_core.py:985` — FROM payment_notices
+- `cashier_v2_core.py:1008` — FROM payment_notices n
+- `cashier_v2_core.py:1025` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core.py:1070` — "payment_notices",
+- `cashier_v2_core.py:1089` — table_name="payment_notices",
+- `cashier_v2_core.py:1120` — "payment_notices",
+- `cashier_v2_core.py:1137` — table_name="payment_notices",
+- `cashier_v2_core.py:1396` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core.py:1520` — "payment_notices",
+- `cashier_v2_core.py:1539` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:149` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:869` — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:902` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:925` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:933` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:965` — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:988` — FROM payment_notices n
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1005` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1050` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1069` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1100` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1117` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1376` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1500` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1519` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:149` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:813` — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:846` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:869` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:877` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:909` — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:932` — FROM payment_notices n
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:949` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:994` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1013` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1044` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1061` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1320` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1444` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1463` — table_name="payment_notices",
+- `cashier_v2_preflight.py:86` — "payment_notices",
+- `cashier_v2_preflight.py:116` — "payment_notices": {
+- `cashier_v2_preflight.py:259` — "payment_notices": m2.create_table_payment_notices(cur),
+- `cashier_v2_preflight_compat.py:140` — "payment_notices",
+- `cashier_v2_preflight_compat.py:155` — "payment_notices": {"notice_number", "notice_type", "notice_status", "declared_amount"},
+- `create_clean_live_sandbox.py:97` — "payment_notices",
+- `create_clean_live_sandbox.py:398` — "payment_notices",
+- `create_isolated_live_sandbox_v2.py:97` — "payment_notices",
+- `create_isolated_live_sandbox_v2.py:394` — "payment_notices",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:15` — uses payment_notices/payment rows already created by the cashier subsystem and
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:475` — if not table_exists(cur, "payment_notices"):
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:477` — cols = table_columns(cur, "payment_notices")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:480` — row = _dict(cur, "SELECT id FROM payment_notices WHERE notice_number = ?", (number,))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:15` — uses payment_notices/payment rows already created by the cashier subsystem and
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:511` — if not table_exists(cur, "payment_notices"):
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:513` — cols = table_columns(cur, "payment_notices")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:516` — row = _dict(cur, "SELECT id FROM payment_notices WHERE notice_number = ?", (number,))
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:194` — id=3 | role_code='GUARD_O' | resource='payment_notices' | action='CONFIRM' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:195` — id=2 | role_code='GUARD_O' | resource='payment_notices' | action='VIEW' | scope_type='CASHBOX' | scope_value='O' | is_active=1
+- `Data/db/sandbox/cashier_v2_preflight_2026-06-25_18-53-50.txt:32` — v2 tables: {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}
+- `Data/db/sandbox/cashier_v2_preflight_compat_2026-06-25_19-47-09.txt:31` — v2 field additions: {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_items': [], 'cashier_reconciliation_cases': []}
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:11` — payment_notices: 0
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:28` — {'tables_created': {'payment_notices': False, 'bank_transactions': False, 'cashier_batches': False, 'cashier_batch_items': False, 'cashier_reconciliation_cases': False}, 'v2_fields_added': {'payment_notices': [], 'bank_transactions': [], 'cashier_batches': ['batch_number', 'batch_kind', 'entry_status', 'entrance_number', 'service_item_code', 'receipt_date', 'included_count', 'excluded_count', 'currency', 'source_text', 'confirmed_at', 'voided_at', 'void_reason', 'updated_at'], 'cashier_batch_ite
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:39` — payment_notices: 0
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:9` — payment_notices: created
+- `Data/exports/cashier/cashier_v2_migration_2026-06-25_17-56-05.txt:28` — Индексы: idx_payment_notices_status, idx_payment_notices_unit, idx_bank_transactions_ref, idx_bank_transactions_unit, idx_cashier_batch_items_batch, idx_cashier_batch_items_unit, idx_cashier_reconciliation_status, idx_cashier_reconciliation_unit, idx_payments_notice_v2, idx_payments_bank_v2, idx_receipts_notice_v2
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2069` — 132:             "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2714` — 132:             "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3359` — 132:             "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6501` — 398:                     "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6570` — 394:                     "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7252` — 96:         "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7259` — 96:         "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7313` — 96:         "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7320` — 96:         "payment_notices",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7589` — 167:         ("payment_notices", "CONFIRM"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7634` — 167:         ("payment_notices", "CONFIRM"),
+- ... and 129 more
+
+## `payments`
+- `billing/migrate_add_parking_billing.py:89` — CREATE TABLE IF NOT EXISTS parking_payments (
+- `billing/migrate_add_parking_billing.py:161` — CREATE INDEX IF NOT EXISTS idx_parking_payments_charge
+- `billing/migrate_add_parking_billing.py:162` — ON parking_payments(parking_charge_id)
+- `billing_reconciliation_report.py:92` — def load_payments(cur, payments_table, period_code):
+- `billing_reconciliation_report.py:93` — if not payments_table:
+- `billing_reconciliation_report.py:96` — columns = table_columns(cur, payments_table)
+- `billing_reconciliation_report.py:126` — FROM {payments_table} p
+- `billing_reconciliation_report.py:156` — payments_table = pick_table(cur, "payments", "service_payments")
+- `billing_reconciliation_report.py:160` — payments = load_payments(cur, payments_table, period_code)
+- `billing_reconciliation_report.py:178` — payments_without_charge = []
+- `billing_reconciliation_report.py:179` — unknown_payments = []
+- `billing_reconciliation_report.py:180` — payments_to_empty_apartment = []
+- `billing_reconciliation_report.py:181` — apartment_level_payments = []
+- `billing_reconciliation_report.py:200` — for p in payments:
+- `billing_reconciliation_report.py:216` — unknown_payments.append(item)
+- `billing_reconciliation_report.py:218` — payments_to_empty_apartment.append(item)
+- `billing_reconciliation_report.py:220` — apartment_level_payments.append(item)
+- `billing_reconciliation_report.py:222` — payments_without_charge.append(item)
+- `billing_reconciliation_report.py:226` — "payments_table": payments_table,
+- `billing_reconciliation_report.py:229` — "payments": payments,
+- `billing_reconciliation_report.py:235` — "payments_without_charge": payments_without_charge,
+- `billing_reconciliation_report.py:236` — "unknown_payments": unknown_payments,
+- `billing_reconciliation_report.py:237` — "payments_to_empty_apartment": payments_to_empty_apartment,
+- `billing_reconciliation_report.py:238` — "apartment_level_payments": apartment_level_payments,
+- `billing_reconciliation_report.py:288` — total_payments = sum(float(p["amount"] or 0) for p in data["payments"])
+- `billing_reconciliation_report.py:294` — data["payments_without_charge"],
+- `billing_reconciliation_report.py:295` — data["unknown_payments"],
+- `billing_reconciliation_report.py:296` — data["payments_to_empty_apartment"],
+- `billing_reconciliation_report.py:297` — data["apartment_level_payments"],
+- `billing_reconciliation_report.py:310` — lines.append(f"Payments   : {data['payments_table']}")
+- `billing_reconciliation_report.py:318` — lines.append(f"Payments count             : {len(data['payments'])}")
+- `billing_reconciliation_report.py:321` — lines.append(f"Payments total             : {money(total_payments)}")
+- `billing_reconciliation_report.py:329` — lines.append(f"Payments without charge    : {len(data['payments_without_charge'])}")
+- `billing_reconciliation_report.py:330` — lines.append(f"Apartment-level payments   : {len(data['apartment_level_payments'])}")
+- `billing_reconciliation_report.py:331` — lines.append(f"Unknown payments           : {len(data['unknown_payments'])}")
+- `billing_reconciliation_report.py:332` — lines.append(f"Empty apartment payments   : {len(data['payments_to_empty_apartment'])}")
+- `billing_reconciliation_report.py:339` — write_section(lines, "5. PAYMENTS_WITHOUT_CHARGE — есть авто/квартира, но нет подходящего начисления", data["payments_without_charge"], format_payment_line)
+- `billing_reconciliation_report.py:340` — write_section(lines, "6. APARTMENT_LEVEL_PAYMENTS — оплата на квартиру без конкретного авто", data["apartment_level_payments"], format_payment_line)
+- `billing_reconciliation_report.py:341` — write_section(lines, "7. UNKNOWN_PAYMENTS — платежи без квартиры и без найденного авто", data["unknown_payments"], format_payment_line)
+- `billing_reconciliation_report.py:342` — write_section(lines, "8. EMPTY_APARTMENT_PAYMENTS — платежи с пустой квартирой, но с vehicle_id", data["payments_to_empty_apartment"], format_payment_line)
+- `billing_reconciliation_report.py:347` — lines.append("UNKNOWN_PAYMENTS: искать номер/плательщика и привязывать к квартире/авто.")
+- `billing_reconciliation_report.py:348` — lines.append("APARTMENT_LEVEL_PAYMENTS: проверить, можно ли распределить на начисления квартиры.")
+- `billing_reconciliation_report.py:349` — lines.append("PAYMENTS_WITHOUT_CHARGE: вероятно, создать недостающее начисление или сменить тип услуги.")
+- `billing_reconciliation_report.py:385` — print("Payments without charge:", len(data["payments_without_charge"]))
+- `billing_reconciliation_report.py:386` — print("Apartment-level payments:", len(data["apartment_level_payments"]))
+- `billing_reconciliation_report.py:387` — print("Unknown payments:", len(data["unknown_payments"]))
+- `billing_statement_excel.py:109` — def load_payments(cur, period_code):
+- `billing_statement_excel.py:110` — payments_table = pick_table(cur, "payments", "service_payments")
+- `billing_statement_excel.py:111` — if not payments_table:
+- `billing_statement_excel.py:114` — cols = table_columns(cur, payments_table)
+- `billing_statement_excel.py:134` — FROM {payments_table} p
+- `billing_statement_excel.py:184` — payments = load_payments(cur, period_code)
+- `billing_statement_excel.py:207` — "payments": [],
+- `billing_statement_excel.py:225` — for p in payments:
+- `billing_statement_excel.py:237` — item["payments"].append(row)
+- `billing_statement_excel.py:244` — "payments": payments,
+- `billing_statement_excel.py:334` — payments_text = []
+- `billing_statement_excel.py:335` — for p in item["payments"]:
+- `billing_statement_excel.py:336` — payments_text.append(
+- `billing_statement_excel.py:350` — "\n".join(payments_text),
+- `billing_statement_excel.py:378` — # Overpayments
+- `billing_statement_excel.py:393` — add_table(ws, "Overpayments")
+- `billing_statement_excel.py:425` — # Payments details
+- `billing_statement_excel.py:432` — for p in data["payments"]:
+- `billing_statement_excel.py:436` — for p2 in item["payments"]:
+- `billing_statement_excel.py:454` — add_table(ws, "Payments")
+- `billing_statement_excel.py:457` — # Unallocated payments
+- `billing_statement_excel.py:463` — for p in item["payments"]:
+- `billing_statement_excel.py:476` — add_table(ws, "UnallocatedPayments")
+- `billing_statement_excel.py:502` — ws.append(["Payments total", money(sum(float(p["amount"] or 0) for p in data["payments"]))])
+- `billing_statement_excel.py:511` — description="Excel billing statement: charges, payments, balances, work queues."
+- `billing_statement_excel.py:531` — total_payments = sum(float(p["amount"] or 0) for p in data["payments"])
+- `billing_statement_excel.py:541` — print("Payments total:", money(total_payments))
+- `Bots/db_access - Copy.py:49` — can_manage_payments,
+- `Bots/db_access.py:49` — can_manage_payments,
+- `Bots/handlers/cashier_operator.py:295` — "payments",
+- `Bots/handlers/cashier_operator.py:312` — Если есть bot_admins, дополнительно учитываем can_manage_payments/can_write.
+- `Bots/handlers/cashier_operator.py:322` — can_manage_payments = bool(row[7]) if len(row) > 7 else False
+- `Bots/handlers/cashier_operator.py:323` — return can_write or can_manage_payments
+- `Bots/handlers/cashier_operator.py:714` — "payments",
+- `Bots/handlers/cashier_operator.py:785` — "payments",
+- `Bots/handlers/cashier_operator.py:842` — table_name="payments",
+- `Bots/handlers/cashier_operator.py:964` — cur.execute("SELECT amount FROM payments WHERE id = ?", (int(payment_id),))
+- `Bots/handlers/cashier_operator.py:1233` — "payments",
+- `Bots/handlers/cashier_operator.py:1284` — "payments",
+- `Bots/handlers/client_portal.py:71` — "parking_payments": "💰 Оплаты",
+- `Bots/handlers/client_portal.py:102` — "payments_title": "💰 Оплаты парковки — кв. {unit}",
+- `Bots/handlers/client_portal.py:109` — "no_payments": (
+- `Bots/handlers/client_portal.py:206` — "parking_payments": "💰 Оплати",
+- `Bots/handlers/client_portal.py:237` — "payments_title": "💰 Оплати паркування — кв. {unit}",
+- `Bots/handlers/client_portal.py:244` — "no_payments": (
+- `Bots/handlers/client_portal.py:341` — "parking_payments": "💰 Payments",
+- `Bots/handlers/client_portal.py:372` — "payments_title": "💰 Parking payments — apartment {unit}",
+- `Bots/handlers/client_portal.py:376` — "received": "Payments received",
+- `Bots/handlers/client_portal.py:377` — "unallocated": "Unallocated payments",
+- `Bots/handlers/client_portal.py:379` — "no_payments": (
+- `Bots/handlers/client_portal.py:380` — "No payments linked to this apartment were found.\n\n"
+- `Bots/handlers/client_portal.py:491` — [tr(lang, "parking_charges"), tr(lang, "parking_payments")],
+- `Bots/handlers/client_portal.py:1027` — # Billing read model: no writes, no automatic allocation of payments.
+- `Bots/handlers/client_portal.py:1040` — "payments": [],
+- ... and 866 more
+
+## `persons`
+- `audit_registry.py:63` — "persons",
+- `audit_registry.py:118` — report.section("APARTMENTS WITHOUT PERSONS")
+- `audit_registry.py:125` — LEFT JOIN persons p ON p.apartment_id = a.id
+- `audit_registry.py:141` — SELECT a.apartment_number, COUNT(p.id) AS persons_count
+- `audit_registry.py:143` — JOIN persons p ON p.apartment_id = a.id
+- `audit_registry.py:146` — ORDER BY persons_count DESC, a.apartment_number
+- `audit_registry.py:153` — report.add(f"{apartment_number:10} persons={count}")
+- `audit_tbot_quarantine.py:63` — LEFT JOIN persons p ON p.apartment_id = a.id
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:12` — persons             : 343
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:34` — APARTMENTS WITHOUT PERSONS
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:42` — 139        persons=4
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:43` — 155        persons=4
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:44` — 191        persons=4
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:45` — 89         persons=4
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:46` — 120        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:47` — 122        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:48` — 126        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:49` — 13         persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:50` — 144        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:51` — 161        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:52` — 173        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:53` — 180        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:54` — 182        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:55` — 187        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:56` — 194        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:57` — 195        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:58` — 200        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:59` — 205        persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:60` — 38         persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:61` — 50         persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:62` — 69         persons=3
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:63` — 1          persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:64` — 10         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:65` — 101        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:66` — 105        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:67` — 106        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:68` — 107        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:69` — 108        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:70` — 110        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:71` — 111        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:72` — 115        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:73` — 12         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:74` — 121        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:75` — 125        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:76` — 128        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:77` — 129        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:78` — 132        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:79` — 133        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:80` — 134        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:81` — 138        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:82` — 14         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:83` — 140        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:84` — 142        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:85` — 145        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:86` — 158        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:87` — 159        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:88` — 16         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:89` — 160        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:90` — 162        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:91` — 167        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:92` — 169        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:93` — 171        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:94` — 174        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:95` — 176        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:96` — 181        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:97` — 185        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:98` — 186        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:99` — 188        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:100` — 196        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:101` — 197        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:102` — 198        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:103` — 2          persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:104` — 201        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:105` — 202        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:106` — 203        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:107` — 206        persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:108` — 24         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:109` — 25         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:110` — 27         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:111` — 29         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:112` — 30         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:113` — 31         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:114` — 32         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:115` — 40         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:116` — 42         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:117` — 43         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:118` — 51         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:119` — 52         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:120` — 56         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:121` — 71         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:122` — 8          persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:123` — 80         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:124` — 82         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:125` — 84         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:126` — 95         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:127` — 96         persons=2
+- `Data/exports/audits/registry_audit_2026-06-08_17-24-00.txt:128` — 98         persons=2
+- `Data/exports/audits/registry_audit_2026-06-23_17-18-21.txt:12` — persons             : 343
+- `Data/exports/audits/registry_audit_2026-06-23_17-18-21.txt:34` — APARTMENTS WITHOUT PERSONS
+- `Data/exports/audits/registry_audit_2026-06-23_17-18-21.txt:42` — 139        persons=4
+- ... and 148 more
+
+## `phone_access_request_points`
+- `Data/db/logs/phone_barrier_access_operational_migration_2026-06-27_19-38-08.txt:6` — - created table phone_access_request_points
+- `phone_barrier_access_core.py:1423` — FROM phone_access_request_points
+- `phone_barrier_access_core.py:1496` — INSERT INTO phone_access_request_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1423` — FROM phone_access_request_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1496` — INSERT INTO phone_access_request_points (
+
+## `phone_access_requests`
+- `CHECK_phone_barrier_access_operational_sandbox.py:56` — print("Requests:", cur.execute("SELECT COUNT(*) FROM phone_access_requests").fetchone()[0])
+- `Data/db/logs/phone_barrier_access_operational_migration_2026-06-27_19-38-08.txt:7` — - created table phone_access_requests
+- `phone_barrier_access_core.py:1408` — cur, "SELECT * FROM phone_access_requests WHERE interest_id = ?", (int(interest_id),)
+- `phone_barrier_access_core.py:1413` — "SELECT * FROM phone_access_requests WHERE service_order_id = ?",
+- `phone_barrier_access_core.py:1467` — INSERT INTO phone_access_requests (
+- `phone_barrier_access_core.py:1820` — UPDATE phone_access_requests
+- `phone_barrier_access_core.py:2134` — UPDATE phone_access_requests
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1408` — cur, "SELECT * FROM phone_access_requests WHERE interest_id = ?", (int(interest_id),)
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1413` — "SELECT * FROM phone_access_requests WHERE service_order_id = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1467` — INSERT INTO phone_access_requests (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1820` — UPDATE phone_access_requests
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2134` — UPDATE phone_access_requests
+
+## `phone_access_subscription_charges`
+- `CHECK_phone_barrier_access_operational_sandbox.py:60` — "SELECT COUNT(*) FROM phone_access_subscription_charges WHERE charge_kind = 'CONNECT'"
+- `CHECK_phone_barrier_access_operational_sandbox.py:63` — "SELECT COUNT(*) FROM phone_access_subscription_charges WHERE charge_kind = 'MONTHLY'"
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:15` — - created table phone_access_subscription_charges
+- `phone_barrier_access_core.py:1579` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1687` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1696` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_core.py:1913` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1931` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_core.py:1962` — "SELECT * FROM phone_access_subscription_charges WHERE id = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1579` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1687` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1696` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1913` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1931` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1962` — "SELECT * FROM phone_access_subscription_charges WHERE id = ?",
+
+## `phone_access_subscription_points`
+- `CHECK_phone_barrier_access_operational_sandbox.py:58` — print("Subscription points:", cur.execute("SELECT COUNT(*) FROM phone_access_subscription_points").fetchone()[0])
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:16` — - created table phone_access_subscription_points
+- `phone_barrier_access_core.py:1566` — FROM phone_access_subscription_points
+- `phone_barrier_access_core.py:1675` — FROM phone_access_subscription_points
+- `phone_barrier_access_core.py:1802` — INSERT INTO phone_access_subscription_points (
+- `phone_barrier_access_core.py:2075` — UPDATE phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1566` — FROM phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1675` — FROM phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1802` — INSERT INTO phone_access_subscription_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2075` — UPDATE phone_access_subscription_points
+
+## `phone_access_subscriptions`
+- `CHECK_phone_barrier_access_operational_sandbox.py:57` — print("Subscriptions:", cur.execute("SELECT COUNT(*) FROM phone_access_subscriptions").fetchone()[0])
+- `CHECK_phone_barrier_access_sandbox_schema.py:116` — "SELECT COUNT(*) FROM phone_access_subscriptions"
+- `Data/db/logs/phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt:17` — - created table phone_access_subscriptions
+- `phone_barrier_access_core.py:1545` — cur, "SELECT * FROM phone_access_subscriptions WHERE id = ?", (int(subscription_id),)
+- `phone_barrier_access_core.py:1550` — "SELECT * FROM phone_access_subscriptions WHERE created_from_order_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_core.py:1556` — "SELECT * FROM phone_access_subscriptions WHERE created_from_interest_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_core.py:1771` — INSERT INTO phone_access_subscriptions (
+- `phone_barrier_access_core.py:2115` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_core.py:2125` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1545` — cur, "SELECT * FROM phone_access_subscriptions WHERE id = ?", (int(subscription_id),)
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1550` — "SELECT * FROM phone_access_subscriptions WHERE created_from_order_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1556` — "SELECT * FROM phone_access_subscriptions WHERE created_from_interest_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1771` — INSERT INTO phone_access_subscriptions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2115` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2125` — UPDATE phone_access_subscriptions
+
+## `phone_barrier_access_core`
+- `Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `CHECK_phone_barrier_access_operational_sandbox.py:21` — from phone_barrier_access_core import (
+- `CHECK_phone_barrier_access_sandbox_schema.py:26` — from phone_barrier_access_core import (
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:66` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:49` — from phone_barrier_access_core import (
+- `MIGRATE_phone_barrier_access_sandbox.py:37` — from phone_barrier_access_core import (
+- `phone_barrier_access_service.py:15` — from phone_barrier_access_core import (
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:66` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:15` — from phone_barrier_access_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+
+## `phone_barrier_access_service`
+- `Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_service import (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:677` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11849` — 677:             from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16929` — 685:             from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18692` — 685:             from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_service import (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:677` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `service_code_compatibility_payload/service_preorders_core.py:685` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `service_preorders_core.py:685` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+
+## `plate`
+- `plate_consensus_top6.py:59` — description="Show only unresolved Tie cases from plate consensus report."
+
+## `plate_consensus_report`
+- `Bots/handlers/vehicle_verification.py:19` — from plate_consensus_report import DEFAULT_PERIOD_CODE, build_consensus, normalize_plate
+- `plate_consensus_apply.py:15` — from plate_consensus_report import (
+- `plate_consensus_top6.py:13` — from plate_consensus_report import (
+- `supervisor_dashboard.py:17` — from plate_consensus_report import DEFAULT_PERIOD_CODE, build_consensus
+
+## `possibly`
+- `Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:374` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:470` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:469` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:469` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:470` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+
+## `primary`
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+- `profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+- `profile_verification_payload/profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+
+## `profile`
+- `Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+
+## `profile_parking_time_test_core`
+- `Bots/handlers/profile_parking_time_test_workspace.py:25` — from profile_parking_time_test_core import (
+- `CHECK_profile_parking_time_test_sandbox.py:26` — from profile_parking_time_test_core import (
+- `MIGRATE_profile_parking_time_test_sandbox.py:30` — from profile_parking_time_test_core import ensure_test_schema
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:25` — from profile_parking_time_test_core import (
+
+## `profile_parking_time_test_events`
+- `Data/db/logs/profile_parking_time_test_migration_2026-06-28_12-12-37.txt:6` — - created table profile_parking_time_test_events
+- `parking_time_test_payload/profile_parking_time_test_core.py:226` — INSERT INTO profile_parking_time_test_events (
+- `parking_time_test_payload/profile_parking_time_test_core.py:487` — FROM profile_parking_time_test_events
+- `profile_parking_time_test_core.py:226` — INSERT INTO profile_parking_time_test_events (
+- `profile_parking_time_test_core.py:487` — FROM profile_parking_time_test_events
+
+## `profile_parking_time_test_schema_migrations`
+- `CHECK_profile_parking_time_test_sandbox.py:57` — FROM profile_parking_time_test_schema_migrations
+- `Data/db/logs/profile_parking_time_test_migration_2026-06-28_12-12-37.txt:7` — - created table profile_parking_time_test_schema_migrations
+- `parking_time_test_payload/profile_parking_time_test_core.py:269` — FROM profile_parking_time_test_schema_migrations
+- `parking_time_test_payload/profile_parking_time_test_core.py:277` — INSERT INTO profile_parking_time_test_schema_migrations (
+- `profile_parking_time_test_core.py:269` — FROM profile_parking_time_test_schema_migrations
+- `profile_parking_time_test_core.py:277` — INSERT INTO profile_parking_time_test_schema_migrations (
+
+## `profile_parking_time_test_sessions`
+- `CHECK_profile_parking_time_test_sandbox.py:85` — "SELECT COUNT(*) FROM profile_parking_time_test_sessions"
+- `Data/db/logs/profile_parking_time_test_migration_2026-06-28_12-12-37.txt:8` — - created table profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:467` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:515` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:611` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:632` — INSERT INTO profile_parking_time_test_sessions (
+- `parking_time_test_payload/profile_parking_time_test_core.py:693` — UPDATE profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:749` — UPDATE profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:795` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:467` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:515` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:611` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:632` — INSERT INTO profile_parking_time_test_sessions (
+- `profile_parking_time_test_core.py:693` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:749` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:795` — UPDATE profile_parking_time_test_sessions
+
+## `profile_verification_core`
+- `Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+- `CHECK_profile_verification_sandbox.py:12` — from profile_verification_core import PROFILE_POLICY_SET, PROFILE_SCHEMA_MIGRATION_CODE
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+- `MIGRATE_profile_verification_sandbox.py:19` — from profile_verification_core import ensure_profile_verification_schema
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+
+## `raw_messages`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1649` — FOREIGN KEY(raw_message_id) REFERENCES raw_messages(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2095` — TABLE raw_messages
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2101` — CREATE TABLE raw_messages (
+- `init_osbb_db.py:206` — FOREIGN KEY(raw_message_id) REFERENCES raw_messages(id)
+
+## `references`
+- `tools/project_passport.py:514` — body.append(f"- DB table references: **{summary['db_table_refs']}**")
+
+## `References`
+- `tools/project_passport.py:596` — write_md(out_dir / "04_DB_Table_References.md", "Database Table References", "\n".join(ref_lines))
+
+## `refs`
+- `tools/project_passport.py:584` — # DB table refs md
+- `tools/project_passport.py:606` — print(f"DB table refs: {summary['db_table_refs']}")
+
+## `remote_asset_movements`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:226` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:227` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:223` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:224` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:228` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:229` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:161` — "remote_asset_movements",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1114` — INSERT INTO remote_asset_movements (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1193` — INSERT INTO remote_asset_movements (
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:228` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:229` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:226` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:227` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:101` — "remote_asset_movements",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1078` — INSERT INTO remote_asset_movements (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1157` — INSERT INTO remote_asset_movements (
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5606` — 226:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5613` — 226:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5614` — 227:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5620` — >   226:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5621` — 227:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5627` — 226:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5628` — >   227:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8212` — >   266:         "remote_asset_movements": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8213` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8219` — 266:         "remote_asset_movements": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8220` — >   267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8226` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8524` — >   614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8525` — 615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8526` — 616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8531` — 614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8532` — >   615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8533` — 616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8538` — 614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8539` — 615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8540` — >   616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8706` — >   266:         "remote_asset_movements": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8707` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8713` — 266:         "remote_asset_movements": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8714` — >   267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8720` — 267:             CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9018` — >   614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9019` — 615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9020` — 616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9025` — 614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9026` — >   615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9027` — 616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9032` — 614:             "idx_remote_asset_movements_asset",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9033` — 615:             "CREATE INDEX idx_remote_asset_movements_asset "
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9034` — >   616:             "ON remote_asset_movements(remote_asset_id, created_at)",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9165` — 101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9172` — >   101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9179` — 101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9364` — >   866:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9371` — 866:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9452` — >   945:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9459` — 945:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9956` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9963` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9964` — 233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9970` — >   232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9971` — 233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9977` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9978` — >   233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11123` — 101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11130` — >   101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11137` — 101:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11346` — >  1078:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11353` — 1078:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11434` — >  1157:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11441` — 1157:             INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12536` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12543` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12544` — 229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12550` — >   228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12551` — 229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12557` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12558` — >   229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13704` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13711` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13712` — 229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13718` — >   228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13719` — 229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13725` — 228:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13726` — >   229:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15054` — 78:             JOIN remote_asset_movements m ON m.remote_asset_id = a.id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15061` — >    78:             JOIN remote_asset_movements m ON m.remote_asset_id = a.id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15077` — >    93:                 INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15084` — 93:                 INSERT INTO remote_asset_movements (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15178` — 102:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15185` — >   102:         "remote_asset_movements",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15320` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15327` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15328` — 233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15334` — >   232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15335` — 233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15341` — 232:             ("remote_asset_movements", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15342` — >   233:             ("remote_asset_movements", "CREATE", "POST", "O"),
+- ... and 58 more
+
+## `remote_assets`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:222` — ("remote_assets", "VIEW", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:223` — ("remote_assets", "CREATE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "UPDATE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "MOVE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:526` — "remote_assets",
+- `CHECK_guard_sandbox_service_orders.py:284` — "remote_assets",
+- `CHECK_guard_sandbox_service_orders_v2.py:268` — "remote_assets",
+- `create_clean_live_sandbox.py:102` — "remote_assets",
+- `create_clean_live_sandbox.py:401` — "remote_assets",
+- `create_isolated_live_sandbox_v2.py:102` — "remote_assets",
+- `create_isolated_live_sandbox_v2.py:397` — "remote_assets",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:219` — ("remote_assets", "VIEW", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:220` — ("remote_assets", "CREATE", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:221` — ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:222` — ("remote_assets", "MOVE", "POST", "O"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:523` — "remote_assets",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "VIEW", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "CREATE", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:226` — ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:227` — ("remote_assets", "MOVE", "POST", "O"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:681` — "remote_assets",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:160` — "remote_assets",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1083` — "remote_assets",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1090` — INSERT INTO remote_assets (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1130` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1160` — "remote_assets",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1167` — "SELECT * FROM remote_assets WHERE id = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1176` — UPDATE remote_assets
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:1041` — UPDATE remote_assets
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "VIEW", "POST", "O"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "CREATE", "POST", "O"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:226` — ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:227` — ("remote_assets", "MOVE", "POST", "O"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:647` — "remote_assets",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:222` — ("remote_assets", "VIEW", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:223` — ("remote_assets", "CREATE", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "MOVE", "POST", "O"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:526` — "remote_assets",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:100` — "remote_assets",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1047` — "remote_assets",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1054` — INSERT INTO remote_assets (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1094` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1124` — "remote_assets",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1131` — "SELECT * FROM remote_assets WHERE id = ?",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1140` — UPDATE remote_assets
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1092` — UPDATE remote_assets
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:101` — [MISSING] remote_assets
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:16` — remote_assets: 0
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:42` — remote_assets: 0
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5588` — >   222:             ("remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5589` — 223:             ("remote_assets", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5590` — 224:             ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5595` — 222:             ("remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5596` — >   223:             ("remote_assets", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5597` — 224:             ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5598` — 225:             ("remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5602` — 222:             ("remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5603` — 223:             ("remote_assets", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5604` — >   224:             ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5605` — 225:             ("remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5610` — 223:             ("remote_assets", "CREATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5611` — 224:             ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5612` — >   225:             ("remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5618` — 224:             ("remote_assets", "UPDATE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5619` — 225:             ("remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5626` — 225:             ("remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5693` — 526:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5700` — >   526:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5706` — 526:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5979` — 284:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5986` — >   284:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5993` — 284:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6000` — 284:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6080` — 268:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6087` — >   268:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6094` — 268:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6101` — 268:             "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6480` — 102:         "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6486` — >   102:         "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6504` — 401:                     "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6510` — >   401:                     "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6549` — 102:         "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6555` — >   102:         "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6573` — 397:                     "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6579` — >   397:                     "remote_assets",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8180` — >   245:         "remote_assets": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8181` — 246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8187` — 245:         "remote_assets": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8188` — >   246:             CREATE TABLE IF NOT EXISTS remote_assets (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8470` — 505:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8477` — 505:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8478` — 506:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8484` — >   505:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8485` — 506:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8491` — 505:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8492` — >   506:         ("REMOTE_SERVICE_OPERATOR", "remote_assets", "MOVE", "POST", "O"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8500` — >   609:             "idx_remote_assets_status",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8501` — 610:             "CREATE INDEX idx_remote_assets_status "
+- ... and 240 more
+
+## `remote_handover_events`
+- `Bots/handlers/guard_workspace.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace.py:538` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace.py:563` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:612` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:632` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace.py:636` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace.py:734` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:836` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace.py:856` — user_id, "remote_handover_events", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:541` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:566` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:615` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:635` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:639` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:737` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:839` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:859` — user_id, "remote_handover_events", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:538` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:563` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:612` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:632` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:636` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:734` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:836` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:856` — user_id, "remote_handover_events", "VIEW",
+- `CHECK_guard_sandbox_service_orders.py:286` — "remote_handover_events",
+- `CHECK_guard_sandbox_service_orders_v2.py:270` — "remote_handover_events",
+- `create_clean_live_sandbox.py:100` — "remote_handover_events",
+- `create_clean_live_sandbox.py:399` — "remote_handover_events",
+- `create_isolated_live_sandbox_v2.py:100` — "remote_handover_events",
+- `create_isolated_live_sandbox_v2.py:395` — "remote_handover_events",
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:104` — [OK] remote_handover_events: 0 row(s)
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:187` — id=10 | role_code='GUARD_O' | resource='remote_handover_events' | action='CREATE' | scope_type='POST' | scope_value='O' | is_active=1
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:188` — id=9 | role_code='GUARD_O' | resource='remote_handover_events' | action='VIEW' | scope_type='POST' | scope_value='O' | is_active=1
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:14` — remote_handover_events: 0
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:31` — {'tables_created': {'staff_principals': True, 'access_roles': True, 'access_role_permissions': True, 'access_user_roles': True, 'access_user_permissions': True, 'access_audit_log': True, 'remote_handover_events': True}, 'fields_added': {'staff_principals': [], 'access_roles': [], 'access_role_permissions': [], 'access_user_roles': [], 'access_user_permissions': [], 'access_audit_log': [], 'remote_handover_events': []}, 'seed': {'roles_upserted': 5, 'permissions_inserted': 12}, 'indexes_created':
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:40` — remote_handover_events: 0
+- `Data/db/sandbox/guard_workspace_preflight_2026-06-26_12-39-50.txt:23` — tables: {'staff_principals': True, 'access_roles': True, 'access_role_permissions': True, 'access_user_roles': True, 'access_user_permissions': True, 'access_audit_log': True, 'remote_handover_events': True}
+- `Data/db/sandbox/guard_workspace_preflight_2026-06-26_12-56-09.txt:23` — tables: {'staff_principals': True, 'access_roles': True, 'access_role_permissions': True, 'access_user_roles': True, 'access_user_permissions': True, 'access_audit_log': True, 'remote_handover_events': True}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2070` — >   133:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2158` — >   538:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2165` — 538:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2176` — 563:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2182` — >   563:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2254` — >   612:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2279` — 632:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2286` — >   632:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2294` — >   636:             target_table="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2462` — >   734:             user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2566` — >   836:             FROM remote_handover_events
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2591` — 856:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2598` — >   856:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2715` — >   133:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2803` — >   541:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2810` — 541:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2821` — 566:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2827` — >   566:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2899` — >   615:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2924` — 635:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2931` — >   635:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2939` — >   639:             target_table="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3107` — >   737:             user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3211` — >   839:             FROM remote_handover_events
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3236` — 859:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3243` — >   859:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3360` — >   133:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3448` — >   538:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3455` — 538:         INSERT INTO remote_handover_events (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3466` — 563:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3472` — >   563:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3544` — >   612:         user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3569` — 632:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3576` — >   632:             resource="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3584` — >   636:             target_table="remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3752` — >   734:             user_id, "remote_handover_events", "CREATE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3856` — >   836:             FROM remote_handover_events
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3881` — 856:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:3888` — >   856:         user_id, "remote_handover_events", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5988` — 286:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5995` — 286:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6002` — >   286:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6089` — 270:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6096` — 270:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6103` — >   270:             "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6478` — >   100:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6484` — 100:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6502` — >   399:                     "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6508` — 399:                     "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6547` — >   100:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6553` — 100:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6571` — >   395:                     "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6577` — 395:                     "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7254` — 98:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7261` — >    98:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7315` — 98:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7322` — >    98:         "remote_handover_events",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7575` — >    28: ... --grant 123456789 remote_handover_events CREATE --scope POST:O --apply
+- ... and 49 more
+
+## `remote_order_details`
+- `Bots/handlers/service_orders_workspace.py:1440` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Bots/handlers/service_orders_workspace.py:1460` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:525` — "remote_order_details",
+- `CHECK_guard_sandbox_service_orders.py:283` — "remote_order_details",
+- `CHECK_guard_sandbox_service_orders_v2.py:267` — "remote_order_details",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:522` — "remote_order_details",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:680` — "remote_order_details",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:1110` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:1130` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:162` — "remote_order_details",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:622` — INSERT INTO remote_order_details (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1363` — FROM remote_order_details
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:646` — "remote_order_details",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1329` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1349` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:525` — "remote_order_details",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1433` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1453` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1311` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1331` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:102` — "remote_order_details",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:593` — INSERT INTO remote_order_details (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1327` — FROM remote_order_details
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:100` — [MISSING] remote_order_details
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:4602` — >  1440:         cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:4626` — >  1460:         row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5692` — >   525:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5699` — 525:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5978` — >   283:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5985` — 283:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5992` — 283:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6079` — >   267:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6086` — 267:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6093` — 267:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7079` — >   300:         if "remote_order_details" in tables:
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7087` — >   303:                 "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8236` — >   282:         "remote_order_details": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8237` — 283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8243` — 282:         "remote_order_details": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8244` — >   283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8730` — >   282:         "remote_order_details": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8731` — 283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8737` — 282:         "remote_order_details": """
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8738` — >   283:             CREATE TABLE IF NOT EXISTS remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9166` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9173` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9180` — >   102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9268` — >   556:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9275` — 556:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9508` — >  1115:             FROM remote_order_details
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10058` — >   732:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10065` — 732:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11008` — >  1311:         cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11032` — >  1331:         row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11124` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11131` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11138` — >   102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11226` — >   593:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11233` — 593:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11490` — >  1327:             FROM remote_order_details
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12638` — >   680:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12645` — 680:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13492` — >  1433:         cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13516` — >  1453:         row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13806` — >   646:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13813` — 646:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:14496` — >  1440:         cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:14520` — >  1460:         row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15422` — >   732:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15429` — 732:             "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16133` — >  1329:         cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16157` — >  1349:         row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16204` — 160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16211` — 160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16218` — >   160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16306` — >   659:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16313` — 659:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16570` — >  1398:             FROM remote_order_details
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17270` — 160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17277` — 160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17284` — >   160:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17372` — >   659:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17379` — 659:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17636` — >  1398:             FROM remote_order_details
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17691` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17698` — 102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17705` — >   102:         "remote_order_details",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17793` — >   556:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17800` — 556:                 INSERT INTO remote_order_details (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18033` — >  1115:             FROM remote_order_details
+- `FIND_actual_service_order_state.py:300` — if "remote_order_details" in tables:
+- `FIND_actual_service_order_state.py:303` — "remote_order_details",
+- `migrate_service_orders_and_fulfillment.py:282` — "remote_order_details": """
+- `migrate_service_orders_and_fulfillment.py:283` — CREATE TABLE IF NOT EXISTS remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:282` — "remote_order_details": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:283` — CREATE TABLE IF NOT EXISTS remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:102` — "remote_order_details",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:556` — INSERT INTO remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1115` — FROM remote_order_details
+- ... and 25 more
+
+## `remote_order_issued_assets`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:1049` — INSERT INTO remote_order_issued_assets (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1100` — INSERT INTO remote_order_issued_assets (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1100` — INSERT INTO remote_order_issued_assets (
+- `service_code_compatibility_payload/service_preorders_core.py:1108` — INSERT INTO remote_order_issued_assets (
+- `service_preorders_core.py:1108` — INSERT INTO remote_order_issued_assets (
+
+## `remote_requests`
+- `Bots/handlers/client_portal.py:1310` — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal.py:1323` — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal.py:1331` — FROM remote_requests
+- `Bots/handlers/client_portal.py:1353` — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal.py:1386` — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1412` — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1434` — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1458` — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal.py:1470` — UPDATE remote_requests
+- `Bots/handlers/client_portal.py:1498` — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1517` — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal.py:1678` — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal.py:1689` — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal.py:2108` — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/client_portal_safe_linking.py:1310` — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal_safe_linking.py:1323` — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal_safe_linking.py:1331` — FROM remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1353` — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal_safe_linking.py:1386` — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1412` — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1434` — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1458` — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal_safe_linking.py:1470` — UPDATE remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1498` — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1517` — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal_safe_linking.py:1678` — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal_safe_linking.py:1689` — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal_safe_linking.py:2108` — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/guard_workspace.py:506` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace.py:512` — FROM remote_requests
+- `Bots/handlers/guard_workspace.py:660` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace.py:693` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace.py:730` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace.py:746` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:765` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace.py:777` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:785` — resource="remote_requests",
+- `Bots/handlers/guard_workspace.py:789` — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:509` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:515` — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:663` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:696` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:733` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:749` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:768` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:780` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:788` — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:792` — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:506` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:512` — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:660` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:693` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:730` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:746` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:765` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:777` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:785` — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:789` — target_table="remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:245` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:285` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:374` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:444` — say("  - If it is present, but the screen still falls back to old 'remote_requests',")
+- `CHECK_guard_sandbox_service_orders_v2.py:216` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders_v2.py:269` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders_v2.py:358` — "remote_requests",
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:26` — [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db | service_orders=None | remote_requests=0 | payments=96 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:27` — [OK] Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db | service_orders=1 | remote_requests=0 | payments=93 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:28` — [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db | service_orders=2 | remote_requests=0 | payments=96 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:29` — [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:30` — [OK] Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:31` — [OK] Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:32` — [OK] Data\db\osbb_test.db | service_orders=None | remote_requests=0 | payments=92 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:33` — [OK] Data\db\osbb_test - Copy.db | service_orders=None | remote_requests=None | payments=92 | payments.source_ref=False
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:34` — [OK] Data\db\osbb.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:35` — [OK] Data\db\osbb_telegram.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:36` — [OK] Data\db\osbb_telegram - Copy.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+- `Data/db/logs/actual_service_order_state_20260627_115724.txt:37` — [OK] Data\db\osbb_quarantine.db | service_orders=None | remote_requests=None | payments=None | payments.source_ref=None
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:50` — 'remote_requests': 0 occurrence(s)
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:77` — 'remote_requests': 0 occurrence(s)
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:102` — [OK] remote_requests: 0 row(s)
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:189` — id=8 | role_code='GUARD_O' | resource='remote_requests' | action='ISSUE' | scope_type='POST' | scope_value='O' | is_active=1
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:190` — id=7 | role_code='GUARD_O' | resource='remote_requests' | action='VIEW' | scope_type='POST' | scope_value='O' | is_active=1
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10` — Patterns           : пульт, пультів, Поставка пультів, Оплачені заявки, Заявка оператора, remote, remote_requests, SO-, RB-, новый пульт, новий пульт, READY, RECEIVED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2114` — Line 506 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2118` — >   506:         if not table_exists(cur, "remote_requests"):
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2122` — Line 512 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2126` — >   512:             FROM remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2328` — 660:         user_id, "remote_requests", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2330` — Line 660 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2334` — >   660:         user_id, "remote_requests", "VIEW",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2386` — Line 693 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2390` — >   693:         cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2450` — Line 730 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2454` — >   730:             user_id, "remote_requests", "ISSUE",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2474` — Line 746 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2478` — >   746:             "SELECT * FROM remote_requests WHERE id = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2498` — Line 765 | patterns: remote, remote_requests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2502` — >   765:         rcols = table_columns(cur, "remote_requests")
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:2506` — Line 777 | patterns: remote, remote_requests
+- ... and 266 more
+
+## `remote_supplier_batch_links`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:719` — SELECT 1 FROM remote_supplier_batch_links l
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:763` — SELECT 1 FROM remote_supplier_batch_links l
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:802` — INSERT INTO remote_supplier_batch_links (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:863` — FROM remote_supplier_batch_links l
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:921` — SELECT * FROM remote_supplier_batch_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:934` — UPDATE remote_supplier_batch_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:973` — FROM remote_supplier_batch_links l
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:1062` — UPDATE remote_supplier_batch_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:770` — SELECT 1 FROM remote_supplier_batch_links l
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:814` — SELECT 1 FROM remote_supplier_batch_links l
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:853` — INSERT INTO remote_supplier_batch_links (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:914` — FROM remote_supplier_batch_links l
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:972` — SELECT * FROM remote_supplier_batch_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:985` — UPDATE remote_supplier_batch_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1024` — FROM remote_supplier_batch_links l
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1113` — UPDATE remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11855` — >   770:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11879` — >   814:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11919` — >   853:                 INSERT INTO remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11943` — >   914:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12079` — >   972:             SELECT * FROM remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12087` — >   985:                 UPDATE remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12113` — 1024:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12119` — >  1024:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12126` — 1024:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16935` — >   778:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16959` — >   822:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16999` — >   861:                 INSERT INTO remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17023` — >   922:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17159` — >   980:             SELECT * FROM remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17167` — >   993:                 UPDATE remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17193` — 1032:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17199` — >  1032:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17206` — 1032:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18698` — >   778:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18722` — >   822:                   SELECT 1 FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18762` — >   861:                 INSERT INTO remote_supplier_batch_links (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18786` — >   922:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18922` — >   980:             SELECT * FROM remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18930` — >   993:                 UPDATE remote_supplier_batch_links
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18956` — 1032:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18962` — >  1032:             FROM remote_supplier_batch_links l
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18969` — 1032:             FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:770` — SELECT 1 FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:814` — SELECT 1 FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:853` — INSERT INTO remote_supplier_batch_links (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:914` — FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:972` — SELECT * FROM remote_supplier_batch_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:985` — UPDATE remote_supplier_batch_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1024` — FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1113` — UPDATE remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:778` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:822` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:861` — INSERT INTO remote_supplier_batch_links (
+- `service_code_compatibility_payload/service_preorders_core.py:922` — FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:980` — SELECT * FROM remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:993` — UPDATE remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:1032` — FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:1121` — UPDATE remote_supplier_batch_links
+- `service_preorders_core.py:778` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_preorders_core.py:822` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_preorders_core.py:861` — INSERT INTO remote_supplier_batch_links (
+- `service_preorders_core.py:922` — FROM remote_supplier_batch_links l
+- `service_preorders_core.py:980` — SELECT * FROM remote_supplier_batch_links
+- `service_preorders_core.py:993` — UPDATE remote_supplier_batch_links
+- `service_preorders_core.py:1032` — FROM remote_supplier_batch_links l
+- `service_preorders_core.py:1121` — UPDATE remote_supplier_batch_links
+
+## `remote_supplier_batches`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:778` — INSERT INTO remote_supplier_batches (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:838` — SELECT * FROM remote_supplier_batches
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:855` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:902` — UPDATE remote_supplier_batches
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:974` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:1072` — UPDATE remote_supplier_batches
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:829` — INSERT INTO remote_supplier_batches (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:889` — SELECT * FROM remote_supplier_batches
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:906` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:953` — UPDATE remote_supplier_batches
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1025` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:1123` — UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11903` — >   829:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11909` — 829:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11927` — >   889:             SELECT * FROM remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11935` — >   906:         batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12031` — >   953:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12038` — 953:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12120` — 1025:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12127` — >  1025:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16983` — >   837:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16989` — 837:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17007` — >   897:             SELECT * FROM remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17015` — >   914:         batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17111` — >   961:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17118` — 961:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17200` — 1033:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:17207` — >  1033:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18746` — >   837:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18752` — 837:             INSERT INTO remote_supplier_batches (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18770` — >   897:             SELECT * FROM remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18778` — >   914:         batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18874` — >   961:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18881` — 961:             UPDATE remote_supplier_batches
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18963` — 1033:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18970` — >  1033:             JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `phone_barrier_access_v2_payload/service_preorders_core.py:829` — INSERT INTO remote_supplier_batches (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:889` — SELECT * FROM remote_supplier_batches
+- `phone_barrier_access_v2_payload/service_preorders_core.py:906` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `phone_barrier_access_v2_payload/service_preorders_core.py:953` — UPDATE remote_supplier_batches
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1025` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1123` — UPDATE remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:837` — INSERT INTO remote_supplier_batches (
+- `service_code_compatibility_payload/service_preorders_core.py:897` — SELECT * FROM remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:914` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `service_code_compatibility_payload/service_preorders_core.py:961` — UPDATE remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:1033` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `service_code_compatibility_payload/service_preorders_core.py:1131` — UPDATE remote_supplier_batches
+- `service_preorders_core.py:837` — INSERT INTO remote_supplier_batches (
+- `service_preorders_core.py:897` — SELECT * FROM remote_supplier_batches
+- `service_preorders_core.py:914` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `service_preorders_core.py:961` — UPDATE remote_supplier_batches
+- `service_preorders_core.py:1033` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `service_preorders_core.py:1131` — UPDATE remote_supplier_batches
+
+## `repeated`
+- `cashier_v2_core.py:885` — # Protect from repeated identical notice on the same day while status NEW.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:865` — # Protect from repeated identical notice on the same day while status NEW.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:809` — # Protect from repeated identical notice on the same day while status NEW.
+
+## `resident`
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md:17` — - Operator read-only preview is separate from resident flow. It should leave only legitimate operator audit information.
+- `parking_time_test_payload/profile_parking_time_test_core.py:5` — This module is deliberately separate from resident profile verification.
+- `profile_parking_time_test_core.py:5` — This module is deliberately separate from resident profile verification.
+- `profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+- `profile_verification_payload/profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+
+## `resident_accounts`
+- `Bots/db_access - Copy.py:100` — Создаёт/обновляет resident_accounts по Telegram user.
+- `Bots/db_access - Copy.py:108` — INSERT INTO resident_accounts (
+- `Bots/db_access - Copy.py:167` — FROM resident_accounts
+- `Bots/db_access - Copy.py:190` — FROM resident_accounts
+- `Bots/db_access - Copy.py:202` — def get_resident_accounts_summary(limit=10):
+- `Bots/db_access - Copy.py:208` — FROM resident_accounts
+- `Bots/db_access - Copy.py:214` — FROM resident_accounts
+- `Bots/db_access - Copy.py:222` — FROM resident_accounts
+- `Bots/db_access - Copy.py:237` — FROM resident_accounts
+- `Bots/db_access - Copy.py:254` — def format_resident_accounts_summary(summary):
+- `Bots/db_access - Copy.py:329` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:481` — def get_resident_accounts_by_filter(filter_name="all", limit=30):
+- `Bots/db_access - Copy.py:510` — FROM resident_accounts
+- `Bots/db_access - Copy.py:522` — def format_resident_accounts_list(title, rows):
+- `Bots/db_access - Copy.py:612` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:638` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:1108` — FROM resident_accounts
+- `Bots/db_access - Copy.py:3690` — FROM resident_accounts
+- `Bots/db_access.py:100` — Создаёт/обновляет resident_accounts по Telegram user.
+- `Bots/db_access.py:108` — INSERT INTO resident_accounts (
+- `Bots/db_access.py:167` — FROM resident_accounts
+- `Bots/db_access.py:190` — FROM resident_accounts
+- `Bots/db_access.py:202` — def get_resident_accounts_summary(limit=10):
+- `Bots/db_access.py:208` — FROM resident_accounts
+- `Bots/db_access.py:214` — FROM resident_accounts
+- `Bots/db_access.py:222` — FROM resident_accounts
+- `Bots/db_access.py:237` — FROM resident_accounts
+- `Bots/db_access.py:254` — def format_resident_accounts_summary(summary):
+- `Bots/db_access.py:329` — UPDATE resident_accounts
+- `Bots/db_access.py:481` — def get_resident_accounts_by_filter(filter_name="all", limit=30):
+- `Bots/db_access.py:510` — FROM resident_accounts
+- `Bots/db_access.py:522` — def format_resident_accounts_list(title, rows):
+- `Bots/db_access.py:612` — UPDATE resident_accounts
+- `Bots/db_access.py:638` — UPDATE resident_accounts
+- `Bots/db_access.py:1108` — FROM resident_accounts
+- `Bots/db_access.py:3690` — FROM resident_accounts
+- `Bots/db_access.py:5195` — FROM resident_accounts
+- `Bots/db_access.py:5228` — UPDATE resident_accounts
+- `Bots/db_access.py:5395` — # fallback для старых resident_accounts, где apartment_id был пустым.
+- `Bots/db_access.py:5402` — FROM resident_accounts
+- `Bots/handlers/client_portal.py:601` — if not table_exists(cur, "resident_accounts"):
+- `Bots/handlers/client_portal.py:616` — FROM resident_accounts
+- `Bots/handlers/client_portal.py:824` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:848` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:891` — UPDATE resident_accounts
+- `Bots/handlers/client_portal.py:914` — table_name="resident_accounts",
+- `Bots/handlers/client_portal.py:1413` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:1435` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:601` — if not table_exists(cur, "resident_accounts"):
+- `Bots/handlers/client_portal_safe_linking.py:616` — FROM resident_accounts
+- `Bots/handlers/client_portal_safe_linking.py:824` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:848` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:891` — UPDATE resident_accounts
+- `Bots/handlers/client_portal_safe_linking.py:914` — table_name="resident_accounts",
+- `Bots/handlers/client_portal_safe_linking.py:1413` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:1435` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:361` — LEFT JOIN resident_accounts a ON a.id=r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:377` — LEFT JOIN resident_accounts a ON a.id=r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:606` — FROM resident_accounts WHERE telegram_user_id=?
+- `Bots/parking_bot - Copy.py:37` — get_resident_accounts_summary,
+- `Bots/parking_bot - Copy.py:38` — format_resident_accounts_summary,
+- `Bots/parking_bot - Copy.py:39` — get_resident_accounts_by_filter,
+- `Bots/parking_bot - Copy.py:40` — format_resident_accounts_list,
+- `Bots/parking_bot - Copy.py:257` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot - Copy.py:260` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot - Copy.py:266` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot - Copy.py:269` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot - Copy.py:410` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot.py:44` — get_resident_accounts_summary,
+- `Bots/parking_bot.py:45` — format_resident_accounts_summary,
+- `Bots/parking_bot.py:46` — get_resident_accounts_by_filter,
+- `Bots/parking_bot.py:47` — format_resident_accounts_list,
+- `Bots/parking_bot.py:264` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot.py:267` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot.py:273` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot.py:276` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot.py:417` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:43` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:44` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:45` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:46` — format_resident_accounts_list,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:262` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:265` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:271` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:274` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:415` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:38` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:39` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:40` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:41` — format_resident_accounts_list,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:258` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:261` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:267` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:270` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:411` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:43` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:44` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:45` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:46` — format_resident_accounts_list,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:273` — summary = get_resident_accounts_summary(limit=10)
+- ... and 154 more
+
+## `resident_profile_change_requests`
+- `CHECK_profile_verification_sandbox.py:34` — print("Open correction requests:",conn.execute("SELECT COUNT(*) FROM resident_profile_change_requests WHERE request_status='PENDING_OPERATOR'").fetchone()[0])
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1217` — FROM resident_profile_change_requests
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1244` — INSERT INTO resident_profile_change_requests (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1318` — INSERT INTO resident_profile_change_requests (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1371` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1390` — FROM resident_profile_change_requests
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1480` — UPDATE resident_profile_change_requests
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:6` — - created table resident_profile_change_requests
+- `profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1237` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1264` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_core.py:1338` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_core.py:1391` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_core.py:1410` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1500` — UPDATE resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1217` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1244` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_payload/profile_verification_core.py:1318` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_payload/profile_verification_core.py:1371` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_payload/profile_verification_core.py:1390` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1480` — UPDATE resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1237` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1264` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1338` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1391` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1410` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1500` — UPDATE resident_profile_change_requests
+
+## `resident_profile_operation_journal`
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:7` — - created table resident_profile_operation_journal
+- `profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+- `profile_verification_payload/profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+
+## `resident_profile_policy_values`
+- `CHECK_profile_verification_sandbox.py:30` — for row in conn.execute("SELECT setting_code,value_text FROM resident_profile_policy_values WHERE policy_version_id=? ORDER BY setting_code",(int(policy[0]),)):
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:709` — FROM resident_profile_policy_values
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:8` — - created table resident_profile_policy_values
+- `profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_core.py:709` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_payload/profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:709` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:709` — FROM resident_profile_policy_values
+
+## `resident_profile_policy_versions`
+- `CHECK_profile_verification_sandbox.py:25` — policy=conn.execute("SELECT id,version_number,effective_from FROM resident_profile_policy_versions WHERE policy_set_code=? AND policy_status='ACTIVE' ORDER BY effective_from DESC,version_number DESC LIMIT 1",(PROFILE_POLICY_SET,)).fetchone()
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:697` — FROM resident_profile_policy_versions
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:9` — - created table resident_profile_policy_versions
+- `profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:697` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_payload/profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:697` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:697` — FROM resident_profile_policy_versions
+
+## `resident_profile_schema_migrations`
+- `CHECK_profile_verification_sandbox.py:23` — marker=conn.execute("SELECT migration_code FROM resident_profile_schema_migrations WHERE migration_code=?",(PROFILE_SCHEMA_MIGRATION_CODE,)).fetchone()
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:10` — - created table resident_profile_schema_migrations
+- `profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+- `profile_verification_payload/profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_payload/profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+
+## `resident_profile_verifications`
+- `CHECK_profile_verification_sandbox.py:33` — print("Profile rows:",conn.execute("SELECT COUNT(*) FROM resident_profile_verifications").fetchone()[0])
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:722` — FROM resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:950` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1031` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1080` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1145` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1269` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1343` — UPDATE resident_profile_verifications
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:1496` — UPDATE resident_profile_verifications
+- `Data/db/logs/profile_verification_migration_2026-06-27_20-52-07.txt:11` — - created table resident_profile_verifications
+- `profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_core.py:962` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1053` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1100` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1165` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1289` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1363` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1516` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_payload/profile_verification_core.py:950` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1031` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1080` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1145` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1269` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1343` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1496` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:962` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1053` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1100` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1165` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1289` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1363` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1516` — UPDATE resident_profile_verifications
+
+## `schema_info`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2267` — TABLE schema_info
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2273` — CREATE TABLE schema_info (
+- `init_osbb_db.py:212` — INSERT INTO schema_info (schema_version, created_at, comment)
+
+## `screenshots`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:129` — The following work is known to have been installed/tested in the sandbox from screenshots and console outputs:
+
+## `service_access_credentials`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1271` — INSERT INTO service_access_credentials (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1235` — INSERT INTO service_access_credentials (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1023` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_core.py:2030` — FROM service_access_credentials
+- `phone_barrier_access_core.py:2048` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2030` — FROM service_access_credentials
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2048` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1235` — INSERT INTO service_access_credentials (
+- `service_code_compatibility_payload/service_orders_core.py:1306` — INSERT INTO service_access_credentials (
+- `service_orders_core.py:1306` — INSERT INTO service_access_credentials (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1023` — INSERT INTO service_access_credentials (
+
+## `service_catalog`
+- `Bots/handlers/cashier_operator_v2.py:9` — - выбор услуг из service_catalog / service_items;
+- `cashier_journal.py:312` — версии структуры. Это особенно важно для service_catalog.
+- `cashier_journal.py:435` — def ensure_service_catalog(cur, base_service_code):
+- `cashier_journal.py:436` — if not table_exists(cur, "service_catalog"):
+- `cashier_journal.py:437` — raise RuntimeError("Не найдена таблица service_catalog. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:441` — cur.execute("SELECT id FROM service_catalog WHERE service_code = ?", (base_service_code,))
+- `cashier_journal.py:465` — update_dynamic_by(cur, "service_catalog", "service_code", base_service_code, values)
+- `cashier_journal.py:468` — insert_dynamic(cur, "service_catalog", values)
+- `cashier_journal.py:473` — if table_exists(cur, "service_catalog"):
+- `cashier_journal.py:474` — cols = table_columns(cur, "service_catalog")
+- `cashier_journal.py:477` — "SELECT COALESCE(service_type, '') FROM service_catalog WHERE service_code = ?",
+- `cashier_journal.py:514` — ensure_service_catalog(cur, base_service_code)
+- `cashier_journal.py:1352` — ensure_service_catalog(cur, base_service_code)
+- `cashier_v2_core.py:171` — "service_catalog",
+- `cashier_v2_core.py:236` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core.py:282` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core.py:291` — FROM service_catalog
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:148` — "service_catalog",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:259` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:268` — FROM service_catalog
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:148` — "service_catalog",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:259` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:268` — FROM service_catalog
+- `cashier_v2_preflight.py:85` — "service_catalog",
+- `cashier_v2_preflight.py:250` — "service_catalog",
+- `cashier_v2_preflight_compat.py:139` — "service_catalog",
+- `Data/db/sandbox/service_orders_preflight_2026-06-26_19-42-50.txt:10` — OK  catalog core: service_catalog_admin_core.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8458` — 500:         ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8459` — 501:         ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8466` — 501:         ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8952` — 500:         ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8953` — 501:         ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8960` — 501:         ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:9095` — FILE: OSBB_Service_Orders_Foundation_v1\service_catalog_admin_core.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15488` — FILE: service_catalog_admin_core.py
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:49` — - service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:376` — category: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:472` — is_access_control: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:474` — is_cash_collectable: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:475` — is_commercial: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:476` — is_fundraising: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:477` — is_monthly: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:597` — service_group: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:601` — service_name: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:602` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:640` — unit: service_catalog
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:61` — - service_catalog (12 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1134` — REFERENCES service_catalog(service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:1184` — - id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2298` — TABLE service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2304` — CREATE TABLE service_catalog (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2339` — - idx_service_catalog_group | unique=0 | origin=c | partial=0 | columns=[service_group]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2340` — - idx_service_catalog_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2341` — - idx_service_catalog_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2342` — - idx_service_catalog_code | unique=0 | origin=c | partial=0 | columns=[service_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2343` — - sqlite_autoindex_service_catalog_1 | unique=1 | origin=u | partial=0 | columns=[service_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2374` — FOREIGN KEY (service_code) REFERENCES service_catalog(service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2410` — - id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2430` — REFERENCES service_catalog(service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2453` — - id=0 seq=0 table=service_catalog from=service_code to=service_code on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3653` — INDEX idx_service_catalog_active
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3655` — CREATE INDEX idx_service_catalog_active ON service_catalog(is_active)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3657` — INDEX idx_service_catalog_code
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3659` — CREATE INDEX idx_service_catalog_code ON service_catalog(service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3661` — INDEX idx_service_catalog_group
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3663` — CREATE INDEX idx_service_catalog_group ON service_catalog(service_group)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3665` — INDEX idx_service_catalog_type
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3667` — CREATE INDEX idx_service_catalog_type ON service_catalog(service_type)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3863` — category: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3959` — is_access_control: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3961` — is_cash_collectable: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3962` — is_commercial: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3963` — is_fundraising: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3964` — is_monthly: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4084` — service_group: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4088` — service_name: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4089` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4127` — unit: service_catalog
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt:17` — service_catalog         : 4
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt:17` — service_catalog         : 4
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt:17` — service_catalog         : 4
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt:21` — service_catalog         : 4
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt:21` — service_catalog         : 4
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `import_ohorona_list1_to_central_cashbox.py:45` — ensure_service_catalog,
+- ... and 89 more
+
+## `service_item_workflows`
+- `Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:442` — JOIN service_item_workflows w
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:260` — FROM service_item_workflows w
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:555` — JOIN service_item_workflows w
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:537` — JOIN service_item_workflows w
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:200` — FROM service_item_workflows w
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `migrate_service_orders_and_fulfillment.py:458` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:458` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:193` — LEFT JOIN service_item_workflows w
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:312` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:495` — UPDATE service_item_workflows
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:536` — UPDATE service_item_workflows
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:200` — FROM service_item_workflows w
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:537` — JOIN service_item_workflows w
+- `phone_barrier_access_v2_payload/service_orders_core.py:200` — FROM service_item_workflows w
+- `phone_barrier_access_v2_payload/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `service_catalog_admin_core.py:193` — LEFT JOIN service_item_workflows w
+- `service_catalog_admin_core.py:312` — INSERT INTO service_item_workflows (
+- `service_catalog_admin_core.py:495` — UPDATE service_item_workflows
+- `service_catalog_admin_core.py:536` — UPDATE service_item_workflows
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:555` — JOIN service_item_workflows w
+- `service_code_compatibility_payload/service_orders_core.py:266` — FROM service_item_workflows w
+- `service_code_compatibility_payload/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `service_orders_core.py:266` — FROM service_item_workflows w
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:200` — FROM service_item_workflows w
+- `service_preorders_core.py:319` — UPDATE service_item_workflows
+
+## `service_items`
+- `Bots/handlers/cashier_operator_v2.py:9` — - выбор услуг из service_catalog / service_items;
+- `Bots/handlers/service_orders_workspace.py:551` — item_columns = table_columns(cur, "service_items")
+- `Bots/handlers/service_orders_workspace.py:567` — FROM service_items i
+- `cashier_journal.py:437` — raise RuntimeError("Не найдена таблица service_catalog. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:487` — if not table_exists(cur, "service_items"):
+- `cashier_journal.py:488` — raise RuntimeError("Не найдена таблица service_items. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:490` — cur.execute("SELECT * FROM service_items WHERE service_item_code = ?", (item_code,))
+- `cashier_journal.py:564` — update_dynamic_by(cur, "service_items", "service_item_code", item_code, update_values)
+- `cashier_journal.py:567` — insert_dynamic(cur, "service_items", values)
+- `cashier_journal.py:1397` — table_name="service_items",
+- `cashier_journal.py:1443` — FROM service_items
+- `cashier_v2_core.py:236` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core.py:245` — if table_exists(cur, "service_items"):
+- `cashier_v2_core.py:246` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core.py:262` — FROM service_items
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:222` — if table_exists(cur, "service_items"):
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:223` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:239` — FROM service_items
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:222` — if table_exists(cur, "service_items"):
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:223` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:239` — FROM service_items
+- `CHECK_service_code_compatibility_phone_v2.py:60` — item_cols = columns(cur, "service_items")
+- `CHECK_service_code_compatibility_phone_v2.py:74` — raise RuntimeError("service_items has neither service_code nor base_service_code.")
+- `CHECK_service_code_compatibility_phone_v2.py:79` — print("service_items broad-code column:", item_code_col)
+- `CHECK_service_code_compatibility_phone_v2.py:86` — FROM service_items
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:441` — FROM service_items i
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:214` — if not table_exists(cur, "service_items"):
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:215` — raise RuntimeError("Не найдена service_items.")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:216` — cols = table_columns(cur, "service_items")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:218` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:233` — FROM service_items
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:332` — if not table_exists(cur, "service_items"):
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:333` — raise RuntimeError("Не найдена таблица service_items.")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:334` — cols = table_columns(cur, "service_items")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:336` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:347` — f"SELECT {', '.join(fields)} FROM service_items WHERE service_item_code = ?",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:538` — item_columns = table_columns(cur, "service_items")
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:554` — FROM service_items i
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:551` — item_columns = table_columns(cur, "service_items")
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:567` — FROM service_items i
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:536` — FROM service_items i
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:154` — if not table_exists(cur, "service_items"):
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:155` — raise RuntimeError("Не найдена service_items.")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:156` — cols = table_columns(cur, "service_items")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:158` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:173` — FROM service_items
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:332` — if not table_exists(cur, "service_items"):
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:333` — raise RuntimeError("Не найдена таблица service_items.")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:334` — cols = table_columns(cur, "service_items")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:336` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:347` — f"SELECT {', '.join(fields)} FROM service_items WHERE service_item_code = ?",
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_16-17-39.txt:10` — Статей service_items к очистке: 3
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_16-17-39.txt:20` — 1. Очистка всех текущих service_items — они пока не используются.
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_20-05-21.txt:10` — Статей service_items к очистке: 3
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_20-05-21.txt:21` — 1. Очистка всех текущих service_items — они пока не используются.
+- `Data/exports/cashier/service_catalog_cleanup_2026-06-22_20-07-25.txt:10` — Статей service_items к очистке: 3
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8128` — FILE: migrate_service_items.py
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:50` — - service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:330` — amount_default: service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:412` — date_from: service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:413` — date_to: service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:435` — description: cashier_reconciliation_cases, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:537` — period_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charges, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:595` — sequence_no: service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:599` — service_item_code: adjustment_assignments, bank_transactions, cashbox_operations, cashier_batch_items, cashier_receipts, charges, payment_allocations, payments, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:600` — service_item_name: service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:602` — service_type: cashbox_operations, charges, payment_allocations, payments, service_catalog, service_items
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:62` — - service_items (11 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2350` — TABLE service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2356` — CREATE TABLE service_items (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2401` — - idx_service_items_active | unique=0 | origin=c | partial=0 | columns=[is_active]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2402` — - idx_service_items_type | unique=0 | origin=c | partial=0 | columns=[service_type]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2403` — - idx_service_items_period | unique=0 | origin=c | partial=0 | columns=[period_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2404` — - idx_service_items_service | unique=0 | origin=c | partial=0 | columns=[service_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2405` — - idx_service_items_code | unique=0 | origin=c | partial=0 | columns=[service_item_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2406` — - sqlite_autoindex_service_items_1 | unique=1 | origin=u | partial=0 | columns=[service_item_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3669` — INDEX idx_service_items_active
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3671` — CREATE INDEX idx_service_items_active ON service_items(is_active)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3673` — INDEX idx_service_items_code
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3675` — CREATE INDEX idx_service_items_code ON service_items(service_item_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3677` — INDEX idx_service_items_period
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3679` — CREATE INDEX idx_service_items_period ON service_items(period_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3681` — INDEX idx_service_items_service
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3683` — CREATE INDEX idx_service_items_service ON service_items(service_code)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3685` — INDEX idx_service_items_type
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3687` — CREATE INDEX idx_service_items_type ON service_items(service_type)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3817` — amount_default: service_items
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- ... and 134 more
+
+## `service_order_charge_links`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1031` — INSERT INTO service_order_charge_links (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1353` — FROM service_order_charge_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:995` — INSERT INTO service_order_charge_links (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1317` — FROM service_order_charge_links
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:783` — INSERT INTO service_order_charge_links (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1105` — FROM service_order_charge_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:995` — INSERT INTO service_order_charge_links (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1317` — FROM service_order_charge_links
+- `service_code_compatibility_payload/service_orders_core.py:1066` — INSERT INTO service_order_charge_links (
+- `service_code_compatibility_payload/service_orders_core.py:1388` — FROM service_order_charge_links
+- `service_orders_core.py:1066` — INSERT INTO service_order_charge_links (
+- `service_orders_core.py:1388` — FROM service_order_charge_links
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:783` — INSERT INTO service_order_charge_links (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1105` — FROM service_order_charge_links
+
+## `service_order_events`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:341` — INSERT INTO service_order_events (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:281` — INSERT INTO service_order_events (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:281` — INSERT INTO service_order_events (
+- `phone_barrier_access_v2_payload/service_orders_core.py:281` — INSERT INTO service_order_events (
+- `service_code_compatibility_payload/service_orders_core.py:347` — INSERT INTO service_order_events (
+- `service_orders_core.py:347` — INSERT INTO service_order_events (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:281` — INSERT INTO service_order_events (
+
+## `service_order_interests`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:527` — "service_order_interests",
+- `CHECK_service_code_compatibility_phone_v2.py:98` — FROM service_order_interests
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:524` — "service_order_interests",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:682` — "service_order_interests",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:96` — "service_order_interests",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:384` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:388` — INSERT INTO service_order_interests (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:436` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:454` — FROM service_order_interests
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:505` — UPDATE service_order_interests
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:594` — SELECT * FROM service_order_interests
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:636` — UPDATE service_order_interests
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:682` — FROM service_order_interests
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:648` — "service_order_interests",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:527` — "service_order_interests",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:96` — "service_order_interests",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:421` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:424` — INSERT INTO service_order_interests (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:472` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:490` — FROM service_order_interests
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:541` — UPDATE service_order_interests
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:630` — SELECT * FROM service_order_interests
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:687` — UPDATE service_order_interests
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:733` — FROM service_order_interests
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5694` — 527:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5701` — 527:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5707` — 527:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5714` — 527:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10060` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10067` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10073` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10080` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11606` — 96:         "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11613` — 96:         "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12640` — 682:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12647` — 682:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12653` — 682:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12660` — 682:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13808` — 648:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13815` — 648:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13821` — 648:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13828` — 648:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15424` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15431` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15437` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15444` — 734:             "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16686` — 96:         "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16693` — 96:         "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18449` — 96:         "service_order_interests",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18456` — 96:         "service_order_interests",
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:80` — required_existing = {"service_orders", "service_order_interests", "service_access_credentials"}
+- `MIGRATE_phone_barrier_access_sandbox.py:82` — required_existing = {"service_orders", "payments", "service_order_interests"}
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:734` — "service_order_interests",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:96` — "service_order_interests",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:421` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `phone_barrier_access_v2_payload/service_preorders_core.py:424` — INSERT INTO service_order_interests (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:472` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `phone_barrier_access_v2_payload/service_preorders_core.py:490` — FROM service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:541` — UPDATE service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:630` — SELECT * FROM service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:687` — UPDATE service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:733` — FROM service_order_interests
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:682` — "service_order_interests",
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:648` — "service_order_interests",
+- `run_bot_live_services_sandbox_v1.py:734` — "service_order_interests",
+- `service_code_compatibility_payload/service_preorders_core.py:96` — "service_order_interests",
+- `service_code_compatibility_payload/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `service_code_compatibility_payload/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `service_code_compatibility_payload/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `service_code_compatibility_payload/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `service_code_compatibility_payload/service_preorders_core.py:429` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `service_code_compatibility_payload/service_preorders_core.py:432` — INSERT INTO service_order_interests (
+- `service_code_compatibility_payload/service_preorders_core.py:480` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `service_code_compatibility_payload/service_preorders_core.py:498` — FROM service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:549` — UPDATE service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:638` — SELECT * FROM service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:695` — UPDATE service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:741` — FROM service_order_interests
+- `service_preorders_core.py:96` — "service_order_interests",
+- `service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `service_preorders_core.py:429` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `service_preorders_core.py:432` — INSERT INTO service_order_interests (
+- `service_preorders_core.py:480` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `service_preorders_core.py:498` — FROM service_order_interests
+- `service_preorders_core.py:549` — UPDATE service_order_interests
+- ... and 4 more
+
+## `service_order_items`
+- `tools/project_passport.py:117` — "service_order_items",
+
+## `service_order_payment_links`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:879` — FROM service_order_payment_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:892` — FROM service_order_payment_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:918` — FROM service_order_payment_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:940` — INSERT INTO service_order_payment_links (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:1343` — FROM service_order_payment_links
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:570` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:843` — FROM service_order_payment_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:856` — FROM service_order_payment_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:882` — FROM service_order_payment_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:904` — INSERT INTO service_order_payment_links (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:1307` — FROM service_order_payment_links
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:606` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:728` — INSERT INTO service_order_payment_links (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1095` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:843` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:856` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:882` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:904` — INSERT INTO service_order_payment_links (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1307` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:606` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:39` — SELECT 1 FROM service_order_payment_links l
+- `service_code_compatibility_payload/service_orders_core.py:914` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:927` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:953` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:975` — INSERT INTO service_order_payment_links (
+- `service_code_compatibility_payload/service_orders_core.py:1378` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_preorders_core.py:614` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `service_orders_core.py:914` — FROM service_order_payment_links
+- `service_orders_core.py:927` — FROM service_order_payment_links
+- `service_orders_core.py:953` — FROM service_order_payment_links
+- `service_orders_core.py:975` — INSERT INTO service_order_payment_links (
+- `service_orders_core.py:1378` — FROM service_order_payment_links
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:728` — INSERT INTO service_order_payment_links (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1095` — FROM service_order_payment_links
+- `service_preorders_core.py:614` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+
+## `service_order_steps`
+- `Bots/handlers/service_orders_workspace.py:1306` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:200` — ("service_order_steps", "VIEW", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:201` — ("service_order_steps", "CREATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:209` — ("service_order_steps", "VIEW", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:210` — ("service_order_steps", "CREATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:523` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders.py:281` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders.py:345` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders_v2.py:265` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders_v2.py:329` — "service_order_steps",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:197` — ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:198` — ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:199` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:206` — ("service_order_steps", "VIEW", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:207` — ("service_order_steps", "CREATE", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:208` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:520` — "service_order_steps",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:203` — ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:204` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "VIEW", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:212` — ("service_order_steps", "CREATE", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:213` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:678` — "service_order_steps",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:976` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:156` — "service_order_steps",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:391` — FROM service_order_steps
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:600` — INSERT INTO service_order_steps (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:710` — "service_order_steps",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:720` — FROM service_order_steps
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:733` — UPDATE service_order_steps
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:817` — "service_order_steps",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:827` — FROM service_order_steps
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:708` — JOIN service_order_steps p
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:712` — JOIN service_order_steps s
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:751` — JOIN service_order_steps p
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:755` — JOIN service_order_steps s
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:203` — ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:204` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "VIEW", "ACCESS"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:212` — ("service_order_steps", "CREATE", "ACCESS"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:213` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:644` — "service_order_steps",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1195` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:200` — ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:201` — ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:209` — ("service_order_steps", "VIEW", "ACCESS"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:210` — ("service_order_steps", "CREATE", "ACCESS"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:523` — "service_order_steps",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1299` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1177` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:96` — "service_order_steps",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:331` — FROM service_order_steps
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:571` — INSERT INTO service_order_steps (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:681` — "service_order_steps",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:691` — FROM service_order_steps
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:704` — UPDATE service_order_steps
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:788` — "service_order_steps",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:798` — FROM service_order_steps
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:759` — JOIN service_order_steps p
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:763` — JOIN service_order_steps s
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:802` — JOIN service_order_steps p
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:806` — JOIN service_order_steps s
+- `Data/db/logs/guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt:98` — [MISSING] service_order_steps
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5526` — 200:             ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5533` — 200:             ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5534` — 201:             ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5540` — >   200:             ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5541` — 201:             ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5542` — 202:             ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5547` — 200:             ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5548` — >   201:             ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5549` — 202:             ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5554` — 200:             ("service_order_steps", "VIEW", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5555` — 201:             ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5556` — >   202:             ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5562` — 201:             ("service_order_steps", "CREATE", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5563` — 202:             ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5570` — 202:             ("service_order_steps", "CONFIRM", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5690` — 523:             "service_order_steps",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:5976` — 281:             "service_order_steps",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6077` — 265:             "service_order_steps",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8462` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8469` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8476` — >   504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8483` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8490` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8494` — 508:         ("ACCESS_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "ACCESS"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8956` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8963` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8970` — >   504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8977` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:8984` — 504:         ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- ... and 168 more
+
+## `service_orders`
+- `Bots/handlers/client_portal_v3.py:10` — Сам процесс находится в service_orders_workspace.py и подключается
+- `Bots/handlers/client_portal_v3.py:87` — # service_orders_workspace. All other v2 behaviour remains unchanged.
+- `Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Bots/handlers/service_orders_workspace.py:78` — MODULE = "service_orders_ui"
+- `Bots/handlers/service_orders_workspace.py:515` — "service_orders",
+- `Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `Bots/handlers/service_orders_workspace.py:1047` — FROM service_orders
+- `Bots/handlers/service_orders_workspace.py:1284` — FROM service_orders o
+- `Bots/handlers/service_orders_workspace.py:1306` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `Bots/handlers/service_orders_workspace.py:1452` — return confirm_order_step(order_id=int(order["id"]), step_code="REMOTE_PROGRAMMED", actor_id=user_id, note="Перепрошивка выполнена.", source_context="service_orders_workspace")
+- `Bots/handlers/service_orders_workspace.py:1696` — async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:12` — - connects service_orders_workspace to parking_bot in memory;
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:47` — WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:49` — SERVICE_PATCHER = ROOT / "patch_parking_bot_service_orders_v1.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:196` — ("service_orders", "VIEW", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:197` — ("service_orders", "CREATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:198` — ("service_orders", "UPDATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:199` — ("service_orders", "CONFIRM", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:205` — ("service_orders", "VIEW", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:206` — ("service_orders", "CREATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:207` — ("service_orders", "UPDATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:208` — ("service_orders", "CONFIRM", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:391` — "В service_orders_workspace.py не установлена готовая версия "
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:403` — "service_orders_core",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:409` — "handlers.service_orders_workspace",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:522` — "service_orders",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:556` — FROM service_orders
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:668` — print("  - service_orders workspace: simplified paid-preorder workflow verified")
+- `CHECK_guard_sandbox_service_orders.py:41` — WORKSPACE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `CHECK_guard_sandbox_service_orders.py:240` — "service_orders_workspace",
+- `CHECK_guard_sandbox_service_orders.py:241` — "handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders.py:280` — "service_orders",
+- `CHECK_guard_sandbox_service_orders.py:330` — "service_orders",
+- `CHECK_guard_sandbox_service_orders.py:442` — say("  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,")
+- `CHECK_guard_sandbox_service_orders.py:445` — say("    inspect roles/permissions for resource=service_orders, action=VIEW,")
+- `CHECK_guard_sandbox_service_orders.py:456` — report_path = LOG_DIR / f"guard_sandbox_service_orders_diagnosis_{stamp}.txt"
+- `CHECK_guard_sandbox_service_orders_v2.py:43` — WORKSPACE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `CHECK_guard_sandbox_service_orders_v2.py:211` — "service_orders_workspace",
+- `CHECK_guard_sandbox_service_orders_v2.py:212` — "handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders_v2.py:238` — say(f"service_orders_workspace.py: {len(workspace_source.splitlines())} lines")
+- `CHECK_guard_sandbox_service_orders_v2.py:240` — "def handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders_v2.py:264` — "service_orders",
+- `CHECK_guard_sandbox_service_orders_v2.py:314` — "service_orders",
+- `CHECK_guard_sandbox_service_orders_v2.py:426` — say("  1) Whether the runtime-patched parking_bot imports and calls service_orders_workspace.")
+- `CHECK_guard_sandbox_service_orders_v2.py:429` — say("  4) Whether roles/permissions permit service_orders VIEW for REMOTE / ACCESS.")
+- `CHECK_guard_sandbox_service_orders_v2.py:437` — report_path = LOG_DIR / f"guard_sandbox_service_orders_diagnosis_v2_{stamp}.txt"
+- `CHECK_profile_verification_terminology_v2.py:16` — service = ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+- `CHECK_service_code_compatibility_phone_v2.py:31` — core = ROOT / "service_orders_core.py"
+- `CHECK_service_code_compatibility_phone_v2.py:33` — workspace = ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+- `create_clean_live_sandbox.py:101` — "service_orders",
+- `create_clean_live_sandbox.py:341` — "services": ROOT / "migrate_service_orders_and_fulfillment.py",
+- `create_clean_live_sandbox.py:400` — "service_orders",
+- `create_isolated_live_sandbox_v2.py:101` — "service_orders",
+- `create_isolated_live_sandbox_v2.py:335` — "services": ROOT / "migrate_service_orders_and_fulfillment.py",
+- `create_isolated_live_sandbox_v2.py:396` — "service_orders",
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:53` — order_columns = table_columns(conn, "service_orders")
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:66` — "service_orders schema is incompatible: missing "
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:78` — FROM service_orders
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:9` — - connects service_orders_workspace to parking_bot in memory;
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:44` — WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:46` — SERVICE_PATCHER = ROOT / "patch_parking_bot_service_orders_v1.py"
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:193` — ("service_orders", "VIEW", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:194` — ("service_orders", "CREATE", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:195` — ("service_orders", "UPDATE", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:196` — ("service_orders", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:202` — ("service_orders", "VIEW", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:203` — ("service_orders", "CREATE", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:204` — ("service_orders", "UPDATE", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:205` — ("service_orders", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:388` — "В service_orders_workspace.py не установлена готовая версия "
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:400` — "service_orders_core",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:406` — "handlers.service_orders_workspace",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:519` — "service_orders",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:553` — FROM service_orders
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:665` — print("  - service_orders workspace: simplified paid-preorder workflow verified")
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:12` — - connects service_orders_workspace to parking_bot in memory;
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:47` — WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:49` — SERVICE_PATCHER = ROOT / "patch_parking_bot_service_orders_v1.py"
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:198` — ("service_orders", "VIEW", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:199` — ("service_orders", "CREATE", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:200` — ("service_orders", "UPDATE", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:201` — ("service_orders", "CONFIRM", "REMOTE"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:207` — ("service_orders", "VIEW", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:208` — ("service_orders", "CREATE", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:209` — ("service_orders", "UPDATE", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:210` — ("service_orders", "CONFIRM", "ACCESS"),
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:393` — "В service_orders_workspace.py не установлена готовая версия "
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:405` — "service_orders_core",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:411` — "handlers.service_orders_workspace",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:677` — "service_orders",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:713` — FROM service_orders
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:825` — print("  - service_orders workspace: simplified paid-preorder workflow verified")
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:68` — MODULE = "service_orders_ui"
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:406` — "service_orders",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:456` — from service_orders_core import effective_price
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:733` — FROM service_orders
+- ... and 670 more
+
+## `service_orders_core`
+- `Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:456` — from service_orders_core import effective_price
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:1120` — from service_orders_core import confirm_order_step
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:25` — from service_orders_core import (
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:569` — from service_orders_core import effective_price
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1339` — from service_orders_core import confirm_order_step
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1443` — from service_orders_core import confirm_order_step
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:551` — from service_orders_core import effective_price
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1321` — from service_orders_core import confirm_order_step
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:25` — from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:4008` — 37: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:4608` — 1450:     from service_orders_core import confirm_order_step
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:10414` — 37: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11014` — 1321:     from service_orders_core import confirm_order_step
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11557` — 25: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:12898` — 37: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13498` — 1443:     from service_orders_core import confirm_order_step
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:13902` — 37: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:14502` — 1450:     from service_orders_core import confirm_order_step
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15539` — 37: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16139` — 1339:     from service_orders_core import confirm_order_step
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16637` — 25: from service_orders_core import (
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18400` — 25: from service_orders_core import (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:29` — from service_orders_core import (
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `phone_barrier_access_core.py:1988` — from service_orders_core import confirm_order_step, get_service_order
+- `phone_barrier_access_service.py:26` — from service_orders_core import get_conn, text
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:551` — from service_orders_core import effective_price
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1321` — from service_orders_core import confirm_order_step
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1988` — from service_orders_core import confirm_order_step, get_service_order
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:26` — from service_orders_core import get_conn, text
+- `phone_barrier_access_v2_payload/service_preorders_core.py:25` — from service_orders_core import (
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1443` — from service_orders_core import confirm_order_step
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `service_catalog_admin_core.py:29` — from service_orders_core import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:569` — from service_orders_core import effective_price
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1339` — from service_orders_core import confirm_order_step
+- `service_code_compatibility_payload/service_preorders_core.py:25` — from service_orders_core import (
+- `service_preorders_core.py:25` — from service_orders_core import (
+
+## `service_preorders_core`
+- `Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:380` — "from service_preorders_core import (",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:377` — "from service_preorders_core import (",
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:46` — from service_preorders_core import (
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:380` — "from service_preorders_core import (",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:46` — from service_preorders_core import (
+- `MIGRATE_simplified_services_sandbox.py:67` — from service_preorders_core import ensure_simplified_service_schema
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:386` — "from service_preorders_core import (",
+- `phone_barrier_access_service.py:27` — from service_preorders_core import create_service_interest, ensure_simplified_service_schema
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:46` — from service_preorders_core import (
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:27` — from service_preorders_core import create_service_interest, ensure_simplified_service_schema
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `run_bot_live_services_sandbox_v1.py:386` — "from service_preorders_core import (",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+
+## `service_price_versions`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:288` — FROM service_price_versions
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:228` — FROM service_price_versions
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:394` — FROM service_price_versions
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:412` — UPDATE service_price_versions
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:421` — INSERT INTO service_price_versions (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:228` — FROM service_price_versions
+- `phone_barrier_access_v2_payload/service_orders_core.py:228` — FROM service_price_versions
+- `service_catalog_admin_core.py:394` — FROM service_price_versions
+- `service_catalog_admin_core.py:412` — UPDATE service_price_versions
+- `service_catalog_admin_core.py:421` — INSERT INTO service_price_versions (
+- `service_code_compatibility_payload/service_orders_core.py:294` — FROM service_price_versions
+- `service_orders_core.py:294` — FROM service_price_versions
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:228` — FROM service_price_versions
+
+## `service_tariffs`
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:51` — - service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:329` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:406` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:596` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:650` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:651` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:18` — Present: apartments, vehicles, persons, resident_accounts, contact_methods, charges, payments, payment_allocations, cashboxes, cashbox_operations, cashier_batches, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, service_catalog, service_items, service_tariffs, operator_audit_log, parking_time_review_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:63` — - service_tariffs (3 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2413` — TABLE service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2419` — CREATE TABLE service_tariffs (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2449` — - idx_service_tariffs_code_dates | unique=0 | origin=c | partial=0 | columns=[service_code, valid_from, valid_to]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3689` — INDEX idx_service_tariffs_code_dates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3691` — CREATE INDEX idx_service_tariffs_code_dates ON service_tariffs(service_code, valid_from, valid_to)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3816` — amount: bank_transactions, cashbox_operations, cashier_receipts, cashier_reconciliation_cases, charges, events, extracted_facts, payment_allocations, payments, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3893` — currency: bank_transactions, cashbox_operations, cashboxes, cashier_receipts, cashier_reconciliation_cases, charges, commercial_contract_items, payment_notices, payments, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4083` — service_code: bank_transactions, cashbox_operations, cashier_batch_items, cashier_batches, cashier_reconciliation_cases, charges, service_catalog, service_items, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4137` — valid_from: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4138` — valid_to: adjustment_assignments, commercial_contract_items, commercial_contracts, service_tariffs
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt:18` — service_tariffs         : 3
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt:18` — service_tariffs         : 3
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt:18` — service_tariffs         : 3
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt:22` — service_tariffs         : 3
+- `Data/exports/supervisor/supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt:22` — service_tariffs         : 3
+- `generate_parking_charges.py:65` — FROM service_tariffs
+- `migrate_billing_core.py:49` — CREATE TABLE IF NOT EXISTS service_tariffs (
+- `migrate_billing_core.py:121` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_tariffs_code_dates ON service_tariffs(service_code, valid_from, valid_to)")
+- `migrate_billing_core.py:151` — INSERT INTO service_tariffs (
+- `migrate_billing_core.py:170` — FROM service_tariffs
+- `migrate_billing_core.py:180` — "service_tariffs",
+- `migrate_commercial_contract_core.py:192` — "Цена определяется строкой договора, не service_tariffs."
+- `seed_parking_tariffs.py:50` — FROM service_tariffs
+- `seed_parking_tariffs.py:65` — UPDATE service_tariffs
+- `seed_parking_tariffs.py:82` — INSERT INTO service_tariffs (
+- `seed_parking_tariffs.py:143` — FROM service_tariffs
+- `supervisor_dashboard.py:309` — "service_catalog", "service_tariffs", "charges", "payments", "payment_allocations",
+- `tools/db_schema_snapshot.py:61` — "service_tariffs",
+- `tools/db_schema_snapshot_full.py:46` — "service_tariffs",
+- `tools/project_passport.py:110` — "service_tariffs",
+
+## `service_workflow_profiles`
+- `Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `Bots/handlers/service_orders_workspace.py:1285` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Bots/handlers/service_orders_workspace.py:1301` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:445` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:955` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:971` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:151` — "service_workflow_profiles",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:261` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:702` — FROM service_workflow_profiles
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:809` — FROM service_workflow_profiles
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:558` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1174` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:1190` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1278` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:1294` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:540` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1156` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:1172` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:91` — "service_workflow_profiles",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:201` — JOIN service_workflow_profiles p
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:673` — FROM service_workflow_profiles
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:780` — FROM service_workflow_profiles
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:7546` — >    26: SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11729` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11734` — 256:         "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11742` — 262:             "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11774` — 279:         _insert_dynamic(cur, "service_workflow_profiles", values)
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16809` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16814` — 256:         "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16822` — 262:             "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16854` — 279:         _insert_dynamic(cur, "service_workflow_profiles", values)
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18572` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18577` — 256:         "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18585` — 262:             "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18617` — 279:         _insert_dynamic(cur, "service_workflow_profiles", values)
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `migrate_service_orders_and_fulfillment.py:104` — "service_workflow_profiles": """
+- `migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `migrate_service_orders_and_fulfillment.py:388` — INSERT INTO service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:104` — "service_workflow_profiles": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:388` — INSERT INTO service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:195` — LEFT JOIN service_workflow_profiles p
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:243` — "SELECT 1 FROM service_workflow_profiles WHERE profile_code = ? AND is_active = 1",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:91` — "service_workflow_profiles",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:201` — JOIN service_workflow_profiles p
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:636` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:540` — JOIN service_workflow_profiles p
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1156` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1172` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `phone_barrier_access_v2_payload/service_orders_core.py:91` — "service_workflow_profiles",
+- `phone_barrier_access_v2_payload/service_orders_core.py:201` — JOIN service_workflow_profiles p
+- `phone_barrier_access_v2_payload/service_orders_core.py:673` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/service_orders_core.py:780` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `phone_barrier_access_v2_payload/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1278` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1294` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1285` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1301` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `service_catalog_admin_core.py:195` — LEFT JOIN service_workflow_profiles p
+- `service_catalog_admin_core.py:243` — "SELECT 1 FROM service_workflow_profiles WHERE profile_code = ? AND is_active = 1",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:558` — JOIN service_workflow_profiles p
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1174` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1190` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `service_code_compatibility_payload/service_orders_core.py:149` — "service_workflow_profiles",
+- `service_code_compatibility_payload/service_orders_core.py:267` — JOIN service_workflow_profiles p
+- `service_code_compatibility_payload/service_orders_core.py:739` — FROM service_workflow_profiles
+- `service_code_compatibility_payload/service_orders_core.py:846` — FROM service_workflow_profiles
+- `service_code_compatibility_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_code_compatibility_payload/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `service_orders_core.py:149` — "service_workflow_profiles",
+- `service_orders_core.py:267` — JOIN service_workflow_profiles p
+- `service_orders_core.py:739` — FROM service_workflow_profiles
+- `service_orders_core.py:846` — FROM service_workflow_profiles
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:91` — "service_workflow_profiles",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:201` — JOIN service_workflow_profiles p
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:636` — FROM service_workflow_profiles
+- `service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `tools/project_passport.py:120` — "service_workflow_profiles",
+
+## `service_workflow_steps`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:152` — "service_workflow_steps",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:583` — FROM service_workflow_steps
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:92` — "service_workflow_steps",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:554` — FROM service_workflow_steps
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `Data/db/sandbox/clean_live_sandbox_2026-06-26_20-13-26.txt:34` — {'tables_created': {'service_workflow_profiles': True, 'service_workflow_steps': True, 'service_item_workflows': True, 'service_price_versions': True, 'service_orders': True, 'service_order_steps': True, 'service_order_charge_links': True, 'service_order_payment_links': True, 'service_order_events': True, 'remote_assets': True, 'remote_asset_movements': True, 'remote_order_details': True, 'service_access_credentials': True}, 'workflow_seed': {'profiles_upserted': 5, 'steps_upserted': 14}, 'phone
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11729` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11782` — 283:         "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11790` — 289:             "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11822` — 314:             _insert_dynamic(cur, "service_workflow_steps", values)
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16809` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16862` — 283:         "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16870` — 289:             "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16902` — 314:             _insert_dynamic(cur, "service_workflow_steps", values)
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18572` — 249:     required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18625` — 283:         "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18633` — 289:             "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18665` — 314:             _insert_dynamic(cur, "service_workflow_steps", values)
+- `migrate_service_orders_and_fulfillment.py:115` — "service_workflow_steps": """
+- `migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `migrate_service_orders_and_fulfillment.py:407` — INSERT INTO service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:115` — "service_workflow_steps": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:407` — INSERT INTO service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:92` — "service_workflow_steps",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:517` — FROM service_workflow_steps
+- `phone_barrier_access_v2_payload/service_orders_core.py:92` — "service_workflow_steps",
+- `phone_barrier_access_v2_payload/service_orders_core.py:554` — FROM service_workflow_steps
+- `phone_barrier_access_v2_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `phone_barrier_access_v2_payload/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `service_code_compatibility_payload/service_orders_core.py:150` — "service_workflow_steps",
+- `service_code_compatibility_payload/service_orders_core.py:620` — FROM service_workflow_steps
+- `service_code_compatibility_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_code_compatibility_payload/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `service_code_compatibility_payload/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `service_orders_core.py:150` — "service_workflow_steps",
+- `service_orders_core.py:620` — FROM service_workflow_steps
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:92` — "service_workflow_steps",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:517` — FROM service_workflow_steps
+- `service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `tools/project_passport.py:121` — "service_workflow_steps",
+
+## `SET`
+- `Bots/db_access - Copy.py:123` — DO UPDATE SET
+- `Bots/db_access - Copy.py:1714` — DO UPDATE SET
+- `Bots/db_access - Copy.py:4819` — DO UPDATE SET
+- `Bots/db_access.py:123` — DO UPDATE SET
+- `Bots/db_access.py:1714` — DO UPDATE SET
+- `Bots/db_access.py:4819` — DO UPDATE SET
+- `Bots/db_access.py:5893` — DO UPDATE SET
+- `create_clean_live_sandbox.py:206` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `create_clean_live_sandbox.py:230` — DO UPDATE SET
+- `create_isolated_live_sandbox_v2.py:206` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `create_isolated_live_sandbox_v2.py:230` — DO UPDATE SET
+- `guard_workspace_preflight.py:224` — ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+- `guard_workspace_preflight.py:234` — DO UPDATE SET is_active = 1
+- `guard_workspace_preflight_v2.py:224` — ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+- `guard_workspace_preflight_v2.py:234` — DO UPDATE SET is_active = 1
+- `manage_staff_access.py:193` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `manage_staff_access_v2.py:193` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `migrate_access_control_and_guard.py:373` — ON CONFLICT(role_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:393` — ON CONFLICT(profile_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:413` — ON CONFLICT(profile_code, step_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:521` — ON CONFLICT(role_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:393` — ON CONFLICT(profile_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:413` — ON CONFLICT(profile_code, step_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:521` — ON CONFLICT(role_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:321` — ON CONFLICT(service_item_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:427` — ON CONFLICT(service_item_code, effective_from) DO UPDATE SET
+- `prepare_live_service_test.py:104` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `prepare_live_service_test.py:127` — DO UPDATE SET
+- `seed_bot_admins.py:82` — DO UPDATE SET
+- `service_catalog_admin_core.py:321` — ON CONFLICT(service_item_code) DO UPDATE SET
+- `service_catalog_admin_core.py:427` — ON CONFLICT(service_item_code, effective_from) DO UPDATE SET
+
+## `Sheet1`
+- `import_ohorona_sheet1_payments.py:735` — parser = argparse.ArgumentParser(description="Import payments from Sheet1 of Охорона.xlsx.")
+
+## `source_files`
+- `audit_tbot_quarantine.py:438` — FROM source_files
+- `import_tbot_quarantine.py:59` — cur.execute("DELETE FROM source_files WHERE source_name = ?", (SOURCE_NAME,))
+- `import_tbot_quarantine.py:115` — INSERT INTO source_files (
+
+## `sqlite_master`
+- `access_control.py:72` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `audit_logger.py:31` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `billing_reconciliation_report.py:36` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `billing_statement_excel.py:40` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/db_access - Copy.py:1784` — FROM sqlite_master
+- `Bots/db_access - Copy.py:1987` — FROM sqlite_master
+- `Bots/db_access - Copy.py:2614` — FROM sqlite_master
+- `Bots/db_access - Copy.py:3732` — FROM sqlite_master
+- `Bots/db_access - Copy.py:3821` — FROM sqlite_master
+- `Bots/db_access - Copy.py:4151` — FROM sqlite_master
+- `Bots/db_access - Copy.py:4230` — FROM sqlite_master
+- `Bots/db_access.py:1784` — FROM sqlite_master
+- `Bots/db_access.py:1987` — FROM sqlite_master
+- `Bots/db_access.py:2614` — FROM sqlite_master
+- `Bots/db_access.py:3732` — FROM sqlite_master
+- `Bots/db_access.py:3821` — FROM sqlite_master
+- `Bots/db_access.py:4151` — FROM sqlite_master
+- `Bots/db_access.py:4230` — FROM sqlite_master
+- `Bots/db_access.py:4955` — "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+- `Bots/handlers/audit_viewer - Copy.py:40` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `Bots/handlers/audit_viewer.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/cashier_operator.py:190` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/client_portal.py:543` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/client_portal_safe_linking.py:543` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/commercial_contract_editor.py:142` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/unit_registry_editor - Copy.py:153` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/unit_registry_editor.py:153` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/vehicle_verification.py:53` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `cashier_journal.py:295` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:115` — FROM sqlite_master
+- `cashier_v2_preflight.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `cashier_v2_preflight_compat.py:46` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `CHECK_guard_sandbox_service_orders.py:114` — FROM sqlite_master
+- `CHECK_guard_sandbox_service_orders_v2.py:85` — FROM sqlite_master
+- `CHECK_profile_test_candidate_apartment_40.py:82` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `CHECK_profile_verification_sandbox.py:19` — tables={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+- `commercial_contracts.py:144` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `create_clean_live_sandbox.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `create_isolated_live_sandbox_v2.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:112` — FROM sqlite_master
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:117` — FROM sqlite_master
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:71` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:160` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:117` — FROM sqlite_master
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:115` — FROM sqlite_master
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:83` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:564` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `diagnose_osbb_audit.py:42` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `diagnose_sandbox_charges.py:30` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `FIND_actual_service_order_state.py:63` — FROM sqlite_master
+- `find_sandbox_telegram_id.py:25` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `FIX_live_services_sandbox_payment_schema.py:67` — FROM sqlite_master
+- `fix_source_ref_schema.py:160` — FROM sqlite_master
+- `guard_workspace_preflight.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `guard_workspace_preflight_v2.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `import_ohorona_sheet1_payments.py:118` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `migrate_access_control_and_guard.py:54` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_access_control_and_guard.py:81` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_apartment_link_requests.py:49` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_apartment_link_requests.py:57` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_core.py:22` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_operator_editor.py:118` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_operator_editor.py:143` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_v2.py:52` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_v2.py:79` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_v2_compat.py:53` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_v2_compat.py:80` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_charge_adjustments.py:102` — cur.execute("SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?", (table_name,))
+- `migrate_commercial_contract_core.py:67` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_commercial_contract_core.py:75` — "SELECT 1 FROM sqlite_master WHERE name=?",
+- `migrate_commercial_contract_core.py:102` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_operator_audit_log_v2.py:34` — FROM sqlite_master
+- `MIGRATE_profile_parking_time_test_sandbox.py:44` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `MIGRATE_profile_verification_sandbox.py:28` — present={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+- `migrate_remote_requests.py:49` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_remote_requests.py:57` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_service_items.py:25` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `migrate_service_orders_and_fulfillment.py:60` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_service_orders_and_fulfillment.py:87` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_unit_registry_composite_groups.py:74` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:60` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:87` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:85` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `parking_billing_statement.py:29` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `parking_time_test_payload/profile_parking_time_test_core.py:65` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `parking_time_test_payload/profile_parking_time_test_core.py:258` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `parking_time_test_payload/profile_parking_time_test_core.py:447` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:121` — FROM sqlite_master
+- `phone_barrier_access_core.py:72` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `phone_barrier_access_core.py:161` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:72` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:161` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `phone_barrier_access_v2_payload/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `plate_consensus_apply.py:29` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `plate_consensus_report.py:240` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `plate_consensus_report_v3.py:170` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:117` — FROM sqlite_master
+- ... and 37 more
+
+## `sqlite_sequence`
+- `reset_service_catalog.py:421` — cur.execute("DELETE FROM sqlite_sequence WHERE name = ?", (table_name,))
+
+## `staff_principals`
+- `create_clean_live_sandbox.py:202` — INSERT INTO staff_principals (
+- `create_isolated_live_sandbox_v2.py:202` — INSERT INTO staff_principals (
+- `guard_workspace_preflight.py:220` — INSERT INTO staff_principals (
+- `guard_workspace_preflight_v2.py:220` — INSERT INTO staff_principals (
+- `manage_staff_access.py:115` — FROM staff_principals
+- `manage_staff_access.py:189` — INSERT INTO staff_principals (
+- `manage_staff_access_v2.py:115` — FROM staff_principals
+- `manage_staff_access_v2.py:189` — INSERT INTO staff_principals (
+- `prepare_live_service_test.py:100` — INSERT INTO staff_principals (
+
+## `STRUCTURAL`
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:84` — TABLE STRUCTURAL DIFFERENCES
+- `tools/db_schema_compare.py:305` — add("TABLE STRUCTURAL DIFFERENCES")
+
+## `supplier`
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11519` — >     8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11526` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11533` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16599` — >     8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16606` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16613` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18362` — >     8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18369` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18376` — 8: - new remotes are paid preorders, aggregated into supplier batches;
+- `phone_barrier_access_v2_payload/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `service_code_compatibility_payload/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+
+## `TBOT`
+- `audit_tbot_quarantine.py:273` — report.section("OWNERSHIP TYPE FROM TBOT")
+- `Data/exports/audits/tbot_quarantine_audit_2026-06-08_19-55-03.txt:37` — OWNERSHIP TYPE FROM TBOT
+
+## `tbot_parking_import`
+- `audit_composite_apartments.py:60` — FROM tbot_parking_import
+- `audit_tbot_quarantine.py:135` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:1859` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:2713` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:3785` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:4204` — FROM tbot_parking_import
+- `Bots/db_access.py:1859` — FROM tbot_parking_import
+- `Bots/db_access.py:2713` — FROM tbot_parking_import
+- `Bots/db_access.py:3785` — FROM tbot_parking_import
+- `Bots/db_access.py:4204` — FROM tbot_parking_import
+- `build_plate_evidence_by_digits_and_apartment.py:155` — FROM tbot_parking_import
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2456` — TABLE tbot_parking_import
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2462` — CREATE TABLE tbot_parking_import (
+- `import_tbot_quarantine.py:58` — cur.execute("DELETE FROM tbot_parking_import")
+- `import_tbot_quarantine.py:82` — INSERT INTO tbot_parking_import (
+- `import_tbot_quarantine.py:135` — cur.execute("SELECT COUNT(*) FROM tbot_parking_import")
+- `migrate_unit_registry_composite_groups.py:343` — FROM tbot_parking_import
+- `normalize_registry_fields.py:121` — FROM tbot_parking_import
+- `normalize_registry_fields.py:147` — UPDATE tbot_parking_import
+- `plate_consensus_report.py:354` — cur.execute(f"SELECT {', '.join(select_parts)} FROM tbot_parking_import")
+- `plate_consensus_report_v3.py:284` — cur.execute(f"SELECT {', '.join(select_parts)} FROM tbot_parking_import")
+- `vehicle_verification_tasks.py:231` — FROM tbot_parking_import
+
+## `telegram`
+- `Bots/data_park_bot.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/data_park_bot.py:2` — from telegram.ext import (
+- `Bots/handlers/agreement - Copy.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/agreement.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/audit_viewer - Copy.py:5` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/audit_viewer.py:25` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/cashier_operator.py:33` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/cashier_operator_v2.py:22` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal.py:30` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal_safe_linking.py:30` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal_v2.py:24` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/commercial_contract_editor.py:29` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/guard_workspace.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/profile_parking_time_test_workspace.py:15` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/unit_registry_editor - Copy.py:31` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/unit_registry_editor.py:31` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_card_editor.py:7` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_full_list.py:5` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_verification.py:7` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/hello.py:1` — from telegram import Update
+- `Bots/hello.py:2` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/hello.py:3` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot - Copy.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot - Copy.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:15` — from telegram import ReplyKeyboardMarkup, Update
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+
+## `telegram_chats`
+- `audit_osbb_telegram_messages.py:84` — FROM telegram_chats
+- `extract_telegram_remote_facts.py:90` — JOIN telegram_chats c ON c.id = m.chat_id
+- `extract_telegram_vehicle_facts.py:204` — JOIN telegram_chats c ON c.id = m.chat_id
+- `import_osbb_telegram_messages.py:146` — INSERT INTO telegram_chats (
+- `import_osbb_telegram_messages.py:205` — FROM telegram_chats
+- `init_osbb_telegram_db.py:64` — FOREIGN KEY(chat_id) REFERENCES telegram_chats(id)
+- `init_osbb_telegram_db.py:101` — FOREIGN KEY(chat_id) REFERENCES telegram_chats(id)
+
+## `telegram_facts`
+- `billing/report_parking_time_review_tasks.py:40` — FROM telegram_facts
+- `billing/report_parking_time_with_hints.py:214` — FROM telegram_facts
+- `Bots/db_access - Copy.py:2019` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:2758` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:3855` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:4250` — FROM telegram_facts f
+- `Bots/db_access.py:2019` — FROM telegram_facts f
+- `Bots/db_access.py:2758` — FROM telegram_facts f
+- `Bots/db_access.py:3855` — FROM telegram_facts f
+- `Bots/db_access.py:4250` — FROM telegram_facts f
+- `Bots/db_access.py:5624` — FROM telegram_facts f
+- `build_plate_evidence_by_digits_and_apartment.py:137` — FROM telegram_facts
+- `build_plate_evidence_from_telegram.py:79` — FROM telegram_facts tf
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6780` — 77:         DELETE FROM telegram_facts
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6908` — 210:         FROM telegram_facts
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:6924` — 256:         FROM telegram_facts
+- `extract_telegram_remote_facts.py:77` — DELETE FROM telegram_facts
+- `extract_telegram_remote_facts.py:122` — INSERT INTO telegram_facts (
+- `extract_telegram_remote_facts.py:160` — INSERT INTO telegram_facts (
+- `extract_telegram_remote_facts.py:210` — FROM telegram_facts
+- `extract_telegram_remote_facts.py:256` — FROM telegram_facts
+- `extract_telegram_vehicle_facts.py:191` — DELETE FROM telegram_facts
+- `extract_telegram_vehicle_facts.py:266` — INSERT INTO telegram_facts (
+- `extract_telegram_vehicle_facts.py:299` — INSERT INTO telegram_facts (
+- `extract_telegram_vehicle_facts.py:399` — FROM telegram_facts
+
+## `telegram_messages`
+- `audit_osbb_telegram_messages.py:91` — FROM telegram_messages
+- `audit_osbb_telegram_messages.py:104` — FROM telegram_messages
+- `Bots/db_access - Copy.py:2020` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:2759` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:2810` — FROM telegram_messages
+- `Bots/db_access - Copy.py:3856` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:4251` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2020` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2759` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2810` — FROM telegram_messages
+- `Bots/db_access.py:3856` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:4251` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:5625` — LEFT JOIN telegram_messages m
+- `extract_telegram_remote_facts.py:89` — FROM telegram_messages m
+- `extract_telegram_vehicle_facts.py:203` — FROM telegram_messages m
+- `import_osbb_telegram_messages.py:177` — INSERT INTO telegram_messages (
+- `import_osbb_telegram_messages.py:212` — FROM telegram_messages
+- `init_osbb_telegram_db.py:100` — FOREIGN KEY(telegram_message_db_id) REFERENCES telegram_messages(id),
+
+## `telegram_osbb`
+- `Bots/parking_bot - Copy.py:24` — from telegram_osbb import (
+- `Bots/parking_bot.py:31` — from telegram_osbb import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:30` — from telegram_osbb import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:25` — from telegram_osbb import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:30` — from telegram_osbb import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:30` — from telegram_osbb import (
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:142` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:139` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:142` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `Data/exports/audits/bot_admins_report_2026-06-12_19-36-42.txt:34` — Notes      : Seeded from telegram_osbb.py
+- `import_osbb_telegram_messages.py:21` — from telegram_osbb import API_ID, API_HASH
+- `inspect_osbb_folder_filter.py:18` — from telegram_osbb import API_ID, API_HASH
+- `list_osbb_folder_dialogs.py:19` — from telegram_osbb import API_ID, API_HASH
+- `list_osbb_included_peers.py:20` — from telegram_osbb import API_ID, API_HASH
+- `list_telegram_dialogs.py:19` — from telegram_osbb import API_ID, API_HASH
+- `list_telegram_folders.py:18` — from telegram_osbb import API_ID, API_HASH
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:148` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `run_bot_live_services_sandbox_v1.py:148` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `seed_bot_admins.py:18` — from telegram_osbb import SUPER_ADMIN_IDS, ADMIN_IDS
+- `seed_bot_admins.py:102` — "Seeded from telegram_osbb.py",
+- `telegram_test_login.py:18` — from telegram_osbb import (
+- `telegram_test_login_manual.py:17` — from telegram_osbb import API_ID, API_HASH, PHONE
+
+## `telegram_secrets`
+- `telegram_test_login.py:13` — # from telegram_secrets import API_ID, API_HASH, PHONE
+
+## `telethon`
+- `import_osbb_telegram_messages.py:7` — from telethon import TelegramClient
+- `import_osbb_telegram_messages.py:8` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `import_osbb_telegram_messages.py:9` — from telethon.tl.types import User, Chat, Channel
+- `inspect_osbb_folder_filter.py:5` — from telethon import TelegramClient
+- `inspect_osbb_folder_filter.py:6` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `list_osbb_folder_dialogs.py:6` — from telethon import TelegramClient
+- `list_osbb_folder_dialogs.py:7` — from telethon.tl.types import User, Chat, Channel
+- `list_osbb_included_peers.py:6` — from telethon import TelegramClient
+- `list_osbb_included_peers.py:7` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `list_osbb_included_peers.py:8` — from telethon.tl.types import User, Chat, Channel
+- `list_telegram_dialogs.py:6` — from telethon import TelegramClient
+- `list_telegram_dialogs.py:7` — from telethon.tl.types import User, Chat, Channel
+- `list_telegram_folders.py:5` — from telethon import TelegramClient
+- `list_telegram_folders.py:6` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `telegram_test_login.py:4` — from telethon import TelegramClient
+- `telegram_test_login_manual.py:5` — from telethon import TelegramClient
+
+## `that`
+- `CHECK_profile_test_candidate_apartment_40.py:167` — # Prefer the table that is used by existing vehicle linkage.
+
+## `the`
+- `Bots/handlers/client_portal_v2.py:178` — "choose_service": "Choose a service from the catalogue.",
+- `Bots/handlers/client_portal_v2.py:207` — "The operator will confirm payment only from the bank statement."
+- `Bots/handlers/guard_workspace.py:917` — # Entry button from the main mode selector.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:920` — # Entry button from the main mode selector.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:917` — # Entry button from the main mode selector.
+- `Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:14` — It is intentionally separate from the old Guard Sandbox runner.
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:11550` — 14: This module is deliberately independent from the cashier implementation. It
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15003` — 86: It only retires UNPAID records from the old REMOTE_NEW_FROM_STOCK test path,
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:15009` — >    86: It only retires UNPAID records from the old REMOTE_NEW_FROM_STOCK test path,
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:16630` — 14: This module is deliberately independent from the cashier implementation. It
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:18393` — 14: This module is deliberately independent from the cashier implementation. It
+- `Docs/OSBB_Business_Handoff_2026-06-27/START_OSBB_BUSINESS_CHAT_2026-06-28.txt:1` — I am resuming the OSBB local Windows project from the attached handoff documents.
+- `fix_source_ref_schema.py:243` — "Could not determine the table aliased as p from the SQL containing "
+- `MIGRATE_simplified_services_sandbox.py:48` — config from the parent Python project directory, not from OSBB itself.
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:430` — """Patch profile verification into the bot source in memory only."""
+- `patch_parking_bot_service_orders_v1.py:9` — It is deliberately independent from the old guard-workspace patch.
+- `phone_barrier_access_service.py:45` — Record one resident intention, but calculate connection price from the
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:45` — Record one resident intention, but calculate connection price from the
+- `phone_barrier_access_v2_payload/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `README_SIMPLIFIED_SERVICES.txt:28` — This bundle removes manual payment linking from the services screen through
+- `README_SIMPLIFIED_SERVICES.txt:86` — It only retires UNPAID records from the old REMOTE_NEW_FROM_STOCK test path,
+- `run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `run_bot_live_services_sandbox_v1.py:430` — """Patch profile verification into the bot source in memory only."""
+- `service_code_compatibility_payload/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+
+## `there`
+- `fix_source_ref_schema.py:229` — r"G:\Programming\Py\OSBB\ and run it from there."
+
+## `this`
+- `Bots/handlers/client_portal.py:50` — # Language pack. Each submenu uses keys from this pack, not hard-coded RU.
+- `Bots/handlers/client_portal_safe_linking.py:50` — # Language pack. Each submenu uses keys from this pack, not hard-coded RU.
+- `cashier_v2_preflight.py:377` — # 3. Snapshot. From this moment only sandbox can be modified.
+- `Start_OSBB_Live_Services_Sandbox_Bot_v1.bat:40` — echo Use STOP_old_guard_sandbox_bots.bat from this bundle, then start again.
+
+## `types`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `create_clean_live_sandbox.py:38` — from types import SimpleNamespace
+- `create_isolated_live_sandbox_v2.py:38` — from types import SimpleNamespace
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:30` — from types import ModuleType, SimpleNamespace
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `guard_workspace_preflight.py:27` — from types import SimpleNamespace
+- `guard_workspace_preflight_v2.py:27` — from types import SimpleNamespace
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:32` — from types import SimpleNamespace
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `patch_cashier_v2_core_period_and_schemafix.py:30` — from types import SimpleNamespace
+- `patch_cashier_v2_core_schemafix.py:37` — from types import SimpleNamespace
+- `prepare_live_service_test.py:25` — from types import SimpleNamespace
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `run_bot_guard_sandbox.py:26` — from types import SimpleNamespace
+- `run_bot_guard_sandbox_v2.py:26` — from types import SimpleNamespace
+- `run_bot_guard_sandbox_v3.py:26` — from types import SimpleNamespace
+- `run_bot_live_service_sandbox_v4.py:21` — from types import SimpleNamespace
+- `run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `run_bot_sandbox_v2.py:38` — from types import SimpleNamespace
+- `service_orders_preflight.py:32` — from types import SimpleNamespace
+
+## `typing`
+- `access_control.py:22` — from typing import Any
+- `Bots/handlers/audit_viewer.py:23` — from typing import Any
+- `Bots/handlers/cashier_operator.py:30` — from typing import Any
+- `Bots/handlers/cashier_operator_v2.py:20` — from typing import Any
+- `Bots/handlers/client_portal.py:28` — from typing import Any
+- `Bots/handlers/client_portal_safe_linking.py:28` — from typing import Any
+- `Bots/handlers/client_portal_v2.py:22` — from typing import Any
+- `Bots/handlers/commercial_contract_editor.py:27` — from typing import Any
+- `Bots/handlers/guard_workspace.py:20` — from typing import Any
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:20` — from typing import Any
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:20` — from typing import Any
+- `Bots/handlers/profile_parking_time_test_workspace.py:13` — from typing import Any
+- `Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Bots/handlers/unit_registry_editor - Copy.py:29` — from typing import Any
+- `Bots/handlers/unit_registry_editor.py:29` — from typing import Any
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `cashier_v2_core.py:19` — from typing import Any
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:19` — from typing import Any
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:19` — from typing import Any
+- `cashier_v2_preflight.py:35` — from typing import Any
+- `CHECK_guard_sandbox_service_orders.py:31` — from typing import Any, Iterable
+- `CHECK_guard_sandbox_service_orders_v2.py:26` — from typing import Any, Iterable
+- `CHECK_profile_test_candidate_apartment_40.py:30` — from typing import Any
+- `commercial_contracts.py:24` — from typing import Any, Iterable
+- `commercial_notification_delivery.py:26` — from typing import Any
+- `create_clean_live_sandbox.py:39` — from typing import Any
+- `create_isolated_live_sandbox_v2.py:39` — from typing import Any
+- `Data/backups/source_code/cashier_route_repair_2026-06-27_20-04-49/run_bot_live_services_sandbox_v1.py:31` — from typing import Any
+- `Data/backups/source_code/parking_time_test_v1_2026-06-28_12-12-01/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/phone_barrier_access_core.py:30` — from typing import Any, Iterable
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_orders_core.py:21` — from typing import Any
+- `Data/backups/source_code/phone_barrier_access_v2_2026-06-27_19-37-24/service_preorders_core.py:23` — from typing import Any
+- `Data/backups/source_code/profile_button_early_route_2026-06-27_21-33-50/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `Data/backups/source_code/profile_confirmation_ready_visibility_2026-06-27_21-55-54/profile_verification_workspace.py:15` — from typing import Any
+- `Data/backups/source_code/profile_critical_codes_fix_2026-06-27_21-47-24/profile_verification_workspace.py:15` — from typing import Any
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Data/backups/source_code/profile_verification_2026-06-27_20-51-33/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Data/backups/source_code/profile_verification_terminology_v2_2026-06-27_21-23-44/profile_verification_core.py:38` — from typing import Any
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_orders_core.py:21` — from typing import Any
+- `Data/backups/source_code/service_code_compatibility_2026-06-27_20-20-03/service_preorders_core.py:23` — from typing import Any
+- `FIND_actual_service_order_state.py:27` — from typing import Any, Iterable
+- `fix_source_ref_schema.py:24` — from typing import Iterable
+- `manage_staff_access.py:41` — from typing import Any
+- `manage_staff_access_v2.py:41` — from typing import Any
+- `migrate_access_control_and_guard.py:29` — from typing import Any
+- `migrate_cashier_v2_compat.py:28` — from typing import Any
+- `migrate_commercial_contract_core.py:34` — from typing import Any
+- `migrate_service_orders_and_fulfillment.py:35` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:35` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:22` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:21` — from typing import Any
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:13` — from typing import Any
+- `parking_time_test_payload/profile_parking_time_test_core.py:26` — from typing import Any
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `phone_barrier_access_core.py:31` — from typing import Any, Iterable
+- `phone_barrier_access_service.py:13` — from typing import Iterable
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:31` — from typing import Any, Iterable
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:13` — from typing import Iterable
+- `phone_barrier_access_v2_payload/service_orders_core.py:21` — from typing import Any
+- `phone_barrier_access_v2_payload/service_preorders_core.py:23` — from typing import Any
+- `prepare_live_service_test.py:26` — from typing import Any
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_parking_time_test_core.py:26` — from typing import Any
+- `profile_verification_core.py:38` — from typing import Any
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `profile_verification_payload/profile_verification_core.py:38` — from typing import Any
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:38` — from typing import Any
+- `restore_resident_apartment_link.py:31` — from typing import Any
+- `run_bot_guard_sandbox.py:27` — from typing import Any
+- `run_bot_guard_sandbox_v2.py:27` — from typing import Any
+- `run_bot_guard_sandbox_v3.py:27` — from typing import Any
+- `run_bot_live_service_sandbox_v4.py:22` — from typing import Any
+- `run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `run_bot_sandbox_v2.py:39` — from typing import Any
+- `service_catalog_admin_core.py:22` — from typing import Any
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `service_code_compatibility_payload/service_orders_core.py:21` — from typing import Any
+- `service_code_compatibility_payload/service_preorders_core.py:23` — from typing import Any
+- `service_orders_core.py:21` — from typing import Any
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:21` — from typing import Any
+- `service_preorders_core.py:23` — from typing import Any
+- `tools/cashier_parking_payments_audit_v4.py:31` — from typing import Any, Dict, List, Sequence, Tuple
+- `tools/cashier_unpaid_preview_v3.py:30` — from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+- `tools/db_schema_compare.py:15` — from typing import Any, Dict, List, Tuple
+- `tools/db_schema_snapshot.py:19` — from typing import Any, Dict, List, Tuple
+- `tools/db_schema_snapshot_full.py:26` — from typing import Any, Dict, List, Tuple
+- `tools/project_passport.py:30` — from typing import Iterable, Any
+- `unit_resolver.py:28` — from typing import Any, Literal
+
+## `unit_aliases`
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:52` — - unit_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:325` — alias_kind: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:326` — alias_normalized: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:327` — alias_text: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:504` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:65` — - unit_aliases (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2512` — TABLE unit_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2518` — CREATE TABLE unit_aliases (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2547` — - idx_unit_aliases_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2548` — - idx_unit_aliases_unique_active | unique=1 | origin=c | partial=1 | columns=[alias_normalized]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3693` — INDEX idx_unit_aliases_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3695` — CREATE INDEX idx_unit_aliases_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3696` — ON unit_aliases(apartment_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3699` — INDEX idx_unit_aliases_unique_active
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3701` — CREATE UNIQUE INDEX idx_unit_aliases_unique_active
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3702` — ON unit_aliases(alias_normalized)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3812` — alias_kind: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3813` — alias_normalized: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3814` — alias_text: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3991` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/units/composite_unit_inventory_2026-06-23_17-20-07.txt:64` — 3. Только после утверждения создать постоянную таблицу unit_aliases.
+- `tools/project_passport.py:135` — "unit_aliases",
+
+## `unit_contacts`
+- `Bots/handlers/unit_registry_editor - Copy.py:191` — if not table_exists(cur, "unit_contacts"):
+- `Bots/handlers/unit_registry_editor - Copy.py:194` — "Не создана таблица unit_contacts. "
+- `Bots/handlers/unit_registry_editor - Copy.py:250` — FROM unit_contacts
+- `Bots/handlers/unit_registry_editor - Copy.py:306` — FROM unit_contacts uc
+- `Bots/handlers/unit_registry_editor - Copy.py:482` — f"UPDATE unit_contacts SET {q(field_name)} = ?, updated_at = ? WHERE id = ?",
+- `Bots/handlers/unit_registry_editor - Copy.py:499` — f"INSERT INTO unit_contacts ({', '.join(q(key) for key in fields)}) "
+- `Bots/handlers/unit_registry_editor - Copy.py:508` — table_name="unit_contacts",
+- `Bots/handlers/unit_registry_editor.py:191` — if not table_exists(cur, "unit_contacts"):
+- `Bots/handlers/unit_registry_editor.py:194` — "Не создана таблица unit_contacts. "
+- `Bots/handlers/unit_registry_editor.py:250` — FROM unit_contacts
+- `Bots/handlers/unit_registry_editor.py:306` — FROM unit_contacts uc
+- `Bots/handlers/unit_registry_editor.py:488` — f"UPDATE unit_contacts SET {q(field_name)} = ?, updated_at = ? WHERE id = ?",
+- `Bots/handlers/unit_registry_editor.py:505` — f"INSERT INTO unit_contacts ({', '.join(q(key) for key in fields)}) "
+- `Bots/handlers/unit_registry_editor.py:514` — table_name="unit_contacts",
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:53` — - unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:391` — contact_name: unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:393` — contact_phone: unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:394` — contact_role: unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:478` — is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:504` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:563` — record_status: apartments, unit_contacts, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:66` — - unit_contacts (0 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2555` — TABLE unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2561` — CREATE TABLE unit_contacts (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2592` — - idx_unit_contacts_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2593` — - idx_unit_contacts_primary | unique=1 | origin=c | partial=1 | columns=[apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3706` — INDEX idx_unit_contacts_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3708` — CREATE INDEX idx_unit_contacts_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3709` — ON unit_contacts(apartment_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3712` — INDEX idx_unit_contacts_primary
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3714` — CREATE UNIQUE INDEX idx_unit_contacts_primary
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3715` — ON unit_contacts(apartment_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3878` — contact_name: unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3880` — contact_phone: unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3881` — contact_role: unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3965` — is_primary: commercial_contract_recipients, contact_methods, unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3991` — note: commercial_access_phones, commercial_contract_items, commercial_contract_recipients, unit_aliases, unit_contacts
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4050` — record_status: apartments, unit_contacts, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `seed_commercial_unit_placeholders.py:15` — - создаёт таблицу unit_contacts для будущих контактов оператора;
+- `seed_commercial_unit_placeholders.py:102` — def ensure_unit_contacts(cur: sqlite3.Cursor) -> None:
+- `seed_commercial_unit_placeholders.py:104` — CREATE TABLE IF NOT EXISTS unit_contacts (
+- `seed_commercial_unit_placeholders.py:119` — CREATE UNIQUE INDEX IF NOT EXISTS idx_unit_contacts_primary
+- `seed_commercial_unit_placeholders.py:120` — ON unit_contacts(apartment_id)
+- `seed_commercial_unit_placeholders.py:124` — CREATE INDEX IF NOT EXISTS idx_unit_contacts_apartment
+- `seed_commercial_unit_placeholders.py:125` — ON unit_contacts(apartment_id)
+- `seed_commercial_unit_placeholders.py:312` — ensure_unit_contacts(cur)
+- `tools/project_passport.py:134` — "unit_contacts",
+
+## `unit_group_aliases`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `Bots/db_access.py:5054` — FROM unit_group_aliases
+- `Bots/db_access.py:5977` — if not _ur_table_exists(conn, "unit_group_aliases"):
+- `Bots/db_access.py:5980` — "error": "unit_group_aliases_not_found",
+- `Bots/db_access.py:5987` — FROM unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:54` — - unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:325` — alias_kind: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:326` — alias_normalized: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:327` — alias_text: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:463` — group_id: unit_group_aliases, unit_group_members
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:473` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:610` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:67` — - unit_group_aliases (13 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2600` — TABLE unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2606` — CREATE TABLE unit_group_aliases (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2636` — - idx_unit_group_aliases_group | unique=0 | origin=c | partial=0 | columns=[group_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2637` — - sqlite_autoindex_unit_group_aliases_1 | unique=1 | origin=u | partial=0 | columns=[alias_normalized, is_active]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3102` — FROM unit_group_aliases ga
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3719` — INDEX idx_unit_group_aliases_group
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3721` — CREATE INDEX idx_unit_group_aliases_group
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3722` — ON unit_group_aliases(group_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3812` — alias_kind: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3813` — alias_normalized: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3814` — alias_text: unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3950` — group_id: unit_group_aliases, unit_group_members
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3960` — is_active: adjustment_catalog, bot_admins, cashboxes, commercial_contract_items, service_catalog, service_items, service_tariffs, unit_aliases, unit_group_aliases
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4097` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:205` — CREATE TABLE IF NOT EXISTS unit_group_aliases (
+- `migrate_unit_registry_composite_groups.py:229` — CREATE INDEX IF NOT EXISTS idx_unit_group_aliases_group
+- `migrate_unit_registry_composite_groups.py:230` — ON unit_group_aliases(group_id)
+- `migrate_unit_registry_composite_groups.py:254` — FROM unit_group_aliases ga
+- `migrate_unit_registry_composite_groups.py:525` — FROM unit_group_aliases
+- `migrate_unit_registry_composite_groups.py:536` — INSERT INTO unit_group_aliases (
+- `tools/project_passport.py:133` — "unit_group_aliases",
+- `unit_resolver.py:131` — Нормализация для сопоставления с unit_group_aliases.alias_normalized.
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+- `unit_resolver.py:218` — FROM unit_group_aliases uga
+- `unit_resolver.py:451` — and table_exists(conn, "unit_group_aliases")
+- `unit_resolver.py:459` — FROM unit_group_aliases uga
+
+## `unit_group_members`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:55` — - unit_group_members
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:463` — group_id: unit_group_aliases, unit_group_members
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:495` — member_order: unit_group_members
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:496` — member_role: unit_group_members
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:610` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:68` — - unit_group_members (8 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2644` — TABLE unit_group_members
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2650` — CREATE TABLE unit_group_members (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2679` — - idx_unit_group_members_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2680` — - sqlite_autoindex_unit_group_members_1 | unique=1 | origin=u | partial=0 | columns=[group_id, apartment_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3095` — FROM unit_group_members gm
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3725` — INDEX idx_unit_group_members_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3727` — CREATE INDEX idx_unit_group_members_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3728` — ON unit_group_members(apartment_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3950` — group_id: unit_group_aliases, unit_group_members
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3982` — member_order: unit_group_members
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3983` — member_role: unit_group_members
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4097` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:189` — CREATE TABLE IF NOT EXISTS unit_group_members (
+- `migrate_unit_registry_composite_groups.py:225` — CREATE INDEX IF NOT EXISTS idx_unit_group_members_apartment
+- `migrate_unit_registry_composite_groups.py:226` — ON unit_group_members(apartment_id)
+- `migrate_unit_registry_composite_groups.py:247` — FROM unit_group_members gm
+- `migrate_unit_registry_composite_groups.py:490` — SELECT 1 FROM unit_group_members
+- `migrate_unit_registry_composite_groups.py:497` — INSERT INTO unit_group_members (
+- `tools/project_passport.py:132` — "unit_group_members",
+- `unit_resolver.py:187` — FROM unit_group_members gm
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+
+## `unit_groups`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `Data/exports/diagnostics/audit_diagnostic_2026-06-24_20-17-19.txt:37` — #101 2026-06-23 17:40:54 | system system | unit_registry_composite_groups_migration | unit_groups# | group_code
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:56` — - unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:438` — display_name: apartments, bot_admins, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:462` — group_code: unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:464` — group_type: unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:471` — internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:486` — legal_status: unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:563` — record_status: apartments, unit_contacts, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:610` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:646` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:69` — - unit_groups (4 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2617` — FOREIGN KEY(group_id) REFERENCES unit_groups(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2641` — - id=0 seq=0 table=unit_groups from=group_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2660` — FOREIGN KEY(group_id) REFERENCES unit_groups(id),
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2685` — - id=1 seq=0 table=unit_groups from=group_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2688` — TABLE unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2694` — CREATE TABLE unit_groups (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2724` — - idx_unit_groups_status | unique=0 | origin=c | partial=0 | columns=[record_status, legal_status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2725` — - sqlite_autoindex_unit_groups_1 | unique=1 | origin=u | partial=0 | columns=[group_code]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3106` — FROM unit_groups g
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3731` — INDEX idx_unit_groups_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3733` — CREATE INDEX idx_unit_groups_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3734` — ON unit_groups(record_status, legal_status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3925` — display_name: apartments, bot_admins, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3949` — group_code: unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3951` — group_type: unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3958` — internal_note: adjustment_assignments, apartments, charge_adjustments, commercial_contracts, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3973` — legal_status: unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4050` — record_status: apartments, unit_contacts, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4097` — source_note: apartments, unit_group_aliases, unit_group_members, unit_groups
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4133` — updated_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashboxes, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, contact_methods, payment_notices, persons, remote_requests, resident_accounts, service_c
+- `migrate_unit_registry_composite_groups.py:6` — - unit_groups — логическая карточка для совместного обслуживания/поиска:
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:174` — CREATE TABLE IF NOT EXISTS unit_groups (
+- `migrate_unit_registry_composite_groups.py:199` — FOREIGN KEY(group_id) REFERENCES unit_groups(id),
+- `migrate_unit_registry_composite_groups.py:216` — FOREIGN KEY(group_id) REFERENCES unit_groups(id)
+- `migrate_unit_registry_composite_groups.py:221` — CREATE INDEX IF NOT EXISTS idx_unit_groups_status
+- `migrate_unit_registry_composite_groups.py:222` — ON unit_groups(record_status, legal_status)
+- `migrate_unit_registry_composite_groups.py:258` — FROM unit_groups g
+- `migrate_unit_registry_composite_groups.py:437` — "SELECT id FROM unit_groups WHERE group_code = ?",
+- `migrate_unit_registry_composite_groups.py:444` — UPDATE unit_groups
+- `migrate_unit_registry_composite_groups.py:463` — INSERT INTO unit_groups (
+- `migrate_unit_registry_composite_groups.py:723` — table_name="unit_groups",
+- `tools/project_passport.py:131` — "unit_groups",
+- `unit_resolver.py:11` — Группа unit_groups является общей карточкой поиска и ведения.
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+- `unit_resolver.py:219` — JOIN unit_groups g ON g.id = uga.group_id
+- `unit_resolver.py:450` — table_exists(conn, "unit_groups")
+- `unit_resolver.py:460` — JOIN unit_groups ug ON ug.id = uga.group_id
+
+## `unit_registry_editor`
+- `Bots/handlers/commercial_contract_editor.py:1027` — from unit_registry_editor import show_unit_card
+
+## `unit_resolver`
+- `Bots/db_access.py:4936` — from unit_resolver import resolve_unit_ref
+- `Bots/handlers/cashier_operator.py:46` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core.py:31` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:31` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:31` — from unit_resolver import resolve_unit_ref
+
+## `unlinked`
+- `vehicle_data_quality_tasks.py:355` — parser = argparse.ArgumentParser(description="Find vehicle plate quality tasks from unlinked payments.")
+
+## `using`
+- `phone_barrier_access_core.py:1029` — # That bridge prevents us from using resident_comment as an accounting record:
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1029` — # That bridge prevents us from using resident_comment as an accounting record:
+
+## `utils`
+- `audit_tbot_quarantine.py:13` — from utils import norm_text, norm_apartment
+- `billing/report_parking_time_review_tasks.py:16` — from utils import apartment_sort_sql
+- `extract_telegram_remote_facts.py:14` — from utils import normalize_plate, apartment_sort_sql
+- `extract_telegram_vehicle_facts.py:14` — from utils import normalize_plate, normalize_phone
+- `import_tbot_quarantine.py:15` — from utils import norm_text, norm_apartment
+- `normalize_registry_fields.py:6` — from utils import (
+- `normalize_registry_fields.py:20` — from utils import norm_text
+- `report_plate_candidates.py:13` — from utils import apartment_sort_sql
+- `report_verification_evidence.py:13` — from utils import apartment_sort_sql
+- `report_verification_tasks.py:5` — from utils import apartment_sort_sql
+- `report_verification_tasks_enriched.py:14` — from utils import apartment_sort_sql
+
+## `uuid`
+- `Bots/handlers/cashier_operator.py:31` — from uuid import uuid4
+- `cashier_journal.py:6` — from uuid import uuid4
+- `cashier_v2_core.py:20` — from uuid import uuid4
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:20` — from uuid import uuid4
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:20` — from uuid import uuid4
+
+## `v1`
+- `cashier_v2_core.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+
+## `v3`
+- `install_service_orders_ui.py:6` — - switches the live sandbox launcher from v3 to v4;
+
+## `v_commercial_contract_charge_debt`
+- `commercial_contracts.py:337` — FROM v_commercial_contract_charge_debt
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3080` — FROM v_commercial_contract_charge_debt d
+- `migrate_commercial_contract_core.py:727` — FROM v_commercial_contract_charge_debt d
+
+## `v_commercial_contract_debt_summary`
+- `Bots/handlers/commercial_contract_editor.py:308` — FROM v_commercial_contract_debt_summary
+
+## `vehicles`
+- `audit_registry.py:64` — "vehicles",
+- `audit_registry.py:155` — report.section("VEHICLES WITHOUT LICENSE PLATE")
+- `audit_registry.py:161` — FROM vehicles v
+- `audit_registry.py:173` — report.section("VEHICLES WITHOUT CAR MODEL")
+- `audit_registry.py:179` — FROM vehicles v
+- `audit_registry.py:197` — FROM vehicles
+- `audit_registry.py:214` — FROM vehicles v
+- `audit_tbot_quarantine.py:64` — LEFT JOIN vehicles v ON v.apartment_id = a.id
+- `billing/build_parking_time_review_tasks.py:89` — FROM vehicles v
+- `billing/build_parking_time_review_tasks.py:126` — 'vehicles',
+- `billing/import_ohorona_parking_time.py:153` — def load_db_vehicles():
+- `billing/import_ohorona_parking_time.py:167` — FROM vehicles v
+- `billing/import_ohorona_parking_time.py:179` — vehicles = defaultdict(list)
+- `billing/import_ohorona_parking_time.py:183` — vehicles[apt].append(dict(row))
+- `billing/import_ohorona_parking_time.py:186` — return vehicles
+- `billing/import_ohorona_parking_time.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time.py:207` — all_apts = sorted(set(hints.keys()) | set(vehicles.keys()), key=apt_sort_key)
+- `billing/import_ohorona_parking_time.py:211` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time.py:227` — missing_vehicles = [v for v in vs if not v.get("parking_time")]
+- `billing/import_ohorona_parking_time.py:236` — and len(missing_vehicles) == len(vs)
+- `billing/import_ohorona_parking_time.py:245` — operator_needed.append((apt, h, vs, missing_vehicles, existing_filled))
+- `billing/import_ohorona_parking_time.py:250` — def write_report(hints, vehicles, classified, report_file: Path):
+- `billing/import_ohorona_parking_time.py:268` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time.py:271` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_ohorona_parking_time.py:302` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles of this apartment")
+- `billing/import_ohorona_parking_time.py:303` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time.py:313` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_ohorona_parking_time.py:318` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_ohorona_parking_time.py:327` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time.py:333` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/import_ohorona_parking_time.py:372` — UPDATE vehicles
+- `billing/import_ohorona_parking_time.py:409` — vehicles = load_db_vehicles()
+- `billing/import_ohorona_parking_time.py:410` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time.py:416` — write_report(hints, vehicles, classified, report_file)
+- `billing/import_ohorona_parking_time.py:426` — print(f"Updated vehicles: {updated}")
+- `billing/import_ohorona_parking_time_simple_preview.py:153` — def load_db_vehicles():
+- `billing/import_ohorona_parking_time_simple_preview.py:167` — FROM vehicles v
+- `billing/import_ohorona_parking_time_simple_preview.py:179` — vehicles = defaultdict(list)
+- `billing/import_ohorona_parking_time_simple_preview.py:183` — vehicles[apt].append(dict(row))
+- `billing/import_ohorona_parking_time_simple_preview.py:186` — return vehicles
+- `billing/import_ohorona_parking_time_simple_preview.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:207` — all_apts = sorted(set(hints.keys()) | set(vehicles.keys()), key=apt_sort_key)
+- `billing/import_ohorona_parking_time_simple_preview.py:211` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time_simple_preview.py:227` — missing_vehicles = [v for v in vs if not v.get("parking_time")]
+- `billing/import_ohorona_parking_time_simple_preview.py:236` — and len(missing_vehicles) == len(vs)
+- `billing/import_ohorona_parking_time_simple_preview.py:245` — operator_needed.append((apt, h, vs, missing_vehicles, existing_filled))
+- `billing/import_ohorona_parking_time_simple_preview.py:262` — def write_simple_preview_section(lines, hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:272` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time_simple_preview.py:285` — def write_report(hints, vehicles, classified, report_file: Path):
+- `billing/import_ohorona_parking_time_simple_preview.py:289` — write_simple_preview_section(lines, hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:305` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:308` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:339` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles of this apartment")
+- `billing/import_ohorona_parking_time_simple_preview.py:340` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time_simple_preview.py:350` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_ohorona_parking_time_simple_preview.py:355` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:364` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time_simple_preview.py:370` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/import_ohorona_parking_time_simple_preview.py:409` — UPDATE vehicles
+- `billing/import_ohorona_parking_time_simple_preview.py:446` — vehicles = load_db_vehicles()
+- `billing/import_ohorona_parking_time_simple_preview.py:447` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:453` — write_report(hints, vehicles, classified, report_file)
+- `billing/import_ohorona_parking_time_simple_preview.py:463` — print(f"Updated vehicles: {updated}")
+- `billing/import_parking_time_hints_from_ohorona.py:136` — def load_db_vehicles():
+- `billing/import_parking_time_hints_from_ohorona.py:149` — FROM vehicles v
+- `billing/import_parking_time_hints_from_ohorona.py:164` — vehicles = defaultdict(list)
+- `billing/import_parking_time_hints_from_ohorona.py:175` — vehicles[str(apartment_number)].append({
+- `billing/import_parking_time_hints_from_ohorona.py:184` — return vehicles
+- `billing/import_parking_time_hints_from_ohorona.py:206` — vehicles = load_db_vehicles()
+- `billing/import_parking_time_hints_from_ohorona.py:214` — set(hints.keys()) | set(vehicles.keys()),
+- `billing/import_parking_time_hints_from_ohorona.py:225` — vs = vehicles.get(apt, [])
+- `billing/import_parking_time_hints_from_ohorona.py:246` — missing_vehicles = [
+- `billing/import_parking_time_hints_from_ohorona.py:258` — and len(missing_vehicles) == len(vs)
+- `billing/import_parking_time_hints_from_ohorona.py:271` — missing_vehicles,
+- `billing/import_parking_time_hints_from_ohorona.py:287` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:290` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_parking_time_hints_from_ohorona.py:304` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles")
+- `billing/import_parking_time_hints_from_ohorona.py:305` — lines.append("Vehicles:")
+- `billing/import_parking_time_hints_from_ohorona.py:316` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_parking_time_hints_from_ohorona.py:321` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:328` — lines.append("Vehicles:")
+- `billing/import_parking_time_hints_from_ohorona.py:334` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/migrate_add_parking_billing.py:84` — FOREIGN KEY(vehicle_id) REFERENCES vehicles(id)
+- `billing/report_parking_time_review_tasks.py:140` — FROM vehicles v
+- `billing/report_parking_time_review_tasks.py:147` — all_vehicles = cur.fetchall()
+- `billing/report_parking_time_review_tasks.py:149` — lines.append("Vehicles in DB:")
+- `billing/report_parking_time_review_tasks.py:157` — ) in all_vehicles:
+- `billing/report_parking_time_with_hints.py:130` — def load_vehicles(cur):
+- `billing/report_parking_time_with_hints.py:140` — FROM vehicles v
+- `billing/report_parking_time_with_hints.py:239` — def recommend_for_apartment(vehicles, hint):
+- `billing/report_parking_time_with_hints.py:251` — filled_day = [v for v in vehicles if v["parking_time"] == "Day"]
+- `billing/report_parking_time_with_hints.py:252` — filled_night = [v for v in vehicles if v["parking_time"] == "Night"]
+- `billing/report_parking_time_with_hints.py:253` — missing = [v for v in vehicles if not v["parking_time"]]
+- `billing/report_parking_time_with_hints.py:267` — if total_need == len(vehicles) and len(missing) == len(vehicles):
+- `billing/report_parking_time_with_hints.py:268` — if day_need == len(vehicles) and night_need == 0:
+- `billing/report_parking_time_with_hints.py:271` — "reason": "All vehicles missing; hint says all Day",
+- `billing/report_parking_time_with_hints.py:272` — "actions": [(v, "Day") for v in vehicles],
+- `billing/report_parking_time_with_hints.py:275` — if night_need == len(vehicles) and day_need == 0:
+- `billing/report_parking_time_with_hints.py:278` — "reason": "All vehicles missing; hint says all Night",
+- `billing/report_parking_time_with_hints.py:279` — "actions": [(v, "Night") for v in vehicles],
+- ... and 1123 more
+
+## `verification_candidates`
+- `build_plate_candidates.py:61` — CREATE TABLE IF NOT EXISTS verification_candidates (
+- `build_plate_candidates.py:92` — CREATE INDEX IF NOT EXISTS idx_verification_candidates_task
+- `build_plate_candidates.py:93` — ON verification_candidates(task_id)
+- `build_plate_candidates.py:97` — CREATE INDEX IF NOT EXISTS idx_verification_candidates_status
+- `build_plate_candidates.py:98` — ON verification_candidates(status)
+- `build_plate_candidates.py:104` — DELETE FROM verification_candidates
+- `build_plate_candidates.py:259` — INSERT INTO verification_candidates (
+- `build_plate_candidates.py:294` — FROM verification_candidates
+- `build_plate_candidates.py:311` — FROM verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:177` — candidate_normalized: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:178` — candidate_type: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:179` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:186` — confidence_label: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:187` — confidence_score: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:193` — created_by: apartments, contact_methods, events, parking_time_review_tasks, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:198` — decided_at: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:199` — decided_by: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:200` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:201` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:231` — match_types: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:257` — reason: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:281` — source_names: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:285` — status: apartment_verification, apartments, events, extracted_facts, parking_time_review_tasks, resident_accounts, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:292` — task_id: verification_candidates, verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:361` — candidate_normalized: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:362` — candidate_type: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:363` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:386` — confidence_label: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:387` — confidence_score: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:419` — decided_at: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:420` — decided_by: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:421` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:422` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:491` — match_types: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:553` — reason: commercial_access_actions, verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:609` — source_names: verification_candidates
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:626` — task_id: verification_candidates, verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:71` — - verification_candidates (46 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2786` — TABLE verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2792` — CREATE TABLE verification_candidates (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2845` — - idx_verification_candidates_status | unique=0 | origin=c | partial=0 | columns=[status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2846` — - idx_verification_candidates_task | unique=0 | origin=c | partial=0 | columns=[task_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3737` — INDEX idx_verification_candidates_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3739` — CREATE INDEX idx_verification_candidates_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3740` — ON verification_candidates(status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3743` — INDEX idx_verification_candidates_task
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3745` — CREATE INDEX idx_verification_candidates_task
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3746` — ON verification_candidates(task_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3848` — candidate_normalized: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3849` — candidate_type: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3850` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3873` — confidence_label: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3874` — confidence_score: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3906` — decided_at: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3907` — decided_by: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3908` — decision: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3909` — decision_comment: parking_time_review_tasks, verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3978` — match_types: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4040` — reason: commercial_access_actions, verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4096` — source_names: verification_candidates
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4103` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4113` — task_id: verification_candidates, verification_evidence
+- `plate_consensus_report.py:446` — "ocr_plate_observations", "verification_candidates",
+- `plate_consensus_report_v3.py:376` — "ocr_plate_observations", "verification_candidates",
+- `report_plate_candidates.py:48` — FROM verification_candidates vc
+- `report_plate_candidates.py:106` — FROM verification_candidates
+- `report_plate_candidates.py:225` — FROM verification_candidates vc
+- `tools/project_passport.py:137` — "verification_candidates",
+
+## `verification_evidence`
+- `build_plate_candidates.py:136` — FROM verification_evidence
+- `build_plate_evidence_by_digits_and_apartment.py:38` — FROM verification_evidence
+- `build_plate_evidence_by_digits_and_apartment.py:79` — INSERT INTO verification_evidence (
+- `build_plate_evidence_by_digits_and_apartment.py:322` — FROM verification_evidence
+- `build_plate_evidence_from_telegram.py:52` — DELETE FROM verification_evidence
+- `build_plate_evidence_from_telegram.py:122` — INSERT INTO verification_evidence (
+- `build_plate_evidence_from_telegram.py:156` — FROM verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:184` — comment: apartment_verification, audit_log, events, extracted_facts, operator_audit_log, schema_info, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:210` — evidence_type: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:211` — evidence_value: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:230` — match_type: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:237` — normalized_value: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:277` — source_db: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:280` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:282` — source_record_id: verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:283` — source_table: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:292` — task_id: verification_candidates, verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:448` — evidence_type: cashier_receipts, verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:449` — evidence_value: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:490` — match_type: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:503` — normalized_value: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:605` — source_db: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:608` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:611` — source_record_id: verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:613` — source_table: verification_evidence
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:626` — task_id: verification_candidates, verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:72` — - verification_evidence (80 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2853` — TABLE verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2859` — CREATE TABLE verification_evidence (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2899` — - idx_verification_evidence_task | unique=0 | origin=c | partial=0 | columns=[task_id]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3749` — INDEX idx_verification_evidence_task
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3751` — CREATE INDEX idx_verification_evidence_task
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3752` — ON verification_evidence(task_id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3935` — evidence_type: cashier_receipts, verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3936` — evidence_value: verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3977` — match_type: verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3990` — normalized_value: verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4092` — source_db: verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4095` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4098` — source_record_id: verification_evidence, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4100` — source_table: verification_evidence
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4113` — task_id: verification_candidates, verification_evidence
+- `migrate_add_verification_evidence.py:19` — CREATE TABLE IF NOT EXISTS verification_evidence (
+- `migrate_add_verification_evidence.py:42` — CREATE INDEX IF NOT EXISTS idx_verification_evidence_task
+- `migrate_add_verification_evidence.py:43` — ON verification_evidence(task_id)
+- `migrate_add_verification_evidence.py:49` — print("verification_evidence table created successfully")
+- `report_verification_evidence.py:27` — report_file = report_dir / f"verification_evidence_report_{now_ts()}.txt"
+- `report_verification_evidence.py:38` — FROM verification_evidence
+- `report_verification_evidence.py:44` — FROM verification_evidence
+- `report_verification_evidence.py:69` — FROM verification_evidence
+- `report_verification_evidence.py:99` — JOIN verification_evidence ve
+- `report_verification_evidence.py:159` — LEFT JOIN verification_evidence ve
+- `report_verification_tasks_enriched.py:74` — FROM verification_evidence
+- `report_verification_tasks_enriched.py:115` — FROM verification_evidence
+- `tools/project_passport.py:138` — "verification_evidence",
+
+## `verification_log`
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2906` — TABLE verification_log
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2912` — CREATE TABLE verification_log (
+
+## `verification_tasks`
+- `build_plate_candidates.py:87` — FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+- `build_plate_candidates.py:119` — FROM verification_tasks
+- `build_plate_evidence_by_digits_and_apartment.py:117` — FROM verification_tasks
+- `build_plate_evidence_from_telegram.py:62` — FROM verification_tasks
+- `build_verification_tasks.py:15` — CREATED_BY = "build_verification_tasks"
+- `build_verification_tasks.py:31` — DELETE FROM verification_tasks
+- `build_verification_tasks.py:40` — FROM verification_tasks
+- `build_verification_tasks.py:71` — INSERT INTO verification_tasks (
+- `build_verification_tasks.py:189` — def build_verification_tasks():
+- `build_verification_tasks.py:207` — cur.execute("SELECT COUNT(*) FROM verification_tasks")
+- `build_verification_tasks.py:212` — FROM verification_tasks
+- `build_verification_tasks.py:231` — build_verification_tasks()
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:19078` — FILE: vehicle_verification_tasks.py
+- `Data/exports/code/code_search_2026-06-28_15-20-58.txt:19087` — 551: get_vehicle_verification_tasks = build_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:169` — apartment_id: apartment_verification, contact_methods, events, persons, resident_accounts, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:170` — apartment_number: apartment_verification, apartments, extracted_facts, operator_audit_log, parking_time_review_tasks, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:179` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:184` — comment: apartment_verification, audit_log, events, extracted_facts, operator_audit_log, schema_info, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:192` — created_at: apartment_verification, apartments, bot_admins, contact_methods, events, operator_audit_log, parking_time_review_tasks, persons, resident_accounts, schema_info, vehicles, verification_candidates, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:193` — created_by: apartments, contact_methods, events, parking_time_review_tasks, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:215` — field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:220` — id: apartment_verification, apartments, audit_log, bot_admins, bot_user_sessions, contact_methods, events, extracted_facts, message_sources, operator_audit_log, parking_time_review_tasks, persons, raw_messages, resident_accounts, schema_info, tbot_parking_import, vehicles, verification_candidates, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:229` — main_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:235` — normalized_candidate_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:236` — normalized_main_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:239` — object_id: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:240` — object_table: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:254` — priority: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:261` — resolution: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:262` — resolution_comment: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:263` — resolved_at: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:264` — resolved_by: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:280` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:282` — source_record_id: verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:285` — status: apartment_verification, apartments, events, extracted_facts, parking_time_review_tasks, resident_accounts, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:289` — suggestion: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:291` — task_group: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:293` — task_type: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:333` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:334` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:363` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:380` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:402` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:403` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:455` — field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:466` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:489` — main_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:501` — normalized_candidate_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:502` — normalized_main_value: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:512` — object_id: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:513` — object_table: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:545` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:579` — resolution: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:580` — resolution_comment: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:582` — resolved_at: cashier_reconciliation_cases, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:583` — resolved_by: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:608` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:611` — source_record_id: verification_evidence, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:616` — status: adjustment_assignments, apartment_link_requests, apartment_verification, apartments, charges, commercial_access_phones, commercial_contract_recipients, commercial_contracts, commercial_notifications, events, extracted_facts, parking_time_review_tasks, remote_requests, resident_accounts, service_items, vehicles, verification_candidates, verification_log, verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:622` — suggestion: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:625` — task_group: verification_tasks
+- `Data/exports/schema/schema_compare_2026-06-28_13-09-32.txt:627` — task_type: parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:74` — - verification_tasks (37 rows)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2818` — FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2850` — - id=0 seq=0 table=verification_tasks from=task_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2877` — FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2903` — - id=0 seq=0 table=verification_tasks from=task_id to=id on_update=NO ACTION on_delete=NO ACTION match=NONE
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2949` — TABLE verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:2955` — CREATE TABLE verification_tasks (
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3024` — - idx_verification_tasks_type | unique=0 | origin=c | partial=0 | columns=[task_type]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3025` — - idx_verification_tasks_apartment | unique=0 | origin=c | partial=0 | columns=[apartment_number]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3026` — - idx_verification_tasks_status | unique=0 | origin=c | partial=0 | columns=[status]
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3755` — INDEX idx_verification_tasks_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3757` — CREATE INDEX idx_verification_tasks_apartment
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3758` — ON verification_tasks(apartment_number)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3761` — INDEX idx_verification_tasks_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3763` — CREATE INDEX idx_verification_tasks_status
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3764` — ON verification_tasks(status)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3767` — INDEX idx_verification_tasks_type
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3769` — CREATE INDEX idx_verification_tasks_type
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3770` — ON verification_tasks(task_type)
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3820` — apartment_id: adjustment_assignments, apartment_verification, bank_transactions, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, contact_methods, events, payment_notices, persons, remote_requests, resident_accounts, unit_aliases, unit_contacts, unit_group_members, vehicles, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3821` — apartment_number: adjustment_assignments, apartment_verification, apartments, bank_transactions, barrier_phone_access, cashbox_operations, cashier_batch_items, cashier_receipts, cashier_reconciliation_cases, charges, extracted_facts, parking_time_review_tasks, payment_notices, payments, remote_requests, resident_accounts, tbot_parking_import, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3850` — candidate_value: verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3867` — comment: apartment_verification, audit_log, barrier_phone_access, cashbox_operations, cashboxes, cashier_batches, charges, commercial_access_actions, events, extracted_facts, operator_audit_log, payments, schema_info, service_catalog, service_items, service_tariffs, verification_evidence, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3889` — created_at: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, bank_transactions, barrier_phone_access, bot_admins, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, contact_methods, events,
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3890` — created_by: adjustment_assignments, apartments, charges, commercial_contracts, commercial_notifications, contact_methods, events, parking_time_review_tasks, payments, persons, vehicles, verification_candidates, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3942` — field_name: audit_log, operator_audit_log, verification_log, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3953` — id: adjustment_assignments, adjustment_catalog, apartment_link_requests, apartment_verification, apartments, audit_log, bank_transactions, barrier_phone_access, bot_admins, bot_user_sessions, cashbox_operations, cashboxes, cashier_batch_items, cashier_batches, cashier_receipts, cashier_reconciliation_cases, charge_adjustments, charges, commercial_access_actions, commercial_access_phones, commercial_contract_items, commercial_contract_recipients, commercial_contracts, commercial_notifications, co
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3976` — main_value: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3988` — normalized_candidate_value: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3989` — normalized_main_value: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:3999` — object_id: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4000` — object_table: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4032` — priority: cashier_reconciliation_cases, parking_time_review_tasks, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4066` — resolution: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4067` — resolution_comment: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4069` — resolved_at: cashier_reconciliation_cases, verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4070` — resolved_by: verification_tasks
+- `Data/exports/schema/schema_snapshot_test_2026-06-28_14-30-02.txt:4095` — source_name: message_sources, parking_time_review_tasks, verification_evidence, verification_tasks
+- ... and 30 more
+
+## `will`
+- `migrate_cashier_v2_compat.py:578` — plan[table] = ["<table will be created>"]

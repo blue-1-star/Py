@@ -1,0 +1,31 @@
+DB: G:\Programming\Py\OSBB\Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db
+Table: service_catalog
+Rows: 16
+
+COLUMNS
+- id | type=INTEGER | notnull=0 | pk=1 | default=- | refs=32
+- service_code | type=TEXT | notnull=1 | pk=0 | default=- | refs=555
+- service_group | type=TEXT | notnull=1 | pk=0 | default=- | refs=5
+- service_name | type=TEXT | notnull=1 | pk=0 | default=- | refs=64
+- unit | type=TEXT | notnull=1 | pk=0 | default=- | refs=3
+- is_active | type=INTEGER | notnull=1 | pk=0 | default=1 | refs=368
+- comment | type=TEXT | notnull=0 | pk=0 | default=- | refs=4
+- created_at | type=TEXT | notnull=0 | pk=0 | default=CURRENT_TIMESTAMP | refs=38
+- updated_at | type=TEXT | notnull=0 | pk=0 | default=CURRENT_TIMESTAMP | refs=46
+- service_type | type=TEXT | notnull=0 | pk=0 | default=- | refs=168
+- category | type=TEXT | notnull=0 | pk=0 | default=- | refs=163
+- is_monthly | type=INTEGER | notnull=1 | pk=0 | default=0 | refs=3
+- is_fundraising | type=INTEGER | notnull=1 | pk=0 | default=0 | refs=3
+- is_commercial | type=INTEGER | notnull=1 | pk=0 | default=0 | refs=3
+- is_access_control | type=INTEGER | notnull=1 | pk=0 | default=0 | refs=21
+- is_cash_collectable | type=INTEGER | notnull=1 | pk=0 | default=1 | refs=26
+
+INDEXES
+- idx_service_catalog_group | unique=0 | columns=service_group | origin=c
+- idx_service_catalog_active | unique=0 | columns=is_active | origin=c
+- idx_service_catalog_type | unique=0 | columns=service_type | origin=c
+- idx_service_catalog_code | unique=0 | columns=service_code | origin=c
+- sqlite_autoindex_service_catalog_1 | unique=1 | columns=service_code | origin=u
+
+FOREIGN KEYS
+(none)
