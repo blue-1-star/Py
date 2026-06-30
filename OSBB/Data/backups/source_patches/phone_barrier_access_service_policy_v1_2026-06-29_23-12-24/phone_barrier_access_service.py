@@ -26,11 +26,6 @@ from phone_barrier_access_core import (
 from service_orders_core import get_conn, text
 from service_preorders_core import create_service_interest, ensure_simplified_service_schema
 
-try:
-    from service_access_policy import ensure_service_order_allowed
-except Exception:
-    ensure_service_order_allowed = None
-
 
 def create_phone_barrier_access_interest(
     *,
@@ -67,23 +62,6 @@ def create_phone_barrier_access_interest(
             registration_date=quote_date,
             conn=conn,
         )
-
-        # OSBB_PHONE_ACCESS_POLICY_V1
-        # Business Policy must be checked before a phone-access interest is created.
-        # BLOCK/ERROR raises ServiceAccessDenied inside ensure_service_order_allowed().
-        # WARN/ALLOW returns and interest creation continues.
-        if ensure_service_order_allowed is None:
-            raise RuntimeError(
-                "Critical component 'service_access_policy' is unavailable. "
-                "Phone access interest creation cannot continue."
-            )
-
-        policy_result = ensure_service_order_allowed(
-            conn=conn,
-            apartment_number=text(apartment_number),
-            service_item_code=service_item_code,
-        )
-
         quantity = len(points)
         unit_price = round(float(quote["connection_total"]) / quantity, 2)
         interest = create_service_interest(

@@ -225,69 +225,9 @@ def kb(buttons):
     return ReplyKeyboardMarkup(buttons, resize_keyboard=True)
 
 
-
-# OSBB_ADMIN_ACCESS_V1
-def _osbb_extra_admin_ids() -> set[int]:
-    import os
-    result: set[int] = set()
-    raw = os.environ.get("OSBB_EXTRA_ADMIN_IDS", "")
-    for part in raw.replace(";", ",").split(","):
-        part = part.strip()
-        if not part:
-            continue
-        try:
-            result.add(int(part))
-        except ValueError:
-            pass
-    return result
-
-
-def _osbb_db_file_for_admin_check():
-    try:
-        from config import paths, USE_TEST_DB
-        return paths.OSBB_TEST_DB_FILE if USE_TEST_DB else paths.OSBB_DB_FILE
-    except Exception:
-        return None
-
-
-def _osbb_is_bot_admin(user_id: int) -> bool:
-    try:
-        if int(user_id) in _osbb_extra_admin_ids():
-            return True
-    except Exception:
-        pass
-
-    db_file = _osbb_db_file_for_admin_check()
-    if not db_file:
-        return False
-
-    try:
-        import sqlite3
-        conn = sqlite3.connect(str(db_file))
-        try:
-            cur = conn.cursor()
-            exists = cur.execute(
-                "SELECT 1 FROM sqlite_master WHERE type='table' AND name='bot_admins'"
-            ).fetchone()
-            if not exists:
-                return False
-            row = cur.execute(
-                "SELECT is_active FROM bot_admins WHERE CAST(telegram_user_id AS TEXT) = ? LIMIT 1",
-                (str(user_id),),
-            ).fetchone()
-            return bool(row and int(row[0] or 0) == 1)
-        finally:
-            conn.close()
-    except Exception:
-        return False
-
 def is_admin_user(user_id: int) -> bool:
-    """Return True for hardcoded admins, temporary env admins, or active bot_admins."""
-    return (
-        user_id in ADMIN_IDS
-        or is_admin_user(user_id)
-        or _osbb_is_bot_admin(user_id)
-    )
+    return user_id in ADMIN_IDS or user_id in SUPER_ADMIN_IDS
+
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
@@ -811,7 +751,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_languages[user_id] = "ru"
         lang = "ru"
 
-        if is_admin_user(user_id):
+        if user_id in SUPER_ADMIN_IDS:
             await show_mode_menu(update, lang)
         else:
             user_modes[user_id] = "client"
@@ -822,7 +762,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_languages[user_id] = "uk"
         lang = "uk"
 
-        if is_admin_user(user_id):
+        if user_id in SUPER_ADMIN_IDS:
             await show_mode_menu(update, lang)
         else:
             user_modes[user_id] = "client"
@@ -833,7 +773,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_languages[user_id] = "en"
         lang = "en"
 
-        if is_admin_user(user_id):
+        if user_id in SUPER_ADMIN_IDS:
             await show_mode_menu(update, lang)
         else:
             user_modes[user_id] = "client"

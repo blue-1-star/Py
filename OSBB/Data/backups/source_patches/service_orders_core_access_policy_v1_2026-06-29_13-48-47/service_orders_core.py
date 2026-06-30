@@ -38,11 +38,6 @@ try:
 except Exception:
     has_permission = None
 
-try:
-    from service_access_policy import ensure_service_order_allowed
-except Exception:
-    ensure_service_order_allowed = None
-
 
 def text(value: Any) -> str:
     return "" if value is None else str(value).strip()
@@ -528,24 +523,6 @@ def create_service_order(
         cur = conn.cursor()
         item = _service_item(cur, service_item_code)
         workflow = get_service_workflow(cur, service_item_code)
-
-        # OSBB_SERVICE_ACCESS_POLICY_V1
-        # Critical security/business rule.
-        # Service orders must NEVER bypass this check.
-        # Read-only access/debt policy check before creating a service order.
-        # BLOCK/ERROR raises ServiceAccessDenied inside ensure_service_order_allowed().
-        # WARN/ALLOW returns a policy result and order creation continues.
-        if ensure_service_order_allowed is None:
-            raise RuntimeError(
-                "Critical component 'service_access_policy' is unavailable. "
-                "Service order creation cannot continue."
-            )
-
-        policy_result = ensure_service_order_allowed(
-            conn=conn,
-            apartment_number=apartment_number,
-            service_item_code=service_item_code,
-        )
 
         request_allowed = int(workflow.get("resident_request_enabled") or 0) == 1
         if actor_id is None and not request_allowed:

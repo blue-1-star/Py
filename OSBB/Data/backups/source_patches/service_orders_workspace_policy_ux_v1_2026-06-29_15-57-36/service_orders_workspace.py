@@ -64,11 +64,6 @@ from service_preorders_core import (
     supplier_demand,
     unpaid_interest_totals,
 )
-try:
-    from service_access_policy import ServiceAccessDenied, result_to_short_text
-except Exception:
-    ServiceAccessDenied = None
-    result_to_short_text = None
 from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
 from phone_barrier_access_service import (
     activate_phone_barrier_access_order,
@@ -1206,12 +1201,6 @@ async def _handle_resident(update: Update, user_states: dict, user_id: int, mess
             try:
                 interest = _create_interest_from_state(state, user_id)
             except Exception as exc:
-                # OSBB_SERVICE_POLICY_UX_V1
-                if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
-                    await update.message.reply_text(
-                        result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
-                    )
-                    return True
                 await update.message.reply_text(f"⚠️ {exc}")
                 return True
             await update.message.reply_text(tr(lang, "interest_saved"))
@@ -1646,12 +1635,6 @@ async def _handle_operator(update: Update, user_states: dict, user_id: int, mess
             elif action == "issue_new":
                 issue_new_remotes_from_batch(service_order_id=int(order["id"]), actor_id=user_id)
         except Exception as exc:
-            # OSBB_SERVICE_POLICY_UX_V1
-            if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
-                await update.message.reply_text(
-                    result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
-                )
-                return True
             await update.message.reply_text(f"⚠️ {exc}"); return True
         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
     if mode == "operator_remote_label":
@@ -1672,12 +1655,6 @@ async def _handle_operator(update: Update, user_states: dict, user_id: int, mess
         try:
             _activate_phone(order, phone, user_id)
         except Exception as exc:
-            # OSBB_PHONE_ACCESS_POLICY_UX_BRIDGE_V1
-            if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
-                await update.message.reply_text(
-                    result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
-                )
-                return True
             await update.message.reply_text(f"⚠️ {exc}"); return True
         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
     if mode == "operator_demand":

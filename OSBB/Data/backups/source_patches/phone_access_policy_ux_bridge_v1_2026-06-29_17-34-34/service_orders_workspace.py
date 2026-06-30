@@ -1672,12 +1672,6 @@ async def _handle_operator(update: Update, user_states: dict, user_id: int, mess
         try:
             _activate_phone(order, phone, user_id)
         except Exception as exc:
-            # OSBB_PHONE_ACCESS_POLICY_UX_BRIDGE_V1
-            if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
-                await update.message.reply_text(
-                    result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
-                )
-                return True
             await update.message.reply_text(f"⚠️ {exc}"); return True
         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
     if mode == "operator_demand":

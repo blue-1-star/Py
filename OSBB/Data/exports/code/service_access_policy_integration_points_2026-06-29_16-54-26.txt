@@ -1,0 +1,589 @@
+OSBB service_access_policy integration point search - READ ONLY
+Generated: 2026-06-29 16:54:26
+Root: G:\Programming\Py\OSBB
+
+Target files: 10
+Missing target files: 0
+
+Candidate functions: 79
+ - Bots/handlers/service_orders_workspace.py:448-453 _phone_entry_texts
+ - Bots/handlers/service_orders_workspace.py:487-500 _phone_offer_sort_key
+ - Bots/handlers/service_orders_workspace.py:669-704 _order_card
+ - Bots/handlers/service_orders_workspace.py:706-737 _interest_card
+ - Bots/handlers/service_orders_workspace.py:747-763 _phone_profile_gate
+ - Bots/handlers/service_orders_workspace.py:766-787 _phone_profile_gate_text
+ - Bots/handlers/service_orders_workspace.py:790-809 _phone_point_status_lines
+ - Bots/handlers/service_orders_workspace.py:811-875 show_resident_services
+ - Bots/handlers/service_orders_workspace.py:908-972 _show_preview
+ - Bots/handlers/service_orders_workspace.py:974-1002 _create_interest_from_state
+ - Bots/handlers/service_orders_workspace.py:1004-1036 _notice_for_interest
+ - Bots/handlers/service_orders_workspace.py:1106-1261 _handle_resident
+ - Bots/handlers/service_orders_workspace.py:1272-1305 _operator_orders
+ - Bots/handlers/service_orders_workspace.py:1416-1430 _show_operator_order
+ - Bots/handlers/service_orders_workspace.py:1433-1457 _receive_resident_remote
+ - Bots/handlers/service_orders_workspace.py:1466-1486 _return_own_remote
+ - Bots/handlers/service_orders_workspace.py:1489-1503 _activate_phone
+ - Bots/handlers/service_orders_workspace.py:1505-1519 _show_supplier_demand
+ - Bots/handlers/service_orders_workspace.py:1539-1558 _show_batch_card
+ - Bots/handlers/service_orders_workspace.py:1561-1710 _handle_operator
+ - Bots/handlers/service_orders_workspace.py:1713-1759 handle_service_orders_text
+ - Bots/handlers/guard_workspace.py:143-169 show_guard_workspace
+ - Bots/handlers/guard_workspace.py:435-495 _save_manual_cash
+ - Bots/handlers/guard_workspace.py:525-537 _remote_gate_block_message
+ - Bots/handlers/guard_workspace.py:540-640 _remote_gate_debt_for_apartment
+ - Bots/handlers/guard_workspace.py:642-660 _remote_rows_for_issue
+ - Bots/handlers/guard_workspace.py:663-698 _insert_remote_event
+ - Bots/handlers/guard_workspace.py:701-715 _start_remote_received
+ - Bots/handlers/guard_workspace.py:718-741 _select_remote_received_unit
+ - Bots/handlers/guard_workspace.py:744-795 _save_remote_received
+ - Bots/handlers/guard_workspace.py:798-826 _show_remote_issue_list
+ - Bots/handlers/guard_workspace.py:829-837 _remote_request
+ - Bots/handlers/guard_workspace.py:840-883 _show_remote_issue_card
+ - Bots/handlers/guard_workspace.py:886-971 _save_remote_issued
+ - Bots/handlers/guard_workspace.py:1013-1057 _show_my_operations
+ - Bots/handlers/guard_workspace.py:1064-1313 handle_guard_workspace_text
+ - Bots/handlers/client_portal.py:732-804 _create_apartment_link_request
+ - Bots/handlers/client_portal.py:1206-1219 _remote_gate_block_message
+ - Bots/handlers/client_portal.py:1222-1263 _remote_debt_gate
+ - Bots/handlers/client_portal.py:1381-1386 _remote_table_ready
+ - Bots/handlers/client_portal.py:1397-1412 _remote_requests_for_account
+ - Bots/handlers/client_portal.py:1415-1478 _create_remote_request
+ - Bots/handlers/client_portal.py:1481-1502 _admin_remote_rows
+ - Bots/handlers/client_portal.py:1505-1520 _admin_remote_request
+ - Bots/handlers/client_portal.py:1523-1593 _update_remote_status
+ - Bots/handlers/client_portal.py:1596-1611 _format_my_remote_requests
+ - Bots/handlers/client_portal.py:1757-1770 _show_my_remote_requests
+ - Bots/handlers/client_portal.py:1773-1791 _start_remote_request
+ - Bots/handlers/client_portal.py:1840-2268 handle_client_portal_text
+ - Bots/handlers/client_portal_safe_linking.py:732-804 _create_apartment_link_request
+ - Bots/handlers/client_portal_safe_linking.py:1307-1312 _remote_table_ready
+ - Bots/handlers/client_portal_safe_linking.py:1323-1338 _remote_requests_for_account
+ - Bots/handlers/client_portal_safe_linking.py:1341-1399 _create_remote_request
+ - Bots/handlers/client_portal_safe_linking.py:1402-1423 _admin_remote_rows
+ - Bots/handlers/client_portal_safe_linking.py:1426-1441 _admin_remote_request
+ - Bots/handlers/client_portal_safe_linking.py:1444-1514 _update_remote_status
+ - Bots/handlers/client_portal_safe_linking.py:1517-1532 _format_my_remote_requests
+ - Bots/handlers/client_portal_safe_linking.py:1678-1691 _show_my_remote_requests
+ - Bots/handlers/client_portal_safe_linking.py:1694-1712 _start_remote_request
+ - Bots/handlers/client_portal_safe_linking.py:1761-2183 handle_client_portal_text
+ - service_preorders_core.py:247-328 _ensure_new_remote_preorder_profile
+ - service_preorders_core.py:365-472 create_service_interest
+ - service_preorders_core.py:528-568 attach_payment_notice_to_interest
+ - service_preorders_core.py:623-726 reconcile_paid_service_interests
+ - service_preorders_core.py:729-750 unpaid_interest_totals
+ - service_preorders_core.py:791-886 create_supplier_batch
+ - service_preorders_core.py:1021-1042 order_supply_link
+ - service_preorders_core.py:1045-1154 issue_new_remotes_from_batch
+ - service_orders_core.py:95-150 _payment_for_service_order_link
+ - service_orders_core.py:456-482 recompute_order_status
+ - service_orders_core.py:500-736 create_service_order
+ - service_orders_core.py:739-835 confirm_order_step
+ - service_orders_core.py:838-1072 link_payment_to_order
+ - service_orders_core.py:1074-1117 link_charge_to_order
+ - service_orders_core.py:1120-1195 create_remote_asset
+ - service_orders_core.py:1198-1301 record_remote_movement
+ - service_orders_core.py:1304-1371 activate_access_credential
+ - access_control.py:307-345 write_access_audit
+ - run_bot_live_services_sandbox_v1.py:161-371 ensure_sandbox_service_access
+
+Line hits: 472
+
+========================================================================================================================
+Bots/handlers/service_orders_workspace.py
+========================================================================================================================
+51: MATCH: NEW_REMOTE_PROFILE,
+52: MATCH+WRITE_NEAR_FLOW: attach_payment_notice_to_interest,
+53: MATCH+WRITE_NEAR_FLOW: create_service_interest,
+58: MATCH+WRITE_NEAR_FLOW: issue_new_remotes_from_batch,
+68: MATCH: from service_access_policy import ServiceAccessDenied, result_to_short_text
+87: MATCH: CLIENT_ENTRY = "🔑 Пульты и доступ"
+92: MATCH: "title": "🔑 Пульты и доступ",
+97: MATCH: "reprogram": "♻️ Перепрошить мой пульт",
+98: MATCH: "new_remote": "🆕 Получить новые пульты",
+99: MATCH: "refurbished": "🔄 Получить восстановленный пульт",
+100: MATCH: "phone": "📱 Подключить телефон",
+101: MATCH: "phone_title": "📞 Открытие шлагбаума телефоном",
+102: MATCH: "phone_intro": "Укажите отдельный номер телефона, которому нужен доступ к шлагбауму. Он может отличаться от контактных номеров в кабинете. После подтверждённой оплаты заявка будет автоматически передана оператору для активации.",
+103: MATCH: "phone_resident_prompt": "Введіть окремий номер телефону для доступу, наприклад +380501234567. Він не зобов’язаний збігатися з контактними номерами в кабінеті.",
+104: MATCH: "phone_preview": "📄 Подтверждение намерения — телефонный доступ",
+105: MATCH: "phone_number": "Номер телефона",
+106: MATCH: "phone_operator_title": "📞 Телефонный доступ",
+107: MATCH: "phone_operator_intro": "Здесь показаны только оплаченные заявки на телефонный доступ. После активации номера заявка завершается.",
+108: MATCH: "phone_activated": "✅ Телефон {phone} активирован.",
+111: MATCH: "choose_quantity": "Сколько новых пультов нужно?",
+131: MATCH: "supplier_batches": "📦 Поставки пультов",
+137: MATCH: "issue_new": "📤 Выдать новые пульты жильцу",
+138: MATCH: "receive_remote": "📥 Принять пульт жильца",
+140: MATCH: "return_remote": "📤 Вернуть пульт жильцу",
+141: MATCH: "activate_phone": "📱 Активировать телефонный доступ",
+142: MATCH: "asset_prompt": "Введите маркировку принятого пульта, например OLD-174-01.",
+143: MATCH: "phone_prompt": "Введите телефон для доступа, например +380501234567.",
+145: MATCH: "delivery_qty_prompt": "Введите количество фактически полученных пультов по этой поставке.",
+157: MATCH: "title": "🔑 Пульти та доступ",
+162: MATCH: "reprogram": "♻️ Перепрограмувати мій пульт",
+163: MATCH: "new_remote": "🆕 Отримати нові пульти",
+164: MATCH: "refurbished": "🔄 Отримати відновлений пульт",
+165: MATCH: "phone": "📱 Підключити телефон",
+166: MATCH: "phone_title": "📞 Відкриття шлагбаума телефоном",
+167: MATCH: "phone_intro": "Вкажіть окремий номер телефону, якому потрібен доступ до шлагбаума. Він може відрізнятися від контактних номерів у кабінеті. Після підтвердженої оплати заявку буде автоматично передано оператору для активації.",
+168: MATCH: "phone_resident_prompt": "Введіть окремий номер телефону для доступу, наприклад +380501234567. Він не зобов’язаний збігатися з контактними номерами в кабінеті.",
+169: MATCH: "phone_preview": "📄 Підтвердження наміру — телефонний доступ",
+170: MATCH: "phone_number": "Номер телефону",
+171: MATCH: "phone_operator_title": "📞 Телефонний доступ",
+172: MATCH: "phone_operator_intro": "Тут показані лише оплачені заявки на телефонний доступ. Після активації номера заявку буде завершено.",
+173: MATCH: "phone_activated": "✅ Телефон {phone} активовано.",
+176: MATCH: "choose_quantity": "Скільки нових пультів потрібно?",
+196: MATCH: "supplier_batches": "📦 Поставки пультів",
+202: MATCH: "issue_new": "📤 Видати нові пульти мешканцю",
+203: MATCH: "receive_remote": "📥 Прийняти пульт мешканця",
+205: MATCH: "return_remote": "📤 Повернути пульт мешканцю",
+206: MATCH: "activate_phone": "📱 Активувати телефонний доступ",
+207: MATCH: "asset_prompt": "Введіть маркування прийнятого пульта, наприклад OLD-174-01.",
+208: MATCH: "phone_prompt": "Введіть телефон для доступу, наприклад +380501234567.",
+210: MATCH: "delivery_qty_prompt": "Введіть кількість фактично отриманих пультів за цією поставкою.",
+283: MATCH: "REMOTE_REPROGRAM_OWN": "reprogram",
+284: MATCH: NEW_REMOTE_PROFILE: "new_remote",
+286: MATCH: "PHONE_ACCESS_CONNECT": "phone",
+290: MATCH: "AWAITING_RESIDENT_ASSET": "📥 Очікує пульт",
+313: MATCH: "debt_note": (
+317: MATCH: "debt_mode": "Проверка парковочной задолженности: требуется подтверждение оператора.",
+334: MATCH: "debt_note": (
+338: MATCH: "debt_mode": "Перевірка заборгованості за паркування: потрібне підтвердження оператора.",
+355: MATCH: "debt_note": (
+359: MATCH: "debt_mode": "Parking-debt check: operator confirmation is required.",
+438: MATCH [_resident_entry_texts]: CLIENT_ENTRY, "🔑 Пульти та доступ", "🔑 Remotes and access",
+439: MATCH [_resident_entry_texts]: "🔑 Пульты", "🔑 Пульти", "🔑 Remotes",
+440: MATCH [_resident_entry_texts]: "📞 Открытие по телефону", "📞 Відкриття телефоном", "📞 Phone gate access",
+450: MATCH [_phone_entry_texts]: "📞 Открытие по телефону",
+451: MATCH [_phone_entry_texts]: "📞 Відкриття телефоном",
+491: MATCH [_phone_offer_sort_key]: text(offer.get("service_item_code"))
+493: MATCH [_phone_offer_sort_key]: + text(offer.get("service_item_name"))
+497: MATCH [_phone_offer_sort_key]: exact_profile = 1 if profile == "PHONE_ACCESS_CONNECT" else 0
+537: WRITE_NEAR_FLOW [_ensure_and_reconcile]: conn.commit()
+556: MATCH [_current_offers]: item_columns = table_columns(cur, "service_items")
+568: MATCH [_current_offers]: SELECT i.service_item_code, {service_code_field}, i.service_item_name,
+572: MATCH [_current_offers]: FROM service_items i
+573: MATCH [_current_offers]: JOIN service_item_workflows w
+574: MATCH [_current_offers]: ON w.service_item_code = i.service_item_code
+583: MATCH [_current_offers]: ORDER BY p.service_category, i.service_item_name, i.service_item_code
+589: MATCH [_current_offers]: amount, currency = effective_price(cur, row["service_item_code"])
+632: MATCH [_offer_buttons]: "REMOTE_REPROGRAM_OWN",
+633: MATCH [_offer_buttons]: NEW_REMOTE_PROFILE,
+644: MATCH [_offer_buttons]: label = f"🧩 {offer.get('service_item_name') or offer['service_item_code']}"
+676: MATCH [_order_card]: f"Услуга: {order.get('service_name_snapshot') or order.get('service_item_code')}",
+683: MATCH [_order_card]: f"Телефон доступу: {phone_summary.get('phone_normalized') or _requested_phone(order) or '-'}",
+697: MATCH [_order_card]: lines.append(f"Телефон доступу: {_requested_phone(order)}")
+718: MATCH [_interest_card]: f"Послуга: {interest.get('service_name_snapshot') or interest.get('service_item_code')}",
+732: MATCH [_interest_card]: lines.append(f"Телефон доступу: {_requested_phone(interest)}")
+757: WRITE_NEAR_FLOW [_phone_profile_gate]: conn.commit()
+770: MATCH [_phone_profile_gate_text]: "⛔ Підключення телефонного доступу неможливе.",
+785: MATCH [_phone_profile_gate_text]: "він може не збігатися з контактними телефонами.",
+796: MATCH [_phone_point_status_lines]: "SUSPENDED_FOR_DEBT": "⚠️",
+797: MATCH [_phone_point_status_lines]: "DEACTIVATED_FOR_DEBT": "⛔",
+867: MATCH [show_resident_services]: "\n\n⚠️ У каталозі немає активної послуги телефонного доступу. "
+941: MATCH [_show_preview]: f"Услуга: {offer.get('service_item_name') or offer.get('service_item_code')}",
+951: MATCH [_show_preview]: phone_tr(lang, 'debt_mode'),
+952: MATCH [_show_preview]: phone_tr(lang, 'debt_note'),
+989: MATCH [_create_interest_from_state]: service_item_code=state["offer"]["service_item_code"],
+992: MATCH [_create_interest_from_state]: parking_debt_check_mode=text(gate.get("parking_debt_check_mode")) or "MANUAL_REVIEW",
+993: MATCH [_create_interest_from_state]: parking_debt_check_note=text(gate.get("parking_debt_check_note")),
+995: MATCH+WRITE_NEAR_FLOW [_create_interest_from_state]: return create_service_interest(
+1000: MATCH [_create_interest_from_state]: service_item_code=state["offer"]["service_item_code"],
+1006: MATCH [_notice_for_interest]: "service_code": interest.get("service_code") or interest.get("service_item_code"),
+1007: MATCH [_notice_for_interest]: "service_item_code": interest.get("service_item_code"),
+1022: MATCH [_notice_for_interest]: f" Телефон доступу: {_requested_phone(interest)}."
+1128: MATCH [_handle_resident]: elif text(offer.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+1145: MATCH [_handle_resident]: "⚠️ Активна послуга телефонного доступу не знайдена."
+1242: MATCH+WRITE_NEAR_FLOW [_handle_resident]: attach_payment_notice_to_interest(int(interest["id"]), notice)
+1293: MATCH [_operator_orders]: o.service_item_code, o.quantity, o.order_status, o.payment_status,
+1426: MATCH [_show_operator_order]: if text(order.get("workflow_profile_code")) == NEW_REMOTE_PROFILE:
+1447: MATCH [_receive_resident_remote]: apartment_number=text(order.get("apartment_number")), note="Пульт жильца принят.",
+1451: WRITE_NEAR_FLOW [_receive_resident_remote]: cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+1452: WRITE_NEAR_FLOW [_receive_resident_remote]: conn.commit()
+1473: MATCH [_return_own_remote]: raise ValueError("Нет принятого пульта жильца.")
+1478: MATCH [_return_own_remote]: apartment_number=text(order.get("apartment_number")), note="Собственный пульт возвращён жильцу.",
+1481: WRITE_NEAR_FLOW [_return_own_remote]: conn.commit()
+1502: MATCH [_activate_phone]: apartment_number=text(order.get("apartment_number")), note="Телефонный доступ активирован оператором.",
+1512: MATCH [_show_supplier_demand]: mapping[label] = row["service_item_code"]
+1544: MATCH [_show_batch_card]: "📦 Поставка пультів", "",
+1647: MATCH+WRITE_NEAR_FLOW [_handle_operator]: issue_new_remotes_from_batch(service_order_id=int(order["id"]), actor_id=user_id)
+1678: MATCH [_handle_operator]: service_item_code = (state.get("demand_buttons") or {}).get(message_text)
+1679: MATCH [_handle_operator]: if not service_item_code:
+1682: MATCH [_handle_operator]: batch = create_supplier_batch(service_item_code=service_item_code, actor_id=user_id)
+1741: MATCH [handle_service_orders_text]: if user_mode == "admin" and message_text == "🔑 Заявки на пульты" and has_service_workspace_access(user_id):
+1750: MATCH [handle_service_orders_text]: if user_mode == "admin" and message_text == "📞 Телефонный доступ" and has_service_workspace_access(user_id):
+========================================================================================================================
+Bots/handlers/guard_workspace.py
+========================================================================================================================
+8: MATCH: - регистрирует физический приём/выдачу пультов отдельными событиями;
+65: MATCH: ["📥 Пульт принят", "📤 Пульт выдан"],
+166: MATCH [show_guard_workspace]: "• отметить физический приём или выдачу пульта.\n\n"
+503: MATCH: # OSBB_REMOTE_DEBT_GATE_V1_GUARD_HELPERS
+530: MATCH [_remote_gate_block_message]: "Выдача пульта через пост O временно недоступна. "
+536: MATCH [_remote_gate_block_message]: "Пульт нельзя выдавать до оплаты или сверки с оператором."
+540: MATCH [_remote_gate_debt_for_apartment]: def _remote_gate_debt_for_apartment(cur, apartment_number: object) -> dict:
+542: MATCH [_remote_gate_debt_for_apartment]: Read-only debt gate for physical remote issue.
+646: MATCH [_remote_rows_for_issue]: if not table_exists(cur, "remote_requests"):
+652: MATCH [_remote_rows_for_issue]: FROM remote_requests
+669: MATCH [_insert_remote_event]: remote_request: dict | None = None,
+675: MATCH [_insert_remote_event]: request = remote_request or {}
+678: WRITE_NEAR_FLOW [_insert_remote_event]: INSERT INTO remote_handover_events (
+679: MATCH [_insert_remote_event]: event_kind, event_status, post_code, remote_request_id,
+712: MATCH [_start_remote_received]: "📥 Пульт принят на пост O\n\n"
+713: MATCH [_start_remote_received]: "Введите номер квартиры, от которой физически принят пульт.",
+724: MATCH [_select_remote_received_unit]: "Введите количество принятых пультов.",
+779: MATCH [_save_remote_received]: f"Пульт принят на пост O: кв.{state['unit'].get('apartment_number')}, "
+786: MATCH [_save_remote_received]: await update.message.reply_text(f"Не удалось сохранить приём пульта: {exc}")
+792: MATCH [_save_remote_received]: f"✅ Пульт принят на пост O.\nСобытие: #{event_id}\n"
+800: MATCH [_show_remote_issue_list]: user_id, "remote_requests", "VIEW",
+810: MATCH [_show_remote_issue_list]: lines = ["📤 Выдать пульт по заявке", ""]
+829: MATCH [_remote_request]: def _remote_request(request_id: int) -> dict | None:
+833: MATCH [_remote_request]: cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+841: MATCH [_show_remote_issue_card]: row = _remote_request(request_id)
+848: MATCH [_show_remote_issue_card]: gate = _remote_gate_debt_for_apartment(conn.cursor(), row.get("apartment_number"))
+853: MATCH [_show_remote_issue_card]: state["remote_request_id"] = int(request_id)
+868: MATCH [_show_remote_issue_card]: gate.get("message") or "⚠️ Выдача пульта временно недоступна.",
+874: MATCH [_show_remote_issue_card]: lines.append("Подтверждайте только после фактической выдачи пульта.")
+876: MATCH [_show_remote_issue_card]: ["✅ Пульт выдан"],
+886: WRITE_NEAR_FLOW [_save_remote_issued]: async def _save_remote_issued(update: Update, state: dict, user_id: int, note: str) -> None:
+889: MATCH [_save_remote_issued]: user_id, "remote_requests", "ISSUE",
+900: MATCH [_save_remote_issued]: request_id = int(state["remote_request_id"])
+905: MATCH [_save_remote_issued]: "SELECT * FROM remote_requests WHERE id = ?",
+915: MATCH [_save_remote_issued]: gate = _remote_gate_debt_for_apartment(cur, request.get("apartment_number"))
+917: MATCH [_save_remote_issued]: raise ValueError(gate.get("message") or "Выдача пульта временно недоступна из-за задолженности.")
+923: MATCH [_save_remote_issued]: remote_request=request,
+928: MATCH [_save_remote_issued]: rcols = table_columns(cur, "remote_requests")
+940: MATCH+WRITE_NEAR_FLOW [_save_remote_issued]: f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+948: MATCH [_save_remote_issued]: resource="remote_requests",
+952: MATCH [_save_remote_issued]: target_table="remote_requests",
+955: MATCH [_save_remote_issued]: f"Пульт выдан с поста O. Event={event_id}; "
+968: MATCH [_save_remote_issued]: f"✅ Пульт выдан.\nЗаявка #{request_id} закрыта как ISSUED.\n"
+1042: MATCH [_show_my_operations]: lines.extend(["", "Пульты:"])
+1118: MATCH [handle_guard_workspace_text]: if message_text == "📥 Пульт принят":
+1121: MATCH [handle_guard_workspace_text]: if message_text == "📤 Пульт выдан":
+1251: MATCH [handle_guard_workspace_text]: "Введите количество принятых пультов.",
+1289: MATCH [handle_guard_workspace_text]: if message_text == "✅ Пульт выдан":
+1303: WRITE_NEAR_FLOW [handle_guard_workspace_text]: await _save_remote_issued(
+========================================================================================================================
+Bots/handlers/client_portal.py
+========================================================================================================================
+9: MATCH: - обращения на пульты: первая выдача / дополнительный / замена;
+10: MATCH: - операторский список заявок на пульты: NEW → IN_REVIEW → ISSUED / REJECTED.
+13: MATCH: - автоматическое добавление/удаление телефона в GEOS RC-4000;
+15: MATCH: - автоматическое сообщение о выдаче пульта;
+63: MATCH: "remotes": "🔑 Пульты",
+64: MATCH: "phone": "📞 Открытие по телефону",
+74: MATCH: "remote_new": "➕ Запросить пульт",
+76: MATCH: "remote_first": "🆕 Первый пульт",
+77: MATCH: "remote_additional": "➕ Дополнительный пульт",
+78: MATCH: "remote_replace": "🔁 Замена пульта",
+82: MATCH: "remote_list": "🔑 Заявки на пульты",
+134: MATCH: "📞 Открытие шлагбаума по телефону\n\n"
+135: MATCH: "Реестр телефонного доступа наполняется оператором. "
+141: MATCH: "remotes_title": "🔑 Пульты шлагбаума",
+143: MATCH: "Здесь можно оставить обращение на пульт. "
+147: MATCH: "ℹ️ Порядок получения пульта\n\n"
+151: MATCH: "Пульт не выдаётся автоматически после нажатия кнопки."
+154: MATCH: "remote_quantity_prompt": "Введите количество пультов: от 1 до 10.",
+161: MATCH: "remote_no_requests": "Обращений по пультам пока нет.",
+162: MATCH: "remote_my_title": "📋 Мои обращения по пультам",
+169: MATCH: "remote_admin_title": "🔑 Заявки на пульты — оператор",
+176: MATCH: "remote_kind_FIRST": "Первый пульт",
+177: MATCH: "remote_kind_ADDITIONAL": "Дополнительный пульт",
+178: MATCH: "remote_kind_REPLACEMENT": "Замена пульта",
+185: MATCH: "remote_missing_table": "Раздел заявок на пульты ещё подключается. Обратитесь к оператору.",
+198: MATCH: "remotes": "🔑 Пульти",
+199: MATCH: "phone": "📞 Відкриття телефоном",
+209: MATCH: "remote_new": "➕ Запитати пульт",
+211: MATCH: "remote_first": "🆕 Перший пульт",
+212: MATCH: "remote_additional": "➕ Додатковий пульт",
+213: MATCH: "remote_replace": "🔁 Заміна пульта",
+217: MATCH: "remote_list": "🔑 Заявки на пульти",
+269: MATCH: "📞 Відкриття шлагбаума телефоном\n\n"
+270: MATCH: "Реєстр телефонного доступу наповнює оператор. "
+276: MATCH: "remotes_title": "🔑 Пульти шлагбаума",
+278: MATCH: "Тут можна залишити звернення на пульт. "
+282: MATCH: "ℹ️ Порядок отримання пульта\n\n"
+286: MATCH: "Пульт не видається автоматично після натискання кнопки."
+289: MATCH: "remote_quantity_prompt": "Введіть кількість пультів: від 1 до 10.",
+296: MATCH: "remote_no_requests": "Звернень щодо пультів поки немає.",
+297: MATCH: "remote_my_title": "📋 Мої звернення щодо пультів",
+304: MATCH: "remote_admin_title": "🔑 Заявки на пульти — оператор",
+311: MATCH: "remote_kind_FIRST": "Перший пульт",
+312: MATCH: "remote_kind_ADDITIONAL": "Додатковий пульт",
+313: MATCH: "remote_kind_REPLACEMENT": "Заміна пульта",
+320: MATCH: "remote_missing_table": "Розділ заявок на пульти ще підключається. Зверніться до оператора.",
+1192: MATCH: # OSBB_REMOTE_DEBT_GATE_V1_CLIENT_HELPERS
+1211: MATCH [_remote_gate_block_message]: "Заказ нового пульта через бот временно недоступен.\n"
+1217: MATCH [_remote_gate_block_message]: "Заказ нового пульта через бот временно недоступен.\n"
+1222: MATCH [_remote_debt_gate]: def _remote_debt_gate(unit: dict) -> dict:
+1384: MATCH [_remote_table_ready]: return table_exists(conn.cursor(), "remote_requests")
+1397: MATCH [_remote_requests_for_account]: def _remote_requests_for_account(account_id: int) -> list[dict]:
+1405: MATCH [_remote_requests_for_account]: FROM remote_requests
+1415: MATCH+WRITE_NEAR_FLOW [_create_remote_request]: def _create_remote_request(
+1423: MATCH [_create_remote_request]: # OSBB_REMOTE_DEBT_GATE_V1_CREATE_CHECK
+1424: MATCH [_create_remote_request]: gate = _remote_debt_gate(unit)
+1426: MATCH [_create_remote_request]: raise ValueError(gate.get("message") or "Заказ пульта временно недоступен из-за задолженности.")
+1432: MATCH+WRITE_NEAR_FLOW [_create_remote_request]: INSERT INTO remote_requests (
+1464: MATCH [_create_remote_request]: action_type="remote_request_created",
+1465: MATCH [_create_remote_request]: table_name="remote_requests",
+1471: MATCH [_create_remote_request]: comment="Пользователь создал обращение на пульт.",
+1491: MATCH [_admin_remote_rows]: FROM remote_requests r
+1505: MATCH [_admin_remote_request]: def _admin_remote_request(request_id: int) -> dict | None:
+1513: MATCH [_admin_remote_request]: FROM remote_requests r
+1537: MATCH [_update_remote_status]: FROM remote_requests WHERE id = ?
+1549: MATCH+WRITE_NEAR_FLOW [_update_remote_status]: UPDATE remote_requests
+1576: MATCH [_update_remote_status]: action_type="remote_request_status_update",
+1577: MATCH [_update_remote_status]: table_name="remote_requests",
+1583: MATCH [_update_remote_status]: comment=operator_note or "Оператор изменил статус заявки на пульт.",
+1596: MATCH [_format_my_remote_requests]: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+1757: MATCH [_show_my_remote_requests]: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1768: MATCH [_show_my_remote_requests]: _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+1773: MATCH [_start_remote_request]: async def _start_remote_request(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1968: MATCH [handle_client_portal_text]: if message_text == tr(lang, "remote_list") or message_text == "🔑 Заявки на пульты":
+1990: MATCH [handle_client_portal_text]: row = _admin_remote_request(int(request_id))
+2187: MATCH [handle_client_portal_text]: await _show_my_remote_requests(update, user_states, user_id, lang)
+2189: MATCH [handle_client_portal_text]: await _start_remote_request(update, user_states, user_id, lang)
+2240: MATCH [handle_client_portal_text]: # OSBB_REMOTE_DEBT_GATE_V1_CALL_WRAP
+2242: MATCH+WRITE_NEAR_FLOW [handle_client_portal_text]: request_id = _create_remote_request(
+========================================================================================================================
+Bots/handlers/client_portal_v3.py
+========================================================================================================================
+5: MATCH: 🔑 Пульты
+6: MATCH: 📞 Открытие по телефону
+8: MATCH: 🔑 Пульты и доступ
+31: MATCH: "ru": "🔑 Пульты и доступ",
+32: MATCH: "uk": "🔑 Пульти та доступ",
+========================================================================================================================
+Bots/handlers/client_portal_safe_linking.py
+========================================================================================================================
+9: MATCH: - обращения на пульты: первая выдача / дополнительный / замена;
+10: MATCH: - операторский список заявок на пульты: NEW → IN_REVIEW → ISSUED / REJECTED.
+13: MATCH: - автоматическое добавление/удаление телефона в GEOS RC-4000;
+15: MATCH: - автоматическое сообщение о выдаче пульта;
+63: MATCH: "remotes": "🔑 Пульты",
+64: MATCH: "phone": "📞 Открытие по телефону",
+74: MATCH: "remote_new": "➕ Запросить пульт",
+76: MATCH: "remote_first": "🆕 Первый пульт",
+77: MATCH: "remote_additional": "➕ Дополнительный пульт",
+78: MATCH: "remote_replace": "🔁 Замена пульта",
+82: MATCH: "remote_list": "🔑 Заявки на пульты",
+134: MATCH: "📞 Открытие шлагбаума по телефону\n\n"
+135: MATCH: "Реестр телефонного доступа наполняется оператором. "
+141: MATCH: "remotes_title": "🔑 Пульты шлагбаума",
+143: MATCH: "Здесь можно оставить обращение на пульт. "
+147: MATCH: "ℹ️ Порядок получения пульта\n\n"
+151: MATCH: "Пульт не выдаётся автоматически после нажатия кнопки."
+154: MATCH: "remote_quantity_prompt": "Введите количество пультов: от 1 до 10.",
+161: MATCH: "remote_no_requests": "Обращений по пультам пока нет.",
+162: MATCH: "remote_my_title": "📋 Мои обращения по пультам",
+169: MATCH: "remote_admin_title": "🔑 Заявки на пульты — оператор",
+176: MATCH: "remote_kind_FIRST": "Первый пульт",
+177: MATCH: "remote_kind_ADDITIONAL": "Дополнительный пульт",
+178: MATCH: "remote_kind_REPLACEMENT": "Замена пульта",
+185: MATCH: "remote_missing_table": "Раздел заявок на пульты ещё подключается. Обратитесь к оператору.",
+198: MATCH: "remotes": "🔑 Пульти",
+199: MATCH: "phone": "📞 Відкриття телефоном",
+209: MATCH: "remote_new": "➕ Запитати пульт",
+211: MATCH: "remote_first": "🆕 Перший пульт",
+212: MATCH: "remote_additional": "➕ Додатковий пульт",
+213: MATCH: "remote_replace": "🔁 Заміна пульта",
+217: MATCH: "remote_list": "🔑 Заявки на пульти",
+269: MATCH: "📞 Відкриття шлагбаума телефоном\n\n"
+270: MATCH: "Реєстр телефонного доступу наповнює оператор. "
+276: MATCH: "remotes_title": "🔑 Пульти шлагбаума",
+278: MATCH: "Тут можна залишити звернення на пульт. "
+282: MATCH: "ℹ️ Порядок отримання пульта\n\n"
+286: MATCH: "Пульт не видається автоматично після натискання кнопки."
+289: MATCH: "remote_quantity_prompt": "Введіть кількість пультів: від 1 до 10.",
+296: MATCH: "remote_no_requests": "Звернень щодо пультів поки немає.",
+297: MATCH: "remote_my_title": "📋 Мої звернення щодо пультів",
+304: MATCH: "remote_admin_title": "🔑 Заявки на пульти — оператор",
+311: MATCH: "remote_kind_FIRST": "Перший пульт",
+312: MATCH: "remote_kind_ADDITIONAL": "Додатковий пульт",
+313: MATCH: "remote_kind_REPLACEMENT": "Заміна пульта",
+320: MATCH: "remote_missing_table": "Розділ заявок на пульти ще підключається. Зверніться до оператора.",
+1310: MATCH [_remote_table_ready]: return table_exists(conn.cursor(), "remote_requests")
+1323: MATCH [_remote_requests_for_account]: def _remote_requests_for_account(account_id: int) -> list[dict]:
+1331: MATCH [_remote_requests_for_account]: FROM remote_requests
+1341: MATCH+WRITE_NEAR_FLOW [_create_remote_request]: def _create_remote_request(
+1353: MATCH+WRITE_NEAR_FLOW [_create_remote_request]: INSERT INTO remote_requests (
+1385: MATCH [_create_remote_request]: action_type="remote_request_created",
+1386: MATCH [_create_remote_request]: table_name="remote_requests",
+1392: MATCH [_create_remote_request]: comment="Пользователь создал обращение на пульт.",
+1412: MATCH [_admin_remote_rows]: FROM remote_requests r
+1426: MATCH [_admin_remote_request]: def _admin_remote_request(request_id: int) -> dict | None:
+1434: MATCH [_admin_remote_request]: FROM remote_requests r
+1458: MATCH [_update_remote_status]: FROM remote_requests WHERE id = ?
+1470: MATCH+WRITE_NEAR_FLOW [_update_remote_status]: UPDATE remote_requests
+1497: MATCH [_update_remote_status]: action_type="remote_request_status_update",
+1498: MATCH [_update_remote_status]: table_name="remote_requests",
+1504: MATCH [_update_remote_status]: comment=operator_note or "Оператор изменил статус заявки на пульт.",
+1517: MATCH [_format_my_remote_requests]: def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+1678: MATCH [_show_my_remote_requests]: async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1689: MATCH [_show_my_remote_requests]: _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+1694: MATCH [_start_remote_request]: async def _start_remote_request(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+1889: MATCH [handle_client_portal_text]: if message_text == tr(lang, "remote_list") or message_text == "🔑 Заявки на пульты":
+1911: MATCH [handle_client_portal_text]: row = _admin_remote_request(int(request_id))
+2108: MATCH [handle_client_portal_text]: await _show_my_remote_requests(update, user_states, user_id, lang)
+2110: MATCH [handle_client_portal_text]: await _start_remote_request(update, user_states, user_id, lang)
+2161: MATCH+WRITE_NEAR_FLOW [handle_client_portal_text]: request_id = _create_remote_request(
+========================================================================================================================
+service_preorders_core.py
+========================================================================================================================
+58: MATCH: NEW_REMOTE_PROFILE = "REMOTE_NEW_PREORDER"
+120: MATCH [ensure_simplified_service_schema]: service_item_code TEXT NOT NULL,
+163: MATCH [ensure_simplified_service_schema]: service_item_code TEXT NOT NULL,
+183: MATCH [ensure_simplified_service_schema]: ON remote_supplier_batches(batch_status, service_item_code, id)
+224: WRITE_NEAR_FLOW [ensure_simplified_service_schema]: conn.commit()
+241: WRITE_NEAR_FLOW [_insert_dynamic]: f"INSERT INTO {_quote(table)} ({', '.join(_quote(name) for name in selected)}) "
+249: MATCH [_ensure_new_remote_preorder_profile]: required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+257: MATCH [_ensure_new_remote_preorder_profile]: (NEW_REMOTE_PROFILE,),
+269: MATCH [_ensure_new_remote_preorder_profile]: "profile_code": NEW_REMOTE_PROFILE,
+270: MATCH [_ensure_new_remote_preorder_profile]: "profile_name": "Новий пульт — оплачений передзамовлення",
+284: MATCH [_ensure_new_remote_preorder_profile]: (NEW_REMOTE_PROFILE,),
+297: MATCH [_ensure_new_remote_preorder_profile]: ("REMOTE_BATCH_ISSUED", "Пульти видано мешканцю", "ISSUE", 40),
+303: MATCH [_ensure_new_remote_preorder_profile]: "profile_code": NEW_REMOTE_PROFILE,
+319: MATCH+WRITE_NEAR_FLOW [_ensure_new_remote_preorder_profile]: UPDATE service_item_workflows
+324: MATCH [_ensure_new_remote_preorder_profile]: (NEW_REMOTE_PROFILE, NEW_REMOTE_OLD_PROFILE),
+331: MATCH [_service_item_snapshot]: def _service_item_snapshot(cur: sqlite3.Cursor, service_item_code: str) -> dict:
+332: MATCH [_service_item_snapshot]: if not table_exists(cur, "service_items"):
+333: MATCH [_service_item_snapshot]: raise RuntimeError("Не найдена таблица service_items.")
+334: MATCH [_service_item_snapshot]: cols = table_columns(cur, "service_items")
+335: MATCH [_service_item_snapshot]: if "service_item_code" not in cols:
+336: MATCH [_service_item_snapshot]: raise RuntimeError("В service_items отсутствует service_item_code.")
+338: MATCH [_service_item_snapshot]: "service_item_code",
+348: MATCH [_service_item_snapshot]: "service_item_name" if "service_item_name" in cols else "service_item_code AS service_item_name",
+355: MATCH [_service_item_snapshot]: f"SELECT {', '.join(fields)} FROM service_items WHERE service_item_code = ?",
+356: MATCH [_service_item_snapshot]: (service_item_code,),
+359: MATCH [_service_item_snapshot]: raise ValueError(f"Статья услуги не найдена: {service_item_code}")
+365: MATCH+WRITE_NEAR_FLOW [create_service_interest]: def create_service_interest(
+371: MATCH [create_service_interest]: service_item_code: str,
+389: MATCH [create_service_interest]: item = _service_item_snapshot(cur, service_item_code)
+390: MATCH [create_service_interest]: workflow = get_service_workflow(cur, service_item_code)
+393: MATCH [create_service_interest]: catalog_price, catalog_currency = effective_price(cur, service_item_code)
+420: MATCH [create_service_interest]: or text(item.get("service_item_name"))
+421: MATCH [create_service_interest]: or service_item_code
+428: MATCH [create_service_interest]: service_name_snapshot = text(item.get("service_item_name")) or service_item_code
+432: WRITE_NEAR_FLOW [create_service_interest]: INSERT INTO service_order_interests (
+435: MATCH [create_service_interest]: service_code, service_item_code, service_name_snapshot,
+449: MATCH [create_service_interest]: service_item_code,
+464: WRITE_NEAR_FLOW [create_service_interest]: conn.commit()
+528: MATCH+WRITE_NEAR_FLOW [attach_payment_notice_to_interest]: def attach_payment_notice_to_interest(
+549: WRITE_NEAR_FLOW [attach_payment_notice_to_interest]: UPDATE service_order_interests
+560: WRITE_NEAR_FLOW [attach_payment_notice_to_interest]: conn.commit()
+582: MATCH [_payment_candidates]: "service_item_code" if "service_item_code" in cols else "NULL AS service_item_code",
+604: MATCH [_payment_candidates]: if "service_item_code" in cols:
+605: MATCH [_payment_candidates]: where.append("COALESCE(service_item_code, '') = COALESCE(?, '')")
+606: MATCH [_payment_candidates]: params.append(interest.get("service_item_code"))
+660: MATCH [reconcile_paid_service_interests]: service_item_code=text(interest.get("service_item_code")),
+718: WRITE_NEAR_FLOW [reconcile_paid_service_interests]: conn.commit()
+738: MATCH [unpaid_interest_totals]: SELECT service_item_code, service_name_snapshot,
+743: MATCH [unpaid_interest_totals]: GROUP BY service_item_code, service_name_snapshot
+744: MATCH [unpaid_interest_totals]: ORDER BY service_name_snapshot, service_item_code
+762: MATCH [supplier_demand]: SELECT o.service_item_code,
+781: MATCH [supplier_demand]: GROUP BY o.service_item_code, o.service_name_snapshot
+782: MATCH [supplier_demand]: ORDER BY o.service_name_snapshot, o.service_item_code
+784: MATCH [supplier_demand]: (NEW_REMOTE_PROFILE,),
+793: MATCH [create_supplier_batch]: service_item_code: str,
+819: MATCH [create_supplier_batch]: AND o.service_item_code = ?
+827: MATCH [create_supplier_batch]: (NEW_REMOTE_PROFILE, service_item_code),
+837: WRITE_NEAR_FLOW [create_supplier_batch]: INSERT INTO remote_supplier_batches (
+838: MATCH [create_supplier_batch]: batch_number, service_item_code, service_name_snapshot,
+847: MATCH [create_supplier_batch]: service_item_code,
+848: MATCH [create_supplier_batch]: text(orders[0].get("service_name_snapshot")) or service_item_code,
+861: WRITE_NEAR_FLOW [create_supplier_batch]: INSERT INTO remote_supplier_batch_links (
+878: WRITE_NEAR_FLOW [create_supplier_batch]: conn.commit()
+946: MATCH [receive_supplier_batch]: raise ValueError("Количество полученных пультов должно быть больше нуля.")
+956: MATCH [receive_supplier_batch]: raise ValueError("Нельзя принять больше пультов, чем заказано в этой партии.")
+961: WRITE_NEAR_FLOW [receive_supplier_batch]: UPDATE remote_supplier_batches
+1010: WRITE_NEAR_FLOW [receive_supplier_batch]: conn.commit()
+1031: MATCH [order_supply_link]: b.service_item_code
+1045: MATCH+WRITE_NEAR_FLOW [issue_new_remotes_from_batch]: def issue_new_remotes_from_batch(
+1058: MATCH [issue_new_remotes_from_batch]: if text(order.get("workflow_profile_code")) != NEW_REMOTE_PROFILE:
+1059: MATCH [issue_new_remotes_from_batch]: raise ValueError("Этот заказ не является предзаказом нового пульта.")
+1069: MATCH [issue_new_remotes_from_batch]: raise ValueError("В поставке недостаточно фактически полученных пультов.")
+1131: WRITE_NEAR_FLOW [issue_new_remotes_from_batch]: UPDATE remote_supplier_batches
+1146: WRITE_NEAR_FLOW [issue_new_remotes_from_batch]: conn.commit()
+========================================================================================================================
+service_orders_core.py
+========================================================================================================================
+5: MATCH: - перепрошивки собственного пульта;
+6: MATCH: - нового пульта со склада;
+7: MATCH: - восстановленного пульта со склада;
+8: MATCH: - подключения телефонного доступа;
+11: MATCH: Деньги, склад/пульт и выполнение услуги не подменяют друг друга:
+42: MATCH: from service_access_policy import ensure_service_order_allowed
+136: MATCH [_payment_for_service_order_link]: "service_item_code"
+137: MATCH [_payment_for_service_order_link]: if "service_item_code" in cols
+138: MATCH [_payment_for_service_order_link]: else "NULL AS service_item_code"
+156: MATCH [required_tables]: "service_item_workflows",
+216: MATCH [_service_item]: def _service_item(cur: sqlite3.Cursor, service_item_code: str) -> dict:
+217: MATCH [_service_item]: if not table_exists(cur, "service_items"):
+218: MATCH [_service_item]: raise RuntimeError("Не найдена service_items.")
+219: MATCH [_service_item]: cols = table_columns(cur, "service_items")
+220: MATCH [_service_item]: if "service_item_code" not in cols:
+221: MATCH [_service_item]: raise RuntimeError("В service_items отсутствует service_item_code.")
+224: MATCH [_service_item]: "service_item_code",
+234: MATCH [_service_item]: "service_item_name" if "service_item_name" in cols else "service_item_code AS service_item_name",
+244: MATCH [_service_item]: FROM service_items
+245: MATCH [_service_item]: WHERE service_item_code = ?
+247: MATCH [_service_item]: (service_item_code,),
+250: MATCH [_service_item]: raise ValueError(f"Статья услуги не найдена: {service_item_code}")
+254: MATCH [get_service_workflow]: def get_service_workflow(cur: sqlite3.Cursor, service_item_code: str) -> dict:
+259: MATCH [get_service_workflow]: w.service_item_code,
+271: MATCH [get_service_workflow]: FROM service_item_workflows w
+275: MATCH [get_service_workflow]: WHERE w.service_item_code = ?
+278: MATCH [get_service_workflow]: (service_item_code,),
+283: MATCH [get_service_workflow]: f"{service_item_code}"
+290: MATCH [effective_price]: service_item_code: str,
+300: MATCH [effective_price]: WHERE service_item_code = ?
+307: MATCH [effective_price]: (service_item_code, on_date, on_date),
+312: MATCH [effective_price]: item = _service_item(cur, service_item_code)
+352: WRITE_NEAR_FLOW [_event]: INSERT INTO service_order_events (
+506: MATCH [create_service_order]: service_item_code: str,
+529: MATCH [create_service_order]: item = _service_item(cur, service_item_code)
+530: MATCH [create_service_order]: workflow = get_service_workflow(cur, service_item_code)
+532: MATCH [create_service_order]: # OSBB_SERVICE_ACCESS_POLICY_V1
+535: MATCH [create_service_order]: # Read-only access/debt policy check before creating a service order.
+540: MATCH [create_service_order]: "Critical component 'service_access_policy' is unavailable. "
+547: MATCH [create_service_order]: service_item_code=service_item_code,
+563: MATCH [create_service_order]: catalog_unit_price, catalog_currency = effective_price(cur, service_item_code)
+590: MATCH [create_service_order]: or text(item.get("service_item_name"))
+591: MATCH [create_service_order]: or service_item_code
+601: MATCH [create_service_order]: service_name_snapshot = text(item.get("service_item_name")) or service_item_code
+606: WRITE_NEAR_FLOW [create_service_order]: INSERT INTO service_orders (
+609: MATCH [create_service_order]: service_code, service_item_code,
+626: MATCH [create_service_order]: service_item_code,
+660: WRITE_NEAR_FLOW [create_service_order]: INSERT INTO service_order_steps (
+682: WRITE_NEAR_FLOW [create_service_order]: INSERT INTO remote_order_details (
+693: MATCH [create_service_order]: if profile == "REMOTE_REPROGRAM_OWN"
+696: MATCH [create_service_order]: 1 if profile == "REMOTE_REPROGRAM_OWN" else 0,
+714: MATCH [create_service_order]: f"item={service_item_code}; profile={profile}; "
+724: MATCH [create_service_order]: details=f"{order_number}; {service_item_code}; {result['order_status']}",
+728: WRITE_NEAR_FLOW [create_service_order]: conn.commit()
+827: WRITE_NEAR_FLOW [confirm_order_step]: conn.commit()
+914: MATCH [link_payment_to_order]: order_item = text(order.get("service_item_code"))
+915: MATCH [link_payment_to_order]: payment_item = text(payment.get("service_item_code"))
+1059: WRITE_NEAR_FLOW [link_payment_to_order]: conn.commit()
+1110: WRITE_NEAR_FLOW [link_charge_to_order]: conn.commit()
+1187: WRITE_NEAR_FLOW [create_remote_asset]: conn.commit()
+1229: MATCH [record_remote_movement]: raise ValueError("Пульт/складская единица не найдена.")
+1234: WRITE_NEAR_FLOW [record_remote_movement]: UPDATE remote_assets
+1293: WRITE_NEAR_FLOW [record_remote_movement]: conn.commit()
+1363: WRITE_NEAR_FLOW [activate_access_credential]: conn.commit()
+========================================================================================================================
+run_bot_live_services_sandbox_v1.py
+========================================================================================================================
+364: WRITE_NEAR_FLOW [ensure_sandbox_service_access]: conn.commit()
+389: MATCH [assert_workspace_is_compatible]: "NEW_REMOTE_PROFILE",
+392: MATCH+WRITE_NEAR_FLOW [assert_workspace_is_compatible]: "issue_new_remotes_from_batch(",
+581: MATCH [integrate_profile_verification]: "    # Клиентский кабинет / заявки на пульты\n"
+622: MATCH [ensure_cashier_route_precedes_client_portal]: "    # Клиентский кабинет / заявки на пульты\n"
+765: MATCH [live_service_preflight]: service_item_code, service_name_snapshot,
+791: MATCH [live_service_preflight]: AND COALESCE(service_item_code, '') = COALESCE(?, '')
+795: MATCH [live_service_preflight]: (apartment_value, order["service_item_code"]),
+========================================================================================================================
+run_bot_guard_sandbox_v3.py
+========================================================================================================================
+106: MATCH [table_rows]: "remote_requests",
