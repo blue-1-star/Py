@@ -1,0 +1,56 @@
+{
+  "session_type": "OSBB_WORKING_DB_SESSION",
+  "created_at": "2026-07-02 17:18:39",
+  "label": "pult_order_test",
+  "golden_db": "G:\\Programming\\Py\\OSBB\\Data\\db\\osbb_test.db",
+  "working_db": "G:\\Programming\\Py\\OSBB\\Data\\db\\working\\osbb_working_pult_order_test_2026-07-02_17-18-39.db",
+  "status": "active",
+  "golden_snapshot": {
+    "path": "G:\\Programming\\Py\\OSBB\\Data\\db\\osbb_test.db",
+    "exists": true,
+    "size_bytes": 2080768,
+    "integrity": "ok",
+    "tables_count": 104,
+    "key_counts": {
+      "apartments": 236,
+      "vehicles": 130,
+      "bot_admins": 2,
+      "service_orders": 6,
+      "service_order_steps": 18,
+      "remote_requests": 0,
+      "remote_order_details": 4,
+      "phone_access_requests": 3,
+      "phone_access_request_points": 6,
+      "payments": 96,
+      "payment_allocations": 13,
+      "cashbox_operations": 97,
+      "operator_audit_log": 152,
+      "commercial_contracts": 0
+    }
+  },
+  "working_initial_snapshot": {
+    "path": "G:\\Programming\\Py\\OSBB\\Data\\db\\working\\osbb_working_pult_order_test_2026-07-02_17-18-39.db",
+    "exists": true,
+    "size_bytes": 2080768,
+    "integrity": "ok",
+    "tables_count": 104,
+    "key_counts": {
+      "apartments": 236,
+      "vehicles": 130,
+      "bot_admins": 2,
+      "service_orders": 6,
+      "service_order_steps": 18,
+      "remote_requests": 0,
+      "remote_order_details": 4,
+      "phone_access_requests": 3,
+      "phone_access_request_points": 6,
+      "payments": 96,
+      "payment_allocations": 13,
+      "cashbox_operations": 97,
+      "operator_audit_log": 152,
+      "commercial_contracts": 0
+    }
+  },
+  "intended_use": "Acceptance test: resident orders remote/pult, operator processes request, cashier/payment path if needed.",
+  "finish": null
+}
