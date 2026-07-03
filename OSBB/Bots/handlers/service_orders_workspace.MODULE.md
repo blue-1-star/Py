@@ -157,10 +157,30 @@ TODO: record confusing old flows, duplicates, copy-files, partial implementation
 ## Current notes
 
 <!-- MODULE_NOTES:BEGIN -->
+- 2026-07-03 17:34:30 - Workflow: new remote/pult order.
+
+Correct order:
+1. Resident requests new remote x2.
+2. Debt check happens before request creation.
+   If debt exists, request is NOT created.
+3. If no debt, system creates request/intention.
+4. System event: operator, cashier, admins see the new request.
+5. Stock reserve:
+   - if stock has enough remotes, reserve x2;
+   - if not, create supplier need.
+6. Cashier accepts payment only after request exists.
+7. After payment, reserved remotes move to issue point.
+8. Issue point/operator gives remotes to resident.
+9. Request is closed.
+
+Important:
+Payment is not the second step. Notification/visibility of the created request is second.
+Stock reservation and transfer to issue point are separate workflow states.
 <!-- MODULE_NOTES:END -->
 
 ## Change log
 
 <!-- MODULE_CHANGELOG:BEGIN -->
 - 2026-07-02 19:49:55 - MODULE.md created by module_registry_manager.py.
+- 2026-07-03 17:34:30 - Note added.
 <!-- MODULE_CHANGELOG:END -->
