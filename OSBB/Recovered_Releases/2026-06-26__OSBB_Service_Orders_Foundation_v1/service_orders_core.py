@@ -86,64 +86,6 @@ def table_columns(cur: sqlite3.Cursor, name: str) -> set[str]:
     return {row[1] for row in cur.fetchall()}
 
 
-
-def _payment_for_service_order_link(
-    cur: sqlite3.Cursor,
-    payment_id: int,
-) -> dict | None:
-    """
-    Read a payment using the columns actually present in the database.
-
-    Historic/current sandbox variants may store the broad service code in
-    ``base_service_code`` rather than ``service_code``. This function exposes
-    one stable dictionary without altering payment history.
-    """
-    if not table_exists(cur, "payments"):
-        raise RuntimeError("Не найдена таблица подтверждённых платежей payments.")
-
-    cols = table_columns(cur, "payments")
-    missing_required = sorted({"id", "amount"} - cols)
-    if missing_required:
-        raise RuntimeError(
-            "В payments отсутствуют обязательные поля: "
-            + ", ".join(missing_required)
-        )
-
-    fields = [
-        "id",
-        "amount",
-        "apartment_id" if "apartment_id" in cols else "NULL AS apartment_id",
-        (
-            "apartment_number"
-            if "apartment_number" in cols
-            else "NULL AS apartment_number"
-        ),
-        (
-            "service_code"
-            if "service_code" in cols
-            else (
-                "base_service_code AS service_code"
-                if "base_service_code" in cols
-                else "NULL AS service_code"
-            )
-        ),
-        (
-            "service_item_code"
-            if "service_item_code" in cols
-            else "NULL AS service_item_code"
-        ),
-        "currency" if "currency" in cols else "'UAH' AS currency",
-    ]
-    return _fetchone_dict(
-        cur,
-        f"""
-        SELECT {", ".join(fields)}
-        FROM payments
-        WHERE id = ?
-        """,
-        (int(payment_id),),
-    )
-
 def required_tables() -> set[str]:
     return {
         "service_workflow_profiles",
@@ -217,15 +159,7 @@ def _service_item(cur: sqlite3.Cursor, service_item_code: str) -> dict:
 
     fields = [
         "service_item_code",
-        (
-            "service_code"
-            if "service_code" in cols
-            else (
-                "base_service_code AS service_code"
-                if "base_service_code" in cols
-                else "NULL AS service_code"
-            )
-        ),
+        "service_code" if "service_code" in cols else "NULL AS service_code",
         "service_item_name" if "service_item_name" in cols else "service_item_code AS service_item_name",
         "amount_default" if "amount_default" in cols else "NULL AS amount_default",
         "currency" if "currency" in cols else "'UAH' AS currency",
@@ -501,10 +435,6 @@ def create_service_order(
     service_item_code: str,
     quantity: float = 1,
     resident_comment: str = "",
-    service_name_snapshot_override: str = "",
-    unit_price_snapshot_override: float | None = None,
-    amount_due_snapshot_override: float | None = None,
-    currency_snapshot_override: str = "",
     actor_id: int | str | None = None,
     actor_role: str = "",
     source_context: str = "",
@@ -537,45 +467,12 @@ def create_service_order(
             category,
         )
 
-        catalog_unit_price, catalog_currency = effective_price(cur, service_item_code)
-        override_used = any(
-            value is not None and value != ""
-            for value in (
-                unit_price_snapshot_override,
-                amount_due_snapshot_override,
-                currency_snapshot_override,
-                service_name_snapshot_override,
-            )
+        unit_price, currency = effective_price(cur, service_item_code)
+        amount_due = (
+            round(float(unit_price) * float(quantity), 2)
+            if unit_price is not None
+            else None
         )
-        if override_used:
-            if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
-                raise ValueError(
-                    "Для фиксированной цены заказа нужны и цена единицы, и итоговая сумма."
-                )
-            unit_price = round(float(unit_price_snapshot_override), 2)
-            amount_due = round(float(amount_due_snapshot_override), 2)
-            if unit_price < 0 or amount_due < 0:
-                raise ValueError("Фиксированная цена заказа не может быть отрицательной.")
-            expected = round(unit_price * float(quantity), 2)
-            if abs(expected - amount_due) > 0.01:
-                raise ValueError(
-                    "Итоговая фиксированная сумма не соответствует цене единицы и количеству."
-                )
-            currency = text(currency_snapshot_override) or text(catalog_currency) or "UAH"
-            service_name_snapshot = (
-                text(service_name_snapshot_override)
-                or text(item.get("service_item_name"))
-                or service_item_code
-            )
-        else:
-            unit_price = catalog_unit_price
-            amount_due = (
-                round(float(unit_price) * float(quantity), 2)
-                if unit_price is not None
-                else None
-            )
-            currency = catalog_currency
-            service_name_snapshot = text(item.get("service_item_name")) or service_item_code
         order_number = _next_order_number(cur)
 
         cur.execute(
@@ -601,7 +498,7 @@ def create_service_order(
                 text(apartment_number),
                 text(item.get("service_code")) or None,
                 service_item_code,
-                service_name_snapshot,
+                text(item.get("service_item_name")) or service_item_code,
                 workflow["workflow_profile_code"],
                 float(quantity),
                 unit_price,
@@ -821,225 +718,44 @@ def link_payment_to_order(
     note: str = "",
     conn: sqlite3.Connection | None = None,
 ) -> dict:
-    # SAFE_PAYMENT_LINK_POLICY_V1
-    #
-    # Payment is evidence of money received, not a generic button that may
-    # close an order. A link is allowed only for the same unit/service and
-    # only up to the remaining amount. PAYMENT_CONFIRMED is set only when
-    # linked money fully covers the order amount.
     owns = conn is None
     conn = conn or get_conn()
     try:
-        ready, reason = schema_ready(conn)
-        if not ready:
-            raise RuntimeError(reason)
-
         cur = conn.cursor()
         order = get_service_order(cur, order_id)
-        if text(order.get("order_status")) in {"COMPLETED", "CANCELLED"}:
-            raise ValueError("Нельзя привязать оплату к завершённой или отменённой заявке.")
-
-        profile = _fetchone_dict(
-            cur,
-            """
-            SELECT service_category
-            FROM service_workflow_profiles
-            WHERE profile_code = ?
-            """,
-            (order["workflow_profile_code"],),
-        ) or {"service_category": "GENERAL"}
-
-        _permission_or_raise(
-            actor_id,
-            "service_order_steps",
-            "CONFIRM",
-            "SERVICE_CATEGORY",
-            text(profile.get("service_category")) or "GENERAL",
-        )
-
-        payment_step = _fetchone_dict(
-            cur,
-            """
-            SELECT *
-            FROM service_order_steps
-            WHERE service_order_id = ?
-              AND step_code = 'PAYMENT_CONFIRMED'
-            """,
-            (int(order_id),),
-        )
-        if not payment_step:
-            raise ValueError("В этой заявке нет шага подтверждения оплаты.")
-
-        payment = _payment_for_service_order_link(cur, int(payment_id))
-        if not payment:
-            raise ValueError("Подтверждённый платёж не найден.")
-
-        same_unit = (
-            order.get("apartment_id") is not None
-            and payment.get("apartment_id") is not None
-            and int(order["apartment_id"]) == int(payment["apartment_id"])
-        )
-        if not same_unit:
-            same_unit = (
-                text(order.get("apartment_number"))
-                and text(order.get("apartment_number"))
-                == text(payment.get("apartment_number"))
-            )
-        if not same_unit:
-            raise ValueError("Платёж относится к другой квартире.")
-
-        order_item = text(order.get("service_item_code"))
-        payment_item = text(payment.get("service_item_code"))
-        if order_item:
-            if payment_item:
-                if payment_item != order_item:
-                    raise ValueError("Платёж относится к другой статье услуги.")
-            else:
-                # Some historic/current payment rows carry only the broad
-                # base service code. It is accepted only on an exact match.
-                order_service_code = text(order.get("service_code"))
-                payment_service_code = text(payment.get("service_code"))
-                if (
-                    not order_service_code
-                    or not payment_service_code
-                    or payment_service_code != order_service_code
-                ):
-                    raise ValueError(
-                        "Платёж не содержит совпадающего кода статьи услуги."
-                    )
-
-        cur.execute(
-            """
-            SELECT service_order_id
-            FROM service_order_payment_links
-            WHERE payment_id = ?
-              AND service_order_id <> ?
-            LIMIT 1
-            """,
-            (int(payment_id), int(order_id)),
-        )
-        if cur.fetchone():
-            raise ValueError("Этот платёж уже привязан к другой заявке.")
-
-        cur.execute(
-            """
-            SELECT COALESCE(SUM(amount), 0)
-            FROM service_order_payment_links
-            WHERE service_order_id = ?
-            """,
-            (int(order_id),),
-        )
-        linked_before = float(cur.fetchone()[0] or 0)
-        due = order.get("amount_due_snapshot")
-        if due is None:
-            raise ValueError("У заявки нет зафиксированной цены; оплату нельзя закрыть автоматически.")
-        due = float(due)
-        if due < 0:
-            raise ValueError("Некорректная сумма заявки.")
-        remaining = max(0.0, due - linked_before)
-
-        payment_total = float(payment.get("amount") or 0)
-        link_amount = payment_total if amount is None else float(amount)
-        if link_amount <= 0:
-            raise ValueError("Сумма привязки должна быть больше нуля.")
-        if link_amount - payment_total > 0.00001:
-            raise ValueError("Нельзя привязать больше, чем сумма подтверждённого платежа.")
-        if link_amount - remaining > 0.00001:
-            raise ValueError("Нельзя привязать больше, чем остаток по заявке.")
-
-        cur.execute(
-            """
-            SELECT amount
-            FROM service_order_payment_links
-            WHERE service_order_id = ?
-              AND payment_id = ?
-            """,
-            (int(order_id), int(payment_id)),
-        )
-        existing = cur.fetchone()
-        if existing:
-            if abs(float(existing[0] or 0) - link_amount) > 0.00001:
-                raise ValueError("Этот платёж уже привязан к заявке с другой суммой.")
-            result_order = recompute_order_status(cur, int(order_id))
-            if owns:
-                conn.commit()
-            return {
-                "order": result_order,
-                "linked_total": linked_before,
-                "remaining": max(0.0, due - linked_before),
-                "payment_confirmed": text(result_order.get("payment_status")) == "CONFIRMED",
-            }
-
         cur.execute(
             """
             INSERT INTO service_order_payment_links (
                 service_order_id, payment_id, amount, linked_at, linked_by, note
             )
             VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(service_order_id, payment_id) DO NOTHING
             """,
             (
-                int(order_id), int(payment_id), link_amount, now_db(),
+                int(order_id), int(payment_id), amount, now_db(),
                 str(actor_id) if actor_id is not None else "system",
                 text(note) or None,
             ),
         )
-        linked_after = linked_before + link_amount
         _event(
             cur,
             order_id=order_id,
             event_type="PAYMENT_LINKED",
             actor_id=actor_id,
             source_context="payment_link",
-            details=(
-                f"payment_id={payment_id}; amount={link_amount}; "
-                f"linked_total={linked_after}; due={due}"
-            ),
+            details=f"payment_id={payment_id}; amount={amount}",
         )
-
-        if linked_after + 0.00001 >= due:
-            result_order = confirm_order_step(
-                order_id=order_id,
-                step_code="PAYMENT_CONFIRMED",
-                actor_id=actor_id,
-                note=note,
-                source_context="payment_link",
-                conn=conn,
-            )
-            confirmed = True
-        else:
-            _event(
-                cur,
-                order_id=order_id,
-                event_type="PAYMENT_PARTIALLY_LINKED",
-                actor_id=actor_id,
-                source_context="payment_link",
-                details=(
-                    f"linked_total={linked_after}; due={due}; "
-                    f"remaining={due - linked_after}"
-                ),
-            )
-            result_order = recompute_order_status(cur, int(order_id))
-            confirmed = False
-
-        _audit_order(
-            conn,
-            actor_id=actor_id,
-            action_type="service_order_payment_linked",
+        result = confirm_order_step(
             order_id=order_id,
-            details=(
-                f"payment={payment_id}; linked={link_amount}; "
-                f"total={linked_after}; due={due}; confirmed={confirmed}"
-            ),
+            step_code="PAYMENT_CONFIRMED",
+            actor_id=actor_id,
+            note=note,
+            source_context="payment_link",
+            conn=conn,
         )
-
         if owns:
             conn.commit()
-        return {
-            "order": result_order,
-            "linked_total": linked_after,
-            "remaining": max(0.0, due - linked_after),
-            "payment_confirmed": confirmed,
-        }
+        return result
     except Exception:
         if owns:
             conn.rollback()
@@ -1047,6 +763,7 @@ def link_payment_to_order(
     finally:
         if owns:
             conn.close()
+
 
 def link_charge_to_order(
     *,

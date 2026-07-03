@@ -86,17 +86,18 @@ def table_columns(cur: sqlite3.Cursor, name: str) -> set[str]:
     return {row[1] for row in cur.fetchall()}
 
 
-
 def _payment_for_service_order_link(
     cur: sqlite3.Cursor,
     payment_id: int,
 ) -> dict | None:
     """
-    Read a payment using the columns actually present in the database.
+    Read a payment using the columns actually present in the current database.
 
-    Historic/current sandbox variants may store the broad service code in
-    ``base_service_code`` rather than ``service_code``. This function exposes
-    one stable dictionary without altering payment history.
+    Payment history was introduced before the service-order workflow and exists
+    in several compatible schema versions. Some databases store a broad
+    service code as ``base_service_code``; some do not have ``service_code`` at
+    all. This helper exposes one stable dictionary to the linking workflow
+    without forcing a destructive migration of historic payments.
     """
     if not table_exists(cur, "payments"):
         raise RuntimeError("Не найдена таблица подтверждённых платежей payments.")
@@ -143,6 +144,7 @@ def _payment_for_service_order_link(
         """,
         (int(payment_id),),
     )
+
 
 def required_tables() -> set[str]:
     return {
@@ -217,15 +219,7 @@ def _service_item(cur: sqlite3.Cursor, service_item_code: str) -> dict:
 
     fields = [
         "service_item_code",
-        (
-            "service_code"
-            if "service_code" in cols
-            else (
-                "base_service_code AS service_code"
-                if "base_service_code" in cols
-                else "NULL AS service_code"
-            )
-        ),
+        "service_code" if "service_code" in cols else "NULL AS service_code",
         "service_item_name" if "service_item_name" in cols else "service_item_code AS service_item_name",
         "amount_default" if "amount_default" in cols else "NULL AS amount_default",
         "currency" if "currency" in cols else "'UAH' AS currency",
@@ -432,6 +426,12 @@ def _derive_status(steps: list[dict]) -> tuple[str, str, str]:
         return "AWAITING_RESIDENT_ASSET", payment_status, "WAITING_FOR_REMOTE"
     if "STOCK_ASSET_RESERVED" in waiting_codes:
         return "AWAITING_STOCK", payment_status, "WAITING_FOR_STOCK"
+    if "SUPPLIER_BATCH_ASSIGNED" in waiting_codes:
+        return "AWAITING_SUPPLIER_ORDER", payment_status, "WAITING_FOR_SUPPLIER_ORDER"
+    if "SUPPLIER_BATCH_RECEIVED" in waiting_codes:
+        return "AWAITING_SUPPLY", payment_status, "WAITING_FOR_SUPPLY"
+    if "REMOTE_BATCH_ISSUED" in waiting_codes:
+        return "READY_FOR_ISSUE", payment_status, "READY_FOR_HANDOVER"
     if "PAYMENT_CONFIRMED" in waiting_codes:
         return "AWAITING_PAYMENT", payment_status, "WAITING_FOR_PAYMENT"
     if "DIGITAL_ACCESS_ACTIVATED" in waiting_codes:
@@ -501,10 +501,6 @@ def create_service_order(
     service_item_code: str,
     quantity: float = 1,
     resident_comment: str = "",
-    service_name_snapshot_override: str = "",
-    unit_price_snapshot_override: float | None = None,
-    amount_due_snapshot_override: float | None = None,
-    currency_snapshot_override: str = "",
     actor_id: int | str | None = None,
     actor_role: str = "",
     source_context: str = "",
@@ -537,45 +533,12 @@ def create_service_order(
             category,
         )
 
-        catalog_unit_price, catalog_currency = effective_price(cur, service_item_code)
-        override_used = any(
-            value is not None and value != ""
-            for value in (
-                unit_price_snapshot_override,
-                amount_due_snapshot_override,
-                currency_snapshot_override,
-                service_name_snapshot_override,
-            )
+        unit_price, currency = effective_price(cur, service_item_code)
+        amount_due = (
+            round(float(unit_price) * float(quantity), 2)
+            if unit_price is not None
+            else None
         )
-        if override_used:
-            if unit_price_snapshot_override is None or amount_due_snapshot_override is None:
-                raise ValueError(
-                    "Для фиксированной цены заказа нужны и цена единицы, и итоговая сумма."
-                )
-            unit_price = round(float(unit_price_snapshot_override), 2)
-            amount_due = round(float(amount_due_snapshot_override), 2)
-            if unit_price < 0 or amount_due < 0:
-                raise ValueError("Фиксированная цена заказа не может быть отрицательной.")
-            expected = round(unit_price * float(quantity), 2)
-            if abs(expected - amount_due) > 0.01:
-                raise ValueError(
-                    "Итоговая фиксированная сумма не соответствует цене единицы и количеству."
-                )
-            currency = text(currency_snapshot_override) or text(catalog_currency) or "UAH"
-            service_name_snapshot = (
-                text(service_name_snapshot_override)
-                or text(item.get("service_item_name"))
-                or service_item_code
-            )
-        else:
-            unit_price = catalog_unit_price
-            amount_due = (
-                round(float(unit_price) * float(quantity), 2)
-                if unit_price is not None
-                else None
-            )
-            currency = catalog_currency
-            service_name_snapshot = text(item.get("service_item_name")) or service_item_code
         order_number = _next_order_number(cur)
 
         cur.execute(
@@ -601,7 +564,7 @@ def create_service_order(
                 text(apartment_number),
                 text(item.get("service_code")) or None,
                 service_item_code,
-                service_name_snapshot,
+                text(item.get("service_item_name")) or service_item_code,
                 workflow["workflow_profile_code"],
                 float(quantity),
                 unit_price,
@@ -895,8 +858,10 @@ def link_payment_to_order(
                 if payment_item != order_item:
                     raise ValueError("Платёж относится к другой статье услуги.")
             else:
-                # Some historic/current payment rows carry only the broad
-                # base service code. It is accepted only on an exact match.
+                # Old payment rows can have no detailed service_item_code.
+                # In that case the broad/base service code is an admissible
+                # fallback only when it matches exactly; a generic payment
+                # must never silently close a service order.
                 order_service_code = text(order.get("service_code"))
                 payment_service_code = text(payment.get("service_code"))
                 if (

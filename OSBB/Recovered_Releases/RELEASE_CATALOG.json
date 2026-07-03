@@ -1,0 +1,282 @@
+[
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox",
+    "bundle": "OSBB_profile_parking_time_test_v1_sandbox.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_parking_time_test_v1_sandbox.zip",
+    "origin_modified": "2026-06-28 12:09:32",
+    "artifacts": 10,
+    "modules": [
+      "CHECK_profile_parking_time_test_sandbox",
+      "INSTALL_profile_parking_time_test",
+      "MIGRATE_profile_parking_time_test_sandbox",
+      "README_PROFILE_PARKING_TIME_TEST",
+      "RUN_CHECK_profile_parking_time_test_sandbox",
+      "RUN_INSTALL_profile_parking_time_test",
+      "RUN_MIGRATE_profile_parking_time_test_sandbox",
+      "profile_parking_time_test_core",
+      "profile_parking_time_test_workspace",
+      "run_bot_live_services_sandbox"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_confirmation_ready_visibility_fix",
+    "bundle": "OSBB_profile_confirmation_ready_visibility_fix.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_confirmation_ready_visibility_fix.zip",
+    "origin_modified": "2026-06-27 21:54:19",
+    "artifacts": 1,
+    "modules": [
+      "profile_verification_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_critical_codes_fix (1)",
+    "bundle": "OSBB_profile_critical_codes_fix (1).zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_critical_codes_fix (1).zip",
+    "origin_modified": "2026-06-27 21:45:41",
+    "artifacts": 1,
+    "modules": [
+      "profile_verification_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_critical_codes_fix",
+    "bundle": "OSBB_profile_critical_codes_fix.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_critical_codes_fix.zip",
+    "origin_modified": "2026-06-27 21:41:13",
+    "artifacts": 1,
+    "modules": [
+      "profile_verification_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_button_early_route_fix_v2",
+    "bundle": "OSBB_profile_button_early_route_fix_v2.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_button_early_route_fix_v2.zip",
+    "origin_modified": "2026-06-27 21:31:44",
+    "artifacts": 1,
+    "modules": [
+      "run_bot_live_services_sandbox"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_verification_terminology_v2 (1)",
+    "bundle": "OSBB_profile_verification_terminology_v2 (1).zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_verification_terminology_v2 (1).zip",
+    "origin_modified": "2026-06-27 21:19:52",
+    "artifacts": 8,
+    "modules": [
+      "CHECK_profile_verification_terminology",
+      "INSTALL_profile_verification_terminology",
+      "README_PROFILE_VERIFICATION_TERMINOLOGY",
+      "RUN_CHECK_profile_verification_terminology",
+      "RUN_INSTALL_profile_verification_terminology",
+      "profile_verification_core",
+      "profile_verification_workspace",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_verification_terminology_v2",
+    "bundle": "OSBB_profile_verification_terminology_v2.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_verification_terminology_v2.zip",
+    "origin_modified": "2026-06-27 21:14:40",
+    "artifacts": 8,
+    "modules": [
+      "CHECK_profile_verification_terminology",
+      "INSTALL_profile_verification_terminology",
+      "README_PROFILE_VERIFICATION_TERMINOLOGY",
+      "RUN_CHECK_profile_verification_terminology",
+      "RUN_INSTALL_profile_verification_terminology",
+      "profile_verification_core",
+      "profile_verification_workspace",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_profile_verification_v1_sandbox_final",
+    "bundle": "OSBB_profile_verification_v1_sandbox_final.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_profile_verification_v1_sandbox_final.zip",
+    "origin_modified": "2026-06-27 20:48:19",
+    "artifacts": 11,
+    "modules": [
+      "CHECK_profile_verification_sandbox",
+      "INSTALL_profile_verification",
+      "MIGRATE_profile_verification_sandbox",
+      "README_PROFILE_VERIFICATION",
+      "RUN_CHECK_profile_verification_sandbox",
+      "RUN_INSTALL_profile_verification",
+      "RUN_MIGRATE_profile_verification_sandbox",
+      "profile_verification_core",
+      "profile_verification_workspace",
+      "run_bot_live_services_sandbox",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_service_code_compatibility_repair_phone_v2",
+    "bundle": "OSBB_service_code_compatibility_repair_phone_v2.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_service_code_compatibility_repair_phone_v2.zip",
+    "origin_modified": "2026-06-27 20:17:47",
+    "artifacts": 3,
+    "modules": [
+      "service_orders_core",
+      "service_orders_workspace",
+      "service_preorders_core"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_cashier_route_repair_after_phone_v2",
+    "bundle": "OSBB_cashier_route_repair_after_phone_v2.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_cashier_route_repair_after_phone_v2.zip",
+    "origin_modified": "2026-06-27 20:00:03",
+    "artifacts": 5,
+    "modules": [
+      "INSTALL_cashier_route_after_phone",
+      "README_CASHIER_ROUTE_REPAIR_AFTER_PHONE",
+      "RUN_CHECK_cashier_route_after_phone",
+      "RUN_INSTALL_cashier_route_after_phone",
+      "run_bot_live_services_sandbox"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox",
+    "bundle": "OSBB_phone_barrier_access_v2_working_sandbox.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_phone_barrier_access_v2_working_sandbox.zip",
+    "origin_modified": "2026-06-27 19:30:44",
+    "artifacts": 12,
+    "modules": [
+      "CHECK_phone_barrier_access_operational_sandbox",
+      "INSTALL_phone_barrier_access",
+      "MIGRATE_phone_barrier_access_operational_sandbox",
+      "README_PHONE_BARRIER_ACCESS",
+      "RUN_CHECK_phone_barrier_access_operational_sandbox",
+      "RUN_INSTALL_phone_barrier_access",
+      "RUN_MIGRATE_phone_barrier_access_operational_sandbox",
+      "phone_barrier_access_core",
+      "phone_barrier_access_service",
+      "service_orders_core",
+      "service_orders_workspace",
+      "service_preorders_core"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_phone_barrier_access_schema_migration",
+    "bundle": "OSBB_phone_barrier_access_schema_migration.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_phone_barrier_access_schema_migration.zip",
+    "origin_modified": "2026-06-27 19:13:15",
+    "artifacts": 6,
+    "modules": [
+      "CHECK_phone_barrier_access_sandbox_schema",
+      "MIGRATE_phone_barrier_access_sandbox",
+      "README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION",
+      "RUN_CHECK_phone_barrier_access_sandbox_schema",
+      "RUN_MIGRATE_phone_barrier_access_sandbox",
+      "phone_barrier_access_core"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_cashier_route_fix",
+    "bundle": "OSBB_cashier_route_fix.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_cashier_route_fix.zip",
+    "origin_modified": "2026-06-27 17:33:08",
+    "artifacts": 2,
+    "modules": [
+      "README_CASHIER_ROUTE_FIX",
+      "run_bot_live_services_sandbox"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_phone_access_ui_fix_v3",
+    "bundle": "OSBB_phone_access_ui_fix_v3.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_phone_access_ui_fix_v3.zip",
+    "origin_modified": "2026-06-27 17:19:31",
+    "artifacts": 4,
+    "modules": [
+      "INSTALL_PHONE_ACCESS_UI_FIX",
+      "README_PHONE_ACCESS_FIX",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_phone_access_ui_fix_v2",
+    "bundle": "OSBB_phone_access_ui_fix_v2.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_phone_access_ui_fix_v2.zip",
+    "origin_modified": "2026-06-27 16:49:42",
+    "artifacts": 4,
+    "modules": [
+      "INSTALL_PHONE_ACCESS_UI_FIX",
+      "README_PHONE_ACCESS_FIX",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_phone_access_ui_fix",
+    "bundle": "OSBB_phone_access_ui_fix.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_phone_access_ui_fix.zip",
+    "origin_modified": "2026-06-27 16:43:01",
+    "artifacts": 3,
+    "modules": [
+      "INSTALL_PHONE_ACCESS_UI_FIX",
+      "README_PHONE_ACCESS_FIX",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_simplified_services_preorders_bundle",
+    "bundle": "OSBB_simplified_services_preorders_bundle.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_simplified_services_preorders_bundle.zip",
+    "origin_modified": "2026-06-27 13:27:22",
+    "artifacts": 7,
+    "modules": [
+      "MIGRATE_simplified_services_sandbox",
+      "RETIRE_legacy_new_remote_test_orders_sandbox",
+      "RUN_MIGRATE_simplified_services_sandbox",
+      "RUN_RETIRE_legacy_new_remote_test_orders_sandbox",
+      "service_orders_core",
+      "service_orders_workspace",
+      "service_preorders_core"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-27__OSBB_live_services_sandbox_bundle",
+    "bundle": "OSBB_live_services_sandbox_bundle.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_live_services_sandbox_bundle.zip",
+    "origin_modified": "2026-06-27 12:14:48",
+    "artifacts": 8,
+    "modules": [
+      "CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER",
+      "README_LIVE_SERVICES_SANDBOX",
+      "STOP_old_guard_sandbox_bots",
+      "Start_OSBB_Live_Services_Sandbox_Bot",
+      "patch_parking_bot_service_orders",
+      "run_bot_live_services_sandbox",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-26__OSBB_Live_Service_UI_v1",
+    "bundle": "OSBB_Live_Service_UI_v1.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_Live_Service_UI_v1.zip",
+    "origin_modified": "2026-06-26 20:40:33",
+    "artifacts": 5,
+    "modules": [
+      "client_portal",
+      "install_service_orders_ui",
+      "patch_parking_bot_service_orders_ui",
+      "run_bot_live_service_sandbox",
+      "service_orders_workspace"
+    ]
+  },
+  {
+    "release_dir": "G:\\Programming\\Py\\OSBB\\Recovered_Releases\\2026-06-26__OSBB_Service_Orders_Foundation_v1",
+    "bundle": "OSBB_Service_Orders_Foundation_v1.zip",
+    "origin_path": "C:\\Users\\first\\Downloads\\OSBB_Service_Orders_Foundation_v1.zip",
+    "origin_modified": "2026-06-26 19:38:38",
+    "artifacts": 3,
+    "modules": [
+      "migrate_service_orders_and_fulfillment",
+      "service_orders_core",
+      "service_orders_preflight"
+    ]
+  }
+]

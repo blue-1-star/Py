@@ -86,64 +86,6 @@ def table_columns(cur: sqlite3.Cursor, name: str) -> set[str]:
     return {row[1] for row in cur.fetchall()}
 
 
-
-def _payment_for_service_order_link(
-    cur: sqlite3.Cursor,
-    payment_id: int,
-) -> dict | None:
-    """
-    Read a payment using the columns actually present in the database.
-
-    Historic/current sandbox variants may store the broad service code in
-    ``base_service_code`` rather than ``service_code``. This function exposes
-    one stable dictionary without altering payment history.
-    """
-    if not table_exists(cur, "payments"):
-        raise RuntimeError("Не найдена таблица подтверждённых платежей payments.")
-
-    cols = table_columns(cur, "payments")
-    missing_required = sorted({"id", "amount"} - cols)
-    if missing_required:
-        raise RuntimeError(
-            "В payments отсутствуют обязательные поля: "
-            + ", ".join(missing_required)
-        )
-
-    fields = [
-        "id",
-        "amount",
-        "apartment_id" if "apartment_id" in cols else "NULL AS apartment_id",
-        (
-            "apartment_number"
-            if "apartment_number" in cols
-            else "NULL AS apartment_number"
-        ),
-        (
-            "service_code"
-            if "service_code" in cols
-            else (
-                "base_service_code AS service_code"
-                if "base_service_code" in cols
-                else "NULL AS service_code"
-            )
-        ),
-        (
-            "service_item_code"
-            if "service_item_code" in cols
-            else "NULL AS service_item_code"
-        ),
-        "currency" if "currency" in cols else "'UAH' AS currency",
-    ]
-    return _fetchone_dict(
-        cur,
-        f"""
-        SELECT {", ".join(fields)}
-        FROM payments
-        WHERE id = ?
-        """,
-        (int(payment_id),),
-    )
-
 def required_tables() -> set[str]:
     return {
         "service_workflow_profiles",
@@ -217,15 +159,7 @@ def _service_item(cur: sqlite3.Cursor, service_item_code: str) -> dict:
 
     fields = [
         "service_item_code",
-        (
-            "service_code"
-            if "service_code" in cols
-            else (
-                "base_service_code AS service_code"
-                if "base_service_code" in cols
-                else "NULL AS service_code"
-            )
-        ),
+        "service_code" if "service_code" in cols else "NULL AS service_code",
         "service_item_name" if "service_item_name" in cols else "service_item_code AS service_item_name",
         "amount_default" if "amount_default" in cols else "NULL AS amount_default",
         "currency" if "currency" in cols else "'UAH' AS currency",
@@ -870,7 +804,17 @@ def link_payment_to_order(
         if not payment_step:
             raise ValueError("В этой заявке нет шага подтверждения оплаты.")
 
-        payment = _payment_for_service_order_link(cur, int(payment_id))
+        payment = _fetchone_dict(
+            cur,
+            """
+            SELECT
+                id, amount, apartment_id, apartment_number,
+                service_code, service_item_code, currency
+            FROM payments
+            WHERE id = ?
+            """,
+            (int(payment_id),),
+        )
         if not payment:
             raise ValueError("Подтверждённый платёж не найден.")
 
@@ -890,23 +834,8 @@ def link_payment_to_order(
 
         order_item = text(order.get("service_item_code"))
         payment_item = text(payment.get("service_item_code"))
-        if order_item:
-            if payment_item:
-                if payment_item != order_item:
-                    raise ValueError("Платёж относится к другой статье услуги.")
-            else:
-                # Some historic/current payment rows carry only the broad
-                # base service code. It is accepted only on an exact match.
-                order_service_code = text(order.get("service_code"))
-                payment_service_code = text(payment.get("service_code"))
-                if (
-                    not order_service_code
-                    or not payment_service_code
-                    or payment_service_code != order_service_code
-                ):
-                    raise ValueError(
-                        "Платёж не содержит совпадающего кода статьи услуги."
-                    )
+        if order_item and payment_item != order_item:
+            raise ValueError("Платёж относится к другой статье услуги.")
 
         cur.execute(
             """
