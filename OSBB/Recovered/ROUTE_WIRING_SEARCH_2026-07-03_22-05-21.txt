@@ -1,0 +1,137 @@
+
+OSBB\Bots\parking_bot - Copy.py:147:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot - Copy.py:1222:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot - Copy.py:1224:            "🔑 Заявки на пульты\n\n"
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:12:    handle_client_portal_text,
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:153:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1044:    # Клиентский кабинет / заявки на пульты
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1048:    # В admin-режиме обрабатывает только «Заявки на пульты».
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1049:    if await handle_client_portal_text(
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1264:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1266:            "🔑 Заявки на пульты\n\n"
+OSBB\Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py:148:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py:1231:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py:1233:            "🔑 Заявки на пульты\n\n"
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:12:    handle_client_portal_text,
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:153:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1043:    # Клиентский кабинет / заявки на пульты
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1047:    # В admin-режиме обрабатывает только «Заявки на пульты».
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1048:    if await handle_client_portal_text(
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1263:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1265:            "🔑 Заявки на пульты\n\n"
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:12:    handle_client_portal_text,
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:153:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1043:    # Клиентский кабинет / заявки на пульты
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1047:    # В admin-режиме обрабатывает только «Заявки на пульты».
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1048:    if await handle_client_portal_text(
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1263:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1265:            "🔑 Заявки на пульты\n\n"
+OSBB\Bots\parking_bot.py:12:    handle_client_portal_text,
+OSBB\Bots\parking_bot.py:154:    ["🔑 Заявки на пульты"],
+OSBB\Bots\parking_bot.py:1106:    # Клиентский кабинет / заявки на пульты
+OSBB\Bots\parking_bot.py:1110:    # В admin-режиме обрабатывает только «Заявки на пульты».
+OSBB\Bots\parking_bot.py:1111:    if await handle_client_portal_text(
+OSBB\Bots\parking_bot.py:1340:    if text == "🔑 Заявки на пульты":
+OSBB\Bots\parking_bot.py:1342:            "🔑 Заявки на пульты\n\n"
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:12:- connects service_orders_workspace to parking_bot in memory;
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:47:WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:391:            "В service_orders_workspace.py не установлена готовая версия "
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:409:        "handlers.service_orders_workspace",
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:429:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py:461:        "await handle_client_portal_text(",
+OSBB\OSBB_Service_Orders_Foundation_v1\service_orders_core.py:871:            VALUES (?, 'ASSET_REGISTERED', ?, ?, ?, 'O', ?, ?, ?)
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:12:- connects service_orders_workspace to parking_bot in memory;
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:47:WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:397:            "В service_orders_workspace.py не установлена готовая версия "
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:415:        "handlers.service_orders_workspace",
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:581:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:622:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\parking_time_test_payload\run_bot_live_services_sandbox_v1.py:654:        "await handle_client_portal_text(",
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1188:    registered = parse_iso_date(registration_date)
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1191:    policy, values = _active_policy(cur, as_of=registered)
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1201:            as_of=registered,
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1207:            as_of=registered,
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1246:        "registration_date": registered.isoformat(),
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1247:        "first_charge_period": first_charge_period(registered),
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1284:            registered_at TEXT,
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1735:    registered_at: str | date | datetime | None = None,
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1754:    registered = parse_iso_date(registered_at).isoformat()
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1759:    policy, values = _active_policy(cur, as_of=registered)
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1763:    first_period = first_charge_period(registered)
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1821:        SET service_order_id = ?, request_status = ?, registered_at = ?,
+OSBB\phone_barrier_access_v2_payload\phone_barrier_access_core.py:1829:            registered,
+OSBB\phone_barrier_access_v2_payload\service_orders_core.py:1083:            VALUES (?, 'ASSET_REGISTERED', ?, ?, ?, 'O', ?, ?, ?)
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:12:- connects service_orders_workspace to parking_bot in memory;
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:47:WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:393:            "В service_orders_workspace.py не установлена готовая версия "
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:411:        "handlers.service_orders_workspace",
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:535:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:576:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py:608:        "await handle_client_portal_text(",
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:12:- connects service_orders_workspace to parking_bot in memory;
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:47:WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:393:            "В service_orders_workspace.py не установлена готовая версия "
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:411:        "handlers.service_orders_workspace",
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:502:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:542:        "    # Клиентский кабинет / заявки на пульты\n"
+OSBB\profile_verification_payload\run_bot_live_services_sandbox_v1.py:574:        "await handle_client_portal_text(",
+OSBB\Runner\run_remote_debt_blocked_probe.py:228:        ("Bots.handlers.service_orders_workspace", ["create_remote_order", "order_new_remote"]),
+OSBB\service_code_compatibility_payload\service_orders_core.py:1154:            VALUES (?, 'ASSET_REGISTERED', ?, ?, ?, 'O', ?, ?, ?)
+OSBB\tools\extract_remote_gate_sources.py:45:    "Bots/handlers/service_orders_workspace.py": [
+OSBB\tools\extract_remote_gate_sources.py:72:    "client_portal_v3",
+OSBB\tools\extract_remote_gate_sources.py:74:    "service_orders_workspace",
+OSBB\tools\find_service_access_policy_integration_points.py:9:- service_orders_workspace
+OSBB\tools\find_service_access_policy_integration_points.py:36:    "Bots/handlers/service_orders_workspace.py",
+OSBB\tools\find_service_access_policy_integration_points.py:39:    "Bots/handlers/client_portal_v3.py",
+OSBB\tools\harvest_osbb_download_zips.py:41:    "service_orders_workspace.py",
+OSBB\tools\inspect_phone_access_legacy.py:134:            "registered_at",
+OSBB\tools\inspect_phone_access_legacy.py:191:        "registered_at",
+OSBB\tools\patch_phone_access_policy_ux_bridge_v1.py:10:TARGET = Path(r"G:\Programming\Py\OSBB\Bots\handlers\service_orders_workspace.py")
+OSBB\tools\patch_resident_identity_decision_v1.py:96:- register payment;
+OSBB\tools\patch_resident_identity_decision_v1.py:198:- accept/register payment;
+OSBB\tools\patch_service_orders_workspace_policy_ux_v1.py:10:TARGET = Path(r"G:\Programming\Py\OSBB\Bots\handlers\service_orders_workspace.py")
+OSBB\tools\patch_service_orders_workspace_policy_ux_v1.py:131:    out_dir = BACKUP_ROOT / f"service_orders_workspace_policy_ux_v1_{stamp}"
+OSBB\tools\patch_service_orders_workspace_policy_ux_v1.py:184:    print("OSBB service_orders_workspace policy UX patch v1")
+OSBB\tools\project_archaeologist.py:80:    "service_orders_workspace.py",
+OSBB\tools\promote_peak_service_orders_workspace.py:4:promote_peak_service_orders_workspace.py
+OSBB\tools\promote_peak_service_orders_workspace.py:6:Promote the best recovered "adult" service_orders_workspace.py into the live OSBB tree.
+OSBB\tools\promote_peak_service_orders_workspace.py:12:    recovered peak 27.06 workspace -> Bots/handlers/service_orders_workspace.py
+OSBB\tools\promote_peak_service_orders_workspace.py:16:    phone_barrier_access_v2_payload\Bots\handlers\service_orders_workspace.py
+OSBB\tools\promote_peak_service_orders_workspace.py:29:    python .\OSBB\tools\promote_peak_service_orders_workspace.py
+OSBB\tools\promote_peak_service_orders_workspace.py:32:    python .\OSBB\tools\promote_peak_service_orders_workspace.py --apply
+OSBB\tools\promote_peak_service_orders_workspace.py:35:    python .\OSBB\tools\promote_peak_service_orders_workspace.py `
+OSBB\tools\promote_peak_service_orders_workspace.py:36:      --source "G:\...\service_orders_workspace.py" `
+OSBB\tools\promote_peak_service_orders_workspace.py:53:DEFAULT_TARGET = DEFAULT_ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+OSBB\tools\promote_peak_service_orders_workspace.py:61:    / "service_orders_workspace.py"
+OSBB\tools\promote_peak_service_orders_workspace.py:71:    "Заявки на пульты",
+OSBB\tools\promote_peak_service_orders_workspace.py:126:    lines.append("# Promote peak service_orders_workspace")
+OSBB\tools\promote_peak_service_orders_workspace.py:176:    lines.append("python -m py_compile .\\OSBB\\Bots\\handlers\\service_orders_workspace.py")
+OSBB\tools\promote_peak_service_orders_workspace.py:177:    lines.append("git diff -- OSBB/Bots/handlers/service_orders_workspace.py")
+OSBB\tools\promote_peak_service_orders_workspace.py:221:    report_path = recovered / f"PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_{stamp}.md"
+OSBB\tools\promote_peak_service_orders_workspace.py:222:    diff_path = recovered / f"PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_{stamp}.patch"
+OSBB\tools\promote_peak_service_orders_workspace.py:233:    print("Promote peak service_orders_workspace")
+OSBB\tools\promote_peak_service_orders_workspace.py:257:            backup = backup_dir / "Bots" / "handlers" / "service_orders_workspace.py"
+OSBB\tools\promote_peak_service_orders_workspace.py:284:        print("python .\\OSBB\\tools\\promote_peak_service_orders_workspace.py --apply")
+OSBB\tools\rank_service_orders_workspace_versions.py:4:rank_service_orders_workspace_versions.py
+OSBB\tools\rank_service_orders_workspace_versions.py:6:Find and rank all service_orders_workspace.py versions in OSBB project/recovered trees.
+OSBB\tools\rank_service_orders_workspace_versions.py:12:  admin "Заявки на пульты", phone access integration, and service_preorders_core support.
+OSBB\tools\rank_service_orders_workspace_versions.py:19:  python .\OSBB\tools\rank_service_orders_workspace_versions.py
+OSBB\tools\rank_service_orders_workspace_versions.py:21:  python .\OSBB\tools\rank_service_orders_workspace_versions.py `
+OSBB\tools\rank_service_orders_workspace_versions.py:26:  OSBB\Recovered\SERVICE_ORDERS_WORKSPACE_RANKING_<timestamp>.md
+OSBB\tools\rank_service_orders_workspace_versions.py:43:    ("client entry: Пульты и доступ", 5, r"Пульты и доступ|Пульти та доступ|Remotes and access"),
+OSBB\tools\rank_service_orders_workspace_versions.py:53:    ("admin remote requests route", 10, r"Заявки на пульты"),
+OSBB\tools\rank_service_orders_workspace_versions.py:149:        "service_orders_workspace.py",
+OSBB\tools\rank_service_orders_workspace_versions.py:155:        if name in names or name.startswith("service_orders_workspace_"):
+OSBB\tools\rank_service_orders_workspace_versions.py:165:    out = out_dir / f"SERVICE_ORDERS_WORKSPACE_RANKING_{stamp}.md"
+OSBB\tools\rank_service_orders_workspace_versions.py:168:    lines.append("# service_orders_workspace.py ranking")
+OSBB\tools\rank_service_orders_workspace_versions.py:235:    print("service_orders_workspace.py version ranking")
+OSBB\tools\remote_debt_gate_audit.py:7:- точечно проверить существующую логику "Пульты и доступ";
+OSBB\tools\remote_debt_gate_audit.py:234:        "Bots/handlers/service_orders_workspace.py",
+OSBB\tools\remote_debt_gate_audit.py:235:        "Bots/handlers/client_portal_v3.py",
+OSBB\tools\remote_debt_gate_audit.py:388:            "Bots/handlers/service_orders_workspace.py",
+OSBB\tools\remote_debt_gate_audit.py:389:            "Bots/handlers/client_portal_v3.py",
+OSBB\tools\remote_debt_gate_audit.py:441:        or "service_orders_workspace.py" in f.path
+OSBB\tools\restore_empty_extraction_trees.py:70:    "service_orders_workspace",
+OSBB\tools\trace_phone_policy_path.py:40:    "Bots/handlers/service_orders_workspace.py",
+OSBB\tools\trace_phone_policy_path.py:135:    workspace = ROOT / "Bots/handlers/service_orders_workspace.py"
+

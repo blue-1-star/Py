@@ -1,0 +1,309 @@
+--- G:\Programming\Py\OSBB\Bots\handlers\service_orders_workspace.py
++++ G:\Programming\Py\OSBB\Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\Bots\handlers\service_orders_workspace.py
+@@ -41,7 +41,6 @@
+     money,
+     record_remote_movement,
+     service_order_summary,
+-    table_columns,
+     text,
+ )
+ from service_preorders_core import (
+@@ -64,11 +63,6 @@
+     supplier_demand,
+     unpaid_interest_totals,
+ )
+-try:
+-    from service_access_policy import ServiceAccessDenied, result_to_short_text
+-except Exception:
+-    ServiceAccessDenied = None
+-    result_to_short_text = None
+ from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+ from phone_barrier_access_service import (
+     activate_phone_barrier_access_order,
+@@ -77,7 +71,6 @@
+     phone_access_summary_for_order,
+     phone_barrier_quote,
+ )
+-from profile_verification_core import phone_access_eligibility
+ 
+ 
+ MODULE = "service_orders_ui"
+@@ -99,8 +92,8 @@
+         "refurbished": "🔄 Получить восстановленный пульт",
+         "phone": "📱 Подключить телефон",
+         "phone_title": "📞 Открытие шлагбаума телефоном",
+-        "phone_intro": "Укажите отдельный номер телефона, которому нужен доступ к шлагбауму. Он может отличаться от контактных номеров в кабинете. После подтверждённой оплаты заявка будет автоматически передана оператору для активации.",
+-        "phone_resident_prompt": "Введіть окремий номер телефону для доступу, наприклад +380501234567. Він не зобов’язаний збігатися з контактними номерами в кабінеті.",
++        "phone_intro": "Укажите номер телефона, которому нужен доступ к шлагбауму. После подтверждённой оплаты заявка будет автоматически передана оператору для активации.",
++        "phone_resident_prompt": "Введите номер телефона для доступа, например +380501234567.",
+         "phone_preview": "📄 Подтверждение намерения — телефонный доступ",
+         "phone_number": "Номер телефона",
+         "phone_operator_title": "📞 Телефонный доступ",
+@@ -164,8 +157,8 @@
+         "refurbished": "🔄 Отримати відновлений пульт",
+         "phone": "📱 Підключити телефон",
+         "phone_title": "📞 Відкриття шлагбаума телефоном",
+-        "phone_intro": "Вкажіть окремий номер телефону, якому потрібен доступ до шлагбаума. Він може відрізнятися від контактних номерів у кабінеті. Після підтвердженої оплати заявку буде автоматично передано оператору для активації.",
+-        "phone_resident_prompt": "Введіть окремий номер телефону для доступу, наприклад +380501234567. Він не зобов’язаний збігатися з контактними номерами в кабінеті.",
++        "phone_intro": "Вкажіть номер телефону, якому потрібен доступ до шлагбаума. Після підтвердженої оплати заявку буде автоматично передано оператору для активації.",
++        "phone_resident_prompt": "Введіть номер телефону для доступу, наприклад +380501234567.",
+         "phone_preview": "📄 Підтвердження наміру — телефонний доступ",
+         "phone_number": "Номер телефону",
+         "phone_operator_title": "📞 Телефонний доступ",
+@@ -226,8 +219,8 @@
+         "refurbished": "🔄 Get refurbished remote",
+         "phone": "📱 Connect phone access",
+         "phone_title": "📞 Phone gate access",
+-        "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+-        "phone_resident_prompt": "Enter the separate access phone number, for example +380501234567. It need not match a profile contact.",
++        "phone_intro": "Enter the phone number that needs gate access. After confirmed payment, the request is automatically sent to an operator for activation.",
++        "phone_resident_prompt": "Enter the access phone number, for example +380501234567.",
+         "phone_preview": "📄 Intent confirmation — phone access",
+         "phone_number": "Phone number",
+         "phone_operator_title": "📞 Phone access",
+@@ -316,10 +309,6 @@
+         ),
+         "debt_mode": "Проверка парковочной задолженности: требуется подтверждение оператора.",
+         "sandbox_activate": "Учётная активация в sandbox; команд реальным контроллерам не отправляется.",
+-        "private_phone_note": (
+-            "Номер для відкриття є окремим непублічним номером доступу. "
+-            "Він може відрізнятися від контактних номерів у кабінеті та не звіряється з ними."
+-        ),
+     },
+     "uk": {
+         "choose_points": "Оберіть, до яких шлагбаумів потрібен доступ.",
+@@ -337,10 +326,6 @@
+         ),
+         "debt_mode": "Перевірка заборгованості за паркування: потрібне підтвердження оператора.",
+         "sandbox_activate": "Облікова активація у sandbox; команд реальним контролерам не надсилається.",
+-        "private_phone_note": (
+-            "Номер для відкриття є окремим непублічним номером доступу. "
+-            "Він може відрізнятися від контактних номерів у кабінеті та не звіряється з ними."
+-        ),
+     },
+     "en": {
+         "choose_points": "Choose the barriers that need access.",
+@@ -358,10 +343,6 @@
+         ),
+         "debt_mode": "Parking-debt check: operator confirmation is required.",
+         "sandbox_activate": "Sandbox accounting activation; no commands are sent to real controllers.",
+-        "private_phone_note": (
+-            "The access number is a separate private credential. It may differ "
+-            "from profile contacts and is not matched against them."
+-        ),
+     },
+ }
+ 
+@@ -543,29 +524,12 @@
+ 
+ 
+ def _current_offers() -> list[dict]:
+-    """
+-    Read offers from both supported service-item schemas.
+-
+-    Some OSBB databases call the broad catalog column ``base_service_code``;
+-    others call it ``service_code``. The UI keeps one stable output field
+-    named ``service_code`` and never assumes a column that is absent.
+-    """
+     conn = get_conn()
+     try:
+         cur = conn.cursor()
+-        item_columns = table_columns(cur, "service_items")
+-        service_code_field = (
+-            "i.service_code AS service_code"
+-            if "service_code" in item_columns
+-            else (
+-                "i.base_service_code AS service_code"
+-                if "base_service_code" in item_columns
+-                else "NULL AS service_code"
+-            )
+-        )
+         cur.execute(
+-            f"""
+-            SELECT i.service_item_code, {service_code_field}, i.service_item_name,
++            """
++            SELECT i.service_item_code, i.service_code, i.service_item_name,
+                    i.service_type, i.amount_default, i.currency,
+                    w.workflow_profile_code, w.resident_request_enabled,
+                    p.service_category, p.profile_name
+@@ -679,7 +643,6 @@
+         points = phone_summary.get("points") or phone_summary.get("subscription_points") or []
+         lines += [
+             f"{phone_tr('uk', 'points')}: {_phone_point_text(points)}",
+-            *(_phone_point_status_lines(points) or ["• Статуси шлагбаумів ще не сформовані"]),
+             f"Телефон доступу: {phone_summary.get('phone_normalized') or _requested_phone(order) or '-'}",
+             f"{phone_tr('uk', 'connect_fee')}: {money(phone_summary.get('connection_total'))} {phone_summary.get('currency') or 'UAH'}",
+             f"{phone_tr('uk', 'monthly_fee')}: {money(phone_summary.get('monthly_total'))} {phone_summary.get('currency') or 'UAH'} {phone_tr('uk', 'monthly_suffix')}",
+@@ -736,78 +699,6 @@
+     ]
+     return "\n".join(lines)
+ 
+-
+-_PROFILE_VERIFY_BUTTON = {
+-    "ru": "📋 Проверить мои данные",
+-    "uk": "📋 Перевірити мої дані",
+-    "en": "📋 Verify my data",
+-}
+-
+-
+-def _phone_profile_gate(data: dict) -> dict:
+-    """Gate phone access by profile readiness, never by phone matching."""
+-    conn = get_conn()
+-    try:
+-        gate = phone_access_eligibility(
+-            resident_account_id=int(data["account"]["id"]),
+-            apartment_id=data["unit"].get("id"),
+-            apartment_number=text(data["unit"].get("apartment_number")),
+-            conn=conn,
+-        )
+-        conn.commit()
+-        return gate
+-    except Exception:
+-        conn.rollback()
+-        raise
+-    finally:
+-        conn.close()
+-
+-
+-def _phone_profile_gate_text(gate: dict) -> str:
+-    structural = gate.get("structural_critical") or []
+-    if structural:
+-        lines = [
+-            "⛔ Підключення телефонного доступу неможливе.",
+-            "",
+-            "Спочатку завершіть обов’язкові дані у кабінеті:",
+-        ]
+-        lines += [f"• {item.get('text')}" for item in structural]
+-    else:
+-        lines = [
+-            "🟡 Обов’язкові дані заповнені, але ще не підтверджені.",
+-            "",
+-            "Відкрийте «Перевірити мої дані» та натисніть:",
+-            "«✅ Підтвердити обов’язкові дані».",
+-        ]
+-    lines += [
+-        "",
+-        "Номер для відкриття є окремим непублічним номером доступу; "
+-        "він може не збігатися з контактними телефонами.",
+-    ]
+-    return "\n".join(lines)
+-
+-
+-def _phone_point_status_lines(points: list[dict]) -> list[str]:
+-    """Show each selected barrier separately in resident/operator order cards."""
+-    result: list[str] = []
+-    icon_by_status = {
+-        "ACTIVE": "✅",
+-        "PENDING_ACTIVATION": "⌛",
+-        "SUSPENDED_FOR_DEBT": "⚠️",
+-        "DEACTIVATED_FOR_DEBT": "⛔",
+-        "DEACTIVATED_MANUAL": "⛔",
+-        "EXTERNAL_SYNC_ERROR": "❌",
+-    }
+-    for point in points:
+-        name = (
+-            text(point.get("access_point_name_snapshot"))
+-            or text(point.get("access_point_name_uk"))
+-            or text(point.get("access_point_code"))
+-        )
+-        status = text(point.get("point_status")) or "PENDING_ACTIVATION"
+-        result.append(f"{icon_by_status.get(status, '•')} {name} — {status}")
+-    return result
+-
+ async def show_resident_services(
+     update: Update,
+     user_states: dict,
+@@ -828,24 +719,6 @@
+     except Exception as exc:
+         await update.message.reply_text(f"⚠️ {exc}")
+         return
+-
+-    if section == "phone":
+-        try:
+-            gate = _phone_profile_gate(data)
+-        except Exception as exc:
+-            await update.message.reply_text(f"⚠️ {exc}")
+-            return
+-        if not gate.get("allowed"):
+-            await update.message.reply_text(
+-                _phone_profile_gate_text(gate),
+-                reply_markup=kb(
+-                    [
+-                        [_PROFILE_VERIFY_BUTTON.get(lang, _PROFILE_VERIFY_BUTTON["ru"])],
+-                        [HOME],
+-                    ]
+-                ),
+-            )
+-            return
+ 
+     state = _state(user_states, user_id, create=True)
+     state.clear()
+@@ -950,7 +823,6 @@
+             f"{phone_tr(lang, 'first_month')}: {quote.get('first_charge_period')}",
+             phone_tr(lang, 'debt_mode'),
+             phone_tr(lang, 'debt_note'),
+-            phone_tr(lang, 'private_phone_note'),
+         ]
+     else:
+         lines += [
+@@ -976,11 +848,6 @@
+         phone = _normalise_phone(state.get("requested_phone"))
+         if not _valid_phone(phone):
+             raise ValueError(tr(state.get("lang") or "ru", "wrong_phone"))
+-        gate = _phone_profile_gate(
+-            {"account": state["account"], "unit": state["unit"]}
+-        )
+-        if not gate.get("allowed"):
+-            raise ValueError(_phone_profile_gate_text(gate))
+         return create_phone_barrier_access_interest(
+             resident_account_id=int(state["account"]["id"]),
+             telegram_user_id=user_id,
+@@ -989,8 +856,7 @@
+             service_item_code=state["offer"]["service_item_code"],
+             phone=phone,
+             access_point_codes=state.get("phone_access_points") or [],
+-            parking_debt_check_mode=text(gate.get("parking_debt_check_mode")) or "MANUAL_REVIEW",
+-            parking_debt_check_note=text(gate.get("parking_debt_check_note")),
++            parking_debt_check_mode="MANUAL_REVIEW",
+         )
+     return create_service_interest(
+         resident_account_id=int(state["account"]["id"]),
+@@ -1206,12 +1072,6 @@
+             try:
+                 interest = _create_interest_from_state(state, user_id)
+             except Exception as exc:
+-                # OSBB_SERVICE_POLICY_UX_V1
+-                if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
+-                    await update.message.reply_text(
+-                        result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
+-                    )
+-                    return True
+                 await update.message.reply_text(f"⚠️ {exc}")
+                 return True
+             await update.message.reply_text(tr(lang, "interest_saved"))
+@@ -1646,12 +1506,6 @@
+             elif action == "issue_new":
+                 issue_new_remotes_from_batch(service_order_id=int(order["id"]), actor_id=user_id)
+         except Exception as exc:
+-            # OSBB_SERVICE_POLICY_UX_V1
+-            if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
+-                await update.message.reply_text(
+-                    result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
+-                )
+-                return True
+             await update.message.reply_text(f"⚠️ {exc}"); return True
+         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
+     if mode == "operator_remote_label":
+@@ -1672,12 +1526,6 @@
+         try:
+             _activate_phone(order, phone, user_id)
+         except Exception as exc:
+-            # OSBB_PHONE_ACCESS_POLICY_UX_BRIDGE_V1
+-            if ServiceAccessDenied is not None and isinstance(exc, ServiceAccessDenied):
+-                await update.message.reply_text(
+-                    result_to_short_text(exc.result) if result_to_short_text else f"⚠️ {exc}"
+-                )
+-                return True
+             await update.message.reply_text(f"⚠️ {exc}"); return True
+         await _show_operator_order(update, state, user_id, int(order["id"]), lang); return True
+     if mode == "operator_demand":
