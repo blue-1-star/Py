@@ -293,16 +293,10 @@ def _osbb_is_bot_admin(user_id: int) -> bool:
 
 def is_admin_user(user_id: int) -> bool:
     """Return True for hardcoded admins, temporary env admins, or active bot_admins."""
-    try:
-        uid = int(user_id)
-    except Exception:
-        return False
-
     return (
-        uid in ADMIN_IDS
-        or uid in SUPER_ADMIN_IDS
-        or uid in _osbb_extra_admin_ids()
-        or _osbb_is_bot_admin(uid)
+        user_id in ADMIN_IDS
+        or is_admin_user(user_id)
+        or _osbb_is_bot_admin(user_id)
     )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -826,6 +820,47 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = user.id
     text = (update.message.text or "").strip()
 
+
+    # =========================
+    # Операторский кабинет услуг
+    # =========================
+    service_state = user_states.get(user_id)
+    service_active = (
+        user_modes.get(user_id) == "service_operator"
+        or (
+            isinstance(service_state, dict)
+            and service_state.get("_module") == "service_orders_ui"
+            and service_state.get("area") == "operator"
+        )
+    )
+
+    if service_active and text in {"🏠 Главное меню", "🏠 Головне меню", "🏠 Main menu", "⬅️ Назад"}:
+        user_states.pop(user_id, None)
+        user_modes.pop(user_id, None)
+        await show_mode_menu(update, lang)
+        return
+
+    service_global_switch = {
+        t["client_mode"],
+        t["admin_mode"],
+        "👤 Клиентский режим", "👤 Режим мешканця", "👤 User mode",
+        "🔐 Админ-режим", "🔐 Адмін-режим", "🔐 Admin mode",
+        "🛡 Пост охраны O",
+        "🔑 Оператор услуг", "🔑 Оператор послуг", "🔑 Service operator",
+        "🔄 Сменить режим", "🔄 Змінити режим", "🔄 Switch mode",
+    }
+    if service_active and text not in service_global_switch:
+        handled = await handle_service_orders_text(
+            update,
+            user_states,
+            user_id,
+            text,
+            lang=lang,
+            user_mode=user_modes.get(user_id),
+        )
+        if handled:
+            return
+
     lang = user_languages.get(user_id, "ru")
 
     upsert_resident_account_from_telegram(user, lang)
@@ -880,47 +915,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     t = TEXTS[lang]
-
-    # =========================
-    # Операторский кабинет услуг
-    # =========================
-    service_state = user_states.get(user_id)
-    service_active = (
-        user_modes.get(user_id) == "service_operator"
-        or (
-            isinstance(service_state, dict)
-            and service_state.get("_module") == "service_orders_ui"
-            and service_state.get("area") == "operator"
-        )
-    )
-
-    if service_active and text in {"🏠 Главное меню", "🏠 Головне меню", "🏠 Main menu", "⬅️ Назад"}:
-        user_states.pop(user_id, None)
-        user_modes.pop(user_id, None)
-        await show_mode_menu(update, lang)
-        return
-
-    service_global_switch = {
-        t["client_mode"],
-        t["admin_mode"],
-        "👤 Клиентский режим", "👤 Режим мешканця", "👤 User mode",
-        "🔐 Админ-режим", "🔐 Адмін-режим", "🔐 Admin mode",
-        "🛡 Пост охраны O",
-        "🔑 Оператор услуг", "🔑 Оператор послуг", "🔑 Service operator",
-        "🔄 Сменить режим", "🔄 Змінити режим", "🔄 Switch mode",
-    }
-    if service_active and text not in service_global_switch:
-        handled = await handle_service_orders_text(
-            update,
-            user_states,
-            user_id,
-            text,
-            lang=lang,
-            user_mode=user_modes.get(user_id),
-        )
-        if handled:
-            return
-
 
     # =========================
     # Реестр помещений

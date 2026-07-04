@@ -293,16 +293,10 @@ def _osbb_is_bot_admin(user_id: int) -> bool:
 
 def is_admin_user(user_id: int) -> bool:
     """Return True for hardcoded admins, temporary env admins, or active bot_admins."""
-    try:
-        uid = int(user_id)
-    except Exception:
-        return False
-
     return (
-        uid in ADMIN_IDS
-        or uid in SUPER_ADMIN_IDS
-        or uid in _osbb_extra_admin_ids()
-        or _osbb_is_bot_admin(uid)
+        user_id in ADMIN_IDS
+        or is_admin_user(user_id)
+        or _osbb_is_bot_admin(user_id)
     )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):

@@ -8,17 +8,7 @@ from handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
 from handlers.vehicle_full_list import handle_vehicle_full_list_text
 from handlers.audit_viewer import handle_audit_viewer_text
-from handlers.guard_workspace import (
-    handle_guard_workspace_text,
-    has_guard_workspace_access,
-    show_guard_workspace,
-)
-from handlers.service_orders_workspace import (
-    handle_service_orders_text,
-    has_service_workspace_access,
-    show_service_operator_workspace,
-)
-from handlers.client_portal_v3 import (
+from handlers.client_portal_v2 import (
     handle_client_portal_text,
     client_menu_keyboard,
     client_welcome_text,
@@ -293,16 +283,10 @@ def _osbb_is_bot_admin(user_id: int) -> bool:
 
 def is_admin_user(user_id: int) -> bool:
     """Return True for hardcoded admins, temporary env admins, or active bot_admins."""
-    try:
-        uid = int(user_id)
-    except Exception:
-        return False
-
     return (
-        uid in ADMIN_IDS
-        or uid in SUPER_ADMIN_IDS
-        or uid in _osbb_extra_admin_ids()
-        or _osbb_is_bot_admin(uid)
+        user_id in ADMIN_IDS
+        or is_admin_user(user_id)
+        or _osbb_is_bot_admin(user_id)
     )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -315,24 +299,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-
-
 async def show_mode_menu(update: Update, lang: str):
     t = TEXTS[lang]
-    user_id = update.effective_user.id
-
-    buttons = [[t["client_mode"]]]
-    if has_guard_workspace_access(user_id, cashbox_code="O"):
-        buttons.append(["🛡 Пост охраны O"])
-    if has_service_workspace_access(user_id):
-        buttons.append(["🔑 Оператор услуг"])
-    if is_admin_user(user_id):
-        buttons.append([t["admin_mode"]])
-
     await update.message.reply_text(
         t["mode"],
-        reply_markup=kb(buttons),
+        reply_markup=kb([[t["client_mode"]], [t["admin_mode"]]]),
     )
+
 
 async def show_client_menu(update: Update, lang: str):
     await update.message.reply_text(
@@ -882,47 +855,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     t = TEXTS[lang]
 
     # =========================
-    # Операторский кабинет услуг
-    # =========================
-    service_state = user_states.get(user_id)
-    service_active = (
-        user_modes.get(user_id) == "service_operator"
-        or (
-            isinstance(service_state, dict)
-            and service_state.get("_module") == "service_orders_ui"
-            and service_state.get("area") == "operator"
-        )
-    )
-
-    if service_active and text in {"🏠 Главное меню", "🏠 Головне меню", "🏠 Main menu", "⬅️ Назад"}:
-        user_states.pop(user_id, None)
-        user_modes.pop(user_id, None)
-        await show_mode_menu(update, lang)
-        return
-
-    service_global_switch = {
-        t["client_mode"],
-        t["admin_mode"],
-        "👤 Клиентский режим", "👤 Режим мешканця", "👤 User mode",
-        "🔐 Админ-режим", "🔐 Адмін-режим", "🔐 Admin mode",
-        "🛡 Пост охраны O",
-        "🔑 Оператор услуг", "🔑 Оператор послуг", "🔑 Service operator",
-        "🔄 Сменить режим", "🔄 Змінити режим", "🔄 Switch mode",
-    }
-    if service_active and text not in service_global_switch:
-        handled = await handle_service_orders_text(
-            update,
-            user_states,
-            user_id,
-            text,
-            lang=lang,
-            user_mode=user_modes.get(user_id),
-        )
-        if handled:
-            return
-
-
-    # =========================
     # Реестр помещений
     # =========================
     # Вызывается до общего state-router, потому что редактор имеет
@@ -933,34 +865,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # =========================
     # Состояния пользователя
     # =========================
-
-
-    # =========================
-    # Отдельный рабочий кабинет охраны
-    # =========================
-    guard_state = user_states.get(user_id)
-    guard_active = (
-        user_modes.get(user_id) == "guard"
-        or (
-            isinstance(guard_state, dict)
-            and guard_state.get("_module") == "guard_workspace_o"
-        )
-    )
-
-    # «Главное меню» должно выйти из рабочего кабинета, а не открыть
-    # его повторно. Это возвращает пользователя к выбору доступных режимов.
-    if guard_active and text in {"🏠 Главное меню", "⬅️ Назад"}:
-        user_states.pop(user_id, None)
-        user_modes.pop(user_id, None)
-        await show_mode_menu(update, lang)
-        return
-
-    if guard_active:
-        handled = await handle_guard_workspace_text(
-            update, user_states, user_id, text, lang=lang
-        )
-        if handled:
-            return
 
     state = user_states.get(user_id)
 
@@ -1185,28 +1089,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await show_client_menu(update, lang)
         return
 
-
-
-    if text in {"🔑 Оператор услуг", "🔑 Оператор послуг", "🔑 Service operator"}:
-        if has_service_workspace_access(user_id):
-            user_modes[user_id] = "service_operator"
-            user_states.pop(user_id, None)
-            await show_service_operator_workspace(
-                update, user_states, user_id, lang=lang
-            )
-        else:
-            await update.message.reply_text("Нет доступа к операторскому кабинету услуг.")
-        return
-
-    if text == "🛡 Пост охраны O":
-        if has_guard_workspace_access(user_id, cashbox_code="O"):
-            user_modes[user_id] = "guard"
-            user_states.pop(user_id, None)
-            await show_guard_workspace(update, user_states, user_id)
-        else:
-            await update.message.reply_text("Нет доступа к посту охраны O.")
-        return
-
     if text in [
         t["admin_mode"],
         "🔐 Админ-режим",
@@ -1218,29 +1100,6 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await show_admin_menu(update)
         else:
             await update.message.reply_text("Нет доступа.")
-        return
-
-
-    # =========================
-    # Явная смена рабочего режима
-    # =========================
-    if text in {"🔄 Сменить режим", "🔄 Змінити режим", "🔄 Switch mode"}:
-        user_states.pop(user_id, None)
-        user_modes.pop(user_id, None)
-        await show_mode_menu(update, lang)
-        return
-
-    # =========================
-    # Заказы услуг: житель и оператор
-    # =========================
-    if await handle_service_orders_text(
-        update,
-        user_states,
-        user_id,
-        text,
-        lang=lang,
-        user_mode=user_modes.get(user_id),
-    ):
         return
 
     # =========================
