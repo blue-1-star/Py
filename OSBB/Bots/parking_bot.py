@@ -8,12 +8,17 @@ from handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
 from handlers.vehicle_full_list import handle_vehicle_full_list_text
 from handlers.audit_viewer import handle_audit_viewer_text
-from handlers.client_portal import (
+from handlers.guard_workspace import (
+    handle_guard_workspace_text,
+    has_guard_workspace_access,
+    show_guard_workspace,
+)
+from handlers.client_portal_v2 import (
     handle_client_portal_text,
     client_menu_keyboard,
     client_welcome_text,
 )
-from handlers.cashier_operator import handle_cashier_operator_text
+from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text
 from handlers.unit_registry_editor import handle_unit_registry_editor_text
 BOT_DIR = Path(__file__).resolve().parent
 OSBB_ROOT = BOT_DIR.parent
@@ -299,13 +304,21 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
+
 async def show_mode_menu(update: Update, lang: str):
     t = TEXTS[lang]
+    user_id = update.effective_user.id
+
+    buttons = [[t["client_mode"]]]
+    if has_guard_workspace_access(user_id, cashbox_code="O"):
+        buttons.append(["🛡 Пост охраны O"])
+    if is_admin_user(user_id):
+        buttons.append([t["admin_mode"]])
+
     await update.message.reply_text(
         t["mode"],
-        reply_markup=kb([[t["client_mode"]], [t["admin_mode"]]]),
+        reply_markup=kb(buttons),
     )
-
 
 async def show_client_menu(update: Update, lang: str):
     await update.message.reply_text(
@@ -866,6 +879,34 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Состояния пользователя
     # =========================
 
+
+    # =========================
+    # Отдельный рабочий кабинет охраны
+    # =========================
+    guard_state = user_states.get(user_id)
+    guard_active = (
+        user_modes.get(user_id) == "guard"
+        or (
+            isinstance(guard_state, dict)
+            and guard_state.get("_module") == "guard_workspace_o"
+        )
+    )
+
+    # «Главное меню» должно выйти из рабочего кабинета, а не открыть
+    # его повторно. Это возвращает пользователя к выбору доступных режимов.
+    if guard_active and text in {"🏠 Главное меню", "⬅️ Назад"}:
+        user_states.pop(user_id, None)
+        user_modes.pop(user_id, None)
+        await show_mode_menu(update, lang)
+        return
+
+    if guard_active:
+        handled = await handle_guard_workspace_text(
+            update, user_states, user_id, text, lang=lang
+        )
+        if handled:
+            return
+
     state = user_states.get(user_id)
 
     if state == "waiting_apartment":
@@ -1089,6 +1130,16 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await show_client_menu(update, lang)
         return
 
+
+    if text == "🛡 Пост охраны O":
+        if has_guard_workspace_access(user_id, cashbox_code="O"):
+            user_modes[user_id] = "guard"
+            user_states.pop(user_id, None)
+            await show_guard_workspace(update, user_states, user_id)
+        else:
+            await update.message.reply_text("Нет доступа к посту охраны O.")
+        return
+
     if text in [
         t["admin_mode"],
         "🔐 Админ-режим",
@@ -1124,7 +1175,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # =========================
     # O — основная касса охраны; K1..K6 — отдельные точки консьержей.
     # Обработчик вызывается до старого router состояний.
-    if await handle_cashier_operator_text(
+    if await handle_cashier_operator_v2_text(
         update,
         user_states,
         user_id,
