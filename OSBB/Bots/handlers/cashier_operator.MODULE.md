@@ -137,3 +137,41 @@ TODO: record confusing old flows, duplicates, copy-files, partial implementation
 <!-- MODULE_CHANGELOG:BEGIN -->
 - 2026-07-02 19:49:54 - MODULE.md created by module_registry_manager.py.
 <!-- MODULE_CHANGELOG:END -->
+
+---
+
+<!-- Added by OSBB Documentator: 2026-07-05 11:32:18 -->
+
+## Parking Payments and parking_time Reconciliation
+
+Date: 2026-07-05
+
+Parking payments are not just financial records.
+
+A confirmed parking payment can be used as strong evidence for filling missing parking registry data, especially `parking_time`.
+
+The cashier workflow should preserve enough information for later reconciliation:
+
+- apartment number
+- payment date
+- amount
+- tariff/service code
+- comment/source document
+- cashier/operator
+- source reference
+- possible vehicle binding when known
+
+Payment-based inference must be reviewed when there are conflicts:
+
+- multiple vehicles for one apartment
+- vehicle not linked to payment
+- conflicting parking mode in registry
+- historical/bulk payment source is ambiguous
+
+Planned functionality:
+
+- single payment entry
+- historical payment entry
+- bulk payment input from paper sheets
+- reporting payments that can fill missing `parking_time`
+- creating review candidates for admin/operator approval

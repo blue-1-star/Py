@@ -118,3 +118,34 @@ TODO: record confusing old flows, duplicates, copy-files, partial implementation
 <!-- MODULE_CHANGELOG:BEGIN -->
 - 2026-07-02 19:49:55 - MODULE.md created by module_registry_manager.py.
 <!-- MODULE_CHANGELOG:END -->
+
+---
+
+<!-- Added by OSBB Documentator: 2026-07-05 11:32:18 -->
+
+## parking_time Reconciliation from Payments
+
+Date: 2026-07-05
+
+Vehicle verification must take cashier data into account.
+
+A confirmed parking payment may indicate that a resident has effectively confirmed a parking mode by paying for it.
+
+Planned checks:
+
+- vehicles with empty `parking_time`
+- apartments with confirmed parking payments
+- mismatch between paid tariff and registered parking mode
+- apartments with more than one vehicle and unclear payment mapping
+- residents who paid but have incomplete vehicle data
+
+The system should create correction candidates instead of silently changing registry data.
+
+Candidate sources:
+
+- cashier payment
+- historical payment import
+- guard correction proposal
+- resident confirmation
+
+Final update requires admin/operator approval unless policy explicitly allows automatic confirmation.

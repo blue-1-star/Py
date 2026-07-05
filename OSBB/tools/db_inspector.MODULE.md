@@ -38,3 +38,37 @@ python .\tools\db_inspector.py search cash
 This tool belongs to the project maintenance layer.
 
 It should grow into a reusable inspection API before any web dashboard is built.
+
+---
+
+<!-- Added by OSBB Documentator: 2026-07-05 11:32:18 -->
+
+## Planned command: parking-time-candidates
+
+Date: 2026-07-05
+
+`db_inspector.py` should grow a diagnostic command:
+
+```powershell
+python .\OSBB	ools\db_inspector.py parking-time-candidates
+```
+
+Purpose:
+
+Find cases where parking payments exist but `parking_time` is empty or inconsistent.
+
+The command should not change the database.
+
+It should report:
+
+- apartment
+- vehicle if known
+- payment id
+- payment date
+- amount
+- source_ref
+- inferred parking mode
+- conflict markers
+- recommended next action
+
+This command is the diagnostic predecessor of a future reconciliation tool.
