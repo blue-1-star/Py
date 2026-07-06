@@ -1,0 +1,709 @@
+====================================================================================================
+ACCESS CONTROL SCHEMA
+====================================================================================================
+
+====================================================================================================
+access_audit_log
+====================================================================================================
+CREATE TABLE access_audit_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            actor_telegram_user_id TEXT NOT NULL,
+            action_type TEXT NOT NULL,
+            resource TEXT NOT NULL,
+            action TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            target_table TEXT,
+            target_id TEXT,
+            success INTEGER NOT NULL DEFAULT 1,
+            details TEXT
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  created_at                TEXT            NOTNULL=1 PK=0
+  actor_telegram_user_id    TEXT            NOTNULL=1 PK=0
+  action_type               TEXT            NOTNULL=1 PK=0
+  resource                  TEXT            NOTNULL=1 PK=0
+  action                    TEXT            NOTNULL=1 PK=0
+  scope_type                TEXT            NOTNULL=1 PK=0
+  scope_value               TEXT            NOTNULL=1 PK=0
+  target_table              TEXT            NOTNULL=0 PK=0
+  target_id                 TEXT            NOTNULL=0 PK=0
+  success                   INTEGER         NOTNULL=1 PK=0
+  details                   TEXT            NOTNULL=0 PK=0
+
+Rows: 8
+
+Sample:
+{'id': 1, 'created_at': '2026-06-26 20:53:46', 'actor_telegram_user_id': 'LIVE_SERVICE_SANDBOX', 'action_type': 'service_test_setup', 'resource': 'service_orders', 'action': 'SETUP', 'scope_type': 'ALL', 'scope_value': '*', 'target_table': 'service_catalog', 'target_id': '', 'success': 1, 'details': "user=210312208; offers=4; new_assets=['TEST-NEW-001', 'TEST-NEW-002', 'TEST-REF-001', 'TEST-REF-002']"}
+{'id': 2, 'created_at': '2026-06-26 21:00:59', 'actor_telegram_user_id': '210312208', 'action_type': 'resident_service_order_created', 'resource': 'service_orders', 'action': 'CREATE', 'scope_type': 'UNIT', 'scope_value': '174', 'target_table': 'service_orders', 'target_id': '1', 'success': 1, 'details': 'resident request SO-20260626-000001; TEST_REMOTE_REPROGRAM_OWN'}
+{'id': 3, 'created_at': '2026-06-26 21:12:54', 'actor_telegram_user_id': '210312208', 'action_type': 'resident_remote_received', 'resource': 'service_orders', 'action': 'CONFIRM', 'scope_type': 'SERVICE_CATEGORY', 'scope_value': 'REMOTE', 'target_table': 'service_orders', 'target_id': '1', 'success': 1, 'details': 'asset=OLD-174-01'}
+{'id': 4, 'created_at': '2026-06-26 21:19:25', 'actor_telegram_user_id': '210312208', 'action_type': 'guard_o_cash_notice_confirmed', 'resource': 'payment_notices', 'action': 'CONFIRM', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'target_table': 'payment_notices', 'target_id': '1', 'success': 1, 'details': 'Пост O подтвердил наличные. receipt=1; payment=93.'}
+{'id': 5, 'created_at': '2026-06-27 12:36:56', 'actor_telegram_user_id': '210312208', 'action_type': 'resident_remote_returned', 'resource': 'service_orders', 'action': 'CONFIRM', 'scope_type': 'SERVICE_CATEGORY', 'scope_value': 'REMOTE', 'target_table': 'service_orders', 'target_id': '1', 'success': 1, 'details': 'asset_id=5'}
+
+====================================================================================================
+access_debt_warnings
+====================================================================================================
+CREATE TABLE access_debt_warnings (
+            id INTEGER PRIMARY KEY,
+            warning_number TEXT NOT NULL UNIQUE,
+            subscription_id INTEGER NOT NULL,
+            debt_source TEXT NOT NULL
+                CHECK(debt_source IN (
+                    'PARKING_ARREARS',
+                    'PHONE_ACCESS_SUBSCRIPTION_ARREARS'
+                )),
+            source_charge_id INTEGER,
+            debt_amount_snapshot REAL NOT NULL CHECK(debt_amount_snapshot >= 0),
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            source_reference TEXT,
+            detected_at TEXT NOT NULL,
+            warning_sent_at TEXT,
+            grace_days_snapshot INTEGER NOT NULL CHECK(grace_days_snapshot >= 0),
+            deactivate_due_at TEXT NOT NULL,
+            policy_version_id INTEGER,
+            warning_status TEXT NOT NULL DEFAULT 'OPEN'
+                CHECK(warning_status IN (
+                    'OPEN', 'RESOLVED', 'CANCELLED',
+                    'DEACTIVATION_QUEUED', 'DEACTIVATED'
+                )),
+            resolved_at TEXT,
+            resolution_note TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  warning_number            TEXT            NOTNULL=1 PK=0
+  subscription_id           INTEGER         NOTNULL=1 PK=0
+  debt_source               TEXT            NOTNULL=1 PK=0
+  source_charge_id          INTEGER         NOTNULL=0 PK=0
+  debt_amount_snapshot      REAL            NOTNULL=1 PK=0
+  currency                  TEXT            NOTNULL=1 PK=0
+  source_reference          TEXT            NOTNULL=0 PK=0
+  detected_at               TEXT            NOTNULL=1 PK=0
+  warning_sent_at           TEXT            NOTNULL=0 PK=0
+  grace_days_snapshot       INTEGER         NOTNULL=1 PK=0
+  deactivate_due_at         TEXT            NOTNULL=1 PK=0
+  policy_version_id         INTEGER         NOTNULL=0 PK=0
+  warning_status            TEXT            NOTNULL=1 PK=0
+  resolved_at               TEXT            NOTNULL=0 PK=0
+  resolution_note           TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 0
+
+====================================================================================================
+access_external_commands
+====================================================================================================
+CREATE TABLE access_external_commands (
+            id INTEGER PRIMARY KEY,
+            command_number TEXT NOT NULL UNIQUE,
+            subscription_id INTEGER NOT NULL,
+            subscription_point_id INTEGER NOT NULL,
+            access_point_code TEXT NOT NULL,
+            command_action TEXT NOT NULL
+                CHECK(command_action IN ('ACTIVATE', 'DEACTIVATE')),
+            phone_snapshot TEXT NOT NULL,
+            command_status TEXT NOT NULL DEFAULT 'QUEUED'
+                CHECK(command_status IN (
+                    'QUEUED', 'SENT', 'CONFIRMED', 'FAILED',
+                    'RETRY_SCHEDULED', 'CANCELLED'
+                )),
+            attempt_number INTEGER NOT NULL DEFAULT 0 CHECK(attempt_number >= 0),
+            external_correlation_id TEXT,
+            payload_json TEXT,
+            last_error TEXT,
+            queued_at TEXT NOT NULL,
+            sent_at TEXT,
+            confirmed_at TEXT,
+            failed_at TEXT,
+            retry_at TEXT,
+            created_by TEXT,
+            updated_at TEXT NOT NULL
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  command_number            TEXT            NOTNULL=1 PK=0
+  subscription_id           INTEGER         NOTNULL=1 PK=0
+  subscription_point_id     INTEGER         NOTNULL=1 PK=0
+  access_point_code         TEXT            NOTNULL=1 PK=0
+  command_action            TEXT            NOTNULL=1 PK=0
+  phone_snapshot            TEXT            NOTNULL=1 PK=0
+  command_status            TEXT            NOTNULL=1 PK=0
+  attempt_number            INTEGER         NOTNULL=1 PK=0
+  external_correlation_id   TEXT            NOTNULL=0 PK=0
+  payload_json              TEXT            NOTNULL=0 PK=0
+  last_error                TEXT            NOTNULL=0 PK=0
+  queued_at                 TEXT            NOTNULL=1 PK=0
+  sent_at                   TEXT            NOTNULL=0 PK=0
+  confirmed_at              TEXT            NOTNULL=0 PK=0
+  failed_at                 TEXT            NOTNULL=0 PK=0
+  retry_at                  TEXT            NOTNULL=0 PK=0
+  created_by                TEXT            NOTNULL=0 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 0
+
+====================================================================================================
+access_operation_journal
+====================================================================================================
+CREATE TABLE access_operation_journal (
+            id INTEGER PRIMARY KEY,
+            event_number TEXT NOT NULL UNIQUE,
+            subscription_id INTEGER,
+            subscription_point_id INTEGER,
+            access_point_code TEXT,
+            event_type TEXT NOT NULL,
+            old_status TEXT,
+            new_status TEXT,
+            actor_id TEXT,
+            source_context TEXT,
+            correlation_id TEXT,
+            payload_json TEXT,
+            created_at TEXT NOT NULL
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  event_number              TEXT            NOTNULL=1 PK=0
+  subscription_id           INTEGER         NOTNULL=0 PK=0
+  subscription_point_id     INTEGER         NOTNULL=0 PK=0
+  access_point_code         TEXT            NOTNULL=0 PK=0
+  event_type                TEXT            NOTNULL=1 PK=0
+  old_status                TEXT            NOTNULL=0 PK=0
+  new_status                TEXT            NOTNULL=0 PK=0
+  actor_id                  TEXT            NOTNULL=0 PK=0
+  source_context            TEXT            NOTNULL=0 PK=0
+  correlation_id            TEXT            NOTNULL=0 PK=0
+  payload_json              TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 8
+
+Sample:
+{'id': 1, 'event_number': 'MIG-PHONE_BARRIER_ACCESS_SCHEMA_V1', 'subscription_id': None, 'subscription_point_id': None, 'access_point_code': None, 'event_type': 'SCHEMA_MIGRATION_APPLIED', 'old_status': None, 'new_status': None, 'actor_id': 'sandbox_phone_barrier_access_migration', 'source_context': 'phone_barrier_access_schema', 'correlation_id': None, 'payload_json': '{"created_tables": ["access_debt_warnings", "access_external_commands", "access_operation_journal", "access_points", "access_policy_values", "access_policy_versions", "access_schema_migrations", "access_tariff_versions", "phone_access_subscription_charges", "phone_access_subscription_points", "phone_access_subscriptions"], "effective_from": "2026-06-27", "migration_code": "PHONE_BARRIER_ACCESS_SCHEMA_V1"}', 'created_at': '2026-06-27 19:16:27'}
+{'id': 2, 'event_number': 'MIG-PHONE_BARRIER_ACCESS_OPERATIONAL_SCHEMA_V2', 'subscription_id': None, 'subscription_point_id': None, 'access_point_code': None, 'event_type': 'SCHEMA_MIGRATION_APPLIED', 'old_status': None, 'new_status': None, 'actor_id': 'sandbox_phone_barrier_access_operational_migration', 'source_context': 'phone_barrier_access_operational_schema', 'correlation_id': None, 'payload_json': '{"created_tables": ["phone_access_request_points", "phone_access_requests"], "migration_code": "PHONE_BARRIER_ACCESS_OPERATIONAL_SCHEMA_V2"}', 'created_at': '2026-06-27 19:38:09'}
+{'id': 3, 'event_number': 'AOP-20260627-000001', 'subscription_id': None, 'subscription_point_id': None, 'access_point_code': None, 'event_type': 'PHONE_ACCESS_INTEREST_CREATED', 'old_status': None, 'new_status': None, 'actor_id': '210312208', 'source_context': 'phone_access_request', 'correlation_id': None, 'payload_json': '{"access_points": ["BARRIER_FAR_01", "BARRIER_NEAR_02"], "connection_total": 400.0, "interest_id": 3, "monthly_total": 200.0, "phone": "+380501234567", "request_number": "PAR-20260627-000001"}', 'created_at': '2026-06-27 19:50:10'}
+{'id': 4, 'event_number': 'AOP-20260627-000002', 'subscription_id': None, 'subscription_point_id': None, 'access_point_code': None, 'event_type': 'PHONE_ACCESS_SUBSCRIPTION_CREATED', 'old_status': None, 'new_status': None, 'actor_id': 'system', 'source_context': 'paid_phone_access_interest', 'correlation_id': None, 'payload_json': '{"access_points": ["BARRIER_FAR_01", "BARRIER_NEAR_02"], "first_charge_period": "2026-07", "order_id": 6, "payment_id": 96, "request_number": "PAR-20260627-000001", "subscription_number": "PAS-20260627-000001"}', 'created_at': '2026-06-27 20:21:58'}
+{'id': 5, 'event_number': 'AOP-20260627-000003', 'subscription_id': None, 'subscription_point_id': None, 'access_point_code': None, 'event_type': 'PHONE_ACCESS_POINT_ACTIVATED', 'old_status': None, 'new_status': None, 'actor_id': '210312208', 'source_context': 'sandbox_accounting_activation', 'correlation_id': None, 'payload_json': '{"access_point_code": "BARRIER_FAR_01", "order_id": 6, "phone": "+380501234567", "subscription_id": 1}', 'created_at': '2026-06-27 20:23:46'}
+
+====================================================================================================
+access_permissions
+====================================================================================================
+CREATE TABLE access_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            permission_code TEXT UNIQUE NOT NULL,
+            permission_name TEXT NOT NULL,
+            category TEXT,
+            description TEXT,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT)
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  permission_code           TEXT            NOTNULL=1 PK=0
+  permission_name           TEXT            NOTNULL=1 PK=0
+  category                  TEXT            NOTNULL=0 PK=0
+  description               TEXT            NOTNULL=0 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=0 PK=0
+
+Rows: 0
+
+====================================================================================================
+access_points
+====================================================================================================
+CREATE TABLE access_points (
+            id INTEGER PRIMARY KEY,
+            access_point_code TEXT NOT NULL UNIQUE,
+            display_name_uk TEXT NOT NULL,
+            display_name_ru TEXT NOT NULL,
+            display_name_en TEXT NOT NULL,
+            point_status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(point_status IN ('DRAFT', 'ACTIVE', 'RETIRED', 'ARCHIVED')),
+            controller_type TEXT,
+            controller_reference TEXT,
+            is_active INTEGER NOT NULL DEFAULT 1 CHECK(is_active IN (0, 1)),
+            effective_from TEXT NOT NULL,
+            effective_to TEXT,
+            retired_at TEXT,
+            retired_reason TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  access_point_code         TEXT            NOTNULL=1 PK=0
+  display_name_uk           TEXT            NOTNULL=1 PK=0
+  display_name_ru           TEXT            NOTNULL=1 PK=0
+  display_name_en           TEXT            NOTNULL=1 PK=0
+  point_status              TEXT            NOTNULL=1 PK=0
+  controller_type           TEXT            NOTNULL=0 PK=0
+  controller_reference      TEXT            NOTNULL=0 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  effective_from            TEXT            NOTNULL=1 PK=0
+  effective_to              TEXT            NOTNULL=0 PK=0
+  retired_at                TEXT            NOTNULL=0 PK=0
+  retired_reason            TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 2
+
+Sample:
+{'id': 1, 'access_point_code': 'BARRIER_FAR_01', 'display_name_uk': 'Далекий шлагбаум №1', 'display_name_ru': 'Дальний шлагбаум №1', 'display_name_en': 'Far barrier No. 1', 'point_status': 'ACTIVE', 'controller_type': None, 'controller_reference': None, 'is_active': 1, 'effective_from': '2026-06-27', 'effective_to': None, 'retired_at': None, 'retired_reason': None, 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 2, 'access_point_code': 'BARRIER_NEAR_02', 'display_name_uk': 'Ближній шлагбаум №2', 'display_name_ru': 'Ближний шлагбаум №2', 'display_name_en': 'Near barrier No. 2', 'point_status': 'ACTIVE', 'controller_type': None, 'controller_reference': None, 'is_active': 1, 'effective_from': '2026-06-27', 'effective_to': None, 'retired_at': None, 'retired_reason': None, 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+
+====================================================================================================
+access_policy_values
+====================================================================================================
+CREATE TABLE access_policy_values (
+            id INTEGER PRIMARY KEY,
+            policy_version_id INTEGER NOT NULL,
+            setting_code TEXT NOT NULL,
+            value_type TEXT NOT NULL
+                CHECK(value_type IN ('TEXT', 'INTEGER', 'BOOLEAN', 'JSON')),
+            value_text TEXT NOT NULL,
+            description TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(policy_version_id, setting_code)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  policy_version_id         INTEGER         NOTNULL=1 PK=0
+  setting_code              TEXT            NOTNULL=1 PK=0
+  value_type                TEXT            NOTNULL=1 PK=0
+  value_text                TEXT            NOTNULL=1 PK=0
+  description               TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 5
+
+Sample:
+{'id': 1, 'policy_version_id': 1, 'setting_code': 'PHONE_ACCESS_DEBT_GRACE_DAYS', 'value_type': 'INTEGER', 'value_text': '10', 'description': 'Grace period after a confirmed debt warning, in calendar days.', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 2, 'policy_version_id': 1, 'setting_code': 'PHONE_ACCESS_MONTHLY_START_RULE', 'value_type': 'TEXT', 'value_text': 'MIDPOINT_OF_CALENDAR_MONTH', 'description': 'Current month up to the month midpoint; next month after it.', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 3, 'policy_version_id': 1, 'setting_code': 'PHONE_ACCESS_AUTO_DEACTIVATE_ENABLED', 'value_type': 'BOOLEAN', 'value_text': '1', 'description': 'After the grace deadline, deactivate all selected access points.', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 4, 'policy_version_id': 1, 'setting_code': 'PHONE_ACCESS_DEFAULT_PARKING_DEBT_MODE', 'value_type': 'TEXT', 'value_text': 'MANUAL_REVIEW', 'description': 'Safe default: no automatic parking-debt action until verified.', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 5, 'policy_version_id': 1, 'setting_code': 'PHONE_ACCESS_REAPPLICATION_NEW_SUBSCRIPTION', 'value_type': 'BOOLEAN', 'value_text': '1', 'description': 'Re-access after debt deactivation creates a new subscription.', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+
+====================================================================================================
+access_policy_versions
+====================================================================================================
+CREATE TABLE access_policy_versions (
+            id INTEGER PRIMARY KEY,
+            policy_set_code TEXT NOT NULL,
+            version_number INTEGER NOT NULL CHECK(version_number > 0),
+            policy_status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(policy_status IN ('DRAFT', 'ACTIVE', 'RETIRED', 'ARCHIVED')),
+            effective_from TEXT NOT NULL,
+            effective_to TEXT,
+            approved_by TEXT,
+            approval_reference TEXT,
+            change_reason TEXT,
+            created_by TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(policy_set_code, version_number),
+            UNIQUE(policy_set_code, effective_from)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  policy_set_code           TEXT            NOTNULL=1 PK=0
+  version_number            INTEGER         NOTNULL=1 PK=0
+  policy_status             TEXT            NOTNULL=1 PK=0
+  effective_from            TEXT            NOTNULL=1 PK=0
+  effective_to              TEXT            NOTNULL=0 PK=0
+  approved_by               TEXT            NOTNULL=0 PK=0
+  approval_reference        TEXT            NOTNULL=0 PK=0
+  change_reason             TEXT            NOTNULL=0 PK=0
+  created_by                TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 1
+
+Sample:
+{'id': 1, 'policy_set_code': 'PHONE_BARRIER_ACCESS', 'version_number': 1, 'policy_status': 'ACTIVE', 'effective_from': '2026-06-27', 'effective_to': None, 'approved_by': None, 'approval_reference': 'SANDBOX_INITIAL_SEED', 'change_reason': 'Initial agreed phone-barrier policy for sandbox.', 'created_by': 'sandbox_phone_barrier_access_migration', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+
+====================================================================================================
+access_role_permissions
+====================================================================================================
+CREATE TABLE access_role_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            role_code TEXT NOT NULL,
+            resource TEXT NOT NULL,
+            action TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            effect TEXT NOT NULL DEFAULT 'ALLOW',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(role_code, resource, action, scope_type, scope_value)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  role_code                 TEXT            NOTNULL=1 PK=0
+  resource                  TEXT            NOTNULL=1 PK=0
+  action                    TEXT            NOTNULL=1 PK=0
+  scope_type                TEXT            NOTNULL=1 PK=0
+  scope_value               TEXT            NOTNULL=1 PK=0
+  effect                    TEXT            NOTNULL=1 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  note                      TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=0 PK=0
+
+Rows: 64
+
+Sample:
+{'id': 1, 'role_code': 'GUARD_O', 'resource': 'guard_workspace', 'action': 'ENTER', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'effect': 'ALLOW', 'is_active': 1, 'note': 'Вход в отдельный кабинет охраны O.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'id': 2, 'role_code': 'GUARD_O', 'resource': 'payment_notices', 'action': 'VIEW', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'effect': 'ALLOW', 'is_active': 1, 'note': 'Видит только уведомления о наличных для O.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'id': 3, 'role_code': 'GUARD_O', 'resource': 'payment_notices', 'action': 'CONFIRM', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'effect': 'ALLOW', 'is_active': 1, 'note': 'Подтверждает факт получения наличных в O.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'id': 4, 'role_code': 'GUARD_O', 'resource': 'cashier_receipts', 'action': 'VIEW', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'effect': 'ALLOW', 'is_active': 1, 'note': 'Видит только свои рабочие записи O.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'id': 5, 'role_code': 'GUARD_O', 'resource': 'cashier_receipts', 'action': 'CREATE', 'scope_type': 'CASHBOX', 'scope_value': 'O', 'effect': 'ALLOW', 'is_active': 1, 'note': 'Регистрирует новый фактический приём наличных в O.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+
+====================================================================================================
+access_roles
+====================================================================================================
+CREATE TABLE access_roles (
+            role_code TEXT PRIMARY KEY,
+            role_name TEXT NOT NULL,
+            description TEXT,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+Columns:
+  role_code                 TEXT            NOTNULL=0 PK=1
+  role_name                 TEXT            NOTNULL=1 PK=0
+  description               TEXT            NOTNULL=0 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=0 PK=0
+
+Rows: 8
+
+Sample:
+{'role_code': 'GUARD_O', 'role_name': 'Охранник — пост / касса O', 'description': 'Подтверждает только поступления O и физические события по пультам на посту O.', 'is_active': 1, 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'role_code': 'CONCIERGE_K', 'role_name': 'Консьерж — касса K', 'description': 'Шаблон для отдельного консьержа K1–K6. Права назначаются со scope конкретной кассы.', 'is_active': 1, 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'role_code': 'FINANCE_OPERATOR', 'role_name': 'Финансовый оператор', 'description': 'Шаблон для банка, сверки, разнесения, массового ввода и исторических импортов.', 'is_active': 1, 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'role_code': 'ACCESS_MANAGER', 'role_name': 'Руководитель доступа', 'description': 'Назначает роли и индивидуальные разрешения. Не получает обычные кассовые права автоматически.', 'is_active': 1, 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'role_code': 'AUDITOR', 'role_name': 'Контролёр / ревизор', 'description': 'Только чтение финансовых и аудиторских данных.', 'is_active': 1, 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+
+====================================================================================================
+access_schema_migrations
+====================================================================================================
+CREATE TABLE access_schema_migrations (
+            migration_code TEXT PRIMARY KEY,
+            schema_version TEXT NOT NULL,
+            applied_at TEXT NOT NULL,
+            applied_by TEXT,
+            sandbox_db_path TEXT,
+            note TEXT
+        )
+
+Columns:
+  migration_code            TEXT            NOTNULL=0 PK=1
+  schema_version            TEXT            NOTNULL=1 PK=0
+  applied_at                TEXT            NOTNULL=1 PK=0
+  applied_by                TEXT            NOTNULL=0 PK=0
+  sandbox_db_path           TEXT            NOTNULL=0 PK=0
+  note                      TEXT            NOTNULL=0 PK=0
+
+Rows: 2
+
+Sample:
+{'migration_code': 'PHONE_BARRIER_ACCESS_SCHEMA_V1', 'schema_version': '1.0', 'applied_at': '2026-06-27 19:16:27', 'applied_by': 'sandbox_phone_barrier_access_migration', 'sandbox_db_path': 'G:\\Programming\\Py\\OSBB\\Data\\db\\sandbox\\osbb_test_live_services_2026-06-26_20-13-26.db', 'note': 'Additive sandbox schema for two-barrier phone access.'}
+{'migration_code': 'PHONE_BARRIER_ACCESS_OPERATIONAL_SCHEMA_V2', 'schema_version': '2.0', 'applied_at': '2026-06-27 19:38:09', 'applied_by': 'sandbox_phone_barrier_access_operational_migration', 'sandbox_db_path': 'G:\\Programming\\Py\\OSBB\\Data\\db\\sandbox\\osbb_test_live_services_2026-06-26_20-13-26.db', 'note': 'Operational request bridge for two-barrier phone access.'}
+
+====================================================================================================
+access_tariff_versions
+====================================================================================================
+CREATE TABLE access_tariff_versions (
+            id INTEGER PRIMARY KEY,
+            tariff_code TEXT NOT NULL,
+            tariff_name_uk TEXT NOT NULL,
+            tariff_name_ru TEXT NOT NULL,
+            tariff_name_en TEXT NOT NULL,
+            access_point_scope_code TEXT NOT NULL DEFAULT '*',
+            charge_kind TEXT NOT NULL
+                CHECK(charge_kind IN ('CONNECT', 'MONTHLY')),
+            billing_period TEXT NOT NULL
+                CHECK(billing_period IN ('ONE_TIME', 'MONTHLY')),
+            unit_of_measure TEXT NOT NULL DEFAULT 'PER_ACCESS_POINT',
+            amount REAL NOT NULL CHECK(amount >= 0),
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            effective_from TEXT NOT NULL,
+            effective_to TEXT,
+            version_status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(version_status IN ('DRAFT', 'ACTIVE', 'RETIRED', 'ARCHIVED')),
+            approved_by TEXT,
+            approval_reference TEXT,
+            change_reason TEXT,
+            created_by TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(tariff_code, access_point_scope_code, effective_from)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  tariff_code               TEXT            NOTNULL=1 PK=0
+  tariff_name_uk            TEXT            NOTNULL=1 PK=0
+  tariff_name_ru            TEXT            NOTNULL=1 PK=0
+  tariff_name_en            TEXT            NOTNULL=1 PK=0
+  access_point_scope_code   TEXT            NOTNULL=1 PK=0
+  charge_kind               TEXT            NOTNULL=1 PK=0
+  billing_period            TEXT            NOTNULL=1 PK=0
+  unit_of_measure           TEXT            NOTNULL=1 PK=0
+  amount                    REAL            NOTNULL=1 PK=0
+  currency                  TEXT            NOTNULL=1 PK=0
+  effective_from            TEXT            NOTNULL=1 PK=0
+  effective_to              TEXT            NOTNULL=0 PK=0
+  version_status            TEXT            NOTNULL=1 PK=0
+  approved_by               TEXT            NOTNULL=0 PK=0
+  approval_reference        TEXT            NOTNULL=0 PK=0
+  change_reason             TEXT            NOTNULL=0 PK=0
+  created_by                TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=1 PK=0
+
+Rows: 2
+
+Sample:
+{'id': 1, 'tariff_code': 'PHONE_BARRIER_ACCESS_CONNECT', 'tariff_name_uk': 'Підключення телефону до одного шлагбаума', 'tariff_name_ru': 'Подключение телефона к одному шлагбауму', 'tariff_name_en': 'Phone connection to one barrier', 'access_point_scope_code': '*', 'charge_kind': 'CONNECT', 'billing_period': 'ONE_TIME', 'unit_of_measure': 'PER_ACCESS_POINT', 'amount': 200.0, 'currency': 'UAH', 'effective_from': '2026-06-27', 'effective_to': None, 'version_status': 'ACTIVE', 'approved_by': None, 'approval_reference': 'SANDBOX_INITIAL_SEED', 'change_reason': 'Initial agreed phone-barrier tariff for sandbox.', 'created_by': 'sandbox_phone_barrier_access_migration', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+{'id': 2, 'tariff_code': 'PHONE_BARRIER_ACCESS_MONTHLY', 'tariff_name_uk': 'Абонплата за телефонний доступ до одного шлагбаума', 'tariff_name_ru': 'Абонплата за телефонный доступ к одному шлагбауму', 'tariff_name_en': 'Monthly phone access for one barrier', 'access_point_scope_code': '*', 'charge_kind': 'MONTHLY', 'billing_period': 'MONTHLY', 'unit_of_measure': 'PER_ACCESS_POINT', 'amount': 100.0, 'currency': 'UAH', 'effective_from': '2026-06-27', 'effective_to': None, 'version_status': 'ACTIVE', 'approved_by': None, 'approval_reference': 'SANDBOX_INITIAL_SEED', 'change_reason': 'Initial agreed phone-barrier tariff for sandbox.', 'created_by': 'sandbox_phone_barrier_access_migration', 'created_at': '2026-06-27 19:16:27', 'updated_at': '2026-06-27 19:16:27'}
+
+====================================================================================================
+access_user_permissions
+====================================================================================================
+CREATE TABLE access_user_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            telegram_user_id TEXT NOT NULL,
+            resource TEXT NOT NULL,
+            action TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            effect TEXT NOT NULL DEFAULT 'ALLOW',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            valid_from TEXT,
+            valid_to TEXT,
+            granted_by TEXT,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(telegram_user_id, resource, action, scope_type, scope_value)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  telegram_user_id          TEXT            NOTNULL=1 PK=0
+  resource                  TEXT            NOTNULL=1 PK=0
+  action                    TEXT            NOTNULL=1 PK=0
+  scope_type                TEXT            NOTNULL=1 PK=0
+  scope_value               TEXT            NOTNULL=1 PK=0
+  effect                    TEXT            NOTNULL=1 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  valid_from                TEXT            NOTNULL=0 PK=0
+  valid_to                  TEXT            NOTNULL=0 PK=0
+  granted_by                TEXT            NOTNULL=0 PK=0
+  note                      TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=0 PK=0
+
+Rows: 0
+
+====================================================================================================
+access_user_roles
+====================================================================================================
+CREATE TABLE access_user_roles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            telegram_user_id TEXT NOT NULL,
+            role_code TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            valid_from TEXT,
+            valid_to TEXT,
+            granted_by TEXT,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(telegram_user_id, role_code, scope_type, scope_value)
+        )
+
+Columns:
+  id                        INTEGER         NOTNULL=0 PK=1
+  telegram_user_id          TEXT            NOTNULL=1 PK=0
+  role_code                 TEXT            NOTNULL=1 PK=0
+  scope_type                TEXT            NOTNULL=1 PK=0
+  scope_value               TEXT            NOTNULL=1 PK=0
+  is_active                 INTEGER         NOTNULL=1 PK=0
+  valid_from                TEXT            NOTNULL=0 PK=0
+  valid_to                  TEXT            NOTNULL=0 PK=0
+  granted_by                TEXT            NOTNULL=0 PK=0
+  note                      TEXT            NOTNULL=0 PK=0
+  created_at                TEXT            NOTNULL=1 PK=0
+  updated_at                TEXT            NOTNULL=0 PK=0
+
+Rows: 4
+
+Sample:
+{'id': 1, 'telegram_user_id': '210312208', 'role_code': 'GUARD_O', 'scope_type': 'ALL', 'scope_value': '*', 'is_active': 1, 'valid_from': None, 'valid_to': None, 'granted_by': 'CREATE_CLEAN_LIVE_SANDBOX', 'note': 'Только для живого теста clean sandbox.', 'created_at': '2026-06-26 20:13:27', 'updated_at': '2026-06-26 20:13:27'}
+{'id': 2, 'telegram_user_id': '210312208', 'role_code': 'REMOTE_SERVICE_OPERATOR', 'scope_type': 'ALL', 'scope_value': '*', 'is_active': 1, 'valid_from': None, 'valid_to': None, 'granted_by': 'LIVE_SERVICE_SANDBOX', 'note': 'Только live sandbox: тестовый оператор услуг.', 'created_at': '2026-06-26 20:53:46', 'updated_at': '2026-06-26 20:53:46'}
+{'id': 3, 'telegram_user_id': '210312208', 'role_code': 'ACCESS_SERVICE_OPERATOR', 'scope_type': 'ALL', 'scope_value': '*', 'is_active': 1, 'valid_from': None, 'valid_to': None, 'granted_by': 'LIVE_SERVICE_SANDBOX', 'note': 'Только live sandbox: тестовый оператор услуг.', 'created_at': '2026-06-26 20:53:46', 'updated_at': '2026-06-26 20:53:46'}
+{'id': 4, 'telegram_user_id': '210312208', 'role_code': 'SERVICE_OPERATOR_SANDBOX', 'scope_type': 'ALL', 'scope_value': '*', 'is_active': 1, 'valid_from': None, 'valid_to': None, 'granted_by': None, 'note': 'Sandbox role for service-order workflow testing.', 'created_at': '2026-06-27 09:18:22', 'updated_at': '2026-06-27 09:18:22'}
+
+====================================================================================================
+INDEXES
+====================================================================================================
+
+access_audit_log
+idx_access_audit_actor
+CREATE INDEX idx_access_audit_actor ON access_audit_log(actor_telegram_user_id, created_at)
+
+access_debt_warnings
+idx_access_debt_warnings_due
+CREATE INDEX idx_access_debt_warnings_due
+        ON access_debt_warnings(warning_status, deactivate_due_at, subscription_id)
+        
+
+access_debt_warnings
+sqlite_autoindex_access_debt_warnings_1
+None
+
+access_debt_warnings
+ux_access_debt_warning_open
+CREATE UNIQUE INDEX ux_access_debt_warning_open
+        ON access_debt_warnings(subscription_id, debt_source)
+        WHERE warning_status IN ('OPEN', 'DEACTIVATION_QUEUED')
+        
+
+access_external_commands
+idx_access_external_commands_queue
+CREATE INDEX idx_access_external_commands_queue
+        ON access_external_commands(command_status, retry_at, access_point_code, id)
+        
+
+access_external_commands
+sqlite_autoindex_access_external_commands_1
+None
+
+access_operation_journal
+idx_access_operation_journal_point
+CREATE INDEX idx_access_operation_journal_point
+        ON access_operation_journal(subscription_point_id, created_at, id)
+        
+
+access_operation_journal
+idx_access_operation_journal_subscription
+CREATE INDEX idx_access_operation_journal_subscription
+        ON access_operation_journal(subscription_id, created_at, id)
+        
+
+access_operation_journal
+sqlite_autoindex_access_operation_journal_1
+None
+
+access_permissions
+sqlite_autoindex_access_permissions_1
+None
+
+access_points
+idx_access_points_active
+CREATE INDEX idx_access_points_active
+        ON access_points(is_active, point_status, access_point_code)
+        
+
+access_points
+sqlite_autoindex_access_points_1
+None
+
+access_policy_values
+idx_access_policy_values_code
+CREATE INDEX idx_access_policy_values_code
+        ON access_policy_values(setting_code, policy_version_id)
+        
+
+access_policy_values
+sqlite_autoindex_access_policy_values_1
+None
+
+access_policy_versions
+idx_access_policy_lookup
+CREATE INDEX idx_access_policy_lookup
+        ON access_policy_versions(policy_set_code, policy_status, effective_from, effective_to)
+        
+
+access_policy_versions
+sqlite_autoindex_access_policy_versions_1
+None
+
+access_policy_versions
+sqlite_autoindex_access_policy_versions_2
+None
+
+access_role_permissions
+idx_access_role_permissions_role
+CREATE INDEX idx_access_role_permissions_role ON access_role_permissions(role_code, resource, action, is_active)
+
+access_role_permissions
+sqlite_autoindex_access_role_permissions_1
+None
+
+access_roles
+sqlite_autoindex_access_roles_1
+None
+
+access_schema_migrations
+sqlite_autoindex_access_schema_migrations_1
+None
+
+access_tariff_versions
+idx_access_tariff_lookup
+CREATE INDEX idx_access_tariff_lookup
+        ON access_tariff_versions(
+            tariff_code, access_point_scope_code, version_status, effective_from, effective_to
+        )
+        
+
+access_tariff_versions
+sqlite_autoindex_access_tariff_versions_1
+None
+
+access_user_permissions
+idx_access_user_permissions_user
+CREATE INDEX idx_access_user_permissions_user ON access_user_permissions(telegram_user_id, resource, action, is_active)
+
+access_user_permissions
+sqlite_autoindex_access_user_permissions_1
+None
+
+access_user_roles
+idx_access_user_roles_user
+CREATE INDEX idx_access_user_roles_user ON access_user_roles(telegram_user_id, is_active)
+
+access_user_roles
+sqlite_autoindex_access_user_roles_1
+None
+
+====================================================================================================
+TRIGGERS
+====================================================================================================

@@ -3,7 +3,6 @@ import sys
 
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
-
 # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_verification import handle_vehicle_verification_text
 from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
@@ -38,12 +37,6 @@ from config import paths
 
 if str(paths.SECRETS_DIR) not in sys.path:
     sys.path.insert(0, str(paths.SECRETS_DIR))
-
-from tools.user_onboarding.admin_ui import (
-    BTN_USERS_ROLES,
-    handle_user_onboarding_admin_text,
-    show_users_roles,
-)
 
 from telegram_osbb import (
     TOKEN,
@@ -173,7 +166,6 @@ ADMIN_MENU = [
     ["💳 Платежи"],
     ["📊 Отчёты"],
     ["⚙️ Настройки"],
-    ["👥 Пользователи и роли"],
     ["👤 Клиентский режим"],
     ["🔗 Запросы квартир"],
     ["💰 Касса"],
@@ -1518,13 +1510,12 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-
     if text == "⚙️ Настройки":
-        await show_users_roles(update, user_states, user_id)
-        return
-
-    # OSBB user onboarding / access roles admin workspace
-    if await handle_user_onboarding_admin_text(update, context, user_states, user_id):
+        await update.message.reply_text(
+            "⚙️ Настройки\n\n"
+            "Здесь будут настройки бота и администраторов.",
+            reply_markup=kb(ADMIN_MENU),
+        )
         return
     # =========================
     # SPECIAL MODES

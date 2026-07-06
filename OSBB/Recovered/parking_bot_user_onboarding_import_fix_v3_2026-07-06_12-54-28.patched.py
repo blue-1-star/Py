@@ -173,7 +173,6 @@ ADMIN_MENU = [
     ["💳 Платежи"],
     ["📊 Отчёты"],
     ["⚙️ Настройки"],
-    ["👥 Пользователи и роли"],
     ["👤 Клиентский режим"],
     ["🔗 Запросы квартир"],
     ["💰 Касса"],
@@ -1519,12 +1518,15 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
 
-    if text == "⚙️ Настройки":
-        await show_users_roles(update, user_states, user_id)
-        return
-
     # OSBB user onboarding / access roles admin workspace
     if await handle_user_onboarding_admin_text(update, context, user_states, user_id):
+        return
+    if text == "⚙️ Настройки":
+        await update.message.reply_text(
+            "⚙️ Настройки\n\n"
+            "Здесь будут настройки бота и администраторов.",
+            reply_markup=kb(ADMIN_MENU),
+        )
         return
     # =========================
     # SPECIAL MODES

@@ -1,1 +1,1 @@
-"""OSBB user onboarding tools v0.1."""
+"""OSBB user onboarding tools."""
