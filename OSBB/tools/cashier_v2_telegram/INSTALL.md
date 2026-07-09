@@ -1,4 +1,4 @@
-# Cashier v2 Telegram v0.2
+# Cashier v2 Telegram v0.3 practical
 
 Replace only:
 
@@ -6,7 +6,7 @@ Replace only:
 OSBB\tools\cashier_v2_telegram\cashier_v2_ui.py
 ```
 
-No `parking_bot.py` changes are needed if v0.1 was already integrated.
+No `parking_bot.py` change is needed if v0.2 was already connected.
 
 Check:
 

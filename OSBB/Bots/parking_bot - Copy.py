@@ -45,6 +45,13 @@ from tools.user_onboarding.admin_ui import (
     show_users_roles,
 )
 
+from tools.cashier_v2_telegram.cashier_v2_ui import (
+    BTN_CASHIER_V2,
+    BTN_PAYMENTS,
+    handle_cashier_v2_text,
+    show_cashier_v2,
+)
+
 from telegram_osbb import (
     TOKEN,
     SUPER_ADMIN_IDS,
@@ -1502,12 +1509,12 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
+    # OSBB cashier v2 Telegram adapter
+    if await handle_cashier_v2_text(update, context, user_states, user_id):
+        return
+
     if text == "💳 Платежи":
-        await update.message.reply_text(
-            "💳 Платежи\n\n"
-            "Здесь будет учёт оплат.",
-            reply_markup=kb(ADMIN_MENU),
-        )
+        await show_cashier_v2(update, user_states, user_id)
         return
 
     if text == "📊 Отчёты":

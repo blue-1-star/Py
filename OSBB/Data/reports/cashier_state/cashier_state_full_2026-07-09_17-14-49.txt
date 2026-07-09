@@ -1,0 +1,64 @@
+
+====================================================================================================
+CASHIER STATE / WHERE ARE WE?
+====================================================================================================
+Generated: 2026-07-09 17:14:49
+
+cashier_receipts                 4
+payments                         96
+payment_allocations              13
+resident_payment_notices         MISSING
+payment_notices                  5
+cashier_reconciliation_cases     0
+charges                          95
+
+====================================================================================================
+RECENT cashier_receipts
+====================================================================================================
+id=4 | receipt_number=R2-20260627-000004 | payment_id=96 | created_at=2026-06-27 20:08:31 | receipt_date=2026-06-27 | apartment_number=174 | amount=400.0 | currency=UAH | entry_status=CONFIRMED | cashbox_code=O | service_item_code=01_BarrierPhoneConnect
+id=3 | receipt_number=R2-20260627-000003 | payment_id=95 | created_at=2026-06-27 17:42:48 | receipt_date=2026-06-27 | apartment_number=174 | amount=200.0 | currency=UAH | entry_status=CONFIRMED | cashbox_code=O | service_item_code=01_BarrierPhoneConnect
+id=2 | receipt_number=R2-20260627-000002 | payment_id=94 | created_at=2026-06-27 16:18:30 | receipt_date=2026-06-27 | apartment_number=174 | amount=4.0 | currency=UAH | entry_status=CONFIRMED | cashbox_code=O | service_item_code=TEST_REMOTE_NEW
+id=1 | receipt_number=R2-20260626-000001 | payment_id=93 | created_at=2026-06-26 21:19:25 | receipt_date=2026-06-26 | apartment_number=174 | amount=1.0 | currency=UAH | entry_status=CONFIRMED | cashbox_code=O | service_item_code=TEST_REMOTE_REPROGRAM_OWN
+
+====================================================================================================
+RECENT payments
+====================================================================================================
+id=96 | created_at=2026-06-27 20:08:31 | payment_date=2026-06-27 | apartment_number=174 | amount=400.0 | currency=UAH | cashbox_code=O | payment_method=cash | payment_channel=CASH | source=cashier_v2 | source_ref=R2-20260627-000004 | service_item_code=01_BarrierPhoneConnect | base_service_code=BARRIER_PHONE_CONNECT | comment=Подтверждение уведомления N-20260627195153-000004. Намір SI-20260627-000003; кількість 2. Телефон доступу: +380501234567. Шлагбауми: Далекий шлагбаум №1, Ближній шлагбаум №2.
+id=95 | created_at=2026-06-27 17:42:48 | payment_date=2026-06-27 | apartment_number=174 | amount=200.0 | currency=UAH | cashbox_code=O | payment_method=cash | payment_channel=CASH | source=cashier_v2 | source_ref=R2-20260627-000003 | service_item_code=01_BarrierPhoneConnect | base_service_code=BARRIER_PHONE_CONNECT | comment=Подтверждение уведомления N-20260627172646-000003. Намір SI-20260627-000002; кількість 1. Телефон доступу: +380501234567.
+id=94 | created_at=2026-06-27 16:18:30 | payment_date=2026-06-27 | apartment_number=174 | amount=4.0 | currency=UAH | cashbox_code=O | payment_method=cash | payment_channel=CASH | source=cashier_v2 | source_ref=R2-20260627-000002 | service_item_code=TEST_REMOTE_NEW | base_service_code=TEST_REMOTE_NEW | comment=Подтверждение уведомления N-20260627161157-000002. Намір SI-20260627-000001; кількість 2.
+id=93 | created_at=2026-06-26 21:19:25 | payment_date=2026-06-26 | apartment_number=174 | amount=1.0 | currency=UAH | cashbox_code=O | payment_method=cash | payment_channel=CASH | source=cashier_v2 | service_item_code=TEST_REMOTE_REPROGRAM_OWN | base_service_code=TEST_REMOTE_REPROGRAM_OWN | comment=Подтверждение уведомления N-20260626211716-000001. Заявка SO-20260626-000001.
+id=92 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=170 | period_code=2026-05 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1- сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=91 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=170 | period_code=2026-06 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=90 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=170 | period_code=2026-05 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=89 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=96 | period_code=2026-06 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=88 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=96 | period_code=2026-05 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=87 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=57 | period_code=2026-06 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=86 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=57 | period_code=2026-05 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=85 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=139 | period_code=2026-06 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=84 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=139 | period_code=2026-05 | amount=500.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=83 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=105 | period_code=2026-06 | amount=1000.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 2-сутки. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=82 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=105 | period_code=2026-05 | amount=1000.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Night | base_service_code=PARKING_NIGHT | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 2-сутки. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=81 | created_at=2026-06-22 22:53:02 | payment_date=2026-07-31 | apartment_number=25 | period_code=2026-07 | amount=200.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=07_26_Day | base_service_code=PARKING_DAY | comment=Историческая фактическая оплата. Источник Лист1, дополнительная запись из колонки F: 200-липень Тарифная запись: 1-день. Техническая дата: 2026-07-31; vehicle_id не назначен.
+id=80 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=25 | period_code=2026-06 | amount=200.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Day | base_service_code=PARKING_DAY | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=79 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=25 | period_code=2026-05 | amount=200.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Day | base_service_code=PARKING_DAY | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.
+id=78 | created_at=2026-06-22 22:53:02 | payment_date=2026-06-30 | apartment_number=128 | period_code=2026-06 | amount=200.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=06_26_Day | base_service_code=PARKING_DAY | comment=Историческая фактическая оплата. Источник Лист1, колонка «червень». Тарифная запись: 1-день. Техническая дата: 2026-06-30; vehicle_id не назначен.
+id=77 | created_at=2026-06-22 22:53:02 | payment_date=2026-05-31 | apartment_number=128 | period_code=2026-05 | amount=200.0 | currency=UAH | cashbox_code=C | source=import_ohorona_list1_central | service_item_code=05_26_Day | base_service_code=PARKING_DAY | comment=Историческая фактическая оплата. Источник Лист1, колонка «травень». Тарифная запись: 1-день. Техническая дата: 2026-05-31; vehicle_id не назначен.
+
+====================================================================================================
+RECENT payment_notices
+====================================================================================================
+id=5 | notice_number=N-20260629214751-000005 | created_at=2026-06-29 21:47:51 | apartment_number=174 | declared_amount=400.0 | currency=UAH
+id=4 | notice_number=N-20260627195153-000004 | created_at=2026-06-27 19:51:53 | apartment_number=174 | declared_amount=400.0 | currency=UAH
+id=3 | notice_number=N-20260627172646-000003 | created_at=2026-06-27 17:26:46 | apartment_number=174 | declared_amount=200.0 | currency=UAH
+id=2 | notice_number=N-20260627161157-000002 | created_at=2026-06-27 16:11:57 | apartment_number=174 | declared_amount=4.0 | currency=UAH
+id=1 | notice_number=N-20260626211716-000001 | created_at=2026-06-26 21:17:16 | apartment_number=174 | declared_amount=1.0 | currency=UAH
+
+====================================================================================================
+RECENT cashier_reconciliation_cases
+====================================================================================================
+No rows.
+
+====================================================================================================
+POSSIBLE WORK QUEUE / OPEN ITEMS
+====================================================================================================
+No obvious open/pending rows found by basic status checks.
