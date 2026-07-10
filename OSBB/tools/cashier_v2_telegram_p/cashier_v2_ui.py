@@ -22,7 +22,6 @@ from tools.cashier_v2_telegram.cashier_search import (
     payer_vehicle_choices,
     proposed_defaults,
     search_payers,
-    search_commercial_subjects,
 )
 from tools.cashier_v2_telegram.cashier_card import payment_card, period_display, success_card
 
@@ -56,8 +55,6 @@ BTN_BACK = "⬅️ К кассе"
 BTN_MAIN = "🏠 Главное меню"
 BTN_CUSTOM_PERIOD = "📅 Другой период"
 BTN_OTHER_PAYMENT = "📦 Другая услуга"
-BTN_RESIDENT_SUBJECT = "🏠 Жильцы / 🚗 Авто"
-BTN_COMMERCIAL_SUBJECT = "🏢 Коммерческие фирмы"
 
 DEFAULT_CASHBOX_CODE = "O"
 DEFAULT_SOURCE_TEXT = "Прямая наличная оплата через Telegram"
@@ -99,14 +96,7 @@ def period_storage(value: str) -> str:
 
 
 def menu_kb() -> ReplyKeyboardMarkup:
-    return kb([
-        [BTN_RESIDENT_SUBJECT],
-        [BTN_COMMERCIAL_SUBJECT],
-        [BTN_OTHER_PAYMENT],
-        [BTN_LAST_RECEIPTS, BTN_SUMMARY],
-        [BTN_SETTINGS],
-        [BTN_BACK, BTN_MAIN],
-    ])
+    return kb([[BTN_OTHER_PAYMENT], [BTN_LAST_RECEIPTS, BTN_SUMMARY], [BTN_SETTINGS], [BTN_BACK, BTN_MAIN]])
 
 
 def type_kb() -> ReplyKeyboardMarkup:
@@ -227,9 +217,13 @@ def draft_from_payer(payer: dict, group: str, service: dict) -> dict:
 
 
 async def show_cashier_v2(update: Update, user_states: dict[int, Any], user_id: int) -> None:
-    user_states[user_id] = {'mode': 'cashier_v2', 'screen': 'subject_group'}
+    user_states[user_id] = {'mode': 'cashier_v2', 'screen': 'payer_query_first'}
     await update.message.reply_text(
-        "💰 Касса v0.4.2\n\nВыберите группу субъекта расчётов.",
+        "💰 Касса v0.4.1\n\n"
+        "Сначала найдите плательщика.\n\n"
+        "Введите номер квартиры или несколько цифр госномера автомобиля.\n"
+        "Например: 98 или 3804.\n\n"
+        "После поиска система сама определит Night/Day, период и сумму.",
         reply_markup=menu_kb(),
     )
 
@@ -315,59 +309,6 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         await update.message.reply_text(last_receipts_text(), reply_markup=menu_kb()); return True
     if text == BTN_SETTINGS:
         await update.message.reply_text("⚙️ Настройки кассы\n\nНастройка актуального сбора сохранена для следующего шага.", reply_markup=menu_kb()); return True
-
-    if text == BTN_RESIDENT_SUBJECT:
-        user_states[user_id] = {'mode':'cashier_v2','screen':'payer_query_first'}
-        await update.message.reply_text(
-            "🔍 Жильцы / Авто\n\nВведите номер квартиры или несколько цифр госномера автомобиля.",
-            reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
-        )
-        return True
-
-    if text == BTN_COMMERCIAL_SUBJECT:
-        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_query'}
-        await update.message.reply_text(
-            "🏢 Коммерческие фирмы\n\nВведите часть названия, номер помещения или номер договора.",
-            reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
-        )
-        return True
-
-    if state.get('screen') == 'commercial_query':
-        items = search_commercial_subjects(text)
-        if not items:
-            await update.message.reply_text("⚠ Коммерческая фирма не найдена. Попробуйте ещё раз.")
-            return True
-        if len(items) == 1:
-            payer = items[0]
-            service = choose_service('commercial', default_period())
-            if not service:
-                await update.message.reply_text("⚠ Коммерческая услуга не найдена в справочнике.")
-                return True
-            draft = draft_from_payer(payer, 'commercial', service)
-            if float(payer.get('expected_amount') or 0) > 0:
-                draft['amount'] = float(payer['expected_amount'])
-            await show_card(update, user_states, user_id, draft)
-            return True
-        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_select','payer_options':items}
-        await update.message.reply_text("Найдено несколько фирм. Выберите:", reply_markup=payer_kb(items))
-        return True
-
-    if state.get('screen') == 'commercial_select':
-        try:
-            idx = int(text.split('.',1)[0]) - 1
-            payer = state['payer_options'][idx]
-        except Exception:
-            await update.message.reply_text("Выберите фирму кнопкой.", reply_markup=payer_kb(state.get('payer_options') or []))
-            return True
-        service = choose_service('commercial', default_period())
-        if not service:
-            await update.message.reply_text("⚠ Коммерческая услуга не найдена в справочнике.")
-            return True
-        draft = draft_from_payer(payer, 'commercial', service)
-        if float(payer.get('expected_amount') or 0) > 0:
-            draft['amount'] = float(payer['expected_amount'])
-        await show_card(update, user_states, user_id, draft)
-        return True
 
     if state.get('screen') == 'payer_query_first':
         items = search_payers(text)

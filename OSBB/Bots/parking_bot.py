@@ -25,6 +25,8 @@ from handlers.client_portal_v3 import (
     client_welcome_text,
 )
 from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text
+from tools.cashier_admin.cashier_admin_ui import handle_cashier_admin_text
+
 from tools.cashier_v2_telegram.cashier_v2_ui import (
     BTN_CASHIER_V2,
     BTN_PAYMENTS,
@@ -183,6 +185,8 @@ ADMIN_MENU = [
     ["👥 Пользователи и роли"],
     ["👤 Клиентский режим"],
     ["🔗 Запросы квартир"],
+    ["🔎 Субъекты расчётов"],
+    ["🧾 Админ платежей"],
     ["💰 Касса"],
 ]
 
@@ -897,6 +901,28 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     t = TEXTS[lang]
 
     # =========================
+    # GLOBAL ESC: always leave any active wizard/state first.
+    # =========================
+    global_main = {"🏠 Главное меню", "🏠 Головне меню", "🏠 Main menu", "/cancel"}
+    global_back = {"⬅️ Назад", "⬅ Назад"}
+    if text in global_main:
+        user_states.pop(user_id, None)
+        context.user_data.clear()
+        if user_modes.get(user_id) == "admin" and is_admin_user(user_id):
+            await show_admin_menu(update)
+        else:
+            await show_mode_menu(update, lang)
+        return
+    if text in global_back and isinstance(user_states.get(user_id), dict):
+        user_states.pop(user_id, None)
+        context.user_data.clear()
+        if user_modes.get(user_id) == "admin" and is_admin_user(user_id):
+            await show_admin_menu(update)
+        else:
+            await show_mode_menu(update, lang)
+        return
+
+    # =========================
     # Операторский кабинет услуг
     # =========================
     service_state = user_states.get(user_id)
@@ -1280,6 +1306,16 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # =========================
     # O — основная касса охраны; K1..K6 — отдельные точки консьержей.
     # Обработчик вызывается до старого router состояний.
+    # Cashier admin / billing subjects / commercial companies
+    if await handle_cashier_admin_text(
+        update,
+        context,
+        user_states,
+        user_id,
+        is_super_admin=(user_id in SUPER_ADMIN_IDS),
+    ):
+        return
+
     # OSBB cashier v2 Telegram adapter
     if await handle_cashier_v2_text(update, context, user_states, user_id):
         return
