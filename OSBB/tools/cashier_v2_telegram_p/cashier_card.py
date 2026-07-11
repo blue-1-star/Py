@@ -27,6 +27,8 @@ def money(value: Any) -> str:
 def payer_title(payer: dict) -> str:
     if payer.get('kind') == 'vehicle':
         return f"🚗 {payer.get('plate') or '—'}"
+    if payer.get('kind') == 'commercial':
+        return f"🏢 {payer.get('counterparty_name') or 'Без названия'}"
     return f"🏠 Квартира {payer.get('apartment_number') or '—'}"
 
 
@@ -47,6 +49,11 @@ def payment_card(draft: dict) -> str:
         lines.extend([
             f"Режим парковки: {parking}",
             f"Модель: {vehicle.get('car_model') or '—'}",
+        ])
+    elif payer.get('kind') == 'commercial':
+        lines.extend([
+            f"Договор: {payer.get('contract_number') or '—'}",
+            f"Позиции: {payer.get('item_names') or '—'}",
         ])
     lines.extend([
         '',

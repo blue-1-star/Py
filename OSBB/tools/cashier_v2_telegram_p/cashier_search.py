@@ -133,6 +133,64 @@ def search_payers(query: str, limit: int = 12) -> list[dict[str, Any]]:
         con.close()
 
 
+
+def search_commercial_subjects(query: str, limit: int = 12) -> list[dict[str, Any]]:
+    q = str(query or '').strip()
+    if not q:
+        return []
+    con = core.get_conn()
+    try:
+        if not _table(con, 'commercial_contracts'):
+            return []
+        like = f"%{q}%"
+        rows = con.execute(
+            """
+            SELECT c.*, a.*, a.id AS apartment_id,
+                   c.id AS commercial_contract_id,
+                   COALESCE(SUM(CASE WHEN i.is_active=1 THEN
+                       CASE WHEN i.calculation_mode='FIXED_MONTHLY' THEN COALESCE(i.fixed_amount,0)
+                            ELSE COALESCE(i.rate_amount,0) * COALESCE(i.quantity_default,1) END
+                   ELSE 0 END),0) AS expected_amount,
+                   GROUP_CONCAT(CASE WHEN i.is_active=1 THEN i.item_name END, '; ') AS item_names
+            FROM commercial_contracts c
+            JOIN apartments a ON a.id=c.unit_id
+            LEFT JOIN commercial_contract_items i ON i.contract_id=c.id
+            WHERE COALESCE(c.counterparty_name,'') LIKE ?
+               OR COALESCE(c.contract_number,'') LIKE ?
+               OR COALESCE(c.internal_note,'') LIKE ?
+               OR CAST(a.apartment_number AS TEXT)=?
+            GROUP BY c.id
+            ORDER BY c.counterparty_name, a.apartment_number
+            LIMIT ?
+            """,
+            (like, like, like, q, int(limit)),
+        ).fetchall()
+        out = []
+        for row in rows:
+            d = dict(row)
+            apartment = {k: d[k] for k in d.keys() if k not in {'commercial_contract_id','counterparty_name','contract_number','status','valid_from','valid_to','payment_due_day','internal_note','expected_amount','item_names'}}
+            apartment['id'] = int(d['apartment_id'])
+            out.append({
+                'kind': 'commercial',
+                'commercial_contract_id': int(d['commercial_contract_id']),
+                'counterparty_name': d.get('counterparty_name') or 'Без названия',
+                'contract_number': d.get('contract_number'),
+                'status': d.get('status'),
+                'valid_from': d.get('valid_from'),
+                'valid_to': d.get('valid_to'),
+                'payment_due_day': d.get('payment_due_day'),
+                'internal_note': d.get('internal_note'),
+                'expected_amount': float(d.get('expected_amount') or 0),
+                'item_names': d.get('item_names'),
+                'apartment': apartment,
+                'apartment_id': int(d['apartment_id']),
+                'apartment_number': str(d.get('apartment_number') or ''),
+                'label': f"🏢 {d.get('counterparty_name') or 'Без названия'} / пом. {d.get('apartment_number') or '—'}",
+            })
+        return out
+    finally:
+        con.close()
+
 def service_text(service: dict) -> str:
     return ' '.join(str(service.get(k) or '') for k in (
         'service_item_code', 'service_code', 'service_name', 'service_item_name',

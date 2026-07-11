@@ -134,60 +134,119 @@ def search_payers(query: str, limit: int = 12) -> list[dict[str, Any]]:
 
 
 
-def search_commercial_subjects(query: str, limit: int = 12) -> list[dict[str, Any]]:
+def search_commercial_subjects(query: str, limit: int = 20) -> list[dict[str, Any]]:
+    """Search commercial units first, then enrich with contract and contract items.
+
+    Commercial premises live in apartments. A contract may be DRAFT and may have
+    zero or several individual payment items. One returned payer corresponds to
+    one contract item, so the cashier gets a concrete service and amount.
+    """
     q = str(query or '').strip()
     if not q:
         return []
     con = core.get_conn()
     try:
-        if not _table(con, 'commercial_contracts'):
+        if not _table(con, 'apartments'):
             return []
         like = f"%{q}%"
-        rows = con.execute(
+        unit_rows = con.execute(
             """
-            SELECT c.*, a.*, a.id AS apartment_id,
-                   c.id AS commercial_contract_id,
-                   COALESCE(SUM(CASE WHEN i.is_active=1 THEN
-                       CASE WHEN i.calculation_mode='FIXED_MONTHLY' THEN COALESCE(i.fixed_amount,0)
-                            ELSE COALESCE(i.rate_amount,0) * COALESCE(i.quantity_default,1) END
-                   ELSE 0 END),0) AS expected_amount,
-                   GROUP_CONCAT(CASE WHEN i.is_active=1 THEN i.item_name END, '; ') AS item_names
-            FROM commercial_contracts c
-            JOIN apartments a ON a.id=c.unit_id
-            LEFT JOIN commercial_contract_items i ON i.contract_id=c.id
-            WHERE COALESCE(c.counterparty_name,'') LIKE ?
-               OR COALESCE(c.contract_number,'') LIKE ?
-               OR COALESCE(c.internal_note,'') LIKE ?
-               OR CAST(a.apartment_number AS TEXT)=?
-            GROUP BY c.id
-            ORDER BY c.counterparty_name, a.apartment_number
+            SELECT a.*
+            FROM apartments a
+            WHERE (
+                    COALESCE(a.unit_type,'') <> 'RESIDENTIAL'
+                 OR COALESCE(a.unit_code,'') <> ''
+                 OR COALESCE(a.display_name,'') <> ''
+            )
+              AND (
+                    COALESCE(a.unit_code,'') LIKE ?
+                 OR COALESCE(a.display_name,'') LIKE ?
+                 OR COALESCE(a.official_number,'') LIKE ?
+                 OR CAST(a.apartment_number AS TEXT) LIKE ?
+                 OR CAST(COALESCE(a.entrance_number,a.entrance) AS TEXT) = ?
+              )
+            ORDER BY COALESCE(a.display_name,''), COALESCE(a.unit_code,''), a.apartment_number
             LIMIT ?
             """,
-            (like, like, like, q, int(limit)),
+            (like, like, like, like, q, int(limit)),
         ).fetchall()
-        out = []
-        for row in rows:
-            d = dict(row)
-            apartment = {k: d[k] for k in d.keys() if k not in {'commercial_contract_id','counterparty_name','contract_number','status','valid_from','valid_to','payment_due_day','internal_note','expected_amount','item_names'}}
-            apartment['id'] = int(d['apartment_id'])
-            out.append({
-                'kind': 'commercial',
-                'commercial_contract_id': int(d['commercial_contract_id']),
-                'counterparty_name': d.get('counterparty_name') or 'Без названия',
-                'contract_number': d.get('contract_number'),
-                'status': d.get('status'),
-                'valid_from': d.get('valid_from'),
-                'valid_to': d.get('valid_to'),
-                'payment_due_day': d.get('payment_due_day'),
-                'internal_note': d.get('internal_note'),
-                'expected_amount': float(d.get('expected_amount') or 0),
-                'item_names': d.get('item_names'),
-                'apartment': apartment,
-                'apartment_id': int(d['apartment_id']),
-                'apartment_number': str(d.get('apartment_number') or ''),
-                'label': f"🏢 {d.get('counterparty_name') or 'Без названия'} / пом. {d.get('apartment_number') or '—'}",
-            })
-        return out
+
+        out: list[dict[str, Any]] = []
+        for unit_row in unit_rows:
+            unit = dict(unit_row)
+            contracts = []
+            if _table(con, 'commercial_contracts'):
+                contracts = con.execute(
+                    """
+                    SELECT * FROM commercial_contracts
+                    WHERE unit_id=?
+                    ORDER BY CASE status WHEN 'ACTIVE' THEN 0 WHEN 'DRAFT' THEN 1 ELSE 2 END, id DESC
+                    """,
+                    (int(unit['id']),),
+                ).fetchall()
+
+            if not contracts:
+                company = unit.get('display_name') or unit.get('unit_code') or f"Помещение {unit.get('apartment_number')}"
+                out.append({
+                    'kind':'commercial', 'commercial_contract_id':None,
+                    'commercial_unit_id':int(unit['id']), 'counterparty_name':company,
+                    'contract_number':None, 'contract_status':None,
+                    'expected_amount':0.0, 'item_names':None,
+                    'commercial_contract_item_id':None,
+                    'commercial_service':{
+                        'service_code':'COMMERCIAL_MANUAL', 'base_service_code':'COMMERCIAL_MANUAL',
+                        'service_item_code':None, 'service_type':'COMMERCIAL',
+                        'service_name':'Коммерческое помещение — ручной платёж',
+                    },
+                    'apartment':unit, 'apartment_id':int(unit['id']),
+                    'apartment_number':str(unit.get('apartment_number') or ''),
+                    'unit_code':unit.get('unit_code'), 'display_name':unit.get('display_name'),
+                    'label':f"🏢 {company} / {unit.get('unit_code') or unit.get('apartment_number') or '—'}",
+                })
+                continue
+
+            for contract_row in contracts:
+                contract=dict(contract_row)
+                items=[]
+                if _table(con,'commercial_contract_items'):
+                    items=con.execute(
+                        """
+                        SELECT * FROM commercial_contract_items
+                        WHERE contract_id=? AND COALESCE(is_active,1)=1
+                        ORDER BY id
+                        """, (int(contract['id']),)
+                    ).fetchall()
+                company=contract.get('counterparty_name') or unit.get('display_name') or unit.get('unit_code') or 'Без названия'
+                if not items:
+                    items=[None]
+                for item_row in items:
+                    item=dict(item_row) if item_row is not None else {}
+                    mode=str(item.get('calculation_mode') or 'FIXED_MONTHLY')
+                    if mode=='FIXED_MONTHLY':
+                        amount=float(item.get('fixed_amount') or 0)
+                    else:
+                        amount=float(item.get('rate_amount') or 0)*float(item.get('quantity_default') or 1)
+                    item_name=item.get('item_name') or 'Условие договора не заполнено'
+                    service_code=item.get('reference_service_code') or item.get('item_code') or 'COMMERCIAL_CONTRACT'
+                    out.append({
+                        'kind':'commercial', 'commercial_contract_id':int(contract['id']),
+                        'commercial_unit_id':int(unit['id']),
+                        'commercial_contract_item_id':int(item['id']) if item.get('id') is not None else None,
+                        'counterparty_name':company, 'contract_number':contract.get('contract_number'),
+                        'contract_status':contract.get('status'), 'valid_from':contract.get('valid_from'),
+                        'valid_to':contract.get('valid_to'), 'payment_due_day':contract.get('payment_due_day'),
+                        'expected_amount':amount, 'item_names':item_name,
+                        'commercial_service':{
+                            'service_code':service_code, 'base_service_code':service_code,
+                            'service_item_code':item.get('item_code'), 'service_type':'COMMERCIAL',
+                            'service_name':item_name, 'service_item_name':item_name,
+                        },
+                        'apartment':unit, 'apartment_id':int(unit['id']),
+                        'apartment_number':str(unit.get('apartment_number') or ''),
+                        'unit_code':unit.get('unit_code'), 'display_name':unit.get('display_name'),
+                        'label':f"🏢 {company} / {item_name} / {unit.get('unit_code') or unit.get('apartment_number') or '—'}",
+                    })
+        return out[:limit]
     finally:
         con.close()
 

@@ -229,7 +229,7 @@ def draft_from_payer(payer: dict, group: str, service: dict) -> dict:
 async def show_cashier_v2(update: Update, user_states: dict[int, Any], user_id: int) -> None:
     user_states[user_id] = {'mode': 'cashier_v2', 'screen': 'subject_group'}
     await update.message.reply_text(
-        "💰 Касса v0.4.2\n\nВыберите группу субъекта расчётов.",
+        "💰 Касса v0.4.4\n\nВыберите группу субъекта расчётов.",
         reply_markup=menu_kb(),
     )
 
@@ -249,7 +249,14 @@ async def ask_payer(update: Update, user_states: dict[int, Any], user_id: int, g
 
 
 async def show_card(update: Update, user_states: dict[int, Any], user_id: int, draft: dict) -> None:
-    user_states[user_id] = {'mode': 'cashier_v2', 'screen': 'card', 'draft': draft}
+    payer = draft.get('payer') or {}
+    subject_mode = 'commercial' if payer.get('kind') == 'commercial' or payer.get('commercial_unit_id') else 'resident'
+    user_states[user_id] = {
+        'mode': 'cashier_v2',
+        'screen': 'card',
+        'draft': draft,
+        'subject_mode': subject_mode,
+    }
     text = payment_card(draft)
     try:
         valid_amount = float(draft.get('amount')) > 0
@@ -308,7 +315,34 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         user_states[user_id] = {'mode': 'cashier_v2', 'screen': 'misc', 'payer': state.get('payer')}
         await update.message.reply_text("📦 Другая услуга\n\nВыберите группу:", reply_markup=misc_kb()); return True
     if text == BTN_NEXT:
-        await start_cash(update, user_states, user_id); return True
+        subject_mode = state.get('subject_mode')
+        if not subject_mode:
+            draft = state.get('draft') or {}
+            payer = draft.get('payer') or {}
+            subject_mode = 'commercial' if payer.get('kind') == 'commercial' or payer.get('commercial_unit_id') else 'resident'
+
+        if subject_mode == 'commercial':
+            user_states[user_id] = {
+                'mode': 'cashier_v2',
+                'screen': 'commercial_query',
+                'subject_mode': 'commercial',
+            }
+            await update.message.reply_text(
+                "🏢 Коммерческие фирмы\n\nВведите часть названия, номер помещения или номер договора.",
+                reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
+            )
+            return True
+
+        user_states[user_id] = {
+            'mode': 'cashier_v2',
+            'screen': 'payer_query_first',
+            'subject_mode': 'resident',
+        }
+        await update.message.reply_text(
+            "🔍 Жильцы / Авто\n\nВведите номер квартиры или несколько цифр госномера автомобиля.",
+            reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
+        )
+        return True
     if text == BTN_SUMMARY:
         await update.message.reply_text(summary_text(), reply_markup=menu_kb()); return True
     if text == BTN_LAST_RECEIPTS:
@@ -317,7 +351,7 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         await update.message.reply_text("⚙️ Настройки кассы\n\nНастройка актуального сбора сохранена для следующего шага.", reply_markup=menu_kb()); return True
 
     if text == BTN_RESIDENT_SUBJECT:
-        user_states[user_id] = {'mode':'cashier_v2','screen':'payer_query_first'}
+        user_states[user_id] = {'mode':'cashier_v2','screen':'payer_query_first','subject_mode':'resident'}
         await update.message.reply_text(
             "🔍 Жильцы / Авто\n\nВведите номер квартиры или несколько цифр госномера автомобиля.",
             reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
@@ -325,7 +359,7 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         return True
 
     if text == BTN_COMMERCIAL_SUBJECT:
-        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_query'}
+        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_query','subject_mode':'commercial'}
         await update.message.reply_text(
             "🏢 Коммерческие фирмы\n\nВведите часть названия, номер помещения или номер договора.",
             reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
@@ -339,16 +373,12 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
             return True
         if len(items) == 1:
             payer = items[0]
-            service = choose_service('commercial', default_period())
-            if not service:
-                await update.message.reply_text("⚠ Коммерческая услуга не найдена в справочнике.")
-                return True
+            service = payer.get('commercial_service')
             draft = draft_from_payer(payer, 'commercial', service)
-            if float(payer.get('expected_amount') or 0) > 0:
-                draft['amount'] = float(payer['expected_amount'])
+            draft['amount'] = float(payer.get('expected_amount') or 0)
             await show_card(update, user_states, user_id, draft)
             return True
-        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_select','payer_options':items}
+        user_states[user_id] = {'mode':'cashier_v2','screen':'commercial_select','payer_options':items,'subject_mode':'commercial'}
         await update.message.reply_text("Найдено несколько фирм. Выберите:", reply_markup=payer_kb(items))
         return True
 
@@ -359,13 +389,9 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         except Exception:
             await update.message.reply_text("Выберите фирму кнопкой.", reply_markup=payer_kb(state.get('payer_options') or []))
             return True
-        service = choose_service('commercial', default_period())
-        if not service:
-            await update.message.reply_text("⚠ Коммерческая услуга не найдена в справочнике.")
-            return True
+        service = payer.get('commercial_service')
         draft = draft_from_payer(payer, 'commercial', service)
-        if float(payer.get('expected_amount') or 0) > 0:
-            draft['amount'] = float(payer['expected_amount'])
+        draft['amount'] = float(payer.get('expected_amount') or 0)
         await show_card(update, user_states, user_id, draft)
         return True
 
@@ -399,7 +425,7 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
             await prepare_parking_card(update, user_states, user_id, items[0]); return True
 
         user_states[user_id] = {
-            'mode':'cashier_v2', 'screen':'payer_select_first', 'payer_options':items
+            'mode':'cashier_v2', 'screen':'payer_select_first', 'payer_options':items, 'subject_mode':'resident'
         }
         await update.message.reply_text("Найдено несколько вариантов. Выберите плательщика:", reply_markup=payer_kb(items)); return True
 
@@ -517,6 +543,9 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
                     source_text=draft.get('comment') or DEFAULT_SOURCE_TEXT,
                     operator_id=int(user_id),
                     auto_allocate_charge_id=draft.get('charge_id'),
+                    commercial_contract_id=draft['payer'].get('commercial_contract_id'),
+                    commercial_unit_id=draft['payer'].get('commercial_unit_id'),
+                    commercial_contract_item_id=draft['payer'].get('commercial_contract_item_id'),
                 )
                 con.commit()
             except Exception as exc:
@@ -524,7 +553,15 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
                 await update.message.reply_text(f"⚠ Ошибка сохранения:\n{type(exc).__name__}: {exc}", reply_markup=card_kb(draft)); return True
             finally:
                 con.close()
-            user_states[user_id] = {'mode':'cashier_v2','screen':'success','draft':draft,'result':result}
+            user_states[user_id] = {
+                'mode':'cashier_v2',
+                'screen':'success',
+                'draft':draft,
+                'result':result,
+                'subject_mode': state.get('subject_mode') or (
+                    'commercial' if (draft.get('payer') or {}).get('commercial_unit_id') else 'resident'
+                ),
+            }
             await update.message.reply_text(success_card(result, draft), reply_markup=kb([[BTN_NEXT],[BTN_BACK, BTN_MAIN]])); return True
         if text == BTN_EDIT_AMOUNT:
             user_states[user_id] = {'mode':'cashier_v2','screen':'edit_amount','draft':draft}

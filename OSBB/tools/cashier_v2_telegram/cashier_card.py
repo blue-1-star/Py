@@ -52,8 +52,10 @@ def payment_card(draft: dict) -> str:
         ])
     elif payer.get('kind') == 'commercial':
         lines.extend([
-            f"Договор: {payer.get('contract_number') or '—'}",
-            f"Позиции: {payer.get('item_names') or '—'}",
+            f"Код помещения: {payer.get('unit_code') or payer.get('apartment_number') or '—'}",
+            f"Договор: {payer.get('contract_number') or 'черновик / без номера'}",
+            f"Статус договора: {payer.get('contract_status') or 'не создан'}",
+            f"Условие: {payer.get('item_names') or 'не заполнено'}",
         ])
     lines.extend([
         '',
