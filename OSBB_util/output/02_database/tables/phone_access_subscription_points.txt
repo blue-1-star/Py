@@ -1,0 +1,57 @@
+================================================================================
+📌 ТАБЛИЦА: phone_access_subscription_points
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      subscription_id                INTEGER              ✅                 
+2      access_point_code              TEXT                 ✅                 
+3      access_point_name_snapshot     TEXT                 ✅                 
+4      point_status                   TEXT                 ✅                 
+5      activated_at                   TEXT                 ❌                 
+6      deactivated_at                 TEXT                 ❌                 
+7      deactivation_reason            TEXT                 ❌                 
+8      external_controller_reference  TEXT                 ❌                 
+9      last_external_sync_status      TEXT                 ❌                 
+10     last_external_sync_at          TEXT                 ❌                 
+11     created_at                     TEXT                 ✅                 
+12     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_access_points_status 
+  • sqlite_autoindex_phone_access_subscription_points_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_access_subscription_points (
+            id INTEGER PRIMARY KEY,
+            subscription_id INTEGER NOT NULL,
+            access_point_code TEXT NOT NULL,
+            access_point_name_snapshot TEXT NOT NULL,
+            point_status TEXT NOT NULL DEFAULT 'PENDING_ACTIVATION'
+                CHECK(point_status IN (
+                    'PENDING_ACTIVATION', 'ACTIVE', 'SUSPENDED_FOR_DEBT',
+                    'DEACTIVATED_FOR_DEBT', 'DEACTIVATED_MANUAL',
+                    'EXTERNAL_SYNC_ERROR', 'CANCELLED'
+                )),
+            activated_at TEXT,
+            deactivated_at TEXT,
+            deactivation_reason TEXT,
+            external_controller_reference TEXT,
+            last_external_sync_status TEXT,
+            last_external_sync_at TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(subscription_id, access_point_code)
+        )
+
+================================================================================

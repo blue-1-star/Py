@@ -1,0 +1,73 @@
+================================================================================
+📌 ТАБЛИЦА: service_order_interests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      interest_number                TEXT                 ✅                 
+2      resident_account_id            INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ❌                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ✅                 
+6      service_code                   TEXT                 ❌                 
+7      service_item_code              TEXT                 ✅                 
+8      service_name_snapshot          TEXT                 ✅                 
+9      workflow_profile_code          TEXT                 ✅                 
+10     quantity                       INTEGER              ✅                 
+11     unit_price_snapshot            REAL                 ✅                 
+12     amount_due_snapshot            REAL                 ✅                 
+13     currency                       TEXT                 ✅                 
+14     interest_status                TEXT                 ✅                 
+15     payment_notice_id              INTEGER              ❌                 
+16     payment_notice_number          TEXT                 ❌                 
+17     payment_id                     INTEGER              ❌                 
+18     service_order_id               INTEGER              ❌                 
+19     resident_comment               TEXT                 ❌                 
+20     created_at                     TEXT                 ✅                 
+21     updated_at                     TEXT                 ✅                 
+22     paid_at                        TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • ux_service_interest_payment (UNIQUE)
+  • idx_service_interest_payment_notice 
+  • idx_service_interest_resident 
+  • sqlite_autoindex_service_order_interests_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_order_interests (
+                id INTEGER PRIMARY KEY,
+                interest_number TEXT NOT NULL UNIQUE,
+                resident_account_id INTEGER,
+                telegram_user_id TEXT,
+                apartment_id INTEGER,
+                apartment_number TEXT NOT NULL,
+                service_code TEXT,
+                service_item_code TEXT NOT NULL,
+                service_name_snapshot TEXT NOT NULL,
+                workflow_profile_code TEXT NOT NULL,
+                quantity INTEGER NOT NULL CHECK(quantity > 0),
+                unit_price_snapshot REAL NOT NULL,
+                amount_due_snapshot REAL NOT NULL,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                interest_status TEXT NOT NULL DEFAULT 'INTEREST',
+                payment_notice_id INTEGER,
+                payment_notice_number TEXT,
+                payment_id INTEGER,
+                service_order_id INTEGER,
+                resident_comment TEXT,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                paid_at TEXT
+            )
+
+================================================================================

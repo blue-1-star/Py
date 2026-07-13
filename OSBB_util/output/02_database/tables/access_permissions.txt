@@ -1,0 +1,39 @@
+================================================================================
+📌 ТАБЛИЦА: access_permissions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 50
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      permission_code                TEXT                 ✅                 
+2      permission_name                TEXT                 ✅                 
+3      category                       TEXT                 ❌                 
+4      description                    TEXT                 ❌                 
+5      is_active                      INTEGER              ✅                 
+6      created_at                     TEXT                 ✅                 
+7      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • sqlite_autoindex_access_permissions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            permission_code TEXT UNIQUE NOT NULL,
+            permission_name TEXT NOT NULL,
+            category TEXT,
+            description TEXT,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT)
+
+================================================================================

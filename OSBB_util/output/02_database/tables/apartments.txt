@@ -1,0 +1,61 @@
+================================================================================
+📌 ТАБЛИЦА: apartments
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 236
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_number               TEXT                 ✅                 
+2      entrance                       TEXT                 ❌                 
+3      entrance_source                TEXT                 ❌                 
+4      total_area                     REAL                 ❌                 
+5      object_type                    TEXT                 ❌                 
+6      status                         TEXT                 ❌                 
+7      source                         TEXT                 ❌                 
+8      notes                          TEXT                 ❌                 
+9      created_at                     TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     updated_at                     TEXT                 ❌                 
+12     updated_by                     TEXT                 ❌                 
+13     unit_type                      TEXT                 ❌                 
+14     unit_code                      TEXT                 ❌                 
+15     entrance_number                INTEGER              ❌                 
+16     official_number                TEXT                 ❌                 
+17     display_name                   TEXT                 ❌                 
+18     area_sqm                       REAL                 ❌                 
+19     record_status                  TEXT                 ❌                 
+20     source_note                    TEXT                 ❌                 
+21     internal_note                  TEXT                 ❌                 
+22     unit_updated_at                TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_apartments_unit_code_unique (UNIQUE)
+  • sqlite_autoindex_apartments_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE apartments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_number TEXT NOT NULL UNIQUE,
+        entrance TEXT,
+        entrance_source TEXT,
+        total_area REAL,
+        object_type TEXT,
+        status TEXT DEFAULT 'active',
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT
+    , unit_type TEXT DEFAULT 'RESIDENTIAL', unit_code TEXT, entrance_number INTEGER, official_number TEXT, display_name TEXT, area_sqm REAL, record_status TEXT DEFAULT 'LEGACY', source_note TEXT, internal_note TEXT, unit_updated_at TEXT)
+
+================================================================================

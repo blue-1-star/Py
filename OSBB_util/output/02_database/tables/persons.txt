@@ -1,0 +1,49 @@
+================================================================================
+📌 ТАБЛИЦА: persons
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 343
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      full_name                      TEXT                 ❌                 
+3      phone_raw                      TEXT                 ❌                 
+4      ownership_type                 TEXT                 ❌                 
+5      person_role                    TEXT                 ❌                 
+6      source                         TEXT                 ❌                 
+7      notes                          TEXT                 ❌                 
+8      created_at                     TEXT                 ❌                 
+9      created_by                     TEXT                 ❌                 
+10     updated_at                     TEXT                 ❌                 
+11     updated_by                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE persons (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        full_name TEXT,
+        phone_raw TEXT,
+        ownership_type TEXT,
+        person_role TEXT,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+================================================================================

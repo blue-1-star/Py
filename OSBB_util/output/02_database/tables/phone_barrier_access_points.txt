@@ -1,0 +1,44 @@
+================================================================================
+📌 ТАБЛИЦА: phone_barrier_access_points
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      access_point_code              TEXT                 ✅                 
+2      access_point_name_uk           TEXT                 ❌                 
+3      access_point_name_ru           TEXT                 ❌                 
+4      access_point_name_en           TEXT                 ❌                 
+5      geos_access_point_id           TEXT                 ❌                 
+6      is_active                      INTEGER              ✅                 
+7      sort_order                     INTEGER              ✅                 
+8      created_at                     TEXT                 ✅                 
+9      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • sqlite_autoindex_phone_barrier_access_points_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_barrier_access_points (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    access_point_code TEXT NOT NULL UNIQUE,
+    access_point_name_uk TEXT,
+    access_point_name_ru TEXT,
+    access_point_name_en TEXT,
+    geos_access_point_id TEXT,
+    is_active INTEGER NOT NULL DEFAULT 1,
+    sort_order INTEGER NOT NULL DEFAULT 100,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
+)
+
+================================================================================

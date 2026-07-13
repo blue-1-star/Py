@@ -1,0 +1,54 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_contract_recipients
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      contract_id                    INTEGER              ✅                 
+2      resident_account_id            INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ❌                 
+4      recipient_name                 TEXT                 ❌                 
+5      recipient_role                 TEXT                 ✅                 
+6      is_primary                     INTEGER              ✅                 
+7      notification_enabled           INTEGER              ✅                 
+8      status                         TEXT                 ✅                 
+9      note                           TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_commercial_recipients_telegram 
+  • idx_commercial_recipients_contract_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • resident_account_id → resident_accounts.id
+  • contract_id → commercial_contracts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE commercial_contract_recipients (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                resident_account_id INTEGER,
+                telegram_user_id TEXT,
+                recipient_name TEXT,
+                recipient_role TEXT NOT NULL DEFAULT 'REPRESENTATIVE',
+                is_primary INTEGER NOT NULL DEFAULT 0,
+                notification_enabled INTEGER NOT NULL DEFAULT 1,
+                status TEXT NOT NULL DEFAULT 'ACTIVE',
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+                FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id)
+            )
+
+================================================================================

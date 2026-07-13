@@ -1,0 +1,52 @@
+================================================================================
+📌 ТАБЛИЦА: access_operation_journal
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 8
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      event_number                   TEXT                 ✅                 
+2      subscription_id                INTEGER              ❌                 
+3      subscription_point_id          INTEGER              ❌                 
+4      access_point_code              TEXT                 ❌                 
+5      event_type                     TEXT                 ✅                 
+6      old_status                     TEXT                 ❌                 
+7      new_status                     TEXT                 ❌                 
+8      actor_id                       TEXT                 ❌                 
+9      source_context                 TEXT                 ❌                 
+10     correlation_id                 TEXT                 ❌                 
+11     payload_json                   TEXT                 ❌                 
+12     created_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_operation_journal_point 
+  • idx_access_operation_journal_subscription 
+  • sqlite_autoindex_access_operation_journal_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_operation_journal (
+            id INTEGER PRIMARY KEY,
+            event_number TEXT NOT NULL UNIQUE,
+            subscription_id INTEGER,
+            subscription_point_id INTEGER,
+            access_point_code TEXT,
+            event_type TEXT NOT NULL,
+            old_status TEXT,
+            new_status TEXT,
+            actor_id TEXT,
+            source_context TEXT,
+            correlation_id TEXT,
+            payload_json TEXT,
+            created_at TEXT NOT NULL
+        )
+
+================================================================================

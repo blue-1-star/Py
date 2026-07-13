@@ -1,0 +1,77 @@
+================================================================================
+📌 ТАБЛИЦА: bank_transactions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      transaction_ref                TEXT                 ❌                 
+2      entry_status                   TEXT                 ✅                 
+3      transaction_date               TEXT                 ✅                 
+4      value_date                     TEXT                 ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      period_code                    TEXT                 ❌                 
+8      service_code                   TEXT                 ❌                 
+9      service_item_code              TEXT                 ❌                 
+10     amount                         REAL                 ✅                 
+11     currency                       TEXT                 ✅                 
+12     payer_text                     TEXT                 ❌                 
+13     bank_name                      TEXT                 ❌                 
+14     source_type                    TEXT                 ✅                 
+15     source_ref                     TEXT                 ❌                 
+16     payment_notice_id              INTEGER              ❌                 
+17     payment_id                     INTEGER              ❌                 
+18     cashier_batch_id               INTEGER              ❌                 
+19     operator_id                    TEXT                 ❌                 
+20     operator_note                  TEXT                 ❌                 
+21     created_at                     TEXT                 ✅                 
+22     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_bank_transactions_unit 
+  • idx_bank_transactions_ref 
+  • sqlite_autoindex_bank_transactions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • payment_notice_id → payment_notices.id
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE bank_transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            transaction_ref TEXT UNIQUE,
+            entry_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+            transaction_date TEXT NOT NULL,
+            value_date TEXT,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            period_code TEXT,
+            service_code TEXT,
+            service_item_code TEXT,
+            amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            payer_text TEXT,
+            bank_name TEXT,
+            source_type TEXT NOT NULL DEFAULT 'manual_operator',
+            source_ref TEXT,
+            payment_notice_id INTEGER,
+            payment_id INTEGER,
+            cashier_batch_id INTEGER,
+            operator_id TEXT,
+            operator_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+            FOREIGN KEY(payment_notice_id) REFERENCES payment_notices(id)
+        )
+
+================================================================================

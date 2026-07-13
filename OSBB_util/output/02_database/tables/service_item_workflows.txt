@@ -1,0 +1,51 @@
+================================================================================
+📌 ТАБЛИЦА: service_item_workflows
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      service_item_code              TEXT                 ❌            ✅    
+1      workflow_profile_code          TEXT                 ✅                 
+2      resident_request_enabled       INTEGER              ✅                 
+3      operator_create_enabled        INTEGER              ✅                 
+4      requires_charge                INTEGER              ✅                 
+5      payment_timing                 TEXT                 ✅                 
+6      inventory_mode                 TEXT                 ✅                 
+7      resident_asset_mode            TEXT                 ✅                 
+8      is_active                      INTEGER              ✅                 
+9      retired_at                     TEXT                 ❌                 
+10     retired_reason                 TEXT                 ❌                 
+11     created_at                     TEXT                 ✅                 
+12     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_item_workflows_profile 
+  • sqlite_autoindex_service_item_workflows_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_item_workflows (
+                service_item_code TEXT PRIMARY KEY,
+                workflow_profile_code TEXT NOT NULL,
+                resident_request_enabled INTEGER NOT NULL DEFAULT 0,
+                operator_create_enabled INTEGER NOT NULL DEFAULT 1,
+                requires_charge INTEGER NOT NULL DEFAULT 1,
+                payment_timing TEXT NOT NULL DEFAULT 'BEFORE_FULFILLMENT',
+                inventory_mode TEXT NOT NULL DEFAULT 'NONE',
+                resident_asset_mode TEXT NOT NULL DEFAULT 'NONE',
+                is_active INTEGER NOT NULL DEFAULT 1,
+                retired_at TEXT,
+                retired_reason TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT
+            )
+
+================================================================================

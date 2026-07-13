@@ -1,0 +1,48 @@
+================================================================================
+📌 ТАБЛИЦА: access_role_permissions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 64
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      role_code                      TEXT                 ✅                 
+2      resource                       TEXT                 ✅                 
+3      action                         TEXT                 ✅                 
+4      scope_type                     TEXT                 ✅                 
+5      scope_value                    TEXT                 ✅                 
+6      effect                         TEXT                 ✅                 
+7      is_active                      INTEGER              ✅                 
+8      note                           TEXT                 ❌                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_role_permissions_role 
+  • sqlite_autoindex_access_role_permissions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_role_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            role_code TEXT NOT NULL,
+            resource TEXT NOT NULL,
+            action TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            effect TEXT NOT NULL DEFAULT 'ALLOW',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(role_code, resource, action, scope_type, scope_value)
+        )
+
+================================================================================

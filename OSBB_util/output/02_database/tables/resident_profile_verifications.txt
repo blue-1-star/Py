@@ -1,0 +1,65 @@
+================================================================================
+📌 ТАБЛИЦА: resident_profile_verifications
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      resident_account_id            INTEGER              ✅                 
+2      apartment_id                   INTEGER              ❌                 
+3      apartment_number               TEXT                 ❌                 
+4      verification_status            TEXT                 ✅                 
+5      no_vehicle_declared            INTEGER              ✅                 
+6      no_vehicle_declared_at         TEXT                 ❌                 
+7      no_vehicle_declared_by         TEXT                 ❌                 
+8      resident_confirmed_at          TEXT                 ❌                 
+9      resident_confirmed_by          TEXT                 ❌                 
+10     verified_snapshot_hash         TEXT                 ❌                 
+11     last_snapshot_hash             TEXT                 ❌                 
+12     parking_debt_check_mode        TEXT                 ✅                 
+13     welcome_shown_at               TEXT                 ❌                 
+14     created_at                     TEXT                 ✅                 
+15     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_resident_profile_verifications_status 
+  • sqlite_autoindex_resident_profile_verifications_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE resident_profile_verifications (
+            id INTEGER PRIMARY KEY,
+            resident_account_id INTEGER NOT NULL UNIQUE,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            verification_status TEXT NOT NULL DEFAULT 'NEEDS_REVIEW'
+                CHECK(verification_status IN (
+                    'NEEDS_REVIEW', 'READY', 'PENDING_OPERATOR', 'ARCHIVED'
+                )),
+            no_vehicle_declared INTEGER NOT NULL DEFAULT 0 CHECK(no_vehicle_declared IN (0, 1)),
+            no_vehicle_declared_at TEXT,
+            no_vehicle_declared_by TEXT,
+            resident_confirmed_at TEXT,
+            resident_confirmed_by TEXT,
+            verified_snapshot_hash TEXT,
+            last_snapshot_hash TEXT,
+            parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+                CHECK(parking_debt_check_mode IN (
+                    'CHECK_LINKED_PARKING_ACCOUNT',
+                    'NOT_APPLICABLE_NO_PARKING',
+                    'MANUAL_REVIEW'
+                )),
+            welcome_shown_at TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+================================================================================

@@ -1,0 +1,61 @@
+================================================================================
+📌 ТАБЛИЦА: vehicles
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 131
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      license_plate                  TEXT                 ❌                 
+3      car_model                      TEXT                 ❌                 
+4      car_color                      TEXT                 ❌                 
+5      parking_time                   TEXT                 ❌                 
+6      status                         TEXT                 ❌                 
+7      source                         TEXT                 ❌                 
+8      notes                          TEXT                 ❌                 
+9      created_at                     TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     updated_at                     TEXT                 ❌                 
+12     updated_by                     TEXT                 ❌                 
+13     license_plate_normalized       TEXT                 ❌                 
+14     plate_format_status            TEXT                 ❌                 
+15     car_model_normalized           TEXT                 ❌                 
+16     car_color_normalized           TEXT                 ❌                 
+17     lifecycle_status               TEXT                 ✅                 
+18     review_status                  TEXT                 ✅                 
+19     archived_at                    TEXT                 ❌                 
+20     archive_reason                 TEXT                 ❌                 
+21     archived_by                    TEXT                 ❌                 
+22     created_source                 TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE vehicles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        license_plate TEXT,
+        car_model TEXT,
+        car_color TEXT,
+        parking_time TEXT,
+        status TEXT,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT, license_plate_normalized TEXT, plate_format_status TEXT, car_model_normalized TEXT, car_color_normalized TEXT, lifecycle_status TEXT NOT NULL DEFAULT 'ACTIVE', review_status TEXT NOT NULL DEFAULT 'VERIFIED', archived_at TEXT, archive_reason TEXT, archived_by TEXT, created_source TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+================================================================================

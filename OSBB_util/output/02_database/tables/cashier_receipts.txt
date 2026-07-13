@@ -1,0 +1,100 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_receipts
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 8
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      receipt_number                 TEXT                 ✅                 
+2      receipt_kind                   TEXT                 ✅                 
+3      entry_status                   TEXT                 ✅                 
+4      cashbox_code                   TEXT                 ❌                 
+5      receipt_date                   TEXT                 ✅                 
+6      document_date                  TEXT                 ❌                 
+7      origin_kind                    TEXT                 ✅                 
+8      origin_cashbox_code            TEXT                 ❌                 
+9      payer_name                     TEXT                 ❌                 
+10     apartment_id                   INTEGER              ❌                 
+11     apartment_number               TEXT                 ❌                 
+12     service_hint                   TEXT                 ❌                 
+13     period_code                    TEXT                 ❌                 
+14     amount                         REAL                 ✅                 
+15     currency                       TEXT                 ✅                 
+16     evidence_type                  TEXT                 ✅                 
+17     paper_ref                      TEXT                 ❌                 
+18     source_text                    TEXT                 ❌                 
+19     designation_status             TEXT                 ✅                 
+20     allocation_status              TEXT                 ✅                 
+21     payment_id                     INTEGER              ❌                 
+22     cashbox_operation_id           INTEGER              ❌                 
+23     void_payment_id                INTEGER              ❌                 
+24     void_cashbox_operation_id      INTEGER              ❌                 
+25     operator_id                    TEXT                 ❌                 
+26     confirmed_by                   TEXT                 ❌                 
+27     confirmed_at                   TEXT                 ❌                 
+28     voided_by                      TEXT                 ❌                 
+29     voided_at                      TEXT                 ❌                 
+30     void_reason                    TEXT                 ❌                 
+31     created_at                     TEXT                 ✅                 
+32     updated_at                     TEXT                 ❌                 
+33     payment_notice_id              INTEGER              ❌                 
+34     cashier_batch_id               INTEGER              ❌                 
+35     service_item_code              TEXT                 ❌                 
+36     review_status                  TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_receipts_batch_v2 
+  • idx_receipts_notice_v2 
+  • idx_cashier_receipts_allocation 
+  • idx_cashier_receipts_apartment 
+  • idx_cashier_receipts_cashbox 
+  • idx_cashier_receipts_status 
+  • sqlite_autoindex_cashier_receipts_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE cashier_receipts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            receipt_number TEXT NOT NULL UNIQUE,
+            receipt_kind TEXT NOT NULL,
+            entry_status TEXT NOT NULL DEFAULT 'DRAFT',
+            cashbox_code TEXT,
+            receipt_date TEXT NOT NULL,
+            document_date TEXT,
+            origin_kind TEXT NOT NULL DEFAULT 'HAND_TO_HAND',
+            origin_cashbox_code TEXT,
+            payer_name TEXT,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            service_hint TEXT,
+            period_code TEXT,
+            amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            evidence_type TEXT NOT NULL DEFAULT 'ORAL',
+            paper_ref TEXT,
+            source_text TEXT,
+            designation_status TEXT NOT NULL DEFAULT 'UNSPECIFIED',
+            allocation_status TEXT NOT NULL DEFAULT 'NOT_APPLICABLE',
+            payment_id INTEGER,
+            cashbox_operation_id INTEGER,
+            void_payment_id INTEGER,
+            void_cashbox_operation_id INTEGER,
+            operator_id TEXT,
+            confirmed_by TEXT,
+            confirmed_at TEXT,
+            voided_by TEXT,
+            voided_at TEXT,
+            void_reason TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        , "payment_notice_id" INTEGER, "cashier_batch_id" INTEGER, "service_item_code" TEXT, "review_status" TEXT)
+
+================================================================================

@@ -1,0 +1,179 @@
+================================================================================
+📊 СВОДНАЯ ИНФОРМАЦИЯ О БАЗЕ ДАННЫХ
+================================================================================
+Файл:    G:\Programming\Py\OSBB\Data\db\osbb_test.db
+Размер:  2.09 MB
+Таблиц:  110
+Строк:   2,145
+================================================================================
+
+📋 СПИСОК ТАБЛИЦ
+--------------------------------------------------------------------------------
+#    Имя                            Строк        Колонок    PK    FK   
+--------------------------------------------------------------------------------
+1    access_audit_log                        4  12         ✅     ❌    
+2    access_debt_warnings                    0  18         ✅     ❌    
+3    access_external_commands                0  19         ✅     ❌    
+4    access_operation_journal                8  13         ✅     ❌    
+5    access_permissions                     50  8          ✅     ❌    
+6    access_points                           2  15         ✅     ❌    
+7    access_policy_values                    5  8          ✅     ❌    
+8    access_policy_versions                  1  12         ✅     ❌    
+9    access_role_permissions                64  11         ✅     ❌    
+10   access_roles                            8  6          ✅     ❌    
+11   access_schema_migrations                2  6          ✅     ❌    
+12   access_tariff_versions                  2  20         ✅     ❌    
+13   access_user_permissions                 0  14         ✅     ❌    
+14   access_user_roles                       4  12         ✅     ❌    
+15   adjustment_assignments                  0  23         ✅     ✅    
+16   adjustment_catalog                      6  12         ✅     ❌    
+17   apartment_link_requests                 2  14         ✅     ✅    
+18   apartment_verification                231  9          ✅     ❌    
+19   apartments                            236  23         ✅     ❌    
+20   audit_log                               0  14         ✅     ❌    
+21   bank_transactions                       0  23         ✅     ✅    
+22   barrier_phone_access                    0  15         ✅     ❌    
+23   bot_admins                              2  14         ✅     ❌    
+24   bot_user_sessions                       0  5          ✅     ❌    
+25   cashbox_operations                    103  29         ✅     ✅    
+26   cashboxes                              10  10         ✅     ❌    
+27   cashier_batch_items                     0  17         ✅     ✅    
+28   cashier_batches                         0  30         ✅     ✅    
+29   cashier_receipts                        8  37         ✅     ❌    
+30   cashier_reconciliation_cases            0  21         ✅     ❌    
+31   cashier_settings                        0  5          ✅     ❌    
+32   charge_adjustments                      0  13         ✅     ✅    
+33   charges                                95  27         ✅     ✅    
+34   commercial_access_actions               0  14         ✅     ✅    
+35   commercial_access_phones                0  11         ✅     ✅    
+36   commercial_contract_items               1  17         ✅     ✅    
+37   commercial_contract_recipients          0  12         ✅     ✅    
+38   commercial_contracts                    1  18         ✅     ✅    
+39   commercial_notifications                0  18         ✅     ✅    
+40   contact_methods                         0  15         ✅     ✅    
+41   developer_cleanup_log                   3  9          ✅     ❌    
+42   events                                  0  14         ✅     ✅    
+43   extracted_facts                         0  9          ✅     ✅    
+44   message_sources                         0  5          ✅     ❌    
+45   operator_audit_log                    163  21         ✅     ❌    
+46   operator_task_queue                     0  18         ✅     ❌    
+47   parking_time_review_tasks              35  19         ✅     ❌    
+48   payment_allocations                    13  8          ✅     ✅    
+49   payment_notices                         3  27         ✅     ✅    
+50   payments                              100  28         ✅     ✅    
+51   persons                               343  12         ✅     ✅    
+52   phone_access_request_points             6  11         ✅     ❌    
+53   phone_access_requests                   3  21         ✅     ❌    
+54   phone_access_subscription_charges          2  25         ✅     ❌    
+55   phone_access_subscription_points          2  13         ✅     ❌    
+56   phone_access_subscriptions              1  25         ✅     ❌    
+57   phone_barrier_access_interest_points          0  7          ✅     ❌    
+58   phone_barrier_access_interests          0  8          ✅     ❌    
+59   phone_barrier_access_order_points          0  11         ✅     ❌    
+60   phone_barrier_access_points             2  10         ✅     ❌    
+61   profile_parking_time_test_events          1  7          ✅     ❌    
+62   profile_parking_time_test_schema_migrations          1  6          ✅     ❌    
+63   profile_parking_time_test_sessions          1  22         ✅     ❌    
+64   raw_messages                            0  11         ✅     ✅    
+65   remote_asset_movements                 13  12         ✅     ❌    
+66   remote_assets                           7  17         ✅     ❌    
+67   remote_handover_events                  0  15         ✅     ❌    
+68   remote_order_details                    4  8          ✅     ❌    
+69   remote_order_issued_assets              2  7          ✅     ❌    
+70   remote_requests                         0  17         ✅     ✅    
+71   remote_supplier_batch_links             1  8          ✅     ❌    
+72   remote_supplier_batches                 1  16         ✅     ❌    
+73   resident_access_accounts                2  11         ✅     ❌    
+74   resident_accounts                       1  15         ✅     ✅    
+75   resident_invitations                    0  11         ✅     ❌    
+76   resident_profile_change_requests          0  17         ✅     ❌    
+77   resident_profile_operation_journal          4  10         ✅     ❌    
+78   resident_profile_policy_values          5  8          ✅     ❌    
+79   resident_profile_policy_versions          1  12         ✅     ❌    
+80   resident_profile_schema_migrations          1  6          ✅     ❌    
+81   resident_profile_verifications          1  16         ✅     ❌    
+82   resident_verification_requests          0  14         ✅     ✅    
+83   schema_info                             1  4          ✅     ❌    
+84   service_access_credentials              3  15         ✅     ❌    
+85   service_catalog                        16  23         ✅     ❌    
+86   service_interests                       0  19         ✅     ❌    
+87   service_item_workflows                  5  13         ✅     ❌    
+88   service_items                          15  17         ✅     ✅    
+89   service_order_charge_links              0  6          ✅     ❌    
+90   service_order_events                   29  8          ✅     ❌    
+91   service_order_interests                 5  23         ✅     ❌    
+92   service_order_payment_links             4  7          ✅     ❌    
+93   service_order_steps                    18  13         ✅     ❌    
+94   service_orders                          6  24         ✅     ❌    
+95   service_price_versions                  4  11         ✅     ❌    
+96   service_tariffs                         3  9          ✅     ✅    
+97   service_workflow_profiles               6  7          ✅     ❌    
+98   service_workflow_steps                 18  11         ✅     ❌    
+99   staff_principals                        1  6          ✅     ❌    
+100  tbot_parking_import                   125  14         ✅     ❌    
+101  unit_aliases                            0  9          ✅     ✅    
+102  unit_contacts                           0  10         ✅     ✅    
+103  unit_group_aliases                     13  9          ✅     ✅    
+104  unit_group_members                      8  8          ✅     ✅    
+105  unit_groups                             4  10         ✅     ❌    
+106  vehicles                              131  23         ✅     ✅    
+107  verification_candidates                46  17         ✅     ✅    
+108  verification_evidence                  80  12         ✅     ✅    
+109  verification_log                        0  10         ✅     ❌    
+110  verification_tasks                     37  24         ✅     ✅    
+
+🔗 СВЯЗИ МЕЖДУ ТАБЛИЦАМИ
+--------------------------------------------------------------------------------
+  • adjustment_assignments.adjustment_code → adjustment_catalog.adjustment_code
+  • apartment_link_requests.requested_apartment_id → apartments.id
+  • apartment_link_requests.current_apartment_id → apartments.id
+  • apartment_link_requests.resident_account_id → resident_accounts.id
+  • bank_transactions.payment_notice_id → payment_notices.id
+  • bank_transactions.apartment_id → apartments.id
+  • cashbox_operations.charge_id → charges.id
+  • cashbox_operations.payment_id → payments.id
+  • cashbox_operations.vehicle_id → vehicles.id
+  • cashbox_operations.cashbox_code → cashboxes.cashbox_code
+  • cashier_batch_items.apartment_id → apartments.id
+  • cashier_batch_items.batch_id → cashier_batches.id
+  • cashier_batches.cashbox_code → cashboxes.cashbox_code
+  • charge_adjustments.adjustment_assignment_id → adjustment_assignments.id
+  • charge_adjustments.charge_id → charges.id
+  • charges.service_code → service_catalog.service_code
+  • charges.vehicle_id → vehicles.id
+  • commercial_access_actions.notification_id → commercial_notifications.id
+  • commercial_access_actions.access_phone_id → commercial_access_phones.id
+  • commercial_access_actions.contract_id → commercial_contracts.id
+  • commercial_access_phones.contract_id → commercial_contracts.id
+  • commercial_contract_items.contract_id → commercial_contracts.id
+  • commercial_contract_recipients.resident_account_id → resident_accounts.id
+  • commercial_contract_recipients.contract_id → commercial_contracts.id
+  • commercial_contracts.unit_id → apartments.id
+  • commercial_notifications.recipient_id → commercial_contract_recipients.id
+  • commercial_notifications.contract_id → commercial_contracts.id
+  • contact_methods.person_id → persons.id
+  • contact_methods.apartment_id → apartments.id
+  • events.apartment_id → apartments.id
+  • extracted_facts.raw_message_id → raw_messages.id
+  • payment_allocations.charge_id → charges.id
+  • payment_allocations.payment_id → payments.id
+  • payment_notices.apartment_id → apartments.id
+  • payment_notices.resident_account_id → resident_accounts.id
+  • payments.vehicle_id → vehicles.id
+  • persons.apartment_id → apartments.id
+  • raw_messages.source_id → message_sources.id
+  • remote_requests.apartment_id → apartments.id
+  • remote_requests.resident_account_id → resident_accounts.id
+  • resident_accounts.apartment_id → apartments.id
+  • resident_verification_requests.invitation_id → resident_invitations.id
+  • service_items.service_code → service_catalog.service_code
+  • service_tariffs.service_code → service_catalog.service_code
+  • unit_aliases.apartment_id → apartments.id
+  • unit_contacts.apartment_id → apartments.id
+  • unit_group_aliases.group_id → unit_groups.id
+  • unit_group_members.apartment_id → apartments.id
+  • unit_group_members.group_id → unit_groups.id
+  • vehicles.apartment_id → apartments.id
+  • verification_candidates.task_id → verification_tasks.id
+  • verification_evidence.task_id → verification_tasks.id
+  • verification_tasks.apartment_id → apartments.id

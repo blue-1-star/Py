@@ -1,0 +1,77 @@
+================================================================================
+📌 ТАБЛИЦА: profile_parking_time_test_sessions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      session_number                 TEXT                 ✅                 
+2      test_scope                     TEXT                 ✅                 
+3      target_apartment_id            INTEGER              ❌                 
+4      target_apartment_number        TEXT                 ✅                 
+5      target_vehicle_id              INTEGER              ✅                 
+6      plate_snapshot                 TEXT                 ❌                 
+7      model_snapshot                 TEXT                 ❌                 
+8      color_snapshot                 TEXT                 ❌                 
+9      original_parking_time_snapshot TEXT                 ❌                 
+10     proposed_parking_time          TEXT                 ❌                 
+11     test_status                    TEXT                 ✅                 
+12     opened_by                      TEXT                 ✅                 
+13     opened_at                      TEXT                 ✅                 
+14     proposed_by                    TEXT                 ❌                 
+15     proposed_at                    TEXT                 ❌                 
+16     reviewed_by                    TEXT                 ❌                 
+17     reviewed_at                    TEXT                 ❌                 
+18     review_note                    TEXT                 ❌                 
+19     close_reason                   TEXT                 ❌                 
+20     created_at                     TEXT                 ✅                 
+21     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • ux_profile_parking_time_test_active_vehicle (UNIQUE)
+  • idx_profile_parking_time_test_sessions_queue 
+  • sqlite_autoindex_profile_parking_time_test_sessions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE profile_parking_time_test_sessions (
+            id INTEGER PRIMARY KEY,
+            session_number TEXT NOT NULL UNIQUE,
+            test_scope TEXT NOT NULL DEFAULT 'PARKING_TIME_NO_WRITE',
+            target_apartment_id INTEGER,
+            target_apartment_number TEXT NOT NULL,
+            target_vehicle_id INTEGER NOT NULL,
+            plate_snapshot TEXT,
+            model_snapshot TEXT,
+            color_snapshot TEXT,
+            original_parking_time_snapshot TEXT,
+            proposed_parking_time TEXT,
+            test_status TEXT NOT NULL
+                CHECK(test_status IN (
+                    'OPEN',
+                    'PENDING_OPERATOR',
+                    'APPROVED_TEST_NO_WRITE',
+                    'REJECTED_TEST_NO_WRITE',
+                    'CLOSED_TEST_NO_WRITE'
+                )),
+            opened_by TEXT NOT NULL,
+            opened_at TEXT NOT NULL,
+            proposed_by TEXT,
+            proposed_at TEXT,
+            reviewed_by TEXT,
+            reviewed_at TEXT,
+            review_note TEXT,
+            close_reason TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+================================================================================

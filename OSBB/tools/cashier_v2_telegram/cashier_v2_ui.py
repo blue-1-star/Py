@@ -25,6 +25,7 @@ from tools.cashier_v2_telegram.cashier_search import (
     search_commercial_subjects,
 )
 from tools.cashier_v2_telegram.cashier_card import payment_card, period_display, success_card
+from Bots.handlers.vehicle_card_editor import create_draft_vehicle, create_registry_vehicle
 
 BTN_PAYMENTS = "💳 Платежи"
 BTN_CASHIER_V2 = "💰 Касса v2"
@@ -58,6 +59,9 @@ BTN_CUSTOM_PERIOD = "📅 Другой период"
 BTN_OTHER_PAYMENT = "📦 Другая услуга"
 BTN_RESIDENT_SUBJECT = "🏠 Жильцы / 🚗 Авто"
 BTN_COMMERCIAL_SUBJECT = "🏢 Коммерческие фирмы"
+BTN_ENTER_VEHICLE = "➕ Ввести данные авто"
+BTN_SEARCH_AGAIN = "🔎 Искать ещё"
+BTN_SKIP_APARTMENT = "➡️ Пропустить квартиру"
 
 DEFAULT_CASHBOX_CODE = "O"
 DEFAULT_SOURCE_TEXT = "Прямая наличная оплата через Telegram"
@@ -212,7 +216,21 @@ def last_receipts_text(limit: int = 10) -> str:
 
 
 def draft_from_payer(payer: dict, group: str, service: dict) -> dict:
-    defaults = proposed_defaults(payer, service, default_period())
+    if payer.get('apartment'):
+        defaults = proposed_defaults(payer, service, default_period())
+    else:
+        amount = service.get('amount_default')
+        if amount in (None, '', 0, 0.0):
+            for key in ('price', 'amount', 'tariff_amount'):
+                if service.get(key) not in (None, '', 0, 0.0):
+                    amount = service.get(key)
+                    break
+        defaults = {
+            'period_code': default_period(),
+            'latest_paid_period': None,
+            'amount': float(amount or 0),
+            'charge_id': None,
+        }
     return {
         'cashbox_code': DEFAULT_CASHBOX_CODE,
         'service_group': group,
@@ -395,13 +413,120 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
         await show_card(update, user_states, user_id, draft)
         return True
 
+    if state.get('screen') == 'vehicle_not_found':
+        if text == BTN_SEARCH_AGAIN:
+            user_states[user_id] = {'mode':'cashier_v2','screen':'payer_query_first','subject_mode':'resident'}
+            await update.message.reply_text(
+                "🔍 Жильцы / Авто\n\nВведите номер квартиры или несколько цифр госномера автомобиля.",
+                reply_markup=kb([[BTN_BACK, BTN_MAIN]]),
+            )
+            return True
+        if text == BTN_ENTER_VEHICLE:
+            fragment = str(state.get('vehicle_fragment') or '').strip()
+            user_states[user_id] = {
+                'mode':'cashier_v2',
+                'screen':'cashier_vehicle_apartment',
+                'vehicle_fragment': fragment,
+                'subject_mode':'resident',
+            }
+            await update.message.reply_text(
+                f"🚗 Ввод данных авто\n\nНомер/фрагмент: {fragment}\n\nВведите квартиру, если она известна, или нажмите «Пропустить квартиру».",
+                reply_markup=kb([[BTN_SKIP_APARTMENT], [BTN_BACK, BTN_MAIN]]),
+            )
+            return True
+        await update.message.reply_text("Выберите действие кнопкой.", reply_markup=kb([[BTN_ENTER_VEHICLE],[BTN_SEARCH_AGAIN],[BTN_BACK,BTN_MAIN]]))
+        return True
+
+    if state.get('screen') == 'cashier_vehicle_apartment':
+        apartment_number = None
+        apartment = None
+        if text != BTN_SKIP_APARTMENT:
+            matches = [x for x in search_payers(text) if x.get('kind') == 'apartment' and str(x.get('apartment_number')) == text]
+            if not matches:
+                await update.message.reply_text(
+                    "⚠ Квартира не найдена. Введите номер ещё раз или пропустите этот шаг.",
+                    reply_markup=kb([[BTN_SKIP_APARTMENT],[BTN_BACK,BTN_MAIN]]),
+                )
+                return True
+            apartment = matches[0].get('apartment')
+            apartment_number = str(matches[0].get('apartment_number') or text)
+        user_states[user_id] = {
+            'mode':'cashier_v2',
+            'screen':'cashier_vehicle_parking',
+            'vehicle_fragment': state.get('vehicle_fragment'),
+            'apartment': apartment,
+            'apartment_number': apartment_number,
+            'subject_mode':'resident',
+        }
+        await update.message.reply_text("Выберите режим парковки:", reply_markup=kb([[BTN_NIGHT, BTN_DAY],[BTN_BACK,BTN_MAIN]]))
+        return True
+
+    if state.get('screen') == 'cashier_vehicle_parking':
+        if text not in {BTN_NIGHT, BTN_DAY}:
+            await update.message.reply_text("Выберите Night или Day.", reply_markup=kb([[BTN_NIGHT,BTN_DAY],[BTN_BACK,BTN_MAIN]]))
+            return True
+        parking_time = 'Night' if text == BTN_NIGHT else 'Day'
+        plate = str(state.get('vehicle_fragment') or '').strip()
+        apartment_number = state.get('apartment_number')
+        if apartment_number:
+            ok, result = create_registry_vehicle(
+                apartment_number=apartment_number,
+                plate=plate,
+                model=None,
+                parking_time=parking_time,
+                operator_id=user_id,
+                needs_review=True,
+            )
+        else:
+            ok, result = create_draft_vehicle(
+                plate=plate,
+                model=None,
+                parking_time=parking_time,
+                operator_id=user_id,
+            )
+        if not ok:
+            await update.message.reply_text(f"⚠ Не удалось создать автомобиль: {result}", reply_markup=kb([[BTN_BACK,BTN_MAIN]]))
+            return True
+        vehicle = {
+            'id': result.get('vehicle_id'),
+            'license_plate': result.get('plate') or plate,
+            'license_plate_normalized': result.get('plate') or plate,
+            'car_model': result.get('model'),
+            'parking_time': parking_time,
+            'review_status': result.get('review_status') or 'NEEDS_REVIEW',
+        }
+        payer = {
+            'kind': 'vehicle',
+            'vehicle': vehicle,
+            'vehicle_id': int(result.get('vehicle_id')),
+            'parking_time': parking_time,
+            'apartment': state.get('apartment'),
+            'apartment_id': (state.get('apartment') or {}).get('id') if state.get('apartment') else None,
+            'apartment_number': apartment_number or '',
+            'label': f"🚗 {vehicle['license_plate']} / кв. {apartment_number or '—'} / {parking_time}",
+        }
+        service = choose_service(parking_time.lower(), default_period())
+        if not service:
+            await update.message.reply_text(f"⚠ Для режима {parking_time} не найдена активная услуга.", reply_markup=menu_kb())
+            return True
+        draft = draft_from_payer(payer, parking_time.lower(), service)
+        await show_card(update, user_states, user_id, draft)
+        return True
+
     if state.get('screen') == 'payer_query_first':
         items = search_payers(text)
         if not items:
+            user_states[user_id] = {
+                'mode': 'cashier_v2',
+                'screen': 'vehicle_not_found',
+                'vehicle_fragment': text,
+                'subject_mode': 'resident',
+            }
             await update.message.reply_text(
-                "⚠ Не нашёл квартиру или автомобиль. Введите номер квартиры или цифры госномера ещё раз.",
-                reply_markup=menu_kb(),
-            ); return True
+                f"⚠ Автомобиль или квартира не найдены.\n\nИзвестный номер/фрагмент: {text}\n\nМожно сразу ввести данные авто.",
+                reply_markup=kb([[BTN_ENTER_VEHICLE], [BTN_SEARCH_AGAIN], [BTN_BACK, BTN_MAIN]]),
+            )
+            return True
 
         expanded = []
         for item in items:
@@ -546,6 +671,7 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
                     commercial_contract_id=draft['payer'].get('commercial_contract_id'),
                     commercial_unit_id=draft['payer'].get('commercial_unit_id'),
                     commercial_contract_item_id=draft['payer'].get('commercial_contract_item_id'),
+                    vehicle_id=draft['payer'].get('vehicle_id'),
                 )
                 con.commit()
             except Exception as exc:

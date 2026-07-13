@@ -1,0 +1,64 @@
+================================================================================
+📌 ТАБЛИЦА: service_interests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      interest_number                TEXT                 ❌                 
+2      resident_account_id            INTEGER              ❌                 
+3      telegram_user_id               INTEGER              ❌                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ❌                 
+6      service_code                   TEXT                 ❌                 
+7      service_item_code              TEXT                 ❌                 
+8      service_name_snapshot          TEXT                 ❌                 
+9      quantity                       INTEGER              ✅                 
+10     unit_price_snapshot            REAL                 ✅                 
+11     amount_due_snapshot            REAL                 ✅                 
+12     currency                       TEXT                 ✅                 
+13     status                         TEXT                 ✅                 
+14     source_context                 TEXT                 ❌                 
+15     resident_comment               TEXT                 ❌                 
+16     operator_comment               TEXT                 ❌                 
+17     created_at                     TEXT                 ✅                 
+18     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_interests_service_item 
+  • idx_service_interests_status 
+  • idx_service_interests_apartment 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_interests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    interest_number TEXT,
+    resident_account_id INTEGER,
+    telegram_user_id INTEGER,
+    apartment_id INTEGER,
+    apartment_number TEXT,
+    service_code TEXT,
+    service_item_code TEXT,
+    service_name_snapshot TEXT,
+    quantity INTEGER NOT NULL DEFAULT 1,
+    unit_price_snapshot REAL NOT NULL DEFAULT 0,
+    amount_due_snapshot REAL NOT NULL DEFAULT 0,
+    currency TEXT NOT NULL DEFAULT 'UAH',
+    status TEXT NOT NULL DEFAULT 'NEW',
+    source_context TEXT,
+    resident_comment TEXT,
+    operator_comment TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
+)
+
+================================================================================

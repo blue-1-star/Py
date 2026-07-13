@@ -1,0 +1,45 @@
+================================================================================
+📌 ТАБЛИЦА: unit_groups
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 4
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      group_code                     TEXT                 ✅                 
+2      group_type                     TEXT                 ✅                 
+3      display_name                   TEXT                 ❌                 
+4      legal_status                   TEXT                 ✅                 
+5      record_status                  TEXT                 ✅                 
+6      source_note                    TEXT                 ❌                 
+7      internal_note                  TEXT                 ❌                 
+8      created_at                     TEXT                 ✅                 
+9      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_unit_groups_status 
+  • sqlite_autoindex_unit_groups_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE unit_groups (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_code TEXT NOT NULL UNIQUE,
+            group_type TEXT NOT NULL DEFAULT 'COMPOSITE_LOOKUP',
+            display_name TEXT,
+            legal_status TEXT NOT NULL DEFAULT 'UNKNOWN',
+            record_status TEXT NOT NULL DEFAULT 'LEGACY_LOOKUP',
+            source_note TEXT,
+            internal_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+================================================================================

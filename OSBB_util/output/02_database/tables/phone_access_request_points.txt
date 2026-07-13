@@ -1,0 +1,48 @@
+================================================================================
+📌 ТАБЛИЦА: phone_access_request_points
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 6
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      request_id                     INTEGER              ✅                 
+2      access_point_code              TEXT                 ✅                 
+3      access_point_name_snapshot     TEXT                 ✅                 
+4      connect_tariff_version_id      INTEGER              ❌                 
+5      connect_unit_price_snapshot    REAL                 ✅                 
+6      monthly_tariff_version_id      INTEGER              ❌                 
+7      monthly_unit_price_snapshot    REAL                 ✅                 
+8      currency                       TEXT                 ✅                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_access_request_points_request 
+  • sqlite_autoindex_phone_access_request_points_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_access_request_points (
+            id INTEGER PRIMARY KEY,
+            request_id INTEGER NOT NULL,
+            access_point_code TEXT NOT NULL,
+            access_point_name_snapshot TEXT NOT NULL,
+            connect_tariff_version_id INTEGER,
+            connect_unit_price_snapshot REAL NOT NULL CHECK(connect_unit_price_snapshot >= 0),
+            monthly_tariff_version_id INTEGER,
+            monthly_unit_price_snapshot REAL NOT NULL CHECK(monthly_unit_price_snapshot >= 0),
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(request_id, access_point_code)
+        )
+
+================================================================================

@@ -1,0 +1,77 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_batches
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      batch_id                       TEXT                 ✅                 
+2      batch_type                     TEXT                 ✅                 
+3      period_code                    TEXT                 ❌                 
+4      cashbox_code                   TEXT                 ❌                 
+5      service_code                   TEXT                 ❌                 
+6      default_amount                 REAL                 ❌                 
+7      default_tariff                 TEXT                 ❌                 
+8      operator_id                    TEXT                 ❌                 
+9      actor_type                     TEXT                 ❌                 
+10     total_rows                     INTEGER              ❌                 
+11     total_amount                   REAL                 ❌                 
+12     comment                        TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     applied_at                     TEXT                 ❌                 
+15     batch_status                   TEXT                 ❌                 
+16     batch_number                   TEXT                 ❌                 
+17     batch_kind                     TEXT                 ❌                 
+18     entry_status                   TEXT                 ✅                 
+19     entrance_number                TEXT                 ❌                 
+20     service_item_code              TEXT                 ❌                 
+21     receipt_date                   TEXT                 ❌                 
+22     included_count                 INTEGER              ✅                 
+23     excluded_count                 INTEGER              ✅                 
+24     currency                       TEXT                 ✅                 
+25     source_text                    TEXT                 ❌                 
+26     confirmed_at                   TEXT                 ❌                 
+27     voided_at                      TEXT                 ❌                 
+28     void_reason                    TEXT                 ❌                 
+29     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_cashier_batches_number 
+  • idx_cashier_batches_operator 
+  • idx_cashier_batches_status 
+  • idx_cashier_batches_batch_id 
+  • sqlite_autoindex_cashier_batches_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • cashbox_code → cashboxes.cashbox_code
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE cashier_batches (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            batch_id TEXT NOT NULL UNIQUE,
+            batch_type TEXT NOT NULL,
+            period_code TEXT,
+            cashbox_code TEXT,
+            service_code TEXT,
+            default_amount REAL,
+            default_tariff TEXT,
+            operator_id TEXT,
+            actor_type TEXT DEFAULT 'operator',
+            total_rows INTEGER DEFAULT 0,
+            total_amount REAL DEFAULT 0,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            applied_at TEXT,
+            batch_status TEXT DEFAULT 'draft', "batch_number" TEXT, "batch_kind" TEXT, "entry_status" TEXT NOT NULL DEFAULT 'DRAFT', "entrance_number" TEXT, "service_item_code" TEXT, "receipt_date" TEXT, "included_count" INTEGER NOT NULL DEFAULT 0, "excluded_count" INTEGER NOT NULL DEFAULT 0, "currency" TEXT NOT NULL DEFAULT 'UAH', "source_text" TEXT, "confirmed_at" TEXT, "voided_at" TEXT, "void_reason" TEXT, "updated_at" TEXT,
+            FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code)
+        )
+
+================================================================================

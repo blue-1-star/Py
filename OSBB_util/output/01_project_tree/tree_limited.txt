@@ -1,0 +1,1380 @@
+├── access_control.py
+├── audit_composite_apartments.py
+├── audit_logger.py
+├── audit_osbb_telegram_messages.py
+├── audit_registry.py
+├── audit_tbot_quarantine.py
+├── billing/
+│   ├── build_parking_time_review_tasks.py
+│   ├── import_ohorona_parking_time.py
+│   ├── import_ohorona_parking_time_simple_preview.py
+│   ├── import_parking_time_hints_from_ohorona.py
+│   ├── migrate_add_parking_billing.py
+│   ├── report_missing_parking_time.py
+│   ├── report_parking_time_review_tasks.py
+│   └── report_parking_time_with_hints.py
+├── billing_reconciliation_report.py
+├── billing_statement_excel.py
+├── Bots/
+│   ├── backups/
+│   │   └── parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py
+│   ├── data_park_bot.py
+│   ├── db_access - Copy.py
+│   ├── db_access.py
+│   ├── handlers/
+│   │   ├── __init___.MODULE.md
+│   │   ├── __init___.py
+│   │   ├── agreement - Copy.py
+│   │   ├── agreement.MODULE.md
+│   │   ├── agreement.py
+│   │   ├── audit_viewer - Copy.py
+│   │   ├── audit_viewer.MODULE.md
+│   │   ├── audit_viewer.py
+│   │   ├── cashier_operator.MODULE.md
+│   │   ├── cashier_operator.py
+│   │   ├── cashier_operator_v2.py
+│   │   ├── CHANGELOG.md
+│   │   ├── client_portal.MODULE.md
+│   │   ├── client_portal.py
+│   │   ├── client_portal_safe_linking.MODULE.md
+│   │   ├── client_portal_safe_linking.py
+│   │   ├── client_portal_v2.py
+│   │   ├── client_portal_v3.py
+│   │   ├── commercial_contract_editor.MODULE.md
+│   │   ├── commercial_contract_editor.py
+│   │   ├── guard_workspace.MODULE.md
+│   │   ├── guard_workspace.py
+│   │   ├── guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py
+│   │   ├── guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py
+│   │   ├── INSTALL.md
+│   │   ├── profile_parking_time_test_workspace.MODULE.md
+│   │   ├── profile_parking_time_test_workspace.py
+│   │   ├── profile_verification_workspace.MODULE.md
+│   │   ├── profile_verification_workspace.py
+│   │   ├── service_orders_workspace.MODULE.md
+│   │   ├── service_orders_workspace.py
+│   │   ├── service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09
+│   │   ├── service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29
+│   │   ├── service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40
+│   │   ├── unit_registry_editor - Copy.py
+│   │   ├── unit_registry_editor.MODULE.md
+│   │   ├── unit_registry_editor.py
+│   │   ├── vehicle_card_editor.MODULE.md
+│   │   ├── vehicle_card_editor.py
+│   │   ├── vehicle_card_editor_prev.py
+│   │   ├── vehicle_full_list.MODULE.md
+│   │   ├── vehicle_full_list.py
+│   │   ├── vehicle_verification.MODULE.md
+│   │   └── vehicle_verification.py
+│   ├── hello.py
+│   ├── parking_bot - Copy.py
+│   ├── parking_bot.py
+│   ├── parking_bot_before_cashier_editor_2026-06-25_14-45-08.py
+│   ├── parking_bot_before_cashier_v2_2026-07-04_12-30-27.py
+│   ├── parking_bot_before_client_portal_2026-06-25_10-25-49.py
+│   ├── parking_bot_before_guard_workspace_2026-07-04_13-01-19.py
+│   ├── parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py
+│   ├── parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py
+│   ├── Start_OSBB_Bot.bat
+│   ├── Start_OSBB_Bot_training_vika.bat
+│   ├── Start_OSBB_Bot_working_pult_test.bat
+│   ├── Start_OSBB_Guard_Sandbox_Bot.bat
+│   └── Start_OSBB_Guard_Sandbox_Bot_v2.bat
+├── build_plate_candidates.py
+├── build_plate_evidence_by_digits_and_apartment.py
+├── build_plate_evidence_from_telegram.py
+├── build_verification_tasks.py
+├── cashier_journal.py
+├── cashier_route_repair_payload/
+│   └── run_bot_live_services_sandbox_v1.py
+├── cashier_v2_core.py
+├── cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py
+├── cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py
+├── cashier_v2_preflight.py
+├── cashier_v2_preflight_compat.py
+├── CHANGELOG.md
+├── CHECK_guard_sandbox_service_orders.py
+├── CHECK_guard_sandbox_service_orders_v2.py
+├── CHECK_phone_barrier_access_operational_sandbox.py
+├── CHECK_phone_barrier_access_sandbox_schema.py
+├── CHECK_profile_button_early_route_fix.py
+├── CHECK_profile_confirmation_ready_visibility_fix.py
+├── CHECK_profile_critical_codes_fix.py
+├── CHECK_profile_parking_time_test_sandbox.py
+├── CHECK_profile_test_candidate_apartment_40.py
+├── CHECK_profile_verification_sandbox.py
+├── CHECK_profile_verification_terminology_v2.py
+├── CHECK_service_code_compatibility_phone_v2.py
+├── CLAUDE.md
+├── Collect_sheets.py
+├── Collect_sheets1.py
+├── Collect_word_tables.py
+├── commercial_contracts.py
+├── commercial_notification_delivery.py
+├── create_clean_live_sandbox.py
+├── create_isolated_live_sandbox_v2.py
+├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat
+├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py
+├── Data/
+│   ├── 1 під'їзд.docx
+│   ├── 2 під'їзд.docx
+│   ├── 24А ПОЛНЫЙ СПИСОК Сервис Житлобуд1 - Copy.xlsx
+│   ├── 3 під'їзд.docx
+│   ├── 4 під'їзд.docx
+│   ├── 5 під'їзд.docx
+│   ├── 6 під'їзд.docx
+│   ├── audit_databases.py
+│   ├── Audit_for_merge.py
+│   ├── backups/
+│   │   ├── db/
+│   │   │   ├── before_access_control_schema_2026-07-06_19-42-04.db
+│   │   │   ├── before_access_control_schema_v2_2026-07-06_19-55-45.db
+│   │   │   ├── before_payment_cleanup_2026-07-10_17-04-32.db
+│   │   │   ├── before_payment_cleanup_2026-07-10_17-07-13.db
+│   │   │   ├── before_payment_cleanup_2026-07-10_21-46-19.db
+│   │   │   └── before_user_onboarding_schema_2026-07-05_22-02-47.db
+│   │   ├── source_code/
+│   │   │   ├── before_service_orders_ui_v2_2026-07-04_17-00-26/
+│   │   │   │   └── parking_bot.py
+│   │   │   ├── before_user_onboarding_admin_ui_2026-07-06_11-30-36/
+│   │   │   │   └── parking_bot.py
+│   │   │   ├── before_user_onboarding_admin_ui_v2_2026-07-06_12-29-51/
+│   │   │   │   └── parking_bot.py
+│   │   │   ├── before_user_onboarding_import_fix_2026-07-06_12-55-02/
+│   │   │   │   └── parking_bot.py
+│   │   │   ├── cashier_route_repair_2026-06-27_20-04-49/
+│   │   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   │   ├── parking_time_test_v1_2026-06-28_12-12-01/
+│   │   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   │   ├── phone_barrier_access_v2_2026-06-27_19-37-24/
+│   │   │   │   ├── Bots/
+│   │   │   │   │   └── handlers/
+│   │   │   │   │       └── service_orders_workspace.py
+│   │   │   │   ├── phone_barrier_access_core.py
+│   │   │   │   ├── service_orders_core.py
+│   │   │   │   └── service_preorders_core.py
+│   │   │   ├── profile_button_early_route_2026-06-27_21-33-50/
+│   │   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   │   ├── profile_confirmation_ready_visibility_2026-06-27_21-55-54/
+│   │   │   │   └── profile_verification_workspace.py
+│   │   │   ├── profile_critical_codes_fix_2026-06-27_21-47-24/
+│   │   │   │   └── profile_verification_workspace.py
+│   │   │   ├── profile_verification_2026-06-27_20-51-33/
+│   │   │   │   ├── Bots/
+│   │   │   │   │   └── handlers/
+│   │   │   │   │       └── service_orders_workspace.py
+│   │   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   │   ├── profile_verification_terminology_v2_2026-06-27_21-23-44/
+│   │   │   │   ├── Bots/
+│   │   │   │   │   └── handlers/
+│   │   │   │   │       ├── profile_verification_workspace.py
+│   │   │   │   │       └── service_orders_workspace.py
+│   │   │   │   └── profile_verification_core.py
+│   │   │   └── service_code_compatibility_2026-06-27_20-20-03/
+│   │   │       ├── Bots/
+│   │   │       │   └── handlers/
+│   │   │       │       └── service_orders_workspace.py
+│   │   │       ├── service_orders_core.py
+│   │   │       └── service_preorders_core.py
+│   │   └── source_patches/
+│   │       ├── phone_access_policy_ux_bridge_v1_2026-06-29_17-34-34/
+│   │       │   └── service_orders_workspace.py
+│   │       ├── phone_barrier_access_service_policy_v1_2026-06-29_23-12-24/
+│   │       │   └── phone_barrier_access_service.py
+│   │       ├── remote_debt_gate_v1_2026-06-28_17-41-41/
+│   │       │   └── Bots/
+│   │       │       └── handlers/
+│   │       │           ├── client_portal.py
+│   │       │           └── guard_workspace.py
+│   │       ├── service_orders_core_access_policy_v1_2026-06-29_13-48-47/
+│   │       │   └── service_orders_core.py
+│   │       └── service_orders_workspace_policy_ux_v1_2026-06-29_15-57-36/
+│   │           └── service_orders_workspace.py
+│   ├── car_registry.py
+│   ├── check_passport_columns.py
+│   ├── Clean_Base.py
+│   ├── clean_base_01.py
+│   ├── clean_base_02.py
+│   ├── Clean_Data.py
+│   ├── conflicts.py
+│   ├── create_payment_sheet.py
+│   ├── db/
+│   │   ├── backups/
+│   │   │   ├── osbb_test_before_cashier.db
+│   │   │   ├── osbb_test_before_grant_admin_2026-07-01_13-49-23.db
+│   │   │   ├── osbb_test_before_promote_live_services_2026-07-01_12-41-42.db
+│   │   │   └── osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db
+│   │   ├── logs/
+│   │   │   ├── actual_service_order_state_20260627_115724.txt
+│   │   │   ├── actual_service_order_state_20260704_142150.txt
+│   │   │   ├── actual_service_order_state_20260704_142648.txt
+│   │   │   ├── guard_sandbox_service_orders_diagnosis_20260627_114522.txt
+│   │   │   ├── guard_sandbox_service_orders_diagnosis_20260627_114911.txt
+│   │   │   ├── guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt
+│   │   │   ├── live_services_payment_schema_fix_20260627_122549.txt
+│   │   │   ├── phone_barrier_access_operational_migration_2026-06-27_19-38-08.txt
+│   │   │   ├── phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt
+│   │   │   ├── profile_parking_time_test_migration_2026-06-28_12-12-37.txt
+│   │   │   ├── profile_verification_migration_2026-06-27_20-52-07.txt
+│   │   │   └── simplified_services_migration_2026-06-27_14-10-45.txt
+│   │   ├── osbb.db
+│   │   ├── osbb.sqbpro
+│   │   ├── osbb_quarantine.db
+│   │   ├── osbb_telegram - Copy.db
+│   │   ├── osbb_telegram.db
+│   │   ├── osbb_test - Copy.db
+│   │   ├── osbb_test.db
+│   │   ├── osbb_test.sqbpro
+│   │   ├── osbb_test_schema_20260710_112003.sql
+│   │   ├── osbb_test_schema_20260710_112003.txt
+│   │   ├── sandbox/
+│   │   │   ├── acceptance_tmp/
+│   │   │   ├── backups/
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db
+│   │   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db
+│   │   │   │   └── osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db
+│   │   │   ├── cashier_v2_preflight_2026-06-25_18-53-50.txt
+│   │   │   ├── cashier_v2_preflight_compat_2026-06-25_19-47-09.txt
+│   │   │   ├── clean_live_sandbox_2026-06-26_20-13-26.txt
+│   │   │   ├── guard_workspace_preflight_2026-06-26_12-39-50.txt
+│   │   │   ├── guard_workspace_preflight_2026-06-26_12-56-09.txt
+│   │   │   ├── osbb_test_cashier_v2_check_2026-06-25_18-53-50.db
+│   │   │   ├── osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db
+│   │   │   ├── osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db
+│   │   │   ├── osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db
+│   │   │   ├── osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db
+│   │   │   ├── osbb_test_live_services_2026-06-26_20-13-26.db
+│   │   │   └── service_orders_preflight_2026-06-26_19-42-50.txt
+│   │   ├── telegram_osbb_session.session
+│   │   └── working/
+│   │       ├── osbb_working_pult_order_test_2026-07-02_17-18-39.db
+│   │       ├── osbb_working_pult_order_test_2026-07-02_17-18-39.manifest.json
+│   │       └── osbb_working_pult_order_test_2026-07-02_17-18-39.README.md
+│   ├── debug_conflict.py
+│   ├── exports/
+│   │   ├── audits/
+│   │   │   ├── bot_admins_report_2026-06-12_19-36-42.txt
+│   │   │   ├── normalization_audit_2026-06-08_22-08-18.txt
+│   │   │   ├── normalization_audit_2026-06-08_22-37-22.txt
+│   │   │   ├── normalization_audit_2026-06-09_10-40-26.txt
+│   │   │   ├── normalization_audit_2026-06-09_10-48-13.txt
+│   │   │   ├── parking_time_hints_from_ohorona_2026-06-11_19-15-43.txt
+│   │   │   ├── parking_time_parse_from_ohorona_2026-06-17_23-18-04.txt
+│   │   │   ├── parking_time_parse_from_ohorona_2026-06-18_13-52-15.txt
+│   │   │   ├── parking_time_parse_from_ohorona_2026-06-18_18-18-34.txt
+│   │   │   ├── parking_time_parse_from_ohorona_2026-06-18_18-20-15.txt
+│   │   │   ├── parking_time_review_tasks_2026-06-11_20-10-50.txt
+│   │   │   ├── parking_time_with_hints_2026-06-11_21-34-42.txt
+│   │   │   ├── plate_candidates_report_2026-06-10_22-24-30.txt
+│   │   │   ├── plate_candidates_report_2026-06-11_11-02-53.txt
+│   │   │   ├── registry_audit_2026-06-08_17-24-00.txt
+│   │   │   ├── registry_audit_2026-06-23_17-18-21.txt
+│   │   │   ├── tbot_quarantine_audit_2026-06-08_19-55-03.txt
+│   │   │   ├── telegram_messages_audit_2026-06-10_13-30-15.txt
+│   │   │   ├── telegram_remote_facts_report_2026-06-10_14-43-47.txt
+│   │   │   ├── telegram_vehicle_facts_report_2026-06-10_20-22-27.txt
+│   │   │   ├── verification_evidence_report_2026-06-10_21-04-35.txt
+│   │   │   ├── verification_evidence_report_2026-06-10_21-29-11.txt
+│   │   │   ├── verification_tasks_2026-06-09_11-50-55.txt
+│   │   │   ├── verification_tasks_2026-06-09_12-26-46.txt
+│   │   │   └── verification_tasks_enriched_2026-06-10_21-57-19.txt
+│   │   ├── billing/
+│   │   │   ├── billing_reconciliation_report_2026-05_2026-06_2026-06-19_16-15-39.txt
+│   │   │   ├── billing_statement_2026-05_2026-06_2026-06-20_21-50-05.xlsx
+│   │   │   ├── ohorona_sheet1_payments_2026-05_2026-06_apply_2026-06-19_13-39-16.txt
+│   │   │   ├── ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-18_22-27-14.txt
+│   │   │   ├── ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_10-25-19.txt
+│   │   │   ├── ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_11-38-22.txt
+│   │   │   ├── ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_13-23-40.txt
+│   │   │   ├── parking_billing_statement_2026-05_2026-06_2026-06-19_14-58-20.txt
+│   │   │   ├── parking_charges_2026-05_2026-06_apply_2026-06-18_18-29-41.txt
+│   │   │   ├── parking_charges_2026-05_2026-06_apply_2026-06-18_18-37-17.txt
+│   │   │   ├── parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-03.txt
+│   │   │   ├── parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-39.txt
+│   │   │   ├── parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-28-42.txt
+│   │   │   ├── plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-53-33.txt
+│   │   │   ├── plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-58-00.txt
+│   │   │   ├── plate_consensus_apply_2026-05_2026-06_dry_run_2026-06-20_13-56-20.txt
+│   │   │   ├── plate_consensus_report_2026-05_2026-06_2026-06-20_10-32-56.txt
+│   │   │   ├── plate_consensus_report_2026-05_2026-06_2026-06-20_11-06-58.txt
+│   │   │   ├── plate_consensus_report_2026-05_2026-06_2026-06-20_11-34-47.txt
+│   │   │   ├── plate_consensus_report_2026-05_2026-06_2026-06-20_13-29-26.txt
+│   │   │   ├── plate_consensus_report_2026-05_2026-06_2026-06-20_14-54-33.txt
+│   │   │   ├── plate_consensus_top_ties_2026-05_2026-06_2026-06-20_11-44-04.txt
+│   │   │   ├── vehicle_data_quality_tasks_2026-05_2026-06_2026-06-19_17-06-59.txt
+│   │   │   └── vehicle_verification_tasks_2026-05_2026-06_2026-06-19_17-52-55.txt
+│   │   ├── cashier/
+│   │   │   ├── cashier_operator_migration_2026-06-25_14-43-23.txt
+│   │   │   ├── cashier_operator_migration_2026-06-25_14-43-41.txt
+│   │   │   ├── cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.csv
+│   │   │   ├── cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.txt
+│   │   │   ├── cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.xlsx
+│   │   │   ├── cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.csv
+│   │   │   ├── cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.txt
+│   │   │   ├── cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.xlsx
+│   │   │   ├── cashier_v2_migration_2026-06-25_17-56-05.txt
+│   │   │   ├── ohorona_cashbox_backfill_apply_2026-06-22_20-55-57.txt
+│   │   │   ├── ohorona_cashbox_backfill_dry_run_2026-06-22_20-33-08.txt
+│   │   │   ├── ohorona_cashbox_backfill_dry_run_2026-06-22_20-41-34.txt
+│   │   │   ├── ohorona_list1_central_apply_2026-06-22_22-53-00.txt
+│   │   │   ├── ohorona_list1_central_dry_run_2026-06-22_22-31-21.txt
+│   │   │   ├── ohorona_list1_central_dry_run_2026-06-22_22-36-41.txt
+│   │   │   ├── ohorona_list1_central_dry_run_2026-06-22_22-41-45.txt
+│   │   │   ├── ohorona_list1_central_dry_run_2026-06-22_22-48-20.txt
+│   │   │   ├── service_catalog_cleanup_2026-06-22_16-17-39.txt
+│   │   │   ├── service_catalog_cleanup_2026-06-22_20-05-21.txt
+│   │   │   └── service_catalog_cleanup_2026-06-22_20-07-25.txt
+│   │   ├── code/
+│   │   │   ├── code_search_2026-06-28_15-20-58.txt
+│   │   │   ├── operator_candidates.txt
+│   │   │   ├── phone_acceptance_assumptions_audit.txt
+│   │   │   ├── phone_access_workspace_context.txt
+│   │   │   ├── phone_interest_pipeline_trace.txt
+│   │   │   ├── phone_policy_path_trace.txt
+│   │   │   ├── service_access_policy_integration_points_2026-06-29_11-54-53.txt
+│   │   │   ├── service_access_policy_integration_points_2026-06-29_16-54-26.txt
+│   │   │   └── service_orders_workspace_policy_patch_context.txt
+│   │   ├── code_passport/
+│   │   │   ├── project_passport_2026-06-28_15-31-05/
+│   │   │   │   ├── 00_Project.md
+│   │   │   │   ├── 01_File_System.md
+│   │   │   │   ├── 02_Modules.md
+│   │   │   │   ├── 03_Technical_Debt.md
+│   │   │   │   ├── 04_DB_Table_References.md
+│   │   │   │   ├── inventory/
+│   │   │   │   │   ├── classes.csv
+│   │   │   │   │   ├── db_table_refs.csv
+│   │   │   │   │   ├── files.csv
+│   │   │   │   │   ├── functions.csv
+│   │   │   │   │   ├── imports.csv
+│   │   │   │   │   ├── modules.csv
+│   │   │   │   │   └── todos.csv
+│   │   │   │   ├── modules/
+│   │   │   │   └── summary.json
+│   │   │   ├── project_passport_v2_2026-06-28_15-35-59/
+│   │   │   │   ├── 00_Project.md
+│   │   │   │   ├── 01_File_System.md
+│   │   │   │   ├── 02_Modules.md
+│   │   │   │   ├── 03_Technical_Debt.md
+│   │   │   │   ├── 04_DB_Table_References.md
+│   │   │   │   ├── inventory/
+│   │   │   │   │   ├── classes.csv
+│   │   │   │   │   ├── db_table_refs.csv
+│   │   │   │   │   ├── files.csv
+│   │   │   │   │   ├── functions.csv
+│   │   │   │   │   ├── imports.csv
+│   │   │   │   │   ├── modules.csv
+│   │   │   │   │   └── todos.csv
+│   │   │   │   └── summary.json
+│   │   │   ├── project_passport_v3_2026-06-28_15-51-11/
+│   │   │   │   ├── 00_Project_v3.md
+│   │   │   │   ├── 05_Entrypoints.md
+│   │   │   │   ├── 06_Active_Candidates.md
+│   │   │   │   ├── 07_Legacy_Backups.md
+│   │   │   │   ├── 08_Bot_Handlers.md
+│   │   │   │   ├── 09_Remote_Access_Service_Modules.md
+│   │   │   │   ├── 10_Code_Risk_Summary.md
+│   │   │   │   ├── inventory/
+│   │   │   │   │   ├── entrypoints.csv
+│   │   │   │   │   ├── files_classified.csv
+│   │   │   │   │   ├── functions.csv
+│   │   │   │   │   ├── import_edges.csv
+│   │   │   │   │   └── python_modules_classified.csv
+│   │   │   │   └── summary.json
+│   │   │   ├── project_passport_v4_2026-06-28_15-56-10/
+│   │   │   │   ├── 00_Runtime_Schema_Audit.md
+│   │   │   │   ├── 01_Strict_Entrypoints.md
+│   │   │   │   ├── 02_Runtime_Import_Closure.md
+│   │   │   │   ├── 03_Missing_Tables_From_Code.md
+│   │   │   │   ├── 04_Remote_Access_Modules.md
+│   │   │   │   ├── 05_Debt_Gate_Candidates.md
+│   │   │   │   ├── inventory/
+│   │   │   │   │   ├── db_table_refs.csv
+│   │   │   │   │   ├── debt_gate_candidates.csv
+│   │   │   │   │   ├── missing_tables_from_code.csv
+│   │   │   │   │   ├── remote_access_modules.csv
+│   │   │   │   │   ├── runtime_import_edges.csv
+│   │   │   │   │   ├── runtime_import_nodes.csv
+│   │   │   │   │   └── strict_entrypoints.csv
+│   │   │   │   └── summary.json
+│   │   │   ├── remote_debt_gate_audit_2026-06-28_16-48-56/
+│   │   │   │   ├── 00_Remote_Debt_Gate_Audit.md
+│   │   │   │   ├── inventory/
+│   │   │   │   │   ├── candidate_lines.csv
+│   │   │   │   │   ├── db_status.csv
+│   │   │   │   │   ├── files_scanned.csv
+│   │   │   │   │   └── functions_remote_debt_scan.csv
+│   │   │   │   └── summary.json
+│   │   │   ├── remote_gate_sources_2026-06-28_16-59-59.txt
+│   │   │   ├── running_bots_after_start.txt
+│   │   │   └── running_bots_now.txt
+│   │   ├── commercial/
+│   │   │   ├── commercial_contract_core_2026-06-24_12-27-30.txt
+│   │   │   ├── commercial_contract_core_2026-06-24_12-30-30.txt
+│   │   │   └── commercial_notification_queue_2026-06-24_dry_run_2026-06-24_12-32-13.txt
+│   │   ├── db_passports/
+│   │   │   └── service_catalog/
+│   │   │       └── gold_2026-06-28_22-23-17/
+│   │   │           ├── 01_schema.txt
+│   │   │           ├── 02_columns.csv
+│   │   │           ├── 03_indexes.csv
+│   │   │           ├── 04_foreign_keys.csv
+│   │   │           ├── 05_code_references.csv
+│   │   │           ├── 06_service_code_usage.csv
+│   │   │           ├── 07_sample_rows.csv
+│   │   │           ├── 08_distinct_values.txt
+│   │   │           ├── 09_code_references_by_kind.txt
+│   │   │           ├── 10_architecture_notes.md
+│   │   │           └── passport_summary.txt
+│   │   ├── db_rank/
+│   │   │   ├── after_promote_epoch_archaeology.md
+│   │   │   ├── after_promote_release_candidate.md
+│   │   │   ├── LOST_FEATURES_FROM_SANDBOXES.md
+│   │   │   ├── project_epoch_archaeology.md
+│   │   │   ├── PROMOTE_SANDBOX_TO_TRAINING_DB.md
+│   │   │   └── release_candidate_selection.md
+│   │   ├── db_schema_osbb_test.txt
+│   │   ├── debt_policy/
+│   │   │   ├── debt_policy_matrix_preview_2026-06-28_20-23-44.csv
+│   │   │   ├── debt_policy_matrix_preview_2026-06-28_20-23-44.txt
+│   │   │   └── service_codes_live_sandbox.txt
+│   │   ├── diagnostics/
+│   │   │   └── audit_diagnostic_2026-06-24_20-17-19.txt
+│   │   ├── git/
+│   │   │   └── RELEASE_NOTES_since_osbb_test_db.md
+│   │   ├── reflection/
+│   │   │   └── OSBB_SELF_REFLECTION_2026_H1.md
+│   │   ├── remotes/
+│   │   │   ├── remote_requests_migration_2026-06-25_10-23-49.txt
+│   │   │   ├── remote_requests_migration_2026-06-25_10-24-18.txt
+│   │   │   ├── remote_requests_migration_2026-06-25_11-42-17.txt
+│   │   │   └── remote_requests_migration_2026-06-25_12-05-57.txt
+│   │   ├── schema/
+│   │   │   ├── schema_compare_2026-06-28_13-09-32.txt
+│   │   │   └── schema_snapshot_test_2026-06-28_14-30-02.txt
+│   │   ├── supervisor/
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.xlsx
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.xlsx
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.xlsx
+│   │   │   ├── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt
+│   │   │   └── supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.xlsx
+│   │   ├── telegram/
+│   │   │   ├── osbb_included_peers_2026-06-10_13-11-22.txt
+│   │   │   └── telegram_dialogs_2026-06-10_12-18-25.txt
+│   │   ├── units/
+│   │   │   ├── commercial_unit_placeholders_2026-06-24_10-48-47.txt
+│   │   │   ├── commercial_unit_placeholders_2026-06-24_10-49-12.txt
+│   │   │   ├── composite_unit_inventory_2026-06-23_17-20-07.csv
+│   │   │   ├── composite_unit_inventory_2026-06-23_17-20-07.txt
+│   │   │   ├── unit_registry_aliases_2026-06-23_16-09-28.txt
+│   │   │   ├── unit_registry_composite_groups_2026-06-23_17-36-23.txt
+│   │   │   └── unit_registry_composite_groups_2026-06-23_17-40-54.txt
+│   │   └── users/
+│   │       ├── apartment_link_requests_migration_2026-06-25_11-42-33.txt
+│   │       ├── apartment_link_requests_migration_2026-06-25_12-07-06.txt
+│   │       ├── restore_resident_link_2026-06-25_12-51-41.txt
+│   │       └── restore_resident_link_2026-06-25_12-52-09.txt
+│   ├── final_merge.py
+│   ├── Full_list_GEK.xlsx
+│   ├── img/
+│   │   └── car_24a_5.jpg
+│   ├── logs/
+│   ├── merge_all.py
+│   ├── raw/
+│   │   ├── photos/
+│   │   │   ├── car_24a_1.jpg
+│   │   │   ├── car_24a_2.jpg
+│   │   │   ├── car_24a_3.jpg
+│   │   │   ├── car_24a_4.jpg
+│   │   │   ├── car_24a_5.jpg
+│   │   │   └── car_24a_6.jpg
+│   │   ├── telegram/
+│   │   └── typed/
+│   │       ├── 2 під'їзд.docx
+│   │       ├── ALIGNED_COMPARISON.xlsx
+│   │       ├── Audit_Comparison.xlsx
+│   │       ├── AUDIT_READY_SORTED.xlsx
+│   │       ├── AUDIT_READY_WITH_TARIFFS.xlsx
+│   │       ├── Audit_Result.xlsx
+│   │       ├── bot_06_06.csv
+│   │       ├── CAR_REGISTRY_ALL_m1.xlsx
+│   │       ├── CLEAN_COMPARISON.xlsx
+│   │       ├── CLEAN_COMPARISON_GROUPED.xlsx
+│   │       ├── CONFLICTS_ONLY_PLATES.xlsx
+│   │       ├── DATABASE_AUDIT_REPORT.txt
+│   │       ├── DATABASE_AUDIT_REPORT_06_06.txt
+│   │       ├── DEBUG_CONFLICTS.xlsx
+│   │       ├── DEBUG_FULL_DUMP.xlsx
+│   │       ├── FLAT_REGISTRY.xlsx
+│   │       ├── house_passport.xlsx
+│   │       ├── ONLY_CONFLICTS.xlsx
+│   │       ├── OSBB_Base_Cleaned.xlsx
+│   │       ├── OSBB_Base_Cleaned_06_06.xlsx
+│   │       ├── OSBB_Final_Base - Copy.xlsx
+│   │       ├── OSBB_Final_Base.xlsx
+│   │       ├── OSBB_MASTER_DATABASE.xlsx
+│   │       ├── OSBB_Verification_Report.xlsx
+│   │       ├── p_1.docx
+│   │       ├── p_3.docx
+│   │       ├── p_4.docx
+│   │       ├── p_5.docx
+│   │       ├── p_5.xlsx
+│   │       ├── p_6.docx
+│   │       ├── p_all_tables.xlsx
+│   │       ├── parking_tbot1.xlsx
+│   │       ├── parking_tbot2.xlsx
+│   │       ├── REAL_CONFLICTS_ONLY.xlsx
+│   │       ├── ~$OSBB_Base_Cleaned_06_06.xlsx
+│   │       ├── ~$parking_tbot2.xlsx
+│   │       ├── Ведомость_оплаты_парковки.xlsx
+│   │       ├── Охорона.xlsx
+│   │       └── Список Авто_1.xlsx
+│   ├── reports/
+│   │   └── cashier_state/
+│   │       └── cashier_state_full_2026-07-09_17-14-49.txt
+│   ├── rub_flat_merge.py
+│   ├── run_direct_merge.py
+│   ├── run_flat_merge.py
+│   ├── run_smart_merge.py
+│   └── Попередній список авто.docx
+├── Development_Conventions.md
+├── diagnose_osbb_audit.py
+├── diagnose_sandbox_charges.py
+├── Docs/
+│   ├── Architecture/
+│   │   ├── ADR-2026-07-01-resident-identity-refactor.md
+│   │   └── Services/
+│   │       ├── business_policy_layer_v1_design.md
+│   │       ├── service_catalog_v2_design.md
+│   │       └── service_catalog_v2_design_approved_updates.md
+│   ├── Guide/
+│   │   └── SECOND_ADMIN_GUIDE.docx
+│   ├── modules/
+│   │   └── HANDLERS_MODULE_REGISTRY.md
+│   ├── non_residential_unit_draft_template.xlsx
+│   ├── OSBB - Организация сбора данных.pdf
+│   ├── OSBB_Business_Handoff_2026-06-27/
+│   │   ├── DO_NOT_UPLOAD_SECRETS.md
+│   │   ├── OSBB_BUSINESS_HANDOFF_2026-06-27.md
+│   │   ├── OSBB_PROJECT_INSTRUCTIONS.md
+│   │   ├── SHA256SUMS.txt
+│   │   ├── START_OSBB_BUSINESS_CHAT_2026-06-28.txt
+│   │   └── TRANSFER_CHECKLIST_2026-06-27.txt
+│   ├── OSBB_Business_Handoff_2026-06-27.zip
+│   ├── ROADMAP.md
+│   └── Second_Admin_Giude.md
+├── extract_telegram_remote_facts.py
+├── extract_telegram_vehicle_facts.py
+├── FIND_actual_service_order_state.py
+├── find_sandbox_telegram_id.py
+├── FIX_live_services_sandbox_payment_schema.py
+├── fix_parking_bot_language_gate.py
+├── fix_source_ref_schema.py
+├── generate_parking_charges.py
+├── Generate_Stetement.py
+├── guard_workspace_preflight.py
+├── guard_workspace_preflight_v2.py
+├── import_house_registry.py
+├── import_ohorona_list1_to_central_cashbox.py
+├── import_ohorona_sheet1_payments.py
+├── import_ohorona_to_cashbox.py
+├── import_osbb_telegram_messages.py
+├── import_paper_parking.py
+├── import_tbot_quarantine.py
+├── init_osbb_db.py
+├── init_osbb_quarantine_db.py
+├── init_osbb_telegram_db.py
+├── inspect_osbb_folder_filter.py
+├── INSTALL.md
+├── INSTALL_cashier_route_after_phone_v2.py
+├── INSTALL_PHONE_ACCESS_UI_FIX.bat
+├── INSTALL_PHONE_ACCESS_UI_FIX_v2.bat
+├── INSTALL_PHONE_ACCESS_UI_FIX_v2.py
+├── INSTALL_PHONE_ACCESS_UI_FIX_v3.bat
+├── INSTALL_PHONE_ACCESS_UI_FIX_v3.py
+├── INSTALL_phone_barrier_access_v2.py
+├── INSTALL_profile_button_early_route_fix.py
+├── INSTALL_profile_confirmation_ready_visibility_fix.py
+├── INSTALL_profile_critical_codes_fix.py
+├── INSTALL_profile_parking_time_test_v1.py
+├── INSTALL_profile_verification_terminology_v2.py
+├── INSTALL_profile_verification_v1.py
+├── INSTALL_service_code_compatibility_phone_v2.py
+├── install_service_orders_ui.py
+├── KNOWLEDGE/
+│   ├── Development_Conventions.md
+│   ├── Parking_Payment_To_Parking_Time_Workflow.md
+│   └── Project_Documentator.md
+├── list_osbb_folder_dialogs.py
+├── list_osbb_included_peers.py
+├── list_telegram_dialogs.py
+├── list_telegram_folders.py
+├── manage_staff_access.py
+├── manage_staff_access_v2.py
+├── mark_audit_enabled.py
+├── migrate_access_control_and_guard.py
+├── migrate_add_normalized_fields.py
+├── migrate_add_verification_evidence.py
+├── migrate_add_verification_tasks.py
+├── migrate_apartment_link_requests.py
+├── migrate_apartment_verification.py
+├── migrate_billing_core.py
+├── migrate_bot_core.py
+├── migrate_cashier_core.py
+├── migrate_cashier_operator_editor.py
+├── migrate_cashier_v2.py
+├── migrate_cashier_v2_compat.py
+├── migrate_charge_adjustments.py
+├── migrate_commercial_contract_core.py
+├── migrate_operator_audit_log.py
+├── migrate_operator_audit_log_v2.py
+├── MIGRATE_phone_barrier_access_operational_sandbox.py
+├── MIGRATE_phone_barrier_access_sandbox.py
+├── MIGRATE_profile_parking_time_test_sandbox.py
+├── MIGRATE_profile_verification_sandbox.py
+├── migrate_remote_requests.py
+├── migrate_service_items.py
+├── migrate_service_orders_and_fulfillment.py
+├── MIGRATE_simplified_services_sandbox.py
+├── migrate_unit_registry_composite_groups.py
+├── normalize_registry_fields.py
+├── OSBB_apartment_40_profile_test_preflight.zip
+├── OSBB_cashier_route_fix/
+├── OSBB_cashier_route_fix.zip
+├── OSBB_cashier_route_repair_after_phone_v2/
+├── OSBB_cashier_route_repair_after_phone_v2.zip
+├── OSBB_phone_access_ui_fix/
+│   └── Bots/
+│       └── handlers/
+├── OSBB_phone_access_ui_fix.zip
+├── OSBB_phone_access_ui_fix_v3/
+│   └── Bots/
+│       └── handlers/
+├── OSBB_phone_access_ui_fix_v3.zip
+├── OSBB_phone_barrier_access_schema_migration/
+├── OSBB_phone_barrier_access_schema_migration.zip
+├── OSBB_phone_barrier_access_v2_working_sandbox/
+├── OSBB_phone_barrier_access_v2_working_sandbox.zip
+├── OSBB_profile_button_early_route_fix_v2.zip
+├── OSBB_profile_confirmation_ready_visibility_fix.zip
+├── OSBB_profile_parking_time_test_v1_sandbox.zip
+├── OSBB_profile_verification_terminology_v2 (1).zip
+├── OSBB_profile_verification_v1_sandbox_final/
+├── OSBB_profile_verification_v1_sandbox_final.zip
+├── OSBB_service_code_compatibility_repair_phone_v2/
+├── OSBB_service_code_compatibility_repair_phone_v2.zip
+├── OSBB_Service_Orders_Foundation_v1/
+│   ├── migrate_service_orders_and_fulfillment.py
+│   ├── service_catalog_admin_core.py
+│   ├── service_orders_core.py
+│   └── service_orders_preflight.py
+├── OSBB_Service_Orders_Foundation_v1.zip
+├── OSBB_simplified_services_preorders_bundle/
+│   └── Bots/
+│       └── handlers/
+├── OSBB_simplified_services_preorders_bundle.zip
+├── parking_billing_statement.py
+├── parking_time_test_payload/
+│   ├── Bots/
+│   │   └── handlers/
+│   │       └── profile_parking_time_test_workspace.py
+│   ├── profile_parking_time_test_core.py
+│   └── run_bot_live_services_sandbox_v1.py
+├── patch_cashier_v2_core_period_and_schemafix.py
+├── patch_cashier_v2_core_schemafix.py
+├── patch_guard_workspace_default_cash_note.py
+├── patch_guard_workspace_direct_notice_confirm.py
+├── patch_parking_bot_cashier_operator.py
+├── patch_parking_bot_client_cabinet.py
+├── patch_parking_bot_client_portal.py
+├── patch_parking_bot_guard_workspace_v2.py
+├── patch_parking_bot_guard_workspace_v3.py
+├── patch_parking_bot_guard_workspace_v4.py
+├── patch_parking_bot_launch_queues_menu.py
+├── patch_parking_bot_service_orders_ui_v1.py
+├── patch_parking_bot_service_orders_ui_v2.py
+├── patch_parking_bot_service_orders_v1.py
+├── phone_barrier_access_core.py
+├── phone_barrier_access_service.py
+├── phone_barrier_access_v2_payload/
+│   ├── Bots/
+│   │   └── handlers/
+│   │       └── service_orders_workspace.py
+│   ├── phone_barrier_access_core.py
+│   ├── phone_barrier_access_service.py
+│   ├── service_orders_core.py
+│   └── service_preorders_core.py
+├── plate_consensus_apply.py
+├── plate_consensus_report.py
+├── plate_consensus_report_v3.py
+├── plate_consensus_top6.py
+├── prepare_live_service_test.py
+├── profile_button_early_route_payload/
+│   └── run_bot_live_services_sandbox_v1.py
+├── profile_confirmation_button_ready_payload/
+│   └── Bots/
+│       └── handlers/
+│           └── profile_verification_workspace.py
+├── profile_parking_time_test_core.py
+├── profile_verification_core.py
+├── profile_verification_critical_codes_payload/
+│   └── Bots/
+│       └── handlers/
+│           └── profile_verification_workspace.py
+├── profile_verification_payload/
+│   ├── Bots/
+│   │   └── handlers/
+│   │       ├── profile_verification_workspace.py
+│   │       └── service_orders_workspace.py
+│   ├── profile_verification_core.py
+│   └── run_bot_live_services_sandbox_v1.py
+├── profile_verification_terminology_v2_payload/
+│   ├── Bots/
+│   │   └── handlers/
+│   │       ├── profile_verification_workspace.py
+│   │       └── service_orders_workspace.py
+│   └── profile_verification_core.py
+├── README_APARTMENT_40_PROFILE_TEST_PREFLIGHT.txt
+├── README_CASHIER_ROUTE_FIX.txt
+├── README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2.txt
+├── README_LIVE_SERVICE_UI.txt
+├── README_LIVE_SERVICES_SANDBOX.txt
+├── README_PHONE_ACCESS_FIX.txt
+├── README_PHONE_ACCESS_FIX_v2.txt
+├── README_PHONE_ACCESS_FIX_v3.txt
+├── README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION.txt
+├── README_PHONE_BARRIER_ACCESS_V2.txt
+├── README_PROFILE_BUTTON_EARLY_ROUTE_FIX.txt
+├── README_PROFILE_CONFIRMATION_READY_VISIBILITY_FIX.txt
+├── README_PROFILE_CRITICAL_CODES_FIX.txt
+├── README_PROFILE_PARKING_TIME_TEST_V1.txt
+├── README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt
+├── README_PROFILE_VERIFICATION_V1.txt
+├── README_SERVICE_CODE_COMPATIBILITY_PHONE_V2.txt
+├── README_SIMPLIFIED_SERVICES.txt
+├── Recovered/
+│   ├── ADMIN_ACCESS_GRANT_2026-07-04_17-57-37.md
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.diff
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.md
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.patched.py
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.diff
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.md
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.patched.py
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.diff
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.md
+│   ├── parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.patched.py
+│   ├── parking_bot_user_onboarding_admin_ui_2026-07-06_11-27-50.patched.py
+│   ├── parking_bot_user_onboarding_admin_ui_2026-07-06_11-30-34.patched.py
+│   ├── parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-20.patched.py
+│   ├── parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-51.patched.py
+│   ├── parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-54-28.patched.py
+│   ├── parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-55-02.patched.py
+│   ├── PARKING_OPERATOR_TASK_CANDIDATES_2026-07-05_19-16-03.xlsx
+│   ├── PARKING_PAYMENTS_REPORT_2026-07-05_12-26-25.xlsx
+│   ├── PARKING_PAYMENTS_REPORT_2026-07-05_13-31-19.xlsx
+│   ├── PARKING_REGISTRY_AUDIT_2026-07-05_14-51-06.xlsx
+│   ├── PARKING_REGISTRY_REPORT_2026-07-05_14-50-49.xlsx
+│   ├── PARKING_REGISTRY_REPORT_2026-07-05_15-34-01.xlsx
+│   ├── project_archaeology_2026-07-02_22-59-35/
+│   │   ├── FILE_HISTORY.tsv
+│   │   ├── files_by_module/
+│   │   │   ├── CHECK_phone_barrier_access_operational_sandbox/
+│   │   │   │   └── CHECK_phone_barrier_access_operational_sandbox__c22827184b78.py
+│   │   │   ├── CHECK_phone_barrier_access_sandbox_schema/
+│   │   │   │   └── CHECK_phone_barrier_access_sandbox_schema__8e4c82b70733.py
+│   │   │   ├── CHECK_profile_parking_time_test_sandbox/
+│   │   │   │   └── CHECK_profile_parking_time_test_sandbox__55c1f1aa3c66.py
+│   │   │   ├── CHECK_profile_verification_sandbox/
+│   │   │   │   └── CHECK_profile_verification_sandbox__73286e2ac2f8.py
+│   │   │   ├── CHECK_profile_verification_terminology/
+│   │   │   │   └── CHECK_profile_verification_terminology_v2__6229e2c0f296.py
+│   │   │   ├── client_portal/
+│   │   │   │   └── client_portal_v3__eebdc5458dfe.py
+│   │   │   ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER/
+│   │   │   │   ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__08ad806bb35a.bat
+│   │   │   │   └── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__1d430f6a292e.py
+│   │   │   ├── INSTALL_cashier_route_after_phone/
+│   │   │   │   └── INSTALL_cashier_route_after_phone_v2__f85eb4c5eadc.py
+│   │   │   ├── INSTALL_PHONE_ACCESS_UI_FIX/
+│   │   │   │   ├── INSTALL_PHONE_ACCESS_UI_FIX__3b67acce637d.bat
+│   │   │   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v2__b43c774e9187.py
+│   │   │   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v2__baeff943726f.bat
+│   │   │   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v3__2107d097d9bf.py
+│   │   │   │   └── INSTALL_PHONE_ACCESS_UI_FIX_v3__dfe63e8ed1b4.bat
+│   │   │   ├── INSTALL_phone_barrier_access/
+│   │   │   │   └── INSTALL_phone_barrier_access_v2__cc07112da7fb.py
+│   │   │   ├── INSTALL_profile_parking_time_test/
+│   │   │   │   └── INSTALL_profile_parking_time_test_v1__352b2a9ffb0c.py
+│   │   │   ├── INSTALL_profile_verification/
+│   │   │   │   └── INSTALL_profile_verification_v1__dfa078d4be84.py
+│   │   │   ├── INSTALL_profile_verification_terminology/
+│   │   │   │   └── INSTALL_profile_verification_terminology_v2__8d84fd006bfe.py
+│   │   │   ├── install_service_orders_ui/
+│   │   │   │   └── install_service_orders_ui__84a6bab32e35.py
+│   │   │   ├── MIGRATE_phone_barrier_access_operational_sandbox/
+│   │   │   │   └── MIGRATE_phone_barrier_access_operational_sandbox__488cb403453d.py
+│   │   │   ├── MIGRATE_phone_barrier_access_sandbox/
+│   │   │   │   └── MIGRATE_phone_barrier_access_sandbox__81c26d447942.py
+│   │   │   ├── MIGRATE_profile_parking_time_test_sandbox/
+│   │   │   │   └── MIGRATE_profile_parking_time_test_sandbox__57324665edea.py
+│   │   │   ├── MIGRATE_profile_verification_sandbox/
+│   │   │   │   └── MIGRATE_profile_verification_sandbox__5a90e4cb254d.py
+│   │   │   ├── migrate_service_orders_and_fulfillment/
+│   │   │   │   └── migrate_service_orders_and_fulfillment__33ef6dda81b9.py
+│   │   │   ├── MIGRATE_simplified_services_sandbox/
+│   │   │   │   └── MIGRATE_simplified_services_sandbox__cb84fbcee38c.py
+│   │   │   ├── patch_parking_bot_service_orders/
+│   │   │   │   └── patch_parking_bot_service_orders_v1__07e623d30310.py
+│   │   │   ├── patch_parking_bot_service_orders_ui/
+│   │   │   │   └── patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+│   │   │   ├── phone_barrier_access_core/
+│   │   │   │   ├── phone_barrier_access_core__15aedf505808.py
+│   │   │   │   └── phone_barrier_access_core__d224426a533a.py
+│   │   │   ├── phone_barrier_access_service/
+│   │   │   │   └── phone_barrier_access_service__de46014418bf.py
+│   │   │   ├── profile_parking_time_test_core/
+│   │   │   │   └── profile_parking_time_test_core__45ab47b5a24a.py
+│   │   │   ├── profile_parking_time_test_workspace/
+│   │   │   │   └── profile_parking_time_test_workspace__6b291a186d03.py
+│   │   │   ├── profile_verification_core/
+│   │   │   │   ├── profile_verification_core__68b9c00f27e8.py
+│   │   │   │   └── profile_verification_core__d06fa33f0c95.py
+│   │   │   ├── profile_verification_workspace/
+│   │   │   │   ├── profile_verification_workspace__131afe386eac.py
+│   │   │   │   ├── profile_verification_workspace__1d8880a95510.py
+│   │   │   │   ├── profile_verification_workspace__82a3853cce89.py
+│   │   │   │   └── profile_verification_workspace__da5c31503fef.py
+│   │   │   ├── README_CASHIER_ROUTE_FIX/
+│   │   │   │   └── README_CASHIER_ROUTE_FIX__93c2658e1982.txt
+│   │   │   ├── README_CASHIER_ROUTE_REPAIR_AFTER_PHONE/
+│   │   │   │   └── README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2__2e84dd934a9a.txt
+│   │   │   ├── README_LIVE_SERVICES_SANDBOX/
+│   │   │   │   └── README_LIVE_SERVICES_SANDBOX__a29d610189b8.txt
+│   │   │   ├── README_PHONE_ACCESS_FIX/
+│   │   │   │   ├── README_PHONE_ACCESS_FIX__ccb29bc2e542.txt
+│   │   │   │   ├── README_PHONE_ACCESS_FIX_v2__d2903f91fd66.txt
+│   │   │   │   └── README_PHONE_ACCESS_FIX_v3__56063fdf0ea3.txt
+│   │   │   ├── README_PHONE_BARRIER_ACCESS/
+│   │   │   │   └── README_PHONE_BARRIER_ACCESS_V2__4e43764d4444.txt
+│   │   │   ├── README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION/
+│   │   │   │   └── README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION__2a65e739ac00.txt
+│   │   │   ├── README_PROFILE_PARKING_TIME_TEST/
+│   │   │   │   └── README_PROFILE_PARKING_TIME_TEST_V1__4bb8a3b9f380.txt
+│   │   │   ├── README_PROFILE_VERIFICATION/
+│   │   │   │   └── README_PROFILE_VERIFICATION_V1__a47a609d98c1.txt
+│   │   │   ├── README_PROFILE_VERIFICATION_TERMINOLOGY/
+│   │   │   │   └── README_PROFILE_VERIFICATION_TERMINOLOGY_V2__6330d6ee7b3c.txt
+│   │   │   ├── RETIRE_legacy_new_remote_test_orders_sandbox/
+│   │   │   │   └── RETIRE_legacy_new_remote_test_orders_sandbox__3a3bab1d10c1.py
+│   │   │   ├── run_bot_live_service_sandbox/
+│   │   │   │   └── run_bot_live_service_sandbox_v4__49721c32f14f.py
+│   │   │   ├── run_bot_live_services_sandbox/
+│   │   │   │   ├── run_bot_live_services_sandbox_v1__1fb99c606cdb.py
+│   │   │   │   ├── run_bot_live_services_sandbox_v1__2c2db2c9c866.py
+│   │   │   │   ├── run_bot_live_services_sandbox_v1__51e635b6958c.py
+│   │   │   │   ├── run_bot_live_services_sandbox_v1__c79dc72c59c7.py
+│   │   │   │   ├── run_bot_live_services_sandbox_v1__def3aac9ee8e.py
+│   │   │   │   └── run_bot_live_services_sandbox_v1__f7e5d56ecb68.py
+│   │   │   ├── RUN_CHECK_cashier_route_after_phone/
+│   │   │   │   └── RUN_CHECK_cashier_route_after_phone_v2__f969577e0fd5.bat
+│   │   │   ├── RUN_CHECK_phone_barrier_access_operational_sandbox/
+│   │   │   │   └── RUN_CHECK_phone_barrier_access_operational_sandbox__9b44a74f9213.bat
+│   │   │   ├── RUN_CHECK_phone_barrier_access_sandbox_schema/
+│   │   │   │   └── RUN_CHECK_phone_barrier_access_sandbox_schema__a97fd4bbfe96.bat
+│   │   │   ├── RUN_CHECK_profile_parking_time_test_sandbox/
+│   │   │   │   └── RUN_CHECK_profile_parking_time_test_sandbox__c31ddb4ad541.bat
+│   │   │   ├── RUN_CHECK_profile_verification_sandbox/
+│   │   │   │   └── RUN_CHECK_profile_verification_sandbox__2cb134b9103d.bat
+│   │   │   ├── RUN_CHECK_profile_verification_terminology/
+│   │   │   │   └── RUN_CHECK_profile_verification_terminology_v2__b418d7f618cf.bat
+│   │   │   ├── RUN_INSTALL_cashier_route_after_phone/
+│   │   │   │   └── RUN_INSTALL_cashier_route_after_phone_v2__84a2067849fb.bat
+│   │   │   ├── RUN_INSTALL_phone_barrier_access/
+│   │   │   │   └── RUN_INSTALL_phone_barrier_access_v2__a039f3f3cdad.bat
+│   │   │   ├── RUN_INSTALL_profile_parking_time_test/
+│   │   │   │   └── RUN_INSTALL_profile_parking_time_test_v1__2fd5130004bc.bat
+│   │   │   ├── RUN_INSTALL_profile_verification/
+│   │   │   │   └── RUN_INSTALL_profile_verification_v1__576f7f1c4a7a.bat
+│   │   │   ├── RUN_INSTALL_profile_verification_terminology/
+│   │   │   │   └── RUN_INSTALL_profile_verification_terminology_v2__2096a45300d3.bat
+│   │   │   ├── RUN_MIGRATE_phone_barrier_access_operational_sandbox/
+│   │   │   │   └── RUN_MIGRATE_phone_barrier_access_operational_sandbox__2d3f6f793934.bat
+│   │   │   ├── RUN_MIGRATE_phone_barrier_access_sandbox/
+│   │   │   │   └── RUN_MIGRATE_phone_barrier_access_sandbox__df227402f8eb.bat
+│   │   │   ├── RUN_MIGRATE_profile_parking_time_test_sandbox/
+│   │   │   │   └── RUN_MIGRATE_profile_parking_time_test_sandbox__bd4f5fbc9d3f.bat
+│   │   │   ├── RUN_MIGRATE_profile_verification_sandbox/
+│   │   │   │   └── RUN_MIGRATE_profile_verification_sandbox__a39817ad0ec1.bat
+│   │   │   ├── RUN_MIGRATE_simplified_services_sandbox/
+│   │   │   │   └── RUN_MIGRATE_simplified_services_sandbox__4cb3f9a902de.bat
+│   │   │   ├── RUN_RETIRE_legacy_new_remote_test_orders_sandbox/
+│   │   │   │   └── RUN_RETIRE_legacy_new_remote_test_orders_sandbox__55c44a814cc2.bat
+│   │   │   ├── service_orders_core/
+│   │   │   │   ├── service_orders_core__40d5a376767b.py
+│   │   │   │   ├── service_orders_core__534d0d3809d3.py
+│   │   │   │   ├── service_orders_core__7c2d3ac6f66f.py
+│   │   │   │   └── service_orders_core__d425682f5c61.py
+│   │   │   ├── service_orders_preflight/
+│   │   │   │   └── service_orders_preflight__311f47ab9d65.py
+│   │   │   ├── service_orders_workspace/
+│   │   │   │   ├── service_orders_workspace__25edbb76c172.py
+│   │   │   │   ├── service_orders_workspace__3f1176517adf.py
+│   │   │   │   ├── service_orders_workspace__45de989af825.py
+│   │   │   │   ├── service_orders_workspace__4a6c6966ebd8.py
+│   │   │   │   ├── service_orders_workspace__4ffcfcc692e5.py
+│   │   │   │   ├── service_orders_workspace__80a49da46892.py
+│   │   │   │   ├── service_orders_workspace__9dda2d6de0d3.py
+│   │   │   │   ├── service_orders_workspace__ee7c1929c0f2.py
+│   │   │   │   └── service_orders_workspace__f28aa0d210f7.py
+│   │   │   ├── service_preorders_core/
+│   │   │   │   ├── service_preorders_core__687137f41aa7.py
+│   │   │   │   ├── service_preorders_core__85eb66d9c36f.py
+│   │   │   │   └── service_preorders_core__a67ea947627b.py
+│   │   │   ├── Start_OSBB_Live_Services_Sandbox_Bot/
+│   │   │   │   └── Start_OSBB_Live_Services_Sandbox_Bot_v1__9d4301b438ef.bat
+│   │   │   └── STOP_old_guard_sandbox_bots/
+│   │   │       └── STOP_old_guard_sandbox_bots__f3c5d6fed754.bat
+│   │   ├── INDEX.json
+│   │   └── PROJECT_ARCHAEOLOGY_REPORT.md
+│   ├── PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.md
+│   ├── PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.patch
+│   ├── REMOTE_BUTTON_ARCHAEOLOGY.txt
+│   ├── RESTORE_RELEASE_TREE_2026-07-03_13-55-38.md
+│   ├── RESTORE_ZIP_NAMED_SKELETONS_2026-07-03_10-22-01.md
+│   ├── ROUTE_WIRING_SEARCH_2026-07-03_22-05-21.txt
+│   ├── SERVICE_ORDERS_WORKSPACE_RANKING_2026-07-03_21-15-47.md
+│   └── TRACE_LAUNCH_CHAIN_2026-07-03_22-44-37.md
+├── Recovered_Releases/
+│   ├── 2026-06-26__OSBB_Live_Service_UI_v1/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       ├── client_portal_v3.py
+│   │   │       └── service_orders_workspace.py
+│   │   ├── install_service_orders_ui.py
+│   │   ├── patch_parking_bot_service_orders_ui_v1.py
+│   │   └── run_bot_live_service_sandbox_v4.py
+│   ├── 2026-06-26__OSBB_Service_Orders_Foundation_v1/
+│   │   ├── migrate_service_orders_and_fulfillment.py
+│   │   ├── service_orders_core.py
+│   │   └── service_orders_preflight.py
+│   ├── 2026-06-27__OSBB_cashier_route_fix/
+│   │   ├── README_CASHIER_ROUTE_FIX.txt
+│   │   └── run_bot_live_services_sandbox_v1.py
+│   ├── 2026-06-27__OSBB_cashier_route_repair_after_phone_v2/
+│   │   ├── cashier_route_repair_payload/
+│   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   ├── INSTALL_cashier_route_after_phone_v2.py
+│   │   ├── README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2.txt
+│   │   ├── RUN_CHECK_cashier_route_after_phone_v2.bat
+│   │   └── RUN_INSTALL_cashier_route_after_phone_v2.bat
+│   ├── 2026-06-27__OSBB_live_services_sandbox_bundle/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       └── service_orders_workspace.py
+│   │   ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat
+│   │   ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py
+│   │   ├── patch_parking_bot_service_orders_v1.py
+│   │   ├── README_LIVE_SERVICES_SANDBOX.txt
+│   │   ├── run_bot_live_services_sandbox_v1.py
+│   │   ├── Start_OSBB_Live_Services_Sandbox_Bot_v1.bat
+│   │   └── STOP_old_guard_sandbox_bots.bat
+│   ├── 2026-06-27__OSBB_phone_access_ui_fix/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       └── service_orders_workspace.py
+│   │   ├── INSTALL_PHONE_ACCESS_UI_FIX.bat
+│   │   └── README_PHONE_ACCESS_FIX.txt
+│   ├── 2026-06-27__OSBB_phone_access_ui_fix_v2/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       └── service_orders_workspace.py
+│   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v2.bat
+│   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v2.py
+│   │   └── README_PHONE_ACCESS_FIX_v2.txt
+│   ├── 2026-06-27__OSBB_phone_access_ui_fix_v3/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       └── service_orders_workspace.py
+│   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v3.bat
+│   │   ├── INSTALL_PHONE_ACCESS_UI_FIX_v3.py
+│   │   └── README_PHONE_ACCESS_FIX_v3.txt
+│   ├── 2026-06-27__OSBB_phone_barrier_access_schema_migration/
+│   │   ├── CHECK_phone_barrier_access_sandbox_schema.py
+│   │   ├── MIGRATE_phone_barrier_access_sandbox.py
+│   │   ├── phone_barrier_access_core.py
+│   │   ├── README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION.txt
+│   │   ├── RUN_CHECK_phone_barrier_access_sandbox_schema.bat
+│   │   └── RUN_MIGRATE_phone_barrier_access_sandbox.bat
+│   ├── 2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox/
+│   │   ├── CHECK_phone_barrier_access_operational_sandbox.py
+│   │   ├── INSTALL_phone_barrier_access_v2.py
+│   │   ├── MIGRATE_phone_barrier_access_operational_sandbox.py
+│   │   ├── phone_barrier_access_v2_payload/
+│   │   │   ├── Bots/
+│   │   │   │   └── handlers/
+│   │   │   │       └── service_orders_workspace.py
+│   │   │   ├── phone_barrier_access_core.py
+│   │   │   ├── phone_barrier_access_service.py
+│   │   │   ├── service_orders_core.py
+│   │   │   └── service_preorders_core.py
+│   │   ├── README_PHONE_BARRIER_ACCESS_V2.txt
+│   │   ├── RUN_CHECK_phone_barrier_access_operational_sandbox.bat
+│   │   ├── RUN_INSTALL_phone_barrier_access_v2.bat
+│   │   └── RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat
+│   ├── 2026-06-27__OSBB_profile_button_early_route_fix_v2/
+│   │   └── profile_button_early_route_payload/
+│   │       └── run_bot_live_services_sandbox_v1.py
+│   ├── 2026-06-27__OSBB_profile_confirmation_ready_visibility_fix/
+│   │   └── profile_confirmation_button_ready_payload/
+│   │       └── Bots/
+│   │           └── handlers/
+│   │               └── profile_verification_workspace.py
+│   ├── 2026-06-27__OSBB_profile_critical_codes_fix/
+│   │   └── profile_verification_critical_codes_payload/
+│   │       └── Bots/
+│   │           └── handlers/
+│   │               └── profile_verification_workspace.py
+│   ├── 2026-06-27__OSBB_profile_critical_codes_fix (1)/
+│   │   └── profile_verification_critical_codes_payload/
+│   │       └── Bots/
+│   │           └── handlers/
+│   │               └── profile_verification_workspace.py
+│   ├── 2026-06-27__OSBB_profile_verification_terminology_v2/
+│   │   ├── CHECK_profile_verification_terminology_v2.py
+│   │   ├── INSTALL_profile_verification_terminology_v2.py
+│   │   ├── profile_verification_terminology_v2_payload/
+│   │   │   ├── Bots/
+│   │   │   │   └── handlers/
+│   │   │   │       ├── profile_verification_workspace.py
+│   │   │   │       └── service_orders_workspace.py
+│   │   │   └── profile_verification_core.py
+│   │   ├── README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt
+│   │   ├── RUN_CHECK_profile_verification_terminology_v2.bat
+│   │   └── RUN_INSTALL_profile_verification_terminology_v2.bat
+│   ├── 2026-06-27__OSBB_profile_verification_terminology_v2 (1)/
+│   │   ├── CHECK_profile_verification_terminology_v2.py
+│   │   ├── INSTALL_profile_verification_terminology_v2.py
+│   │   ├── profile_verification_terminology_v2_payload/
+│   │   │   ├── Bots/
+│   │   │   │   └── handlers/
+│   │   │   │       ├── profile_verification_workspace.py
+│   │   │   │       └── service_orders_workspace.py
+│   │   │   └── profile_verification_core.py
+│   │   ├── README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt
+│   │   ├── RUN_CHECK_profile_verification_terminology_v2.bat
+│   │   └── RUN_INSTALL_profile_verification_terminology_v2.bat
+│   ├── 2026-06-27__OSBB_profile_verification_v1_sandbox_final/
+│   │   ├── CHECK_profile_verification_sandbox.py
+│   │   ├── INSTALL_profile_verification_v1.py
+│   │   ├── MIGRATE_profile_verification_sandbox.py
+│   │   ├── profile_verification_payload/
+│   │   │   ├── Bots/
+│   │   │   │   └── handlers/
+│   │   │   │       ├── profile_verification_workspace.py
+│   │   │   │       └── service_orders_workspace.py
+│   │   │   ├── profile_verification_core.py
+│   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   ├── README_PROFILE_VERIFICATION_V1.txt
+│   │   ├── RUN_CHECK_profile_verification_sandbox.bat
+│   │   ├── RUN_INSTALL_profile_verification_v1.bat
+│   │   └── RUN_MIGRATE_profile_verification_sandbox.bat
+│   ├── 2026-06-27__OSBB_service_code_compatibility_repair_phone_v2/
+│   │   └── service_code_compatibility_payload/
+│   │       ├── Bots/
+│   │       │   └── handlers/
+│   │       │       └── service_orders_workspace.py
+│   │       ├── service_orders_core.py
+│   │       └── service_preorders_core.py
+│   ├── 2026-06-27__OSBB_simplified_services_preorders_bundle/
+│   │   ├── Bots/
+│   │   │   └── handlers/
+│   │   │       └── service_orders_workspace.py
+│   │   ├── MIGRATE_simplified_services_sandbox.py
+│   │   ├── RETIRE_legacy_new_remote_test_orders_sandbox.py
+│   │   ├── RUN_MIGRATE_simplified_services_sandbox.bat
+│   │   ├── RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat
+│   │   ├── service_orders_core.py
+│   │   └── service_preorders_core.py
+│   ├── 2026-06-28__OSBB_profile_parking_time_test_v1_sandbox/
+│   │   ├── CHECK_profile_parking_time_test_sandbox.py
+│   │   ├── INSTALL_profile_parking_time_test_v1.py
+│   │   ├── MIGRATE_profile_parking_time_test_sandbox.py
+│   │   ├── parking_time_test_payload/
+│   │   │   ├── Bots/
+│   │   │   │   └── handlers/
+│   │   │   │       └── profile_parking_time_test_workspace.py
+│   │   │   ├── profile_parking_time_test_core.py
+│   │   │   └── run_bot_live_services_sandbox_v1.py
+│   │   ├── README_PROFILE_PARKING_TIME_TEST_V1.txt
+│   │   ├── RUN_CHECK_profile_parking_time_test_sandbox.bat
+│   │   ├── RUN_INSTALL_profile_parking_time_test_v1.bat
+│   │   └── RUN_MIGRATE_profile_parking_time_test_sandbox.bat
+│   ├── RELEASE_CATALOG.json
+│   ├── RELEASE_CATALOG.md
+│   └── RELEASE_CATALOG.tsv
+├── repair_confirmed_unit_seed_notes.py
+├── report_bot_admins.py
+├── report_plate_candidates.py
+├── report_verification_evidence.py
+├── report_verification_tasks.py
+├── report_verification_tasks_enriched.py
+├── reset_service_catalog.py
+├── restore_resident_apartment_link.py
+├── RETIRE_legacy_new_remote_test_orders_sandbox.py
+├── run_bot_guard_sandbox.py
+├── run_bot_guard_sandbox_v2.py
+├── run_bot_guard_sandbox_v3.py
+├── run_bot_live_service_sandbox_v4.py
+├── run_bot_live_services_sandbox_v1.py
+├── run_bot_sandbox_v2.py
+├── RUN_CHECK_cashier_route_after_phone_v2.bat
+├── RUN_CHECK_guard_sandbox_service_orders.bat
+├── RUN_CHECK_guard_sandbox_service_orders_v2.bat
+├── RUN_CHECK_phone_barrier_access_operational_sandbox.bat
+├── RUN_CHECK_phone_barrier_access_sandbox_schema.bat
+├── RUN_CHECK_profile_button_early_route_fix.bat
+├── RUN_CHECK_profile_confirmation_ready_visibility_fix.bat
+├── RUN_CHECK_profile_critical_codes_fix.bat
+├── RUN_CHECK_profile_parking_time_test_sandbox.bat
+├── RUN_CHECK_profile_test_candidate_apartment_40.bat
+├── RUN_CHECK_profile_verification_sandbox.bat
+├── RUN_CHECK_profile_verification_terminology_v2.bat
+├── RUN_CHECK_service_code_compatibility_phone_v2.bat
+├── RUN_FIND_actual_service_order_state.bat
+├── RUN_FIX_live_services_sandbox_payment_schema.bat
+├── RUN_fix_source_ref_schema.bat
+├── RUN_INSTALL_cashier_route_after_phone_v2.bat
+├── RUN_INSTALL_phone_barrier_access_v2.bat
+├── RUN_INSTALL_profile_button_early_route_fix.bat
+├── RUN_INSTALL_profile_confirmation_ready_visibility_fix.bat
+├── RUN_INSTALL_profile_critical_codes_fix.bat
+├── RUN_INSTALL_profile_parking_time_test_v1.bat
+├── RUN_INSTALL_profile_verification_terminology_v2.bat
+├── RUN_INSTALL_profile_verification_v1.bat
+├── RUN_INSTALL_service_code_compatibility_phone_v2.bat
+├── RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat
+├── RUN_MIGRATE_phone_barrier_access_sandbox.bat
+├── RUN_MIGRATE_profile_parking_time_test_sandbox.bat
+├── RUN_MIGRATE_profile_verification_sandbox.bat
+├── RUN_MIGRATE_simplified_services_sandbox.bat
+├── RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat
+├── Runner/
+│   ├── DB_DIFFS/
+│   │   └── .gitkeep
+│   ├── DB_SNAPSHOTS/
+│   │   └── .gitkeep
+│   ├── KNOWLEDGE/
+│   │   └── Remote_Order_Workflow.md
+│   ├── LOGS/
+│   │   └── .gitkeep
+│   ├── MODULE.md
+│   ├── README.md
+│   ├── REPORTS/
+│   │   └── .gitkeep
+│   ├── run_remote_debt_blocked_probe.py
+│   ├── SCENARIOS/
+│   │   ├── INDEX.md
+│   │   └── TEST_REMOTE_NEW_FROM_STOCK.md
+│   └── SCENARIOS_YAML/
+│       └── TEST_REMOTE_NEW_FROM_STOCK.yaml
+├── search_vehicle_by_plate_fragment.py
+├── seed_bot_admins.py
+├── seed_commercial_unit_placeholders.py
+├── seed_parking_tariffs.py
+├── service_access_policy.py
+├── service_access_policy_old.py
+├── service_catalog_admin_core.py
+├── service_code_compatibility_payload/
+│   ├── Bots/
+│   │   └── handlers/
+│   │       └── service_orders_workspace.py
+│   ├── service_orders_core.py
+│   └── service_preorders_core.py
+├── service_orders_core.py
+├── service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py
+├── service_orders_preflight.py
+├── service_preorders_core.py
+├── Start_OSBB_Guard_Sandbox_Bot_v2.bat
+├── Start_OSBB_Live_Service_Sandbox_Bot.bat
+├── Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat
+├── Start_OSBB_Live_Services_Sandbox_Bot_v1.bat
+├── STOP_old_guard_sandbox_bots.bat
+├── supervisor_dashboard.py
+├── switch_parking_bot_to_cashier_v2.py
+├── telegram_test_login.py
+├── telegram_test_login_manual.py
+├── test.py
+├── test_db_access_unit_resolver.py
+├── tools/
+│   ├── access_control/
+│   │   ├── __init__.py
+│   │   ├── access_control.py
+│   │   ├── ACCESS_CONTROL_V2.md
+│   │   ├── create_permissions_schema.py
+│   │   ├── inspect_access_summary.py
+│   │   └── seed_access_permissions_reference.py
+│   ├── ACCESS_CONTROL_V2_INSTALL.md
+│   ├── add_bot_admin.py
+│   ├── admin_access_grant.py
+│   ├── admin_manager.py
+│   ├── audit_phone_acceptance_assumptions.py
+│   ├── build_release_notes_from_git.py
+│   ├── cashier_admin/
+│   │   ├── __init__.py
+│   │   ├── cashier_admin_ui.py
+│   │   ├── CHANGELOG.md
+│   │   ├── INSTALL.md
+│   │   └── MODULE.md
+│   ├── cashier_audit/
+│   │   ├── cashier_surgical_cleanup.py
+│   │   └── SURGICAL_CLEANUP.md
+│   ├── cashier_editor/
+│   │   ├── __init__.py
+│   │   ├── cashier_ui.py
+│   │   └── MODULE.md
+│   ├── cashier_parking_payments_audit_v4.py
+│   ├── cashier_tables_schema.txt
+│   ├── cashier_unpaid_preview.py
+│   ├── cashier_unpaid_preview_v2.py
+│   ├── cashier_unpaid_preview_v3.py
+│   ├── cashier_v2_telegram/
+│   │   ├── __init__.py
+│   │   ├── cashier_card.py
+│   │   ├── cashier_search.py
+│   │   ├── cashier_v2_ui.py
+│   │   ├── CHANGELOG.md
+│   │   ├── INSTALL.md
+│   │   └── MODULE.md
+│   ├── cashier_v2_telegram_p/
+│   │   ├── __init__.py
+│   │   ├── cashier_card.py
+│   │   ├── cashier_search.py
+│   │   ├── cashier_v2_ui.py
+│   │   ├── CHANGELOG.md
+│   │   ├── INSTALL.md
+│   │   └── MODULE.md
+│   ├── check_service_policy_v1.py
+│   ├── db_inspector.MODULE.md
+│   ├── db_inspector.py
+│   ├── db_inspector_v2.MODULE.md
+│   ├── db_inspector_v3.MODULE.md
+│   ├── db_inspector_v3.py
+│   ├── db_inspector_v4_parking_report.MODULE.md
+│   ├── db_inspector_v5_parking_public.MODULE.md
+│   ├── db_schema_compare.py
+│   ├── db_schema_snapshot.py
+│   ├── db_schema_snapshot_full.py
+│   ├── db_table_passport.py
+│   ├── debt_policy_matrix_preview.py
+│   ├── detect_project_epoch.py
+│   ├── dump_service_codes_live_sandbox.py
+│   ├── extract_remote_gate_sources.py
+│   ├── find_service_access_policy_integration_points.py
+│   ├── generators/
+│   │   └── runner_generator.py
+│   ├── grant_admin.py
+│   ├── harvest_lost_features_from_sandboxes.py
+│   ├── harvest_osbb_download_zips.py
+│   ├── inspect_operator_candidates.py
+│   ├── inspect_phone_access_legacy.py
+│   ├── INSTALL.md
+│   ├── INSTALL_remote_debt_gate_v1.py
+│   ├── materialize_recovered_releases.py
+│   ├── MIGRATE_debt_policy_rules_v1.py
+│   ├── MIGRATE_phone_access_foundation_v1.py
+│   ├── MIGRATE_service_catalog_v2_policy_fields.py
+│   ├── module_registry_manager.py
+│   ├── parking_registry/
+│   │   ├── __init__.py
+│   │   ├── _common.py
+│   │   ├── debtors_report.py
+│   │   ├── excel_export.py
+│   │   ├── manual_task_design.md
+│   │   ├── MODULE.md
+│   │   ├── operator_task_candidates.py
+│   │   ├── period_tools.py
+│   │   └── registry_report.py
+│   ├── parking_registry_0/
+│   │   ├── __init__.py
+│   │   ├── _common.py
+│   │   ├── excel_export.py
+│   │   ├── MODULE.md
+│   │   ├── period_tools.py
+│   │   ├── registry_audit.py
+│   │   └── registry_report.py
+│   ├── patch_parking_bot_admin_access_v1.py
+│   ├── patch_phone_access_policy_ux_bridge_v1.py
+│   ├── patch_phone_barrier_access_service_policy_v1.py
+│   ├── patch_remove_extra_admin_ids_v1.py
+│   ├── patch_resident_identity_decision_v1.py
+│   ├── patch_self_reflection_project_memory_v1.py
+│   ├── patch_service_orders_core_access_policy_v1.py
+│   ├── patch_service_orders_workspace_policy_ux_v1.py
+│   ├── project_archaeologist.py
+│   ├── project_archaeologist_trace_launch_chain.py
+│   ├── project_code_search.py
+│   ├── project_passport.py
+│   ├── project_passport_v2.py
+│   ├── project_passport_v3_classifier.py
+│   ├── project_passport_v4_runtime_schema_audit.py
+│   ├── promote_peak_service_orders_workspace.py
+│   ├── promote_sandbox_to_training_db.py
+│   ├── rank_candidate_working_dbs.py
+│   ├── rank_service_orders_workspace_versions.py
+│   ├── remote_debt_gate_audit.py
+│   ├── remote_debt_gate_test_fixture.py
+│   ├── reports/
+│   │   ├── __init__.py
+│   │   ├── parking_payments_report.MODULE.md
+│   │   └── parking_payments_report.py
+│   ├── restore_empty_extraction_trees.py
+│   ├── restore_release_tree_to_project.py
+│   ├── restore_zip_named_skeletons.py
+│   ├── sandbox_switch_admin_apartment.py
+│   ├── select_release_candidate.py
+│   ├── self_reflection.py
+│   ├── show_cashier_tables.py
+│   ├── show_running_osbb_bots.py
+│   ├── start_live_services_bot.py
+│   ├── stop_live_services_bot.py
+│   ├── test_phone_access_acceptance.py
+│   ├── test_phone_access_legacy_create_request.py
+│   ├── test_service_access_policy_import.py
+│   ├── test_service_access_policy_v11.py
+│   ├── trace_phone_interest_pipeline.py
+│   ├── trace_phone_policy_path.py
+│   ├── user_onboarding/
+│   │   ├── __init__.py
+│   │   ├── ADMIN_UI.md
+│   │   ├── admin_ui.py
+│   │   ├── ADMIN_UI_V2.md
+│   │   ├── create_onboarding_schema.py
+│   │   ├── fix_user_onboarding_import_v3.py
+│   │   ├── IMPORT_FIX_V3.md
+│   │   ├── MODULE.md
+│   │   ├── patch_parking_bot_admin_ui.py
+│   │   ├── patch_parking_bot_admin_ui_v2.py
+│   │   └── write_import_order_rule.py
+│   ├── working_bind_user_to_apartment.py
+│   ├── working_db_session.py
+│   ├── write_documentator_rules.py
+│   └── write_parking_payment_workflow_docs.py
+├── unit_resolver.py
+├── utils.py
+├── vehicle_data_quality_tasks.py
+├── vehicle_verification_tasks.py
+└── Word_table_to_Excel.py

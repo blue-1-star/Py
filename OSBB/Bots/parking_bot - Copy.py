@@ -901,6 +901,28 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     t = TEXTS[lang]
 
     # =========================
+    # GLOBAL ESC: always leave any active wizard/state first.
+    # =========================
+    global_main = {"🏠 Главное меню", "🏠 Головне меню", "🏠 Main menu", "/cancel"}
+    global_back = {"⬅️ Назад", "⬅ Назад"}
+    if text in global_main:
+        user_states.pop(user_id, None)
+        context.user_data.clear()
+        if user_modes.get(user_id) == "admin" and is_admin_user(user_id):
+            await show_admin_menu(update)
+        else:
+            await show_mode_menu(update, lang)
+        return
+    if text in global_back and isinstance(user_states.get(user_id), dict):
+        user_states.pop(user_id, None)
+        context.user_data.clear()
+        if user_modes.get(user_id) == "admin" and is_admin_user(user_id):
+            await show_admin_menu(update)
+        else:
+            await show_mode_menu(update, lang)
+        return
+
+    # =========================
     # Операторский кабинет услуг
     # =========================
     service_state = user_states.get(user_id)

@@ -1,0 +1,61 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_contract_items
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      contract_id                    INTEGER              ✅                 
+2      item_code                      TEXT                 ❌                 
+3      item_name                      TEXT                 ✅                 
+4      reference_service_code         TEXT                 ❌                 
+5      calculation_mode               TEXT                 ✅                 
+6      fixed_amount                   REAL                 ❌                 
+7      rate_amount                    REAL                 ❌                 
+8      quantity_default               REAL                 ✅                 
+9      currency                       TEXT                 ✅                 
+10     blocks_phone_access_on_debt    INTEGER              ✅                 
+11     is_active                      INTEGER              ✅                 
+12     valid_from                     TEXT                 ❌                 
+13     valid_to                       TEXT                 ❌                 
+14     note                           TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_commercial_contract_items_contract 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • contract_id → commercial_contracts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE commercial_contract_items (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                item_code TEXT,
+                item_name TEXT NOT NULL,
+                reference_service_code TEXT,
+                calculation_mode TEXT NOT NULL DEFAULT 'FIXED_MONTHLY',
+                fixed_amount REAL,
+                rate_amount REAL,
+                quantity_default REAL NOT NULL DEFAULT 1,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                blocks_phone_access_on_debt INTEGER NOT NULL DEFAULT 0,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                valid_from TEXT,
+                valid_to TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+            )
+
+================================================================================

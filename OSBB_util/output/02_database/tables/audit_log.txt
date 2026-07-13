@@ -1,0 +1,50 @@
+================================================================================
+📌 ТАБЛИЦА: audit_log
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      event_time                     TEXT                 ❌                 
+2      username                       TEXT                 ❌                 
+3      table_name                     TEXT                 ❌                 
+4      record_id                      TEXT                 ❌                 
+5      action                         TEXT                 ❌                 
+6      field_name                     TEXT                 ❌                 
+7      old_value                      TEXT                 ❌                 
+8      new_value                      TEXT                 ❌                 
+9      comment                        TEXT                 ❌                 
+10     actor_role                     TEXT                 ❌                 
+11     actor_name                     TEXT                 ❌                 
+12     source                         TEXT                 ❌                 
+13     telegram_user_id               INTEGER              ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_audit_log_event_time 
+  • idx_audit_log_table_record 
+  • idx_audit_log_actor 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE audit_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        event_time TEXT,
+        username TEXT,
+        table_name TEXT,
+        record_id TEXT,
+        action TEXT,
+        field_name TEXT,
+        old_value TEXT,
+        new_value TEXT,
+        comment TEXT
+    , actor_role TEXT, actor_name TEXT, source TEXT DEFAULT 'bot', telegram_user_id INTEGER)
+
+================================================================================

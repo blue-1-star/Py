@@ -1,0 +1,67 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_notifications
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      contract_id                    INTEGER              ✅                 
+2      recipient_id                   INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ❌                 
+4      notification_type              TEXT                 ✅                 
+5      status                         TEXT                 ✅                 
+6      dedupe_key                     TEXT                 ✅                 
+7      charge_ids_json                TEXT                 ❌                 
+8      debt_amount_snapshot           REAL                 ✅                 
+9      days_overdue_snapshot          INTEGER              ✅                 
+10     message_text                   TEXT                 ✅                 
+11     created_by                     TEXT                 ❌                 
+12     created_at                     TEXT                 ✅                 
+13     sent_at                        TEXT                 ❌                 
+14     failed_at                      TEXT                 ❌                 
+15     delivery_error                 TEXT                 ❌                 
+16     cancelled_at                   TEXT                 ❌                 
+17     cancelled_by                   TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • ux_commercial_notification_dedupe (UNIQUE)
+  • idx_commercial_notifications_contract 
+  • idx_commercial_notifications_queue 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • recipient_id → commercial_contract_recipients.id
+  • contract_id → commercial_contracts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE commercial_notifications (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                recipient_id INTEGER,
+                telegram_user_id TEXT,
+                notification_type TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'DRAFT',
+                dedupe_key TEXT NOT NULL,
+                charge_ids_json TEXT,
+                debt_amount_snapshot REAL NOT NULL DEFAULT 0,
+                days_overdue_snapshot INTEGER NOT NULL DEFAULT 0,
+                message_text TEXT NOT NULL,
+                created_by TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                sent_at TEXT,
+                failed_at TEXT,
+                delivery_error TEXT,
+                cancelled_at TEXT,
+                cancelled_by TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+                FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+            )
+
+================================================================================

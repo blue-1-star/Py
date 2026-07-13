@@ -557,6 +557,7 @@ def create_cash_receipt(
     commercial_contract_id: int | None = None,
     commercial_unit_id: int | None = None,
     commercial_contract_item_id: int | None = None,
+    vehicle_id: int | None = None,
 ) -> dict:
     """
     Writes receipt + payment + cashbox income.  It does not commit.
@@ -578,6 +579,9 @@ def create_cash_receipt(
     if not box or not int(box["is_active"] or 0):
         raise ValueError(f"Касса {cashbox_code} недоступна.")
 
+    apartment_id = int(apartment["id"]) if apartment and apartment.get("id") is not None else None
+    apartment_number = text(apartment.get("apartment_number")) if apartment else None
+
     temp = "TMP-" + uuid4().hex.upper()
     receipt_id = insert_dynamic(
         cur,
@@ -589,8 +593,9 @@ def create_cash_receipt(
             "cashbox_code": cashbox_code,
             "receipt_date": receipt_date,
             "origin_kind": origin_kind,
-            "apartment_id": int(apartment["id"]),
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_id": apartment_id,
+            "apartment_number": apartment_number,
+            "vehicle_id": vehicle_id,
             "service_hint": service["service_code"],
             "service_item_code": service.get("service_item_code"),
             "period_code": period_code,
@@ -621,8 +626,9 @@ def create_cash_receipt(
         {
             "payment_date": receipt_date,
             "period_code": period_code,
-            "apartment_id": int(apartment["id"]),
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_id": apartment_id,
+            "apartment_number": apartment_number,
+            "vehicle_id": vehicle_id,
             "service_code": service["service_code"],
             "base_service_code": service["service_code"],
             "service_item_code": service.get("service_item_code"),
@@ -658,7 +664,8 @@ def create_cash_receipt(
             "amount": amount,
             "currency": "UAH",
             "period_code": period_code,
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_number": apartment_number,
+            "vehicle_id": vehicle_id,
             "service_code": service["service_code"],
             "base_service_code": service["service_code"],
             "service_item_code": service.get("service_item_code"),
@@ -783,8 +790,8 @@ def create_bank_payment(
             "entry_status": "CONFIRMED",
             "transaction_date": transaction_date,
             "value_date": transaction_date,
-            "apartment_id": int(apartment["id"]),
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_id": apartment_id,
+            "apartment_number": apartment_number,
             "commercial_unit_id": commercial_unit_id,
             "commercial_contract_id": commercial_contract_id,
             "commercial_contract_item_id": commercial_contract_item_id,
@@ -810,8 +817,8 @@ def create_bank_payment(
         {
             "payment_date": transaction_date,
             "period_code": period_code,
-            "apartment_id": int(apartment["id"]),
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_id": apartment_id,
+            "apartment_number": apartment_number,
             "commercial_unit_id": commercial_unit_id,
             "commercial_contract_id": commercial_contract_id,
             "commercial_contract_item_id": commercial_contract_item_id,
@@ -947,8 +954,8 @@ def create_payment_notice(
                 "notice_status": "NEW",
                 "resident_account_id": int(account["id"]),
                 "telegram_user_id": str(account["telegram_user_id"]),
-                "apartment_id": int(apartment["id"]),
-                "apartment_number": text(apartment.get("apartment_number")),
+                "apartment_id": apartment_id,
+                "apartment_number": apartment_number,
                 "declared_cashbox_code": declared_cashbox_code,
                 "declared_period_code": period_code,
                 "declared_service_code": service["service_code"],
@@ -1461,8 +1468,8 @@ def create_paper_note(
             "entry_status": "PAPER_NOTE",
             "receipt_date": today(),
             "origin_kind": origin_kind,
-            "apartment_id": int(apartment["id"]),
-            "apartment_number": text(apartment.get("apartment_number")),
+            "apartment_id": apartment_id,
+            "apartment_number": apartment_number,
             "service_hint": service["service_code"],
             "service_item_code": service.get("service_item_code"),
             "period_code": period_code,

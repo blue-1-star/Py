@@ -1,0 +1,42 @@
+================================================================================
+📌 ТАБЛИЦА: verification_log
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_number               TEXT                 ❌                 
+2      field_name                     TEXT                 ❌                 
+3      paper_value                    TEXT                 ❌                 
+4      bot_value                      TEXT                 ❌                 
+5      final_value                    TEXT                 ❌                 
+6      status                         TEXT                 ❌                 
+7      verified_by                    TEXT                 ❌                 
+8      verified_at                    TEXT                 ❌                 
+9      comment                        TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE verification_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_number TEXT,
+        field_name TEXT,
+        paper_value TEXT,
+        bot_value TEXT,
+        final_value TEXT,
+        status TEXT,
+        verified_by TEXT,
+        verified_at TEXT,
+        comment TEXT
+    )
+
+================================================================================

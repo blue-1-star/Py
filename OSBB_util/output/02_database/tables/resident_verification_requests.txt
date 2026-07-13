@@ -1,0 +1,56 @@
+================================================================================
+📌 ТАБЛИЦА: resident_verification_requests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      request_number                 TEXT                 ❌                 
+2      invitation_id                  INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ✅                 
+4      telegram_username              TEXT                 ❌                 
+5      apartment_number               TEXT                 ❌                 
+6      claimed_full_name              TEXT                 ❌                 
+7      claimed_phone                  TEXT                 ❌                 
+8      resident_says_ok               INTEGER              ✅                 
+9      status                         TEXT                 ✅                 
+10     created_at                     TEXT                 ✅                 
+11     reviewed_by_admin_id           TEXT                 ❌                 
+12     reviewed_at                    TEXT                 ❌                 
+13     review_note                    TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_resident_verification_status 
+  • sqlite_autoindex_resident_verification_requests_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • invitation_id → resident_invitations.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE resident_verification_requests (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+request_number TEXT UNIQUE,
+invitation_id INTEGER,
+telegram_user_id TEXT NOT NULL,
+telegram_username TEXT,
+apartment_number TEXT,
+claimed_full_name TEXT,
+claimed_phone TEXT,
+resident_says_ok INTEGER NOT NULL DEFAULT 0,
+status TEXT NOT NULL DEFAULT 'PENDING_ADMIN_CONFIRMATION',
+created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+reviewed_by_admin_id TEXT,
+reviewed_at TEXT,
+review_note TEXT,
+FOREIGN KEY(invitation_id) REFERENCES resident_invitations(id)
+)
+
+================================================================================

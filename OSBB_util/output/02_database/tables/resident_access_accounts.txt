@@ -1,0 +1,46 @@
+================================================================================
+📌 ТАБЛИЦА: resident_access_accounts
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      telegram_user_id               TEXT                 ✅                 
+2      telegram_username              TEXT                 ❌                 
+3      resident_id                    INTEGER              ❌                 
+4      apartment_number               TEXT                 ❌                 
+5      role                           TEXT                 ✅                 
+6      status                         TEXT                 ✅                 
+7      confirmed_by_admin_id          TEXT                 ❌                 
+8      confirmed_at                   TEXT                 ✅                 
+9      created_at                     TEXT                 ✅                 
+10     notes                          TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • sqlite_autoindex_resident_access_accounts_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE resident_access_accounts (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+telegram_user_id TEXT UNIQUE NOT NULL,
+telegram_username TEXT,
+resident_id INTEGER,
+apartment_number TEXT,
+role TEXT NOT NULL DEFAULT 'resident',
+status TEXT NOT NULL DEFAULT 'ACTIVE',
+confirmed_by_admin_id TEXT,
+confirmed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+notes TEXT
+)
+
+================================================================================

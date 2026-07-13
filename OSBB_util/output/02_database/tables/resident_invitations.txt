@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: resident_invitations
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      invitation_code                TEXT                 ❌                 
+2      apartment_number               TEXT                 ✅                 
+3      expected_full_name             TEXT                 ❌                 
+4      expected_phone                 TEXT                 ❌                 
+5      status                         TEXT                 ✅                 
+6      created_by_admin_id            TEXT                 ❌                 
+7      created_at                     TEXT                 ✅                 
+8      accepted_by_telegram_id        TEXT                 ❌                 
+9      accepted_at                    TEXT                 ❌                 
+10     notes                          TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_resident_invitations_apartment 
+  • sqlite_autoindex_resident_invitations_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE resident_invitations (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+invitation_code TEXT UNIQUE,
+apartment_number TEXT NOT NULL,
+expected_full_name TEXT,
+expected_phone TEXT,
+status TEXT NOT NULL DEFAULT 'INVITED',
+created_by_admin_id TEXT,
+created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+accepted_by_telegram_id TEXT,
+accepted_at TEXT,
+notes TEXT
+)
+
+================================================================================

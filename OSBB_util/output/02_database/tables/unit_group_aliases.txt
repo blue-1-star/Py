@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: unit_group_aliases
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 13
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      group_id                       INTEGER              ✅                 
+2      alias_text                     TEXT                 ✅                 
+3      alias_normalized               TEXT                 ✅                 
+4      alias_kind                     TEXT                 ✅                 
+5      is_active                      INTEGER              ✅                 
+6      source_note                    TEXT                 ❌                 
+7      created_at                     TEXT                 ✅                 
+8      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_unit_group_aliases_group 
+  • sqlite_autoindex_unit_group_aliases_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • group_id → unit_groups.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE unit_group_aliases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_id INTEGER NOT NULL,
+            alias_text TEXT NOT NULL,
+            alias_normalized TEXT NOT NULL,
+            alias_kind TEXT NOT NULL,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            source_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(alias_normalized, is_active),
+            FOREIGN KEY(group_id) REFERENCES unit_groups(id)
+        )
+
+================================================================================

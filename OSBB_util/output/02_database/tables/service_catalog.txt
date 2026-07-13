@@ -1,0 +1,60 @@
+================================================================================
+📌 ТАБЛИЦА: service_catalog
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 16
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_code                   TEXT                 ✅                 
+2      service_group                  TEXT                 ✅                 
+3      service_name                   TEXT                 ✅                 
+4      unit                           TEXT                 ✅                 
+5      is_active                      INTEGER              ✅                 
+6      comment                        TEXT                 ❌                 
+7      created_at                     TEXT                 ❌                 
+8      updated_at                     TEXT                 ❌                 
+9      service_type                   TEXT                 ❌                 
+10     category                       TEXT                 ❌                 
+11     is_monthly                     INTEGER              ✅                 
+12     is_fundraising                 INTEGER              ✅                 
+13     is_commercial                  INTEGER              ✅                 
+14     is_access_control              INTEGER              ✅                 
+15     is_cash_collectable            INTEGER              ✅                 
+16     access_policy_enabled          INTEGER              ✅                 
+17     access_policy_scope            TEXT                 ✅                 
+18     access_policy_mode             TEXT                 ✅                 
+19     access_policy_message          TEXT                 ❌                 
+20     manual_review_required         INTEGER              ✅                 
+21     policy_updated_at              TEXT                 ❌                 
+22     policy_updated_by              TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_catalog_group 
+  • idx_service_catalog_active 
+  • idx_service_catalog_type 
+  • idx_service_catalog_code 
+  • sqlite_autoindex_service_catalog_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        service_code TEXT NOT NULL UNIQUE,
+        service_group TEXT NOT NULL,
+        service_name TEXT NOT NULL,
+        unit TEXT NOT NULL,
+        is_active INTEGER NOT NULL DEFAULT 1,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    , service_type TEXT, category TEXT, is_monthly INTEGER NOT NULL DEFAULT 0, is_fundraising INTEGER NOT NULL DEFAULT 0, is_commercial INTEGER NOT NULL DEFAULT 0, is_access_control INTEGER NOT NULL DEFAULT 0, is_cash_collectable INTEGER NOT NULL DEFAULT 1, access_policy_enabled INTEGER NOT NULL DEFAULT 0, access_policy_scope TEXT NOT NULL DEFAULT 'NONE', access_policy_mode TEXT NOT NULL DEFAULT 'NONE', access_policy_message TEXT, manual_review_required INTEGER NOT NULL DEFAULT 0, policy_updated_at TEXT, policy_updated_by TEXT)
+
+================================================================================

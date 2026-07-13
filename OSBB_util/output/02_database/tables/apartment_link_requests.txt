@@ -1,0 +1,61 @@
+================================================================================
+📌 ТАБЛИЦА: apartment_link_requests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      resident_account_id            INTEGER              ✅                 
+2      telegram_user_id               TEXT                 ✅                 
+3      current_apartment_id           INTEGER              ❌                 
+4      current_apartment_number       TEXT                 ❌                 
+5      requested_apartment_id         INTEGER              ✅                 
+6      requested_apartment_number     TEXT                 ✅                 
+7      status                         TEXT                 ✅                 
+8      resident_comment               TEXT                 ❌                 
+9      operator_id                    TEXT                 ❌                 
+10     operator_note                  TEXT                 ❌                 
+11     created_at                     TEXT                 ✅                 
+12     updated_at                     TEXT                 ❌                 
+13     reviewed_at                    TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_apartment_link_requests_requested_unit 
+  • idx_apartment_link_requests_resident 
+  • idx_apartment_link_requests_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • requested_apartment_id → apartments.id
+  • current_apartment_id → apartments.id
+  • resident_account_id → resident_accounts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE apartment_link_requests (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            resident_account_id INTEGER NOT NULL,
+            telegram_user_id TEXT NOT NULL,
+            current_apartment_id INTEGER,
+            current_apartment_number TEXT,
+            requested_apartment_id INTEGER NOT NULL,
+            requested_apartment_number TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'NEW',
+            resident_comment TEXT,
+            operator_id TEXT,
+            operator_note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            reviewed_at TEXT,
+            FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id),
+            FOREIGN KEY(current_apartment_id) REFERENCES apartments(id),
+            FOREIGN KEY(requested_apartment_id) REFERENCES apartments(id)
+        )
+
+================================================================================

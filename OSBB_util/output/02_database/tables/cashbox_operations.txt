@@ -1,0 +1,95 @@
+================================================================================
+📌 ТАБЛИЦА: cashbox_operations
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 103
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      operation_date                 TEXT                 ✅                 
+2      cashbox_code                   TEXT                 ✅                 
+3      operation_type                 TEXT                 ✅                 
+4      direction                      TEXT                 ✅                 
+5      amount                         REAL                 ✅                 
+6      currency                       TEXT                 ✅                 
+7      period_code                    TEXT                 ❌                 
+8      apartment_number               TEXT                 ❌                 
+9      vehicle_id                     INTEGER              ❌                 
+10     service_code                   TEXT                 ❌                 
+11     payment_id                     INTEGER              ❌                 
+12     charge_id                      INTEGER              ❌                 
+13     batch_id                       TEXT                 ❌                 
+14     source_type                    TEXT                 ❌                 
+15     source_ref                     TEXT                 ❌                 
+16     operator_id                    TEXT                 ❌                 
+17     actor_type                     TEXT                 ❌                 
+18     comment                        TEXT                 ❌                 
+19     created_at                     TEXT                 ✅                 
+20     service_item_code              TEXT                 ❌                 
+21     base_service_code              TEXT                 ❌                 
+22     service_type                   TEXT                 ❌                 
+23     commercial_contract_id         INTEGER              ❌                 
+24     commercial_unit_id             INTEGER              ❌                 
+25     cashier_receipt_id             INTEGER              ❌                 
+26     transfer_group_ref             TEXT                 ❌                 
+27     payment_notice_id              INTEGER              ❌                 
+28     cashier_batch_id               INTEGER              ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_cashbox_ops_batch_v2 
+  • idx_cashbox_operations_transfer_group 
+  • idx_cashbox_operations_cashier_receipt 
+  • idx_cashbox_operations_commercial_contract 
+  • idx_cashbox_operations_service_type 
+  • idx_cashbox_operations_base_service 
+  • idx_cashbox_operations_service_item 
+  • idx_cashbox_operations_operator 
+  • idx_cashbox_operations_batch 
+  • idx_cashbox_operations_payment 
+  • idx_cashbox_operations_vehicle 
+  • idx_cashbox_operations_apt 
+  • idx_cashbox_operations_cashbox 
+  • idx_cashbox_operations_date 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • charge_id → charges.id
+  • payment_id → payments.id
+  • vehicle_id → vehicles.id
+  • cashbox_code → cashboxes.cashbox_code
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE cashbox_operations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            operation_date TEXT NOT NULL,
+            cashbox_code TEXT NOT NULL,
+            operation_type TEXT NOT NULL,
+            direction TEXT NOT NULL,
+            amount REAL NOT NULL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            period_code TEXT,
+            apartment_number TEXT,
+            vehicle_id INTEGER,
+            service_code TEXT,
+            payment_id INTEGER,
+            charge_id INTEGER,
+            batch_id TEXT,
+            source_type TEXT DEFAULT 'cashier_journal',
+            source_ref TEXT,
+            operator_id TEXT,
+            actor_type TEXT DEFAULT 'operator',
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT, "commercial_contract_id" INTEGER, "commercial_unit_id" INTEGER, "cashier_receipt_id" INTEGER, "transfer_group_ref" TEXT, "payment_notice_id" INTEGER, "cashier_batch_id" INTEGER,
+            FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code),
+            FOREIGN KEY (vehicle_id) REFERENCES vehicles(id),
+            FOREIGN KEY (payment_id) REFERENCES payments(id),
+            FOREIGN KEY (charge_id) REFERENCES charges(id)
+        )
+
+================================================================================

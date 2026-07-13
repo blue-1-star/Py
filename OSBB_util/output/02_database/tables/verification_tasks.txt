@@ -1,0 +1,87 @@
+================================================================================
+📌 ТАБЛИЦА: verification_tasks
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 37
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      apartment_number               TEXT                 ❌                 
+3      task_group                     TEXT                 ❌                 
+4      task_type                      TEXT                 ❌                 
+5      priority                       INTEGER              ❌                 
+6      status                         TEXT                 ❌                 
+7      source_name                    TEXT                 ❌                 
+8      source_record_id               TEXT                 ❌                 
+9      object_table                   TEXT                 ❌                 
+10     object_id                      INTEGER              ❌                 
+11     field_name                     TEXT                 ❌                 
+12     main_value                     TEXT                 ❌                 
+13     candidate_value                TEXT                 ❌                 
+14     normalized_main_value          TEXT                 ❌                 
+15     normalized_candidate_value     TEXT                 ❌                 
+16     suggestion                     TEXT                 ❌                 
+17     comment                        TEXT                 ❌                 
+18     created_at                     TEXT                 ❌                 
+19     created_by                     TEXT                 ❌                 
+20     resolved_at                    TEXT                 ❌                 
+21     resolved_by                    TEXT                 ❌                 
+22     resolution                     TEXT                 ❌                 
+23     resolution_comment             TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_verification_tasks_type 
+  • idx_verification_tasks_apartment 
+  • idx_verification_tasks_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE verification_tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        apartment_id INTEGER,
+        apartment_number TEXT,
+
+        task_group TEXT,
+        task_type TEXT,
+
+        priority INTEGER DEFAULT 100,
+        status TEXT DEFAULT 'new',
+
+        source_name TEXT,
+        source_record_id TEXT,
+
+        object_table TEXT,
+        object_id INTEGER,
+        field_name TEXT,
+
+        main_value TEXT,
+        candidate_value TEXT,
+        normalized_main_value TEXT,
+        normalized_candidate_value TEXT,
+
+        suggestion TEXT,
+        comment TEXT,
+
+        created_at TEXT,
+        created_by TEXT,
+
+        resolved_at TEXT,
+        resolved_by TEXT,
+        resolution TEXT,
+        resolution_comment TEXT,
+
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+================================================================================

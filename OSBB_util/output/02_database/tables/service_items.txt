@@ -1,0 +1,66 @@
+================================================================================
+📌 ТАБЛИЦА: service_items
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 15
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_item_code              TEXT                 ✅                 
+2      service_code                   TEXT                 ✅                 
+3      service_item_name              TEXT                 ✅                 
+4      service_type                   TEXT                 ✅                 
+5      period_code                    TEXT                 ❌                 
+6      sequence_no                    INTEGER              ❌                 
+7      amount_default                 REAL                 ❌                 
+8      currency                       TEXT                 ✅                 
+9      date_from                      TEXT                 ❌                 
+10     date_to                        TEXT                 ❌                 
+11     status                         TEXT                 ✅                 
+12     is_active                      INTEGER              ✅                 
+13     description                    TEXT                 ❌                 
+14     comment                        TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_items_active 
+  • idx_service_items_type 
+  • idx_service_items_period 
+  • idx_service_items_service 
+  • idx_service_items_code 
+  • sqlite_autoindex_service_items_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • service_code → service_catalog.service_code
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            service_item_code TEXT NOT NULL UNIQUE,
+            service_code TEXT NOT NULL,
+            service_item_name TEXT NOT NULL,
+            service_type TEXT NOT NULL,
+            period_code TEXT,
+            sequence_no INTEGER,
+            amount_default REAL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            date_from TEXT,
+            date_to TEXT,
+            status TEXT NOT NULL DEFAULT 'active',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            description TEXT,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY (service_code) REFERENCES service_catalog(service_code)
+        )
+
+================================================================================

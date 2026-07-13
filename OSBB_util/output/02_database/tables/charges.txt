@@ -1,0 +1,82 @@
+================================================================================
+📌 ТАБЛИЦА: charges
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 95
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      period_code                    TEXT                 ✅                 
+2      apartment_number               TEXT                 ✅                 
+3      vehicle_id                     INTEGER              ❌                 
+4      service_code                   TEXT                 ✅                 
+5      quantity                       REAL                 ✅                 
+6      unit_price                     REAL                 ✅                 
+7      amount                         REAL                 ✅                 
+8      currency                       TEXT                 ✅                 
+9      status                         TEXT                 ✅                 
+10     source                         TEXT                 ❌                 
+11     created_by                     TEXT                 ❌                 
+12     comment                        TEXT                 ❌                 
+13     created_at                     TEXT                 ❌                 
+14     updated_at                     TEXT                 ❌                 
+15     service_item_code              TEXT                 ❌                 
+16     base_service_code              TEXT                 ❌                 
+17     service_type                   TEXT                 ❌                 
+18     gross_amount                   REAL                 ❌                 
+19     adjustment_amount              REAL                 ✅                 
+20     net_amount                     REAL                 ❌                 
+21     adjustment_public_note         TEXT                 ❌                 
+22     adjustment_internal_note       TEXT                 ❌                 
+23     adjustment_updated_at          TEXT                 ❌                 
+24     commercial_contract_id         INTEGER              ❌                 
+25     commercial_contract_item_id    INTEGER              ❌                 
+26     commercial_due_date            TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_charges_commercial_contract 
+  • idx_charges_adjustment_amount 
+  • idx_charges_service_type 
+  • idx_charges_base_service 
+  • idx_charges_service_item 
+  • idx_charges_status 
+  • idx_charges_service 
+  • idx_charges_vehicle 
+  • idx_charges_apartment 
+  • idx_charges_period 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • service_code → service_catalog.service_code
+  • vehicle_id → vehicles.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE charges (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        period_code TEXT NOT NULL,
+        apartment_number TEXT NOT NULL,
+        vehicle_id INTEGER,
+        service_code TEXT NOT NULL,
+        quantity REAL NOT NULL DEFAULT 1,
+        unit_price REAL NOT NULL,
+        amount REAL NOT NULL,
+        currency TEXT NOT NULL DEFAULT 'UAH',
+        status TEXT NOT NULL DEFAULT 'unpaid',
+        source TEXT,
+        created_by TEXT,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT, gross_amount REAL, adjustment_amount REAL NOT NULL DEFAULT 0, net_amount REAL, adjustment_public_note TEXT, adjustment_internal_note TEXT, adjustment_updated_at TEXT, "commercial_contract_id" INTEGER, "commercial_contract_item_id" INTEGER, "commercial_due_date" TEXT,
+        FOREIGN KEY(vehicle_id)
+            REFERENCES vehicles(id),
+        FOREIGN KEY(service_code)
+            REFERENCES service_catalog(service_code)
+    )
+
+================================================================================

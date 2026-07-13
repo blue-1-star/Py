@@ -1,0 +1,85 @@
+================================================================================
+📌 ТАБЛИЦА: payment_notices
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 3
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      notice_number                  TEXT                 ✅                 
+2      notice_type                    TEXT                 ✅                 
+3      notice_status                  TEXT                 ✅                 
+4      resident_account_id            INTEGER              ✅                 
+5      telegram_user_id               TEXT                 ✅                 
+6      apartment_id                   INTEGER              ❌                 
+7      apartment_number               TEXT                 ❌                 
+8      declared_cashbox_code          TEXT                 ❌                 
+9      declared_period_code           TEXT                 ❌                 
+10     declared_service_code          TEXT                 ❌                 
+11     declared_service_item_code     TEXT                 ❌                 
+12     declared_amount                REAL                 ✅                 
+13     currency                       TEXT                 ✅                 
+14     declared_at                    TEXT                 ✅                 
+15     resident_comment               TEXT                 ❌                 
+16     evidence_text                  TEXT                 ❌                 
+17     matched_cashier_receipt_id     INTEGER              ❌                 
+18     matched_bank_transaction_id    INTEGER              ❌                 
+19     matched_payment_id             INTEGER              ❌                 
+20     operator_id                    TEXT                 ❌                 
+21     operator_note                  TEXT                 ❌                 
+22     reviewed_at                    TEXT                 ❌                 
+23     confirmed_at                   TEXT                 ❌                 
+24     rejected_at                    TEXT                 ❌                 
+25     created_at                     TEXT                 ✅                 
+26     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_payment_notices_unit 
+  • idx_payment_notices_status 
+  • sqlite_autoindex_payment_notices_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+  • resident_account_id → resident_accounts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE payment_notices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            notice_number TEXT NOT NULL UNIQUE,
+            notice_type TEXT NOT NULL,
+            notice_status TEXT NOT NULL DEFAULT 'NEW',
+            resident_account_id INTEGER NOT NULL,
+            telegram_user_id TEXT NOT NULL,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            declared_cashbox_code TEXT,
+            declared_period_code TEXT,
+            declared_service_code TEXT,
+            declared_service_item_code TEXT,
+            declared_amount REAL NOT NULL DEFAULT 0,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            declared_at TEXT NOT NULL,
+            resident_comment TEXT,
+            evidence_text TEXT,
+            matched_cashier_receipt_id INTEGER,
+            matched_bank_transaction_id INTEGER,
+            matched_payment_id INTEGER,
+            operator_id TEXT,
+            operator_note TEXT,
+            reviewed_at TEXT,
+            confirmed_at TEXT,
+            rejected_at TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY(resident_account_id) REFERENCES resident_accounts(id),
+            FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+        )
+
+================================================================================

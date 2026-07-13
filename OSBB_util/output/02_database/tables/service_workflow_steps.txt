@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: service_workflow_steps
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 18
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      profile_code                   TEXT                 ✅                 
+2      step_code                      TEXT                 ✅                 
+3      step_name                      TEXT                 ✅                 
+4      step_kind                      TEXT                 ✅                 
+5      sequence_no                    INTEGER              ✅                 
+6      is_required                    INTEGER              ✅                 
+7      is_active                      INTEGER              ✅                 
+8      description                    TEXT                 ❌                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • sqlite_autoindex_service_workflow_steps_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_workflow_steps (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                profile_code TEXT NOT NULL,
+                step_code TEXT NOT NULL,
+                step_name TEXT NOT NULL,
+                step_kind TEXT NOT NULL,
+                sequence_no INTEGER NOT NULL DEFAULT 1,
+                is_required INTEGER NOT NULL DEFAULT 1,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                description TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                UNIQUE(profile_code, step_code)
+            )
+
+================================================================================

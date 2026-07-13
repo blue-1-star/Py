@@ -1,0 +1,109 @@
+🔗 СВЯЗИ МЕЖДУ ТАБЛИЦАМИ
+================================================================================
+
+  • adjustment_assignments.adjustment_code → adjustment_catalog.adjustment_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • apartment_link_requests.requested_apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • apartment_link_requests.current_apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • apartment_link_requests.resident_account_id → resident_accounts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • bank_transactions.payment_notice_id → payment_notices.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • bank_transactions.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashbox_operations.charge_id → charges.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashbox_operations.payment_id → payments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashbox_operations.vehicle_id → vehicles.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashbox_operations.cashbox_code → cashboxes.cashbox_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashier_batch_items.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashier_batch_items.batch_id → cashier_batches.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • cashier_batches.cashbox_code → cashboxes.cashbox_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • charge_adjustments.adjustment_assignment_id → adjustment_assignments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • charge_adjustments.charge_id → charges.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • charges.service_code → service_catalog.service_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • charges.vehicle_id → vehicles.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_access_actions.notification_id → commercial_notifications.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_access_actions.access_phone_id → commercial_access_phones.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_access_actions.contract_id → commercial_contracts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_access_phones.contract_id → commercial_contracts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_contract_items.contract_id → commercial_contracts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_contract_recipients.resident_account_id → resident_accounts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_contract_recipients.contract_id → commercial_contracts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_contracts.unit_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_notifications.recipient_id → commercial_contract_recipients.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • commercial_notifications.contract_id → commercial_contracts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • contact_methods.person_id → persons.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • contact_methods.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • events.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • extracted_facts.raw_message_id → raw_messages.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • payment_allocations.charge_id → charges.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • payment_allocations.payment_id → payments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • payment_notices.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • payment_notices.resident_account_id → resident_accounts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • payments.vehicle_id → vehicles.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • persons.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • raw_messages.source_id → message_sources.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • remote_requests.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • remote_requests.resident_account_id → resident_accounts.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • resident_accounts.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • resident_verification_requests.invitation_id → resident_invitations.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • service_items.service_code → service_catalog.service_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • service_tariffs.service_code → service_catalog.service_code
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • unit_aliases.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • unit_contacts.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • unit_group_aliases.group_id → unit_groups.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • unit_group_members.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • unit_group_members.group_id → unit_groups.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • vehicles.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • verification_candidates.task_id → verification_tasks.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • verification_evidence.task_id → verification_tasks.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • verification_tasks.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION

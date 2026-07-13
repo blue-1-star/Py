@@ -1,0 +1,45 @@
+================================================================================
+📌 ТАБЛИЦА: apartment_verification
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 231
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ✅                 
+2      apartment_number               TEXT                 ✅                 
+3      status                         TEXT                 ✅                 
+4      comment                        TEXT                 ❌                 
+5      verified_by                    INTEGER              ❌                 
+6      verified_at                    TEXT                 ❌                 
+7      created_at                     TEXT                 ❌                 
+8      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_apartment_verification_apartment_number 
+  • idx_apartment_verification_status 
+  • sqlite_autoindex_apartment_verification_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE apartment_verification (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_id INTEGER NOT NULL,
+            apartment_number TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'new',
+            comment TEXT,
+            verified_by INTEGER,
+            verified_at TEXT,
+            created_at TEXT,
+            updated_at TEXT,
+            UNIQUE(apartment_id)
+        )
+
+================================================================================

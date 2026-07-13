@@ -1,0 +1,64 @@
+================================================================================
+📌 ТАБЛИЦА: resident_profile_change_requests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      request_number                 TEXT                 ✅                 
+2      resident_account_id            INTEGER              ✅                 
+3      apartment_id                   INTEGER              ❌                 
+4      apartment_number               TEXT                 ❌                 
+5      vehicle_id                     INTEGER              ❌                 
+6      request_type                   TEXT                 ✅                 
+7      current_value_json             TEXT                 ❌                 
+8      requested_value_json           TEXT                 ✅                 
+9      resident_note                  TEXT                 ❌                 
+10     request_status                 TEXT                 ✅                 
+11     submitted_at                   TEXT                 ✅                 
+12     resolved_at                    TEXT                 ❌                 
+13     resolved_by                    TEXT                 ❌                 
+14     resolution_note                TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_resident_profile_requests_queue 
+  • sqlite_autoindex_resident_profile_change_requests_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE resident_profile_change_requests (
+            id INTEGER PRIMARY KEY,
+            request_number TEXT NOT NULL UNIQUE,
+            resident_account_id INTEGER NOT NULL,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            vehicle_id INTEGER,
+            request_type TEXT NOT NULL
+                CHECK(request_type IN ('PARKING_TIME', 'GENERAL_CORRECTION')),
+            current_value_json TEXT,
+            requested_value_json TEXT NOT NULL,
+            resident_note TEXT,
+            request_status TEXT NOT NULL DEFAULT 'PENDING_OPERATOR'
+                CHECK(request_status IN (
+                    'PENDING_OPERATOR', 'APPROVED', 'REJECTED',
+                    'ACCEPTED_MANUAL', 'CANCELLED'
+                )),
+            submitted_at TEXT NOT NULL,
+            resolved_at TEXT,
+            resolved_by TEXT,
+            resolution_note TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+================================================================================

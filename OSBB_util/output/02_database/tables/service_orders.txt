@@ -1,0 +1,74 @@
+================================================================================
+📌 ТАБЛИЦА: service_orders
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 6
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      order_number                   TEXT                 ✅                 
+2      resident_account_id            INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ❌                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ✅                 
+6      service_code                   TEXT                 ❌                 
+7      service_item_code              TEXT                 ✅                 
+8      service_name_snapshot          TEXT                 ✅                 
+9      workflow_profile_code          TEXT                 ✅                 
+10     quantity                       REAL                 ✅                 
+11     unit_price_snapshot            REAL                 ❌                 
+12     amount_due_snapshot            REAL                 ❌                 
+13     currency                       TEXT                 ✅                 
+14     order_status                   TEXT                 ✅                 
+15     payment_status                 TEXT                 ✅                 
+16     fulfillment_status             TEXT                 ✅                 
+17     resident_comment               TEXT                 ❌                 
+18     operator_comment               TEXT                 ❌                 
+19     requested_at                   TEXT                 ✅                 
+20     updated_at                     TEXT                 ❌                 
+21     completed_at                   TEXT                 ❌                 
+22     cancelled_at                   TEXT                 ❌                 
+23     cancelled_reason               TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_orders_item 
+  • idx_service_orders_unit 
+  • sqlite_autoindex_service_orders_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_orders (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                order_number TEXT NOT NULL UNIQUE,
+                resident_account_id INTEGER,
+                telegram_user_id TEXT,
+                apartment_id INTEGER,
+                apartment_number TEXT NOT NULL,
+                service_code TEXT,
+                service_item_code TEXT NOT NULL,
+                service_name_snapshot TEXT NOT NULL,
+                workflow_profile_code TEXT NOT NULL,
+                quantity REAL NOT NULL DEFAULT 1,
+                unit_price_snapshot REAL,
+                amount_due_snapshot REAL,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                order_status TEXT NOT NULL DEFAULT 'REQUESTED',
+                payment_status TEXT NOT NULL DEFAULT 'NOT_REQUIRED',
+                fulfillment_status TEXT NOT NULL DEFAULT 'NOT_STARTED',
+                resident_comment TEXT,
+                operator_comment TEXT,
+                requested_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                completed_at TEXT,
+                cancelled_at TEXT,
+                cancelled_reason TEXT
+            )
+
+================================================================================

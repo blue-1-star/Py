@@ -1,0 +1,64 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_contracts
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      unit_id                        INTEGER              ✅                 
+2      contract_number                TEXT                 ❌                 
+3      counterparty_type              TEXT                 ✅                 
+4      counterparty_name              TEXT                 ❌                 
+5      status                         TEXT                 ✅                 
+6      valid_from                     TEXT                 ❌                 
+7      valid_to                       TEXT                 ❌                 
+8      payment_due_day                INTEGER              ✅                 
+9      grace_days                     INTEGER              ✅                 
+10     reminder_days_before_due       INTEGER              ✅                 
+11     warning_days_overdue           INTEGER              ✅                 
+12     suspension_candidate_days_overdue INTEGER              ✅                 
+13     internal_note                  TEXT                 ❌                 
+14     created_by                     TEXT                 ❌                 
+15     updated_by                     TEXT                 ❌                 
+16     created_at                     TEXT                 ✅                 
+17     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • ux_commercial_one_active_contract_per_unit (UNIQUE)
+  • idx_commercial_contracts_unit_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • unit_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE commercial_contracts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                unit_id INTEGER NOT NULL,
+                contract_number TEXT,
+                counterparty_type TEXT NOT NULL DEFAULT 'UNKNOWN',
+                counterparty_name TEXT,
+                status TEXT NOT NULL DEFAULT 'DRAFT',
+                valid_from TEXT,
+                valid_to TEXT,
+                payment_due_day INTEGER NOT NULL DEFAULT 10,
+                grace_days INTEGER NOT NULL DEFAULT 0,
+                reminder_days_before_due INTEGER NOT NULL DEFAULT 3,
+                warning_days_overdue INTEGER NOT NULL DEFAULT 3,
+                suspension_candidate_days_overdue INTEGER NOT NULL DEFAULT 7,
+                internal_note TEXT,
+                created_by TEXT,
+                updated_by TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(unit_id) REFERENCES apartments(id)
+            )
+
+================================================================================

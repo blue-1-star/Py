@@ -1,0 +1,73 @@
+================================================================================
+📌 ТАБЛИЦА: parking_time_review_tasks
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 35
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_number               TEXT                 ❌                 
+2      vehicle_id                     INTEGER              ❌                 
+3      license_plate                  TEXT                 ❌                 
+4      car_model                      TEXT                 ❌                 
+5      current_parking_time           TEXT                 ❌                 
+6      suggested_day_count            INTEGER              ❌                 
+7      suggested_night_count          INTEGER              ❌                 
+8      task_type                      TEXT                 ❌                 
+9      priority                       INTEGER              ❌                 
+10     source_name                    TEXT                 ❌                 
+11     source_details                 TEXT                 ❌                 
+12     status                         TEXT                 ❌                 
+13     created_at                     TEXT                 ❌                 
+14     created_by                     TEXT                 ❌                 
+15     reviewed_at                    TEXT                 ❌                 
+16     reviewed_by                    TEXT                 ❌                 
+17     decision                       TEXT                 ❌                 
+18     decision_comment               TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_ptrt_apartment 
+  • idx_ptrt_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE parking_time_review_tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        apartment_number TEXT,
+
+        vehicle_id INTEGER,
+        license_plate TEXT,
+        car_model TEXT,
+
+        current_parking_time TEXT,
+
+        suggested_day_count INTEGER,
+        suggested_night_count INTEGER,
+
+        task_type TEXT,
+        priority INTEGER DEFAULT 50,
+
+        source_name TEXT,
+        source_details TEXT,
+
+        status TEXT DEFAULT 'new',
+
+        created_at TEXT,
+        created_by TEXT,
+
+        reviewed_at TEXT,
+        reviewed_by TEXT,
+
+        decision TEXT,
+        decision_comment TEXT
+    )
+
+================================================================================

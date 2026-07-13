@@ -1,0 +1,54 @@
+================================================================================
+📌 ТАБЛИЦА: access_user_permissions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      telegram_user_id               TEXT                 ✅                 
+2      resource                       TEXT                 ✅                 
+3      action                         TEXT                 ✅                 
+4      scope_type                     TEXT                 ✅                 
+5      scope_value                    TEXT                 ✅                 
+6      effect                         TEXT                 ✅                 
+7      is_active                      INTEGER              ✅                 
+8      valid_from                     TEXT                 ❌                 
+9      valid_to                       TEXT                 ❌                 
+10     granted_by                     TEXT                 ❌                 
+11     note                           TEXT                 ❌                 
+12     created_at                     TEXT                 ✅                 
+13     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_user_permissions_user 
+  • sqlite_autoindex_access_user_permissions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_user_permissions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            telegram_user_id TEXT NOT NULL,
+            resource TEXT NOT NULL,
+            action TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            effect TEXT NOT NULL DEFAULT 'ALLOW',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            valid_from TEXT,
+            valid_to TEXT,
+            granted_by TEXT,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(telegram_user_id, resource, action, scope_type, scope_value)
+        )
+
+================================================================================

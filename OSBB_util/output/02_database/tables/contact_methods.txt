@@ -1,0 +1,57 @@
+================================================================================
+📌 ТАБЛИЦА: contact_methods
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      person_id                      INTEGER              ❌                 
+3      contact_type                   TEXT                 ❌                 
+4      contact_value                  TEXT                 ❌                 
+5      telegram_user_id               TEXT                 ❌                 
+6      telegram_username              TEXT                 ❌                 
+7      contact_owner                  TEXT                 ❌                 
+8      is_primary                     INTEGER              ❌                 
+9      source                         TEXT                 ❌                 
+10     notes                          TEXT                 ❌                 
+11     created_at                     TEXT                 ❌                 
+12     created_by                     TEXT                 ❌                 
+13     updated_at                     TEXT                 ❌                 
+14     updated_by                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • person_id → persons.id
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE contact_methods (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        person_id INTEGER,
+        contact_type TEXT,
+        contact_value TEXT,
+        telegram_user_id TEXT,
+        telegram_username TEXT,
+        contact_owner TEXT,
+        is_primary INTEGER DEFAULT 0,
+        source TEXT,
+        notes TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        updated_at TEXT,
+        updated_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+        FOREIGN KEY(person_id) REFERENCES persons(id)
+    )
+
+================================================================================

@@ -1,0 +1,40 @@
+================================================================================
+📌 ТАБЛИЦА: phone_barrier_access_interests
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_interest_id            INTEGER              ✅                 
+2      requested_phone                TEXT                 ❌                 
+3      parking_debt_check_mode        TEXT                 ❌                 
+4      parking_debt_check_note        TEXT                 ❌                 
+5      status                         TEXT                 ✅                 
+6      created_at                     TEXT                 ✅                 
+7      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_interest_interest 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_barrier_access_interests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    service_interest_id INTEGER NOT NULL,
+    requested_phone TEXT,
+    parking_debt_check_mode TEXT,
+    parking_debt_check_note TEXT,
+    status TEXT NOT NULL DEFAULT 'NEW',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
+)
+
+================================================================================

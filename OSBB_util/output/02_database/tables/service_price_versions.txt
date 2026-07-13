@@ -1,0 +1,48 @@
+================================================================================
+📌 ТАБЛИЦА: service_price_versions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 4
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_item_code              TEXT                 ✅                 
+2      amount                         REAL                 ✅                 
+3      currency                       TEXT                 ✅                 
+4      effective_from                 TEXT                 ✅                 
+5      effective_to                   TEXT                 ❌                 
+6      is_active                      INTEGER              ✅                 
+7      created_by                     TEXT                 ❌                 
+8      note                           TEXT                 ❌                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_price_versions_item 
+  • sqlite_autoindex_service_price_versions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_price_versions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                service_item_code TEXT NOT NULL,
+                amount REAL NOT NULL,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                effective_from TEXT NOT NULL,
+                effective_to TEXT,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                created_by TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                UNIQUE(service_item_code, effective_from)
+            )
+
+================================================================================

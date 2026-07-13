@@ -1,0 +1,46 @@
+================================================================================
+📌 ТАБЛИЦА: service_tariffs
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 3
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_code                   TEXT                 ✅                 
+2      amount                         REAL                 ✅                 
+3      currency                       TEXT                 ✅                 
+4      valid_from                     TEXT                 ✅                 
+5      valid_to                       TEXT                 ❌                 
+6      is_active                      INTEGER              ✅                 
+7      comment                        TEXT                 ❌                 
+8      created_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_tariffs_code_dates 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • service_code → service_catalog.service_code
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_tariffs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        service_code TEXT NOT NULL,
+        amount REAL NOT NULL,
+        currency TEXT NOT NULL DEFAULT 'UAH',
+        valid_from TEXT NOT NULL,
+        valid_to TEXT,
+        is_active INTEGER NOT NULL DEFAULT 1,
+        comment TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(service_code)
+            REFERENCES service_catalog(service_code)
+    )
+
+================================================================================

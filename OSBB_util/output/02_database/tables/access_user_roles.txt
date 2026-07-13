@@ -1,0 +1,50 @@
+================================================================================
+📌 ТАБЛИЦА: access_user_roles
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 4
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      telegram_user_id               TEXT                 ✅                 
+2      role_code                      TEXT                 ✅                 
+3      scope_type                     TEXT                 ✅                 
+4      scope_value                    TEXT                 ✅                 
+5      is_active                      INTEGER              ✅                 
+6      valid_from                     TEXT                 ❌                 
+7      valid_to                       TEXT                 ❌                 
+8      granted_by                     TEXT                 ❌                 
+9      note                           TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_user_roles_user 
+  • sqlite_autoindex_access_user_roles_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_user_roles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            telegram_user_id TEXT NOT NULL,
+            role_code TEXT NOT NULL,
+            scope_type TEXT NOT NULL DEFAULT 'ALL',
+            scope_value TEXT NOT NULL DEFAULT '*',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            valid_from TEXT,
+            valid_to TEXT,
+            granted_by TEXT,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            UNIQUE(telegram_user_id, role_code, scope_type, scope_value)
+        )
+
+================================================================================

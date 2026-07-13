@@ -1,0 +1,59 @@
+================================================================================
+📌 ТАБЛИЦА: remote_assets
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 7
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      asset_number                   TEXT                 ✅                 
+2      asset_type                     TEXT                 ✅                 
+3      ownership_type                 TEXT                 ✅                 
+4      inventory_status               TEXT                 ✅                 
+5      condition_status               TEXT                 ✅                 
+6      hardware_model                 TEXT                 ❌                 
+7      serial_number                  TEXT                 ❌                 
+8      programming_identifier         TEXT                 ❌                 
+9      apartment_id                   INTEGER              ❌                 
+10     apartment_number               TEXT                 ❌                 
+11     received_at                    TEXT                 ❌                 
+12     issued_at                      TEXT                 ❌                 
+13     retired_at                     TEXT                 ❌                 
+14     note                           TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_remote_assets_status 
+  • sqlite_autoindex_remote_assets_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE remote_assets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                asset_number TEXT NOT NULL UNIQUE,
+                asset_type TEXT NOT NULL DEFAULT 'REMOTE',
+                ownership_type TEXT NOT NULL,
+                inventory_status TEXT NOT NULL DEFAULT 'AVAILABLE',
+                condition_status TEXT NOT NULL DEFAULT 'UNKNOWN',
+                hardware_model TEXT,
+                serial_number TEXT,
+                programming_identifier TEXT,
+                apartment_id INTEGER,
+                apartment_number TEXT,
+                received_at TEXT,
+                issued_at TEXT,
+                retired_at TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT
+            )
+
+================================================================================

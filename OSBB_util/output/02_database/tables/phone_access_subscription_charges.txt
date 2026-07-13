@@ -1,0 +1,82 @@
+================================================================================
+📌 ТАБЛИЦА: phone_access_subscription_charges
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      charge_number                  TEXT                 ✅                 
+2      subscription_id                INTEGER              ✅                 
+3      subscription_point_id          INTEGER              ❌                 
+4      access_point_code              TEXT                 ✅                 
+5      charge_kind                    TEXT                 ✅                 
+6      charge_period_key              TEXT                 ✅                 
+7      billing_period                 TEXT                 ❌                 
+8      tariff_code                    TEXT                 ✅                 
+9      tariff_version_id              INTEGER              ❌                 
+10     quantity                       INTEGER              ✅                 
+11     unit_price_snapshot            REAL                 ✅                 
+12     amount_due_snapshot            REAL                 ✅                 
+13     currency                       TEXT                 ✅                 
+14     due_date                       TEXT                 ❌                 
+15     charge_status                  TEXT                 ✅                 
+16     service_order_id               INTEGER              ❌                 
+17     payment_notice_id              INTEGER              ❌                 
+18     payment_id                     INTEGER              ❌                 
+19     posted_at                      TEXT                 ❌                 
+20     paid_at                        TEXT                 ❌                 
+21     cancelled_at                   TEXT                 ❌                 
+22     cancellation_reason            TEXT                 ❌                 
+23     created_at                     TEXT                 ✅                 
+24     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_access_charges_payment 
+  • idx_phone_access_charges_due 
+  • sqlite_autoindex_phone_access_subscription_charges_2 (UNIQUE)
+  • sqlite_autoindex_phone_access_subscription_charges_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_access_subscription_charges (
+            id INTEGER PRIMARY KEY,
+            charge_number TEXT NOT NULL UNIQUE,
+            subscription_id INTEGER NOT NULL,
+            subscription_point_id INTEGER,
+            access_point_code TEXT NOT NULL,
+            charge_kind TEXT NOT NULL
+                CHECK(charge_kind IN ('CONNECT', 'MONTHLY')),
+            charge_period_key TEXT NOT NULL,
+            billing_period TEXT,
+            tariff_code TEXT NOT NULL,
+            tariff_version_id INTEGER,
+            quantity INTEGER NOT NULL DEFAULT 1 CHECK(quantity > 0),
+            unit_price_snapshot REAL NOT NULL CHECK(unit_price_snapshot >= 0),
+            amount_due_snapshot REAL NOT NULL CHECK(amount_due_snapshot >= 0),
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            due_date TEXT,
+            charge_status TEXT NOT NULL DEFAULT 'DRAFT'
+                CHECK(charge_status IN (
+                    'DRAFT', 'OPEN', 'PAID', 'OVERDUE', 'WAIVED', 'CANCELLED'
+                )),
+            service_order_id INTEGER,
+            payment_notice_id INTEGER,
+            payment_id INTEGER,
+            posted_at TEXT,
+            paid_at TEXT,
+            cancelled_at TEXT,
+            cancellation_reason TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(subscription_point_id, charge_kind, charge_period_key)
+        )
+
+================================================================================

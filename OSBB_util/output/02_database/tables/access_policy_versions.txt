@@ -1,0 +1,53 @@
+================================================================================
+📌 ТАБЛИЦА: access_policy_versions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      policy_set_code                TEXT                 ✅                 
+2      version_number                 INTEGER              ✅                 
+3      policy_status                  TEXT                 ✅                 
+4      effective_from                 TEXT                 ✅                 
+5      effective_to                   TEXT                 ❌                 
+6      approved_by                    TEXT                 ❌                 
+7      approval_reference             TEXT                 ❌                 
+8      change_reason                  TEXT                 ❌                 
+9      created_by                     TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_policy_lookup 
+  • sqlite_autoindex_access_policy_versions_2 (UNIQUE)
+  • sqlite_autoindex_access_policy_versions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_policy_versions (
+            id INTEGER PRIMARY KEY,
+            policy_set_code TEXT NOT NULL,
+            version_number INTEGER NOT NULL CHECK(version_number > 0),
+            policy_status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(policy_status IN ('DRAFT', 'ACTIVE', 'RETIRED', 'ARCHIVED')),
+            effective_from TEXT NOT NULL,
+            effective_to TEXT,
+            approved_by TEXT,
+            approval_reference TEXT,
+            change_reason TEXT,
+            created_by TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(policy_set_code, version_number),
+            UNIQUE(policy_set_code, effective_from)
+        )
+
+================================================================================

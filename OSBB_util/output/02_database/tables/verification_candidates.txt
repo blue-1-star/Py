@@ -1,0 +1,70 @@
+================================================================================
+📌 ТАБЛИЦА: verification_candidates
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 46
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      task_id                        INTEGER              ❌                 
+2      candidate_type                 TEXT                 ❌                 
+3      candidate_value                TEXT                 ❌                 
+4      candidate_normalized           TEXT                 ❌                 
+5      confidence_label               TEXT                 ❌                 
+6      confidence_score               INTEGER              ❌                 
+7      source_names                   TEXT                 ❌                 
+8      match_types                    TEXT                 ❌                 
+9      reason                         TEXT                 ❌                 
+10     status                         TEXT                 ❌                 
+11     created_at                     TEXT                 ❌                 
+12     created_by                     TEXT                 ❌                 
+13     decided_at                     TEXT                 ❌                 
+14     decided_by                     TEXT                 ❌                 
+15     decision                       TEXT                 ❌                 
+16     decision_comment               TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_verification_candidates_status 
+  • idx_verification_candidates_task 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • task_id → verification_tasks.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE verification_candidates (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        task_id INTEGER,
+
+        candidate_type TEXT,
+        candidate_value TEXT,
+        candidate_normalized TEXT,
+
+        confidence_label TEXT,
+        confidence_score INTEGER,
+
+        source_names TEXT,
+        match_types TEXT,
+
+        reason TEXT,
+        status TEXT DEFAULT 'new',
+
+        created_at TEXT,
+        created_by TEXT,
+
+        decided_at TEXT,
+        decided_by TEXT,
+        decision TEXT,
+        decision_comment TEXT,
+
+        FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+    )
+
+================================================================================

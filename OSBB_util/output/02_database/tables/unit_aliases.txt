@@ -1,0 +1,46 @@
+================================================================================
+📌 ТАБЛИЦА: unit_aliases
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ✅                 
+2      alias_text                     TEXT                 ✅                 
+3      alias_normalized               TEXT                 ✅                 
+4      alias_kind                     TEXT                 ✅                 
+5      is_active                      INTEGER              ✅                 
+6      note                           TEXT                 ❌                 
+7      created_at                     TEXT                 ✅                 
+8      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_unit_aliases_apartment 
+  • idx_unit_aliases_unique_active (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE unit_aliases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            apartment_id INTEGER NOT NULL,
+            alias_text TEXT NOT NULL,
+            alias_normalized TEXT NOT NULL,
+            alias_kind TEXT NOT NULL DEFAULT 'SEARCH',
+            is_active INTEGER NOT NULL DEFAULT 1,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT,
+            FOREIGN KEY (apartment_id) REFERENCES apartments(id)
+        )
+
+================================================================================

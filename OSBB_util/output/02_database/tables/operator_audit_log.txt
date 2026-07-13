@@ -1,0 +1,66 @@
+================================================================================
+📌 ТАБЛИЦА: operator_audit_log
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 163
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      created_at                     TEXT                 ❌                 
+2      operator_id                    TEXT                 ❌                 
+3      user_id                        TEXT                 ❌                 
+4      actor_type                     TEXT                 ❌                 
+5      action_type                    TEXT                 ❌                 
+6      table_name                     TEXT                 ❌                 
+7      row_id                         TEXT                 ❌                 
+8      field_name                     TEXT                 ❌                 
+9      old_value                      TEXT                 ❌                 
+10     new_value                      TEXT                 ❌                 
+11     action_status                  TEXT                 ❌                 
+12     review_status                  TEXT                 ❌                 
+13     source_context                 TEXT                 ❌                 
+14     comment                        TEXT                 ❌                 
+15     db_mode                        TEXT                 ❌                 
+16     db_file                        TEXT                 ❌                 
+17     reviewed_by                    TEXT                 ❌                 
+18     reviewed_at                    TEXT                 ❌                 
+19     review_comment                 TEXT                 ❌                 
+20     extra_json                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_operator_audit_table_row 
+  • idx_operator_audit_user 
+  • idx_operator_audit_review 
+  • idx_operator_audit_action 
+  • idx_operator_audit_actor 
+  • idx_operator_audit_operator 
+  • idx_operator_audit_created 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE operator_audit_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            created_at TEXT,
+            operator_id TEXT,
+            user_id TEXT,
+            actor_type TEXT,
+            action_type TEXT,
+            table_name TEXT,
+            row_id TEXT,
+            field_name TEXT,
+            old_value TEXT,
+            new_value TEXT,
+            action_status TEXT DEFAULT 'applied',
+            review_status TEXT DEFAULT 'pending',
+            source_context TEXT,
+            comment TEXT
+        , db_mode TEXT, db_file TEXT, reviewed_by TEXT, reviewed_at TEXT, review_comment TEXT, extra_json TEXT)
+
+================================================================================

@@ -1,0 +1,67 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_reconciliation_cases
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      case_type                      TEXT                 ✅                 
+2      case_status                    TEXT                 ✅                 
+3      priority                       TEXT                 ✅                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ❌                 
+6      amount                         REAL                 ❌                 
+7      currency                       TEXT                 ✅                 
+8      period_code                    TEXT                 ❌                 
+9      service_code                   TEXT                 ❌                 
+10     related_payment_id             INTEGER              ❌                 
+11     related_receipt_id             INTEGER              ❌                 
+12     related_notice_id              INTEGER              ❌                 
+13     related_bank_transaction_id    INTEGER              ❌                 
+14     related_batch_id               INTEGER              ❌                 
+15     description                    TEXT                 ✅                 
+16     operator_id                    TEXT                 ❌                 
+17     resolution_note                TEXT                 ❌                 
+18     resolved_at                    TEXT                 ❌                 
+19     created_at                     TEXT                 ✅                 
+20     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_cashier_reconciliation_unit 
+  • idx_cashier_reconciliation_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE cashier_reconciliation_cases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            case_type TEXT NOT NULL,
+            case_status TEXT NOT NULL DEFAULT 'OPEN',
+            priority TEXT NOT NULL DEFAULT 'NORMAL',
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            amount REAL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            period_code TEXT,
+            service_code TEXT,
+            related_payment_id INTEGER,
+            related_receipt_id INTEGER,
+            related_notice_id INTEGER,
+            related_bank_transaction_id INTEGER,
+            related_batch_id INTEGER,
+            description TEXT NOT NULL,
+            operator_id TEXT,
+            resolution_note TEXT,
+            resolved_at TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+================================================================================

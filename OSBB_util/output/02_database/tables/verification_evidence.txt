@@ -1,0 +1,56 @@
+================================================================================
+📌 ТАБЛИЦА: verification_evidence
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 80
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      task_id                        INTEGER              ❌                 
+2      source_name                    TEXT                 ❌                 
+3      source_db                      TEXT                 ❌                 
+4      source_table                   TEXT                 ❌                 
+5      source_record_id               TEXT                 ❌                 
+6      evidence_type                  TEXT                 ❌                 
+7      evidence_value                 TEXT                 ❌                 
+8      normalized_value               TEXT                 ❌                 
+9      match_type                     TEXT                 ❌                 
+10     comment                        TEXT                 ❌                 
+11     created_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_verification_evidence_task 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • task_id → verification_tasks.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE verification_evidence (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        task_id INTEGER,
+
+        source_name TEXT,
+        source_db TEXT,
+        source_table TEXT,
+        source_record_id TEXT,
+
+        evidence_type TEXT,
+        evidence_value TEXT,
+        normalized_value TEXT,
+        match_type TEXT,
+
+        comment TEXT,
+        created_at TEXT,
+
+        FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+    )
+
+================================================================================

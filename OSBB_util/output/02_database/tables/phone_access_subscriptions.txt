@@ -1,0 +1,87 @@
+================================================================================
+📌 ТАБЛИЦА: phone_access_subscriptions
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      subscription_number            TEXT                 ✅                 
+2      resident_account_id            INTEGER              ❌                 
+3      authorised_person_id           INTEGER              ❌                 
+4      unit_id                        INTEGER              ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      holder_type                    TEXT                 ✅                 
+8      phone_normalized               TEXT                 ✅                 
+9      subscription_status            TEXT                 ✅                 
+10     parking_debt_check_mode        TEXT                 ✅                 
+11     parking_debt_check_note        TEXT                 ❌                 
+12     parking_debt_mode_set_by       TEXT                 ❌                 
+13     parking_debt_mode_set_at       TEXT                 ❌                 
+14     activation_date                TEXT                 ❌                 
+15     first_charge_period            TEXT                 ❌                 
+16     monthly_start_policy_version_id INTEGER              ❌                 
+17     connect_tariff_version_id      INTEGER              ❌                 
+18     monthly_tariff_version_id      INTEGER              ❌                 
+19     created_from_order_id          INTEGER              ❌                 
+20     created_from_interest_id       INTEGER              ❌                 
+21     closed_at                      TEXT                 ❌                 
+22     close_reason                   TEXT                 ❌                 
+23     created_at                     TEXT                 ✅                 
+24     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_access_subscriptions_phone 
+  • idx_phone_access_subscriptions_status 
+  • sqlite_autoindex_phone_access_subscriptions_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_access_subscriptions (
+            id INTEGER PRIMARY KEY,
+            subscription_number TEXT NOT NULL UNIQUE,
+            resident_account_id INTEGER,
+            authorised_person_id INTEGER,
+            unit_id INTEGER,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            holder_type TEXT NOT NULL DEFAULT 'RESIDENT'
+                CHECK(holder_type IN ('RESIDENT', 'TENANT', 'AUTHORISED_PERSON')),
+            phone_normalized TEXT NOT NULL,
+            subscription_status TEXT NOT NULL DEFAULT 'PENDING_ACTIVATION'
+                CHECK(subscription_status IN (
+                    'PENDING_ACTIVATION', 'ACTIVE', 'PARTIALLY_ACTIVE',
+                    'DEBT_WARNING', 'DEACTIVATING', 'DEACTIVATED_FOR_DEBT',
+                    'DEACTIVATED_MANUAL', 'CLOSED', 'CANCELLED'
+                )),
+            parking_debt_check_mode TEXT NOT NULL DEFAULT 'MANUAL_REVIEW'
+                CHECK(parking_debt_check_mode IN (
+                    'CHECK_LINKED_PARKING_ACCOUNT',
+                    'NOT_APPLICABLE_NO_PARKING',
+                    'MANUAL_REVIEW'
+                )),
+            parking_debt_check_note TEXT,
+            parking_debt_mode_set_by TEXT,
+            parking_debt_mode_set_at TEXT,
+            activation_date TEXT,
+            first_charge_period TEXT,
+            monthly_start_policy_version_id INTEGER,
+            connect_tariff_version_id INTEGER,
+            monthly_tariff_version_id INTEGER,
+            created_from_order_id INTEGER,
+            created_from_interest_id INTEGER,
+            closed_at TEXT,
+            close_reason TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+================================================================================

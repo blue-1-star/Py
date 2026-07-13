@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: phone_barrier_access_order_points
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_order_id               INTEGER              ✅                 
+2      access_point_code              TEXT                 ✅                 
+3      access_point_name_snapshot     TEXT                 ❌                 
+4      requested_phone                TEXT                 ❌                 
+5      status                         TEXT                 ✅                 
+6      activated_at                   TEXT                 ❌                 
+7      deactivated_at                 TEXT                 ❌                 
+8      actor_id                       INTEGER              ❌                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_phone_order_points_status 
+  • idx_phone_order_points_order 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE phone_barrier_access_order_points (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    service_order_id INTEGER NOT NULL,
+    access_point_code TEXT NOT NULL,
+    access_point_name_snapshot TEXT,
+    requested_phone TEXT,
+    status TEXT NOT NULL DEFAULT 'PENDING_ACTIVATION',
+    activated_at TEXT,
+    deactivated_at TEXT,
+    actor_id INTEGER,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
+)
+
+================================================================================

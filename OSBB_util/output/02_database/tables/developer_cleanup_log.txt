@@ -1,0 +1,40 @@
+================================================================================
+📌 ТАБЛИЦА: developer_cleanup_log
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 3
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      performed_at                   TEXT                 ✅                 
+2      performed_by                   TEXT                 ❌                 
+3      payment_id                     INTEGER              ❌                 
+4      receipt_id                     INTEGER              ❌                 
+5      reason_code                    TEXT                 ✅                 
+6      reason_text                    TEXT                 ❌                 
+7      backup_path                    TEXT                 ❌                 
+8      deleted_summary                TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE developer_cleanup_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            performed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            performed_by TEXT,
+            payment_id INTEGER,
+            receipt_id INTEGER,
+            reason_code TEXT NOT NULL,
+            reason_text TEXT,
+            backup_path TEXT,
+            deleted_summary TEXT
+        )
+
+================================================================================

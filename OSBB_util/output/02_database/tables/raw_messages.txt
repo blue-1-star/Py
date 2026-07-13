@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: raw_messages
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      source_id                      INTEGER              ❌                 
+2      message_datetime               TEXT                 ❌                 
+3      sender_name                    TEXT                 ❌                 
+4      sender_username                TEXT                 ❌                 
+5      sender_user_id                 TEXT                 ❌                 
+6      message_text                   TEXT                 ❌                 
+7      has_photo                      INTEGER              ❌                 
+8      file_path                      TEXT                 ❌                 
+9      imported_at                    TEXT                 ❌                 
+10     processed_status               TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • source_id → message_sources.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE raw_messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        source_id INTEGER,
+        message_datetime TEXT,
+        sender_name TEXT,
+        sender_username TEXT,
+        sender_user_id TEXT,
+        message_text TEXT,
+        has_photo INTEGER DEFAULT 0,
+        file_path TEXT,
+        imported_at TEXT,
+        processed_status TEXT DEFAULT 'new',
+        FOREIGN KEY(source_id) REFERENCES message_sources(id)
+    )
+
+================================================================================

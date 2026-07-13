@@ -1,0 +1,43 @@
+================================================================================
+📌 ТАБЛИЦА: access_policy_values
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      policy_version_id              INTEGER              ✅                 
+2      setting_code                   TEXT                 ✅                 
+3      value_type                     TEXT                 ✅                 
+4      value_text                     TEXT                 ✅                 
+5      description                    TEXT                 ❌                 
+6      created_at                     TEXT                 ✅                 
+7      updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_policy_values_code 
+  • sqlite_autoindex_access_policy_values_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_policy_values (
+            id INTEGER PRIMARY KEY,
+            policy_version_id INTEGER NOT NULL,
+            setting_code TEXT NOT NULL,
+            value_type TEXT NOT NULL
+                CHECK(value_type IN ('TEXT', 'INTEGER', 'BOOLEAN', 'JSON')),
+            value_text TEXT NOT NULL,
+            description TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(policy_version_id, setting_code)
+        )
+
+================================================================================

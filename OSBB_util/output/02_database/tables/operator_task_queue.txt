@@ -1,0 +1,61 @@
+================================================================================
+📌 ТАБЛИЦА: operator_task_queue
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      task_number                    TEXT                 ❌                 
+2      priority                       TEXT                 ✅                 
+3      task_type                      TEXT                 ✅                 
+4      status                         TEXT                 ✅                 
+5      apartment_number               TEXT                 ❌                 
+6      vehicle_id                     INTEGER              ❌                 
+7      plate                          TEXT                 ❌                 
+8      telegram_user_id               TEXT                 ❌                 
+9      title                          TEXT                 ❌                 
+10     description                    TEXT                 ❌                 
+11     origin                         TEXT                 ✅                 
+12     created_by                     TEXT                 ❌                 
+13     assigned_to                    TEXT                 ❌                 
+14     created_at                     TEXT                 ✅                 
+15     updated_at                     TEXT                 ❌                 
+16     closed_at                      TEXT                 ❌                 
+17     close_note                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_operator_task_status 
+  • sqlite_autoindex_operator_task_queue_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE operator_task_queue (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+task_number TEXT UNIQUE,
+priority TEXT NOT NULL DEFAULT 'NORMAL',
+task_type TEXT NOT NULL,
+status TEXT NOT NULL DEFAULT 'PENDING',
+apartment_number TEXT,
+vehicle_id INTEGER,
+plate TEXT,
+telegram_user_id TEXT,
+title TEXT,
+description TEXT,
+origin TEXT NOT NULL DEFAULT 'SYSTEM',
+created_by TEXT,
+assigned_to TEXT,
+created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TEXT,
+closed_at TEXT,
+close_note TEXT
+)
+
+================================================================================

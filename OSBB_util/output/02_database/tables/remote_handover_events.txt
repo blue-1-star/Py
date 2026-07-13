@@ -1,0 +1,53 @@
+================================================================================
+📌 ТАБЛИЦА: remote_handover_events
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      event_kind                     TEXT                 ✅                 
+2      event_status                   TEXT                 ✅                 
+3      post_code                      TEXT                 ✅                 
+4      remote_request_id              INTEGER              ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      quantity                       INTEGER              ✅                 
+8      operator_id                    TEXT                 ✅                 
+9      note                           TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ❌                 
+12     service_order_id               INTEGER              ❌                 
+13     remote_asset_id                INTEGER              ❌                 
+14     remote_asset_movement_id       INTEGER              ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_remote_handover_request 
+  • idx_remote_handover_operator 
+  • idx_remote_handover_post 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE remote_handover_events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            event_kind TEXT NOT NULL,
+            event_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+            post_code TEXT NOT NULL DEFAULT 'O',
+            remote_request_id INTEGER,
+            apartment_id INTEGER,
+            apartment_number TEXT,
+            quantity INTEGER NOT NULL DEFAULT 1,
+            operator_id TEXT NOT NULL,
+            note TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        , "service_order_id" INTEGER, "remote_asset_id" INTEGER, "remote_asset_movement_id" INTEGER)
+
+================================================================================

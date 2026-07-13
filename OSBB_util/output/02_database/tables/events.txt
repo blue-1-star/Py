@@ -1,0 +1,53 @@
+================================================================================
+📌 ТАБЛИЦА: events
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      event_time                     TEXT                 ❌                 
+3      event_group                    TEXT                 ❌                 
+4      event_type                     TEXT                 ❌                 
+5      amount                         REAL                 ❌                 
+6      status                         TEXT                 ❌                 
+7      source                         TEXT                 ❌                 
+8      related_table                  TEXT                 ❌                 
+9      related_record_id              TEXT                 ❌                 
+10     file_path                      TEXT                 ❌                 
+11     comment                        TEXT                 ❌                 
+12     created_at                     TEXT                 ❌                 
+13     created_by                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        apartment_id INTEGER,
+        event_time TEXT,
+        event_group TEXT,
+        event_type TEXT,
+        amount REAL,
+        status TEXT,
+        source TEXT,
+        related_table TEXT,
+        related_record_id TEXT,
+        file_path TEXT,
+        comment TEXT,
+        created_at TEXT,
+        created_by TEXT,
+        FOREIGN KEY(apartment_id) REFERENCES apartments(id)
+    )
+
+================================================================================

@@ -1,0 +1,56 @@
+================================================================================
+📌 ТАБЛИЦА: access_points
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      access_point_code              TEXT                 ✅                 
+2      display_name_uk                TEXT                 ✅                 
+3      display_name_ru                TEXT                 ✅                 
+4      display_name_en                TEXT                 ✅                 
+5      point_status                   TEXT                 ✅                 
+6      controller_type                TEXT                 ❌                 
+7      controller_reference           TEXT                 ❌                 
+8      is_active                      INTEGER              ✅                 
+9      effective_from                 TEXT                 ✅                 
+10     effective_to                   TEXT                 ❌                 
+11     retired_at                     TEXT                 ❌                 
+12     retired_reason                 TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     updated_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_access_points_active 
+  • sqlite_autoindex_access_points_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE access_points (
+            id INTEGER PRIMARY KEY,
+            access_point_code TEXT NOT NULL UNIQUE,
+            display_name_uk TEXT NOT NULL,
+            display_name_ru TEXT NOT NULL,
+            display_name_en TEXT NOT NULL,
+            point_status TEXT NOT NULL DEFAULT 'ACTIVE'
+                CHECK(point_status IN ('DRAFT', 'ACTIVE', 'RETIRED', 'ARCHIVED')),
+            controller_type TEXT,
+            controller_reference TEXT,
+            is_active INTEGER NOT NULL DEFAULT 1 CHECK(is_active IN (0, 1)),
+            effective_from TEXT NOT NULL,
+            effective_to TEXT,
+            retired_at TEXT,
+            retired_reason TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+
+================================================================================

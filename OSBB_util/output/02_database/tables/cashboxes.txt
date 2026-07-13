@@ -1,0 +1,46 @@
+================================================================================
+📌 ТАБЛИЦА: cashboxes
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 10
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      cashbox_code                   TEXT                 ✅                 
+2      cashbox_name                   TEXT                 ✅                 
+3      currency                       TEXT                 ✅                 
+4      initial_balance                REAL                 ✅                 
+5      current_balance                REAL                 ✅                 
+6      is_active                      INTEGER              ✅                 
+7      comment                        TEXT                 ❌                 
+8      created_at                     TEXT                 ✅                 
+9      updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_cashboxes_active 
+  • idx_cashboxes_code 
+  • sqlite_autoindex_cashboxes_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE cashboxes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            cashbox_code TEXT NOT NULL UNIQUE,
+            cashbox_name TEXT NOT NULL,
+            currency TEXT NOT NULL DEFAULT 'UAH',
+            initial_balance REAL NOT NULL DEFAULT 0,
+            current_balance REAL NOT NULL DEFAULT 0,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            comment TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+================================================================================

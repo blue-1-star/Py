@@ -1,0 +1,46 @@
+================================================================================
+📌 ТАБЛИЦА: payment_allocations
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 13
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      payment_id                     INTEGER              ✅                 
+2      charge_id                      INTEGER              ✅                 
+3      amount                         REAL                 ✅                 
+4      created_at                     TEXT                 ❌                 
+5      service_item_code              TEXT                 ❌                 
+6      base_service_code              TEXT                 ❌                 
+7      service_type                   TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_payment_allocations_service_type 
+  • idx_payment_allocations_base_service 
+  • idx_payment_allocations_service_item 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • charge_id → charges.id
+  • payment_id → payments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE payment_allocations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        payment_id INTEGER NOT NULL,
+        charge_id INTEGER NOT NULL,
+        amount REAL NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP, service_item_code TEXT, base_service_code TEXT, service_type TEXT,
+        FOREIGN KEY(payment_id)
+            REFERENCES payments(id),
+        FOREIGN KEY(charge_id)
+            REFERENCES charges(id)
+    )
+
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+📌 ТАБЛИЦА: tbot_parking_import
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 125
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      ownership_type                 TEXT                 ❌                 
+2      ownership_type_raw             TEXT                 ❌                 
+3      full_name                      TEXT                 ❌                 
+4      phone_raw                      TEXT                 ❌                 
+5      apartment_number               TEXT                 ❌                 
+6      car_model                      TEXT                 ❌                 
+7      car_color                      TEXT                 ❌                 
+8      license_plate                  TEXT                 ❌                 
+9      status_raw                     TEXT                 ❌                 
+10     source                         TEXT                 ❌                 
+11     imported_at                    TEXT                 ❌                 
+12     imported_by                    TEXT                 ❌                 
+13     notes                          TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE tbot_parking_import (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        ownership_type TEXT,
+        ownership_type_raw TEXT,
+
+        full_name TEXT,
+        phone_raw TEXT,
+        apartment_number TEXT,
+
+        car_model TEXT,
+        car_color TEXT,
+        license_plate TEXT,
+        status_raw TEXT,
+
+        source TEXT,
+        imported_at TEXT,
+        imported_by TEXT,
+
+        notes TEXT
+    )
+
+================================================================================

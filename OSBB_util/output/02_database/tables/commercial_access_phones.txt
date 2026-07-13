@@ -1,0 +1,50 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_access_phones
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      contract_id                    INTEGER              ✅                 
+2      phone_normalized               TEXT                 ✅                 
+3      phone_display                  TEXT                 ❌                 
+4      access_purpose                 TEXT                 ✅                 
+5      status                         TEXT                 ✅                 
+6      status_reason                  TEXT                 ❌                 
+7      status_changed_at              TEXT                 ❌                 
+8      note                           TEXT                 ❌                 
+9      created_at                     TEXT                 ✅                 
+10     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • ux_commercial_phone_per_contract (UNIQUE)
+  • idx_commercial_access_phone_contract_status 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • contract_id → commercial_contracts.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE commercial_access_phones (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                contract_id INTEGER NOT NULL,
+                phone_normalized TEXT NOT NULL,
+                phone_display TEXT,
+                access_purpose TEXT NOT NULL DEFAULT 'STAFF',
+                status TEXT NOT NULL DEFAULT 'ACTIVE',
+                status_reason TEXT,
+                status_changed_at TEXT,
+                note TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT,
+                FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+            )
+
+================================================================================

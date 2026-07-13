@@ -1,0 +1,57 @@
+================================================================================
+📌 ТАБЛИЦА: remote_supplier_batches
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      batch_number                   TEXT                 ✅                 
+2      service_item_code              TEXT                 ✅                 
+3      service_name_snapshot          TEXT                 ✅                 
+4      quantity_requested             INTEGER              ✅                 
+5      quantity_received              INTEGER              ✅                 
+6      quantity_issued                INTEGER              ✅                 
+7      batch_status                   TEXT                 ✅                 
+8      supplier_name                  TEXT                 ❌                 
+9      supplier_reference             TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     ordered_at                     TEXT                 ❌                 
+12     received_at                    TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     updated_at                     TEXT                 ✅                 
+15     note                           TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_remote_supplier_batches_status 
+  • sqlite_autoindex_remote_supplier_batches_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE remote_supplier_batches (
+                id INTEGER PRIMARY KEY,
+                batch_number TEXT NOT NULL UNIQUE,
+                service_item_code TEXT NOT NULL,
+                service_name_snapshot TEXT NOT NULL,
+                quantity_requested INTEGER NOT NULL CHECK(quantity_requested > 0),
+                quantity_received INTEGER NOT NULL DEFAULT 0 CHECK(quantity_received >= 0),
+                quantity_issued INTEGER NOT NULL DEFAULT 0 CHECK(quantity_issued >= 0),
+                batch_status TEXT NOT NULL DEFAULT 'DRAFT',
+                supplier_name TEXT,
+                supplier_reference TEXT,
+                created_by TEXT,
+                ordered_at TEXT,
+                received_at TEXT,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                note TEXT
+            )
+
+================================================================================

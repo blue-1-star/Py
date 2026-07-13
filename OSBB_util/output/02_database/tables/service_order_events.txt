@@ -1,0 +1,40 @@
+================================================================================
+📌 ТАБЛИЦА: service_order_events
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 29
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_order_id               INTEGER              ✅                 
+2      event_type                     TEXT                 ✅                 
+3      actor_id                       TEXT                 ❌                 
+4      actor_role                     TEXT                 ❌                 
+5      source_context                 TEXT                 ❌                 
+6      details                        TEXT                 ❌                 
+7      created_at                     TEXT                 ✅                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_service_order_events_order 
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_order_events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                service_order_id INTEGER NOT NULL,
+                event_type TEXT NOT NULL,
+                actor_id TEXT,
+                actor_role TEXT,
+                source_context TEXT,
+                details TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )
+
+================================================================================

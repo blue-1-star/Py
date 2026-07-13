@@ -1,0 +1,39 @@
+================================================================================
+📌 ТАБЛИЦА: service_order_payment_links
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 4
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_order_id               INTEGER              ✅                 
+2      payment_id                     INTEGER              ✅                 
+3      amount                         REAL                 ❌                 
+4      linked_at                      TEXT                 ✅                 
+5      linked_by                      TEXT                 ❌                 
+6      note                           TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • sqlite_autoindex_service_order_payment_links_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE service_order_payment_links (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                service_order_id INTEGER NOT NULL,
+                payment_id INTEGER NOT NULL,
+                amount REAL,
+                linked_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                linked_by TEXT,
+                note TEXT,
+                UNIQUE(service_order_id, payment_id)
+            )
+
+================================================================================

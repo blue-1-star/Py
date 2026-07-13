@@ -1,0 +1,50 @@
+================================================================================
+📌 ТАБЛИЦА: adjustment_catalog
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 6
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      adjustment_code                TEXT                 ✅                 
+2      adjustment_name                TEXT                 ✅                 
+3      adjustment_type                TEXT                 ✅                 
+4      default_calculation_kind       TEXT                 ❌                 
+5      default_calculation_value      REAL                 ❌                 
+6      is_sensitive                   INTEGER              ✅                 
+7      is_active                      INTEGER              ✅                 
+8      public_note_template           TEXT                 ❌                 
+9      internal_description           TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_adjustment_catalog_active 
+  • idx_adjustment_catalog_type 
+  • sqlite_autoindex_adjustment_catalog_1 (UNIQUE)
+
+🔗 ВНЕШНИЕ КЛЮЧИ: нет
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE adjustment_catalog (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            adjustment_code TEXT NOT NULL UNIQUE,
+            adjustment_name TEXT NOT NULL,
+            adjustment_type TEXT NOT NULL,
+            default_calculation_kind TEXT,
+            default_calculation_value REAL,
+            is_sensitive INTEGER NOT NULL DEFAULT 0,
+            is_active INTEGER NOT NULL DEFAULT 1,
+            public_note_template TEXT,
+            internal_description TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT
+        )
+
+================================================================================

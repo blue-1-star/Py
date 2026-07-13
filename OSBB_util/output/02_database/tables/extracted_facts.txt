@@ -1,0 +1,43 @@
+================================================================================
+📌 ТАБЛИЦА: extracted_facts
+================================================================================
+📅 Дата: 2026-07-12 18:27:49
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      raw_message_id                 INTEGER              ❌                 
+2      apartment_number               TEXT                 ❌                 
+3      fact_type                      TEXT                 ❌                 
+4      amount                         REAL                 ❌                 
+5      fact_date                      TEXT                 ❌                 
+6      confidence                     REAL                 ❌                 
+7      status                         TEXT                 ❌                 
+8      comment                        TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ: нет
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • raw_message_id → raw_messages.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE extracted_facts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        raw_message_id INTEGER,
+        apartment_number TEXT,
+        fact_type TEXT,
+        amount REAL,
+        fact_date TEXT,
+        confidence REAL,
+        status TEXT DEFAULT 'new',
+        comment TEXT,
+        FOREIGN KEY(raw_message_id) REFERENCES raw_messages(id)
+    )
+
+================================================================================
