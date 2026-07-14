@@ -481,8 +481,64 @@ def client_menu_keyboard(lang: str) -> list[list[str]]:
     ]
 
 
-def client_welcome_text(lang: str) -> str:
-    return tr(lang, "welcome")
+# def client_welcome_text(lang: str) -> str:
+#     return tr(lang, "welcome")
+
+def client_welcome_text(lang: str, user_id: int = None) -> str:
+    """
+    Возвращает приветственное сообщение с именем и квартирой (если есть)
+    
+    Args:
+        lang: язык ('ru', 'uk', 'en')
+        user_id: Telegram ID пользователя (для получения данных)
+    """
+    
+    # Базовое приветствие на нужном языке
+    if lang == "ru":
+        welcome = "👋 Добро пожаловать в систему управления ОСББ!"
+        name_label = "Имя"
+        apartment_label = "Квартира"
+        no_apartment = "не привязана"
+    elif lang == "uk":
+        welcome = "👋 Ласкаво просимо до системи ОСББ!"
+        name_label = "Ім'я"
+        apartment_label = "Квартира"
+        no_apartment = "не прив'язана"
+    else:
+        welcome = "👋 Welcome to the OSBB system!"
+        name_label = "Name"
+        apartment_label = "Apartment"
+        no_apartment = "not linked"
+    
+    # Если user_id не передан — возвращаем только приветствие
+    if user_id is None:
+        return welcome
+    
+    # Пытаемся получить данные через новую модель
+    try:
+        from core_new.domain.residents import Resident
+        resident = Resident.get_by_telegram_id(user_id)
+        
+        if resident:
+            # Формируем персонализированное приветствие
+            name = resident.display_name
+            apartment = resident.apartment_number or no_apartment
+            
+            # Проверяем, есть ли у пользователя квартира
+            if resident.has_apartment:
+                return f"{welcome}\n\n👤 {name_label}: {name}\n🏠 {apartment_label}: {apartment}"
+            else:
+                return f"{welcome}\n\n👤 {name_label}: {name}\n🏠 {apartment_label}: {no_apartment}"
+        else:
+            # Если житель не найден — возвращаем стандартное приветствие
+            return welcome
+            
+    except Exception as e:
+        # В случае ошибки — возвращаем стандартное приветствие
+        print(f"⚠️ Ошибка получения данных для приветствия: {e}")
+        return welcome
+
+
 
 
 def parking_menu_keyboard(lang: str) -> list[list[str]]:
@@ -1651,13 +1707,37 @@ def _format_admin_remote_card(row: dict, lang: str) -> str:
 # Screens.
 # ---------------------------------------------------------------------------
 
+# async def show_client_portal(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+#     data = _account_and_unit(user_id)
+#     if not data or not data.get("unit"):
+#         state = _portal_state(user_states, user_id, create=True)
+#         state["mode"] = "portal_unlinked"
+#         await update.message.reply_text(
+#             f"{tr(lang, 'cabinet')}\n\n{tr(lang, 'no_unit')}",
+#             reply_markup=kb([[tr(lang, "change_home")], [tr(lang, "home")]]),
+#         )
+#         return
+
+#     billing = _billing_data(data["unit"])
+#     state = _portal_state(user_states, user_id, create=True)
+#     state["mode"] = "client_home"
+#     await update.message.reply_text(
+#         _format_dashboard(data, billing, lang),
+#         reply_markup=kb(client_menu_keyboard(lang)),
+#     )
+
 async def show_client_portal(update: Update, user_states: dict, user_id: int, lang: str) -> None:
     data = _account_and_unit(user_id)
+    
+    # ВОТ ЗДЕСЬ МЫ ВСТАВЛЯЕМ НАШЕ НОВОЕ ПРИВЕТСТВИЕ
+    welcome_message = client_welcome_text(lang, user_id)
+
     if not data or not data.get("unit"):
         state = _portal_state(user_states, user_id, create=True)
         state["mode"] = "portal_unlinked"
+        # Отправляем приветствие + сообщение о том, что квартира не привязана
         await update.message.reply_text(
-            f"{tr(lang, 'cabinet')}\n\n{tr(lang, 'no_unit')}",
+            f"{welcome_message}\n\n{tr(lang, 'no_unit')}",
             reply_markup=kb([[tr(lang, "change_home")], [tr(lang, "home")]]),
         )
         return
@@ -1665,8 +1745,10 @@ async def show_client_portal(update: Update, user_states: dict, user_id: int, la
     billing = _billing_data(data["unit"])
     state = _portal_state(user_states, user_id, create=True)
     state["mode"] = "client_home"
+    
+    # Отправляем приветствие + основную информацию
     await update.message.reply_text(
-        _format_dashboard(data, billing, lang),
+        f"{welcome_message}\n\n{_format_dashboard(data, billing, lang)}",
         reply_markup=kb(client_menu_keyboard(lang)),
     )
 

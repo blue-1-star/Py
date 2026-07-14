@@ -1,0 +1,5034 @@
+# Database Table References
+
+## `__future__`
+- `access_control.py:16` — from __future__ import annotations
+- `Bots/handlers/audit_viewer.py:18` — from __future__ import annotations
+- `Bots/handlers/cashier_operator.py:23` — from __future__ import annotations
+- `Bots/handlers/cashier_operator_v2.py:16` — from __future__ import annotations
+- `Bots/handlers/client_portal.py:21` — from __future__ import annotations
+- `Bots/handlers/client_portal_safe_linking.py:21` — from __future__ import annotations
+- `Bots/handlers/client_portal_v2.py:18` — from __future__ import annotations
+- `Bots/handlers/client_portal_v3.py:14` — from __future__ import annotations
+- `Bots/handlers/commercial_contract_editor.py:20` — from __future__ import annotations
+- `Bots/handlers/guard_workspace.py:14` — from __future__ import annotations
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:14` — from __future__ import annotations
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:14` — from __future__ import annotations
+- `Bots/handlers/profile_parking_time_test_workspace.py:9` — from __future__ import annotations
+- `Bots/handlers/profile_verification_workspace.py:10` — from __future__ import annotations
+- `Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `Bots/handlers/unit_registry_editor - Copy.py:22` — from __future__ import annotations
+- `Bots/handlers/unit_registry_editor.py:22` — from __future__ import annotations
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `cashier_v2_core.py:12` — from __future__ import annotations
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:12` — from __future__ import annotations
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:12` — from __future__ import annotations
+- `cashier_v2_preflight.py:27` — from __future__ import annotations
+- `cashier_v2_preflight_compat.py:11` — from __future__ import annotations
+- `CHECK_guard_sandbox_service_orders.py:22` — from __future__ import annotations
+- `CHECK_guard_sandbox_service_orders_v2.py:18` — from __future__ import annotations
+- `CHECK_phone_barrier_access_operational_sandbox.py:4` — from __future__ import annotations
+- `CHECK_phone_barrier_access_sandbox_schema.py:4` — from __future__ import annotations
+- `CHECK_profile_button_early_route_fix.py:8` — from __future__ import annotations
+- `CHECK_profile_parking_time_test_sandbox.py:8` — from __future__ import annotations
+- `CHECK_profile_test_candidate_apartment_40.py:24` — from __future__ import annotations
+- `CHECK_profile_verification_sandbox.py:3` — from __future__ import annotations
+- `CHECK_service_code_compatibility_phone_v2.py:6` — from __future__ import annotations
+- `commercial_contracts.py:15` — from __future__ import annotations
+- `commercial_notification_delivery.py:19` — from __future__ import annotations
+- `create_clean_live_sandbox.py:28` — from __future__ import annotations
+- `create_isolated_live_sandbox_v2.py:28` — from __future__ import annotations
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:13` — from __future__ import annotations
+- `diagnose_osbb_audit.py:15` — from __future__ import annotations
+- `diagnose_sandbox_charges.py:18` — from __future__ import annotations
+- `FIND_actual_service_order_state.py:19` — from __future__ import annotations
+- `find_sandbox_telegram_id.py:13` — from __future__ import annotations
+- `FIX_live_services_sandbox_payment_schema.py:26` — from __future__ import annotations
+- `fix_parking_bot_language_gate.py:19` — from __future__ import annotations
+- `fix_source_ref_schema.py:16` — from __future__ import annotations
+- `guard_workspace_preflight.py:16` — from __future__ import annotations
+- `guard_workspace_preflight_v2.py:16` — from __future__ import annotations
+- `import_ohorona_list1_to_central_cashbox.py:17` — from __future__ import annotations
+- `INSTALL_cashier_route_after_phone_v2.py:19` — from __future__ import annotations
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:21` — from __future__ import annotations
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:7` — from __future__ import annotations
+- `INSTALL_phone_barrier_access_v2.py:9` — from __future__ import annotations
+- `INSTALL_profile_button_early_route_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_confirmation_ready_visibility_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_critical_codes_fix.py:11` — from __future__ import annotations
+- `INSTALL_profile_parking_time_test_v1.py:9` — from __future__ import annotations
+- `INSTALL_profile_verification_terminology_v2.py:14` — from __future__ import annotations
+- `INSTALL_profile_verification_v1.py:3` — from __future__ import annotations
+- `INSTALL_service_code_compatibility_phone_v2.py:9` — from __future__ import annotations
+- `install_service_orders_ui.py:10` — from __future__ import annotations
+- `manage_staff_access.py:34` — from __future__ import annotations
+- `manage_staff_access_v2.py:34` — from __future__ import annotations
+- `migrate_access_control_and_guard.py:22` — from __future__ import annotations
+- `migrate_apartment_link_requests.py:18` — from __future__ import annotations
+- `migrate_cashier_operator_editor.py:29` — from __future__ import annotations
+- `migrate_cashier_v2.py:21` — from __future__ import annotations
+- `migrate_cashier_v2_compat.py:21` — from __future__ import annotations
+- `migrate_commercial_contract_core.py:27` — from __future__ import annotations
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:13` — from __future__ import annotations
+- `MIGRATE_phone_barrier_access_sandbox.py:10` — from __future__ import annotations
+- `MIGRATE_profile_parking_time_test_sandbox.py:8` — from __future__ import annotations
+- `MIGRATE_profile_verification_sandbox.py:3` — from __future__ import annotations
+- `migrate_remote_requests.py:18` — from __future__ import annotations
+- `migrate_service_orders_and_fulfillment.py:28` — from __future__ import annotations
+- `MIGRATE_simplified_services_sandbox.py:11` — from __future__ import annotations
+- `migrate_unit_registry_composite_groups.py:22` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:28` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:16` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:15` — from __future__ import annotations
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:21` — from __future__ import annotations
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:9` — from __future__ import annotations
+- `parking_time_test_payload/profile_parking_time_test_core.py:21` — from __future__ import annotations
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:20` — from __future__ import annotations
+- `patch_cashier_v2_core_period_and_schemafix.py:20` — from __future__ import annotations
+- `patch_cashier_v2_core_schemafix.py:25` — from __future__ import annotations
+- `patch_guard_workspace_default_cash_note.py:16` — from __future__ import annotations
+- `patch_guard_workspace_direct_notice_confirm.py:15` — from __future__ import annotations
+- `patch_parking_bot_cashier_operator.py:12` — from __future__ import annotations
+- `patch_parking_bot_client_cabinet.py:16` — from __future__ import annotations
+- `patch_parking_bot_client_portal.py:14` — from __future__ import annotations
+- `patch_parking_bot_guard_workspace_v2.py:15` — from __future__ import annotations
+- `patch_parking_bot_guard_workspace_v3.py:14` — from __future__ import annotations
+- `patch_parking_bot_guard_workspace_v4.py:14` — from __future__ import annotations
+- `patch_parking_bot_launch_queues_menu.py:10` — from __future__ import annotations
+- `patch_parking_bot_service_orders_ui_v1.py:11` — from __future__ import annotations
+- `patch_parking_bot_service_orders_v1.py:12` — from __future__ import annotations
+- `phone_barrier_access_core.py:24` — from __future__ import annotations
+- `phone_barrier_access_service.py:9` — from __future__ import annotations
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:17` — from __future__ import annotations
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:24` — from __future__ import annotations
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:9` — from __future__ import annotations
+- ... and 43 more
+
+## `a`
+- `INSTALL_service_code_compatibility_phone_v2.py:54` — # Guard against copying into a wrong unrelated folder.
+- `phone_barrier_access_v2_payload/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `phone_barrier_access_v2_payload/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `phone_barrier_access_v2_payload/service_preorders_core.py:746` — """Return only paid, real orders not yet put into a supplier batch."""
+- `service_code_compatibility_payload/service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `service_code_compatibility_payload/service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `service_code_compatibility_payload/service_preorders_core.py:754` — """Return only paid, real orders not yet put into a supplier batch."""
+- `service_preorders_core.py:7` — - a confirmed payment promotes one matching interest into a real service order;
+- `service_preorders_core.py:10` — - a physical remote asset is created only when it is actually issued from a
+- `service_preorders_core.py:754` — """Return only paid, real orders not yet put into a supplier batch."""
+
+## `access_audit_log`
+- `access_control.py:324` — INSERT INTO access_audit_log (
+- `manage_staff_access.py:297` — INSERT INTO access_audit_log (
+- `manage_staff_access_v2.py:297` — INSERT INTO access_audit_log (
+- `prepare_live_service_test.py:296` — INSERT INTO access_audit_log (
+
+## `access_control`
+- `Bots/handlers/guard_workspace.py:31` — from access_control import (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:31` — from access_control import (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:31` — from access_control import (
+- `Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `manage_staff_access.py:50` — from access_control import (
+- `manage_staff_access_v2.py:50` — from access_control import (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:39` — from access_control import has_permission
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:37` — from access_control import has_permission
+- `phone_barrier_access_core.py:1987` — from access_control import has_permission
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1987` — from access_control import has_permission
+- `phone_barrier_access_v2_payload/service_orders_core.py:37` — from access_control import has_permission
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `service_catalog_admin_core.py:39` — from access_control import has_permission
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:34` — from access_control import has_permission, write_access_audit
+- `service_code_compatibility_payload/service_orders_core.py:37` — from access_control import has_permission
+- `service_orders_core.py:37` — from access_control import has_permission
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:37` — from access_control import has_permission
+
+## `access_debt_warnings`
+- `CHECK_phone_barrier_access_operational_sandbox.py:65` — print("Warnings:", cur.execute("SELECT COUNT(*) FROM access_debt_warnings").fetchone()[0])
+- `CHECK_phone_barrier_access_sandbox_schema.py:119` — "SELECT COUNT(*) FROM access_debt_warnings"
+
+## `access_operation_journal`
+- `phone_barrier_access_core.py:562` — INSERT OR IGNORE INTO access_operation_journal (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:562` — INSERT OR IGNORE INTO access_operation_journal (
+
+## `access_points`
+- `CHECK_phone_barrier_access_sandbox_schema.py:59` — FROM access_points
+- `phone_barrier_access_core.py:589` — "SELECT * FROM access_points WHERE access_point_code = ?",
+- `phone_barrier_access_core.py:596` — INSERT INTO access_points (
+- `phone_barrier_access_core.py:1127` — FROM access_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:589` — "SELECT * FROM access_points WHERE access_point_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:596` — INSERT INTO access_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1127` — FROM access_points
+
+## `access_policy_values`
+- `CHECK_phone_barrier_access_sandbox_schema.py:106` — FROM access_policy_values
+- `phone_barrier_access_core.py:739` — FROM access_policy_values
+- `phone_barrier_access_core.py:755` — INSERT INTO access_policy_values (
+- `phone_barrier_access_core.py:801` — FROM access_policy_values
+- `phone_barrier_access_core.py:1107` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:739` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:755` — INSERT INTO access_policy_values (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:801` — FROM access_policy_values
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1107` — FROM access_policy_values
+
+## `access_policy_versions`
+- `CHECK_phone_barrier_access_sandbox_schema.py:90` — FROM access_policy_versions
+- `phone_barrier_access_core.py:687` — FROM access_policy_versions
+- `phone_barrier_access_core.py:698` — FROM access_policy_versions
+- `phone_barrier_access_core.py:706` — INSERT INTO access_policy_versions (
+- `phone_barrier_access_core.py:786` — FROM access_policy_versions
+- `phone_barrier_access_core.py:1092` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:687` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:698` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:706` — INSERT INTO access_policy_versions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:786` — FROM access_policy_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1092` — FROM access_policy_versions
+
+## `access_role_permissions`
+- `access_control.py:163` — JOIN access_role_permissions rp
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:259` — FROM access_role_permissions
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:339` — INSERT INTO access_role_permissions
+- `manage_staff_access.py:96` — FROM access_role_permissions
+- `manage_staff_access_v2.py:96` — FROM access_role_permissions
+- `migrate_access_control_and_guard.py:387` — FROM access_role_permissions
+- `migrate_access_control_and_guard.py:400` — UPDATE access_role_permissions
+- `migrate_access_control_and_guard.py:409` — INSERT INTO access_role_permissions (
+- `migrate_service_orders_and_fulfillment.py:535` — FROM access_role_permissions
+- `migrate_service_orders_and_fulfillment.py:548` — UPDATE access_role_permissions
+- `migrate_service_orders_and_fulfillment.py:557` — INSERT INTO access_role_permissions (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:535` — FROM access_role_permissions
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:548` — UPDATE access_role_permissions
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:557` — INSERT INTO access_role_permissions (
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:265` — FROM access_role_permissions
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:345` — INSERT INTO access_role_permissions
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:261` — FROM access_role_permissions
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:341` — INSERT INTO access_role_permissions
+- `run_bot_live_services_sandbox_v1.py:265` — FROM access_role_permissions
+- `run_bot_live_services_sandbox_v1.py:345` — INSERT INTO access_role_permissions
+
+## `access_roles`
+- `access_control.py:160` — JOIN access_roles r
+- `access_control.py:275` — LEFT JOIN access_roles r ON r.role_code = ur.role_code
+- `manage_staff_access.py:85` — FROM access_roles
+- `manage_staff_access.py:211` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+- `manage_staff_access_v2.py:85` — FROM access_roles
+- `manage_staff_access_v2.py:211` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+- `migrate_access_control_and_guard.py:369` — INSERT INTO access_roles (
+- `migrate_service_orders_and_fulfillment.py:517` — INSERT INTO access_roles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:517` — INSERT INTO access_roles (
+- `prepare_live_service_test.py:94` — cur.execute("SELECT 1 FROM access_roles WHERE role_code = ?", (role_code,))
+
+## `access_schema_migrations`
+- `CHECK_phone_barrier_access_operational_sandbox.py:44` — "SELECT applied_at FROM access_schema_migrations WHERE migration_code = ?",
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:75` — "SELECT 1 FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:984` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:990` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_core.py:1365` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_core.py:1371` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:984` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:990` — INSERT INTO access_schema_migrations (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1365` — "SELECT migration_code FROM access_schema_migrations WHERE migration_code = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1371` — INSERT INTO access_schema_migrations (
+
+## `access_tariff_versions`
+- `CHECK_phone_barrier_access_sandbox_schema.py:73` — FROM access_tariff_versions
+- `phone_barrier_access_core.py:624` — FROM access_tariff_versions
+- `phone_barrier_access_core.py:648` — INSERT INTO access_tariff_versions (
+- `phone_barrier_access_core.py:830` — FROM access_tariff_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:624` — FROM access_tariff_versions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:648` — INSERT INTO access_tariff_versions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:830` — FROM access_tariff_versions
+
+## `access_user_permissions`
+- `access_control.py:131` — FROM access_user_permissions
+- `manage_staff_access.py:148` — FROM access_user_permissions
+- `manage_staff_access.py:261` — FROM access_user_permissions
+- `manage_staff_access.py:271` — UPDATE access_user_permissions
+- `manage_staff_access.py:277` — INSERT INTO access_user_permissions (
+- `manage_staff_access_v2.py:148` — FROM access_user_permissions
+- `manage_staff_access_v2.py:261` — FROM access_user_permissions
+- `manage_staff_access_v2.py:271` — UPDATE access_user_permissions
+- `manage_staff_access_v2.py:277` — INSERT INTO access_user_permissions (
+
+## `access_user_roles`
+- `access_control.py:159` — FROM access_user_roles ur
+- `access_control.py:274` — FROM access_user_roles ur
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:237` — FROM access_user_roles
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:298` — FROM access_user_roles
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:311` — INSERT INTO access_user_roles
+- `create_clean_live_sandbox.py:222` — INSERT INTO access_user_roles (
+- `create_clean_live_sandbox.py:408` — FROM access_user_roles
+- `create_isolated_live_sandbox_v2.py:222` — INSERT INTO access_user_roles (
+- `create_isolated_live_sandbox_v2.py:404` — FROM access_user_roles
+- `guard_workspace_preflight.py:227` — INSERT INTO access_user_roles (
+- `guard_workspace_preflight_v2.py:227` — INSERT INTO access_user_roles (
+- `manage_staff_access.py:130` — FROM access_user_roles
+- `manage_staff_access.py:217` — FROM access_user_roles
+- `manage_staff_access.py:226` — UPDATE access_user_roles
+- `manage_staff_access.py:232` — INSERT INTO access_user_roles (
+- `manage_staff_access_v2.py:130` — FROM access_user_roles
+- `manage_staff_access_v2.py:217` — FROM access_user_roles
+- `manage_staff_access_v2.py:226` — UPDATE access_user_roles
+- `manage_staff_access_v2.py:232` — INSERT INTO access_user_roles (
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:243` — FROM access_user_roles
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:304` — FROM access_user_roles
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:317` — INSERT INTO access_user_roles
+- `prepare_live_service_test.py:120` — INSERT INTO access_user_roles (
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:239` — FROM access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:300` — FROM access_user_roles
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:313` — INSERT INTO access_user_roles
+- `run_bot_live_services_sandbox_v1.py:243` — FROM access_user_roles
+- `run_bot_live_services_sandbox_v1.py:304` — FROM access_user_roles
+- `run_bot_live_services_sandbox_v1.py:317` — INSERT INTO access_user_roles
+
+## `active`
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:401` — "retired offer hidden from active list": (
+- `service_orders_preflight.py:401` — "retired offer hidden from active list": (
+
+## `adjustment_assignments`
+- `migrate_charge_adjustments.py:207` — FOREIGN KEY (adjustment_assignment_id) REFERENCES adjustment_assignments(id)
+
+## `adjustment_catalog`
+- `migrate_charge_adjustments.py:181` — FOREIGN KEY (adjustment_code) REFERENCES adjustment_catalog(adjustment_code)
+- `migrate_charge_adjustments.py:253` — cur.execute("SELECT id FROM adjustment_catalog WHERE adjustment_code = ?", (values["adjustment_code"],))
+- `migrate_charge_adjustments.py:257` — UPDATE adjustment_catalog
+- `migrate_charge_adjustments.py:271` — INSERT INTO adjustment_catalog (
+
+## `aliased`
+- `fix_source_ref_schema.py:7` — 2. Finds the table aliased as "p" in the SQL that uses p.source_ref.
+- `fix_source_ref_schema.py:243` — "Could not determine the table aliased as p from the SQL containing "
+
+## `all`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md:18` — - A barrier-access phone is a private credential and may differ from all resident/Telegram contact phones.
+
+## `alloc`
+- `tools/cashier_unpaid_preview.py:99` — LEFT JOIN alloc ON alloc.charge_id = c.id
+
+## `another`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:40` — 5. Never create a resident-facing action by impersonating or switching into another resident's client account.
+- `FIND_actual_service_order_state.py:359` — "The earlier reprogramming workflow was therefore run from another "
+
+## `apartment_link_requests`
+- `Bots/handlers/client_portal.py:744` — FROM apartment_link_requests
+- `Bots/handlers/client_portal.py:756` — INSERT INTO apartment_link_requests (
+- `Bots/handlers/client_portal.py:823` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal.py:847` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal.py:877` — FROM apartment_link_requests
+- `Bots/handlers/client_portal.py:926` — UPDATE apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:744` — FROM apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:756` — INSERT INTO apartment_link_requests (
+- `Bots/handlers/client_portal_safe_linking.py:823` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal_safe_linking.py:847` — FROM apartment_link_requests r
+- `Bots/handlers/client_portal_safe_linking.py:877` — FROM apartment_link_requests
+- `Bots/handlers/client_portal_safe_linking.py:926` — UPDATE apartment_link_requests
+
+## `apartment_number`
+- `FIX_live_services_sandbox_payment_schema.py:18` — 4. Resolves apartment_id from apartment_number, first via apartments and then
+
+## `apartment_verification`
+- `Bots/db_access - Copy.py:1536` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `Bots/db_access - Copy.py:1549` — FROM apartment_verification
+- `Bots/db_access - Copy.py:1577` — def get_apartment_verification_status(apartment_number):
+- `Bots/db_access - Copy.py:1591` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1627` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1662` — FROM apartment_verification av
+- `Bots/db_access - Copy.py:1679` — def set_apartment_verification_status(
+- `Bots/db_access - Copy.py:1701` — INSERT INTO apartment_verification (
+- `Bots/db_access - Copy.py:2478` — verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:2528` — def set_apartment_verification_in_progress(apartment_number, verified_by=None):
+- `Bots/db_access - Copy.py:2529` — current = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:2534` — return set_apartment_verification_status(
+- `Bots/db_access - Copy.py:3315` — - затем ставит apartment_verification = confirmed.
+- `Bots/db_access - Copy.py:3343` — ok, status = set_apartment_verification_status(
+- `Bots/db_access - Copy.py:3962` — verification = get_apartment_verification_status(status_lookup_number)
+- `Bots/db_access - Copy.py:4778` — def set_apartment_verification_status(
+- `Bots/db_access - Copy.py:4797` — old_verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access - Copy.py:4806` — INSERT INTO apartment_verification (
+- `Bots/db_access - Copy.py:4844` — action_type="apartment_verification_status_update",
+- `Bots/db_access.py:1536` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `Bots/db_access.py:1549` — FROM apartment_verification
+- `Bots/db_access.py:1577` — def get_apartment_verification_status(apartment_number):
+- `Bots/db_access.py:1591` — FROM apartment_verification av
+- `Bots/db_access.py:1627` — FROM apartment_verification av
+- `Bots/db_access.py:1662` — FROM apartment_verification av
+- `Bots/db_access.py:1679` — def set_apartment_verification_status(
+- `Bots/db_access.py:1701` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:2478` — verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:2528` — def set_apartment_verification_in_progress(apartment_number, verified_by=None):
+- `Bots/db_access.py:2529` — current = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:2534` — return set_apartment_verification_status(
+- `Bots/db_access.py:3315` — - затем ставит apartment_verification = confirmed.
+- `Bots/db_access.py:3343` — ok, status = set_apartment_verification_status(
+- `Bots/db_access.py:3962` — verification = get_apartment_verification_status(status_lookup_number)
+- `Bots/db_access.py:4778` — def set_apartment_verification_status(
+- `Bots/db_access.py:4797` — old_verification = get_apartment_verification_status(apartment_number)
+- `Bots/db_access.py:4806` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:4844` — action_type="apartment_verification_status_update",
+- `Bots/db_access.py:5737` — FROM apartment_verification
+- `Bots/db_access.py:5841` — def set_apartment_verification_status(
+- `Bots/db_access.py:5871` — FROM apartment_verification
+- `Bots/db_access.py:5880` — INSERT INTO apartment_verification (
+- `Bots/db_access.py:5918` — action_type="apartment_verification_status_update",
+- `Bots/handlers/agreement - Copy.py:8` — set_apartment_verification_status,
+- `Bots/handlers/agreement - Copy.py:448` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement - Copy.py:465` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement.py:8` — set_apartment_verification_status,
+- `Bots/handlers/agreement.py:448` — ok, result = set_apartment_verification_status(
+- `Bots/handlers/agreement.py:465` — ok, result = set_apartment_verification_status(
+- `migrate_apartment_verification.py:38` — CREATE TABLE IF NOT EXISTS apartment_verification (
+- `migrate_apartment_verification.py:53` — CREATE INDEX IF NOT EXISTS idx_apartment_verification_status
+- `migrate_apartment_verification.py:54` — ON apartment_verification(status)
+- `migrate_apartment_verification.py:58` — CREATE INDEX IF NOT EXISTS idx_apartment_verification_apartment_number
+- `migrate_apartment_verification.py:59` — ON apartment_verification(apartment_number)
+- `migrate_apartment_verification.py:63` — INSERT OR IGNORE INTO apartment_verification (
+- `migrate_apartment_verification.py:82` — cur.execute("SELECT COUNT(*) FROM apartment_verification")
+- `migrate_apartment_verification.py:87` — FROM apartment_verification
+- `migrate_apartment_verification.py:96` — print(f"apartment_verification total: {total}")
+- `tools/project_passport.py:139` — "apartment_verification",
+- `tools/project_passport_v2.py:160` — "apartment_verification",
+
+## `apartments`
+- `audit_composite_apartments.py:1` — # audit_composite_apartments.py
+- `audit_composite_apartments.py:30` — def get_main_apartments():
+- `audit_composite_apartments.py:36` — FROM apartments
+- `audit_composite_apartments.py:85` — def split_apartments(apartment_number):
+- `audit_composite_apartments.py:99` — main_apartments = set(get_main_apartments())
+- `audit_composite_apartments.py:124` — print("No composite apartments found.")
+- `audit_composite_apartments.py:148` — parts = split_apartments(apartment_number)
+- `audit_composite_apartments.py:153` — main_apartments,
+- `audit_osbb_telegram_messages.py:109` — apartments = set()
+- `audit_osbb_telegram_messages.py:122` — apartments.add(m.group(1))
+- `audit_osbb_telegram_messages.py:153` — lines.append(f"Apartments found : {len(apartments)}")
+- `audit_osbb_telegram_messages.py:158` — lines.append("Apartments:")
+- `audit_osbb_telegram_messages.py:159` — lines.append(", ".join(sorted(apartments)[:200]))
+- `audit_registry.py:62` — "apartments",
+- `audit_registry.py:82` — report.section("APARTMENTS BY SOURCE")
+- `audit_registry.py:88` — FROM apartments
+- `audit_registry.py:97` — report.section("APARTMENTS CREATED FROM PAPER PARKING")
+- `audit_registry.py:103` — FROM apartments
+- `audit_registry.py:118` — report.section("APARTMENTS WITHOUT PERSONS")
+- `audit_registry.py:124` — FROM apartments a
+- `audit_registry.py:136` — report.section("APARTMENTS WITH MULTIPLE PERSON RECORDS")
+- `audit_registry.py:142` — FROM apartments a
+- `audit_registry.py:162` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:180` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:215` — JOIN apartments a ON a.id = v.apartment_id
+- `audit_registry.py:234` — FROM apartments
+- `audit_tbot_quarantine.py:62` — FROM apartments a
+- `audit_tbot_quarantine.py:232` — report.add(f"Main apartments        : {len(main_apts)}")
+- `audit_tbot_quarantine.py:233` — report.add(f"TBot apartments        : {len(tbot_apts)}")
+- `audit_tbot_quarantine.py:238` — report.section("APARTMENTS ONLY IN TBOT")
+- `billing/build_parking_time_review_tasks.py:90` — JOIN apartments a
+- `billing/import_ohorona_parking_time.py:168` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_ohorona_parking_time.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time.py:267` — lines.append(f"Apartments with tariff hints        : {len(hints)}")
+- `billing/import_ohorona_parking_time.py:268` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time.py:269` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_ohorona_parking_time.py:270` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/import_ohorona_parking_time.py:410` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:168` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_ohorona_parking_time_simple_preview.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:304` — lines.append(f"Apartments with tariff hints        : {len(hints)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:305` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:306` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:307` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:447` — classified = classify_apartments(hints, vehicles)
+- `billing/import_parking_time_hints_from_ohorona.py:150` — JOIN apartments a ON a.id = v.apartment_id
+- `billing/import_parking_time_hints_from_ohorona.py:286` — lines.append(f"Apartments with hints              : {len(hints)}")
+- `billing/import_parking_time_hints_from_ohorona.py:287` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:288` — lines.append(f"Auto-fill safe apartments           : {len(auto_safe)}")
+- `billing/import_parking_time_hints_from_ohorona.py:289` — lines.append(f"Operator-needed apartments          : {len(operator_needed)}")
+- `billing/migrate_add_parking_billing.py:83` — FOREIGN KEY(apartment_id) REFERENCES apartments(id),
+- `billing/report_parking_time_review_tasks.py:94` — lines.append(f"Apartments affected: {apt_count}")
+- `billing/report_parking_time_review_tasks.py:141` — JOIN apartments a
+- `billing/report_parking_time_with_hints.py:141` — JOIN apartments a ON a.id = v.apartment_id
+- `billing_statement_excel.py:172` — JOIN apartments a ON a.id = v.apartment_id
+- `billing_statement_excel.py:500` — ws.append(["Apartments in statement", len(data["by_apt"])])
+- `billing_statement_excel.py:539` — print("Apartments:", len(data["by_apt"]))
+- `Bots/db_access - Copy.py:307` — FROM apartments
+- `Bots/db_access - Copy.py:353` — # Apartments / vehicles
+- `Bots/db_access - Copy.py:362` — FROM apartments
+- `Bots/db_access - Copy.py:849` — JOIN apartments a
+- `Bots/db_access - Copy.py:993` — JOIN apartments a
+- `Bots/db_access - Copy.py:1056` — # REPAIR BLOCK: apartments and vehicle edit compatibility
+- `Bots/db_access - Copy.py:1073` — JOIN apartments a
+- `Bots/db_access - Copy.py:1092` — FROM apartments
+- `Bots/db_access - Copy.py:1322` — JOIN apartments a
+- `Bots/db_access - Copy.py:1462` — JOIN apartments a
+- `Bots/db_access - Copy.py:1645` — def get_apartments_by_verification_status(status, limit=30):
+- `Bots/db_access - Copy.py:2586` — def composite_exists_in_db(apartment_number, main_apartments):
+- `Bots/db_access - Copy.py:2593` — part in main_apartments
+- `Bots/db_access - Copy.py:2630` — FROM apartments
+- `Bots/db_access - Copy.py:2851` — main_apartments = _get_main_apartment_numbers()
+- `Bots/db_access - Copy.py:2864` — "apartments_not_in_db": [],
+- `Bots/db_access - Copy.py:2866` — "composite_apartments": [],
+- `Bots/db_access - Copy.py:2880` — composite_apartments = set()
+- `Bots/db_access - Copy.py:2888` — if composite_exists_in_db(apt, main_apartments):
+- `Bots/db_access - Copy.py:2889` — composite_apartments.add(
+- `Bots/db_access - Copy.py:2895` — elif apt not in main_apartments:
+- `Bots/db_access - Copy.py:2913` — dashboard["tbot"]["apartments_not_in_db"] = sorted(seen_apts)
+- `Bots/db_access - Copy.py:2915` — dashboard["tbot"]["composite_apartments"] = sorted(composite_apartments)
+- `Bots/db_access - Copy.py:2972` — apts = data["tbot"]["apartments_not_in_db"]
+- `Bots/db_access - Copy.py:2974` — composite = data["tbot"].get("composite_apartments", [])
+- `Bots/db_access - Copy.py:3570` — # Это сохраняет совместимость с кодом, который ожидает одну строку apartments.
+- `Bots/db_access - Copy.py:3582` — FROM apartments
+- `Bots/db_access - Copy.py:3610` — FROM apartments
+- `Bots/db_access - Copy.py:3667` — FROM apartments
+- `Bots/db_access - Copy.py:3678` — apartments = cur.fetchall()
+- `Bots/db_access - Copy.py:3680` — if not apartments:
+- `Bots/db_access - Copy.py:3701` — "apartment": apartments[0],
+- `Bots/db_access - Copy.py:4111` — JOIN apartments a
+- `Bots/db_access.py:307` — FROM apartments
+- `Bots/db_access.py:353` — # Apartments / vehicles
+- `Bots/db_access.py:362` — FROM apartments
+- `Bots/db_access.py:849` — JOIN apartments a
+- `Bots/db_access.py:993` — JOIN apartments a
+- `Bots/db_access.py:1056` — # REPAIR BLOCK: apartments and vehicle edit compatibility
+- `Bots/db_access.py:1073` — JOIN apartments a
+- `Bots/db_access.py:1092` — FROM apartments
+- `Bots/db_access.py:1322` — JOIN apartments a
+- `Bots/db_access.py:1462` — JOIN apartments a
+- ... and 375 more
+
+## `audit_log`
+- `access_control.py:32` — from audit_logger import audit_log
+- `access_control.py:34` — audit_log = None
+- `access_control.py:89` — "access_audit_log",
+- `access_control.py:324` — INSERT INTO access_audit_log (
+- `access_control.py:363` — operator_audit_log. Caller controls transaction commit.
+- `access_control.py:378` — if audit_log:
+- `access_control.py:379` — audit_log(
+- `audit_logger.py:48` — def ensure_audit_log(conn):
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `audit_logger.py:102` — if add_column_if_missing(cur, "operator_audit_log", col, col_def):
+- `audit_logger.py:105` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `audit_logger.py:106` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `audit_logger.py:107` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_user ON operator_audit_log(user_id)")
+- `audit_logger.py:108` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `audit_logger.py:109` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `audit_logger.py:110` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_table_row ON operator_audit_log(table_name, row_id)")
+- `audit_logger.py:111` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `audit_logger.py:116` — def audit_log(
+- `audit_logger.py:145` — ensure_audit_log(conn)
+- `audit_logger.py:168` — cols = table_columns(cur, "operator_audit_log")
+- `audit_logger.py:173` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `audit_logger.py:204` — return audit_log(
+- `audit_logger.py:232` — return audit_log(
+- `audit_logger.py:255` — audit_id = audit_log(
+- `audit_logger.py:260` — action_type="audit_logger_self_test",
+- `audit_logger.py:261` — table_name="operator_audit_log",
+- `audit_logger.py:266` — source_context="audit_logger.py self-test",
+- `audit_logger.py:268` — extra={"module": "audit_logger.py"},
+- `audit_logger.py:291` — print("audit_logger.py is a helper module.")
+- `audit_registry.py:68` — "audit_log",
+- `Bots/db_access - Copy.py:422` — def write_audit_log(
+- `Bots/db_access - Copy.py:437` — # В вашей БД audit_log уже имеет старую структуру:
+- `Bots/db_access - Copy.py:440` — INSERT INTO audit_log (
+- `Bots/db_access - Copy.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access - Copy.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access - Copy.py:4583` — return False, f"audit_log_error: {exc}"
+- `Bots/db_access.py:422` — def write_audit_log(
+- `Bots/db_access.py:437` — # В вашей БД audit_log уже имеет старую структуру:
+- `Bots/db_access.py:440` — INSERT INTO audit_log (
+- `Bots/db_access.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access.py:4583` — return False, f"audit_log_error: {exc}"
+- `Bots/handlers/audit_viewer - Copy.py:52` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer - Copy.py:83` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer - Copy.py:130` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer - Copy.py:180` — "Основной журнал: operator_audit_log.\n\n"
+- `Bots/handlers/audit_viewer.py:4` — Источник данных: ТОЛЬКО operator_audit_log.
+- `Bots/handlers/audit_viewer.py:5` — Таблица audit_log является прежней/пустой и здесь намеренно не используется.
+- `Bots/handlers/audit_viewer.py:91` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:96` — "SELECT COUNT(*) FROM operator_audit_log WHERE actor_type=?",
+- `Bots/handlers/audit_viewer.py:100` — cur.execute("SELECT COUNT(*) FROM operator_audit_log")
+- `Bots/handlers/audit_viewer.py:115` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:145` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer.py:232` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer.py:260` — "Основной журнал: operator_audit_log.\n"
+- `Bots/handlers/audit_viewer.py:261` — "Таблица audit_log не используется: она является старой и пустой.\n\n"
+- `Bots/handlers/cashier_operator.py:45` — from audit_logger import audit_log
+- `Bots/handlers/cashier_operator.py:686` — audit_log(
+- `Bots/handlers/cashier_operator.py:808` — audit_log(
+- `Bots/handlers/cashier_operator.py:836` — audit_log(
+- `Bots/handlers/cashier_operator.py:852` — audit_log(
+- `Bots/handlers/cashier_operator.py:1148` — audit_log(
+- `Bots/handlers/cashier_operator.py:1304` — audit_log(
+- `Bots/handlers/cashier_operator.py:1413` — audit_log(
+- `Bots/handlers/client_portal.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal.py:46` — audit_log = None
+- `Bots/handlers/client_portal.py:780` — if audit_log:
+- `Bots/handlers/client_portal.py:781` — audit_log(
+- `Bots/handlers/client_portal.py:907` — if audit_log:
+- `Bots/handlers/client_portal.py:908` — audit_log(
+- `Bots/handlers/client_portal.py:943` — if audit_log:
+- `Bots/handlers/client_portal.py:944` — audit_log(
+- `Bots/handlers/client_portal.py:1379` — if audit_log:
+- `Bots/handlers/client_portal.py:1380` — audit_log(
+- `Bots/handlers/client_portal.py:1491` — if audit_log:
+- `Bots/handlers/client_portal.py:1492` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal_safe_linking.py:46` — audit_log = None
+- `Bots/handlers/client_portal_safe_linking.py:780` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:781` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:907` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:908` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:943` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:944` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:1379` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:1380` — audit_log(
+- `Bots/handlers/client_portal_safe_linking.py:1491` — if audit_log:
+- `Bots/handlers/client_portal_safe_linking.py:1492` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:12` — - фиксирует все действия в operator_audit_log.
+- `Bots/handlers/commercial_contract_editor.py:40` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/commercial_contract_editor.py:438` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:553` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:631` — audit_log(
+- `Bots/handlers/commercial_contract_editor.py:693` — audit_log(
+- `Bots/handlers/guard_workspace.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor - Copy.py:602` — audit_log(
+- ... and 265 more
+
+## `audit_logger`
+- `access_control.py:32` — from audit_logger import audit_log
+- `Bots/handlers/cashier_operator.py:45` — from audit_logger import audit_log
+- `Bots/handlers/client_portal.py:44` — from audit_logger import audit_log
+- `Bots/handlers/client_portal_safe_linking.py:44` — from audit_logger import audit_log
+- `Bots/handlers/commercial_contract_editor.py:40` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor - Copy.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/unit_registry_editor.py:43` — from audit_logger import audit_field_change, audit_log
+- `Bots/handlers/vehicle_card_editor.py:19` — from audit_logger import audit_field_change
+- `cashier_journal.py:15` — from audit_logger import audit_log
+- `cashier_v2_core.py:30` — from audit_logger import audit_log
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:30` — from audit_logger import audit_log
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:30` — from audit_logger import audit_log
+- `commercial_contracts.py:32` — from audit_logger import audit_log
+- `commercial_notification_delivery.py:34` — from audit_logger import audit_log
+- `import_ohorona_list1_to_central_cashbox.py:36` — from audit_logger import audit_log
+- `import_ohorona_to_cashbox.py:18` — from audit_logger import audit_log
+- `manage_staff_access.py:60` — from audit_logger import audit_log
+- `manage_staff_access_v2.py:60` — from audit_logger import audit_log
+- `mark_audit_enabled.py:1` — from audit_logger import audit_system_event
+- `migrate_access_control_and_guard.py:39` — from audit_logger import audit_log
+- `migrate_apartment_link_requests.py:34` — from audit_logger import audit_log
+- `migrate_cashier_operator_editor.py:45` — from audit_logger import audit_log
+- `migrate_cashier_v2.py:37` — from audit_logger import audit_log
+- `migrate_cashier_v2_compat.py:38` — from audit_logger import audit_log
+- `migrate_charge_adjustments.py:15` — from audit_logger import audit_log
+- `migrate_commercial_contract_core.py:44` — from audit_logger import audit_log
+- `migrate_remote_requests.py:34` — from audit_logger import audit_log
+- `migrate_service_items.py:13` — from audit_logger import audit_log
+- `migrate_service_orders_and_fulfillment.py:45` — from audit_logger import audit_log
+- `migrate_unit_registry_composite_groups.py:41` — from audit_logger import audit_log
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:45` — from audit_logger import audit_log
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:32` — from audit_logger import audit_log
+- `phone_barrier_access_v2_payload/service_orders_core.py:32` — from audit_logger import audit_log
+- `repair_confirmed_unit_seed_notes.py:35` — from audit_logger import audit_field_change
+- `reset_service_catalog.py:16` — from audit_logger import audit_log
+- `restore_resident_apartment_link.py:41` — from audit_logger import audit_log
+- `seed_commercial_unit_placeholders.py:34` — from audit_logger import audit_log
+- `service_code_compatibility_payload/service_orders_core.py:32` — from audit_logger import audit_log
+- `service_orders_core.py:32` — from audit_logger import audit_log
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:32` — from audit_logger import audit_log
+
+## `bank_transactions`
+- `cashier_v2_core.py:173` — "bank_transactions",
+- `cashier_v2_core.py:534` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core.py:765` — "bank_transactions",
+- `cashier_v2_core.py:817` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core.py:839` — table_name="bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:150` — "bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:514` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:745` — "bank_transactions",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:797` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:819` — table_name="bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:150` — "bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:458` — cur.execute("SELECT 1 FROM bank_transactions WHERE transaction_ref = ?", (ref,))
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:689` — "bank_transactions",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:741` — update_dynamic(cur, "bank_transactions", bank_id, {"payment_id": payment_id})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:763` — table_name="bank_transactions",
+- `cashier_v2_preflight.py:87` — "bank_transactions",
+- `cashier_v2_preflight.py:124` — "bank_transactions": {
+- `cashier_v2_preflight.py:260` — "bank_transactions": m2.create_table_bank_transactions(cur),
+- `cashier_v2_preflight_compat.py:141` — "bank_transactions",
+- `cashier_v2_preflight_compat.py:156` — "bank_transactions": {"transaction_ref", "transaction_date", "amount", "payment_id"},
+- `guard_workspace_preflight.py:256` — "999999991", "bank_transactions", "CREATE",
+- `guard_workspace_preflight_v2.py:256` — "999999991", "bank_transactions", "CREATE",
+- `migrate_cashier_v2.py:134` — def create_table_bank_transactions(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2.py:135` — existed = table_exists(cur, "bank_transactions")
+- `migrate_cashier_v2.py:137` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2.py:306` — "idx_bank_transactions_ref",
+- `migrate_cashier_v2.py:308` — CREATE INDEX idx_bank_transactions_ref
+- `migrate_cashier_v2.py:309` — ON bank_transactions(transaction_ref)
+- `migrate_cashier_v2.py:313` — "idx_bank_transactions_unit",
+- `migrate_cashier_v2.py:315` — CREATE INDEX idx_bank_transactions_unit
+- `migrate_cashier_v2.py:316` — ON bank_transactions(apartment_id, apartment_number, transaction_date)
+- `migrate_cashier_v2.py:413` — "bank_transactions": create_table_bank_transactions(cur),
+- `migrate_cashier_v2_compat.py:129` — def create_bank_transactions(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:130` — existed = table_exists(cur, "bank_transactions")
+- `migrate_cashier_v2_compat.py:132` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2_compat.py:276` — "bank_transactions": {
+- `migrate_cashier_v2_compat.py:458` — ("bank_transactions", "entry_status", "CONFIRMED"),
+- `migrate_cashier_v2_compat.py:459` — ("bank_transactions", "currency", "UAH"),
+- `migrate_cashier_v2_compat.py:460` — ("bank_transactions", "source_type", "legacy"),
+- `migrate_cashier_v2_compat.py:487` — "idx_bank_transactions_ref",
+- `migrate_cashier_v2_compat.py:488` — "CREATE INDEX idx_bank_transactions_ref ON bank_transactions(transaction_ref)",
+- `migrate_cashier_v2_compat.py:491` — "idx_bank_transactions_unit",
+- `migrate_cashier_v2_compat.py:492` — "CREATE INDEX idx_bank_transactions_unit ON bank_transactions(apartment_id, apartment_number, transaction_date)",
+- `migrate_cashier_v2_compat.py:552` — "bank_transactions": create_bank_transactions(cur),
+- `run_bot_sandbox_v2.py:107` — "bank_transactions",
+- `tools/project_passport.py:127` — "bank_transactions",
+- `tools/project_passport_v2.py:148` — "bank_transactions",
+
+## `barrier_phone_access`
+- `migrate_service_items.py:120` — CREATE TABLE IF NOT EXISTS barrier_phone_access (
+- `migrate_service_items.py:137` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_apt ON barrier_phone_access(apartment_number)")
+- `migrate_service_items.py:138` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_phone ON barrier_phone_access(phone_number)")
+- `migrate_service_items.py:139` — cur.execute("CREATE INDEX IF NOT EXISTS idx_barrier_phone_access_status ON barrier_phone_access(access_status)")
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `migrate_service_orders_and_fulfillment.py:643` — "barrier_phone_access": {
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:643` — "barrier_phone_access": {
+- `reset_service_catalog.py:452` — barrier_access_count = count_rows(cur, "barrier_phone_access") or 0
+- `reset_service_catalog.py:472` — "Телефонных доступов barrier_phone_access: "
+- `tools/project_passport.py:125` — "barrier_phone_access",
+- `tools/project_passport_v2.py:146` — "barrier_phone_access",
+
+## `being`
+- `patch_cashier_v2_core_schemafix.py:116` — # prevent a previously loaded live module from being reused
+
+## `billing_periods`
+- `billing/migrate_add_parking_billing.py:82` — FOREIGN KEY(billing_period_id) REFERENCES billing_periods(id),
+- `billing/migrate_add_parking_billing.py:112` — FOREIGN KEY(billing_period_id) REFERENCES billing_periods(id)
+
+## `bot`
+- `migrate_bot_core.py:257` — # All critical changes from bot/operator/admin
+
+## `bot_admins`
+- `Bots/db_access - Copy.py:52` — FROM bot_admins
+- `Bots/db_access.py:52` — FROM bot_admins
+- `report_bot_admins.py:42` — FROM bot_admins
+- `report_bot_admins.py:48` — FROM bot_admins
+- `report_bot_admins.py:64` — FROM bot_admins
+- `report_bot_admins.py:102` — FROM bot_admins
+- `seed_bot_admins.py:66` — INSERT INTO bot_admins (
+- `seed_bot_admins.py:131` — FROM bot_admins
+
+## `both`
+- `Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:542` — Read offers from both supported service-item schemas.
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:529` — Read offers from both supported service-item schemas.
+
+## `Bots`
+- `Bots/db_access - Copy.py:478` — # Add this block into Bots\db_access.py after resident account functions.
+- `Bots/db_access.py:478` — # Add this block into Bots\db_access.py after resident account functions.
+- `Bots/handlers/agreement - Copy.py:3` — from Bots.db_access import (
+- `Bots/handlers/agreement.py:3` — from Bots.db_access import (
+- `Bots/handlers/unit_registry_editor - Copy.py:54` — from Bots.db_access import can_write
+- `Bots/handlers/unit_registry_editor.py:54` — from Bots.db_access import can_write
+- `Bots/parking_bot - Copy.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot - Copy.py:30` — from Bots.db_access import (
+- `Bots/parking_bot - Copy.py:64` — from Bots.handlers.agreement import (
+- `Bots/parking_bot.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot.py:37` — from Bots.db_access import (
+- `Bots/parking_bot.py:71` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:70` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:31` — from Bots.db_access import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:65` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:70` — from Bots.handlers.agreement import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:6` — # from Bots.handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:36` — from Bots.db_access import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:70` — from Bots.handlers.agreement import (
+
+## `Business`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:6` — The user deliberately keeps the Personal and Business workspaces separate. Do **not** merge Personal into Business. The Business workspace should start as a new project using these handoff files.
+- `Docs/OSBB_Business_Handoff_2026-06-27/TRANSFER_CHECKLIST_2026-06-27.txt:7` — 2. Do NOT merge Personal into Business.
+
+## `but`
+- `fix_source_ref_schema.py:207` — f"SQLite completed ALTER TABLE but {table_name}.source_ref is still absent."
+
+## `calendar`
+- `import_ohorona_list1_to_central_cashbox.py:26` — from calendar import monthrange
+
+## `candidate`
+- `fix_source_ref_schema.py:247` — emit(f"Detected p.source_ref table candidate(s): {', '.join(candidates)}")
+
+## `cashbox_operations`
+- `Bots/handlers/cashier_operator.py:293` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:401` — FROM cashbox_operations
+- `Bots/handlers/cashier_operator.py:750` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:858` — table_name="cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1258` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1368` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1390` — "cashbox_operations",
+- `Bots/handlers/cashier_operator.py:1419` — table_name="cashbox_operations",
+- `Bots/handlers/guard_workspace.py:130` — "cashbox_operations",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:130` — "cashbox_operations",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:130` — "cashbox_operations",
+- `cashier_journal.py:674` — FROM cashbox_operations
+- `cashier_journal.py:749` — cur.execute("SELECT id FROM cashbox_operations WHERE source_ref = ? LIMIT 1", (source_ref,))
+- `cashier_journal.py:857` — return insert_dynamic(cur, "cashbox_operations", {
+- `cashier_journal.py:948` — FROM cashbox_operations
+- `cashier_journal.py:1200` — table_name="cashbox_operations",
+- `cashier_journal.py:1313` — table_name="cashbox_operations",
+- `cashier_journal.py:1484` — FROM cashbox_operations
+- `cashier_journal.py:1514` — FROM cashbox_operations
+- `cashier_v2_core.py:167` — "cashbox_operations",
+- `cashier_v2_core.py:643` — "cashbox_operations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:144` — "cashbox_operations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:623` — "cashbox_operations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:144` — "cashbox_operations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:567` — "cashbox_operations",
+- `cashier_v2_preflight.py:80` — "cashbox_operations",
+- `cashier_v2_preflight.py:110` — "cashbox_operations": {
+- `cashier_v2_preflight.py:157` — m1.ensure_cashbox_operations_table(cur)
+- `cashier_v2_preflight.py:211` — "idx_cashbox_operations_cashier_receipt",
+- `cashier_v2_preflight.py:213` — CREATE INDEX idx_cashbox_operations_cashier_receipt
+- `cashier_v2_preflight.py:214` — ON cashbox_operations(cashier_receipt_id)
+- `cashier_v2_preflight.py:218` — "idx_cashbox_operations_transfer_group",
+- `cashier_v2_preflight.py:220` — CREATE INDEX idx_cashbox_operations_transfer_group
+- `cashier_v2_preflight.py:221` — ON cashbox_operations(transfer_group_ref)
+- `cashier_v2_preflight.py:247` — "cashbox_operations",
+- `cashier_v2_preflight_compat.py:74` — m1.ensure_cashbox_operations_table(cur)
+- `cashier_v2_preflight_compat.py:106` — "idx_cashbox_operations_cashier_receipt",
+- `cashier_v2_preflight_compat.py:107` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `cashier_v2_preflight_compat.py:110` — "idx_cashbox_operations_transfer_group",
+- `cashier_v2_preflight_compat.py:111` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `cashier_v2_preflight_compat.py:134` — "cashbox_operations",
+- `create_clean_live_sandbox.py:96` — "cashbox_operations",
+- `create_clean_live_sandbox.py:116` — migration.ensure_cashbox_operations_table(cur)
+- `create_clean_live_sandbox.py:166` — "idx_cashbox_operations_cashier_receipt",
+- `create_clean_live_sandbox.py:167` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `create_clean_live_sandbox.py:170` — "idx_cashbox_operations_transfer_group",
+- `create_clean_live_sandbox.py:171` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `create_clean_live_sandbox.py:397` — "cashbox_operations",
+- `create_isolated_live_sandbox_v2.py:96` — "cashbox_operations",
+- `create_isolated_live_sandbox_v2.py:116` — migration.ensure_cashbox_operations_table(cur)
+- `create_isolated_live_sandbox_v2.py:166` — "idx_cashbox_operations_cashier_receipt",
+- `create_isolated_live_sandbox_v2.py:167` — "CREATE INDEX idx_cashbox_operations_cashier_receipt ON cashbox_operations(cashier_receipt_id)",
+- `create_isolated_live_sandbox_v2.py:170` — "idx_cashbox_operations_transfer_group",
+- `create_isolated_live_sandbox_v2.py:171` — "CREATE INDEX idx_cashbox_operations_transfer_group ON cashbox_operations(transfer_group_ref)",
+- `create_isolated_live_sandbox_v2.py:393` — "cashbox_operations",
+- `guard_workspace_preflight.py:95` — "cashbox_operations",
+- `guard_workspace_preflight_v2.py:95` — "cashbox_operations",
+- `import_ohorona_to_cashbox.py:677` — table_name="cashbox_operations",
+- `import_ohorona_to_cashbox.py:760` — table_name="cashbox_operations",
+- `import_ohorona_to_cashbox.py:785` — table_name="cashbox_operations",
+- `import_ohorona_to_cashbox.py:872` — "и создаёт cashbox_operations без дублирования payments. "
+- `migrate_access_control_and_guard.py:353` — ("GUARD_O", "cashbox_operations", "VIEW", "CASHBOX", "O", "ALLOW", "Видит операции своей кассы O."),
+- `migrate_cashier_core.py:122` — def create_cashbox_operations(cur):
+- `migrate_cashier_core.py:124` — CREATE TABLE IF NOT EXISTS cashbox_operations (
+- `migrate_cashier_core.py:151` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_date ON cashbox_operations(operation_date)")
+- `migrate_cashier_core.py:152` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_cashbox ON cashbox_operations(cashbox_code)")
+- `migrate_cashier_core.py:153` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_apt ON cashbox_operations(apartment_number)")
+- `migrate_cashier_core.py:154` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_vehicle ON cashbox_operations(vehicle_id)")
+- `migrate_cashier_core.py:155` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_payment ON cashbox_operations(payment_id)")
+- `migrate_cashier_core.py:156` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_batch ON cashbox_operations(batch_id)")
+- `migrate_cashier_core.py:157` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashbox_operations_operator ON cashbox_operations(operator_id)")
+- `migrate_cashier_core.py:254` — FROM cashbox_operations
+- `migrate_cashier_core.py:291` — create_cashbox_operations(cur)
+- `migrate_cashier_core.py:310` — print("  cashbox_operations:", table_count("cashbox_operations"))
+- `migrate_cashier_operator_editor.py:9` — - связи receipts -> payments -> cashbox_operations.
+- `migrate_cashier_operator_editor.py:173` — def ensure_cashbox_operations_table(cur: sqlite3.Cursor) -> None:
+- `migrate_cashier_operator_editor.py:175` — CREATE TABLE IF NOT EXISTS cashbox_operations (
+- `migrate_cashier_operator_editor.py:282` — result = {"payments": [], "cashbox_operations": []}
+- `migrate_cashier_operator_editor.py:292` — if table_exists(cur, "cashbox_operations"):
+- `migrate_cashier_operator_editor.py:297` — if add_column_if_missing(cur, "cashbox_operations", column, definition):
+- `migrate_cashier_operator_editor.py:298` — result["cashbox_operations"].append(column)
+- `migrate_cashier_operator_editor.py:357` — FROM cashbox_operations
+- `migrate_cashier_operator_editor.py:383` — ensure_cashbox_operations_table(cur)
+- `migrate_cashier_operator_editor.py:441` — "idx_cashbox_operations_cashier_receipt",
+- `migrate_cashier_operator_editor.py:443` — CREATE INDEX idx_cashbox_operations_cashier_receipt
+- `migrate_cashier_operator_editor.py:444` — ON cashbox_operations(cashier_receipt_id)
+- `migrate_cashier_operator_editor.py:448` — "idx_cashbox_operations_transfer_group",
+- `migrate_cashier_operator_editor.py:450` — CREATE INDEX idx_cashbox_operations_transfer_group
+- `migrate_cashier_operator_editor.py:451` — ON cashbox_operations(transfer_group_ref)
+- `migrate_cashier_operator_editor.py:499` — f"Связи cashbox_operations: {', '.join(links_added['cashbox_operations']) if links_added['cashbox_operations'] else 'нет'}",
+- `migrate_cashier_v2.py:11` — - связующие поля в существующих receipts / payments / cashbox_operations.
+- `migrate_cashier_v2.py:272` — "cashbox_operations": {
+- `migrate_cashier_v2.py:399` — "cashbox_operations",
+- `migrate_cashier_v2_compat.py:378` — "cashbox_operations": {
+- `migrate_cashier_v2_compat.py:530` — ("cashbox_operations", "cashier_batch_id", "idx_cashbox_ops_batch_v2"),
+- `migrate_commercial_contract_core.py:497` — added: dict[str, list[str]] = {"charges": [], "payments": [], "cashbox_operations": []}
+- `migrate_commercial_contract_core.py:516` — if table_exists(cur, "cashbox_operations"):
+- `migrate_commercial_contract_core.py:521` — if add_column_if_missing(cur, "cashbox_operations", name, definition):
+- `migrate_commercial_contract_core.py:522` — added["cashbox_operations"].append(name)
+- `migrate_commercial_contract_core.py:607` — if table_exists(cur, "cashbox_operations"):
+- ... and 11 more
+
+## `cashboxes`
+- `billing/migrate_add_parking_billing.py:117` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `Bots/handlers/cashier_operator.py:292` — "cashboxes",
+- `Bots/handlers/cashier_operator.py:331` — # Cashboxes / balances
+- `Bots/handlers/cashier_operator.py:350` — def list_active_cashboxes(
+- `Bots/handlers/cashier_operator.py:370` — FROM cashboxes
+- `Bots/handlers/cashier_operator.py:384` — "SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?",
+- `Bots/handlers/cashier_operator.py:411` — cols = table_columns(cur, "cashboxes")
+- `Bots/handlers/cashier_operator.py:417` — f"UPDATE cashboxes SET "
+- `Bots/handlers/cashier_operator.py:430` — for box in list_active_cashboxes():
+- `Bots/handlers/cashier_operator.py:614` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `Bots/handlers/cashier_operator.py:893` — LEFT JOIN cashboxes c ON c.cashbox_code = r.cashbox_code
+- `Bots/handlers/cashier_operator.py:1571` — boxes = list_active_cashboxes(receipt_only=True)
+- `cashier_journal.py:635` — cur.execute("SELECT * FROM cashboxes WHERE cashbox_code = ?", (code,))
+- `cashier_journal.py:641` — insert_dynamic(cur, "cashboxes", {
+- `cashier_journal.py:652` — cur.execute("SELECT * FROM cashboxes WHERE cashbox_code = ?", (code,))
+- `cashier_journal.py:662` — cur.execute("SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?", (cashbox_code,))
+- `cashier_journal.py:682` — "cashboxes",
+- `cashier_journal.py:690` — def recalc_all_cashboxes(cur):
+- `cashier_journal.py:691` — cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1 ORDER BY cashbox_code")
+- `cashier_journal.py:897` — recalc_all_cashboxes(cur)
+- `cashier_journal.py:903` — FROM cashboxes
+- `cashier_journal.py:910` — FROM cashboxes
+- `cashier_journal.py:1496` — recalc_all_cashboxes(cur)
+- `cashier_journal.py:1502` — FROM cashboxes
+- `cashier_v2_core.py:166` — "cashboxes",
+- `cashier_v2_core.py:571` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:143` — "cashboxes",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:551` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:143` — "cashboxes",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:495` — "SELECT is_active FROM cashboxes WHERE cashbox_code = ?",
+- `cashier_v2_preflight.py:79` — "cashboxes",
+- `cashier_v2_preflight.py:156` — m1.ensure_cashboxes_table(cur)
+- `cashier_v2_preflight.py:161` — for code, name, active, comment in m1.CASHBOXES:
+- `cashier_v2_preflight.py:231` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `cashier_v2_preflight.py:246` — "cashboxes",
+- `cashier_v2_preflight_compat.py:73` — m1.ensure_cashboxes_table(cur)
+- `cashier_v2_preflight_compat.py:78` — for code, name, active, comment in m1.CASHBOXES:
+- `cashier_v2_preflight_compat.py:123` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `cashier_v2_preflight_compat.py:133` — "cashboxes",
+- `create_clean_live_sandbox.py:115` — migration.ensure_cashboxes_table(cur)
+- `create_clean_live_sandbox.py:121` — for code, name, active, comment in migration.CASHBOXES:
+- `create_clean_live_sandbox.py:180` — cur.execute("SELECT cashbox_code FROM cashboxes ORDER BY cashbox_code")
+- `create_clean_live_sandbox.py:185` — "cashboxes": boxes,
+- `create_clean_live_sandbox.py:423` — f"   Cashboxes: {', '.join(cash_result['cashboxes'])}",
+- `create_isolated_live_sandbox_v2.py:115` — migration.ensure_cashboxes_table(cur)
+- `create_isolated_live_sandbox_v2.py:121` — for code, name, active, comment in migration.CASHBOXES:
+- `create_isolated_live_sandbox_v2.py:180` — cur.execute("SELECT cashbox_code FROM cashboxes ORDER BY cashbox_code")
+- `create_isolated_live_sandbox_v2.py:185` — "cashboxes": boxes,
+- `create_isolated_live_sandbox_v2.py:419` — f"   Cashboxes: {', '.join(cash_result['cashboxes'])}",
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:82` — ### Cashboxes
+- `import_ohorona_list1_to_central_cashbox.py:286` — if not table_exists(cur, "cashboxes"):
+- `import_ohorona_list1_to_central_cashbox.py:287` — raise RuntimeError("Не найдена таблица cashboxes. Сначала выполните migrate_cashier_core.py.")
+- `import_ohorona_list1_to_central_cashbox.py:289` — cur.execute("SELECT id FROM cashboxes WHERE cashbox_code = ?", (CENTRAL_CASHBOX,))
+- `import_ohorona_list1_to_central_cashbox.py:308` — cols = table_columns(cur, "cashboxes")
+- `import_ohorona_list1_to_central_cashbox.py:315` — update_dynamic_by(cur, "cashboxes", "cashbox_code", CENTRAL_CASHBOX, update_values)
+- `import_ohorona_list1_to_central_cashbox.py:318` — insert_dynamic(cur, "cashboxes", values)
+- `import_ohorona_to_cashbox.py:696` — cur.execute("SELECT cashbox_code FROM cashboxes WHERE COALESCE(is_active, 1) = 1")
+- `migrate_cashier_core.py:103` — def create_cashboxes(cur):
+- `migrate_cashier_core.py:105` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_core.py:118` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashboxes_code ON cashboxes(cashbox_code)")
+- `migrate_cashier_core.py:119` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashboxes_active ON cashboxes(is_active)")
+- `migrate_cashier_core.py:145` — FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code),
+- `migrate_cashier_core.py:179` — FOREIGN KEY (cashbox_code) REFERENCES cashboxes(cashbox_code)
+- `migrate_cashier_core.py:211` — def seed_default_cashboxes(cur):
+- `migrate_cashier_core.py:220` — cur.execute("SELECT id FROM cashboxes WHERE cashbox_code = ?", (code,))
+- `migrate_cashier_core.py:224` — INSERT INTO cashboxes (
+- `migrate_cashier_core.py:239` — cur.execute("SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?", (cashbox_code,))
+- `migrate_cashier_core.py:261` — UPDATE cashboxes
+- `migrate_cashier_core.py:268` — def recalc_all_cashboxes(cur):
+- `migrate_cashier_core.py:269` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `migrate_cashier_core.py:290` — create_cashboxes(cur)
+- `migrate_cashier_core.py:294` — inserted_cashboxes = seed_default_cashboxes(cur)
+- `migrate_cashier_core.py:295` — balances = recalc_all_cashboxes(cur)
+- `migrate_cashier_core.py:309` — print("  cashboxes:", table_count("cashboxes"))
+- `migrate_cashier_core.py:316` — print("Inserted default cashboxes:", inserted_cashboxes)
+- `migrate_cashier_operator_editor.py:50` — CASHBOXES = [
+- `migrate_cashier_operator_editor.py:156` — def ensure_cashboxes_table(cur: sqlite3.Cursor) -> None:
+- `migrate_cashier_operator_editor.py:158` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_operator_editor.py:305` — "SELECT id FROM cashboxes WHERE cashbox_code = ?",
+- `migrate_cashier_operator_editor.py:312` — UPDATE cashboxes
+- `migrate_cashier_operator_editor.py:323` — INSERT INTO cashboxes (
+- `migrate_cashier_operator_editor.py:341` — "SELECT initial_balance FROM cashboxes WHERE cashbox_code = ?",
+- `migrate_cashier_operator_editor.py:362` — UPDATE cashboxes
+- `migrate_cashier_operator_editor.py:382` — ensure_cashboxes_table(cur)
+- `migrate_cashier_operator_editor.py:388` — for code, name, active, comment in CASHBOXES:
+- `migrate_cashier_operator_editor.py:459` — cur.execute("SELECT cashbox_code FROM cashboxes")
+- `migrate_cashier_operator_editor.py:516` — field_name="schema,cashboxes",
+- `migrate_cashier_operator_editor.py:525` — "cashboxes": changes,
+- `migrate_cashier_operator_editor.py:549` — print("Cashboxes:", ", ".join(changes))
+- `migrate_cashier_v2.py:398` — "cashboxes",
+- `tools/db_schema_snapshot.py:53` — "cashboxes",
+- `tools/db_schema_snapshot_full.py:38` — "cashboxes",
+- `tools/project_passport.py:102` — "cashboxes",
+- `tools/project_passport_v2.py:123` — "cashboxes",
+
+## `cashier_batch_items`
+- `cashier_v2_core.py:175` — "cashier_batch_items",
+- `cashier_v2_core.py:1212` — "cashier_batch_items",
+- `cashier_v2_core.py:1260` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:152` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1192` — "cashier_batch_items",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1240` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:152` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1136` — "cashier_batch_items",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1184` — "cashier_batch_items",
+- `cashier_v2_preflight.py:89` — "cashier_batch_items",
+- `cashier_v2_preflight.py:137` — "cashier_batch_items": {
+- `cashier_v2_preflight.py:262` — "cashier_batch_items": m2.create_table_batch_items(cur),
+- `cashier_v2_preflight_compat.py:143` — "cashier_batch_items",
+- `cashier_v2_preflight_compat.py:154` — "cashier_batch_items": {"batch_id", "apartment_number", "charge_id", "receipt_id", "payment_id"},
+- `create_clean_live_sandbox.py:99` — "cashier_batch_items",
+- `create_isolated_live_sandbox_v2.py:99` — "cashier_batch_items",
+- `migrate_cashier_v2.py:199` — existed = table_exists(cur, "cashier_batch_items")
+- `migrate_cashier_v2.py:201` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2.py:327` — "idx_cashier_batch_items_batch",
+- `migrate_cashier_v2.py:329` — CREATE INDEX idx_cashier_batch_items_batch
+- `migrate_cashier_v2.py:330` — ON cashier_batch_items(batch_id, item_status)
+- `migrate_cashier_v2.py:334` — "idx_cashier_batch_items_unit",
+- `migrate_cashier_v2.py:336` — CREATE INDEX idx_cashier_batch_items_unit
+- `migrate_cashier_v2.py:337` — ON cashier_batch_items(apartment_id, apartment_number, period_code)
+- `migrate_cashier_v2.py:415` — "cashier_batch_items": create_table_batch_items(cur),
+- `migrate_cashier_v2_compat.py:191` — def create_cashier_batch_items(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:192` — existed = table_exists(cur, "cashier_batch_items")
+- `migrate_cashier_v2_compat.py:194` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2_compat.py:322` — "cashier_batch_items": {
+- `migrate_cashier_v2_compat.py:461` — ("cashier_batch_items", "item_status", "LEGACY"),
+- `migrate_cashier_v2_compat.py:503` — "idx_cashier_batch_items_batch",
+- `migrate_cashier_v2_compat.py:504` — "CREATE INDEX idx_cashier_batch_items_batch ON cashier_batch_items(batch_id, item_status)",
+- `migrate_cashier_v2_compat.py:507` — "idx_cashier_batch_items_unit",
+- `migrate_cashier_v2_compat.py:508` — "CREATE INDEX idx_cashier_batch_items_unit ON cashier_batch_items(apartment_id, apartment_number, period_code)",
+- `migrate_cashier_v2_compat.py:554` — "cashier_batch_items": create_cashier_batch_items(cur),
+- `run_bot_sandbox_v2.py:109` — "cashier_batch_items",
+- `tools/db_schema_snapshot.py:56` — "cashier_batch_items",
+- `tools/db_schema_snapshot_full.py:41` — "cashier_batch_items",
+- `tools/project_passport.py:105` — "cashier_batch_items",
+- `tools/project_passport_v2.py:126` — "cashier_batch_items",
+
+## `cashier_batches`
+- `cashier_v2_core.py:174` — "cashier_batches",
+- `cashier_v2_core.py:1182` — "cashier_batches",
+- `cashier_v2_core.py:1200` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core.py:1285` — "cashier_batches",
+- `cashier_v2_core.py:1304` — table_name="cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:151` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1162` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1180` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1265` — "cashier_batches",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1284` — table_name="cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:151` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1106` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1124` — update_dynamic(cur, "cashier_batches", batch_id, {"batch_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1209` — "cashier_batches",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1228` — table_name="cashier_batches",
+- `cashier_v2_preflight.py:88` — "cashier_batches",
+- `cashier_v2_preflight.py:130` — "cashier_batches": {
+- `cashier_v2_preflight.py:261` — "cashier_batches": m2.create_table_batches(cur),
+- `cashier_v2_preflight_compat.py:142` — "cashier_batches",
+- `cashier_v2_preflight_compat.py:153` — "cashier_batches": {"batch_number", "entrance_number", "cashbox_code", "period_code"},
+- `create_clean_live_sandbox.py:98` — "cashier_batches",
+- `create_isolated_live_sandbox_v2.py:98` — "cashier_batches",
+- `migrate_access_control_and_guard.py:346` — # VOID, CORRECT, CASHIER_BATCHES or access-management permissions.
+- `migrate_cashier_core.py:160` — def create_cashier_batches(cur):
+- `migrate_cashier_core.py:162` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_core.py:182` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_batch_id ON cashier_batches(batch_id)")
+- `migrate_cashier_core.py:183` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_status ON cashier_batches(batch_status)")
+- `migrate_cashier_core.py:184` — cur.execute("CREATE INDEX IF NOT EXISTS idx_cashier_batches_operator ON cashier_batches(operator_id)")
+- `migrate_cashier_core.py:292` — create_cashier_batches(cur)
+- `migrate_cashier_core.py:311` — print("  cashier_batches:", table_count("cashier_batches"))
+- `migrate_cashier_v2.py:169` — existed = table_exists(cur, "cashier_batches")
+- `migrate_cashier_v2.py:171` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2.py:219` — FOREIGN KEY(batch_id) REFERENCES cashier_batches(id),
+- `migrate_cashier_v2.py:320` — "idx_cashier_batches_status",
+- `migrate_cashier_v2.py:322` — CREATE INDEX idx_cashier_batches_status
+- `migrate_cashier_v2.py:323` — ON cashier_batches(entry_status, receipt_date, entrance_number)
+- `migrate_cashier_v2.py:414` — "cashier_batches": create_table_batches(cur),
+- `migrate_cashier_v2.py:466` — table_name="cashier_batches",
+- `migrate_cashier_v2_compat.py:13` — если cashier_batches уже существует, гарантированно добавляются как минимум
+- `migrate_cashier_v2_compat.py:161` — def create_cashier_batches(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:162` — existed = table_exists(cur, "cashier_batches")
+- `migrate_cashier_v2_compat.py:164` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2_compat.py:300` — "cashier_batches": {
+- `migrate_cashier_v2_compat.py:407` — if not table_exists(cur, "cashier_batches"):
+- `migrate_cashier_v2_compat.py:409` — if "batch_number" not in columns(cur, "cashier_batches"):
+- `migrate_cashier_v2_compat.py:414` — FROM cashier_batches
+- `migrate_cashier_v2_compat.py:420` — "UPDATE cashier_batches SET batch_number = ? WHERE id = ?",
+- `migrate_cashier_v2_compat.py:427` — FROM cashier_batches
+- `migrate_cashier_v2_compat.py:435` — "SELECT id FROM cashier_batches WHERE batch_number = ? ORDER BY id",
+- `migrate_cashier_v2_compat.py:443` — "UPDATE cashier_batches SET batch_number = ? WHERE id = ?",
+- `migrate_cashier_v2_compat.py:453` — ("cashier_batches", "batch_kind", "LEGACY"),
+- `migrate_cashier_v2_compat.py:454` — ("cashier_batches", "entry_status", "LEGACY"),
+- `migrate_cashier_v2_compat.py:455` — ("cashier_batches", "currency", "UAH"),
+- `migrate_cashier_v2_compat.py:495` — "idx_cashier_batches_number",
+- `migrate_cashier_v2_compat.py:496` — "CREATE INDEX idx_cashier_batches_number ON cashier_batches(batch_number)",
+- `migrate_cashier_v2_compat.py:499` — "idx_cashier_batches_status",
+- `migrate_cashier_v2_compat.py:500` — "CREATE INDEX idx_cashier_batches_status ON cashier_batches(entry_status, receipt_date, entrance_number)",
+- `migrate_cashier_v2_compat.py:553` — "cashier_batches": create_cashier_batches(cur),
+- `migrate_cashier_v2_compat.py:646` — table_name="cashier_batches",
+- `run_bot_sandbox_v2.py:108` — "cashier_batches",
+- `tools/db_schema_snapshot.py:55` — "cashier_batches",
+- `tools/db_schema_snapshot_full.py:40` — "cashier_batches",
+- `tools/project_passport.py:104` — "cashier_batches",
+- `tools/project_passport_v2.py:125` — "cashier_batches",
+
+## `cashier_journal`
+- `import_ohorona_list1_to_central_cashbox.py:37` — from cashier_journal import (
+- `import_ohorona_list1_to_central_cashbox.py:314` — from cashier_journal import update_dynamic_by
+- `import_ohorona_to_cashbox.py:21` — from cashier_journal import (
+
+## `cashier_receipts`
+- `Bots/handlers/cashier_operator.py:294` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:624` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:660` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:677` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:692` — table_name="cashier_receipts",
+- `Bots/handlers/cashier_operator.py:795` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:814` — table_name="cashier_receipts",
+- `Bots/handlers/cashier_operator.py:892` — FROM cashier_receipts r
+- `Bots/handlers/cashier_operator.py:934` — FROM cashier_receipts r
+- `Bots/handlers/cashier_operator.py:1140` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:1290` — "cashier_receipts",
+- `Bots/handlers/cashier_operator.py:1310` — table_name="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace.py:442` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace.py:470` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:474` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace.py:823` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace.py:852` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace.py:942` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:440` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:473` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:477` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:826` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:855` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:945` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:129` — "cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:442` — user_id, "cashier_receipts", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:470` — resource="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:474` — target_table="cashier_receipts",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:823` — FROM cashier_receipts
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:852` — user_id, "cashier_receipts", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:942` — user_id, "cashier_receipts", "CREATE",
+- `cashier_v2_core.py:165` — "cashier_receipts",
+- `cashier_v2_core.py:581` — "cashier_receipts",
+- `cashier_v2_core.py:610` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core.py:677` — "cashier_receipts",
+- `cashier_v2_core.py:700` — "cashier_receipts",
+- `cashier_v2_core.py:713` — table_name="cashier_receipts",
+- `cashier_v2_core.py:1399` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core.py:1404` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core.py:1436` — "cashier_receipts",
+- `cashier_v2_core.py:1462` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core.py:1469` — table_name="cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:142` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:561` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:590` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:657` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:680` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:693` — table_name="cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1379` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1384` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1416` — "cashier_receipts",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1442` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1449` — table_name="cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:142` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:505` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:534` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:601` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:624` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:637` — table_name="cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1323` — "SELECT COUNT(*) FROM cashier_receipts WHERE receipt_kind = 'PAPER_NOTE' AND entry_status <> 'VOID'"
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1328` — SELECT COUNT(*) FROM cashier_receipts
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1360` — "cashier_receipts",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1386` — update_dynamic(cur, "cashier_receipts", receipt_id, {"receipt_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1393` — table_name="cashier_receipts",
+- `cashier_v2_preflight.py:81` — "cashier_receipts",
+- `cashier_v2_preflight.py:97` — "cashier_receipts": {
+- `cashier_v2_preflight.py:158` — receipt_added = m1.ensure_cashier_receipts(cur)
+- `cashier_v2_preflight.py:173` — "idx_cashier_receipts_status",
+- `cashier_v2_preflight.py:175` — CREATE INDEX idx_cashier_receipts_status
+- `cashier_v2_preflight.py:176` — ON cashier_receipts(entry_status, receipt_date, id)
+- `cashier_v2_preflight.py:180` — "idx_cashier_receipts_cashbox",
+- `cashier_v2_preflight.py:182` — CREATE INDEX idx_cashier_receipts_cashbox
+- `cashier_v2_preflight.py:183` — ON cashier_receipts(cashbox_code, receipt_date)
+- `cashier_v2_preflight.py:187` — "idx_cashier_receipts_apartment",
+- `cashier_v2_preflight.py:189` — CREATE INDEX idx_cashier_receipts_apartment
+- `cashier_v2_preflight.py:190` — ON cashier_receipts(apartment_id, apartment_number, period_code)
+- `cashier_v2_preflight.py:194` — "idx_cashier_receipts_allocation",
+- `cashier_v2_preflight.py:196` — CREATE INDEX idx_cashier_receipts_allocation
+- `cashier_v2_preflight.py:197` — ON cashier_receipts(allocation_status, entry_status)
+- `cashier_v2_preflight.py:245` — "cashier_receipts",
+- `cashier_v2_preflight_compat.py:75` — receipt_fields = m1.ensure_cashier_receipts(cur)
+- `cashier_v2_preflight_compat.py:90` — "idx_cashier_receipts_status",
+- `cashier_v2_preflight_compat.py:91` — "CREATE INDEX idx_cashier_receipts_status ON cashier_receipts(entry_status, receipt_date, id)",
+- `cashier_v2_preflight_compat.py:94` — "idx_cashier_receipts_cashbox",
+- `cashier_v2_preflight_compat.py:95` — "CREATE INDEX idx_cashier_receipts_cashbox ON cashier_receipts(cashbox_code, receipt_date)",
+- `cashier_v2_preflight_compat.py:98` — "idx_cashier_receipts_apartment",
+- `cashier_v2_preflight_compat.py:99` — "CREATE INDEX idx_cashier_receipts_apartment ON cashier_receipts(apartment_id, apartment_number, period_code)",
+- `cashier_v2_preflight_compat.py:102` — "idx_cashier_receipts_allocation",
+- `cashier_v2_preflight_compat.py:103` — "CREATE INDEX idx_cashier_receipts_allocation ON cashier_receipts(allocation_status, entry_status)",
+- `cashier_v2_preflight_compat.py:135` — "cashier_receipts",
+- `cashier_v2_preflight_compat.py:158` — "cashier_receipts": {"payment_notice_id", "cashier_batch_id", "service_item_code"},
+- `create_clean_live_sandbox.py:95` — "cashier_receipts",
+- `create_clean_live_sandbox.py:117` — receipts_added = migration.ensure_cashier_receipts(cur)
+- `create_clean_live_sandbox.py:140` — "idx_cashier_receipts_status",
+- `create_clean_live_sandbox.py:141` — "CREATE INDEX idx_cashier_receipts_status ON cashier_receipts(entry_status, receipt_date, id)",
+- `create_clean_live_sandbox.py:144` — "idx_cashier_receipts_cashbox",
+- `create_clean_live_sandbox.py:145` — "CREATE INDEX idx_cashier_receipts_cashbox ON cashier_receipts(cashbox_code, receipt_date)",
+- `create_clean_live_sandbox.py:148` — "idx_cashier_receipts_apartment",
+- ... and 63 more
+
+## `cashier_reconciliation_cases`
+- `cashier_v2_core.py:176` — "cashier_reconciliation_cases",
+- `cashier_v2_core.py:1413` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:153` — "cashier_reconciliation_cases",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1393` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:153` — "cashier_reconciliation_cases",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1337` — "SELECT COUNT(*) FROM cashier_reconciliation_cases WHERE case_status = 'OPEN'"
+- `cashier_v2_preflight.py:90` — "cashier_reconciliation_cases",
+- `cashier_v2_preflight.py:263` — "cashier_reconciliation_cases": m2.create_table_reconciliation_cases(cur),
+- `cashier_v2_preflight_compat.py:144` — "cashier_reconciliation_cases",
+- `migrate_cashier_v2.py:227` — existed = table_exists(cur, "cashier_reconciliation_cases")
+- `migrate_cashier_v2.py:229` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_cashier_v2.py:344` — ON cashier_reconciliation_cases(case_status, priority, created_at)
+- `migrate_cashier_v2.py:351` — ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)
+- `migrate_cashier_v2.py:416` — "cashier_reconciliation_cases": create_table_reconciliation_cases(cur),
+- `migrate_cashier_v2_compat.py:218` — existed = table_exists(cur, "cashier_reconciliation_cases")
+- `migrate_cashier_v2_compat.py:220` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_cashier_v2_compat.py:340` — "cashier_reconciliation_cases": {
+- `migrate_cashier_v2_compat.py:462` — ("cashier_reconciliation_cases", "case_status", "OPEN"),
+- `migrate_cashier_v2_compat.py:463` — ("cashier_reconciliation_cases", "priority", "NORMAL"),
+- `migrate_cashier_v2_compat.py:464` — ("cashier_reconciliation_cases", "currency", "UAH"),
+- `migrate_cashier_v2_compat.py:512` — "CREATE INDEX idx_cashier_reconciliation_status ON cashier_reconciliation_cases(case_status, priority, created_at)",
+- `migrate_cashier_v2_compat.py:516` — "CREATE INDEX idx_cashier_reconciliation_unit ON cashier_reconciliation_cases(apartment_id, apartment_number, case_status)",
+- `migrate_cashier_v2_compat.py:555` — "cashier_reconciliation_cases": create_reconciliation_cases(cur),
+- `run_bot_sandbox_v2.py:110` — "cashier_reconciliation_cases",
+- `tools/db_schema_snapshot.py:58` — "cashier_reconciliation_cases",
+- `tools/db_schema_snapshot_full.py:43` — "cashier_reconciliation_cases",
+- `tools/project_passport.py:107` — "cashier_reconciliation_cases",
+- `tools/project_passport_v2.py:128` — "cashier_reconciliation_cases",
+
+## `cashier_v2_core`
+- `Bots/handlers/cashier_operator_v2.py:32` — from cashier_v2_core import (
+- `Bots/handlers/client_portal_v2.py:35` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:38` — from cashier_v2_core import (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:292` — from cashier_v2_core import confirm_cash_notice
+- `Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:35` — from cashier_v2_core import create_payment_notice
+
+## `charges`
+- `billing/migrate_add_parking_billing.py:56` — CREATE TABLE IF NOT EXISTS parking_charges (
+- `billing/migrate_add_parking_billing.py:111` — FOREIGN KEY(parking_charge_id) REFERENCES parking_charges(id),
+- `billing/migrate_add_parking_billing.py:146` — CREATE INDEX IF NOT EXISTS idx_parking_charges_period
+- `billing/migrate_add_parking_billing.py:147` — ON parking_charges(billing_period_id)
+- `billing/migrate_add_parking_billing.py:151` — CREATE INDEX IF NOT EXISTS idx_parking_charges_apartment
+- `billing/migrate_add_parking_billing.py:152` — ON parking_charges(apartment_number)
+- `billing/migrate_add_parking_billing.py:156` — CREATE INDEX IF NOT EXISTS idx_parking_charges_status
+- `billing/migrate_add_parking_billing.py:157` — ON parking_charges(payment_status)
+- `billing_reconciliation_report.py:61` — def load_charges(cur, charges_table, period_code):
+- `billing_reconciliation_report.py:62` — if not charges_table:
+- `billing_reconciliation_report.py:65` — columns = table_columns(cur, charges_table)
+- `billing_reconciliation_report.py:78` — FROM {charges_table} c
+- `billing_reconciliation_report.py:155` — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_reconciliation_report.py:159` — charges = load_charges(cur, charges_table, period_code)
+- `billing_reconciliation_report.py:175` — unpaid_charges = []
+- `billing_reconciliation_report.py:176` — overallocated_charges = []
+- `billing_reconciliation_report.py:183` — for c in charges:
+- `billing_reconciliation_report.py:194` — overallocated_charges.append(item)
+- `billing_reconciliation_report.py:198` — unpaid_charges.append(item)
+- `billing_reconciliation_report.py:225` — "charges_table": charges_table,
+- `billing_reconciliation_report.py:228` — "charges": charges,
+- `billing_reconciliation_report.py:233` — "unpaid_charges": unpaid_charges,
+- `billing_reconciliation_report.py:234` — "overallocated_charges": overallocated_charges,
+- `billing_reconciliation_report.py:287` — total_charges = sum(float(c["amount"] or 0) for c in data["charges"])
+- `billing_reconciliation_report.py:309` — lines.append(f"Charges    : {data['charges_table']}")
+- `billing_reconciliation_report.py:317` — lines.append(f"Charges count              : {len(data['charges'])}")
+- `billing_reconciliation_report.py:320` — lines.append(f"Charges total              : {money(total_charges)}")
+- `billing_reconciliation_report.py:325` — lines.append(f"Fully matched charges      : {len(data['fully_matched'])}")
+- `billing_reconciliation_report.py:326` — lines.append(f"Partially paid charges     : {len(data['partially_paid'])}")
+- `billing_reconciliation_report.py:327` — lines.append(f"Unpaid charges             : {len(data['unpaid_charges'])}")
+- `billing_reconciliation_report.py:328` — lines.append(f"Overallocated charges      : {len(data['overallocated_charges'])}")
+- `billing_reconciliation_report.py:335` — write_section(lines, "1. FULLY_MATCHED_CHARGES — начисление полностью закрыто оплатой", data["fully_matched"], format_charge_line)
+- `billing_reconciliation_report.py:336` — write_section(lines, "2. PARTIALLY_PAID_CHARGES — частично оплачено", data["partially_paid"], format_charge_line)
+- `billing_reconciliation_report.py:337` — write_section(lines, "3. UNPAID_CHARGES — начисления без оплаты", data["unpaid_charges"], format_charge_line)
+- `billing_reconciliation_report.py:338` — write_section(lines, "4. OVERALLOCATED_CHARGES — к начислению привязано больше, чем начислено", data["overallocated_charges"], format_charge_line)
+- `billing_reconciliation_report.py:350` — lines.append("PARTIALLY_PAID_CHARGES: это реальные частичные оплаты или старые тарифы.")
+- `billing_reconciliation_report.py:351` — lines.append("OVERALLOCATED_CHARGES: проверить переплату или ошибочное распределение.")
+- `billing_reconciliation_report.py:384` — print("Unpaid charges:", len(data["unpaid_charges"]))
+- `billing_statement_excel.py:74` — def load_charges(cur, period_code):
+- `billing_statement_excel.py:75` — charges_table = pick_table(cur, "charges", "service_charges")
+- `billing_statement_excel.py:76` — if not charges_table:
+- `billing_statement_excel.py:79` — cols = table_columns(cur, charges_table)
+- `billing_statement_excel.py:95` — FROM {charges_table} c
+- `billing_statement_excel.py:183` — charges = load_charges(cur, period_code)
+- `billing_statement_excel.py:206` — "charges": [],
+- `billing_statement_excel.py:211` — for ch in charges:
+- `billing_statement_excel.py:223` — item["charges"].append(row)
+- `billing_statement_excel.py:243` — "charges": charges,
+- `billing_statement_excel.py:327` — charges_text = []
+- `billing_statement_excel.py:328` — for ch in item["charges"]:
+- `billing_statement_excel.py:329` — charges_text.append(
+- `billing_statement_excel.py:349` — "\n".join(charges_text),
+- `billing_statement_excel.py:372` — for ch in item["charges"]
+- `billing_statement_excel.py:396` — # Charges details
+- `billing_statement_excel.py:402` — for ch in data["charges"]:
+- `billing_statement_excel.py:407` — for ch2 in item["charges"]:
+- `billing_statement_excel.py:422` — add_table(ws, "Charges")
+- `billing_statement_excel.py:501` — ws.append(["Charges total", money(sum(float(ch["amount"] or 0) for ch in data["charges"]))])
+- `billing_statement_excel.py:511` — description="Excel billing statement: charges, payments, balances, work queues."
+- `billing_statement_excel.py:530` — total_charges = sum(float(ch["amount"] or 0) for ch in data["charges"])
+- `billing_statement_excel.py:540` — print("Charges total:", money(total_charges))
+- `Bots/handlers/cashier_operator.py:448` — # Units, receipts and charges
+- `Bots/handlers/cashier_operator.py:986` — def list_open_charges_for_receipt(receipt_id: int) -> list[dict]:
+- `Bots/handlers/cashier_operator.py:996` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:999` — ccols = table_columns(cur, "charges")
+- `Bots/handlers/cashier_operator.py:1051` — FROM charges c
+- `Bots/handlers/cashier_operator.py:1104` — charges = {item["charge_id"]: item for item in list_open_charges_for_receipt(receipt_id)}
+- `Bots/handlers/cashier_operator.py:1105` — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:1507` — def format_charge_list(receipt: dict, charges: list[dict]) -> str:
+- `Bots/handlers/cashier_operator.py:1517` — if not charges:
+- `Bots/handlers/cashier_operator.py:1525` — for item in charges:
+- `Bots/handlers/cashier_operator.py:1746` — async def show_open_charges(
+- `Bots/handlers/cashier_operator.py:1757` — charges = list_open_charges_for_receipt(receipt_id)
+- `Bots/handlers/cashier_operator.py:1764` — for charge in charges:
+- `Bots/handlers/cashier_operator.py:1780` — format_charge_list(receipt, charges),
+- `Bots/handlers/cashier_operator.py:2199` — await show_open_charges(update, user_states, user_id, receipt_id)
+- `Bots/handlers/cashier_operator.py:2255` — charges = {
+- `Bots/handlers/cashier_operator.py:2257` — for item in list_open_charges_for_receipt(int(state.get("cashier_receipt_id")))
+- `Bots/handlers/cashier_operator.py:2259` — charge = charges.get(int(charge_id))
+- `Bots/handlers/cashier_operator.py:2281` — await show_open_charges(
+- `Bots/handlers/cashier_operator_v2.py:51` — open_charges,
+- `Bots/handlers/cashier_operator_v2.py:260` — rows = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:489` — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:492` — included = [item for item in charges if text(item.get("apartment_number")) not in exclusions]
+- `Bots/handlers/cashier_operator_v2.py:520` — charges = open_charges(
+- `Bots/handlers/cashier_operator_v2.py:526` — state["batch_charges"] = charges
+- `Bots/handlers/cashier_operator_v2.py:527` — valid_numbers = {text(item.get("apartment_number")) for item in charges}
+- `Bots/handlers/cashier_operator_v2.py:886` — charges = state.get("batch_charges") or []
+- `Bots/handlers/cashier_operator_v2.py:887` — if not charges:
+- `Bots/handlers/cashier_operator_v2.py:897` — charges=charges,
+- `Bots/handlers/cashier_operator_v2.py:962` — valid = {text(item.get("apartment_number")): item for item in state.get("batch_charges") or []}
+- `Bots/handlers/client_portal.py:70` — "parking_charges": "📅 Начисления",
+- `Bots/handlers/client_portal.py:101` — "charges_title": "📅 Начисления парковки — кв. {unit}",
+- `Bots/handlers/client_portal.py:108` — "no_charges": "Начислений пока нет.",
+- `Bots/handlers/client_portal.py:205` — "parking_charges": "📅 Нарахування",
+- `Bots/handlers/client_portal.py:236` — "charges_title": "📅 Нарахування паркування — кв. {unit}",
+- `Bots/handlers/client_portal.py:243` — "no_charges": "Нарахувань поки немає.",
+- `Bots/handlers/client_portal.py:340` — "parking_charges": "📅 Charges",
+- `Bots/handlers/client_portal.py:371` — "charges_title": "📅 Parking charges — apartment {unit}",
+- `Bots/handlers/client_portal.py:374` — "allocated": "Allocated to charges",
+- ... and 385 more
+
+## `collections`
+- `billing/import_ohorona_parking_time.py:7` — from collections import defaultdict
+- `billing/import_ohorona_parking_time_simple_preview.py:7` — from collections import defaultdict
+- `billing/import_parking_time_hints_from_ohorona.py:6` — from collections import defaultdict
+- `billing/report_parking_time_review_tasks.py:5` — from collections import defaultdict
+- `billing/report_parking_time_with_hints.py:6` — from collections import defaultdict
+- `billing_statement_excel.py:6` — from collections import defaultdict
+- `build_plate_candidates.py:5` — from collections import defaultdict
+- `migrate_unit_registry_composite_groups.py:24` — from collections import defaultdict
+- `plate_consensus_report.py:8` — from collections import defaultdict, Counter
+- `plate_consensus_report_v3.py:8` — from collections import defaultdict, Counter
+- `report_verification_tasks_enriched.py:5` — from collections import defaultdict
+- `supervisor_dashboard.py:6` — from collections import Counter
+- `tools/cashier_parking_payments_audit_v4.py:28` — from collections import defaultdict
+- `tools/cashier_unpaid_preview_v3.py:27` — from collections import defaultdict
+- `tools/db_schema_snapshot.py:16` — from collections import defaultdict
+- `tools/db_schema_snapshot_full.py:23` — from collections import defaultdict
+
+## `commercial`
+- `Bots/handlers/commercial_contract_editor.py:1050` — # Entry from commercial unit card.
+
+## `commercial_access_actions`
+- `commercial_contracts.py:545` — FROM commercial_access_actions
+- `commercial_contracts.py:576` — INSERT INTO commercial_access_actions (
+- `commercial_contracts.py:1011` — FROM commercial_access_actions a
+- `commercial_contracts.py:1051` — FROM commercial_access_actions
+- `commercial_contracts.py:1064` — UPDATE commercial_access_actions
+- `commercial_contracts.py:1113` — UPDATE commercial_access_actions
+
+## `commercial_access_phones`
+- `Bots/handlers/commercial_contract_editor.py:269` — (SELECT COUNT(*) FROM commercial_access_phones p
+- `Bots/handlers/commercial_contract_editor.py:294` — (SELECT COUNT(*) FROM commercial_access_phones p
+- `Bots/handlers/commercial_contract_editor.py:391` — SELECT * FROM commercial_access_phones
+- `Bots/handlers/commercial_contract_editor.py:404` — cur.execute("SELECT * FROM commercial_access_phones WHERE id=?", (int(phone_id),))
+- `Bots/handlers/commercial_contract_editor.py:683` — INSERT INTO commercial_access_phones (
+- `Bots/handlers/commercial_contract_editor.py:718` — cur.execute(f"SELECT {field}, contract_id FROM commercial_access_phones WHERE id=?", (int(phone_id),))
+- `Bots/handlers/commercial_contract_editor.py:724` — cur.execute("UPDATE commercial_access_phones SET status=?, status_changed_at=?, updated_at=? WHERE id=?", (value, now_db(), now_db(), int(phone_id)))
+- `Bots/handlers/commercial_contract_editor.py:726` — cur.execute("UPDATE commercial_access_phones SET access_purpose=?, updated_at=? WHERE id=?", (value, now_db(), int(phone_id)))
+- `commercial_contracts.py:309` — FROM commercial_access_phones
+- `commercial_contracts.py:617` — UPDATE commercial_access_phones
+- `commercial_contracts.py:1014` — LEFT JOIN commercial_access_phones p ON p.id = a.access_phone_id
+- `migrate_commercial_contract_core.py:373` — FOREIGN KEY(access_phone_id) REFERENCES commercial_access_phones(id),
+
+## `commercial_contract_editor`
+- `Bots/handlers/unit_registry_editor - Copy.py:49` — from commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/handlers/unit_registry_editor.py:49` — from commercial_contract_editor import handle_commercial_contract_editor_text
+
+## `commercial_contract_items`
+- `Bots/handlers/commercial_contract_editor.py:158` — "commercial_contract_items",
+- `Bots/handlers/commercial_contract_editor.py:263` — (SELECT COUNT(*) FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:288` — (SELECT COUNT(*) FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:328` — SELECT * FROM commercial_contract_items
+- `Bots/handlers/commercial_contract_editor.py:343` — FROM commercial_contract_items i
+- `Bots/handlers/commercial_contract_editor.py:508` — cur.execute("SELECT COUNT(*) FROM commercial_contract_items WHERE contract_id=? AND is_active=1", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:542` — INSERT INTO commercial_contract_items (
+- `Bots/handlers/commercial_contract_editor.py:556` — table_name="commercial_contract_items", row_id=item_id,
+- `Bots/handlers/commercial_contract_editor.py:576` — cur.execute(f"SELECT {field}, contract_id FROM commercial_contract_items WHERE id=?", (int(item_id),))
+- `Bots/handlers/commercial_contract_editor.py:581` — cur.execute(f"UPDATE commercial_contract_items SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(item_id)))
+- `Bots/handlers/commercial_contract_editor.py:583` — conn=conn, table_name="commercial_contract_items", row_id=item_id,
+- `Bots/handlers/commercial_contract_editor.py:939` — state["mode"] = "commercial_contract_items"
+- `Bots/handlers/commercial_contract_editor.py:1095` — if mode in {"commercial_contract_items", "commercial_contract_item_new_mode", "commercial_contract_item_new_name", "commercial_contract_item_new_amount", "commercial_contract_item_new_quantity", "commercial_contract_item_new_block", "commercial_contract_item_field", "commercial_contract_item_block", "commercial_contract_item_card"}:
+- `Bots/handlers/commercial_contract_editor.py:1275` — if mode == "commercial_contract_items":
+- `commercial_contracts.py:154` — "commercial_contract_items",
+- `commercial_contracts.py:250` — FROM commercial_contract_items
+- `migrate_commercial_contract_core.py:263` — "commercial_contract_items",
+- `migrate_commercial_contract_core.py:265` — CREATE TABLE IF NOT EXISTS commercial_contract_items (
+- `migrate_commercial_contract_core.py:411` — "commercial_contract_items": {
+- `migrate_commercial_contract_core.py:537` — "idx_commercial_contract_items_contract",
+- `migrate_commercial_contract_core.py:539` — CREATE INDEX idx_commercial_contract_items_contract
+- `migrate_commercial_contract_core.py:540` — ON commercial_contract_items(contract_id, is_active, valid_from, valid_to)
+- `migrate_commercial_contract_core.py:700` — LEFT JOIN commercial_contract_items i
+- `tools/project_passport.py:129` — "commercial_contract_items",
+- `tools/project_passport_v2.py:150` — "commercial_contract_items",
+
+## `commercial_contract_recipients`
+- `Bots/handlers/commercial_contract_editor.py:265` — (SELECT COUNT(*) FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:290` — (SELECT COUNT(*) FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:360` — FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:376` — FROM commercial_contract_recipients r
+- `Bots/handlers/commercial_contract_editor.py:612` — SELECT 1 FROM commercial_contract_recipients
+- `Bots/handlers/commercial_contract_editor.py:618` — SELECT COUNT(*) FROM commercial_contract_recipients
+- `Bots/handlers/commercial_contract_editor.py:624` — INSERT INTO commercial_contract_recipients (
+- `Bots/handlers/commercial_contract_editor.py:654` — cur.execute(f"SELECT {field}, contract_id FROM commercial_contract_recipients WHERE id=?", (int(recipient_id),))
+- `Bots/handlers/commercial_contract_editor.py:660` — cur.execute("UPDATE commercial_contract_recipients SET is_primary=0, updated_at=? WHERE contract_id=?", (now_db(), int(contract_id)))
+- `Bots/handlers/commercial_contract_editor.py:661` — cur.execute(f"UPDATE commercial_contract_recipients SET {field}=?, updated_at=? WHERE id=?", (value, now_db(), int(recipient_id)))
+- `commercial_contracts.py:276` — FROM commercial_contract_recipients r
+- `migrate_commercial_contract_core.py:350` — FOREIGN KEY(recipient_id) REFERENCES commercial_contract_recipients(id)
+
+## `commercial_contracts`
+- `Bots/handlers/commercial_contract_editor.py:157` — "commercial_contracts",
+- `Bots/handlers/commercial_contract_editor.py:271` — FROM commercial_contracts c
+- `Bots/handlers/commercial_contract_editor.py:296` — FROM commercial_contracts c
+- `Bots/handlers/commercial_contract_editor.py:344` — JOIN commercial_contracts c ON c.id=i.contract_id
+- `Bots/handlers/commercial_contract_editor.py:426` — INSERT INTO commercial_contracts (
+- `Bots/handlers/commercial_contract_editor.py:441` — table_name="commercial_contracts", row_id=contract_id,
+- `Bots/handlers/commercial_contract_editor.py:466` — cur.execute(f"SELECT {field} FROM commercial_contracts WHERE id=?", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:472` — f"UPDATE commercial_contracts SET {field}=?, updated_by=?, updated_at=? WHERE id=?",
+- `Bots/handlers/commercial_contract_editor.py:476` — conn=conn, table_name="commercial_contracts", row_id=contract_id,
+- `Bots/handlers/commercial_contract_editor.py:495` — cur.execute("SELECT status, counterparty_name, valid_from, valid_to FROM commercial_contracts WHERE id=?", (int(contract_id),))
+- `Bots/handlers/commercial_contract_editor.py:515` — "UPDATE commercial_contracts SET status=?, updated_by=?, updated_at=? WHERE id=?",
+- `Bots/handlers/commercial_contract_editor.py:521` — conn=conn, table_name="commercial_contracts", row_id=contract_id,
+- `commercial_contracts.py:153` — "commercial_contracts",
+- `commercial_contracts.py:193` — FROM commercial_contracts c
+- `commercial_contracts.py:220` — FROM commercial_contracts c
+- `commercial_contracts.py:707` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:806` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:935` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:1012` — JOIN commercial_contracts c ON c.id = a.contract_id
+- `commercial_contracts.py:1080` — source_context="commercial_contracts.py",
+- `commercial_contracts.py:1140` — source_context="commercial_contracts.py",
+- `commercial_notification_delivery.py:77` — JOIN commercial_contracts c ON c.id = n.contract_id
+- `commercial_notification_delivery.py:254` — "  python commercial_contracts.py --apply\n"
+- `migrate_commercial_contract_core.py:237` — "commercial_contracts",
+- `migrate_commercial_contract_core.py:239` — CREATE TABLE IF NOT EXISTS commercial_contracts (
+- `migrate_commercial_contract_core.py:283` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `migrate_commercial_contract_core.py:303` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:323` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id)
+- `migrate_commercial_contract_core.py:349` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:372` — FOREIGN KEY(contract_id) REFERENCES commercial_contracts(id),
+- `migrate_commercial_contract_core.py:393` — "commercial_contracts": {
+- `migrate_commercial_contract_core.py:530` — "idx_commercial_contracts_unit_status",
+- `migrate_commercial_contract_core.py:532` — CREATE INDEX idx_commercial_contracts_unit_status
+- `migrate_commercial_contract_core.py:533` — ON commercial_contracts(unit_id, status, valid_from, valid_to)
+- `migrate_commercial_contract_core.py:625` — ON commercial_contracts(unit_id)
+- `migrate_commercial_contract_core.py:882` — table_name="commercial_contracts",
+- `tools/project_passport.py:128` — "commercial_contracts",
+- `tools/project_passport_v2.py:149` — "commercial_contracts",
+
+## `commercial_notification_delivery`
+- `commercial_notification_delivery.py:13` — from commercial_notification_delivery import deliver_ready_notifications
+
+## `commercial_notifications`
+- `Bots/handlers/commercial_contract_editor.py:161` — "commercial_notifications",
+- `commercial_contracts.py:157` — "commercial_notifications",
+- `commercial_contracts.py:530` — "SELECT 1 FROM commercial_notifications WHERE dedupe_key=? LIMIT 1",
+- `commercial_contracts.py:658` — INSERT INTO commercial_notifications (
+- `commercial_contracts.py:699` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:4` — Модуль отправляет только записи commercial_notifications со статусом READY.
+- `commercial_notification_delivery.py:76` — FROM commercial_notifications n
+- `commercial_notification_delivery.py:92` — UPDATE commercial_notifications
+- `commercial_notification_delivery.py:110` — UPDATE commercial_notifications
+- `commercial_notification_delivery.py:164` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:196` — table_name="commercial_notifications",
+- `commercial_notification_delivery.py:224` — table_name="commercial_notifications",
+- `migrate_commercial_contract_core.py:328` — "commercial_notifications",
+- `migrate_commercial_contract_core.py:330` — CREATE TABLE IF NOT EXISTS commercial_notifications (
+- `migrate_commercial_contract_core.py:374` — FOREIGN KEY(notification_id) REFERENCES commercial_notifications(id)
+- `migrate_commercial_contract_core.py:449` — "commercial_notifications": {
+- `migrate_commercial_contract_core.py:565` — "idx_commercial_notifications_queue",
+- `migrate_commercial_contract_core.py:567` — CREATE INDEX idx_commercial_notifications_queue
+- `migrate_commercial_contract_core.py:568` — ON commercial_notifications(status, created_at)
+- `migrate_commercial_contract_core.py:572` — "idx_commercial_notifications_contract",
+- `migrate_commercial_contract_core.py:574` — CREATE INDEX idx_commercial_notifications_contract
+- `migrate_commercial_contract_core.py:575` — ON commercial_notifications(contract_id, notification_type)
+- `migrate_commercial_contract_core.py:633` — ON commercial_notifications(dedupe_key)
+- `tools/project_passport.py:130` — "commercial_notifications",
+- `tools/project_passport_v2.py:151` — "commercial_notifications",
+
+## `config`
+- `access_control.py:29` — from config import paths, USE_TEST_DB
+- `audit_composite_apartments.py:13` — from config import paths
+- `audit_logger.py:14` — from config import paths, USE_TEST_DB
+- `audit_osbb_telegram_messages.py:13` — from config import paths
+- `audit_registry.py:12` — from config import paths
+- `audit_tbot_quarantine.py:12` — from config import paths
+- `billing/build_parking_time_review_tasks.py:14` — from config import paths
+- `billing/import_ohorona_parking_time.py:20` — from config import paths
+- `billing/import_ohorona_parking_time_simple_preview.py:20` — from config import paths
+- `billing/import_parking_time_hints_from_ohorona.py:18` — from config import paths
+- `billing/migrate_add_parking_billing.py:12` — from config import paths
+- `billing/report_parking_time_review_tasks.py:15` — from config import paths
+- `billing/report_parking_time_with_hints.py:18` — from config import paths
+- `billing_reconciliation_report.py:12` — from config import paths, USE_TEST_DB
+- `billing_statement_excel.py:19` — from config import paths, USE_TEST_DB
+- `Bots/db_access - Copy.py:16` — # from config import paths
+- `Bots/db_access - Copy.py:17` — from config import paths, USE_TEST_DB
+- `Bots/db_access.py:16` — # from config import paths
+- `Bots/db_access.py:17` — from config import paths, USE_TEST_DB
+- `Bots/handlers/audit_viewer - Copy.py:16` — from config import paths, USE_TEST_DB
+- `Bots/handlers/audit_viewer.py:36` — from config import paths, USE_TEST_DB
+- `Bots/handlers/cashier_operator.py:44` — from config import paths, USE_TEST_DB
+- `Bots/handlers/client_portal.py:41` — from config import paths, USE_TEST_DB
+- `Bots/handlers/client_portal_safe_linking.py:41` — from config import paths, USE_TEST_DB
+- `Bots/handlers/commercial_contract_editor.py:39` — from config import paths, USE_TEST_DB
+- `Bots/handlers/unit_registry_editor - Copy.py:42` — from config import paths, USE_TEST_DB
+- `Bots/handlers/unit_registry_editor.py:42` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_card_editor.py:18` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_full_list.py:16` — from config import paths, USE_TEST_DB
+- `Bots/handlers/vehicle_verification.py:18` — from config import paths, USE_TEST_DB
+- `Bots/parking_bot - Copy.py:19` — from config import paths
+- `Bots/parking_bot.py:26` — from config import paths
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:25` — from config import paths
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:20` — from config import paths
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:25` — from config import paths
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:25` — from config import paths
+- `build_plate_candidates.py:13` — from config import paths
+- `build_plate_evidence_by_digits_and_apartment.py:12` — from config import paths
+- `build_plate_evidence_from_telegram.py:12` — from config import paths
+- `build_verification_tasks.py:12` — from config import paths
+- `cashier_journal.py:14` — from config import paths, USE_TEST_DB
+- `cashier_v2_core.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:29` — from config import paths, USE_TEST_DB
+- `cashier_v2_preflight.py:46` — from config import paths, USE_TEST_DB
+- `cashier_v2_preflight.py:314` — f"Mode from config: {'TEST/WORK' if USE_TEST_DB else 'PROD'}",
+- `cashier_v2_preflight_compat.py:28` — from config import paths, USE_TEST_DB
+- `commercial_contracts.py:31` — from config import paths, USE_TEST_DB
+- `commercial_notification_delivery.py:33` — from config import paths, USE_TEST_DB
+- `extract_telegram_remote_facts.py:13` — from config import paths
+- `extract_telegram_vehicle_facts.py:13` — from config import paths
+- `generate_parking_charges.py:19` — from config import paths, USE_TEST_DB
+- `import_house_registry.py:15` — from config import paths
+- `import_ohorona_list1_to_central_cashbox.py:35` — from config import paths, USE_TEST_DB
+- `import_ohorona_sheet1_payments.py:15` — from config import paths, USE_TEST_DB
+- `import_ohorona_to_cashbox.py:17` — from config import paths, USE_TEST_DB
+- `import_osbb_telegram_messages.py:17` — from config import paths
+- `import_paper_parking.py:14` — from config import paths
+- `import_tbot_quarantine.py:14` — from config import paths
+- `init_osbb_db.py:13` — from config import paths
+- `init_osbb_quarantine_db.py:12` — from config import paths
+- `init_osbb_telegram_db.py:12` — from config import paths
+- `inspect_osbb_folder_filter.py:14` — from config import paths
+- `list_osbb_folder_dialogs.py:15` — from config import paths
+- `list_osbb_included_peers.py:16` — from config import paths
+- `list_telegram_dialogs.py:15` — from config import paths
+- `list_telegram_folders.py:14` — from config import paths
+- `manage_staff_access.py:49` — from config import paths, USE_TEST_DB
+- `manage_staff_access_v2.py:49` — from config import paths, USE_TEST_DB
+- `migrate_access_control_and_guard.py:36` — from config import paths, USE_TEST_DB
+- `migrate_add_normalized_fields.py:11` — from config import paths
+- `migrate_add_verification_evidence.py:11` — from config import paths
+- `migrate_add_verification_tasks.py:11` — from config import paths
+- `migrate_apartment_link_requests.py:31` — from config import paths, USE_TEST_DB
+- `migrate_apartment_verification.py:13` — from config import paths, USE_TEST_DB
+- `migrate_billing_core.py:11` — from config import paths, USE_TEST_DB
+- `migrate_bot_core.py:13` — from config import paths
+- `migrate_cashier_core.py:13` — from config import paths, USE_TEST_DB
+- `migrate_cashier_operator_editor.py:42` — from config import paths, USE_TEST_DB
+- `migrate_cashier_v2.py:34` — from config import paths, USE_TEST_DB
+- `migrate_cashier_v2_compat.py:35` — from config import paths, USE_TEST_DB
+- `migrate_charge_adjustments.py:12` — from config import paths, USE_TEST_DB
+- `migrate_commercial_contract_core.py:41` — from config import paths, USE_TEST_DB
+- `migrate_operator_audit_log.py:11` — from config import paths, USE_TEST_DB
+- `migrate_operator_audit_log_v2.py:11` — from config import paths, USE_TEST_DB
+- `migrate_remote_requests.py:31` — from config import paths, USE_TEST_DB
+- `migrate_service_items.py:12` — from config import paths, USE_TEST_DB
+- `migrate_service_orders_and_fulfillment.py:42` — from config import paths, USE_TEST_DB
+- `migrate_unit_registry_composite_groups.py:38` — from config import paths, USE_TEST_DB
+- `normalize_registry_fields.py:19` — from config import paths
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:42` — from config import paths, USE_TEST_DB
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `parking_billing_statement.py:13` — from config import paths, USE_TEST_DB
+- `phone_barrier_access_v2_payload/service_orders_core.py:29` — from config import paths, USE_TEST_DB
+- `plate_consensus_apply.py:13` — from config import paths, USE_TEST_DB
+- `plate_consensus_report.py:16` — from config import paths, USE_TEST_DB
+- `plate_consensus_report_v3.py:16` — from config import paths, USE_TEST_DB
+- `plate_consensus_top6.py:12` — from config import paths, USE_TEST_DB
+- `repair_confirmed_unit_seed_notes.py:34` — from config import paths, USE_TEST_DB
+- `report_bot_admins.py:13` — from config import paths
+- ... and 28 more
+
+## `consensus`
+- `Bots/handlers/vehicle_verification.py:309` — comment="Operator selected correct plate from consensus tie",
+
+## `contact`
+- `profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+- `profile_verification_payload/profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:211` — link columns are available. Does not infer anything from contact phones.
+
+## `contact_methods`
+- `audit_registry.py:65` — "contact_methods",
+- `init_osbb_db.py:97` — CREATE TABLE IF NOT EXISTS contact_methods (
+- `tools/db_schema_snapshot.py:49` — "contact_methods",
+- `tools/db_schema_snapshot_full.py:34` — "contact_methods",
+- `tools/project_passport.py:98` — "contact_methods",
+- `tools/project_passport_v2.py:119` — "contact_methods",
+
+## `contacts`
+- `search_vehicle_by_plate_fragment.py:84` — contact_join = f"LEFT JOIN contacts c ON c.{apartment_id_col} = a.id"
+
+## `created`
+- `migrate_add_verification_evidence.py:49` — print("verification_evidence table created successfully")
+- `migrate_add_verification_tasks.py:78` — print("verification_tasks table created successfully")
+
+## `data`
+- `CHECK_profile_verification_terminology_v2.py:48` — print(" - confirmation is separate from data completeness")
+
+## `dataclasses`
+- `commercial_contracts.py:17` — from dataclasses import dataclass, asdict
+- `tools/project_passport.py:27` — from dataclasses import asdict, dataclass
+- `tools/project_passport_v2.py:27` — from dataclasses import asdict, dataclass
+- `unit_resolver.py:21` — from dataclasses import asdict, dataclass, field
+
+## `datetime`
+- `access_control.py:20` — from datetime import datetime
+- `audit_logger.py:4` — from datetime import datetime
+- `audit_osbb_telegram_messages.py:5` — from datetime import datetime
+- `audit_registry.py:4` — from datetime import datetime
+- `audit_tbot_quarantine.py:4` — from datetime import datetime
+- `billing/build_parking_time_review_tasks.py:4` — from datetime import datetime
+- `billing/import_ohorona_parking_time.py:6` — from datetime import datetime
+- `billing/import_ohorona_parking_time_simple_preview.py:6` — from datetime import datetime
+- `billing/import_parking_time_hints_from_ohorona.py:5` — from datetime import datetime
+- `billing/migrate_add_parking_billing.py:4` — from datetime import datetime
+- `billing/report_parking_time_review_tasks.py:4` — from datetime import datetime
+- `billing/report_parking_time_with_hints.py:5` — from datetime import datetime
+- `billing_reconciliation_report.py:5` — from datetime import datetime
+- `billing_statement_excel.py:5` — from datetime import datetime
+- `Bots/db_access - Copy.py:5` — from datetime import datetime
+- `Bots/db_access.py:5` — from datetime import datetime
+- `Bots/handlers/cashier_operator.py:25` — from datetime import date, datetime
+- `Bots/handlers/client_portal.py:23` — from datetime import datetime
+- `Bots/handlers/client_portal_safe_linking.py:23` — from datetime import datetime
+- `Bots/handlers/commercial_contract_editor.py:22` — from datetime import datetime
+- `Bots/handlers/guard_workspace.py:17` — from datetime import datetime
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:17` — from datetime import datetime
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:17` — from datetime import datetime
+- `Bots/handlers/unit_registry_editor - Copy.py:24` — from datetime import datetime
+- `Bots/handlers/unit_registry_editor.py:24` — from datetime import datetime
+- `Bots/handlers/vehicle_verification.py:1` — from datetime import datetime
+- `build_plate_candidates.py:4` — from datetime import datetime
+- `build_plate_evidence_by_digits_and_apartment.py:4` — from datetime import datetime
+- `build_plate_evidence_from_telegram.py:4` — from datetime import datetime
+- `build_verification_tasks.py:4` — from datetime import datetime
+- `cashier_journal.py:5` — from datetime import datetime
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:31` — from datetime import datetime
+- `cashier_v2_core.py:14` — from datetime import date, datetime
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:14` — from datetime import date, datetime
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:14` — from datetime import date, datetime
+- `cashier_v2_preflight.py:33` — from datetime import datetime
+- `cashier_v2_preflight_compat.py:17` — from datetime import datetime
+- `CHECK_guard_sandbox_service_orders.py:29` — from datetime import datetime
+- `CHECK_guard_sandbox_service_orders_v2.py:24` — from datetime import datetime
+- `commercial_contracts.py:18` — from datetime import date, datetime, timedelta
+- `commercial_notification_delivery.py:22` — from datetime import datetime
+- `create_clean_live_sandbox.py:36` — from datetime import datetime
+- `create_isolated_live_sandbox_v2.py:36` — from datetime import datetime
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:17` — from datetime import datetime
+- `Data/audit_databases.py:4` — from datetime import datetime
+- `Data/clean_base_01.py:4` — from datetime import datetime
+- `Data/clean_base_02.py:3` — from datetime import datetime
+- `diagnose_osbb_audit.py:17` — from datetime import datetime
+- `extract_telegram_remote_facts.py:5` — from datetime import datetime
+- `extract_telegram_vehicle_facts.py:5` — from datetime import datetime
+- `FIND_actual_service_order_state.py:25` — from datetime import datetime
+- `FIX_live_services_sandbox_payment_schema.py:32` — from datetime import datetime
+- `fix_parking_bot_language_gate.py:21` — from datetime import datetime
+- `fix_source_ref_schema.py:22` — from datetime import datetime
+- `generate_parking_charges.py:11` — from datetime import datetime
+- `guard_workspace_preflight.py:25` — from datetime import datetime
+- `guard_workspace_preflight_v2.py:25` — from datetime import datetime
+- `import_house_registry.py:5` — from datetime import datetime
+- `import_ohorona_list1_to_central_cashbox.py:27` — from datetime import datetime
+- `import_ohorona_sheet1_payments.py:6` — from datetime import datetime
+- `import_ohorona_to_cashbox.py:6` — from datetime import datetime
+- `import_osbb_telegram_messages.py:5` — from datetime import datetime
+- `import_paper_parking.py:4` — from datetime import datetime
+- `import_tbot_quarantine.py:4` — from datetime import datetime
+- `init_osbb_db.py:3` — from datetime import datetime
+- `init_osbb_quarantine_db.py:4` — from datetime import datetime
+- `init_osbb_telegram_db.py:4` — from datetime import datetime
+- `INSTALL_cashier_route_after_phone_v2.py:25` — from datetime import datetime
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:30` — from datetime import datetime
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:15` — from datetime import datetime
+- `INSTALL_phone_barrier_access_v2.py:15` — from datetime import datetime
+- `INSTALL_profile_button_early_route_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_confirmation_ready_visibility_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_critical_codes_fix.py:15` — from datetime import datetime
+- `INSTALL_profile_parking_time_test_v1.py:13` — from datetime import datetime
+- `INSTALL_profile_verification_terminology_v2.py:18` — from datetime import datetime
+- `INSTALL_profile_verification_v1.py:6` — from datetime import datetime
+- `INSTALL_service_code_compatibility_phone_v2.py:14` — from datetime import datetime
+- `install_service_orders_ui.py:14` — from datetime import datetime
+- `list_osbb_folder_dialogs.py:4` — from datetime import datetime
+- `list_osbb_included_peers.py:4` — from datetime import datetime
+- `list_telegram_dialogs.py:4` — from datetime import datetime
+- `manage_staff_access.py:39` — from datetime import datetime
+- `manage_staff_access_v2.py:39` — from datetime import datetime
+- `migrate_access_control_and_guard.py:27` — from datetime import datetime
+- `migrate_apartment_link_requests.py:23` — from datetime import datetime
+- `migrate_apartment_verification.py:4` — from datetime import datetime
+- `migrate_bot_core.py:4` — from datetime import datetime
+- `migrate_cashier_core.py:5` — from datetime import datetime
+- `migrate_cashier_operator_editor.py:34` — from datetime import datetime
+- `migrate_cashier_v2.py:26` — from datetime import datetime
+- `migrate_cashier_v2_compat.py:26` — from datetime import datetime
+- `migrate_charge_adjustments.py:5` — from datetime import datetime
+- `migrate_commercial_contract_core.py:29` — from datetime import datetime
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:20` — from datetime import datetime
+- `MIGRATE_phone_barrier_access_sandbox.py:17` — from datetime import date, datetime
+- `MIGRATE_profile_parking_time_test_sandbox.py:14` — from datetime import datetime
+- `MIGRATE_profile_verification_sandbox.py:8` — from datetime import datetime
+- `migrate_remote_requests.py:20` — from datetime import datetime
+- `migrate_service_items.py:5` — from datetime import datetime
+- ... and 73 more
+
+## `db_access`
+- `Bots/handlers/cashier_operator.py:318` — from db_access import get_admin_record  # type: ignore
+- `Bots/handlers/unit_registry_editor - Copy.py:57` — from db_access import can_write
+- `Bots/handlers/unit_registry_editor.py:57` — from db_access import can_write
+
+## `decimal`
+- `import_ohorona_list1_to_central_cashbox.py:28` — from decimal import Decimal, InvalidOperation
+- `import_ohorona_sheet1_payments.py:7` — from decimal import Decimal, InvalidOperation
+- `import_ohorona_to_cashbox.py:7` — from decimal import Decimal, InvalidOperation
+
+## `differences`
+- `tools/db_schema_compare.py:308` — add("No structural table differences found.")
+
+## `difflib`
+- `plate_consensus_report.py:7` — from difflib import SequenceMatcher
+- `plate_consensus_report_v3.py:7` — from difflib import SequenceMatcher
+- `search_vehicle_by_plate_fragment.py:6` — from difflib import SequenceMatcher
+- `vehicle_data_quality_tasks.py:7` — from difflib import SequenceMatcher
+- `vehicle_verification_tasks.py:7` — from difflib import SequenceMatcher
+
+## `direct`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:190` — 2. Add immutable snapshots of what a resident confirmed, plus database triggers protecting audit logs from direct update/delete.
+
+## `docx`
+- `Collect_word_tables.py:2` — from docx import Document
+- `Word_table_to_Excel.py:2` — from docx import Document
+
+## `e`
+- `seed_bot_admins.py:23` — ) from e
+
+## `error`
+- `audit_tbot_quarantine.py:455` — report.add(f"source_files table error: {e}")
+
+## `exc`
+- `Bots/db_access.py:4941` — ) from exc
+- `Bots/handlers/cashier_operator.py:160` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-06-25.") from exc
+- `Bots/handlers/cashier_operator.py:169` — raise ValueError("Сумма: введите число, например 400 или 1250.50.") from exc
+- `Bots/handlers/commercial_contract_editor.py:194` — raise ValueError("Используйте формат даты ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `Bots/handlers/commercial_contract_editor.py:204` — raise ValueError("Введите сумму числом, например 2500 или 120.50.") from exc
+- `Bots/handlers/commercial_contract_editor.py:214` — raise ValueError(f"{caption}: введите целое число.") from exc
+- `Bots/handlers/commercial_contract_editor.py:519` — raise ValueError("У помещения уже есть другой ACTIVE договор.") from exc
+- `Bots/handlers/commercial_contract_editor.py:706` — raise ValueError("Этот номер уже есть в данном договоре.") from exc
+- `cashier_v2_core.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:75` — raise ValueError("Введите сумму числом, например 400 или 1250.50.") from exc
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:88` — raise ValueError("Дата: используйте ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:123` — ) from exc
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:92` — ) from exc
+- `MIGRATE_simplified_services_sandbox.py:60` — ) from exc
+- `MIGRATE_simplified_services_sandbox.py:73` — ) from exc
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:152` — raise ValueError("Дата: ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `patch_cashier_v2_core_period_and_schemafix.py:92` — raise ValueError("Разрешена только БД из Data\\db\\sandbox.") from exc
+- `patch_cashier_v2_core_schemafix.py:101` — ) from exc
+- `prepare_live_service_test.py:67` — raise ValueError("Разрешены только БД внутри Data\\db\\sandbox.") from exc
+- `run_bot_guard_sandbox.py:55` — ) from exc
+- `run_bot_guard_sandbox_v2.py:55` — ) from exc
+- `run_bot_guard_sandbox_v3.py:55` — ) from exc
+- `run_bot_live_service_sandbox_v4.py:52` — ) from exc
+- `run_bot_sandbox_v2.py:70` — ) from exc
+- `service_catalog_admin_core.py:152` — raise ValueError("Дата: ГГГГ-ММ-ДД, например 2026-07-01.") from exc
+- `supervisor_dashboard.py:459` — ) from exc
+
+## `existed`
+- `migrate_apartment_link_requests.py:149` — f"Table existed before: {existed}",
+- `migrate_apartment_link_requests.py:194` — print("Table existed before:", existed)
+- `migrate_remote_requests.py:183` — f"Table existed before: {existed}",
+- `migrate_remote_requests.py:228` — print("Table existed before:", existed)
+
+## `for`
+- `cashier_v2_preflight.py:92` — return sorted(table for table in required if not table_exists(cur, table))
+- `cashier_v2_preflight.py:252` — missing = sorted(table for table in base_required if not m2.table_exists(cur, table))
+- `CHECK_phone_barrier_access_operational_sandbox.py:35` — table for table in required_phone_access_operational_tables()
+- `CHECK_phone_barrier_access_sandbox_schema.py:42` — table for table in required_phone_access_tables()
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:127` — table for table in existing_tables
+- `migrate_cashier_v2.py:404` — missing = [table for table in base_required if not table_exists(cur, table)]
+- `run_bot_sandbox_v2.py:239` — missing = [table for table, count in summary.items() if count < 0]
+
+## `from`
+- `Bots/db_access.py:4925` — # The old implementation inferred composite references from the Telegram
+
+## `G`
+- `CHECK_guard_sandbox_service_orders.py:77` — "Put this diagnosis script directly into G:\\Programming\\Py\\OSBB\\."
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:179` — 2. Unpack package into `G:\Programming\Py\OSBB\`.
+- `MIGRATE_simplified_services_sandbox.py:6` — This migration must be launched from G:\Programming\Py\OSBB\.
+- `RUN_CHECK_guard_sandbox_service_orders.bat:28` — echo directly into G:\Programming\Py\OSBB\
+- `RUN_FIX_live_services_sandbox_payment_schema.bat:30` — echo directly into G:\Programming\Py\OSBB\
+- `RUN_fix_source_ref_schema.bat:16` — echo Put both downloaded files directly into G:\Programming\Py\OSBB\
+
+## `handlers`
+- `Bots/handlers/audit_viewer.py:15` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/handlers/cashier_operator.py:20` — from handlers.cashier_operator import handle_cashier_operator_text
+- `Bots/handlers/cashier_operator_v2.py:31` — from handlers import cashier_operator as v1
+- `Bots/handlers/client_portal_v2.py:34` — from handlers import client_portal as base
+- `Bots/handlers/client_portal_v3.py:26` — from handlers import client_portal as base
+- `Bots/handlers/client_portal_v3.py:27` — from handlers import client_portal_v2 as v2
+- `Bots/handlers/commercial_contract_editor.py:1025` — from handlers.unit_registry_editor import show_unit_card
+- `Bots/handlers/profile_verification_workspace.py:26` — from handlers import client_portal as resident_portal
+- `Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `Bots/handlers/unit_registry_editor - Copy.py:13` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/handlers/unit_registry_editor - Copy.py:46` — from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/handlers/unit_registry_editor.py:13` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/handlers/unit_registry_editor.py:46` — from handlers.commercial_contract_editor import handle_commercial_contract_editor_text
+- `Bots/parking_bot - Copy.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot - Copy.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot - Copy.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot - Copy.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot.py:16` — from handlers.cashier_operator import handle_cashier_operator_text
+- `Bots/parking_bot.py:17` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:11` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:7` — from handlers.vehicle_verification import handle_vehicle_verification_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:8` — from handlers.vehicle_card_editor import handle_vehicle_card_editor_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:9` — from handlers.vehicle_full_list import handle_vehicle_full_list_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:10` — from handlers.audit_viewer import handle_audit_viewer_text
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:11` — from handlers.client_portal import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:16` — from handlers.unit_registry_editor import handle_unit_registry_editor_text
+- `cashier_v2_core.py:35` — from handlers import cashier_operator as v1
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:35` — from handlers import cashier_operator as v1
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:35` — from handlers import cashier_operator as v1
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:433` — import_anchor = "from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:435` — "from handlers.profile_verification_workspace import (\n"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:441` — if "from handlers.profile_verification_workspace import (" not in source:
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:449` — "from handlers.profile_parking_time_test_workspace import "
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:452` — if "from handlers.profile_parking_time_test_workspace import " not in source:
+- `patch_parking_bot_cashier_operator.py:24` — IMPORT_LINE = "from handlers.cashier_operator import handle_cashier_operator_text\n"
+- `patch_parking_bot_cashier_operator.py:83` — if "from handlers.cashier_operator import handle_cashier_operator_text" in source:
+- `patch_parking_bot_cashier_operator.py:87` — "from handlers.client_portal import",
+- `patch_parking_bot_cashier_operator.py:88` — "from handlers.audit_viewer import handle_audit_viewer_text\n",
+- `patch_parking_bot_cashier_operator.py:89` — "from handlers.vehicle_full_list import handle_vehicle_full_list_text\n",
+- `patch_parking_bot_cashier_operator.py:93` — client_start = source.find("from handlers.client_portal import")
+- `patch_parking_bot_cashier_operator.py:108` — if line.startswith("from handlers.") or line.startswith("import handlers.")
+- `patch_parking_bot_client_cabinet.py:29` — "from handlers.client_cabinet import handle_client_cabinet_text\n"
+- `patch_parking_bot_client_cabinet.py:57` — if "from handlers.client_cabinet import handle_client_cabinet_text" in source:
+- `patch_parking_bot_client_cabinet.py:61` — "from handlers.audit_viewer import handle_audit_viewer_text\n",
+- `patch_parking_bot_client_cabinet.py:62` — "from handlers.vehicle_full_list import handle_vehicle_full_list_text\n",
+- `patch_parking_bot_client_cabinet.py:63` — "from handlers.vehicle_card_editor import handle_vehicle_card_editor_text\n",
+- `patch_parking_bot_client_cabinet.py:74` — if line.startswith("from handlers.") or line.startswith("import handlers.")
+- `patch_parking_bot_client_portal.py:27` — "from handlers.client_portal import (\n"
+- `patch_parking_bot_client_portal.py:81` — if "from handlers.client_portal import" in source:
+- `patch_parking_bot_client_portal.py:84` — marker = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_client_portal.py:91` — if line.startswith("from handlers.")
+- `patch_parking_bot_guard_workspace_v2.py:29` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v2.py:111` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v2.py:114` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v2.py:215` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_guard_workspace_v3.py:27` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v3.py:95` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v3.py:97` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v3.py:191` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_guard_workspace_v4.py:27` — "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_guard_workspace_v4.py:105` — if "from handlers.guard_workspace import (" in source:
+- `patch_parking_bot_guard_workspace_v4.py:107` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_guard_workspace_v4.py:201` — "from handlers.guard_workspace import (",
+- `patch_parking_bot_service_orders_ui_v1.py:25` — "from handlers.service_orders_workspace import (\n"
+- `patch_parking_bot_service_orders_ui_v1.py:145` — if "from handlers.service_orders_workspace import (" in source:
+- `patch_parking_bot_service_orders_ui_v1.py:147` — anchor = "from handlers.guard_workspace import (\n"
+- `patch_parking_bot_service_orders_ui_v1.py:155` — anchor = "from handlers.audit_viewer import handle_audit_viewer_text\n"
+- `patch_parking_bot_service_orders_ui_v1.py:162` — old = "from handlers.client_portal_v2 import ("
+- `patch_parking_bot_service_orders_ui_v1.py:163` — new = "from handlers.client_portal_v3 import ("
+- `patch_parking_bot_service_orders_ui_v1.py:266` — "from handlers.service_orders_workspace import (",
+- `patch_parking_bot_service_orders_ui_v1.py:267` — "from handlers.client_portal_v3 import (",
+- `patch_parking_bot_service_orders_v1.py:21` — "from handlers.service_orders_workspace import handle_service_orders_text\n"
+- `patch_parking_bot_service_orders_v1.py:44` — if "from handlers.service_orders_workspace import handle_service_orders_text" in source:
+- `patch_parking_bot_service_orders_v1.py:48` — "from handlers.audit_viewer import handle_audit_viewer_text\n",
+- `patch_parking_bot_service_orders_v1.py:49` — "from handlers.unit_registry_editor import handle_unit_registry_editor_text\n",
+- `patch_parking_bot_service_orders_v1.py:95` — "from handlers.service_orders_workspace import handle_service_orders_text",
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:36` — from handlers import client_portal as resident_portal
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:427` — import_anchor = "from handlers.cashier_operator_v2 import handle_cashier_operator_v2_text"
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:429` — "from handlers.profile_verification_workspace import (\n"
+- ... and 22 more
+
+## `has`
+- `Bots/handlers/vehicle_verification.py:294` — raise RuntimeError("vehicles table has no license plate columns")
+- `vehicle_data_quality_tasks.py:319` — raise RuntimeError("payments table has no editable columns")
+
+## `IF`
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `billing/build_parking_time_review_tasks.py:27` — CREATE TABLE IF NOT EXISTS parking_time_review_tasks (
+- `billing/migrate_add_parking_billing.py:24` — CREATE TABLE IF NOT EXISTS parking_tariffs (
+- `billing/migrate_add_parking_billing.py:43` — CREATE TABLE IF NOT EXISTS billing_periods (
+- `billing/migrate_add_parking_billing.py:56` — CREATE TABLE IF NOT EXISTS parking_charges (
+- `billing/migrate_add_parking_billing.py:89` — CREATE TABLE IF NOT EXISTS parking_payments (
+- `billing/migrate_add_parking_billing.py:117` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `billing/migrate_add_parking_billing.py:129` — CREATE TABLE IF NOT EXISTS cash_transfers (
+- `build_plate_candidates.py:61` — CREATE TABLE IF NOT EXISTS verification_candidates (
+- `init_osbb_db.py:33` — CREATE TABLE IF NOT EXISTS schema_info (
+- `init_osbb_db.py:42` — CREATE TABLE IF NOT EXISTS apartments (
+- `init_osbb_db.py:60` — CREATE TABLE IF NOT EXISTS persons (
+- `init_osbb_db.py:78` — CREATE TABLE IF NOT EXISTS vehicles (
+- `init_osbb_db.py:97` — CREATE TABLE IF NOT EXISTS contact_methods (
+- `init_osbb_db.py:119` — CREATE TABLE IF NOT EXISTS events (
+- `init_osbb_db.py:139` — CREATE TABLE IF NOT EXISTS verification_log (
+- `init_osbb_db.py:154` — CREATE TABLE IF NOT EXISTS audit_log (
+- `init_osbb_db.py:169` — CREATE TABLE IF NOT EXISTS message_sources (
+- `init_osbb_db.py:179` — CREATE TABLE IF NOT EXISTS raw_messages (
+- `init_osbb_db.py:196` — CREATE TABLE IF NOT EXISTS extracted_facts (
+- `init_osbb_quarantine_db.py:29` — CREATE TABLE IF NOT EXISTS source_files (
+- `init_osbb_quarantine_db.py:41` — CREATE TABLE IF NOT EXISTS tbot_parking_import (
+- `init_osbb_telegram_db.py:29` — CREATE TABLE IF NOT EXISTS telegram_chats (
+- `init_osbb_telegram_db.py:41` — CREATE TABLE IF NOT EXISTS telegram_messages (
+- `init_osbb_telegram_db.py:69` — CREATE TABLE IF NOT EXISTS telegram_facts (
+- `migrate_access_control_and_guard.py:99` — CREATE TABLE IF NOT EXISTS staff_principals (
+- `migrate_access_control_and_guard.py:111` — CREATE TABLE IF NOT EXISTS access_roles (
+- `migrate_access_control_and_guard.py:123` — CREATE TABLE IF NOT EXISTS access_role_permissions (
+- `migrate_access_control_and_guard.py:141` — CREATE TABLE IF NOT EXISTS access_user_roles (
+- `migrate_access_control_and_guard.py:160` — CREATE TABLE IF NOT EXISTS access_user_permissions (
+- `migrate_access_control_and_guard.py:181` — CREATE TABLE IF NOT EXISTS access_audit_log (
+- `migrate_access_control_and_guard.py:199` — CREATE TABLE IF NOT EXISTS remote_handover_events (
+- `migrate_add_verification_evidence.py:19` — CREATE TABLE IF NOT EXISTS verification_evidence (
+- `migrate_add_verification_tasks.py:21` — CREATE TABLE IF NOT EXISTS verification_tasks (
+- `migrate_apartment_link_requests.py:84` — CREATE TABLE IF NOT EXISTS apartment_link_requests (
+- `migrate_apartment_verification.py:38` — CREATE TABLE IF NOT EXISTS apartment_verification (
+- `migrate_billing_core.py:35` — CREATE TABLE IF NOT EXISTS service_catalog (
+- `migrate_billing_core.py:49` — CREATE TABLE IF NOT EXISTS service_tariffs (
+- `migrate_billing_core.py:65` — CREATE TABLE IF NOT EXISTS charges (
+- `migrate_billing_core.py:89` — CREATE TABLE IF NOT EXISTS payments (
+- `migrate_billing_core.py:108` — CREATE TABLE IF NOT EXISTS payment_allocations (
+- `migrate_bot_core.py:44` — CREATE TABLE IF NOT EXISTS resident_accounts (
+- `migrate_bot_core.py:154` — CREATE TABLE IF NOT EXISTS bot_admins (
+- `migrate_bot_core.py:261` — CREATE TABLE IF NOT EXISTS audit_log (
+- `migrate_bot_core.py:325` — CREATE TABLE IF NOT EXISTS bot_user_sessions (
+- `migrate_cashier_core.py:43` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_cashier_core.py:105` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_core.py:124` — CREATE TABLE IF NOT EXISTS cashbox_operations (
+- `migrate_cashier_core.py:162` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_operator_editor.py:158` — CREATE TABLE IF NOT EXISTS cashboxes (
+- `migrate_cashier_operator_editor.py:175` — CREATE TABLE IF NOT EXISTS cashbox_operations (
+- `migrate_cashier_operator_editor.py:203` — CREATE TABLE IF NOT EXISTS cashier_receipts (
+- `migrate_cashier_v2.py:99` — CREATE TABLE IF NOT EXISTS payment_notices (
+- `migrate_cashier_v2.py:137` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2.py:171` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2.py:201` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2.py:229` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_cashier_v2_compat.py:96` — CREATE TABLE IF NOT EXISTS payment_notices (
+- `migrate_cashier_v2_compat.py:132` — CREATE TABLE IF NOT EXISTS bank_transactions (
+- `migrate_cashier_v2_compat.py:164` — CREATE TABLE IF NOT EXISTS cashier_batches (
+- `migrate_cashier_v2_compat.py:194` — CREATE TABLE IF NOT EXISTS cashier_batch_items (
+- `migrate_cashier_v2_compat.py:220` — CREATE TABLE IF NOT EXISTS cashier_reconciliation_cases (
+- `migrate_charge_adjustments.py:120` — CREATE TABLE IF NOT EXISTS adjustment_catalog (
+- `migrate_charge_adjustments.py:157` — CREATE TABLE IF NOT EXISTS adjustment_assignments (
+- `migrate_charge_adjustments.py:192` — CREATE TABLE IF NOT EXISTS charge_adjustments (
+- `migrate_commercial_contract_core.py:239` — CREATE TABLE IF NOT EXISTS commercial_contracts (
+- `migrate_commercial_contract_core.py:265` — CREATE TABLE IF NOT EXISTS commercial_contract_items (
+- `migrate_commercial_contract_core.py:290` — CREATE TABLE IF NOT EXISTS commercial_contract_recipients (
+- `migrate_commercial_contract_core.py:311` — CREATE TABLE IF NOT EXISTS commercial_access_phones (
+- `migrate_commercial_contract_core.py:330` — CREATE TABLE IF NOT EXISTS commercial_notifications (
+- `migrate_commercial_contract_core.py:357` — CREATE TABLE IF NOT EXISTS commercial_access_actions (
+- `migrate_operator_audit_log.py:35` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_operator_audit_log_v2.py:66` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_remote_requests.py:98` — CREATE TABLE IF NOT EXISTS remote_requests (
+- `migrate_service_items.py:44` — CREATE TABLE IF NOT EXISTS service_catalog (
+- `migrate_service_items.py:90` — CREATE TABLE IF NOT EXISTS service_items (
+- `migrate_service_items.py:120` — CREATE TABLE IF NOT EXISTS barrier_phone_access (
+- `migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `migrate_service_orders_and_fulfillment.py:132` — CREATE TABLE IF NOT EXISTS service_item_workflows (
+- `migrate_service_orders_and_fulfillment.py:149` — CREATE TABLE IF NOT EXISTS service_price_versions (
+- `migrate_service_orders_and_fulfillment.py:165` — CREATE TABLE IF NOT EXISTS service_orders (
+- `migrate_service_orders_and_fulfillment.py:193` — CREATE TABLE IF NOT EXISTS service_order_steps (
+- `migrate_service_orders_and_fulfillment.py:211` — CREATE TABLE IF NOT EXISTS service_order_charge_links (
+- `migrate_service_orders_and_fulfillment.py:222` — CREATE TABLE IF NOT EXISTS service_order_payment_links (
+- `migrate_service_orders_and_fulfillment.py:234` — CREATE TABLE IF NOT EXISTS service_order_events (
+- `migrate_service_orders_and_fulfillment.py:246` — CREATE TABLE IF NOT EXISTS remote_assets (
+- `migrate_service_orders_and_fulfillment.py:267` — CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `migrate_service_orders_and_fulfillment.py:283` — CREATE TABLE IF NOT EXISTS remote_order_details (
+- `migrate_service_orders_and_fulfillment.py:295` — CREATE TABLE IF NOT EXISTS service_access_credentials (
+- `migrate_unit_registry_composite_groups.py:174` — CREATE TABLE IF NOT EXISTS unit_groups (
+- `migrate_unit_registry_composite_groups.py:189` — CREATE TABLE IF NOT EXISTS unit_group_members (
+- `migrate_unit_registry_composite_groups.py:205` — CREATE TABLE IF NOT EXISTS unit_group_aliases (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:132` — CREATE TABLE IF NOT EXISTS service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:149` — CREATE TABLE IF NOT EXISTS service_price_versions (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:165` — CREATE TABLE IF NOT EXISTS service_orders (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:193` — CREATE TABLE IF NOT EXISTS service_order_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:211` — CREATE TABLE IF NOT EXISTS service_order_charge_links (
+- ... and 70 more
+
+## `import`
+- `billing_statement_excel.py:11` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_parking_payments_audit_v4.py:367` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_unpaid_preview_v3.py:330` — from openpyxl.worksheet.table import Table, TableStyleInfo
+
+## `in`
+- `audit_registry.py:74` — for table in tables:
+- `cashier_v2_preflight.py:92` — return sorted(table for table in required if not table_exists(cur, table))
+- `cashier_v2_preflight.py:252` — missing = sorted(table for table in base_required if not m2.table_exists(cur, table))
+- `CHECK_guard_sandbox_service_orders_v2.py:280` — for table in tables:
+- `CHECK_phone_barrier_access_operational_sandbox.py:35` — table for table in required_phone_access_operational_tables()
+- `CHECK_phone_barrier_access_sandbox_schema.py:42` — table for table in required_phone_access_tables()
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:124` — table for table in UNIT_TABLE_PRIORITY if table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:127` — table for table in existing_tables
+- `CHECK_profile_test_candidate_apartment_40.py:133` — for table in ordered_tables:
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `migrate_bot_core.py:349` — for table in [
+- `migrate_cashier_v2.py:404` — missing = [table for table in base_required if not table_exists(cur, table)]
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:90` — 1 for table in required_phone_access_operational_tables()
+- `migrate_service_items.py:144` — for table in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `phone_barrier_access_core.py:878` — for table in created:
+- `phone_barrier_access_core.py:1360` — for table in sorted(_operational_tables() - before):
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:878` — for table in created:
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1360` — for table in sorted(_operational_tables() - before):
+- `run_bot_guard_sandbox.py:113` — for table in tables:
+- `run_bot_guard_sandbox_v2.py:113` — for table in tables:
+- `run_bot_guard_sandbox_v3.py:113` — for table in tables:
+- `run_bot_sandbox_v2.py:118` — for table in required:
+- `supervisor_dashboard.py:307` — for table in [
+- `tools/db_schema_compare.py:159` — for table in common_tables:
+- `tools/db_schema_snapshot.py:178` — for table in tables:
+- `tools/db_schema_snapshot_full.py:165` — for table in tables:
+- `tools/project_passport.py:589` — for table in sorted(refs_by_table, key=str.lower):
+- `tools/project_passport_v2.py:633` — for table in sorted(refs_by_table, key=str.lower):
+- `unit_resolver.py:205` — if not all(table_exists(conn, table) for table in needed):
+- `Word_table_to_Excel.py:28` — for index, table in enumerate(doc.tables, start=1):
+
+## `its`
+- `run_bot_sandbox_v2.py:181` — parking_bot.py executed from its true path, but only the patched source
+
+## `LIST`
+- `tools/db_schema_snapshot.py:232` — "TABLE LIST",
+- `tools/db_schema_snapshot_full.py:266` — lines.extend(["", "TABLE LIST", sub])
+
+## `message_sources`
+- `init_osbb_db.py:191` — FOREIGN KEY(source_id) REFERENCES message_sources(id)
+
+## `missing`
+- `Bots/handlers/client_portal.py:1052` — result["error"] = "charges table missing"
+- `Bots/handlers/client_portal_safe_linking.py:1052` — result["error"] = "charges table missing"
+- `migrate_access_control_and_guard.py:309` — result[table].append("<table missing>")
+- `migrate_cashier_v2.py:280` — additions[table] = ["<table missing>"]
+- `migrate_cashier_v2_compat.py:393` — added[table].append("<table missing>")
+- `migrate_cashier_v2_compat.py:583` — plan[table] = plan.get(table, []) + ["<base table missing>"]
+
+## `name`
+- `fix_source_ref_schema.py:78` — to the actual SQLite table name. Schema prefixes are not expected in OSBB.
+- `fix_source_ref_schema.py:93` — # SQLite PRAGMA table_info expects the final table name in this project.
+- `fix_source_ref_schema.py:257` — "WARNING: table name(s) found in source but absent in osbb.db: "
+
+## `names`
+- `fix_source_ref_schema.py:134` — Locate table names assigned to alias p in the SQL statement that reads
+- `fix_source_ref_schema.py:263` — "None of the table names detected in the handler exists in osbb.db. "
+
+## `not`
+- `audit_registry.py:80` — report.add(f"{table:20}: table not found")
+- `CHECK_profile_test_candidate_apartment_40.py:128` — if table not in ordered_tables
+- `fix_source_ref_schema.py:150` — if table not in candidates:
+- `vehicle_data_quality_tasks.py:285` — raise RuntimeError("payments table not found")
+
+## `OHORONA`
+- `import_ohorona_sheet1_payments.py:654` — lines.append("UNKNOWN PLATES FROM OHORONA")
+
+## `old`
+- `Bots/handlers/client_portal_v2.py:663` — # A stale v2 state should not fall into old client portal text parser.
+
+## `openpyxl`
+- `billing/import_ohorona_parking_time.py:9` — from openpyxl import load_workbook
+- `billing/import_ohorona_parking_time_simple_preview.py:9` — from openpyxl import load_workbook
+- `billing/import_parking_time_hints_from_ohorona.py:8` — from openpyxl import load_workbook
+- `billing/report_parking_time_with_hints.py:8` — from openpyxl import load_workbook
+- `billing_statement_excel.py:8` — from openpyxl import Workbook
+- `billing_statement_excel.py:9` — from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
+- `billing_statement_excel.py:10` — from openpyxl.utils import get_column_letter
+- `billing_statement_excel.py:11` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `cashier_journal.py:1564` — from openpyxl import Workbook
+- `cashier_journal.py:1565` — from openpyxl.styles import Font, PatternFill, Alignment
+- `cashier_journal.py:1566` — from openpyxl.utils import get_column_letter
+- `Collect_word_tables.py:3` — from openpyxl import Workbook
+- `Collect_word_tables.py:4` — from openpyxl.utils import get_column_letter
+- `Data/create_payment_sheet.py:4` — from openpyxl import Workbook
+- `Data/create_payment_sheet.py:5` — from openpyxl.styles import Border, Side
+- `import_ohorona_sheet1_payments.py:8` — from openpyxl import load_workbook
+- `import_ohorona_to_cashbox.py:9` — from openpyxl import load_workbook
+- `supervisor_dashboard.py:453` — from openpyxl import Workbook
+- `supervisor_dashboard.py:454` — from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+- `supervisor_dashboard.py:455` — from openpyxl.utils import get_column_letter
+- `tools/cashier_parking_payments_audit_v4.py:354` — from openpyxl.utils import get_column_letter
+- `tools/cashier_parking_payments_audit_v4.py:365` — from openpyxl import Workbook
+- `tools/cashier_parking_payments_audit_v4.py:366` — from openpyxl.styles import Alignment, Font, PatternFill
+- `tools/cashier_parking_payments_audit_v4.py:367` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `tools/cashier_unpaid_preview_v3.py:316` — from openpyxl.utils import get_column_letter
+- `tools/cashier_unpaid_preview_v3.py:328` — from openpyxl import Workbook
+- `tools/cashier_unpaid_preview_v3.py:329` — from openpyxl.styles import Alignment, Font, PatternFill
+- `tools/cashier_unpaid_preview_v3.py:330` — from openpyxl.worksheet.table import Table, TableStyleInfo
+- `Word_table_to_Excel.py:3` — from openpyxl import Workbook
+- `Word_table_to_Excel.py:4` — from openpyxl.utils import get_column_letter
+
+## `operator_audit_log`
+- `access_control.py:363` — operator_audit_log. Caller controls transaction commit.
+- `audit_logger.py:52` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `audit_logger.py:102` — if add_column_if_missing(cur, "operator_audit_log", col, col_def):
+- `audit_logger.py:105` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `audit_logger.py:106` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `audit_logger.py:107` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_user ON operator_audit_log(user_id)")
+- `audit_logger.py:108` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `audit_logger.py:109` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `audit_logger.py:110` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_table_row ON operator_audit_log(table_name, row_id)")
+- `audit_logger.py:111` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `audit_logger.py:168` — cols = table_columns(cur, "operator_audit_log")
+- `audit_logger.py:173` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `audit_logger.py:261` — table_name="operator_audit_log",
+- `Bots/db_access - Copy.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access - Copy.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/db_access.py:4519` — Пишет действие оператора в operator_audit_log.
+- `Bots/db_access.py:4531` — INSERT INTO operator_audit_log (
+- `Bots/handlers/audit_viewer - Copy.py:52` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer - Copy.py:83` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer - Copy.py:130` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer - Copy.py:180` — "Основной журнал: operator_audit_log.\n\n"
+- `Bots/handlers/audit_viewer.py:4` — Источник данных: ТОЛЬКО operator_audit_log.
+- `Bots/handlers/audit_viewer.py:91` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:96` — "SELECT COUNT(*) FROM operator_audit_log WHERE actor_type=?",
+- `Bots/handlers/audit_viewer.py:100` — cur.execute("SELECT COUNT(*) FROM operator_audit_log")
+- `Bots/handlers/audit_viewer.py:115` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/audit_viewer.py:145` — FROM operator_audit_log
+- `Bots/handlers/audit_viewer.py:232` — "Источник: operator_audit_log",
+- `Bots/handlers/audit_viewer.py:260` — "Основной журнал: operator_audit_log.\n"
+- `Bots/handlers/commercial_contract_editor.py:12` — - фиксирует все действия в operator_audit_log.
+- `Bots/handlers/guard_workspace.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:9` — - пишет действия в access_audit_log и operator_audit_log.
+- `Bots/handlers/unit_registry_editor - Copy.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor.py:10` — - фиксирует все изменения в operator_audit_log.
+- `Bots/handlers/unit_registry_editor.py:420` — в operator_audit_log той же TEST/WORK или PROD БД, что и сам редактор.
+- `Bots/handlers/vehicle_verification.py:64` — if not table_exists(cur, "operator_audit_log"):
+- `Bots/handlers/vehicle_verification.py:67` — columns = table_columns(cur, "operator_audit_log")
+- `Bots/handlers/vehicle_verification.py:90` — f"INSERT INTO operator_audit_log ({', '.join(insert_cols)}) VALUES ({placeholders})",
+- `diagnose_osbb_audit.py:7` — - последние записи operator_audit_log;
+- `diagnose_osbb_audit.py:72` — if exists_table(cur, "operator_audit_log"):
+- `diagnose_osbb_audit.py:75` — FROM operator_audit_log
+- `diagnose_osbb_audit.py:87` — FROM operator_audit_log
+- `diagnose_osbb_audit.py:93` — result["audit_rows"] = "operator_audit_log отсутствует"
+- `diagnose_osbb_audit.py:127` — if exists_table(cur, "operator_audit_log"):
+- `diagnose_osbb_audit.py:134` — FROM operator_audit_log
+- `mark_audit_enabled.py:6` — comment="Включён журнал аудита ОСББ. Начиная с этой точки, изменения должны фиксироваться в operator_audit_log.",
+- `migrate_apartment_link_requests.py:157` — "  • подтверждение меняет resident_accounts и пишется в operator_audit_log.",
+- `migrate_cashier_core.py:41` — def ensure_operator_audit_log(cur):
+- `migrate_cashier_core.py:43` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_cashier_core.py:91` — if add_column_if_missing(cur, "operator_audit_log", col, col_def):
+- `migrate_cashier_core.py:94` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `migrate_cashier_core.py:95` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `migrate_cashier_core.py:96` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `migrate_cashier_core.py:97` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `migrate_cashier_core.py:98` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `migrate_cashier_core.py:289` — audit_added = ensure_operator_audit_log(cur)
+- `migrate_cashier_core.py:312` — print("  operator_audit_log:", table_count("operator_audit_log"))
+- `migrate_operator_audit_log.py:35` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_operator_audit_log.py:60` — ON operator_audit_log(created_at)
+- `migrate_operator_audit_log.py:65` — ON operator_audit_log(operator_telegram_id)
+- `migrate_operator_audit_log.py:70` — ON operator_audit_log(action_type)
+- `migrate_operator_audit_log.py:75` — ON operator_audit_log(apartment_number)
+- `migrate_operator_audit_log.py:80` — ON operator_audit_log(vehicle_id)
+- `migrate_operator_audit_log.py:87` — FROM operator_audit_log
+- `migrate_operator_audit_log.py:93` — print("Table operator_audit_log is ready.")
+- `migrate_operator_audit_log_v2.py:66` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `migrate_operator_audit_log_v2.py:107` — if add_column_if_missing(cur, "operator_audit_log", column_name, column_def):
+- `migrate_operator_audit_log_v2.py:111` — ("idx_operator_audit_created_at", "CREATE INDEX idx_operator_audit_created_at ON operator_audit_log(created_at)"),
+- `migrate_operator_audit_log_v2.py:112` — ("idx_operator_audit_operator", "CREATE INDEX idx_operator_audit_operator ON operator_audit_log(operator_telegram_id)"),
+- `migrate_operator_audit_log_v2.py:113` — ("idx_operator_audit_action", "CREATE INDEX idx_operator_audit_action ON operator_audit_log(action_type)"),
+- `migrate_operator_audit_log_v2.py:114` — ("idx_operator_audit_apartment", "CREATE INDEX idx_operator_audit_apartment ON operator_audit_log(apartment_number)"),
+- `migrate_operator_audit_log_v2.py:115` — ("idx_operator_audit_vehicle", "CREATE INDEX idx_operator_audit_vehicle ON operator_audit_log(vehicle_id)"),
+- `migrate_operator_audit_log_v2.py:116` — ("idx_operator_audit_review_status", "CREATE INDEX idx_operator_audit_review_status ON operator_audit_log(review_status)"),
+- `migrate_operator_audit_log_v2.py:117` — ("idx_operator_audit_action_status", "CREATE INDEX idx_operator_audit_action_status ON operator_audit_log(action_status)"),
+- `migrate_operator_audit_log_v2.py:118` — ("idx_operator_audit_field", "CREATE INDEX idx_operator_audit_field ON operator_audit_log(table_name, field_name)"),
+- `migrate_operator_audit_log_v2.py:128` — UPDATE operator_audit_log
+- `migrate_operator_audit_log_v2.py:141` — cur.execute("SELECT COUNT(*) FROM operator_audit_log")
+- `migrate_operator_audit_log_v2.py:146` — FROM operator_audit_log
+- `migrate_operator_audit_log_v2.py:153` — print("operator_audit_log is ready for supervisor review.")
+- `migrate_remote_requests.py:10` — Все изменения пишутся в operator_audit_log.
+- `plate_consensus_apply.py:51` — if not table_exists(cur, "operator_audit_log"):
+- `plate_consensus_apply.py:54` — columns = table_columns(cur, "operator_audit_log")
+- `plate_consensus_apply.py:81` — INSERT INTO operator_audit_log ({", ".join(insert_cols)})
+- `repair_confirmed_unit_seed_notes.py:13` — Каждое изменение пишет отдельную запись в operator_audit_log.
+- `restore_resident_apartment_link.py:124` — if not table_exists(cur, "operator_audit_log"):
+- `restore_resident_apartment_link.py:142` — FROM operator_audit_log
+- `supervisor_dashboard.py:70` — CREATE TABLE IF NOT EXISTS operator_audit_log (
+- `supervisor_dashboard.py:89` — cols = table_columns(cur, "operator_audit_log")
+- `supervisor_dashboard.py:116` — cur.execute(f"ALTER TABLE operator_audit_log ADD COLUMN {col} {col_type}")
+- `supervisor_dashboard.py:118` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_created ON operator_audit_log(created_at)")
+- `supervisor_dashboard.py:119` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_operator ON operator_audit_log(operator_id)")
+- `supervisor_dashboard.py:120` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_actor ON operator_audit_log(actor_type)")
+- `supervisor_dashboard.py:121` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_action ON operator_audit_log(action_type)")
+- `supervisor_dashboard.py:122` — cur.execute("CREATE INDEX IF NOT EXISTS idx_operator_audit_review ON operator_audit_log(review_status)")
+- `supervisor_dashboard.py:126` — if not table_exists(cur, "operator_audit_log"):
+- `supervisor_dashboard.py:129` — cols = table_columns(cur, "operator_audit_log")
+- `supervisor_dashboard.py:175` — FROM operator_audit_log
+- `supervisor_dashboard.py:308` — "apartments", "contacts", "vehicles", "operator_audit_log",
+- `supervisor_dashboard.py:636` — print("WARNING: operator_audit_log is empty; filters will look identical until new actions are logged.")
+- ... and 4 more
+
+## `OSBB`
+- `MIGRATE_simplified_services_sandbox.py:48` — config from the parent Python project directory, not from OSBB itself.
+- `tools/db_schema_compare.py:4` — # Run from OSBB project root or Py root.
+- `tools/db_schema_snapshot.py:4` — # Run from OSBB root:
+
+## `osbb_test`
+- `create_isolated_live_sandbox_v2.py:357` — "Baseline workflow counts inherited from osbb_test.db:",
+
+## `paid`
+- `tools/cashier_parking_payments_audit_v4.py:136` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_parking_payments_audit_v4.py:200` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_unpaid_preview_v3.py:144` — LEFT JOIN paid p ON p.charge_id = c.id
+- `tools/cashier_unpaid_preview_v3.py:208` — LEFT JOIN paid p ON p.charge_id = c.id
+
+## `PAPER`
+- `audit_registry.py:97` — report.section("APARTMENTS CREATED FROM PAPER PARKING")
+
+## `paper`
+- `plate_consensus_apply.py:89` — Consensus correction updates only vehicles from paper/main DB.
+
+## `parking_charges`
+- `billing/migrate_add_parking_billing.py:111` — FOREIGN KEY(parking_charge_id) REFERENCES parking_charges(id),
+
+## `parking_tariffs`
+- `billing/migrate_add_parking_billing.py:35` — INSERT OR IGNORE INTO parking_tariffs
+
+## `parking_time_review_tasks`
+- `billing/build_parking_time_review_tasks.py:17` — CREATED_BY = "build_parking_time_review_tasks"
+- `billing/build_parking_time_review_tasks.py:27` — CREATE TABLE IF NOT EXISTS parking_time_review_tasks (
+- `billing/build_parking_time_review_tasks.py:62` — ON parking_time_review_tasks(status)
+- `billing/build_parking_time_review_tasks.py:67` — ON parking_time_review_tasks(apartment_number)
+- `billing/build_parking_time_review_tasks.py:74` — DELETE FROM parking_time_review_tasks
+- `billing/build_parking_time_review_tasks.py:108` — INSERT INTO parking_time_review_tasks (
+- `billing/build_parking_time_review_tasks.py:177` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:67` — report_file = report_dir / f"parking_time_review_tasks_{now_ts()}.txt"
+- `billing/report_parking_time_review_tasks.py:78` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:85` — FROM parking_time_review_tasks
+- `billing/report_parking_time_review_tasks.py:109` — FROM parking_time_review_tasks
+- `billing/report_parking_time_with_hints.py:176` — FROM parking_time_review_tasks
+- `tools/db_schema_snapshot.py:63` — "parking_time_review_tasks",
+- `tools/db_schema_snapshot_full.py:48` — "parking_time_review_tasks",
+- `tools/project_passport.py:113` — "parking_time_review_tasks",
+- `tools/project_passport_v2.py:134` — "parking_time_review_tasks",
+
+## `PATCHED`
+- `CHECK_guard_sandbox_service_orders.py:442` — say("  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,")
+
+## `pathlib`
+- `access_control.py:21` — from pathlib import Path
+- `audit_composite_apartments.py:3` — from pathlib import Path
+- `audit_logger.py:1` — from pathlib import Path
+- `audit_osbb_telegram_messages.py:1` — from pathlib import Path
+- `audit_registry.py:1` — from pathlib import Path
+- `audit_tbot_quarantine.py:1` — from pathlib import Path
+- `billing/build_parking_time_review_tasks.py:1` — from pathlib import Path
+- `billing/import_ohorona_parking_time.py:1` — from pathlib import Path
+- `billing/import_ohorona_parking_time_simple_preview.py:1` — from pathlib import Path
+- `billing/import_parking_time_hints_from_ohorona.py:1` — from pathlib import Path
+- `billing/migrate_add_parking_billing.py:1` — from pathlib import Path
+- `billing/report_parking_time_review_tasks.py:1` — from pathlib import Path
+- `billing/report_parking_time_with_hints.py:1` — from pathlib import Path
+- `billing_reconciliation_report.py:1` — from pathlib import Path
+- `billing_statement_excel.py:1` — from pathlib import Path
+- `Bots/db_access - Copy.py:1` — from pathlib import Path
+- `Bots/db_access.py:1` — from pathlib import Path
+- `Bots/handlers/audit_viewer - Copy.py:1` — from pathlib import Path
+- `Bots/handlers/audit_viewer.py:20` — from pathlib import Path
+- `Bots/handlers/cashier_operator.py:26` — from pathlib import Path
+- `Bots/handlers/cashier_operator_v2.py:18` — from pathlib import Path
+- `Bots/handlers/client_portal.py:24` — from pathlib import Path
+- `Bots/handlers/client_portal_safe_linking.py:24` — from pathlib import Path
+- `Bots/handlers/client_portal_v2.py:20` — from pathlib import Path
+- `Bots/handlers/client_portal_v3.py:16` — from pathlib import Path
+- `Bots/handlers/commercial_contract_editor.py:23` — from pathlib import Path
+- `Bots/handlers/guard_workspace.py:16` — from pathlib import Path
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:16` — from pathlib import Path
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:16` — from pathlib import Path
+- `Bots/handlers/profile_parking_time_test_workspace.py:11` — from pathlib import Path
+- `Bots/handlers/profile_verification_workspace.py:12` — from pathlib import Path
+- `Bots/handlers/service_orders_workspace.py:19` — from pathlib import Path
+- `Bots/handlers/unit_registry_editor - Copy.py:25` — from pathlib import Path
+- `Bots/handlers/unit_registry_editor.py:25` — from pathlib import Path
+- `Bots/handlers/vehicle_card_editor.py:2` — from pathlib import Path
+- `Bots/handlers/vehicle_full_list.py:1` — from pathlib import Path
+- `Bots/handlers/vehicle_verification.py:2` — from pathlib import Path
+- `Bots/parking_bot - Copy.py:1` — from pathlib import Path
+- `Bots/parking_bot.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:1` — from pathlib import Path
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:1` — from pathlib import Path
+- `build_plate_candidates.py:1` — from pathlib import Path
+- `build_plate_evidence_by_digits_and_apartment.py:1` — from pathlib import Path
+- `build_plate_evidence_from_telegram.py:1` — from pathlib import Path
+- `build_verification_tasks.py:1` — from pathlib import Path
+- `cashier_journal.py:1` — from pathlib import Path
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:32` — from pathlib import Path
+- `cashier_v2_core.py:15` — from pathlib import Path
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:15` — from pathlib import Path
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:15` — from pathlib import Path
+- `cashier_v2_preflight.py:34` — from pathlib import Path
+- `cashier_v2_preflight_compat.py:18` — from pathlib import Path
+- `CHECK_guard_sandbox_service_orders.py:30` — from pathlib import Path
+- `CHECK_guard_sandbox_service_orders_v2.py:25` — from pathlib import Path
+- `CHECK_phone_barrier_access_operational_sandbox.py:9` — from pathlib import Path
+- `CHECK_phone_barrier_access_sandbox_schema.py:8` — from pathlib import Path
+- `CHECK_profile_button_early_route_fix.py:11` — from pathlib import Path
+- `CHECK_profile_confirmation_ready_visibility_fix.py:4` — from pathlib import Path
+- `CHECK_profile_critical_codes_fix.py:4` — from pathlib import Path
+- `CHECK_profile_parking_time_test_sandbox.py:12` — from pathlib import Path
+- `CHECK_profile_test_candidate_apartment_40.py:29` — from pathlib import Path
+- `CHECK_profile_verification_sandbox.py:6` — from pathlib import Path
+- `CHECK_profile_verification_terminology_v2.py:4` — from pathlib import Path
+- `CHECK_service_code_compatibility_phone_v2.py:9` — from pathlib import Path
+- `commercial_contracts.py:19` — from pathlib import Path
+- `commercial_notification_delivery.py:21` — from pathlib import Path
+- `create_clean_live_sandbox.py:37` — from pathlib import Path
+- `create_isolated_live_sandbox_v2.py:37` — from pathlib import Path
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:18` — from pathlib import Path
+- `diagnose_osbb_audit.py:18` — from pathlib import Path
+- `diagnose_sandbox_charges.py:22` — from pathlib import Path
+- `extract_telegram_remote_facts.py:1` — from pathlib import Path
+- `extract_telegram_vehicle_facts.py:1` — from pathlib import Path
+- `FIND_actual_service_order_state.py:26` — from pathlib import Path
+- `find_sandbox_telegram_id.py:17` — from pathlib import Path
+- `FIX_live_services_sandbox_payment_schema.py:33` — from pathlib import Path
+- `fix_parking_bot_language_gate.py:22` — from pathlib import Path
+- `fix_source_ref_schema.py:23` — from pathlib import Path
+- `generate_parking_charges.py:7` — from pathlib import Path
+- `guard_workspace_preflight.py:26` — from pathlib import Path
+- `guard_workspace_preflight_v2.py:26` — from pathlib import Path
+- `import_house_registry.py:2` — from pathlib import Path
+- `import_ohorona_list1_to_central_cashbox.py:19` — from pathlib import Path
+- `import_ohorona_sheet1_payments.py:1` — from pathlib import Path
+- `import_ohorona_to_cashbox.py:1` — from pathlib import Path
+- `import_osbb_telegram_messages.py:1` — from pathlib import Path
+- `import_paper_parking.py:1` — from pathlib import Path
+- `import_tbot_quarantine.py:1` — from pathlib import Path
+- `init_osbb_db.py:1` — from pathlib import Path
+- `init_osbb_quarantine_db.py:1` — from pathlib import Path
+- `init_osbb_telegram_db.py:1` — from pathlib import Path
+- `inspect_osbb_folder_filter.py:1` — from pathlib import Path
+- `INSTALL_cashier_route_after_phone_v2.py:26` — from pathlib import Path
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:31` — from pathlib import Path
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:16` — from pathlib import Path
+- `INSTALL_phone_barrier_access_v2.py:16` — from pathlib import Path
+- `INSTALL_profile_button_early_route_fix.py:16` — from pathlib import Path
+- `INSTALL_profile_confirmation_ready_visibility_fix.py:16` — from pathlib import Path
+- ... and 116 more
+
+## `payment`
+- `vehicle_data_quality_tasks.py:277` — def apply_vehicle_plate_correction(payment_id, vehicle_id, operator_id=None, comment="vehicle quality correction from payment"):
+
+## `payment_allocations`
+- `billing_reconciliation_report.py:157` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `billing_statement_excel.py:144` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `Bots/handlers/cashier_operator.py:947` — if not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:949` — cols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:957` — f"FROM payment_allocations WHERE payment_id = ?",
+- `Bots/handlers/cashier_operator.py:996` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `Bots/handlers/cashier_operator.py:1000` — acols = table_columns(cur, "payment_allocations")
+- `Bots/handlers/cashier_operator.py:1052` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `Bots/handlers/cashier_operator.py:1122` — "payment_allocations",
+- `Bots/handlers/cashier_operator.py:1154` — table_name="payment_allocations",
+- `Bots/handlers/client_portal.py:1056` — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `Bots/handlers/client_portal_safe_linking.py:1056` — alloc_table = "payment_allocations" if table_exists(cur, "payment_allocations") else None
+- `cashier_journal.py:804` — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:807` — cols = table_columns(cur, "payment_allocations")
+- `cashier_journal.py:813` — f"SELECT COALESCE(SUM({amount_col}), 0) FROM payment_allocations WHERE charge_id = ?",
+- `cashier_journal.py:820` — if not table_exists(cur, "payment_allocations"):
+- `cashier_journal.py:823` — return insert_dynamic(cur, "payment_allocations", {
+- `cashier_v2_core.py:170` — "payment_allocations",
+- `cashier_v2_core.py:327` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core.py:355` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core.py:473` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core.py:689` — "payment_allocations",
+- `cashier_v2_core.py:823` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:147` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:304` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:331` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:453` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:669` — "payment_allocations",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:803` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:147` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:304` — cols = table_columns(cur, "payment_allocations")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:324` — if not table_exists(cur, "charges") or not table_exists(cur, "payment_allocations"):
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:397` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:613` — "payment_allocations",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:747` — "payment_allocations",
+- `cashier_v2_preflight.py:84` — "payment_allocations",
+- `cashier_v2_preflight_compat.py:138` — "payment_allocations",
+- `commercial_contracts.py:6` — - считает задолженность по общему charges/payment_allocations ledger;
+- `diagnose_sandbox_charges.py:8` — - реальную структуру charges и payment_allocations;
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `import_ohorona_sheet1_payments.py:389` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `migrate_billing_core.py:108` — CREATE TABLE IF NOT EXISTS payment_allocations (
+- `migrate_billing_core.py:183` — "payment_allocations",
+- `migrate_commercial_contract_core.py:20` — распределяется обычными payment_allocations.
+- `migrate_commercial_contract_core.py:650` — из общего charges и обычных payment_allocations.
+- `migrate_commercial_contract_core.py:655` — if not table_exists(cur, "payment_allocations"):
+- `migrate_commercial_contract_core.py:656` — return False, "payment_allocations отсутствует"
+- `migrate_commercial_contract_core.py:659` — alloc_columns = table_columns(cur, "payment_allocations")
+- `migrate_commercial_contract_core.py:670` — return False, "payment_allocations.amount/allocated_amount отсутствует"
+- `migrate_commercial_contract_core.py:699` — LEFT JOIN payment_allocations pa ON pa.charge_id = c.id
+- `migrate_service_items.py:144` — for table in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `parking_billing_statement.py:173` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `patch_cashier_v2_core_schemafix.py:44` — REPLACEMENT = '\ndef open_charges(\n    *,\n    apartment_id: int | None = None,\n    apartment_number: str | None = None,\n    entrance_number: str | None = None,\n    period_code: str | None = None,\n    service_code: str | None = None,\n    service_item_code: str | None = None,\n) -> list[dict]:\n    """\n    Return open charges using the schema actually present in the database.\n\n    Older OSBB billing tables identify a charge only by apartment_number;\n    newer ones may also have apartmen
+- `reset_service_catalog.py:372` — for table_name in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `reset_service_catalog.py:395` — for table_name in ["charges", "payments", "cashbox_operations", "payment_allocations"]:
+- `supervisor_dashboard.py:236` — allocations_table = pick_table(cur, "payment_allocations", "service_payment_allocations")
+- `supervisor_dashboard.py:309` — "service_catalog", "service_tariffs", "charges", "payments", "payment_allocations",
+- `tools/cashier_parking_payments_audit_v4.py:6` — #   - читает charges, payment_allocations, payments, vehicles, apartments;
+- `tools/cashier_parking_payments_audit_v4.py:102` — if not table_exists(cur, "payment_allocations"):
+- `tools/cashier_parking_payments_audit_v4.py:104` — cols = table_columns(cur, "payment_allocations")
+- `tools/cashier_parking_payments_audit_v4.py:110` — FROM payment_allocations
+- `tools/cashier_unpaid_preview.py:55` — "payment_allocations": {"charge_id", "amount"},
+- `tools/cashier_unpaid_preview.py:79` — FROM payment_allocations
+- `tools/cashier_unpaid_preview_v2.py:80` — alloc_cols = cols(cur, "payment_allocations") if table_exists(cur, "payment_allocations") else set()
+- `tools/cashier_unpaid_preview_v2.py:85` — if table_exists(cur, "payment_allocations") and "charge_id" in alloc_cols and "amount" in alloc_cols:
+- `tools/cashier_unpaid_preview_v2.py:86` — paid_subquery = "(SELECT COALESCE(SUM(pa.amount),0) FROM payment_allocations pa WHERE pa.charge_id = c.id)"
+- `tools/cashier_unpaid_preview_v2.py:144` — alloc_cols = cols(cur, "payment_allocations") if table_exists(cur, "payment_allocations") else set()
+- `tools/cashier_unpaid_preview_v2.py:149` — if table_exists(cur, "payment_allocations") and "charge_id" in alloc_cols and "amount" in alloc_cols:
+- `tools/cashier_unpaid_preview_v2.py:150` — paid_subquery = "(SELECT COALESCE(SUM(pa.amount),0) FROM payment_allocations pa WHERE pa.charge_id = c.id)"
+- `tools/cashier_unpaid_preview_v3.py:6` — #   - читает начисления charges и оплаты payment_allocations/payments;
+- `tools/cashier_unpaid_preview_v3.py:108` — Current schema has payment_allocations(amount). Some older variants may have allocated_amount.
+- `tools/cashier_unpaid_preview_v3.py:110` — if not table_exists(cur, "payment_allocations"):
+- `tools/cashier_unpaid_preview_v3.py:112` — cols = table_columns(cur, "payment_allocations")
+- `tools/cashier_unpaid_preview_v3.py:118` — FROM payment_allocations
+- `tools/db_schema_snapshot.py:52` — "payment_allocations",
+- `tools/db_schema_snapshot_full.py:37` — "payment_allocations",
+- `tools/project_passport.py:101` — "payment_allocations",
+- `tools/project_passport_v2.py:122` — "payment_allocations",
+
+## `payment_notices`
+- `Bots/handlers/guard_workspace.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace.py:314` — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:314` — target_table="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:132` — "payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:186` — FROM payment_notices
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:201` — user_id, "payment_notices", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:277` — user_id, "payment_notices", "CONFIRM",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:310` — resource="payment_notices",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:314` — target_table="payment_notices",
+- `cashier_v2_core.py:172` — "payment_notices",
+- `cashier_v2_core.py:889` — FROM payment_notices
+- `cashier_v2_core.py:922` — "payment_notices",
+- `cashier_v2_core.py:945` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core.py:953` — table_name="payment_notices",
+- `cashier_v2_core.py:985` — FROM payment_notices
+- `cashier_v2_core.py:1008` — FROM payment_notices n
+- `cashier_v2_core.py:1025` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core.py:1070` — "payment_notices",
+- `cashier_v2_core.py:1089` — table_name="payment_notices",
+- `cashier_v2_core.py:1120` — "payment_notices",
+- `cashier_v2_core.py:1137` — table_name="payment_notices",
+- `cashier_v2_core.py:1396` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core.py:1520` — "payment_notices",
+- `cashier_v2_core.py:1539` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:149` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:869` — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:902` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:925` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:933` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:965` — FROM payment_notices
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:988` — FROM payment_notices n
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1005` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1050` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1069` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1100` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1117` — table_name="payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1376` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1500` — "payment_notices",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:1519` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:149` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:813` — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:846` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:869` — update_dynamic(cur, "payment_notices", notice_id, {"notice_number": number})
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:877` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:909` — FROM payment_notices
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:932` — FROM payment_notices n
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:949` — cur.execute("SELECT * FROM payment_notices WHERE id = ?", (int(notice_id),))
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:994` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1013` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1044` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1061` — table_name="payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1320` — cur.execute("SELECT COUNT(*) FROM payment_notices WHERE notice_status = 'NEW'")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1444` — "payment_notices",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:1463` — table_name="payment_notices",
+- `cashier_v2_preflight.py:86` — "payment_notices",
+- `cashier_v2_preflight.py:116` — "payment_notices": {
+- `cashier_v2_preflight.py:259` — "payment_notices": m2.create_table_payment_notices(cur),
+- `cashier_v2_preflight_compat.py:140` — "payment_notices",
+- `cashier_v2_preflight_compat.py:155` — "payment_notices": {"notice_number", "notice_type", "notice_status", "declared_amount"},
+- `create_clean_live_sandbox.py:97` — "payment_notices",
+- `create_clean_live_sandbox.py:398` — "payment_notices",
+- `create_isolated_live_sandbox_v2.py:97` — "payment_notices",
+- `create_isolated_live_sandbox_v2.py:394` — "payment_notices",
+- `guard_workspace_preflight.py:96` — "payment_notices",
+- `guard_workspace_preflight.py:244` — "999999991", "payment_notices", "CONFIRM",
+- `guard_workspace_preflight_v2.py:96` — "payment_notices",
+- `guard_workspace_preflight_v2.py:244` — "999999991", "payment_notices", "CONFIRM",
+- `manage_staff_access.py:31` — ... --deny 123456789 payment_notices CONFIRM --scope CASHBOX:O --apply
+- `manage_staff_access.py:166` — ("payment_notices", "VIEW"),
+- `manage_staff_access.py:167` — ("payment_notices", "CONFIRM"),
+- `manage_staff_access.py:174` — "guard_workspace", "payment_notices", "cashier_receipts"
+- `manage_staff_access_v2.py:31` — ... --deny 123456789 payment_notices CONFIRM --scope CASHBOX:O --apply
+- `manage_staff_access_v2.py:166` — ("payment_notices", "VIEW"),
+- `manage_staff_access_v2.py:167` — ("payment_notices", "CONFIRM"),
+- `manage_staff_access_v2.py:174` — "guard_workspace", "payment_notices", "cashier_receipts"
+- `migrate_access_control_and_guard.py:349` — ("GUARD_O", "payment_notices", "VIEW", "CASHBOX", "O", "ALLOW", "Видит только уведомления о наличных для O."),
+- `migrate_access_control_and_guard.py:350` — ("GUARD_O", "payment_notices", "CONFIRM", "CASHBOX", "O", "ALLOW", "Подтверждает факт получения наличных в O."),
+- `migrate_cashier_v2.py:96` — def create_table_payment_notices(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2.py:97` — existed = table_exists(cur, "payment_notices")
+- `migrate_cashier_v2.py:99` — CREATE TABLE IF NOT EXISTS payment_notices (
+- `migrate_cashier_v2.py:162` — FOREIGN KEY(payment_notice_id) REFERENCES payment_notices(id)
+- `migrate_cashier_v2.py:292` — "idx_payment_notices_status",
+- `migrate_cashier_v2.py:294` — CREATE INDEX idx_payment_notices_status
+- `migrate_cashier_v2.py:295` — ON payment_notices(notice_status, declared_at)
+- `migrate_cashier_v2.py:299` — "idx_payment_notices_unit",
+- `migrate_cashier_v2.py:301` — CREATE INDEX idx_payment_notices_unit
+- `migrate_cashier_v2.py:302` — ON payment_notices(apartment_id, apartment_number, notice_status)
+- `migrate_cashier_v2.py:412` — "payment_notices": create_table_payment_notices(cur),
+- `migrate_cashier_v2_compat.py:93` — def create_payment_notices(cur: sqlite3.Cursor) -> bool:
+- `migrate_cashier_v2_compat.py:94` — existed = table_exists(cur, "payment_notices")
+- `migrate_cashier_v2_compat.py:96` — CREATE TABLE IF NOT EXISTS payment_notices (
+- ... and 27 more
+
+## `payments`
+- `billing/migrate_add_parking_billing.py:89` — CREATE TABLE IF NOT EXISTS parking_payments (
+- `billing/migrate_add_parking_billing.py:161` — CREATE INDEX IF NOT EXISTS idx_parking_payments_charge
+- `billing/migrate_add_parking_billing.py:162` — ON parking_payments(parking_charge_id)
+- `billing_reconciliation_report.py:92` — def load_payments(cur, payments_table, period_code):
+- `billing_reconciliation_report.py:93` — if not payments_table:
+- `billing_reconciliation_report.py:96` — columns = table_columns(cur, payments_table)
+- `billing_reconciliation_report.py:126` — FROM {payments_table} p
+- `billing_reconciliation_report.py:156` — payments_table = pick_table(cur, "payments", "service_payments")
+- `billing_reconciliation_report.py:160` — payments = load_payments(cur, payments_table, period_code)
+- `billing_reconciliation_report.py:178` — payments_without_charge = []
+- `billing_reconciliation_report.py:179` — unknown_payments = []
+- `billing_reconciliation_report.py:180` — payments_to_empty_apartment = []
+- `billing_reconciliation_report.py:181` — apartment_level_payments = []
+- `billing_reconciliation_report.py:200` — for p in payments:
+- `billing_reconciliation_report.py:216` — unknown_payments.append(item)
+- `billing_reconciliation_report.py:218` — payments_to_empty_apartment.append(item)
+- `billing_reconciliation_report.py:220` — apartment_level_payments.append(item)
+- `billing_reconciliation_report.py:222` — payments_without_charge.append(item)
+- `billing_reconciliation_report.py:226` — "payments_table": payments_table,
+- `billing_reconciliation_report.py:229` — "payments": payments,
+- `billing_reconciliation_report.py:235` — "payments_without_charge": payments_without_charge,
+- `billing_reconciliation_report.py:236` — "unknown_payments": unknown_payments,
+- `billing_reconciliation_report.py:237` — "payments_to_empty_apartment": payments_to_empty_apartment,
+- `billing_reconciliation_report.py:238` — "apartment_level_payments": apartment_level_payments,
+- `billing_reconciliation_report.py:288` — total_payments = sum(float(p["amount"] or 0) for p in data["payments"])
+- `billing_reconciliation_report.py:294` — data["payments_without_charge"],
+- `billing_reconciliation_report.py:295` — data["unknown_payments"],
+- `billing_reconciliation_report.py:296` — data["payments_to_empty_apartment"],
+- `billing_reconciliation_report.py:297` — data["apartment_level_payments"],
+- `billing_reconciliation_report.py:310` — lines.append(f"Payments   : {data['payments_table']}")
+- `billing_reconciliation_report.py:318` — lines.append(f"Payments count             : {len(data['payments'])}")
+- `billing_reconciliation_report.py:321` — lines.append(f"Payments total             : {money(total_payments)}")
+- `billing_reconciliation_report.py:329` — lines.append(f"Payments without charge    : {len(data['payments_without_charge'])}")
+- `billing_reconciliation_report.py:330` — lines.append(f"Apartment-level payments   : {len(data['apartment_level_payments'])}")
+- `billing_reconciliation_report.py:331` — lines.append(f"Unknown payments           : {len(data['unknown_payments'])}")
+- `billing_reconciliation_report.py:332` — lines.append(f"Empty apartment payments   : {len(data['payments_to_empty_apartment'])}")
+- `billing_reconciliation_report.py:339` — write_section(lines, "5. PAYMENTS_WITHOUT_CHARGE — есть авто/квартира, но нет подходящего начисления", data["payments_without_charge"], format_payment_line)
+- `billing_reconciliation_report.py:340` — write_section(lines, "6. APARTMENT_LEVEL_PAYMENTS — оплата на квартиру без конкретного авто", data["apartment_level_payments"], format_payment_line)
+- `billing_reconciliation_report.py:341` — write_section(lines, "7. UNKNOWN_PAYMENTS — платежи без квартиры и без найденного авто", data["unknown_payments"], format_payment_line)
+- `billing_reconciliation_report.py:342` — write_section(lines, "8. EMPTY_APARTMENT_PAYMENTS — платежи с пустой квартирой, но с vehicle_id", data["payments_to_empty_apartment"], format_payment_line)
+- `billing_reconciliation_report.py:347` — lines.append("UNKNOWN_PAYMENTS: искать номер/плательщика и привязывать к квартире/авто.")
+- `billing_reconciliation_report.py:348` — lines.append("APARTMENT_LEVEL_PAYMENTS: проверить, можно ли распределить на начисления квартиры.")
+- `billing_reconciliation_report.py:349` — lines.append("PAYMENTS_WITHOUT_CHARGE: вероятно, создать недостающее начисление или сменить тип услуги.")
+- `billing_reconciliation_report.py:385` — print("Payments without charge:", len(data["payments_without_charge"]))
+- `billing_reconciliation_report.py:386` — print("Apartment-level payments:", len(data["apartment_level_payments"]))
+- `billing_reconciliation_report.py:387` — print("Unknown payments:", len(data["unknown_payments"]))
+- `billing_statement_excel.py:109` — def load_payments(cur, period_code):
+- `billing_statement_excel.py:110` — payments_table = pick_table(cur, "payments", "service_payments")
+- `billing_statement_excel.py:111` — if not payments_table:
+- `billing_statement_excel.py:114` — cols = table_columns(cur, payments_table)
+- `billing_statement_excel.py:134` — FROM {payments_table} p
+- `billing_statement_excel.py:184` — payments = load_payments(cur, period_code)
+- `billing_statement_excel.py:207` — "payments": [],
+- `billing_statement_excel.py:225` — for p in payments:
+- `billing_statement_excel.py:237` — item["payments"].append(row)
+- `billing_statement_excel.py:244` — "payments": payments,
+- `billing_statement_excel.py:334` — payments_text = []
+- `billing_statement_excel.py:335` — for p in item["payments"]:
+- `billing_statement_excel.py:336` — payments_text.append(
+- `billing_statement_excel.py:350` — "\n".join(payments_text),
+- `billing_statement_excel.py:378` — # Overpayments
+- `billing_statement_excel.py:393` — add_table(ws, "Overpayments")
+- `billing_statement_excel.py:425` — # Payments details
+- `billing_statement_excel.py:432` — for p in data["payments"]:
+- `billing_statement_excel.py:436` — for p2 in item["payments"]:
+- `billing_statement_excel.py:454` — add_table(ws, "Payments")
+- `billing_statement_excel.py:457` — # Unallocated payments
+- `billing_statement_excel.py:463` — for p in item["payments"]:
+- `billing_statement_excel.py:476` — add_table(ws, "UnallocatedPayments")
+- `billing_statement_excel.py:502` — ws.append(["Payments total", money(sum(float(p["amount"] or 0) for p in data["payments"]))])
+- `billing_statement_excel.py:511` — description="Excel billing statement: charges, payments, balances, work queues."
+- `billing_statement_excel.py:531` — total_payments = sum(float(p["amount"] or 0) for p in data["payments"])
+- `billing_statement_excel.py:541` — print("Payments total:", money(total_payments))
+- `Bots/db_access - Copy.py:49` — can_manage_payments,
+- `Bots/db_access.py:49` — can_manage_payments,
+- `Bots/handlers/cashier_operator.py:295` — "payments",
+- `Bots/handlers/cashier_operator.py:312` — Если есть bot_admins, дополнительно учитываем can_manage_payments/can_write.
+- `Bots/handlers/cashier_operator.py:322` — can_manage_payments = bool(row[7]) if len(row) > 7 else False
+- `Bots/handlers/cashier_operator.py:323` — return can_write or can_manage_payments
+- `Bots/handlers/cashier_operator.py:714` — "payments",
+- `Bots/handlers/cashier_operator.py:785` — "payments",
+- `Bots/handlers/cashier_operator.py:842` — table_name="payments",
+- `Bots/handlers/cashier_operator.py:964` — cur.execute("SELECT amount FROM payments WHERE id = ?", (int(payment_id),))
+- `Bots/handlers/cashier_operator.py:1233` — "payments",
+- `Bots/handlers/cashier_operator.py:1284` — "payments",
+- `Bots/handlers/client_portal.py:71` — "parking_payments": "💰 Оплаты",
+- `Bots/handlers/client_portal.py:102` — "payments_title": "💰 Оплаты парковки — кв. {unit}",
+- `Bots/handlers/client_portal.py:109` — "no_payments": (
+- `Bots/handlers/client_portal.py:206` — "parking_payments": "💰 Оплати",
+- `Bots/handlers/client_portal.py:237` — "payments_title": "💰 Оплати паркування — кв. {unit}",
+- `Bots/handlers/client_portal.py:244` — "no_payments": (
+- `Bots/handlers/client_portal.py:341` — "parking_payments": "💰 Payments",
+- `Bots/handlers/client_portal.py:372` — "payments_title": "💰 Parking payments — apartment {unit}",
+- `Bots/handlers/client_portal.py:376` — "received": "Payments received",
+- `Bots/handlers/client_portal.py:377` — "unallocated": "Unallocated payments",
+- `Bots/handlers/client_portal.py:379` — "no_payments": (
+- `Bots/handlers/client_portal.py:380` — "No payments linked to this apartment were found.\n\n"
+- `Bots/handlers/client_portal.py:491` — [tr(lang, "parking_charges"), tr(lang, "parking_payments")],
+- `Bots/handlers/client_portal.py:1027` — # Billing read model: no writes, no automatic allocation of payments.
+- `Bots/handlers/client_portal.py:1040` — "payments": [],
+- ... and 462 more
+
+## `persons`
+- `audit_registry.py:63` — "persons",
+- `audit_registry.py:118` — report.section("APARTMENTS WITHOUT PERSONS")
+- `audit_registry.py:125` — LEFT JOIN persons p ON p.apartment_id = a.id
+- `audit_registry.py:141` — SELECT a.apartment_number, COUNT(p.id) AS persons_count
+- `audit_registry.py:143` — JOIN persons p ON p.apartment_id = a.id
+- `audit_registry.py:146` — ORDER BY persons_count DESC, a.apartment_number
+- `audit_registry.py:153` — report.add(f"{apartment_number:10} persons={count}")
+- `audit_tbot_quarantine.py:63` — LEFT JOIN persons p ON p.apartment_id = a.id
+- `import_house_registry.py:77` — imported_persons = 0
+- `import_house_registry.py:120` — INSERT INTO persons (
+- `import_house_registry.py:139` — imported_persons += 1
+- `import_house_registry.py:148` — cur.execute("SELECT COUNT(*) FROM persons")
+- `import_house_registry.py:149` — persons_count = cur.fetchone()[0]
+- `import_house_registry.py:159` — print(f"Импорт контактов     : {imported_persons}")
+- `import_house_registry.py:162` — print(f"Всего контактов в БД : {persons_count}")
+- `import_paper_parking.py:143` — FROM persons
+- `import_paper_parking.py:157` — INSERT INTO persons (
+- `import_paper_parking.py:256` — inserted_persons = 0
+- `import_paper_parking.py:284` — inserted_persons += 1
+- `import_paper_parking.py:300` — cur.execute("SELECT COUNT(*) FROM persons")
+- `import_paper_parking.py:301` — persons_count = cur.fetchone()[0]
+- `import_paper_parking.py:315` — print(f"Контактов добавлено        : {inserted_persons}")
+- `import_paper_parking.py:319` — print(f"Всего контактов в БД       : {persons_count}")
+- `init_osbb_db.py:60` — CREATE TABLE IF NOT EXISTS persons (
+- `init_osbb_db.py:114` — FOREIGN KEY(person_id) REFERENCES persons(id)
+- `tools/db_schema_snapshot.py:47` — "persons",
+- `tools/db_schema_snapshot_full.py:32` — "persons",
+- `tools/project_passport.py:96` — "persons",
+- `tools/project_passport_v2.py:117` — "persons",
+
+## `phone_access_request_points`
+- `phone_barrier_access_core.py:1423` — FROM phone_access_request_points
+- `phone_barrier_access_core.py:1496` — INSERT INTO phone_access_request_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1423` — FROM phone_access_request_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1496` — INSERT INTO phone_access_request_points (
+
+## `phone_access_requests`
+- `CHECK_phone_barrier_access_operational_sandbox.py:56` — print("Requests:", cur.execute("SELECT COUNT(*) FROM phone_access_requests").fetchone()[0])
+- `phone_barrier_access_core.py:1408` — cur, "SELECT * FROM phone_access_requests WHERE interest_id = ?", (int(interest_id),)
+- `phone_barrier_access_core.py:1413` — "SELECT * FROM phone_access_requests WHERE service_order_id = ?",
+- `phone_barrier_access_core.py:1467` — INSERT INTO phone_access_requests (
+- `phone_barrier_access_core.py:1820` — UPDATE phone_access_requests
+- `phone_barrier_access_core.py:2134` — UPDATE phone_access_requests
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1408` — cur, "SELECT * FROM phone_access_requests WHERE interest_id = ?", (int(interest_id),)
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1413` — "SELECT * FROM phone_access_requests WHERE service_order_id = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1467` — INSERT INTO phone_access_requests (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1820` — UPDATE phone_access_requests
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2134` — UPDATE phone_access_requests
+
+## `phone_access_subscription_charges`
+- `CHECK_phone_barrier_access_operational_sandbox.py:60` — "SELECT COUNT(*) FROM phone_access_subscription_charges WHERE charge_kind = 'CONNECT'"
+- `CHECK_phone_barrier_access_operational_sandbox.py:63` — "SELECT COUNT(*) FROM phone_access_subscription_charges WHERE charge_kind = 'MONTHLY'"
+- `phone_barrier_access_core.py:1579` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1687` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1696` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_core.py:1913` — FROM phone_access_subscription_charges
+- `phone_barrier_access_core.py:1931` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_core.py:1962` — "SELECT * FROM phone_access_subscription_charges WHERE id = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1579` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1687` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1696` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1913` — FROM phone_access_subscription_charges
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1931` — INSERT INTO phone_access_subscription_charges (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1962` — "SELECT * FROM phone_access_subscription_charges WHERE id = ?",
+
+## `phone_access_subscription_points`
+- `CHECK_phone_barrier_access_operational_sandbox.py:58` — print("Subscription points:", cur.execute("SELECT COUNT(*) FROM phone_access_subscription_points").fetchone()[0])
+- `phone_barrier_access_core.py:1566` — FROM phone_access_subscription_points
+- `phone_barrier_access_core.py:1675` — FROM phone_access_subscription_points
+- `phone_barrier_access_core.py:1802` — INSERT INTO phone_access_subscription_points (
+- `phone_barrier_access_core.py:2075` — UPDATE phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1566` — FROM phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1675` — FROM phone_access_subscription_points
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1802` — INSERT INTO phone_access_subscription_points (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2075` — UPDATE phone_access_subscription_points
+
+## `phone_access_subscriptions`
+- `CHECK_phone_barrier_access_operational_sandbox.py:57` — print("Subscriptions:", cur.execute("SELECT COUNT(*) FROM phone_access_subscriptions").fetchone()[0])
+- `CHECK_phone_barrier_access_sandbox_schema.py:116` — "SELECT COUNT(*) FROM phone_access_subscriptions"
+- `phone_barrier_access_core.py:1545` — cur, "SELECT * FROM phone_access_subscriptions WHERE id = ?", (int(subscription_id),)
+- `phone_barrier_access_core.py:1550` — "SELECT * FROM phone_access_subscriptions WHERE created_from_order_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_core.py:1556` — "SELECT * FROM phone_access_subscriptions WHERE created_from_interest_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_core.py:1771` — INSERT INTO phone_access_subscriptions (
+- `phone_barrier_access_core.py:2115` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_core.py:2125` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1545` — cur, "SELECT * FROM phone_access_subscriptions WHERE id = ?", (int(subscription_id),)
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1550` — "SELECT * FROM phone_access_subscriptions WHERE created_from_order_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1556` — "SELECT * FROM phone_access_subscriptions WHERE created_from_interest_id = ? ORDER BY id DESC LIMIT 1",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1771` — INSERT INTO phone_access_subscriptions (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2115` — UPDATE phone_access_subscriptions
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2125` — UPDATE phone_access_subscriptions
+
+## `phone_barrier_access_core`
+- `Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `CHECK_phone_barrier_access_operational_sandbox.py:21` — from phone_barrier_access_core import (
+- `CHECK_phone_barrier_access_sandbox_schema.py:26` — from phone_barrier_access_core import (
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:49` — from phone_barrier_access_core import (
+- `MIGRATE_phone_barrier_access_sandbox.py:37` — from phone_barrier_access_core import (
+- `phone_barrier_access_service.py:15` — from phone_barrier_access_core import (
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:66` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:15` — from phone_barrier_access_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_core import BARRIER_FAR_01, BARRIER_NEAR_02
+
+## `phone_barrier_access_service`
+- `Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:67` — from phone_barrier_access_service import (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:677` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:68` — from phone_barrier_access_service import (
+- `service_code_compatibility_payload/service_preorders_core.py:685` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+- `service_preorders_core.py:685` — from phone_barrier_access_service import promote_paid_phone_barrier_access_interest
+
+## `plate`
+- `plate_consensus_top6.py:59` — description="Show only unresolved Tie cases from plate consensus report."
+
+## `plate_consensus_report`
+- `Bots/handlers/vehicle_verification.py:19` — from plate_consensus_report import DEFAULT_PERIOD_CODE, build_consensus, normalize_plate
+- `plate_consensus_apply.py:15` — from plate_consensus_report import (
+- `plate_consensus_top6.py:13` — from plate_consensus_report import (
+- `supervisor_dashboard.py:17` — from plate_consensus_report import DEFAULT_PERIOD_CODE, build_consensus
+
+## `possibly`
+- `Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:469` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:483` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:470` — """Choose the one resident-facing phone offer from possibly noisy catalog data."""
+
+## `primary`
+- `profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+- `profile_verification_payload/profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:411` — # Keep external numbers human-readable; table primary keys remain authoritative.
+
+## `profile`
+- `Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:224` — "phone_intro": "Enter the separate phone number that needs gate access. It may differ from profile contacts. After confirmed payment, the request is automatically sent to an operator for activation.",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:358` — "from profile contacts and is not matched against them."
+
+## `profile_parking_time_test_core`
+- `Bots/handlers/profile_parking_time_test_workspace.py:25` — from profile_parking_time_test_core import (
+- `CHECK_profile_parking_time_test_sandbox.py:26` — from profile_parking_time_test_core import (
+- `MIGRATE_profile_parking_time_test_sandbox.py:30` — from profile_parking_time_test_core import ensure_test_schema
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:25` — from profile_parking_time_test_core import (
+
+## `profile_parking_time_test_events`
+- `parking_time_test_payload/profile_parking_time_test_core.py:226` — INSERT INTO profile_parking_time_test_events (
+- `parking_time_test_payload/profile_parking_time_test_core.py:487` — FROM profile_parking_time_test_events
+- `profile_parking_time_test_core.py:226` — INSERT INTO profile_parking_time_test_events (
+- `profile_parking_time_test_core.py:487` — FROM profile_parking_time_test_events
+
+## `profile_parking_time_test_schema_migrations`
+- `CHECK_profile_parking_time_test_sandbox.py:57` — FROM profile_parking_time_test_schema_migrations
+- `parking_time_test_payload/profile_parking_time_test_core.py:269` — FROM profile_parking_time_test_schema_migrations
+- `parking_time_test_payload/profile_parking_time_test_core.py:277` — INSERT INTO profile_parking_time_test_schema_migrations (
+- `profile_parking_time_test_core.py:269` — FROM profile_parking_time_test_schema_migrations
+- `profile_parking_time_test_core.py:277` — INSERT INTO profile_parking_time_test_schema_migrations (
+
+## `profile_parking_time_test_sessions`
+- `CHECK_profile_parking_time_test_sandbox.py:85` — "SELECT COUNT(*) FROM profile_parking_time_test_sessions"
+- `parking_time_test_payload/profile_parking_time_test_core.py:467` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:515` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:611` — FROM profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:632` — INSERT INTO profile_parking_time_test_sessions (
+- `parking_time_test_payload/profile_parking_time_test_core.py:693` — UPDATE profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:749` — UPDATE profile_parking_time_test_sessions
+- `parking_time_test_payload/profile_parking_time_test_core.py:795` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:467` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:515` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:611` — FROM profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:632` — INSERT INTO profile_parking_time_test_sessions (
+- `profile_parking_time_test_core.py:693` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:749` — UPDATE profile_parking_time_test_sessions
+- `profile_parking_time_test_core.py:795` — UPDATE profile_parking_time_test_sessions
+
+## `profile_verification_core`
+- `Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+- `CHECK_profile_verification_sandbox.py:12` — from profile_verification_core import PROFILE_POLICY_SET, PROFILE_SCHEMA_MIGRATION_CODE
+- `MIGRATE_profile_verification_sandbox.py:19` — from profile_verification_core import ensure_profile_verification_schema
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:28` — from profile_verification_core import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:75` — from profile_verification_core import phone_access_eligibility
+
+## `raw_messages`
+- `init_osbb_db.py:206` — FOREIGN KEY(raw_message_id) REFERENCES raw_messages(id)
+
+## `references`
+- `tools/project_passport.py:514` — body.append(f"- DB table references: **{summary['db_table_refs']}**")
+- `tools/project_passport_v2.py:559` — body.append(f"- DB table references: **{summary['db_table_refs']}**")
+
+## `References`
+- `tools/project_passport.py:596` — write_md(out_dir / "04_DB_Table_References.md", "Database Table References", "\n".join(ref_lines))
+- `tools/project_passport_v2.py:640` — write_md(out_dir / "04_DB_Table_References.md", "Database Table References", "\n".join(ref_lines))
+
+## `refs`
+- `tools/project_passport.py:584` — # DB table refs md
+- `tools/project_passport.py:606` — print(f"DB table refs: {summary['db_table_refs']}")
+- `tools/project_passport_v2.py:651` — print(f"DB table refs: {summary['db_table_refs']}")
+
+## `remote_asset_movements`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:226` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:227` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `migrate_service_orders_and_fulfillment.py:266` — "remote_asset_movements": """
+- `migrate_service_orders_and_fulfillment.py:267` — CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `migrate_service_orders_and_fulfillment.py:614` — "idx_remote_asset_movements_asset",
+- `migrate_service_orders_and_fulfillment.py:615` — "CREATE INDEX idx_remote_asset_movements_asset "
+- `migrate_service_orders_and_fulfillment.py:616` — "ON remote_asset_movements(remote_asset_id, created_at)",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:266` — "remote_asset_movements": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:267` — CREATE TABLE IF NOT EXISTS remote_asset_movements (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:614` — "idx_remote_asset_movements_asset",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:615` — "CREATE INDEX idx_remote_asset_movements_asset "
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:616` — "ON remote_asset_movements(remote_asset_id, created_at)",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:101` — "remote_asset_movements",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:866` — INSERT INTO remote_asset_movements (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:945` — INSERT INTO remote_asset_movements (
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:232` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:233` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `phone_barrier_access_v2_payload/service_orders_core.py:101` — "remote_asset_movements",
+- `phone_barrier_access_v2_payload/service_orders_core.py:1078` — INSERT INTO remote_asset_movements (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1157` — INSERT INTO remote_asset_movements (
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:228` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:229` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:228` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:229` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:78` — JOIN remote_asset_movements m ON m.remote_asset_id = a.id
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:93` — INSERT INTO remote_asset_movements (
+- `run_bot_live_service_sandbox_v4.py:102` — "remote_asset_movements",
+- `run_bot_live_services_sandbox_v1.py:232` — ("remote_asset_movements", "VIEW", "POST", "O"),
+- `run_bot_live_services_sandbox_v1.py:233` — ("remote_asset_movements", "CREATE", "POST", "O"),
+- `service_code_compatibility_payload/service_orders_core.py:159` — "remote_asset_movements",
+- `service_code_compatibility_payload/service_orders_core.py:1149` — INSERT INTO remote_asset_movements (
+- `service_code_compatibility_payload/service_orders_core.py:1228` — INSERT INTO remote_asset_movements (
+- `service_orders_core.py:159` — "remote_asset_movements",
+- `service_orders_core.py:1149` — INSERT INTO remote_asset_movements (
+- `service_orders_core.py:1228` — INSERT INTO remote_asset_movements (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:101` — "remote_asset_movements",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:866` — INSERT INTO remote_asset_movements (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:945` — INSERT INTO remote_asset_movements (
+- `tools/project_passport.py:124` — "remote_asset_movements",
+- `tools/project_passport_v2.py:145` — "remote_asset_movements",
+
+## `remote_assets`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:222` — ("remote_assets", "VIEW", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:223` — ("remote_assets", "CREATE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "UPDATE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "MOVE", "POST", "O"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:526` — "remote_assets",
+- `CHECK_guard_sandbox_service_orders.py:284` — "remote_assets",
+- `CHECK_guard_sandbox_service_orders_v2.py:268` — "remote_assets",
+- `create_clean_live_sandbox.py:102` — "remote_assets",
+- `create_clean_live_sandbox.py:401` — "remote_assets",
+- `create_isolated_live_sandbox_v2.py:102` — "remote_assets",
+- `create_isolated_live_sandbox_v2.py:397` — "remote_assets",
+- `migrate_service_orders_and_fulfillment.py:245` — "remote_assets": """
+- `migrate_service_orders_and_fulfillment.py:246` — CREATE TABLE IF NOT EXISTS remote_assets (
+- `migrate_service_orders_and_fulfillment.py:505` — ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `migrate_service_orders_and_fulfillment.py:506` — ("REMOTE_SERVICE_OPERATOR", "remote_assets", "MOVE", "POST", "O"),
+- `migrate_service_orders_and_fulfillment.py:609` — "idx_remote_assets_status",
+- `migrate_service_orders_and_fulfillment.py:610` — "CREATE INDEX idx_remote_assets_status "
+- `migrate_service_orders_and_fulfillment.py:611` — "ON remote_assets(inventory_status, condition_status)",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:245` — "remote_assets": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:246` — CREATE TABLE IF NOT EXISTS remote_assets (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:505` — ("REMOTE_SERVICE_OPERATOR", "remote_assets", "VIEW", "POST", "O"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:506` — ("REMOTE_SERVICE_OPERATOR", "remote_assets", "MOVE", "POST", "O"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:609` — "idx_remote_assets_status",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:610` — "CREATE INDEX idx_remote_assets_status "
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:611` — "ON remote_assets(inventory_status, condition_status)",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:100` — "remote_assets",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:835` — "remote_assets",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:842` — INSERT INTO remote_assets (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:882` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:912` — "remote_assets",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:919` — "SELECT * FROM remote_assets WHERE id = ?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:928` — UPDATE remote_assets
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:228` — ("remote_assets", "VIEW", "POST", "O"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:229` — ("remote_assets", "CREATE", "POST", "O"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:230` — ("remote_assets", "UPDATE", "POST", "O"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:231` — ("remote_assets", "MOVE", "POST", "O"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:733` — "remote_assets",
+- `phone_barrier_access_v2_payload/service_orders_core.py:100` — "remote_assets",
+- `phone_barrier_access_v2_payload/service_orders_core.py:1047` — "remote_assets",
+- `phone_barrier_access_v2_payload/service_orders_core.py:1054` — INSERT INTO remote_assets (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1094` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `phone_barrier_access_v2_payload/service_orders_core.py:1124` — "remote_assets",
+- `phone_barrier_access_v2_payload/service_orders_core.py:1131` — "SELECT * FROM remote_assets WHERE id = ?",
+- `phone_barrier_access_v2_payload/service_orders_core.py:1140` — UPDATE remote_assets
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1092` — UPDATE remote_assets
+- `prepare_live_service_test.py:138` — cur.execute("SELECT 1 FROM remote_assets WHERE asset_number = ?", (asset_number,))
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "VIEW", "POST", "O"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "CREATE", "POST", "O"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:226` — ("remote_assets", "UPDATE", "POST", "O"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:227` — ("remote_assets", "MOVE", "POST", "O"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:681` — "remote_assets",
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:224` — ("remote_assets", "VIEW", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:225` — ("remote_assets", "CREATE", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:226` — ("remote_assets", "UPDATE", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:227` — ("remote_assets", "MOVE", "POST", "O"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:647` — "remote_assets",
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:77` — FROM remote_assets a
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:88` — "UPDATE remote_assets SET inventory_status='AVAILABLE', updated_at=? WHERE id=?",
+- `run_bot_live_service_sandbox_v4.py:101` — "remote_assets",
+- `run_bot_live_services_sandbox_v1.py:228` — ("remote_assets", "VIEW", "POST", "O"),
+- `run_bot_live_services_sandbox_v1.py:229` — ("remote_assets", "CREATE", "POST", "O"),
+- `run_bot_live_services_sandbox_v1.py:230` — ("remote_assets", "UPDATE", "POST", "O"),
+- `run_bot_live_services_sandbox_v1.py:231` — ("remote_assets", "MOVE", "POST", "O"),
+- `run_bot_live_services_sandbox_v1.py:733` — "remote_assets",
+- `service_code_compatibility_payload/service_orders_core.py:158` — "remote_assets",
+- `service_code_compatibility_payload/service_orders_core.py:1118` — "remote_assets",
+- `service_code_compatibility_payload/service_orders_core.py:1125` — INSERT INTO remote_assets (
+- `service_code_compatibility_payload/service_orders_core.py:1165` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `service_code_compatibility_payload/service_orders_core.py:1195` — "remote_assets",
+- `service_code_compatibility_payload/service_orders_core.py:1202` — "SELECT * FROM remote_assets WHERE id = ?",
+- `service_code_compatibility_payload/service_orders_core.py:1211` — UPDATE remote_assets
+- `service_code_compatibility_payload/service_preorders_core.py:1100` — UPDATE remote_assets
+- `service_orders_core.py:158` — "remote_assets",
+- `service_orders_core.py:1118` — "remote_assets",
+- `service_orders_core.py:1125` — INSERT INTO remote_assets (
+- `service_orders_core.py:1165` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `service_orders_core.py:1195` — "remote_assets",
+- `service_orders_core.py:1202` — "SELECT * FROM remote_assets WHERE id = ?",
+- `service_orders_core.py:1211` — UPDATE remote_assets
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:100` — "remote_assets",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:835` — "remote_assets",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:842` — INSERT INTO remote_assets (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:882` — return _fetchone_dict(cur, "SELECT * FROM remote_assets WHERE id = ?", (asset_id,)) or {}
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:912` — "remote_assets",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:919` — "SELECT * FROM remote_assets WHERE id = ?",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:928` — UPDATE remote_assets
+- `service_preorders_core.py:1100` — UPDATE remote_assets
+- `tools/project_passport.py:123` — "remote_assets",
+- `tools/project_passport_v2.py:144` — "remote_assets",
+
+## `remote_handover_events`
+- `Bots/handlers/guard_workspace.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace.py:538` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace.py:563` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:612` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:632` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace.py:636` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace.py:734` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace.py:836` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace.py:856` — user_id, "remote_handover_events", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:541` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:566` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:615` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:635` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:639` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:737` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:839` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:859` — user_id, "remote_handover_events", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:133` — "remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:538` — INSERT INTO remote_handover_events (
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:563` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:612` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:632` — resource="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:636` — target_table="remote_handover_events",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:734` — user_id, "remote_handover_events", "CREATE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:836` — FROM remote_handover_events
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:856` — user_id, "remote_handover_events", "VIEW",
+- `CHECK_guard_sandbox_service_orders.py:286` — "remote_handover_events",
+- `CHECK_guard_sandbox_service_orders_v2.py:270` — "remote_handover_events",
+- `create_clean_live_sandbox.py:100` — "remote_handover_events",
+- `create_clean_live_sandbox.py:399` — "remote_handover_events",
+- `create_isolated_live_sandbox_v2.py:100` — "remote_handover_events",
+- `create_isolated_live_sandbox_v2.py:395` — "remote_handover_events",
+- `guard_workspace_preflight.py:98` — "remote_handover_events",
+- `guard_workspace_preflight_v2.py:98` — "remote_handover_events",
+- `manage_staff_access.py:28` — ... --grant 123456789 remote_handover_events CREATE --scope POST:O --apply
+- `manage_staff_access_v2.py:28` — ... --grant 123456789 remote_handover_events CREATE --scope POST:O --apply
+- `migrate_access_control_and_guard.py:16` — - remote_handover_events      физический приём / выдача пультов на посту.
+- `migrate_access_control_and_guard.py:197` — existed["remote_handover_events"] = table_exists(cur, "remote_handover_events")
+- `migrate_access_control_and_guard.py:199` — CREATE TABLE IF NOT EXISTS remote_handover_events (
+- `migrate_access_control_and_guard.py:288` — "remote_handover_events": {
+- `migrate_access_control_and_guard.py:356` — ("GUARD_O", "remote_handover_events", "VIEW", "POST", "O", "ALLOW", "Видит свои события приёма/выдачи пультов."),
+- `migrate_access_control_and_guard.py:357` — ("GUARD_O", "remote_handover_events", "CREATE", "POST", "O", "ALLOW", "Регистрирует физический приём/выдачу пульта."),
+- `migrate_access_control_and_guard.py:446` — "CREATE INDEX idx_remote_handover_post ON remote_handover_events(post_code, created_at)",
+- `migrate_access_control_and_guard.py:450` — "CREATE INDEX idx_remote_handover_operator ON remote_handover_events(operator_id, created_at)",
+- `migrate_access_control_and_guard.py:454` — "CREATE INDEX idx_remote_handover_request ON remote_handover_events(remote_request_id)",
+- `migrate_service_orders_and_fulfillment.py:638` — "remote_handover_events": {
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:638` — "remote_handover_events": {
+- `run_bot_guard_sandbox.py:107` — "remote_handover_events",
+- `run_bot_guard_sandbox_v2.py:107` — "remote_handover_events",
+- `run_bot_guard_sandbox_v3.py:107` — "remote_handover_events",
+- `tools/project_passport.py:115` — "remote_handover_events",
+- `tools/project_passport_v2.py:136` — "remote_handover_events",
+
+## `remote_order_details`
+- `Bots/handlers/service_orders_workspace.py:1440` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `Bots/handlers/service_orders_workspace.py:1460` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:525` — "remote_order_details",
+- `CHECK_guard_sandbox_service_orders.py:283` — "remote_order_details",
+- `CHECK_guard_sandbox_service_orders_v2.py:267` — "remote_order_details",
+- `FIND_actual_service_order_state.py:300` — if "remote_order_details" in tables:
+- `FIND_actual_service_order_state.py:303` — "remote_order_details",
+- `migrate_service_orders_and_fulfillment.py:282` — "remote_order_details": """
+- `migrate_service_orders_and_fulfillment.py:283` — CREATE TABLE IF NOT EXISTS remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:282` — "remote_order_details": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:283` — CREATE TABLE IF NOT EXISTS remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:102` — "remote_order_details",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:556` — INSERT INTO remote_order_details (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1115` — FROM remote_order_details
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:732` — "remote_order_details",
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1311` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1331` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `phone_barrier_access_v2_payload/service_orders_core.py:102` — "remote_order_details",
+- `phone_barrier_access_v2_payload/service_orders_core.py:593` — INSERT INTO remote_order_details (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1327` — FROM remote_order_details
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:680` — "remote_order_details",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1433` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1453` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:646` — "remote_order_details",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1440` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1460` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `run_bot_live_services_sandbox_v1.py:732` — "remote_order_details",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1329` — cur.execute("UPDATE remote_order_details SET resident_asset_id = ?, updated_at = ? WHERE service_order_id = ?", (int(asset["id"]), __import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S'), int(order["id"])))
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1349` — row = cur.execute("SELECT resident_asset_id FROM remote_order_details WHERE service_order_id = ?", (int(order["id"]),)).fetchone()
+- `service_code_compatibility_payload/service_orders_core.py:160` — "remote_order_details",
+- `service_code_compatibility_payload/service_orders_core.py:659` — INSERT INTO remote_order_details (
+- `service_code_compatibility_payload/service_orders_core.py:1398` — FROM remote_order_details
+- `service_orders_core.py:160` — "remote_order_details",
+- `service_orders_core.py:659` — INSERT INTO remote_order_details (
+- `service_orders_core.py:1398` — FROM remote_order_details
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:102` — "remote_order_details",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:556` — INSERT INTO remote_order_details (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1115` — FROM remote_order_details
+- `tools/project_passport.py:122` — "remote_order_details",
+- `tools/project_passport_v2.py:143` — "remote_order_details",
+
+## `remote_order_issued_assets`
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1100` — INSERT INTO remote_order_issued_assets (
+- `service_code_compatibility_payload/service_preorders_core.py:1108` — INSERT INTO remote_order_issued_assets (
+- `service_preorders_core.py:1108` — INSERT INTO remote_order_issued_assets (
+
+## `remote_requests`
+- `Bots/handlers/client_portal.py:1310` — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal.py:1323` — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal.py:1331` — FROM remote_requests
+- `Bots/handlers/client_portal.py:1353` — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal.py:1386` — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1412` — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1434` — FROM remote_requests r
+- `Bots/handlers/client_portal.py:1458` — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal.py:1470` — UPDATE remote_requests
+- `Bots/handlers/client_portal.py:1498` — table_name="remote_requests",
+- `Bots/handlers/client_portal.py:1517` — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal.py:1678` — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal.py:1689` — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal.py:2108` — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/client_portal_safe_linking.py:1310` — return table_exists(conn.cursor(), "remote_requests")
+- `Bots/handlers/client_portal_safe_linking.py:1323` — def _remote_requests_for_account(account_id: int) -> list[dict]:
+- `Bots/handlers/client_portal_safe_linking.py:1331` — FROM remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1353` — INSERT INTO remote_requests (
+- `Bots/handlers/client_portal_safe_linking.py:1386` — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1412` — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1434` — FROM remote_requests r
+- `Bots/handlers/client_portal_safe_linking.py:1458` — FROM remote_requests WHERE id = ?
+- `Bots/handlers/client_portal_safe_linking.py:1470` — UPDATE remote_requests
+- `Bots/handlers/client_portal_safe_linking.py:1498` — table_name="remote_requests",
+- `Bots/handlers/client_portal_safe_linking.py:1517` — def _format_my_remote_requests(rows: list[dict], lang: str) -> str:
+- `Bots/handlers/client_portal_safe_linking.py:1678` — async def _show_my_remote_requests(update: Update, user_states: dict, user_id: int, lang: str) -> None:
+- `Bots/handlers/client_portal_safe_linking.py:1689` — _format_my_remote_requests(_remote_requests_for_account(int(data["account"]["id"])), lang),
+- `Bots/handlers/client_portal_safe_linking.py:2108` — await _show_my_remote_requests(update, user_states, user_id, lang)
+- `Bots/handlers/guard_workspace.py:506` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace.py:512` — FROM remote_requests
+- `Bots/handlers/guard_workspace.py:660` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace.py:693` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace.py:730` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace.py:746` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:765` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace.py:777` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace.py:785` — resource="remote_requests",
+- `Bots/handlers/guard_workspace.py:789` — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:509` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:515` — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:663` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:696` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:733` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:749` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:768` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:780` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:788` — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:792` — target_table="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:506` — if not table_exists(cur, "remote_requests"):
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:512` — FROM remote_requests
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:660` — user_id, "remote_requests", "VIEW",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:693` — cur.execute("SELECT * FROM remote_requests WHERE id = ?", (int(request_id),))
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:730` — user_id, "remote_requests", "ISSUE",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:746` — "SELECT * FROM remote_requests WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:765` — rcols = table_columns(cur, "remote_requests")
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:777` — f"UPDATE remote_requests SET {assignments} WHERE id = ?",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:785` — resource="remote_requests",
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:789` — target_table="remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:245` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:285` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:374` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders.py:444` — say("  - If it is present, but the screen still falls back to old 'remote_requests',")
+- `CHECK_guard_sandbox_service_orders_v2.py:216` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders_v2.py:269` — "remote_requests",
+- `CHECK_guard_sandbox_service_orders_v2.py:358` — "remote_requests",
+- `FIND_actual_service_order_state.py:196` — "remote_requests_count": None,
+- `FIND_actual_service_order_state.py:209` — if "remote_requests" in tables:
+- `FIND_actual_service_order_state.py:210` — result["remote_requests_count"] = count_rows(conn, "remote_requests")
+- `FIND_actual_service_order_state.py:349` — f"remote_requests={item['remote_requests_count']!r} | "
+- `guard_workspace_preflight.py:97` — "remote_requests",
+- `guard_workspace_preflight.py:252` — "999999991", "remote_requests", "ISSUE",
+- `guard_workspace_preflight_v2.py:97` — "remote_requests",
+- `guard_workspace_preflight_v2.py:252` — "999999991", "remote_requests", "ISSUE",
+- `manage_staff_access.py:169` — ("remote_requests", "ISSUE"),
+- `manage_staff_access_v2.py:169` — ("remote_requests", "ISSUE"),
+- `migrate_access_control_and_guard.py:354` — ("GUARD_O", "remote_requests", "VIEW", "POST", "O", "ALLOW", "Видит очередь заявок на пульты поста O."),
+- `migrate_access_control_and_guard.py:355` — ("GUARD_O", "remote_requests", "ISSUE", "POST", "O", "ALLOW", "Подтверждает физическую выдачу пульта по заявке."),
+- `migrate_remote_requests.py:14` — g:/Programming/Py/venv/Scripts/python.exe G:/Programming/Py/OSBB/migrate_remote_requests.py
+- `migrate_remote_requests.py:15` — g:/Programming/Py/venv/Scripts/python.exe G:/Programming/Py/OSBB/migrate_remote_requests.py --apply
+- `migrate_remote_requests.py:95` — existed = table_exists(cur, "remote_requests")
+- `migrate_remote_requests.py:98` — CREATE TABLE IF NOT EXISTS remote_requests (
+- `migrate_remote_requests.py:137` — if add_column_if_missing(cur, "remote_requests", name, definition):
+- `migrate_remote_requests.py:143` — "idx_remote_requests_resident",
+- `migrate_remote_requests.py:145` — CREATE INDEX idx_remote_requests_resident
+- `migrate_remote_requests.py:146` — ON remote_requests(resident_account_id, status, created_at)
+- `migrate_remote_requests.py:150` — "idx_remote_requests_status",
+- `migrate_remote_requests.py:152` — CREATE INDEX idx_remote_requests_status
+- `migrate_remote_requests.py:153` — ON remote_requests(status, created_at)
+- `migrate_remote_requests.py:157` — "idx_remote_requests_apartment",
+- `migrate_remote_requests.py:159` — CREATE INDEX idx_remote_requests_apartment
+- `migrate_remote_requests.py:160` — ON remote_requests(apartment_id, created_at)
+- `migrate_remote_requests.py:173` — f"remote_requests_migration_{datetime.now():%Y-%m-%d_%H-%M-%S}.txt"
+- `migrate_remote_requests.py:202` — action_type="remote_requests_migration",
+- `migrate_remote_requests.py:203` — table_name="remote_requests",
+- `migrate_remote_requests.py:208` — source_context="migrate_remote_requests.py",
+- `migrate_service_orders_and_fulfillment.py:635` — "remote_requests": {
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:635` — "remote_requests": {
+- `run_bot_guard_sandbox.py:106` — "remote_requests",
+- `run_bot_guard_sandbox_v2.py:106` — "remote_requests",
+- `run_bot_guard_sandbox_v3.py:106` — "remote_requests",
+- ... and 3 more
+
+## `remote_supplier_batch_links`
+- `phone_barrier_access_v2_payload/service_preorders_core.py:770` — SELECT 1 FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:814` — SELECT 1 FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:853` — INSERT INTO remote_supplier_batch_links (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:914` — FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:972` — SELECT * FROM remote_supplier_batch_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:985` — UPDATE remote_supplier_batch_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1024` — FROM remote_supplier_batch_links l
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1113` — UPDATE remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:778` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:822` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:861` — INSERT INTO remote_supplier_batch_links (
+- `service_code_compatibility_payload/service_preorders_core.py:922` — FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:980` — SELECT * FROM remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:993` — UPDATE remote_supplier_batch_links
+- `service_code_compatibility_payload/service_preorders_core.py:1032` — FROM remote_supplier_batch_links l
+- `service_code_compatibility_payload/service_preorders_core.py:1121` — UPDATE remote_supplier_batch_links
+- `service_preorders_core.py:778` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_preorders_core.py:822` — SELECT 1 FROM remote_supplier_batch_links l
+- `service_preorders_core.py:861` — INSERT INTO remote_supplier_batch_links (
+- `service_preorders_core.py:922` — FROM remote_supplier_batch_links l
+- `service_preorders_core.py:980` — SELECT * FROM remote_supplier_batch_links
+- `service_preorders_core.py:993` — UPDATE remote_supplier_batch_links
+- `service_preorders_core.py:1032` — FROM remote_supplier_batch_links l
+- `service_preorders_core.py:1121` — UPDATE remote_supplier_batch_links
+
+## `remote_supplier_batches`
+- `phone_barrier_access_v2_payload/service_preorders_core.py:829` — INSERT INTO remote_supplier_batches (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:889` — SELECT * FROM remote_supplier_batches
+- `phone_barrier_access_v2_payload/service_preorders_core.py:906` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `phone_barrier_access_v2_payload/service_preorders_core.py:953` — UPDATE remote_supplier_batches
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1025` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `phone_barrier_access_v2_payload/service_preorders_core.py:1123` — UPDATE remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:837` — INSERT INTO remote_supplier_batches (
+- `service_code_compatibility_payload/service_preorders_core.py:897` — SELECT * FROM remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:914` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `service_code_compatibility_payload/service_preorders_core.py:961` — UPDATE remote_supplier_batches
+- `service_code_compatibility_payload/service_preorders_core.py:1033` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `service_code_compatibility_payload/service_preorders_core.py:1131` — UPDATE remote_supplier_batches
+- `service_preorders_core.py:837` — INSERT INTO remote_supplier_batches (
+- `service_preorders_core.py:897` — SELECT * FROM remote_supplier_batches
+- `service_preorders_core.py:914` — batch = _dict(cur, "SELECT * FROM remote_supplier_batches WHERE id = ?", (int(batch_id),))
+- `service_preorders_core.py:961` — UPDATE remote_supplier_batches
+- `service_preorders_core.py:1033` — JOIN remote_supplier_batches b ON b.id = l.supplier_batch_id
+- `service_preorders_core.py:1131` — UPDATE remote_supplier_batches
+
+## `repeated`
+- `cashier_v2_core.py:885` — # Protect from repeated identical notice on the same day while status NEW.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:865` — # Protect from repeated identical notice on the same day while status NEW.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:809` — # Protect from repeated identical notice on the same day while status NEW.
+
+## `resident`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md:17` — - Operator read-only preview is separate from resident flow. It should leave only legitimate operator audit information.
+- `parking_time_test_payload/profile_parking_time_test_core.py:5` — This module is deliberately separate from resident profile verification.
+- `profile_parking_time_test_core.py:5` — This module is deliberately separate from resident profile verification.
+- `profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+- `profile_verification_payload/profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:610` — "Access phone may differ from resident contact/Telegram phones.",
+
+## `resident_accounts`
+- `Bots/db_access - Copy.py:100` — Создаёт/обновляет resident_accounts по Telegram user.
+- `Bots/db_access - Copy.py:108` — INSERT INTO resident_accounts (
+- `Bots/db_access - Copy.py:167` — FROM resident_accounts
+- `Bots/db_access - Copy.py:190` — FROM resident_accounts
+- `Bots/db_access - Copy.py:202` — def get_resident_accounts_summary(limit=10):
+- `Bots/db_access - Copy.py:208` — FROM resident_accounts
+- `Bots/db_access - Copy.py:214` — FROM resident_accounts
+- `Bots/db_access - Copy.py:222` — FROM resident_accounts
+- `Bots/db_access - Copy.py:237` — FROM resident_accounts
+- `Bots/db_access - Copy.py:254` — def format_resident_accounts_summary(summary):
+- `Bots/db_access - Copy.py:329` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:481` — def get_resident_accounts_by_filter(filter_name="all", limit=30):
+- `Bots/db_access - Copy.py:510` — FROM resident_accounts
+- `Bots/db_access - Copy.py:522` — def format_resident_accounts_list(title, rows):
+- `Bots/db_access - Copy.py:612` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:638` — UPDATE resident_accounts
+- `Bots/db_access - Copy.py:1108` — FROM resident_accounts
+- `Bots/db_access - Copy.py:3690` — FROM resident_accounts
+- `Bots/db_access.py:100` — Создаёт/обновляет resident_accounts по Telegram user.
+- `Bots/db_access.py:108` — INSERT INTO resident_accounts (
+- `Bots/db_access.py:167` — FROM resident_accounts
+- `Bots/db_access.py:190` — FROM resident_accounts
+- `Bots/db_access.py:202` — def get_resident_accounts_summary(limit=10):
+- `Bots/db_access.py:208` — FROM resident_accounts
+- `Bots/db_access.py:214` — FROM resident_accounts
+- `Bots/db_access.py:222` — FROM resident_accounts
+- `Bots/db_access.py:237` — FROM resident_accounts
+- `Bots/db_access.py:254` — def format_resident_accounts_summary(summary):
+- `Bots/db_access.py:329` — UPDATE resident_accounts
+- `Bots/db_access.py:481` — def get_resident_accounts_by_filter(filter_name="all", limit=30):
+- `Bots/db_access.py:510` — FROM resident_accounts
+- `Bots/db_access.py:522` — def format_resident_accounts_list(title, rows):
+- `Bots/db_access.py:612` — UPDATE resident_accounts
+- `Bots/db_access.py:638` — UPDATE resident_accounts
+- `Bots/db_access.py:1108` — FROM resident_accounts
+- `Bots/db_access.py:3690` — FROM resident_accounts
+- `Bots/db_access.py:5195` — FROM resident_accounts
+- `Bots/db_access.py:5228` — UPDATE resident_accounts
+- `Bots/db_access.py:5395` — # fallback для старых resident_accounts, где apartment_id был пустым.
+- `Bots/db_access.py:5402` — FROM resident_accounts
+- `Bots/handlers/client_portal.py:601` — if not table_exists(cur, "resident_accounts"):
+- `Bots/handlers/client_portal.py:616` — FROM resident_accounts
+- `Bots/handlers/client_portal.py:824` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:848` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:891` — UPDATE resident_accounts
+- `Bots/handlers/client_portal.py:914` — table_name="resident_accounts",
+- `Bots/handlers/client_portal.py:1413` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal.py:1435` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:601` — if not table_exists(cur, "resident_accounts"):
+- `Bots/handlers/client_portal_safe_linking.py:616` — FROM resident_accounts
+- `Bots/handlers/client_portal_safe_linking.py:824` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:848` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:891` — UPDATE resident_accounts
+- `Bots/handlers/client_portal_safe_linking.py:914` — table_name="resident_accounts",
+- `Bots/handlers/client_portal_safe_linking.py:1413` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/client_portal_safe_linking.py:1435` — LEFT JOIN resident_accounts a ON a.id = r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:361` — LEFT JOIN resident_accounts a ON a.id=r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:377` — LEFT JOIN resident_accounts a ON a.id=r.resident_account_id
+- `Bots/handlers/commercial_contract_editor.py:606` — FROM resident_accounts WHERE telegram_user_id=?
+- `Bots/parking_bot - Copy.py:37` — get_resident_accounts_summary,
+- `Bots/parking_bot - Copy.py:38` — format_resident_accounts_summary,
+- `Bots/parking_bot - Copy.py:39` — get_resident_accounts_by_filter,
+- `Bots/parking_bot - Copy.py:40` — format_resident_accounts_list,
+- `Bots/parking_bot - Copy.py:257` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot - Copy.py:260` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot - Copy.py:266` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot - Copy.py:269` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot - Copy.py:410` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot.py:44` — get_resident_accounts_summary,
+- `Bots/parking_bot.py:45` — format_resident_accounts_summary,
+- `Bots/parking_bot.py:46` — get_resident_accounts_by_filter,
+- `Bots/parking_bot.py:47` — format_resident_accounts_list,
+- `Bots/parking_bot.py:264` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot.py:267` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot.py:273` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot.py:276` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot.py:417` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:43` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:44` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:45` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:46` — format_resident_accounts_list,
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:262` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:265` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:271` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:274` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:415` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:38` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:39` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:40` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:41` — format_resident_accounts_list,
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:258` — summary = get_resident_accounts_summary(limit=10)
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:261` — format_resident_accounts_summary(summary) + "\n\nВыберите список:",
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:267` — rows = get_resident_accounts_by_filter(filter_name, limit=30)
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:270` — format_resident_accounts_list(title, rows),
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:411` — "Пользователь не найден в resident_accounts."
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:43` — get_resident_accounts_summary,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:44` — format_resident_accounts_summary,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:45` — get_resident_accounts_by_filter,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:46` — format_resident_accounts_list,
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:273` — summary = get_resident_accounts_summary(limit=10)
+- ... and 77 more
+
+## `resident_profile_change_requests`
+- `CHECK_profile_verification_sandbox.py:34` — print("Open correction requests:",conn.execute("SELECT COUNT(*) FROM resident_profile_change_requests WHERE request_status='PENDING_OPERATOR'").fetchone()[0])
+- `profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1237` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1264` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_core.py:1338` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_core.py:1391` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_core.py:1410` — FROM resident_profile_change_requests
+- `profile_verification_core.py:1500` — UPDATE resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1217` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1244` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_payload/profile_verification_core.py:1318` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_payload/profile_verification_core.py:1371` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_payload/profile_verification_core.py:1390` — FROM resident_profile_change_requests
+- `profile_verification_payload/profile_verification_core.py:1480` — UPDATE resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:793` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1237` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1264` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1338` — INSERT INTO resident_profile_change_requests (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1391` — "SELECT * FROM resident_profile_change_requests WHERE id = ?",
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1410` — FROM resident_profile_change_requests
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1500` — UPDATE resident_profile_change_requests
+
+## `resident_profile_operation_journal`
+- `profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+- `profile_verification_payload/profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:446` — INSERT INTO resident_profile_operation_journal (
+
+## `resident_profile_policy_values`
+- `CHECK_profile_verification_sandbox.py:30` — for row in conn.execute("SELECT setting_code,value_text FROM resident_profile_policy_values WHERE policy_version_id=? ORDER BY setting_code",(int(policy[0]),)):
+- `profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_core.py:709` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_payload/profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_payload/profile_verification_core.py:709` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:522` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:538` — INSERT INTO resident_profile_policy_values (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:618` — FROM resident_profile_policy_values
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:709` — FROM resident_profile_policy_values
+
+## `resident_profile_policy_versions`
+- `CHECK_profile_verification_sandbox.py:25` — policy=conn.execute("SELECT id,version_number,effective_from FROM resident_profile_policy_versions WHERE policy_set_code=? AND policy_status='ACTIVE' ORDER BY effective_from DESC,version_number DESC LIMIT 1",(PROFILE_POLICY_SET,)).fetchone()
+- `profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_core.py:697` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_payload/profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_payload/profile_verification_core.py:697` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:476` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:487` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:496` — INSERT INTO resident_profile_policy_versions (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:680` — FROM resident_profile_policy_versions
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:697` — FROM resident_profile_policy_versions
+
+## `resident_profile_schema_migrations`
+- `CHECK_profile_verification_sandbox.py:23` — marker=conn.execute("SELECT migration_code FROM resident_profile_schema_migrations WHERE migration_code=?",(PROFILE_SCHEMA_MIGRATION_CODE,)).fetchone()
+- `profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+- `profile_verification_payload/profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_payload/profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:638` — FROM resident_profile_schema_migrations
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:646` — INSERT INTO resident_profile_schema_migrations (
+
+## `resident_profile_verifications`
+- `CHECK_profile_verification_sandbox.py:33` — print("Profile rows:",conn.execute("SELECT COUNT(*) FROM resident_profile_verifications").fetchone()[0])
+- `profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_core.py:962` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1053` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1100` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1165` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1289` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1363` — UPDATE resident_profile_verifications
+- `profile_verification_core.py:1516` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_payload/profile_verification_core.py:950` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1031` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1080` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1145` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1269` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1343` — UPDATE resident_profile_verifications
+- `profile_verification_payload/profile_verification_core.py:1496` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:722` — FROM resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:746` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:770` — INSERT INTO resident_profile_verifications (
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:962` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1053` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1100` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1165` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1289` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1363` — UPDATE resident_profile_verifications
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:1516` — UPDATE resident_profile_verifications
+
+## `schema_info`
+- `init_osbb_db.py:212` — INSERT INTO schema_info (schema_version, created_at, comment)
+
+## `screenshots`
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md:129` — The following work is known to have been installed/tested in the sandbox from screenshots and console outputs:
+
+## `service_access_credentials`
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1023` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_core.py:2030` — FROM service_access_credentials
+- `phone_barrier_access_core.py:2048` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2030` — FROM service_access_credentials
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:2048` — INSERT INTO service_access_credentials (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1235` — INSERT INTO service_access_credentials (
+- `service_code_compatibility_payload/service_orders_core.py:1306` — INSERT INTO service_access_credentials (
+- `service_orders_core.py:1306` — INSERT INTO service_access_credentials (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1023` — INSERT INTO service_access_credentials (
+
+## `service_catalog`
+- `Bots/handlers/cashier_operator_v2.py:9` — - выбор услуг из service_catalog / service_items;
+- `cashier_journal.py:312` — версии структуры. Это особенно важно для service_catalog.
+- `cashier_journal.py:435` — def ensure_service_catalog(cur, base_service_code):
+- `cashier_journal.py:436` — if not table_exists(cur, "service_catalog"):
+- `cashier_journal.py:437` — raise RuntimeError("Не найдена таблица service_catalog. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:441` — cur.execute("SELECT id FROM service_catalog WHERE service_code = ?", (base_service_code,))
+- `cashier_journal.py:465` — update_dynamic_by(cur, "service_catalog", "service_code", base_service_code, values)
+- `cashier_journal.py:468` — insert_dynamic(cur, "service_catalog", values)
+- `cashier_journal.py:473` — if table_exists(cur, "service_catalog"):
+- `cashier_journal.py:474` — cols = table_columns(cur, "service_catalog")
+- `cashier_journal.py:477` — "SELECT COALESCE(service_type, '') FROM service_catalog WHERE service_code = ?",
+- `cashier_journal.py:514` — ensure_service_catalog(cur, base_service_code)
+- `cashier_journal.py:1352` — ensure_service_catalog(cur, base_service_code)
+- `cashier_v2_core.py:171` — "service_catalog",
+- `cashier_v2_core.py:236` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core.py:282` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core.py:291` — FROM service_catalog
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:148` — "service_catalog",
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:259` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:268` — FROM service_catalog
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:148` — "service_catalog",
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:259` — cols = table_columns(cur, "service_catalog")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:268` — FROM service_catalog
+- `cashier_v2_preflight.py:85` — "service_catalog",
+- `cashier_v2_preflight.py:250` — "service_catalog",
+- `cashier_v2_preflight_compat.py:139` — "service_catalog",
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `import_ohorona_list1_to_central_cashbox.py:45` — ensure_service_catalog,
+- `import_ohorona_list1_to_central_cashbox.py:268` — ensure_service_catalog(cur, base_service_code)
+- `import_ohorona_list1_to_central_cashbox.py:640` — ensure_service_catalog(cur, plan["base_service_code"])
+- `import_ohorona_to_cashbox.py:37` — ensure_service_catalog,
+- `import_ohorona_to_cashbox.py:624` — ensure_service_catalog(cur, plan["base_service_code"])
+- `migrate_billing_core.py:35` — CREATE TABLE IF NOT EXISTS service_catalog (
+- `migrate_billing_core.py:60` — REFERENCES service_catalog(service_code)
+- `migrate_billing_core.py:84` — REFERENCES service_catalog(service_code)
+- `migrate_billing_core.py:140` — INSERT OR IGNORE INTO service_catalog (
+- `migrate_billing_core.py:179` — "service_catalog",
+- `migrate_cashier_v2.py:402` — "service_catalog",
+- `migrate_commercial_contract_core.py:125` — Это нужно только для безопасного upsert service_catalog в БД,
+- `migrate_commercial_contract_core.py:171` — if not table_exists(cur, "service_catalog"):
+- `migrate_commercial_contract_core.py:172` — return False, "service_catalog отсутствует — пропущено"
+- `migrate_commercial_contract_core.py:174` — columns = table_columns(cur, "service_catalog")
+- `migrate_commercial_contract_core.py:175` — values: dict[str, Any] = required_fields_with_defaults(cur, "service_catalog")
+- `migrate_commercial_contract_core.py:200` — return False, "service_catalog не содержит service_code — пропущено"
+- `migrate_commercial_contract_core.py:203` — "SELECT id FROM service_catalog WHERE service_code=?",
+- `migrate_commercial_contract_core.py:216` — f"UPDATE service_catalog SET "
+- `migrate_commercial_contract_core.py:225` — f"INSERT INTO service_catalog ({', '.join(q(key) for key in insert_columns)}) "
+- `migrate_service_items.py:42` — def create_service_catalog(cur):
+- `migrate_service_items.py:44` — CREATE TABLE IF NOT EXISTS service_catalog (
+- `migrate_service_items.py:78` — if add_column_if_missing(cur, "service_catalog", col, col_def):
+- `migrate_service_items.py:81` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_code ON service_catalog(service_code)")
+- `migrate_service_items.py:82` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_type ON service_catalog(service_type)")
+- `migrate_service_items.py:83` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_group ON service_catalog(service_group)")
+- `migrate_service_items.py:84` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_catalog_active ON service_catalog(is_active)")
+- `migrate_service_items.py:108` — FOREIGN KEY (service_code) REFERENCES service_catalog(service_code)
+- `migrate_service_items.py:224` — if table_name == "service_catalog":
+- `migrate_service_items.py:282` — cur.execute("SELECT id FROM service_catalog WHERE service_code = ?", (service_code,))
+- `migrate_service_items.py:289` — update_dynamic_by_code(cur, "service_catalog", "service_code", service_code, update_values)
+- `migrate_service_items.py:292` — insert_dynamic(cur, "service_catalog", values)
+- `migrate_service_items.py:296` — def seed_service_catalog(cur):
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `migrate_service_items.py:392` — catalog_added = create_service_catalog(cur)
+- `migrate_service_items.py:396` — service_ins, service_upd = seed_service_catalog(cur)
+- `migrate_service_items.py:405` — table_name="service_catalog",
+- `migrate_service_orders_and_fulfillment.py:483` — "SERVICE_CATALOG_MANAGER",
+- `migrate_service_orders_and_fulfillment.py:499` — ("SERVICE_CATALOG_MANAGER", "service_catalog", "MANAGE", "ALL", "*"),
+- `migrate_service_orders_and_fulfillment.py:500` — ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+- `migrate_service_orders_and_fulfillment.py:501` — ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:483` — "SERVICE_CATALOG_MANAGER",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:499` — ("SERVICE_CATALOG_MANAGER", "service_catalog", "MANAGE", "ALL", "*"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:500` — ("SERVICE_CATALOG_MANAGER", "service_item_workflows", "MANAGE", "ALL", "*"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:501` — ("SERVICE_CATALOG_MANAGER", "service_price_versions", "MANAGE", "ALL", "*"),
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:4` — Слой service_catalog / service_items остаётся источником списка услуг.
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:49` — "service_catalog",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:54` — raise PermissionError("Нет права service_catalog.MANAGE.")
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:249` — if not table_exists(cur, "service_catalog") or not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:250` — raise RuntimeError("Нужны таблицы service_catalog и service_items.")
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:253` — "SELECT 1 FROM service_catalog WHERE service_code = ?",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:274` — cur, "service_catalog", "service_code = ?", (service_code,), catalog_values
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:278` — _insert_dynamic(cur, "service_catalog", catalog_values)
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:156` — "catalog core": ROOT / "service_catalog_admin_core.py",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:234` — "service_catalog_admin_core",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:241` — catalog = load_module(files["catalog core"], "service_catalog_admin_core")
+- `prepare_live_service_test.py:159` — "catalog core": ROOT / "service_catalog_admin_core.py",
+- `prepare_live_service_test.py:184` — "service_catalog_admin_core",
+- `prepare_live_service_test.py:191` — catalog = load_module(files["catalog core"], "service_catalog_admin_core")
+- `prepare_live_service_test.py:303` — 'service_catalog', '', 1, ?)
+- `reset_service_catalog.py:256` — Старый service_catalog уже мог иметь обязательные столбцы
+- `reset_service_catalog.py:311` — columns = table_columns(cur, "service_catalog")
+- `reset_service_catalog.py:325` — f"UPDATE service_catalog SET {', '.join(set_parts)} WHERE service_code = ?",
+- `reset_service_catalog.py:431` — f"service_catalog_cleanup_{datetime.now():%Y-%m-%d_%H-%M-%S}.txt"
+- `reset_service_catalog.py:442` — if not table_exists(cur, "service_catalog"):
+- `reset_service_catalog.py:443` — raise RuntimeError("Не найдена таблица service_catalog.")
+- `reset_service_catalog.py:445` — cur.execute("SELECT service_code FROM service_catalog ORDER BY id")
+- `reset_service_catalog.py:526` — "SELECT id FROM service_catalog WHERE service_code = ?",
+- `reset_service_catalog.py:538` — insert_dynamic(cur, "service_catalog", values)
+- `reset_service_catalog.py:549` — f"DELETE FROM service_catalog WHERE service_code IN ({placeholders})",
+- `reset_service_catalog.py:562` — action_type="service_catalog_cleaned",
+- ... and 20 more
+
+## `service_item_workflows`
+- `Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `migrate_service_orders_and_fulfillment.py:458` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:458` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:193` — LEFT JOIN service_item_workflows w
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:312` — INSERT INTO service_item_workflows (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:495` — UPDATE service_item_workflows
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:536` — UPDATE service_item_workflows
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:200` — FROM service_item_workflows w
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:537` — JOIN service_item_workflows w
+- `phone_barrier_access_v2_payload/service_orders_core.py:200` — FROM service_item_workflows w
+- `phone_barrier_access_v2_payload/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:568` — JOIN service_item_workflows w
+- `service_catalog_admin_core.py:193` — LEFT JOIN service_item_workflows w
+- `service_catalog_admin_core.py:312` — INSERT INTO service_item_workflows (
+- `service_catalog_admin_core.py:495` — UPDATE service_item_workflows
+- `service_catalog_admin_core.py:536` — UPDATE service_item_workflows
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:555` — JOIN service_item_workflows w
+- `service_code_compatibility_payload/service_orders_core.py:266` — FROM service_item_workflows w
+- `service_code_compatibility_payload/service_preorders_core.py:319` — UPDATE service_item_workflows
+- `service_orders_core.py:266` — FROM service_item_workflows w
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:200` — FROM service_item_workflows w
+- `service_preorders_core.py:319` — UPDATE service_item_workflows
+
+## `service_items`
+- `Bots/handlers/cashier_operator_v2.py:9` — - выбор услуг из service_catalog / service_items;
+- `Bots/handlers/service_orders_workspace.py:551` — item_columns = table_columns(cur, "service_items")
+- `Bots/handlers/service_orders_workspace.py:567` — FROM service_items i
+- `cashier_journal.py:437` — raise RuntimeError("Не найдена таблица service_catalog. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:487` — if not table_exists(cur, "service_items"):
+- `cashier_journal.py:488` — raise RuntimeError("Не найдена таблица service_items. Сначала выполните migrate_service_items.py.")
+- `cashier_journal.py:490` — cur.execute("SELECT * FROM service_items WHERE service_item_code = ?", (item_code,))
+- `cashier_journal.py:564` — update_dynamic_by(cur, "service_items", "service_item_code", item_code, update_values)
+- `cashier_journal.py:567` — insert_dynamic(cur, "service_items", values)
+- `cashier_journal.py:1397` — table_name="service_items",
+- `cashier_journal.py:1443` — FROM service_items
+- `cashier_v2_core.py:236` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core.py:245` — if table_exists(cur, "service_items"):
+- `cashier_v2_core.py:246` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core.py:262` — FROM service_items
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:222` — if table_exists(cur, "service_items"):
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:223` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:239` — FROM service_items
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:213` — Сначала варианты из service_items для периода, затем общие service_catalog.
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:222` — if table_exists(cur, "service_items"):
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:223` — cols = table_columns(cur, "service_items")
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:239` — FROM service_items
+- `CHECK_service_code_compatibility_phone_v2.py:60` — item_cols = columns(cur, "service_items")
+- `CHECK_service_code_compatibility_phone_v2.py:74` — raise RuntimeError("service_items has neither service_code nor base_service_code.")
+- `CHECK_service_code_compatibility_phone_v2.py:79` — print("service_items broad-code column:", item_code_col)
+- `CHECK_service_code_compatibility_phone_v2.py:86` — FROM service_items
+- `diagnose_sandbox_charges.py:78` — for table in ("charges", "payment_allocations", "apartments", "service_items", "service_catalog"):
+- `migrate_service_items.py:88` — def create_service_items(cur):
+- `migrate_service_items.py:90` — CREATE TABLE IF NOT EXISTS service_items (
+- `migrate_service_items.py:111` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_code ON service_items(service_item_code)")
+- `migrate_service_items.py:112` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_service ON service_items(service_code)")
+- `migrate_service_items.py:113` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_period ON service_items(period_code)")
+- `migrate_service_items.py:114` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_type ON service_items(service_type)")
+- `migrate_service_items.py:115` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_items_active ON service_items(is_active)")
+- `migrate_service_items.py:321` — cur.execute("SELECT id FROM service_items WHERE service_item_code = ?", (service_item_code,))
+- `migrate_service_items.py:325` — UPDATE service_items
+- `migrate_service_items.py:338` — INSERT INTO service_items (
+- `migrate_service_items.py:352` — def seed_initial_service_items(cur):
+- `migrate_service_items.py:371` — for table in ["service_catalog", "service_items", "barrier_phone_access", "charges", "payments", "cashbox_operations"]:
+- `migrate_service_items.py:393` — create_service_items(cur)
+- `migrate_service_items.py:397` — item_ins, item_upd = seed_initial_service_items(cur)
+- `migrate_service_items.py:404` — action_type="service_items_migration",
+- `migrate_service_items.py:410` — source_context="migrate_service_items.py",
+- `migrate_service_orders_and_fulfillment.py:436` — if not table_exists(cur, "service_items"):
+- `migrate_service_orders_and_fulfillment.py:438` — cols = table_columns(cur, "service_items")
+- `migrate_service_orders_and_fulfillment.py:445` — FROM service_items
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:436` — if not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:438` — cols = table_columns(cur, "service_items")
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:445` — FROM service_items
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:4` — Слой service_catalog / service_items остаётся источником списка услуг.
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:164` — if not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:167` — icols = table_columns(cur, "service_items")
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:192` — FROM service_items i
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:249` — if not table_exists(cur, "service_catalog") or not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:250` — raise RuntimeError("Нужны таблицы service_catalog и service_items.")
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:281` — "SELECT id FROM service_items WHERE service_item_code = ?",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:303` — cur, "service_items", "service_item_code = ?",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:308` — _insert_dynamic(cur, "service_items", item_values)
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:445` — "service_items",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:483` — "service_items",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:529` — "service_items",
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:557` — if not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:558` — raise RuntimeError("Не найдена service_items.")
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:560` — "SELECT * FROM service_items WHERE service_item_code = ?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:154` — if not table_exists(cur, "service_items"):
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:155` — raise RuntimeError("Не найдена service_items.")
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:156` — cols = table_columns(cur, "service_items")
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:158` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:173` — FROM service_items
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:536` — FROM service_items i
+- `phone_barrier_access_v2_payload/service_orders_core.py:154` — if not table_exists(cur, "service_items"):
+- `phone_barrier_access_v2_payload/service_orders_core.py:155` — raise RuntimeError("Не найдена service_items.")
+- `phone_barrier_access_v2_payload/service_orders_core.py:156` — cols = table_columns(cur, "service_items")
+- `phone_barrier_access_v2_payload/service_orders_core.py:158` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `phone_barrier_access_v2_payload/service_orders_core.py:173` — FROM service_items
+- `phone_barrier_access_v2_payload/service_preorders_core.py:332` — if not table_exists(cur, "service_items"):
+- `phone_barrier_access_v2_payload/service_preorders_core.py:333` — raise RuntimeError("Не найдена таблица service_items.")
+- `phone_barrier_access_v2_payload/service_preorders_core.py:334` — cols = table_columns(cur, "service_items")
+- `phone_barrier_access_v2_payload/service_preorders_core.py:336` — raise RuntimeError("В service_items отсутствует service_item_code.")
+- `phone_barrier_access_v2_payload/service_preorders_core.py:347` — f"SELECT {', '.join(fields)} FROM service_items WHERE service_item_code = ?",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:551` — item_columns = table_columns(cur, "service_items")
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:567` — FROM service_items i
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:551` — item_columns = table_columns(cur, "service_items")
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:567` — FROM service_items i
+- `README_SERVICE_CODE_COMPATIBILITY_PHONE_V2.txt:10` — directly from service_items and payments. Your sandbox uses:
+- `reset_service_catalog.py:167` — "Тарифы и правила задаются отдельными статьями service_items."
+- `reset_service_catalog.py:207` — INITIAL_SERVICE_ITEMS = [
+- `reset_service_catalog.py:332` — if not table_exists(cur, "service_items"):
+- `reset_service_catalog.py:336` — "SELECT id FROM service_items WHERE service_item_code = ?",
+- `reset_service_catalog.py:346` — columns = table_columns(cur, "service_items")
+- `reset_service_catalog.py:354` — f"UPDATE service_items SET {', '.join(set_parts)} "
+- `reset_service_catalog.py:360` — insert_dynamic(cur, "service_items", actual_values)
+- `reset_service_catalog.py:451` — service_item_count = count_rows(cur, "service_items") or 0
+- `reset_service_catalog.py:470` — f"Статей service_items к очистке: {service_item_count}",
+- `reset_service_catalog.py:503` — "  1. Очистка всех текущих service_items — они пока не используются.",
+- `reset_service_catalog.py:518` — # Пока service_items не имеют ссылок — начинаем их с чистого листа.
+- `reset_service_catalog.py:519` — if table_exists(cur, "service_items"):
+- `reset_service_catalog.py:520` — cur.execute("DELETE FROM service_items")
+- `reset_service_catalog.py:521` — reset_sqlite_sequence(cur, "service_items")
+- ... and 48 more
+
+## `service_order_charge_links`
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:783` — INSERT INTO service_order_charge_links (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1105` — FROM service_order_charge_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:995` — INSERT INTO service_order_charge_links (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1317` — FROM service_order_charge_links
+- `service_code_compatibility_payload/service_orders_core.py:1066` — INSERT INTO service_order_charge_links (
+- `service_code_compatibility_payload/service_orders_core.py:1388` — FROM service_order_charge_links
+- `service_orders_core.py:1066` — INSERT INTO service_order_charge_links (
+- `service_orders_core.py:1388` — FROM service_order_charge_links
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:783` — INSERT INTO service_order_charge_links (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1105` — FROM service_order_charge_links
+
+## `service_order_events`
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:281` — INSERT INTO service_order_events (
+- `phone_barrier_access_v2_payload/service_orders_core.py:281` — INSERT INTO service_order_events (
+- `service_code_compatibility_payload/service_orders_core.py:347` — INSERT INTO service_order_events (
+- `service_orders_core.py:347` — INSERT INTO service_order_events (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:281` — INSERT INTO service_order_events (
+
+## `service_order_interests`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:527` — "service_order_interests",
+- `CHECK_service_code_compatibility_phone_v2.py:98` — FROM service_order_interests
+- `MIGRATE_phone_barrier_access_operational_sandbox.py:80` — required_existing = {"service_orders", "service_order_interests", "service_access_credentials"}
+- `MIGRATE_phone_barrier_access_sandbox.py:82` — required_existing = {"service_orders", "payments", "service_order_interests"}
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:734` — "service_order_interests",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:96` — "service_order_interests",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `phone_barrier_access_v2_payload/service_preorders_core.py:421` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `phone_barrier_access_v2_payload/service_preorders_core.py:424` — INSERT INTO service_order_interests (
+- `phone_barrier_access_v2_payload/service_preorders_core.py:472` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `phone_barrier_access_v2_payload/service_preorders_core.py:490` — FROM service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:541` — UPDATE service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:630` — SELECT * FROM service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:687` — UPDATE service_order_interests
+- `phone_barrier_access_v2_payload/service_preorders_core.py:733` — FROM service_order_interests
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:682` — "service_order_interests",
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:648` — "service_order_interests",
+- `run_bot_live_services_sandbox_v1.py:734` — "service_order_interests",
+- `service_code_compatibility_payload/service_preorders_core.py:96` — "service_order_interests",
+- `service_code_compatibility_payload/service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `service_code_compatibility_payload/service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `service_code_compatibility_payload/service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `service_code_compatibility_payload/service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `service_code_compatibility_payload/service_preorders_core.py:429` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `service_code_compatibility_payload/service_preorders_core.py:432` — INSERT INTO service_order_interests (
+- `service_code_compatibility_payload/service_preorders_core.py:480` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `service_code_compatibility_payload/service_preorders_core.py:498` — FROM service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:549` — UPDATE service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:638` — SELECT * FROM service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:695` — UPDATE service_order_interests
+- `service_code_compatibility_payload/service_preorders_core.py:741` — FROM service_order_interests
+- `service_preorders_core.py:96` — "service_order_interests",
+- `service_preorders_core.py:112` — CREATE TABLE IF NOT EXISTS service_order_interests (
+- `service_preorders_core.py:142` — ON service_order_interests(resident_account_id, id)
+- `service_preorders_core.py:148` — ON service_order_interests(payment_notice_id)
+- `service_preorders_core.py:154` — ON service_order_interests(payment_id)
+- `service_preorders_core.py:429` — interest_number = _number("SI", cur, "service_order_interests", "interest_number")
+- `service_preorders_core.py:432` — INSERT INTO service_order_interests (
+- `service_preorders_core.py:480` — row = _dict(cur, "SELECT * FROM service_order_interests WHERE id = ?", (int(interest_id),))
+- `service_preorders_core.py:498` — FROM service_order_interests
+- `service_preorders_core.py:549` — UPDATE service_order_interests
+- `service_preorders_core.py:638` — SELECT * FROM service_order_interests
+- `service_preorders_core.py:695` — UPDATE service_order_interests
+- `service_preorders_core.py:741` — FROM service_order_interests
+- `tools/project_passport.py:119` — "service_order_interests",
+- `tools/project_passport_v2.py:140` — "service_order_interests",
+
+## `service_order_items`
+- `tools/project_passport.py:117` — "service_order_items",
+- `tools/project_passport_v2.py:138` — "service_order_items",
+
+## `service_order_payment_links`
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:728` — INSERT INTO service_order_payment_links (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:1095` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:843` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:856` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:882` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_orders_core.py:904` — INSERT INTO service_order_payment_links (
+- `phone_barrier_access_v2_payload/service_orders_core.py:1307` — FROM service_order_payment_links
+- `phone_barrier_access_v2_payload/service_preorders_core.py:606` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:39` — SELECT 1 FROM service_order_payment_links l
+- `service_code_compatibility_payload/service_orders_core.py:914` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:927` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:953` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_orders_core.py:975` — INSERT INTO service_order_payment_links (
+- `service_code_compatibility_payload/service_orders_core.py:1378` — FROM service_order_payment_links
+- `service_code_compatibility_payload/service_preorders_core.py:614` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+- `service_orders_core.py:914` — FROM service_order_payment_links
+- `service_orders_core.py:927` — FROM service_order_payment_links
+- `service_orders_core.py:953` — FROM service_order_payment_links
+- `service_orders_core.py:975` — INSERT INTO service_order_payment_links (
+- `service_orders_core.py:1378` — FROM service_order_payment_links
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:728` — INSERT INTO service_order_payment_links (
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:1095` — FROM service_order_payment_links
+- `service_preorders_core.py:614` — "NOT EXISTS (SELECT 1 FROM service_order_payment_links l WHERE l.payment_id = payments.id)"
+
+## `service_order_steps`
+- `Bots/handlers/service_orders_workspace.py:1306` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:200` — ("service_order_steps", "VIEW", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:201` — ("service_order_steps", "CREATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:209` — ("service_order_steps", "VIEW", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:210` — ("service_order_steps", "CREATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:523` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders.py:281` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders.py:345` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders_v2.py:265` — "service_order_steps",
+- `CHECK_guard_sandbox_service_orders_v2.py:329` — "service_order_steps",
+- `FIND_actual_service_order_state.py:254` — if "service_order_steps" in tables:
+- `FIND_actual_service_order_state.py:256` — columns = set(table_columns(conn, "service_order_steps"))
+- `FIND_actual_service_order_state.py:266` — "service_order_steps",
+- `FIND_actual_service_order_state.py:283` — say("service_order_steps table: MISSING")
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `migrate_service_orders_and_fulfillment.py:192` — "service_order_steps": """
+- `migrate_service_orders_and_fulfillment.py:193` — CREATE TABLE IF NOT EXISTS service_order_steps (
+- `migrate_service_orders_and_fulfillment.py:504` — ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `migrate_service_orders_and_fulfillment.py:508` — ("ACCESS_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "ACCESS"),
+- `migrate_service_orders_and_fulfillment.py:599` — "idx_service_order_steps_order",
+- `migrate_service_orders_and_fulfillment.py:600` — "CREATE INDEX idx_service_order_steps_order "
+- `migrate_service_orders_and_fulfillment.py:601` — "ON service_order_steps(service_order_id, sequence_no, step_status)",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:192` — "service_order_steps": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:193` — CREATE TABLE IF NOT EXISTS service_order_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:504` — ("REMOTE_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "REMOTE"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:508` — ("ACCESS_SERVICE_OPERATOR", "service_order_steps", "CONFIRM", "SERVICE_CATEGORY", "ACCESS"),
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:599` — "idx_service_order_steps_order",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:600` — "CREATE INDEX idx_service_order_steps_order "
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:601` — "ON service_order_steps(service_order_id, sequence_no, step_status)",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:96` — "service_order_steps",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:331` — FROM service_order_steps
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:534` — INSERT INTO service_order_steps (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:644` — "service_order_steps",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:654` — FROM service_order_steps
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:667` — UPDATE service_order_steps
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:206` — ("service_order_steps", "VIEW", "REMOTE"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:207` — ("service_order_steps", "CREATE", "REMOTE"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:208` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:215` — ("service_order_steps", "VIEW", "ACCESS"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:216` — ("service_order_steps", "CREATE", "ACCESS"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:217` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:730` — "service_order_steps",
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1177` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `phone_barrier_access_v2_payload/service_orders_core.py:96` — "service_order_steps",
+- `phone_barrier_access_v2_payload/service_orders_core.py:331` — FROM service_order_steps
+- `phone_barrier_access_v2_payload/service_orders_core.py:571` — INSERT INTO service_order_steps (
+- `phone_barrier_access_v2_payload/service_orders_core.py:681` — "service_order_steps",
+- `phone_barrier_access_v2_payload/service_orders_core.py:691` — FROM service_order_steps
+- `phone_barrier_access_v2_payload/service_orders_core.py:704` — UPDATE service_order_steps
+- `phone_barrier_access_v2_payload/service_orders_core.py:788` — "service_order_steps",
+- `phone_barrier_access_v2_payload/service_orders_core.py:798` — FROM service_order_steps
+- `phone_barrier_access_v2_payload/service_preorders_core.py:759` — JOIN service_order_steps p
+- `phone_barrier_access_v2_payload/service_preorders_core.py:763` — JOIN service_order_steps s
+- `phone_barrier_access_v2_payload/service_preorders_core.py:802` — JOIN service_order_steps p
+- `phone_barrier_access_v2_payload/service_preorders_core.py:806` — JOIN service_order_steps s
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "VIEW", "REMOTE"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:203` — ("service_order_steps", "CREATE", "REMOTE"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:204` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "VIEW", "ACCESS"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:212` — ("service_order_steps", "CREATE", "ACCESS"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:213` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:678` — "service_order_steps",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1299` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:202` — ("service_order_steps", "VIEW", "REMOTE"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:203` — ("service_order_steps", "CREATE", "REMOTE"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:204` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:211` — ("service_order_steps", "VIEW", "ACCESS"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:212` — ("service_order_steps", "CREATE", "ACCESS"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:213` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:644` — "service_order_steps",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1306` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py:62` — UPDATE service_order_steps
+- `run_bot_live_service_sandbox_v4.py:99` — "service_order_steps",
+- `run_bot_live_services_sandbox_v1.py:206` — ("service_order_steps", "VIEW", "REMOTE"),
+- `run_bot_live_services_sandbox_v1.py:207` — ("service_order_steps", "CREATE", "REMOTE"),
+- `run_bot_live_services_sandbox_v1.py:208` — ("service_order_steps", "CONFIRM", "REMOTE"),
+- `run_bot_live_services_sandbox_v1.py:215` — ("service_order_steps", "VIEW", "ACCESS"),
+- `run_bot_live_services_sandbox_v1.py:216` — ("service_order_steps", "CREATE", "ACCESS"),
+- `run_bot_live_services_sandbox_v1.py:217` — ("service_order_steps", "CONFIRM", "ACCESS"),
+- `run_bot_live_services_sandbox_v1.py:730` — "service_order_steps",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1195` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `service_code_compatibility_payload/service_orders_core.py:154` — "service_order_steps",
+- `service_code_compatibility_payload/service_orders_core.py:397` — FROM service_order_steps
+- `service_code_compatibility_payload/service_orders_core.py:637` — INSERT INTO service_order_steps (
+- `service_code_compatibility_payload/service_orders_core.py:747` — "service_order_steps",
+- `service_code_compatibility_payload/service_orders_core.py:757` — FROM service_order_steps
+- `service_code_compatibility_payload/service_orders_core.py:770` — UPDATE service_order_steps
+- `service_code_compatibility_payload/service_orders_core.py:854` — "service_order_steps",
+- `service_code_compatibility_payload/service_orders_core.py:864` — FROM service_order_steps
+- `service_code_compatibility_payload/service_preorders_core.py:767` — JOIN service_order_steps p
+- `service_code_compatibility_payload/service_preorders_core.py:771` — JOIN service_order_steps s
+- `service_code_compatibility_payload/service_preorders_core.py:810` — JOIN service_order_steps p
+- `service_code_compatibility_payload/service_preorders_core.py:814` — JOIN service_order_steps s
+- `service_orders_core.py:154` — "service_order_steps",
+- `service_orders_core.py:397` — FROM service_order_steps
+- `service_orders_core.py:637` — INSERT INTO service_order_steps (
+- `service_orders_core.py:747` — "service_order_steps",
+- `service_orders_core.py:757` — FROM service_order_steps
+- ... and 15 more
+
+## `service_orders`
+- `Bots/handlers/client_portal_v3.py:10` — Сам процесс находится в service_orders_workspace.py и подключается
+- `Bots/handlers/client_portal_v3.py:87` — # service_orders_workspace. All other v2 behaviour remains unchanged.
+- `Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Bots/handlers/service_orders_workspace.py:78` — MODULE = "service_orders_ui"
+- `Bots/handlers/service_orders_workspace.py:515` — "service_orders",
+- `Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `Bots/handlers/service_orders_workspace.py:1047` — FROM service_orders
+- `Bots/handlers/service_orders_workspace.py:1284` — FROM service_orders o
+- `Bots/handlers/service_orders_workspace.py:1306` — resource = "service_order_steps" if action == "CONFIRM" else "service_orders"
+- `Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `Bots/handlers/service_orders_workspace.py:1452` — return confirm_order_step(order_id=int(order["id"]), step_code="REMOTE_PROGRAMMED", actor_id=user_id, note="Перепрошивка выполнена.", source_context="service_orders_workspace")
+- `Bots/handlers/service_orders_workspace.py:1696` — async def handle_service_orders_text(update: Update, user_states: dict, user_id: int, message_text: str, *, lang: str, user_mode: str | None) -> bool:
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:12` — - connects service_orders_workspace to parking_bot in memory;
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:47` — WORKSPACE_FILE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:49` — SERVICE_PATCHER = ROOT / "patch_parking_bot_service_orders_v1.py"
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:196` — ("service_orders", "VIEW", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:197` — ("service_orders", "CREATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:198` — ("service_orders", "UPDATE", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:199` — ("service_orders", "CONFIRM", "REMOTE"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:205` — ("service_orders", "VIEW", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:206` — ("service_orders", "CREATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:207` — ("service_orders", "UPDATE", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:208` — ("service_orders", "CONFIRM", "ACCESS"),
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:391` — "В service_orders_workspace.py не установлена готовая версия "
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:403` — "service_orders_core",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:409` — "handlers.service_orders_workspace",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:522` — "service_orders",
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:556` — FROM service_orders
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:668` — print("  - service_orders workspace: simplified paid-preorder workflow verified")
+- `CHECK_guard_sandbox_service_orders.py:41` — WORKSPACE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `CHECK_guard_sandbox_service_orders.py:240` — "service_orders_workspace",
+- `CHECK_guard_sandbox_service_orders.py:241` — "handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders.py:280` — "service_orders",
+- `CHECK_guard_sandbox_service_orders.py:330` — "service_orders",
+- `CHECK_guard_sandbox_service_orders.py:442` — say("  - If 'service_orders_workspace' / 'handle_service_orders_text' is absent from PATCHED source,")
+- `CHECK_guard_sandbox_service_orders.py:445` — say("    inspect roles/permissions for resource=service_orders, action=VIEW,")
+- `CHECK_guard_sandbox_service_orders.py:456` — report_path = LOG_DIR / f"guard_sandbox_service_orders_diagnosis_{stamp}.txt"
+- `CHECK_guard_sandbox_service_orders_v2.py:43` — WORKSPACE = BOTS_DIR / "handlers" / "service_orders_workspace.py"
+- `CHECK_guard_sandbox_service_orders_v2.py:211` — "service_orders_workspace",
+- `CHECK_guard_sandbox_service_orders_v2.py:212` — "handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders_v2.py:238` — say(f"service_orders_workspace.py: {len(workspace_source.splitlines())} lines")
+- `CHECK_guard_sandbox_service_orders_v2.py:240` — "def handle_service_orders_text",
+- `CHECK_guard_sandbox_service_orders_v2.py:264` — "service_orders",
+- `CHECK_guard_sandbox_service_orders_v2.py:314` — "service_orders",
+- `CHECK_guard_sandbox_service_orders_v2.py:426` — say("  1) Whether the runtime-patched parking_bot imports and calls service_orders_workspace.")
+- `CHECK_guard_sandbox_service_orders_v2.py:429` — say("  4) Whether roles/permissions permit service_orders VIEW for REMOTE / ACCESS.")
+- `CHECK_guard_sandbox_service_orders_v2.py:437` — report_path = LOG_DIR / f"guard_sandbox_service_orders_diagnosis_v2_{stamp}.txt"
+- `CHECK_profile_verification_terminology_v2.py:16` — service = ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+- `CHECK_service_code_compatibility_phone_v2.py:31` — core = ROOT / "service_orders_core.py"
+- `CHECK_service_code_compatibility_phone_v2.py:33` — workspace = ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+- `create_clean_live_sandbox.py:101` — "service_orders",
+- `create_clean_live_sandbox.py:341` — "services": ROOT / "migrate_service_orders_and_fulfillment.py",
+- `create_clean_live_sandbox.py:400` — "service_orders",
+- `create_isolated_live_sandbox_v2.py:101` — "service_orders",
+- `create_isolated_live_sandbox_v2.py:335` — "services": ROOT / "migrate_service_orders_and_fulfillment.py",
+- `create_isolated_live_sandbox_v2.py:396` — "service_orders",
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:53` — order_columns = table_columns(conn, "service_orders")
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:66` — "service_orders schema is incompatible: missing "
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py:78` — FROM service_orders
+- `FIND_actual_service_order_state.py:11` — 3) finds databases that really contain service_orders;
+- `FIND_actual_service_order_state.py:195` — "service_orders_count": None,
+- `FIND_actual_service_order_state.py:207` — if "service_orders" in tables:
+- `FIND_actual_service_order_state.py:208` — result["service_orders_count"] = count_rows(conn, "service_orders")
+- `FIND_actual_service_order_state.py:225` — if "service_orders" not in tables:
+- `FIND_actual_service_order_state.py:236` — "service_orders",
+- `FIND_actual_service_order_state.py:336` — if item["ok"] and "service_orders" in item["tables"]
+- `FIND_actual_service_order_state.py:348` — f"service_orders={item['service_orders_count']!r} | "
+- `FIND_actual_service_order_state.py:358` — "No database below this project contains the service_orders table. "
+- `FIND_actual_service_order_state.py:366` — if int(item["service_orders_count"] or 0) > 0
+- `FIND_actual_service_order_state.py:384` — ROOT / "Bots" / "handlers" / "service_orders_workspace.py",
+- `FIX_live_services_sandbox_payment_schema.py:19` — via service_orders.
+- `FIX_live_services_sandbox_payment_schema.py:158` — def map_from_service_orders(conn: sqlite3.Connection) -> int:
+- `FIX_live_services_sandbox_payment_schema.py:160` — Fallback mapping for a service-order sandbox: use service_orders itself.
+- `FIX_live_services_sandbox_payment_schema.py:163` — if not table_exists(conn, "service_orders"):
+- `FIX_live_services_sandbox_payment_schema.py:164` — emit("INFO: table service_orders is absent; skip fallback mapping.")
+- `FIX_live_services_sandbox_payment_schema.py:167` — order_columns = columns(conn, "service_orders")
+- `FIX_live_services_sandbox_payment_schema.py:179` — FROM service_orders AS o
+- `FIX_live_services_sandbox_payment_schema.py:191` — FROM service_orders AS o
+- `FIX_live_services_sandbox_payment_schema.py:200` — emit(f"Mapped via service_orders fallback: {changed} payment row(s).")
+- `FIX_live_services_sandbox_payment_schema.py:205` — if not table_exists(conn, "service_orders"):
+- `FIX_live_services_sandbox_payment_schema.py:206` — raise RuntimeError("Missing service_orders; wrong database selected.")
+- `FIX_live_services_sandbox_payment_schema.py:211` — FROM service_orders
+- `FIX_live_services_sandbox_payment_schema.py:305` — if not table_exists(conn, "service_orders"):
+- `FIX_live_services_sandbox_payment_schema.py:307` — "Wrong database: table service_orders is missing. "
+- `FIX_live_services_sandbox_payment_schema.py:324` — map_from_service_orders(conn)
+- `fix_source_ref_schema.py:6` — 1. Reads Bots\handlers\service_orders_workspace.py.
+- `fix_source_ref_schema.py:30` — HANDLER_PATH = PROJECT_ROOT / "Bots" / "handlers" / "service_orders_workspace.py"
+- `INSTALL_cashier_route_after_phone_v2.py:50` — patcher = root / "patch_parking_bot_service_orders_v1.py"
+- `INSTALL_PHONE_ACCESS_UI_FIX.bat:7` — echo This installer replaces only Bots\handlers\service_orders_workspace.py.
+- `INSTALL_PHONE_ACCESS_UI_FIX.bat:11` — set "SRC=%~dp0Bots\handlers\service_orders_workspace.py"
+- `INSTALL_PHONE_ACCESS_UI_FIX.bat:12` — set "DST=%ROOT%\Bots\handlers\service_orders_workspace.py"
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:6` — Bots\handlers\service_orders_workspace.py
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py:35` — RELATIVE_TARGET = Path("Bots") / "handlers" / "service_orders_workspace.py"
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:4` — Replaces only Bots\handlers\service_orders_workspace.py.
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:20` — RELATIVE_TARGET = Path("Bots") / "handlers" / "service_orders_workspace.py"
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py:89` — "2. Close service_orders_workspace.py in VS Code / Notepad++.\n"
+- `INSTALL_phone_barrier_access_v2.py:28` — "service_orders_core.py": [
+- `INSTALL_phone_barrier_access_v2.py:36` — "Bots/handlers/service_orders_workspace.py": [
+- ... and 301 more
+
+## `service_orders_core`
+- `Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:29` — from service_orders_core import (
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:24` — from service_orders_core import get_conn, text
+- `phone_barrier_access_core.py:1988` — from service_orders_core import confirm_order_step, get_service_order
+- `phone_barrier_access_service.py:26` — from service_orders_core import get_conn, text
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:551` — from service_orders_core import effective_price
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1321` — from service_orders_core import confirm_order_step
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1988` — from service_orders_core import confirm_order_step, get_service_order
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:26` — from service_orders_core import get_conn, text
+- `phone_barrier_access_v2_payload/service_preorders_core.py:25` — from service_orders_core import (
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1443` — from service_orders_core import confirm_order_step
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:27` — from service_orders_core import get_conn, text
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:582` — from service_orders_core import effective_price
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1450` — from service_orders_core import confirm_order_step
+- `service_catalog_admin_core.py:29` — from service_orders_core import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:37` — from service_orders_core import (
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:569` — from service_orders_core import effective_price
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1339` — from service_orders_core import confirm_order_step
+- `service_code_compatibility_payload/service_preorders_core.py:25` — from service_orders_core import (
+- `service_preorders_core.py:25` — from service_orders_core import (
+
+## `service_preorders_core`
+- `Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:380` — "from service_preorders_core import (",
+- `MIGRATE_simplified_services_sandbox.py:67` — from service_preorders_core import ensure_simplified_service_schema
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:386` — "from service_preorders_core import (",
+- `phone_barrier_access_service.py:27` — from service_preorders_core import create_service_interest, ensure_simplified_service_schema
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:46` — from service_preorders_core import (
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:27` — from service_preorders_core import create_service_interest, ensure_simplified_service_schema
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:382` — "from service_preorders_core import (",
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+- `run_bot_live_services_sandbox_v1.py:386` — "from service_preorders_core import (",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:47` — from service_preorders_core import (
+
+## `service_price_versions`
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:394` — FROM service_price_versions
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:412` — UPDATE service_price_versions
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:421` — INSERT INTO service_price_versions (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:228` — FROM service_price_versions
+- `phone_barrier_access_v2_payload/service_orders_core.py:228` — FROM service_price_versions
+- `service_catalog_admin_core.py:394` — FROM service_price_versions
+- `service_catalog_admin_core.py:412` — UPDATE service_price_versions
+- `service_catalog_admin_core.py:421` — INSERT INTO service_price_versions (
+- `service_code_compatibility_payload/service_orders_core.py:294` — FROM service_price_versions
+- `service_orders_core.py:294` — FROM service_price_versions
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:228` — FROM service_price_versions
+
+## `service_tariffs`
+- `generate_parking_charges.py:65` — FROM service_tariffs
+- `migrate_billing_core.py:49` — CREATE TABLE IF NOT EXISTS service_tariffs (
+- `migrate_billing_core.py:121` — cur.execute("CREATE INDEX IF NOT EXISTS idx_service_tariffs_code_dates ON service_tariffs(service_code, valid_from, valid_to)")
+- `migrate_billing_core.py:151` — INSERT INTO service_tariffs (
+- `migrate_billing_core.py:170` — FROM service_tariffs
+- `migrate_billing_core.py:180` — "service_tariffs",
+- `migrate_commercial_contract_core.py:192` — "Цена определяется строкой договора, не service_tariffs."
+- `seed_parking_tariffs.py:50` — FROM service_tariffs
+- `seed_parking_tariffs.py:65` — UPDATE service_tariffs
+- `seed_parking_tariffs.py:82` — INSERT INTO service_tariffs (
+- `seed_parking_tariffs.py:143` — FROM service_tariffs
+- `supervisor_dashboard.py:309` — "service_catalog", "service_tariffs", "charges", "payments", "payment_allocations",
+- `tools/db_schema_snapshot.py:61` — "service_tariffs",
+- `tools/db_schema_snapshot_full.py:46` — "service_tariffs",
+- `tools/project_passport.py:110` — "service_tariffs",
+- `tools/project_passport_v2.py:131` — "service_tariffs",
+
+## `service_workflow_profiles`
+- `Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `Bots/handlers/service_orders_workspace.py:1285` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `Bots/handlers/service_orders_workspace.py:1301` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `install_service_orders_ui.py:26` — SAFE_PAYMENT_FUNCTION = 'def link_payment_to_order(\n    *,\n    order_id: int,\n    payment_id: int,\n    amount: float | None,\n    actor_id: int | str | None,\n    note: str = "",\n    conn: sqlite3.Connection | None = None,\n) -> dict:\n    # SAFE_PAYMENT_LINK_POLICY_V1\n    #\n    # Payment is evidence of money received, not a generic button that may\n    # close an order. A link is allowed only for the same unit/service and\n    # only up to the remaining amount. PAYMENT_CONFIRMED is set o
+- `migrate_service_orders_and_fulfillment.py:104` — "service_workflow_profiles": """
+- `migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `migrate_service_orders_and_fulfillment.py:388` — INSERT INTO service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:104` — "service_workflow_profiles": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:105` — CREATE TABLE IF NOT EXISTS service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:388` — INSERT INTO service_workflow_profiles (
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:195` — LEFT JOIN service_workflow_profiles p
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:243` — "SELECT 1 FROM service_workflow_profiles WHERE profile_code = ? AND is_active = 1",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:91` — "service_workflow_profiles",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:201` — JOIN service_workflow_profiles p
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:636` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:540` — JOIN service_workflow_profiles p
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1156` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:1172` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `phone_barrier_access_v2_payload/service_orders_core.py:91` — "service_workflow_profiles",
+- `phone_barrier_access_v2_payload/service_orders_core.py:201` — JOIN service_workflow_profiles p
+- `phone_barrier_access_v2_payload/service_orders_core.py:673` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/service_orders_core.py:780` — FROM service_workflow_profiles
+- `phone_barrier_access_v2_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `phone_barrier_access_v2_payload/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1278` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:1294` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:571` — JOIN service_workflow_profiles p
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1285` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:1301` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `service_catalog_admin_core.py:195` — LEFT JOIN service_workflow_profiles p
+- `service_catalog_admin_core.py:243` — "SELECT 1 FROM service_workflow_profiles WHERE profile_code = ? AND is_active = 1",
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:558` — JOIN service_workflow_profiles p
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1174` — JOIN service_workflow_profiles p ON p.profile_code = o.workflow_profile_code
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:1190` — cur.execute("SELECT service_category FROM service_workflow_profiles WHERE profile_code = ?", (order["workflow_profile_code"],))
+- `service_code_compatibility_payload/service_orders_core.py:149` — "service_workflow_profiles",
+- `service_code_compatibility_payload/service_orders_core.py:267` — JOIN service_workflow_profiles p
+- `service_code_compatibility_payload/service_orders_core.py:739` — FROM service_workflow_profiles
+- `service_code_compatibility_payload/service_orders_core.py:846` — FROM service_workflow_profiles
+- `service_code_compatibility_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_code_compatibility_payload/service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `service_orders_core.py:149` — "service_workflow_profiles",
+- `service_orders_core.py:267` — JOIN service_workflow_profiles p
+- `service_orders_core.py:739` — FROM service_workflow_profiles
+- `service_orders_core.py:846` — FROM service_workflow_profiles
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:91` — "service_workflow_profiles",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:201` — JOIN service_workflow_profiles p
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:636` — FROM service_workflow_profiles
+- `service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_preorders_core.py:256` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_preorders_core.py:262` — "SELECT * FROM service_workflow_profiles WHERE profile_code = ?",
+- `service_preorders_core.py:279` — _insert_dynamic(cur, "service_workflow_profiles", values)
+- `tools/project_passport.py:120` — "service_workflow_profiles",
+- `tools/project_passport_v2.py:141` — "service_workflow_profiles",
+
+## `service_workflow_steps`
+- `migrate_service_orders_and_fulfillment.py:115` — "service_workflow_steps": """
+- `migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `migrate_service_orders_and_fulfillment.py:407` — INSERT INTO service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:115` — "service_workflow_steps": """
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:116` — CREATE TABLE IF NOT EXISTS service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:407` — INSERT INTO service_workflow_steps (
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:92` — "service_workflow_steps",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:517` — FROM service_workflow_steps
+- `phone_barrier_access_v2_payload/service_orders_core.py:92` — "service_workflow_steps",
+- `phone_barrier_access_v2_payload/service_orders_core.py:554` — FROM service_workflow_steps
+- `phone_barrier_access_v2_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `phone_barrier_access_v2_payload/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `phone_barrier_access_v2_payload/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `service_code_compatibility_payload/service_orders_core.py:150` — "service_workflow_steps",
+- `service_code_compatibility_payload/service_orders_core.py:620` — FROM service_workflow_steps
+- `service_code_compatibility_payload/service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_code_compatibility_payload/service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `service_code_compatibility_payload/service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `service_code_compatibility_payload/service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `service_orders_core.py:150` — "service_workflow_steps",
+- `service_orders_core.py:620` — FROM service_workflow_steps
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:92` — "service_workflow_steps",
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:517` — FROM service_workflow_steps
+- `service_preorders_core.py:249` — required = {"service_workflow_profiles", "service_workflow_steps", "service_item_workflows"}
+- `service_preorders_core.py:283` — "SELECT COUNT(*) FROM service_workflow_steps WHERE profile_code = ?",
+- `service_preorders_core.py:289` — "SELECT * FROM service_workflow_steps WHERE profile_code = ? ORDER BY sequence_no, id LIMIT 1",
+- `service_preorders_core.py:314` — _insert_dynamic(cur, "service_workflow_steps", values)
+- `tools/project_passport.py:121` — "service_workflow_steps",
+- `tools/project_passport_v2.py:142` — "service_workflow_steps",
+
+## `SET`
+- `Bots/db_access - Copy.py:123` — DO UPDATE SET
+- `Bots/db_access - Copy.py:1714` — DO UPDATE SET
+- `Bots/db_access - Copy.py:4819` — DO UPDATE SET
+- `Bots/db_access.py:123` — DO UPDATE SET
+- `Bots/db_access.py:1714` — DO UPDATE SET
+- `Bots/db_access.py:4819` — DO UPDATE SET
+- `Bots/db_access.py:5893` — DO UPDATE SET
+- `create_clean_live_sandbox.py:206` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `create_clean_live_sandbox.py:230` — DO UPDATE SET
+- `create_isolated_live_sandbox_v2.py:206` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `create_isolated_live_sandbox_v2.py:230` — DO UPDATE SET
+- `guard_workspace_preflight.py:224` — ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+- `guard_workspace_preflight.py:234` — DO UPDATE SET is_active = 1
+- `guard_workspace_preflight_v2.py:224` — ON CONFLICT(telegram_user_id) DO UPDATE SET is_active = 1
+- `guard_workspace_preflight_v2.py:234` — DO UPDATE SET is_active = 1
+- `manage_staff_access.py:193` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `manage_staff_access_v2.py:193` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `migrate_access_control_and_guard.py:373` — ON CONFLICT(role_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:393` — ON CONFLICT(profile_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:413` — ON CONFLICT(profile_code, step_code) DO UPDATE SET
+- `migrate_service_orders_and_fulfillment.py:521` — ON CONFLICT(role_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:393` — ON CONFLICT(profile_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:413` — ON CONFLICT(profile_code, step_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:521` — ON CONFLICT(role_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:321` — ON CONFLICT(service_item_code) DO UPDATE SET
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:427` — ON CONFLICT(service_item_code, effective_from) DO UPDATE SET
+- `prepare_live_service_test.py:104` — ON CONFLICT(telegram_user_id) DO UPDATE SET
+- `prepare_live_service_test.py:127` — DO UPDATE SET
+- `seed_bot_admins.py:82` — DO UPDATE SET
+- `service_catalog_admin_core.py:321` — ON CONFLICT(service_item_code) DO UPDATE SET
+- `service_catalog_admin_core.py:427` — ON CONFLICT(service_item_code, effective_from) DO UPDATE SET
+
+## `Sheet1`
+- `import_ohorona_sheet1_payments.py:735` — parser = argparse.ArgumentParser(description="Import payments from Sheet1 of Охорона.xlsx.")
+
+## `source_files`
+- `audit_tbot_quarantine.py:438` — FROM source_files
+- `import_tbot_quarantine.py:59` — cur.execute("DELETE FROM source_files WHERE source_name = ?", (SOURCE_NAME,))
+- `import_tbot_quarantine.py:115` — INSERT INTO source_files (
+
+## `sqlite_master`
+- `access_control.py:72` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `audit_logger.py:31` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `billing_reconciliation_report.py:36` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `billing_statement_excel.py:40` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/db_access - Copy.py:1784` — FROM sqlite_master
+- `Bots/db_access - Copy.py:1987` — FROM sqlite_master
+- `Bots/db_access - Copy.py:2614` — FROM sqlite_master
+- `Bots/db_access - Copy.py:3732` — FROM sqlite_master
+- `Bots/db_access - Copy.py:3821` — FROM sqlite_master
+- `Bots/db_access - Copy.py:4151` — FROM sqlite_master
+- `Bots/db_access - Copy.py:4230` — FROM sqlite_master
+- `Bots/db_access.py:1784` — FROM sqlite_master
+- `Bots/db_access.py:1987` — FROM sqlite_master
+- `Bots/db_access.py:2614` — FROM sqlite_master
+- `Bots/db_access.py:3732` — FROM sqlite_master
+- `Bots/db_access.py:3821` — FROM sqlite_master
+- `Bots/db_access.py:4151` — FROM sqlite_master
+- `Bots/db_access.py:4230` — FROM sqlite_master
+- `Bots/db_access.py:4955` — "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+- `Bots/handlers/audit_viewer - Copy.py:40` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `Bots/handlers/audit_viewer.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/cashier_operator.py:190` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/client_portal.py:543` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/client_portal_safe_linking.py:543` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `Bots/handlers/commercial_contract_editor.py:142` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/unit_registry_editor - Copy.py:153` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/unit_registry_editor.py:153` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `Bots/handlers/vehicle_verification.py:53` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `cashier_journal.py:295` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:115` — FROM sqlite_master
+- `cashier_v2_preflight.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `cashier_v2_preflight_compat.py:46` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `CHECK_guard_sandbox_service_orders.py:114` — FROM sqlite_master
+- `CHECK_guard_sandbox_service_orders_v2.py:85` — FROM sqlite_master
+- `CHECK_profile_test_candidate_apartment_40.py:82` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `CHECK_profile_verification_sandbox.py:19` — tables={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+- `commercial_contracts.py:144` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `create_clean_live_sandbox.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `create_isolated_live_sandbox_v2.py:80` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `diagnose_osbb_audit.py:42` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name=?",
+- `diagnose_sandbox_charges.py:30` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `FIND_actual_service_order_state.py:63` — FROM sqlite_master
+- `find_sandbox_telegram_id.py:25` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `FIX_live_services_sandbox_payment_schema.py:67` — FROM sqlite_master
+- `fix_source_ref_schema.py:160` — FROM sqlite_master
+- `guard_workspace_preflight.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `guard_workspace_preflight_v2.py:64` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `import_ohorona_sheet1_payments.py:118` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `migrate_access_control_and_guard.py:54` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_access_control_and_guard.py:81` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_apartment_link_requests.py:49` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_apartment_link_requests.py:57` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_core.py:22` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_operator_editor.py:118` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_operator_editor.py:143` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_v2.py:52` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_v2.py:79` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_cashier_v2_compat.py:53` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_cashier_v2_compat.py:80` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_charge_adjustments.py:102` — cur.execute("SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?", (table_name,))
+- `migrate_commercial_contract_core.py:67` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_commercial_contract_core.py:75` — "SELECT 1 FROM sqlite_master WHERE name=?",
+- `migrate_commercial_contract_core.py:102` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_operator_audit_log_v2.py:34` — FROM sqlite_master
+- `MIGRATE_profile_parking_time_test_sandbox.py:44` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `MIGRATE_profile_verification_sandbox.py:28` — present={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+- `migrate_remote_requests.py:49` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_remote_requests.py:57` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_service_items.py:25` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `migrate_service_orders_and_fulfillment.py:60` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `migrate_service_orders_and_fulfillment.py:87` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `migrate_unit_registry_composite_groups.py:74` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:60` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:87` — "SELECT 1 FROM sqlite_master WHERE type='index' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:85` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `parking_billing_statement.py:29` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `parking_time_test_payload/profile_parking_time_test_core.py:65` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `parking_time_test_payload/profile_parking_time_test_core.py:258` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `parking_time_test_payload/profile_parking_time_test_core.py:447` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:121` — FROM sqlite_master
+- `phone_barrier_access_core.py:72` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `phone_barrier_access_core.py:161` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:72` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:161` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `phone_barrier_access_v2_payload/service_orders_core.py:76` — "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+- `plate_consensus_apply.py:29` — "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+- `plate_consensus_report.py:240` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `plate_consensus_report_v3.py:170` — cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:117` — FROM sqlite_master
+- `profile_parking_time_test_core.py:65` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `profile_parking_time_test_core.py:258` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `profile_parking_time_test_core.py:447` — "SELECT name FROM sqlite_master WHERE type='table'"
+- `profile_verification_core.py:83` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `profile_verification_core.py:564` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `profile_verification_payload/profile_verification_core.py:83` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `profile_verification_payload/profile_verification_core.py:564` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:117` — FROM sqlite_master
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:83` — "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ?",
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:564` — "SELECT name FROM sqlite_master WHERE type = 'table'"
+- ... and 27 more
+
+## `sqlite_sequence`
+- `reset_service_catalog.py:421` — cur.execute("DELETE FROM sqlite_sequence WHERE name = ?", (table_name,))
+
+## `staff_principals`
+- `create_clean_live_sandbox.py:202` — INSERT INTO staff_principals (
+- `create_isolated_live_sandbox_v2.py:202` — INSERT INTO staff_principals (
+- `guard_workspace_preflight.py:220` — INSERT INTO staff_principals (
+- `guard_workspace_preflight_v2.py:220` — INSERT INTO staff_principals (
+- `manage_staff_access.py:115` — FROM staff_principals
+- `manage_staff_access.py:189` — INSERT INTO staff_principals (
+- `manage_staff_access_v2.py:115` — FROM staff_principals
+- `manage_staff_access_v2.py:189` — INSERT INTO staff_principals (
+- `prepare_live_service_test.py:100` — INSERT INTO staff_principals (
+
+## `STRUCTURAL`
+- `tools/db_schema_compare.py:305` — add("TABLE STRUCTURAL DIFFERENCES")
+
+## `supplier`
+- `phone_barrier_access_v2_payload/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `service_code_compatibility_payload/service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+- `service_preorders_core.py:8` — - new remotes are paid preorders, aggregated into supplier batches;
+
+## `TBOT`
+- `audit_tbot_quarantine.py:273` — report.section("OWNERSHIP TYPE FROM TBOT")
+
+## `tbot_parking_import`
+- `audit_composite_apartments.py:60` — FROM tbot_parking_import
+- `audit_tbot_quarantine.py:135` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:1859` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:2713` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:3785` — FROM tbot_parking_import
+- `Bots/db_access - Copy.py:4204` — FROM tbot_parking_import
+- `Bots/db_access.py:1859` — FROM tbot_parking_import
+- `Bots/db_access.py:2713` — FROM tbot_parking_import
+- `Bots/db_access.py:3785` — FROM tbot_parking_import
+- `Bots/db_access.py:4204` — FROM tbot_parking_import
+- `build_plate_evidence_by_digits_and_apartment.py:155` — FROM tbot_parking_import
+- `import_tbot_quarantine.py:58` — cur.execute("DELETE FROM tbot_parking_import")
+- `import_tbot_quarantine.py:82` — INSERT INTO tbot_parking_import (
+- `import_tbot_quarantine.py:135` — cur.execute("SELECT COUNT(*) FROM tbot_parking_import")
+- `migrate_unit_registry_composite_groups.py:343` — FROM tbot_parking_import
+- `normalize_registry_fields.py:121` — FROM tbot_parking_import
+- `normalize_registry_fields.py:147` — UPDATE tbot_parking_import
+- `plate_consensus_report.py:354` — cur.execute(f"SELECT {', '.join(select_parts)} FROM tbot_parking_import")
+- `plate_consensus_report_v3.py:284` — cur.execute(f"SELECT {', '.join(select_parts)} FROM tbot_parking_import")
+- `vehicle_verification_tasks.py:231` — FROM tbot_parking_import
+
+## `telegram`
+- `Bots/data_park_bot.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/data_park_bot.py:2` — from telegram.ext import (
+- `Bots/handlers/agreement - Copy.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/agreement.py:1` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/audit_viewer - Copy.py:5` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/audit_viewer.py:25` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/cashier_operator.py:33` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/cashier_operator_v2.py:22` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal.py:30` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal_safe_linking.py:30` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/client_portal_v2.py:24` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/commercial_contract_editor.py:29` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/guard_workspace.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:22` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/profile_parking_time_test_workspace.py:15` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `Bots/handlers/unit_registry_editor - Copy.py:31` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/unit_registry_editor.py:31` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_card_editor.py:7` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_full_list.py:5` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/handlers/vehicle_verification.py:7` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/hello.py:1` — from telegram import Update
+- `Bots/hello.py:2` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/hello.py:3` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot - Copy.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot - Copy.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:4` — from telegram import Update, ReplyKeyboardMarkup
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:5` — from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:15` — from telegram import ReplyKeyboardMarkup, Update
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:17` — from telegram import ReplyKeyboardMarkup, Update
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:25` — from telegram import ReplyKeyboardMarkup, Update
+
+## `telegram_chats`
+- `audit_osbb_telegram_messages.py:84` — FROM telegram_chats
+- `extract_telegram_remote_facts.py:90` — JOIN telegram_chats c ON c.id = m.chat_id
+- `extract_telegram_vehicle_facts.py:204` — JOIN telegram_chats c ON c.id = m.chat_id
+- `import_osbb_telegram_messages.py:146` — INSERT INTO telegram_chats (
+- `import_osbb_telegram_messages.py:205` — FROM telegram_chats
+- `init_osbb_telegram_db.py:64` — FOREIGN KEY(chat_id) REFERENCES telegram_chats(id)
+- `init_osbb_telegram_db.py:101` — FOREIGN KEY(chat_id) REFERENCES telegram_chats(id)
+
+## `telegram_facts`
+- `billing/report_parking_time_review_tasks.py:40` — FROM telegram_facts
+- `billing/report_parking_time_with_hints.py:214` — FROM telegram_facts
+- `Bots/db_access - Copy.py:2019` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:2758` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:3855` — FROM telegram_facts f
+- `Bots/db_access - Copy.py:4250` — FROM telegram_facts f
+- `Bots/db_access.py:2019` — FROM telegram_facts f
+- `Bots/db_access.py:2758` — FROM telegram_facts f
+- `Bots/db_access.py:3855` — FROM telegram_facts f
+- `Bots/db_access.py:4250` — FROM telegram_facts f
+- `Bots/db_access.py:5624` — FROM telegram_facts f
+- `build_plate_evidence_by_digits_and_apartment.py:137` — FROM telegram_facts
+- `build_plate_evidence_from_telegram.py:79` — FROM telegram_facts tf
+- `extract_telegram_remote_facts.py:77` — DELETE FROM telegram_facts
+- `extract_telegram_remote_facts.py:122` — INSERT INTO telegram_facts (
+- `extract_telegram_remote_facts.py:160` — INSERT INTO telegram_facts (
+- `extract_telegram_remote_facts.py:210` — FROM telegram_facts
+- `extract_telegram_remote_facts.py:256` — FROM telegram_facts
+- `extract_telegram_vehicle_facts.py:191` — DELETE FROM telegram_facts
+- `extract_telegram_vehicle_facts.py:266` — INSERT INTO telegram_facts (
+- `extract_telegram_vehicle_facts.py:299` — INSERT INTO telegram_facts (
+- `extract_telegram_vehicle_facts.py:399` — FROM telegram_facts
+
+## `telegram_messages`
+- `audit_osbb_telegram_messages.py:91` — FROM telegram_messages
+- `audit_osbb_telegram_messages.py:104` — FROM telegram_messages
+- `Bots/db_access - Copy.py:2020` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:2759` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:2810` — FROM telegram_messages
+- `Bots/db_access - Copy.py:3856` — LEFT JOIN telegram_messages m
+- `Bots/db_access - Copy.py:4251` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2020` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2759` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:2810` — FROM telegram_messages
+- `Bots/db_access.py:3856` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:4251` — LEFT JOIN telegram_messages m
+- `Bots/db_access.py:5625` — LEFT JOIN telegram_messages m
+- `extract_telegram_remote_facts.py:89` — FROM telegram_messages m
+- `extract_telegram_vehicle_facts.py:203` — FROM telegram_messages m
+- `import_osbb_telegram_messages.py:177` — INSERT INTO telegram_messages (
+- `import_osbb_telegram_messages.py:212` — FROM telegram_messages
+- `init_osbb_telegram_db.py:100` — FOREIGN KEY(telegram_message_db_id) REFERENCES telegram_messages(id),
+
+## `telegram_osbb`
+- `Bots/parking_bot - Copy.py:24` — from telegram_osbb import (
+- `Bots/parking_bot.py:31` — from telegram_osbb import (
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py:30` — from telegram_osbb import (
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py:25` — from telegram_osbb import (
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py:30` — from telegram_osbb import (
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py:30` — from telegram_osbb import (
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:142` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `import_osbb_telegram_messages.py:21` — from telegram_osbb import API_ID, API_HASH
+- `inspect_osbb_folder_filter.py:18` — from telegram_osbb import API_ID, API_HASH
+- `list_osbb_folder_dialogs.py:19` — from telegram_osbb import API_ID, API_HASH
+- `list_osbb_included_peers.py:20` — from telegram_osbb import API_ID, API_HASH
+- `list_telegram_dialogs.py:19` — from telegram_osbb import API_ID, API_HASH
+- `list_telegram_folders.py:18` — from telegram_osbb import API_ID, API_HASH
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:148` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:144` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `run_bot_live_services_sandbox_v1.py:148` — from telegram_osbb import ADMIN_IDS, SUPER_ADMIN_IDS
+- `seed_bot_admins.py:18` — from telegram_osbb import SUPER_ADMIN_IDS, ADMIN_IDS
+- `seed_bot_admins.py:102` — "Seeded from telegram_osbb.py",
+- `telegram_test_login.py:18` — from telegram_osbb import (
+- `telegram_test_login_manual.py:17` — from telegram_osbb import API_ID, API_HASH, PHONE
+
+## `telegram_secrets`
+- `telegram_test_login.py:13` — # from telegram_secrets import API_ID, API_HASH, PHONE
+
+## `telethon`
+- `import_osbb_telegram_messages.py:7` — from telethon import TelegramClient
+- `import_osbb_telegram_messages.py:8` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `import_osbb_telegram_messages.py:9` — from telethon.tl.types import User, Chat, Channel
+- `inspect_osbb_folder_filter.py:5` — from telethon import TelegramClient
+- `inspect_osbb_folder_filter.py:6` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `list_osbb_folder_dialogs.py:6` — from telethon import TelegramClient
+- `list_osbb_folder_dialogs.py:7` — from telethon.tl.types import User, Chat, Channel
+- `list_osbb_included_peers.py:6` — from telethon import TelegramClient
+- `list_osbb_included_peers.py:7` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `list_osbb_included_peers.py:8` — from telethon.tl.types import User, Chat, Channel
+- `list_telegram_dialogs.py:6` — from telethon import TelegramClient
+- `list_telegram_dialogs.py:7` — from telethon.tl.types import User, Chat, Channel
+- `list_telegram_folders.py:5` — from telethon import TelegramClient
+- `list_telegram_folders.py:6` — from telethon.tl.functions.messages import GetDialogFiltersRequest
+- `telegram_test_login.py:4` — from telethon import TelegramClient
+- `telegram_test_login_manual.py:5` — from telethon import TelegramClient
+
+## `that`
+- `CHECK_profile_test_candidate_apartment_40.py:167` — # Prefer the table that is used by existing vehicle linkage.
+
+## `the`
+- `Bots/handlers/client_portal_v2.py:178` — "choose_service": "Choose a service from the catalogue.",
+- `Bots/handlers/client_portal_v2.py:207` — "The operator will confirm payment only from the bank statement."
+- `Bots/handlers/guard_workspace.py:917` — # Entry button from the main mode selector.
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:920` — # Entry button from the main mode selector.
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:917` — # Entry button from the main mode selector.
+- `Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `Docs/OSBB_Business_Handoff_2026-06-27/START_OSBB_BUSINESS_CHAT_2026-06-28.txt:1` — I am resuming the OSBB local Windows project from the attached handoff documents.
+- `fix_source_ref_schema.py:243` — "Could not determine the table aliased as p from the SQL containing "
+- `MIGRATE_simplified_services_sandbox.py:48` — config from the parent Python project directory, not from OSBB itself.
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:430` — """Patch profile verification into the bot source in memory only."""
+- `patch_parking_bot_service_orders_v1.py:9` — It is deliberately independent from the old guard-workspace patch.
+- `phone_barrier_access_service.py:45` — Record one resident intention, but calculate connection price from the
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:45` — Record one resident intention, but calculate connection price from the
+- `phone_barrier_access_v2_payload/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:424` — """Patch profile verification into the bot source in memory only."""
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:5` — The handler is intentionally independent from the phone number used as an
+- `README_SIMPLIFIED_SERVICES.txt:28` — This bundle removes manual payment linking from the services screen through
+- `README_SIMPLIFIED_SERVICES.txt:86` — It only retires UNPAID records from the old REMOTE_NEW_FROM_STOCK test path,
+- `run_bot_live_services_sandbox_v1.py:17` — It is intentionally separate from the old Guard Sandbox runner.
+- `run_bot_live_services_sandbox_v1.py:430` — """Patch profile verification into the bot source in memory only."""
+- `service_code_compatibility_payload/service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+- `service_preorders_core.py:14` — This module is deliberately independent from the cashier implementation. It
+
+## `there`
+- `fix_source_ref_schema.py:229` — r"G:\Programming\Py\OSBB\ and run it from there."
+
+## `this`
+- `Bots/handlers/client_portal.py:50` — # Language pack. Each submenu uses keys from this pack, not hard-coded RU.
+- `Bots/handlers/client_portal_safe_linking.py:50` — # Language pack. Each submenu uses keys from this pack, not hard-coded RU.
+- `cashier_v2_preflight.py:377` — # 3. Snapshot. From this moment only sandbox can be modified.
+- `Start_OSBB_Live_Services_Sandbox_Bot_v1.bat:40` — echo Use STOP_old_guard_sandbox_bots.bat from this bundle, then start again.
+
+## `types`
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `create_clean_live_sandbox.py:38` — from types import SimpleNamespace
+- `create_isolated_live_sandbox_v2.py:38` — from types import SimpleNamespace
+- `guard_workspace_preflight.py:27` — from types import SimpleNamespace
+- `guard_workspace_preflight_v2.py:27` — from types import SimpleNamespace
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py:32` — from types import SimpleNamespace
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `patch_cashier_v2_core_period_and_schemafix.py:30` — from types import SimpleNamespace
+- `patch_cashier_v2_core_schemafix.py:37` — from types import SimpleNamespace
+- `prepare_live_service_test.py:25` — from types import SimpleNamespace
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `run_bot_guard_sandbox.py:26` — from types import SimpleNamespace
+- `run_bot_guard_sandbox_v2.py:26` — from types import SimpleNamespace
+- `run_bot_guard_sandbox_v3.py:26` — from types import SimpleNamespace
+- `run_bot_live_service_sandbox_v4.py:21` — from types import SimpleNamespace
+- `run_bot_live_services_sandbox_v1.py:33` — from types import ModuleType, SimpleNamespace
+- `run_bot_sandbox_v2.py:38` — from types import SimpleNamespace
+- `service_orders_preflight.py:32` — from types import SimpleNamespace
+
+## `typing`
+- `access_control.py:22` — from typing import Any
+- `Bots/handlers/audit_viewer.py:23` — from typing import Any
+- `Bots/handlers/cashier_operator.py:30` — from typing import Any
+- `Bots/handlers/cashier_operator_v2.py:20` — from typing import Any
+- `Bots/handlers/client_portal.py:28` — from typing import Any
+- `Bots/handlers/client_portal_safe_linking.py:28` — from typing import Any
+- `Bots/handlers/client_portal_v2.py:22` — from typing import Any
+- `Bots/handlers/commercial_contract_editor.py:27` — from typing import Any
+- `Bots/handlers/guard_workspace.py:20` — from typing import Any
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py:20` — from typing import Any
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py:20` — from typing import Any
+- `Bots/handlers/profile_parking_time_test_workspace.py:13` — from typing import Any
+- `Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `Bots/handlers/unit_registry_editor - Copy.py:29` — from typing import Any
+- `Bots/handlers/unit_registry_editor.py:29` — from typing import Any
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `cashier_v2_core.py:19` — from typing import Any
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:19` — from typing import Any
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:19` — from typing import Any
+- `cashier_v2_preflight.py:35` — from typing import Any
+- `CHECK_guard_sandbox_service_orders.py:31` — from typing import Any, Iterable
+- `CHECK_guard_sandbox_service_orders_v2.py:26` — from typing import Any, Iterable
+- `CHECK_profile_test_candidate_apartment_40.py:30` — from typing import Any
+- `commercial_contracts.py:24` — from typing import Any, Iterable
+- `commercial_notification_delivery.py:26` — from typing import Any
+- `create_clean_live_sandbox.py:39` — from typing import Any
+- `create_isolated_live_sandbox_v2.py:39` — from typing import Any
+- `FIND_actual_service_order_state.py:27` — from typing import Any, Iterable
+- `fix_source_ref_schema.py:24` — from typing import Iterable
+- `manage_staff_access.py:41` — from typing import Any
+- `manage_staff_access_v2.py:41` — from typing import Any
+- `migrate_access_control_and_guard.py:29` — from typing import Any
+- `migrate_cashier_v2_compat.py:28` — from typing import Any
+- `migrate_commercial_contract_core.py:34` — from typing import Any
+- `migrate_service_orders_and_fulfillment.py:35` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py:35` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py:22` — from typing import Any
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py:21` — from typing import Any
+- `parking_time_test_payload/Bots/handlers/profile_parking_time_test_workspace.py:13` — from typing import Any
+- `parking_time_test_payload/profile_parking_time_test_core.py:26` — from typing import Any
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `phone_barrier_access_core.py:31` — from typing import Any, Iterable
+- `phone_barrier_access_service.py:13` — from typing import Iterable
+- `phone_barrier_access_v2_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:31` — from typing import Any, Iterable
+- `phone_barrier_access_v2_payload/phone_barrier_access_service.py:13` — from typing import Iterable
+- `phone_barrier_access_v2_payload/service_orders_core.py:21` — from typing import Any
+- `phone_barrier_access_v2_payload/service_preorders_core.py:23` — from typing import Any
+- `prepare_live_service_test.py:26` — from typing import Any
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `profile_confirmation_button_ready_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_parking_time_test_core.py:26` — from typing import Any
+- `profile_verification_core.py:38` — from typing import Any
+- `profile_verification_critical_codes_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `profile_verification_payload/profile_verification_core.py:38` — from typing import Any
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `profile_verification_terminology_v2_payload/Bots/handlers/profile_verification_workspace.py:15` — from typing import Any
+- `profile_verification_terminology_v2_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `profile_verification_terminology_v2_payload/profile_verification_core.py:38` — from typing import Any
+- `restore_resident_apartment_link.py:31` — from typing import Any
+- `run_bot_guard_sandbox.py:27` — from typing import Any
+- `run_bot_guard_sandbox_v2.py:27` — from typing import Any
+- `run_bot_guard_sandbox_v3.py:27` — from typing import Any
+- `run_bot_live_service_sandbox_v4.py:22` — from typing import Any
+- `run_bot_live_services_sandbox_v1.py:34` — from typing import Any
+- `run_bot_sandbox_v2.py:39` — from typing import Any
+- `service_catalog_admin_core.py:22` — from typing import Any
+- `service_code_compatibility_payload/Bots/handlers/service_orders_workspace.py:23` — from typing import Any
+- `service_code_compatibility_payload/service_orders_core.py:21` — from typing import Any
+- `service_code_compatibility_payload/service_preorders_core.py:23` — from typing import Any
+- `service_orders_core.py:21` — from typing import Any
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py:21` — from typing import Any
+- `service_preorders_core.py:23` — from typing import Any
+- `tools/cashier_parking_payments_audit_v4.py:31` — from typing import Any, Dict, List, Sequence, Tuple
+- `tools/cashier_unpaid_preview_v3.py:30` — from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+- `tools/db_schema_compare.py:15` — from typing import Any, Dict, List, Tuple
+- `tools/db_schema_snapshot.py:19` — from typing import Any, Dict, List, Tuple
+- `tools/db_schema_snapshot_full.py:26` — from typing import Any, Dict, List, Tuple
+- `tools/project_passport.py:30` — from typing import Iterable, Any
+- `tools/project_passport_v2.py:30` — from typing import Iterable, Any
+- `unit_resolver.py:28` — from typing import Any, Literal
+
+## `unit_aliases`
+- `tools/project_passport.py:135` — "unit_aliases",
+- `tools/project_passport_v2.py:156` — "unit_aliases",
+
+## `unit_contacts`
+- `Bots/handlers/unit_registry_editor - Copy.py:191` — if not table_exists(cur, "unit_contacts"):
+- `Bots/handlers/unit_registry_editor - Copy.py:194` — "Не создана таблица unit_contacts. "
+- `Bots/handlers/unit_registry_editor - Copy.py:250` — FROM unit_contacts
+- `Bots/handlers/unit_registry_editor - Copy.py:306` — FROM unit_contacts uc
+- `Bots/handlers/unit_registry_editor - Copy.py:482` — f"UPDATE unit_contacts SET {q(field_name)} = ?, updated_at = ? WHERE id = ?",
+- `Bots/handlers/unit_registry_editor - Copy.py:499` — f"INSERT INTO unit_contacts ({', '.join(q(key) for key in fields)}) "
+- `Bots/handlers/unit_registry_editor - Copy.py:508` — table_name="unit_contacts",
+- `Bots/handlers/unit_registry_editor.py:191` — if not table_exists(cur, "unit_contacts"):
+- `Bots/handlers/unit_registry_editor.py:194` — "Не создана таблица unit_contacts. "
+- `Bots/handlers/unit_registry_editor.py:250` — FROM unit_contacts
+- `Bots/handlers/unit_registry_editor.py:306` — FROM unit_contacts uc
+- `Bots/handlers/unit_registry_editor.py:488` — f"UPDATE unit_contacts SET {q(field_name)} = ?, updated_at = ? WHERE id = ?",
+- `Bots/handlers/unit_registry_editor.py:505` — f"INSERT INTO unit_contacts ({', '.join(q(key) for key in fields)}) "
+- `Bots/handlers/unit_registry_editor.py:514` — table_name="unit_contacts",
+- `seed_commercial_unit_placeholders.py:15` — - создаёт таблицу unit_contacts для будущих контактов оператора;
+- `seed_commercial_unit_placeholders.py:102` — def ensure_unit_contacts(cur: sqlite3.Cursor) -> None:
+- `seed_commercial_unit_placeholders.py:104` — CREATE TABLE IF NOT EXISTS unit_contacts (
+- `seed_commercial_unit_placeholders.py:119` — CREATE UNIQUE INDEX IF NOT EXISTS idx_unit_contacts_primary
+- `seed_commercial_unit_placeholders.py:120` — ON unit_contacts(apartment_id)
+- `seed_commercial_unit_placeholders.py:124` — CREATE INDEX IF NOT EXISTS idx_unit_contacts_apartment
+- `seed_commercial_unit_placeholders.py:125` — ON unit_contacts(apartment_id)
+- `seed_commercial_unit_placeholders.py:312` — ensure_unit_contacts(cur)
+- `tools/project_passport.py:134` — "unit_contacts",
+- `tools/project_passport_v2.py:155` — "unit_contacts",
+
+## `unit_group_aliases`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `Bots/db_access.py:5054` — FROM unit_group_aliases
+- `Bots/db_access.py:5977` — if not _ur_table_exists(conn, "unit_group_aliases"):
+- `Bots/db_access.py:5980` — "error": "unit_group_aliases_not_found",
+- `Bots/db_access.py:5987` — FROM unit_group_aliases
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:205` — CREATE TABLE IF NOT EXISTS unit_group_aliases (
+- `migrate_unit_registry_composite_groups.py:229` — CREATE INDEX IF NOT EXISTS idx_unit_group_aliases_group
+- `migrate_unit_registry_composite_groups.py:230` — ON unit_group_aliases(group_id)
+- `migrate_unit_registry_composite_groups.py:254` — FROM unit_group_aliases ga
+- `migrate_unit_registry_composite_groups.py:525` — FROM unit_group_aliases
+- `migrate_unit_registry_composite_groups.py:536` — INSERT INTO unit_group_aliases (
+- `tools/project_passport.py:133` — "unit_group_aliases",
+- `tools/project_passport_v2.py:154` — "unit_group_aliases",
+- `unit_resolver.py:131` — Нормализация для сопоставления с unit_group_aliases.alias_normalized.
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+- `unit_resolver.py:218` — FROM unit_group_aliases uga
+- `unit_resolver.py:451` — and table_exists(conn, "unit_group_aliases")
+- `unit_resolver.py:459` — FROM unit_group_aliases uga
+
+## `unit_group_members`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:189` — CREATE TABLE IF NOT EXISTS unit_group_members (
+- `migrate_unit_registry_composite_groups.py:225` — CREATE INDEX IF NOT EXISTS idx_unit_group_members_apartment
+- `migrate_unit_registry_composite_groups.py:226` — ON unit_group_members(apartment_id)
+- `migrate_unit_registry_composite_groups.py:247` — FROM unit_group_members gm
+- `migrate_unit_registry_composite_groups.py:490` — SELECT 1 FROM unit_group_members
+- `migrate_unit_registry_composite_groups.py:497` — INSERT INTO unit_group_members (
+- `tools/project_passport.py:132` — "unit_group_members",
+- `tools/project_passport_v2.py:153` — "unit_group_members",
+- `unit_resolver.py:187` — FROM unit_group_members gm
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+
+## `unit_groups`
+- `Bots/db_access.py:4928` — # persistent unit_groups / unit_group_members / unit_group_aliases structure.
+- `migrate_unit_registry_composite_groups.py:6` — - unit_groups — логическая карточка для совместного обслуживания/поиска:
+- `migrate_unit_registry_composite_groups.py:16` — - создаёт unit_groups, unit_group_members, unit_group_aliases;
+- `migrate_unit_registry_composite_groups.py:174` — CREATE TABLE IF NOT EXISTS unit_groups (
+- `migrate_unit_registry_composite_groups.py:199` — FOREIGN KEY(group_id) REFERENCES unit_groups(id),
+- `migrate_unit_registry_composite_groups.py:216` — FOREIGN KEY(group_id) REFERENCES unit_groups(id)
+- `migrate_unit_registry_composite_groups.py:221` — CREATE INDEX IF NOT EXISTS idx_unit_groups_status
+- `migrate_unit_registry_composite_groups.py:222` — ON unit_groups(record_status, legal_status)
+- `migrate_unit_registry_composite_groups.py:258` — FROM unit_groups g
+- `migrate_unit_registry_composite_groups.py:437` — "SELECT id FROM unit_groups WHERE group_code = ?",
+- `migrate_unit_registry_composite_groups.py:444` — UPDATE unit_groups
+- `migrate_unit_registry_composite_groups.py:463` — INSERT INTO unit_groups (
+- `migrate_unit_registry_composite_groups.py:723` — table_name="unit_groups",
+- `tools/project_passport.py:131` — "unit_groups",
+- `tools/project_passport_v2.py:152` — "unit_groups",
+- `unit_resolver.py:11` — Группа unit_groups является общей карточкой поиска и ведения.
+- `unit_resolver.py:204` — needed = {"unit_groups", "unit_group_aliases", "unit_group_members"}
+- `unit_resolver.py:219` — JOIN unit_groups g ON g.id = uga.group_id
+- `unit_resolver.py:450` — table_exists(conn, "unit_groups")
+- `unit_resolver.py:460` — JOIN unit_groups ug ON ug.id = uga.group_id
+
+## `unit_registry_editor`
+- `Bots/handlers/commercial_contract_editor.py:1027` — from unit_registry_editor import show_unit_card
+
+## `unit_resolver`
+- `Bots/db_access.py:4936` — from unit_resolver import resolve_unit_ref
+- `Bots/handlers/cashier_operator.py:46` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core.py:31` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:31` — from unit_resolver import resolve_unit_ref
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:31` — from unit_resolver import resolve_unit_ref
+
+## `unlinked`
+- `vehicle_data_quality_tasks.py:355` — parser = argparse.ArgumentParser(description="Find vehicle plate quality tasks from unlinked payments.")
+
+## `using`
+- `phone_barrier_access_core.py:1029` — # That bridge prevents us from using resident_comment as an accounting record:
+- `phone_barrier_access_v2_payload/phone_barrier_access_core.py:1029` — # That bridge prevents us from using resident_comment as an accounting record:
+
+## `utils`
+- `audit_tbot_quarantine.py:13` — from utils import norm_text, norm_apartment
+- `billing/report_parking_time_review_tasks.py:16` — from utils import apartment_sort_sql
+- `extract_telegram_remote_facts.py:14` — from utils import normalize_plate, apartment_sort_sql
+- `extract_telegram_vehicle_facts.py:14` — from utils import normalize_plate, normalize_phone
+- `import_tbot_quarantine.py:15` — from utils import norm_text, norm_apartment
+- `normalize_registry_fields.py:6` — from utils import (
+- `normalize_registry_fields.py:20` — from utils import norm_text
+- `report_plate_candidates.py:13` — from utils import apartment_sort_sql
+- `report_verification_evidence.py:13` — from utils import apartment_sort_sql
+- `report_verification_tasks.py:5` — from utils import apartment_sort_sql
+- `report_verification_tasks_enriched.py:14` — from utils import apartment_sort_sql
+
+## `uuid`
+- `Bots/handlers/cashier_operator.py:31` — from uuid import uuid4
+- `cashier_journal.py:6` — from uuid import uuid4
+- `cashier_v2_core.py:20` — from uuid import uuid4
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:20` — from uuid import uuid4
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:20` — from uuid import uuid4
+
+## `v1`
+- `cashier_v2_core.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py:33` — # Reuse battle-tested dynamic schema helpers from v1.  This does not route UI
+
+## `v3`
+- `install_service_orders_ui.py:6` — - switches the live sandbox launcher from v3 to v4;
+
+## `v_commercial_contract_charge_debt`
+- `commercial_contracts.py:337` — FROM v_commercial_contract_charge_debt
+- `migrate_commercial_contract_core.py:727` — FROM v_commercial_contract_charge_debt d
+
+## `v_commercial_contract_debt_summary`
+- `Bots/handlers/commercial_contract_editor.py:308` — FROM v_commercial_contract_debt_summary
+
+## `vehicles`
+- `audit_registry.py:64` — "vehicles",
+- `audit_registry.py:155` — report.section("VEHICLES WITHOUT LICENSE PLATE")
+- `audit_registry.py:161` — FROM vehicles v
+- `audit_registry.py:173` — report.section("VEHICLES WITHOUT CAR MODEL")
+- `audit_registry.py:179` — FROM vehicles v
+- `audit_registry.py:197` — FROM vehicles
+- `audit_registry.py:214` — FROM vehicles v
+- `audit_tbot_quarantine.py:64` — LEFT JOIN vehicles v ON v.apartment_id = a.id
+- `billing/build_parking_time_review_tasks.py:89` — FROM vehicles v
+- `billing/build_parking_time_review_tasks.py:126` — 'vehicles',
+- `billing/import_ohorona_parking_time.py:153` — def load_db_vehicles():
+- `billing/import_ohorona_parking_time.py:167` — FROM vehicles v
+- `billing/import_ohorona_parking_time.py:179` — vehicles = defaultdict(list)
+- `billing/import_ohorona_parking_time.py:183` — vehicles[apt].append(dict(row))
+- `billing/import_ohorona_parking_time.py:186` — return vehicles
+- `billing/import_ohorona_parking_time.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time.py:207` — all_apts = sorted(set(hints.keys()) | set(vehicles.keys()), key=apt_sort_key)
+- `billing/import_ohorona_parking_time.py:211` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time.py:227` — missing_vehicles = [v for v in vs if not v.get("parking_time")]
+- `billing/import_ohorona_parking_time.py:236` — and len(missing_vehicles) == len(vs)
+- `billing/import_ohorona_parking_time.py:245` — operator_needed.append((apt, h, vs, missing_vehicles, existing_filled))
+- `billing/import_ohorona_parking_time.py:250` — def write_report(hints, vehicles, classified, report_file: Path):
+- `billing/import_ohorona_parking_time.py:268` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time.py:271` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_ohorona_parking_time.py:302` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles of this apartment")
+- `billing/import_ohorona_parking_time.py:303` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time.py:313` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_ohorona_parking_time.py:318` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_ohorona_parking_time.py:327` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time.py:333` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/import_ohorona_parking_time.py:372` — UPDATE vehicles
+- `billing/import_ohorona_parking_time.py:409` — vehicles = load_db_vehicles()
+- `billing/import_ohorona_parking_time.py:410` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time.py:416` — write_report(hints, vehicles, classified, report_file)
+- `billing/import_ohorona_parking_time.py:426` — print(f"Updated vehicles: {updated}")
+- `billing/import_ohorona_parking_time_simple_preview.py:153` — def load_db_vehicles():
+- `billing/import_ohorona_parking_time_simple_preview.py:167` — FROM vehicles v
+- `billing/import_ohorona_parking_time_simple_preview.py:179` — vehicles = defaultdict(list)
+- `billing/import_ohorona_parking_time_simple_preview.py:183` — vehicles[apt].append(dict(row))
+- `billing/import_ohorona_parking_time_simple_preview.py:186` — return vehicles
+- `billing/import_ohorona_parking_time_simple_preview.py:201` — def classify_apartments(hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:207` — all_apts = sorted(set(hints.keys()) | set(vehicles.keys()), key=apt_sort_key)
+- `billing/import_ohorona_parking_time_simple_preview.py:211` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time_simple_preview.py:227` — missing_vehicles = [v for v in vs if not v.get("parking_time")]
+- `billing/import_ohorona_parking_time_simple_preview.py:236` — and len(missing_vehicles) == len(vs)
+- `billing/import_ohorona_parking_time_simple_preview.py:245` — operator_needed.append((apt, h, vs, missing_vehicles, existing_filled))
+- `billing/import_ohorona_parking_time_simple_preview.py:262` — def write_simple_preview_section(lines, hints, vehicles):
+- `billing/import_ohorona_parking_time_simple_preview.py:272` — vs = vehicles.get(apt, [])
+- `billing/import_ohorona_parking_time_simple_preview.py:285` — def write_report(hints, vehicles, classified, report_file: Path):
+- `billing/import_ohorona_parking_time_simple_preview.py:289` — write_simple_preview_section(lines, hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:305` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:308` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:339` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles of this apartment")
+- `billing/import_ohorona_parking_time_simple_preview.py:340` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time_simple_preview.py:350` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_ohorona_parking_time_simple_preview.py:355` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_ohorona_parking_time_simple_preview.py:364` — lines.append("Vehicles:")
+- `billing/import_ohorona_parking_time_simple_preview.py:370` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/import_ohorona_parking_time_simple_preview.py:409` — UPDATE vehicles
+- `billing/import_ohorona_parking_time_simple_preview.py:446` — vehicles = load_db_vehicles()
+- `billing/import_ohorona_parking_time_simple_preview.py:447` — classified = classify_apartments(hints, vehicles)
+- `billing/import_ohorona_parking_time_simple_preview.py:453` — write_report(hints, vehicles, classified, report_file)
+- `billing/import_ohorona_parking_time_simple_preview.py:463` — print(f"Updated vehicles: {updated}")
+- `billing/import_parking_time_hints_from_ohorona.py:136` — def load_db_vehicles():
+- `billing/import_parking_time_hints_from_ohorona.py:149` — FROM vehicles v
+- `billing/import_parking_time_hints_from_ohorona.py:164` — vehicles = defaultdict(list)
+- `billing/import_parking_time_hints_from_ohorona.py:175` — vehicles[str(apartment_number)].append({
+- `billing/import_parking_time_hints_from_ohorona.py:184` — return vehicles
+- `billing/import_parking_time_hints_from_ohorona.py:206` — vehicles = load_db_vehicles()
+- `billing/import_parking_time_hints_from_ohorona.py:214` — set(hints.keys()) | set(vehicles.keys()),
+- `billing/import_parking_time_hints_from_ohorona.py:225` — vs = vehicles.get(apt, [])
+- `billing/import_parking_time_hints_from_ohorona.py:246` — missing_vehicles = [
+- `billing/import_parking_time_hints_from_ohorona.py:258` — and len(missing_vehicles) == len(vs)
+- `billing/import_parking_time_hints_from_ohorona.py:271` — missing_vehicles,
+- `billing/import_parking_time_hints_from_ohorona.py:287` — lines.append(f"Apartments with vehicles in DB      : {len(vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:290` — lines.append(f"Hints without vehicles in DB        : {len(hints_without_db)}")
+- `billing/import_parking_time_hints_from_ohorona.py:304` — lines.append(f"Action    : set parking_time = {auto_time} for all vehicles")
+- `billing/import_parking_time_hints_from_ohorona.py:305` — lines.append("Vehicles:")
+- `billing/import_parking_time_hints_from_ohorona.py:316` — for apt, h, vs, missing_vehicles, existing_filled in operator_needed:
+- `billing/import_parking_time_hints_from_ohorona.py:321` — lines.append(f"Missing   : {len(missing_vehicles)}")
+- `billing/import_parking_time_hints_from_ohorona.py:328` — lines.append("Vehicles:")
+- `billing/import_parking_time_hints_from_ohorona.py:334` — lines.append("HINTS WITHOUT VEHICLES IN DB")
+- `billing/migrate_add_parking_billing.py:84` — FOREIGN KEY(vehicle_id) REFERENCES vehicles(id)
+- `billing/report_parking_time_review_tasks.py:140` — FROM vehicles v
+- `billing/report_parking_time_review_tasks.py:147` — all_vehicles = cur.fetchall()
+- `billing/report_parking_time_review_tasks.py:149` — lines.append("Vehicles in DB:")
+- `billing/report_parking_time_review_tasks.py:157` — ) in all_vehicles:
+- `billing/report_parking_time_with_hints.py:130` — def load_vehicles(cur):
+- `billing/report_parking_time_with_hints.py:140` — FROM vehicles v
+- `billing/report_parking_time_with_hints.py:239` — def recommend_for_apartment(vehicles, hint):
+- `billing/report_parking_time_with_hints.py:251` — filled_day = [v for v in vehicles if v["parking_time"] == "Day"]
+- `billing/report_parking_time_with_hints.py:252` — filled_night = [v for v in vehicles if v["parking_time"] == "Night"]
+- `billing/report_parking_time_with_hints.py:253` — missing = [v for v in vehicles if not v["parking_time"]]
+- `billing/report_parking_time_with_hints.py:267` — if total_need == len(vehicles) and len(missing) == len(vehicles):
+- `billing/report_parking_time_with_hints.py:268` — if day_need == len(vehicles) and night_need == 0:
+- `billing/report_parking_time_with_hints.py:271` — "reason": "All vehicles missing; hint says all Day",
+- `billing/report_parking_time_with_hints.py:272` — "actions": [(v, "Day") for v in vehicles],
+- `billing/report_parking_time_with_hints.py:275` — if night_need == len(vehicles) and day_need == 0:
+- `billing/report_parking_time_with_hints.py:278` — "reason": "All vehicles missing; hint says all Night",
+- `billing/report_parking_time_with_hints.py:279` — "actions": [(v, "Night") for v in vehicles],
+- ... and 685 more
+
+## `verification_candidates`
+- `build_plate_candidates.py:61` — CREATE TABLE IF NOT EXISTS verification_candidates (
+- `build_plate_candidates.py:92` — CREATE INDEX IF NOT EXISTS idx_verification_candidates_task
+- `build_plate_candidates.py:93` — ON verification_candidates(task_id)
+- `build_plate_candidates.py:97` — CREATE INDEX IF NOT EXISTS idx_verification_candidates_status
+- `build_plate_candidates.py:98` — ON verification_candidates(status)
+- `build_plate_candidates.py:104` — DELETE FROM verification_candidates
+- `build_plate_candidates.py:259` — INSERT INTO verification_candidates (
+- `build_plate_candidates.py:294` — FROM verification_candidates
+- `build_plate_candidates.py:311` — FROM verification_candidates
+- `plate_consensus_report.py:446` — "ocr_plate_observations", "verification_candidates",
+- `plate_consensus_report_v3.py:376` — "ocr_plate_observations", "verification_candidates",
+- `report_plate_candidates.py:48` — FROM verification_candidates vc
+- `report_plate_candidates.py:106` — FROM verification_candidates
+- `report_plate_candidates.py:225` — FROM verification_candidates vc
+- `tools/project_passport.py:137` — "verification_candidates",
+- `tools/project_passport_v2.py:158` — "verification_candidates",
+
+## `verification_evidence`
+- `build_plate_candidates.py:136` — FROM verification_evidence
+- `build_plate_evidence_by_digits_and_apartment.py:38` — FROM verification_evidence
+- `build_plate_evidence_by_digits_and_apartment.py:79` — INSERT INTO verification_evidence (
+- `build_plate_evidence_by_digits_and_apartment.py:322` — FROM verification_evidence
+- `build_plate_evidence_from_telegram.py:52` — DELETE FROM verification_evidence
+- `build_plate_evidence_from_telegram.py:122` — INSERT INTO verification_evidence (
+- `build_plate_evidence_from_telegram.py:156` — FROM verification_evidence
+- `migrate_add_verification_evidence.py:19` — CREATE TABLE IF NOT EXISTS verification_evidence (
+- `migrate_add_verification_evidence.py:42` — CREATE INDEX IF NOT EXISTS idx_verification_evidence_task
+- `migrate_add_verification_evidence.py:43` — ON verification_evidence(task_id)
+- `migrate_add_verification_evidence.py:49` — print("verification_evidence table created successfully")
+- `report_verification_evidence.py:27` — report_file = report_dir / f"verification_evidence_report_{now_ts()}.txt"
+- `report_verification_evidence.py:38` — FROM verification_evidence
+- `report_verification_evidence.py:44` — FROM verification_evidence
+- `report_verification_evidence.py:69` — FROM verification_evidence
+- `report_verification_evidence.py:99` — JOIN verification_evidence ve
+- `report_verification_evidence.py:159` — LEFT JOIN verification_evidence ve
+- `report_verification_tasks_enriched.py:74` — FROM verification_evidence
+- `report_verification_tasks_enriched.py:115` — FROM verification_evidence
+- `tools/project_passport.py:138` — "verification_evidence",
+- `tools/project_passport_v2.py:159` — "verification_evidence",
+
+## `verification_tasks`
+- `build_plate_candidates.py:87` — FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+- `build_plate_candidates.py:119` — FROM verification_tasks
+- `build_plate_evidence_by_digits_and_apartment.py:117` — FROM verification_tasks
+- `build_plate_evidence_from_telegram.py:62` — FROM verification_tasks
+- `build_verification_tasks.py:15` — CREATED_BY = "build_verification_tasks"
+- `build_verification_tasks.py:31` — DELETE FROM verification_tasks
+- `build_verification_tasks.py:40` — FROM verification_tasks
+- `build_verification_tasks.py:71` — INSERT INTO verification_tasks (
+- `build_verification_tasks.py:189` — def build_verification_tasks():
+- `build_verification_tasks.py:207` — cur.execute("SELECT COUNT(*) FROM verification_tasks")
+- `build_verification_tasks.py:212` — FROM verification_tasks
+- `build_verification_tasks.py:231` — build_verification_tasks()
+- `migrate_add_verification_evidence.py:37` — FOREIGN KEY(task_id) REFERENCES verification_tasks(id)
+- `migrate_add_verification_tasks.py:21` — CREATE TABLE IF NOT EXISTS verification_tasks (
+- `migrate_add_verification_tasks.py:61` — CREATE INDEX IF NOT EXISTS idx_verification_tasks_status
+- `migrate_add_verification_tasks.py:62` — ON verification_tasks(status)
+- `migrate_add_verification_tasks.py:66` — CREATE INDEX IF NOT EXISTS idx_verification_tasks_apartment
+- `migrate_add_verification_tasks.py:67` — ON verification_tasks(apartment_number)
+- `migrate_add_verification_tasks.py:71` — CREATE INDEX IF NOT EXISTS idx_verification_tasks_type
+- `migrate_add_verification_tasks.py:72` — ON verification_tasks(task_type)
+- `migrate_add_verification_tasks.py:78` — print("verification_tasks table created successfully")
+- `report_plate_candidates.py:49` — JOIN verification_tasks vt
+- `report_plate_candidates.py:226` — JOIN verification_tasks vt
+- `report_verification_evidence.py:50` — FROM verification_tasks
+- `report_verification_evidence.py:98` — FROM verification_tasks vt
+- `report_verification_evidence.py:158` — FROM verification_tasks vt
+- `report_verification_tasks.py:27` — f"verification_tasks_{now_ts()}.txt"
+- `report_verification_tasks.py:65` — FROM verification_tasks
+- `report_verification_tasks.py:75` — FROM verification_tasks
+- `report_verification_tasks.py:98` — FROM verification_tasks
+- `report_verification_tasks.py:140` — FROM verification_tasks
+- `report_verification_tasks_enriched.py:55` — report_file = report_dir / f"verification_tasks_enriched_{now_ts()}.txt"
+- `report_verification_tasks_enriched.py:67` — FROM verification_tasks
+- `report_verification_tasks_enriched.py:96` — FROM verification_tasks
+- `tools/project_passport.py:136` — "verification_tasks",
+- `tools/project_passport_v2.py:157` — "verification_tasks",
+- `vehicle_verification_tasks.py:551` — get_vehicle_verification_tasks = build_tasks
+- `vehicle_verification_tasks.py:576` — report_file = report_dir / f"vehicle_verification_tasks_{args.period}_{now_ts()}.txt"
+
+## `will`
+- `migrate_cashier_v2_compat.py:578` — plan[table] = ["<table will be created>"]

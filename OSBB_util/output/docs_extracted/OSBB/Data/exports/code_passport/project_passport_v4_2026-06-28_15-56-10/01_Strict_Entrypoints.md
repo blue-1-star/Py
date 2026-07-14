@@ -1,0 +1,191 @@
+# Strict Entrypoints
+
+- `CHECK_guard_sandbox_service_orders.py` — cli_main_guard, 493 lines; has __main__ guard
+- `CHECK_guard_sandbox_service_orders_v2.py` — cli_main_guard, 471 lines; has __main__ guard
+- `CHECK_phone_barrier_access_operational_sandbox.py` — cli_main_guard, 77 lines; has __main__ guard
+- `CHECK_phone_barrier_access_sandbox_schema.py` — cli_main_guard, 129 lines; has __main__ guard
+- `CHECK_profile_button_early_route_fix.py` — cli_main_guard, 62 lines; has __main__ guard
+- `CHECK_profile_confirmation_ready_visibility_fix.py` — cli_main_guard, 37 lines; has __main__ guard
+- `CHECK_profile_critical_codes_fix.py` — cli_main_guard, 40 lines; has __main__ guard
+- `CHECK_profile_parking_time_test_sandbox.py` — cli_main_guard, 97 lines; has __main__ guard
+- `CHECK_profile_test_candidate_apartment_40.py` — cli_main_guard, 356 lines; has __main__ guard
+- `CHECK_profile_verification_sandbox.py` — cli_main_guard, 40 lines; has __main__ guard
+- `CHECK_profile_verification_terminology_v2.py` — cli_main_guard, 57 lines; has __main__ guard
+- `CHECK_service_code_compatibility_phone_v2.py` — cli_main_guard, 122 lines; has __main__ guard
+- `CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py` — cli_main_guard, 175 lines; has __main__ guard
+- `Collect_sheets.py` — cli_main_guard, 143 lines; has __main__ guard
+- `Collect_sheets1.py` — cli_main_guard, 169 lines; has __main__ guard
+- `Collect_word_tables.py` — cli_main_guard, 105 lines; has __main__ guard
+- `Data/Audit_for_merge.py` — cli_main_guard, 39 lines; has __main__ guard
+- `Data/Clean_Data.py` — cli_main_guard, 276 lines; has __main__ guard
+- `Data/audit_databases.py` — cli_main_guard, 68 lines; has __main__ guard
+- `Data/car_registry.py` — cli_main_guard, 54 lines; has __main__ guard
+- `Data/check_passport_columns.py` — cli_main_guard, 37 lines; has __main__ guard
+- `Data/clean_base_01.py` — cli_main_guard, 55 lines; has __main__ guard
+- `Data/clean_base_02.py` — cli_main_guard, 44 lines; has __main__ guard
+- `Data/conflicts.py` — cli_main_guard, 39 lines; has __main__ guard
+- `Data/create_payment_sheet.py` — cli_main_guard, 62 lines; has __main__ guard
+- `Data/debug_conflict.py` — cli_main_guard, 65 lines; has __main__ guard
+- `Data/final_merge.py` — cli_main_guard, 68 lines; has __main__ guard
+- `Data/merge_all.py` — cli_main_guard, 71 lines; has __main__ guard
+- `FIND_actual_service_order_state.py` — cli_main_guard, 436 lines; has __main__ guard
+- `FIX_live_services_sandbox_payment_schema.py` — cli_main_guard, 348 lines; has __main__ guard
+- `INSTALL_PHONE_ACCESS_UI_FIX_v2.py` — cli_main_guard, 143 lines; has __main__ guard
+- `INSTALL_PHONE_ACCESS_UI_FIX_v3.py` — cli_main_guard, 111 lines; has __main__ guard
+- `INSTALL_cashier_route_after_phone_v2.py` — cli_main_guard, 101 lines; has __main__ guard
+- `INSTALL_phone_barrier_access_v2.py` — cli_main_guard, 139 lines; has __main__ guard
+- `INSTALL_profile_button_early_route_fix.py` — cli_main_guard, 78 lines; has __main__ guard
+- `INSTALL_profile_confirmation_ready_visibility_fix.py` — cli_main_guard, 76 lines; has __main__ guard
+- `INSTALL_profile_critical_codes_fix.py` — cli_main_guard, 76 lines; has __main__ guard
+- `INSTALL_profile_parking_time_test_v1.py` — cli_main_guard, 125 lines; has __main__ guard
+- `INSTALL_profile_verification_terminology_v2.py` — cli_main_guard, 123 lines; has __main__ guard
+- `INSTALL_profile_verification_v1.py` — cli_main_guard, 52 lines; has __main__ guard
+- `INSTALL_service_code_compatibility_phone_v2.py` — cli_main_guard, 101 lines; has __main__ guard
+- `MIGRATE_phone_barrier_access_operational_sandbox.py` — cli_main_guard, 151 lines; has __main__ guard
+- `MIGRATE_phone_barrier_access_sandbox.py` — cli_main_guard, 152 lines; has __main__ guard
+- `MIGRATE_profile_parking_time_test_sandbox.py` — cli_main_guard, 110 lines; has __main__ guard
+- `MIGRATE_profile_verification_sandbox.py` — cli_main_guard, 63 lines; has __main__ guard
+- `MIGRATE_simplified_services_sandbox.py` — cli_main_guard, 147 lines; has __main__ guard
+- `RETIRE_legacy_new_remote_test_orders_sandbox.py` — cli_main_guard, 118 lines; has __main__ guard
+- `Word_table_to_Excel.py` — cli_main_guard, 62 lines; has __main__ guard
+- `audit_composite_apartments.py` — cli_main_guard, 178 lines; has __main__ guard
+- `audit_logger.py` — cli_main_guard, 297 lines; has __main__ guard
+- `audit_osbb_telegram_messages.py` — cli_main_guard, 201 lines; has __main__ guard
+- `audit_registry.py` — cli_main_guard, 256 lines; has __main__ guard
+- `audit_tbot_quarantine.py` — cli_main_guard, 469 lines; has __main__ guard
+- `billing/build_parking_time_review_tasks.py` — cli_main_guard, 196 lines; has __main__ guard
+- `billing/import_ohorona_parking_time.py` — cli_main_guard, 435 lines; has __main__ guard
+- `billing/import_ohorona_parking_time_simple_preview.py` — cli_main_guard, 472 lines; has __main__ guard
+- `billing/import_parking_time_hints_from_ohorona.py` — cli_main_guard, 366 lines; has __main__ guard
+- `billing/migrate_add_parking_billing.py` — cli_main_guard, 173 lines; has __main__ guard
+- `billing/report_parking_time_review_tasks.py` — cli_main_guard, 233 lines; has __main__ guard
+- `billing/report_parking_time_with_hints.py` — cli_main_guard, 494 lines; has __main__ guard
+- `billing_reconciliation_report.py` — cli_main_guard, 396 lines; has __main__ guard
+- `billing_statement_excel.py` — cli_main_guard, 551 lines; has __main__ guard
+- `build_plate_candidates.py` — cli_main_guard, 329 lines; has __main__ guard
+- `build_plate_evidence_by_digits_and_apartment.py` — cli_main_guard, 343 lines; has __main__ guard
+- `build_plate_evidence_from_telegram.py` — cli_main_guard, 175 lines; has __main__ guard
+- `build_verification_tasks.py` — cli_main_guard, 231 lines; has __main__ guard
+- `cashier_journal.py` — cli_main_guard, 1731 lines; has __main__ guard
+- `cashier_v2_preflight.py` — cli_main_guard, 486 lines; has __main__ guard
+- `cashier_v2_preflight_compat.py` — cli_main_guard, 317 lines; has __main__ guard
+- `commercial_contracts.py` — cli_main_guard, 1312 lines; has __main__ guard
+- `commercial_notification_delivery.py` — cli_main_guard, 256 lines; has __main__ guard
+- `create_clean_live_sandbox.py` — cli_main_guard, 460 lines; has __main__ guard
+- `create_isolated_live_sandbox_v2.py` — cli_main_guard, 458 lines; has __main__ guard
+- `diagnose_osbb_audit.py` — cli_main_guard, 333 lines; has __main__ guard
+- `diagnose_sandbox_charges.py` — cli_main_guard, 207 lines; has __main__ guard
+- `extract_telegram_remote_facts.py` — cli_main_guard, 270 lines; has __main__ guard
+- `extract_telegram_vehicle_facts.py` — cli_main_guard, 415 lines; has __main__ guard
+- `find_sandbox_telegram_id.py` — cli_main_guard, 149 lines; has __main__ guard
+- `fix_parking_bot_language_gate.py` — cli_main_guard, 143 lines; has __main__ guard
+- `fix_source_ref_schema.py` — cli_main_guard, 310 lines; has __main__ guard
+- `generate_parking_charges.py` — cli_main_guard, 492 lines; has __main__ guard
+- `guard_workspace_preflight.py` — cli_main_guard, 337 lines; has __main__ guard
+- `guard_workspace_preflight_v2.py` — cli_main_guard, 337 lines; has __main__ guard
+- `import_house_registry.py` — cli_main_guard, 166 lines; has __main__ guard
+- `import_ohorona_list1_to_central_cashbox.py` — cli_main_guard, 909 lines; has __main__ guard
+- `import_ohorona_sheet1_payments.py` — cli_main_guard, 800 lines; has __main__ guard
+- `import_ohorona_to_cashbox.py` — cli_main_guard, 977 lines; has __main__ guard
+- `import_osbb_telegram_messages.py` — cli_main_guard, 233 lines; has __main__ guard
+- `import_paper_parking.py` — cli_main_guard, 324 lines; has __main__ guard
+- `import_tbot_quarantine.py` — cli_main_guard, 150 lines; has __main__ guard
+- `init_osbb_db.py` — cli_main_guard, 226 lines; has __main__ guard
+- `init_osbb_quarantine_db.py` — cli_main_guard, 71 lines; has __main__ guard
+- `init_osbb_telegram_db.py` — cli_main_guard, 133 lines; has __main__ guard
+- `inspect_osbb_folder_filter.py` — cli_main_guard, 56 lines; has __main__ guard
+- `install_service_orders_ui.py` — cli_main_guard, 136 lines; has __main__ guard
+- `list_osbb_folder_dialogs.py` — cli_main_guard, 106 lines; has __main__ guard
+- `list_osbb_included_peers.py` — cli_main_guard, 154 lines; has __main__ guard
+- `list_telegram_dialogs.py` — cli_main_guard, 113 lines; has __main__ guard
+- `list_telegram_folders.py` — cli_main_guard, 60 lines; has __main__ guard
+- `manage_staff_access.py` — cli_main_guard, 450 lines; has __main__ guard
+- `manage_staff_access_v2.py` — cli_main_guard, 450 lines; has __main__ guard
+- `migrate_access_control_and_guard.py` — cli_main_guard, 557 lines; has __main__ guard
+- `migrate_add_normalized_fields.py` — cli_main_guard, 65 lines; has __main__ guard
+- `migrate_add_verification_evidence.py` — cli_main_guard, 53 lines; has __main__ guard
+- `migrate_add_verification_tasks.py` — cli_main_guard, 83 lines; has __main__ guard
+- `migrate_apartment_link_requests.py` — cli_main_guard, 203 lines; has __main__ guard
+- `migrate_apartment_verification.py` — cli_main_guard, 109 lines; has __main__ guard
+- `migrate_billing_core.py` — cli_main_guard, 199 lines; has __main__ guard
+- `migrate_bot_core.py` — cli_main_guard, 366 lines; has __main__ guard
+- `migrate_cashier_core.py` — cli_main_guard, 341 lines; has __main__ guard
+- `migrate_cashier_operator_editor.py` — cli_main_guard, 558 lines; has __main__ guard
+- `migrate_cashier_v2.py` — cli_main_guard, 513 lines; has __main__ guard
+- `migrate_cashier_v2_compat.py` — cli_main_guard, 684 lines; has __main__ guard
+- `migrate_charge_adjustments.py` — cli_main_guard, 405 lines; has __main__ guard
+- `migrate_commercial_contract_core.py` — cli_main_guard, 936 lines; has __main__ guard
+- `migrate_operator_audit_log.py` — cli_main_guard, 103 lines; has __main__ guard
+- `migrate_operator_audit_log_v2.py` — cli_main_guard, 188 lines; has __main__ guard
+- `migrate_remote_requests.py` — cli_main_guard, 238 lines; has __main__ guard
+- `migrate_service_items.py` — cli_main_guard, 463 lines; has __main__ guard
+- `migrate_service_orders_and_fulfillment.py` — cli_main_guard, 770 lines; has __main__ guard
+- `migrate_unit_registry_composite_groups.py` — cli_main_guard, 786 lines; has __main__ guard
+- `normalize_registry_fields.py` — cli_main_guard, 207 lines; has __main__ guard
+- `parking_billing_statement.py` — cli_main_guard, 475 lines; has __main__ guard
+- `patch_cashier_v2_core_period_and_schemafix.py` — cli_main_guard, 184 lines; has __main__ guard
+- `patch_cashier_v2_core_schemafix.py` — cli_main_guard, 205 lines; has __main__ guard
+- `patch_guard_workspace_default_cash_note.py` — cli_main_guard, 181 lines; has __main__ guard
+- `patch_guard_workspace_direct_notice_confirm.py` — cli_main_guard, 134 lines; has __main__ guard
+- `patch_parking_bot_cashier_operator.py` — cli_main_guard, 212 lines; has __main__ guard
+- `patch_parking_bot_client_cabinet.py` — cli_main_guard, 163 lines; has __main__ guard
+- `patch_parking_bot_client_portal.py` — cli_main_guard, 203 lines; has __main__ guard
+- `patch_parking_bot_guard_workspace_v2.py` — cli_main_guard, 281 lines; has __main__ guard
+- `patch_parking_bot_guard_workspace_v3.py` — cli_main_guard, 257 lines; has __main__ guard
+- `patch_parking_bot_guard_workspace_v4.py` — cli_main_guard, 267 lines; has __main__ guard
+- `patch_parking_bot_launch_queues_menu.py` — cli_main_guard, 127 lines; has __main__ guard
+- `patch_parking_bot_service_orders_ui_v1.py` — cli_main_guard, 324 lines; has __main__ guard
+- `plate_consensus_apply.py` — cli_main_guard, 369 lines; has __main__ guard
+- `plate_consensus_report.py` — cli_main_guard, 705 lines; has __main__ guard
+- `plate_consensus_report_v3.py` — cli_main_guard, 635 lines; has __main__ guard
+- `plate_consensus_top6.py` — cli_main_guard, 102 lines; has __main__ guard
+- `prepare_live_service_test.py` — cli_main_guard, 344 lines; has __main__ guard
+- `repair_confirmed_unit_seed_notes.py` — cli_main_guard, 140 lines; has __main__ guard
+- `report_bot_admins.py` — cli_main_guard, 163 lines; has __main__ guard
+- `report_plate_candidates.py` — cli_main_guard, 268 lines; has __main__ guard
+- `report_verification_evidence.py` — cli_main_guard, 197 lines; has __main__ guard
+- `report_verification_tasks.py` — cli_main_guard, 164 lines; has __main__ guard
+- `report_verification_tasks_enriched.py` — cli_main_guard, 268 lines; has __main__ guard
+- `reset_service_catalog.py` — cli_main_guard, 628 lines; has __main__ guard
+- `restore_resident_apartment_link.py` — cli_main_guard, 321 lines; has __main__ guard
+- `search_vehicle_by_plate_fragment.py` — cli_main_guard, 244 lines; has __main__ guard
+- `seed_bot_admins.py` — cli_main_guard, 179 lines; has __main__ guard
+- `seed_commercial_unit_placeholders.py` — cli_main_guard, 395 lines; has __main__ guard
+- `seed_parking_tariffs.py` — cli_main_guard, 166 lines; has __main__ guard
+- `service_orders_preflight.py` — cli_main_guard, 438 lines; has __main__ guard
+- `supervisor_dashboard.py` — cli_main_guard, 647 lines; has __main__ guard
+- `switch_parking_bot_to_cashier_v2.py` — cli_main_guard, 135 lines; has __main__ guard
+- `telegram_test_login.py` — cli_main_guard, 42 lines; has __main__ guard
+- `telegram_test_login_manual.py` — cli_main_guard, 65 lines; has __main__ guard
+- `test_db_access_unit_resolver.py` — cli_main_guard, 82 lines; has __main__ guard
+- `tools/cashier_parking_payments_audit_v4.py` — cli_main_guard, 616 lines; has __main__ guard
+- `tools/cashier_unpaid_preview.py` — cli_main_guard, 203 lines; has __main__ guard
+- `tools/cashier_unpaid_preview_v2.py` — cli_main_guard, 260 lines; has __main__ guard
+- `tools/cashier_unpaid_preview_v3.py` — cli_main_guard, 580 lines; has __main__ guard
+- `tools/db_schema_compare.py` — cli_main_guard, 407 lines; has __main__ guard
+- `tools/db_schema_snapshot.py` — cli_main_guard, 361 lines; has __main__ guard
+- `tools/db_schema_snapshot_full.py` — cli_main_guard, 356 lines; has __main__ guard
+- `tools/project_code_search.py` — cli_main_guard, 154 lines; has __main__ guard
+- `tools/project_passport.py` — cli_main_guard, 613 lines; has __main__ guard
+- `tools/project_passport_v2.py` — cli_main_guard, 658 lines; has __main__ guard
+- `unit_resolver.py` — cli_main_guard, 551 lines; has __main__ guard
+- `vehicle_data_quality_tasks.py` — cli_main_guard, 381 lines; has __main__ guard
+- `vehicle_verification_tasks.py` — cli_main_guard, 596 lines; has __main__ guard
+- `Data/run_direct_merge.py` — run_script, 82 lines; filename starts with run_; has __main__ guard
+- `Data/run_flat_merge.py` — run_script, 64 lines; filename starts with run_; has __main__ guard
+- `Data/run_smart_merge.py` — run_script, 64 lines; filename starts with run_
+- `cashier_route_repair_payload/run_bot_live_services_sandbox_v1.py` — run_script, 708 lines; filename starts with run_; has __main__ guard
+- `parking_time_test_payload/run_bot_live_services_sandbox_v1.py` — run_script, 919 lines; filename starts with run_; has __main__ guard
+- `profile_button_early_route_payload/run_bot_live_services_sandbox_v1.py` — run_script, 865 lines; filename starts with run_; has __main__ guard
+- `profile_verification_payload/run_bot_live_services_sandbox_v1.py` — run_script, 831 lines; filename starts with run_; has __main__ guard
+- `run_bot_guard_sandbox.py` — run_script, 236 lines; filename starts with run_; has __main__ guard
+- `run_bot_guard_sandbox_v2.py` — run_script, 236 lines; filename starts with run_; has __main__ guard
+- `run_bot_guard_sandbox_v3.py` — run_script, 236 lines; filename starts with run_; has __main__ guard
+- `run_bot_live_service_sandbox_v4.py` — run_script, 250 lines; filename starts with run_; has __main__ guard
+- `run_bot_live_services_sandbox_v1.py` — run_script, 919 lines; filename starts with run_; has __main__ guard
+- `run_bot_sandbox_v2.py` — run_script, 286 lines; filename starts with run_; has __main__ guard
+- `Bots/data_park_bot.py` — telegram_runtime, 155 lines; has __main__ guard; has telegram Application/run_polling
+- `Bots/hello.py` — telegram_runtime, 72 lines; has __main__ guard; has telegram Application/run_polling
+- `Bots/parking_bot.py` — telegram_runtime, 1359 lines; has __main__ guard; has telegram Application/run_polling
+- `tools/project_passport_v3_classifier.py` — telegram_runtime, 631 lines; has __main__ guard; has telegram Application/run_polling
+- `tools/project_passport_v4_runtime_schema_audit.py` — telegram_runtime, 716 lines; has __main__ guard; has telegram Application/run_polling

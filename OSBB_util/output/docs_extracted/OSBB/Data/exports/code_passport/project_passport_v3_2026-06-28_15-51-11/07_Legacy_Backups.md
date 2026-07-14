@@ -1,0 +1,30 @@
+# Legacy / Backup / Historical Files
+
+- `Bots/db_access - Copy.py` — 4914 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/agreement - Copy.py` — 542 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/audit_viewer - Copy.py` — 231 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py` — 1141 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py` — 1144 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09` — 0 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29` — 0 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40` — 0 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/handlers/unit_registry_editor - Copy.py` — 1036 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/parking_bot - Copy.py` — 1301 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/parking_bot_before_cashier_editor_2026-06-25_14-45-08.py` — 1343 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/parking_bot_before_client_portal_2026-06-25_10-25-49.py` — 1310 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py` — 1342 lines, reasons=historical/copy/date-stamped/foundation package
+- `Bots/parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py` — 1342 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/DO_NOT_UPLOAD_SECRETS.md` — 13 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_BUSINESS_HANDOFF_2026-06-27.md` — 208 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/OSBB_PROJECT_INSTRUCTIONS.md` — 29 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/SHA256SUMS.txt` — 6 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/START_OSBB_BUSINESS_CHAT_2026-06-28.txt` — 12 lines, reasons=historical/copy/date-stamped/foundation package
+- `Docs/OSBB_Business_Handoff_2026-06-27/TRANSFER_CHECKLIST_2026-06-27.txt` — 36 lines, reasons=historical/copy/date-stamped/foundation package
+- `OSBB_Service_Orders_Foundation_v1/migrate_service_orders_and_fulfillment.py` — 770 lines, reasons=historical/copy/date-stamped/foundation package
+- `OSBB_Service_Orders_Foundation_v1/service_catalog_admin_core.py` — 571 lines, reasons=historical/copy/date-stamped/foundation package
+- `OSBB_Service_Orders_Foundation_v1/service_orders_core.py` — 1126 lines, reasons=historical/copy/date-stamped/foundation package
+- `OSBB_Service_Orders_Foundation_v1/service_orders_preflight.py` — 438 lines, reasons=historical/copy/date-stamped/foundation package
+- `Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat` — 38 lines, reasons=historical/copy/date-stamped/foundation package
+- `cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py` — 1536 lines, reasons=historical/copy/date-stamped/foundation package
+- `cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py` — 1480 lines, reasons=historical/copy/date-stamped/foundation package
+- `service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py` — 1126 lines, reasons=historical/copy/date-stamped/foundation package

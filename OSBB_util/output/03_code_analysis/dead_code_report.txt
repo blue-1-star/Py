@@ -1,0 +1,138 @@
+======================================================================
+📊 ОТЧЕТ ПО МЕРТВОМУ КОДУ
+======================================================================
+Дата: 2026-07-13 21:04:01
+======================================================================
+
+🔴 НЕИСПОЛЬЗУЕМЫЕ ФУНКЦИИ: 153
+----------------------------------------------------------------------
+  • is_admin() → ...\Bots\db_access.py
+  • is_super_admin() → ...\Bots\db_access.py
+  • can_manage_users() → ...\Bots\db_access.py
+  • write_audit_log() → ...\Bots\db_access.py
+  • get_telegram_message_plates() → ...\Bots\db_access.py
+  • get_telegram_parking_hints() → ...\Bots\db_access.py
+  • set_apartment_verification_in_progress() → ...\Bots\db_access.py
+  • unit_resolver_db_access_self_test() → ...\Bots\db_access.py
+  • parse_variant_index() → ...\Bots\handlers\vehicle_verification.py
+  • clean_license_plate() → ...\Data\Clean_Data.py
+  • clean_parking_time() → ...\Data\Clean_Data.py
+  • clean_car_model() → ...\Data\Clean_Data.py
+  • safe_sort_key() → ...\Data\audit_databases.py
+  • as_dict() → ...\Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py
+  • active_policy_values() → ...\Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py
+  • profile_summary_for_display() → ...\Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\profile_verification_core.py
+  • link_charge_to_order() → ...\Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py
+  • list_order_steps() → ...\Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py
+  • simplified_tables() → ...\Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py
+  • unpaid_interest_totals() → ...\Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py
+  • normalize_apt() → ...\Data\conflicts.py
+  • debug_conflict() → ...\Data\debug_conflict.py
+  • to_int() → ...\Data\debug_conflict.py
+  • normalize_apt_strict() → ...\Data\final_merge.py
+  • map_parking() → ...\Data\run_direct_merge.py
+  • get_sort_key() → ...\Data\run_smart_merge.py
+  • list_service_offers() → ...\OSBB_Service_Orders_Foundation_v1\service_catalog_admin_core.py
+  • add_or_update_service_offer() → ...\OSBB_Service_Orders_Foundation_v1\service_catalog_admin_core.py
+  • retire_service_offer() → ...\OSBB_Service_Orders_Foundation_v1\service_catalog_admin_core.py
+  • restore_service_offer() → ...\OSBB_Service_Orders_Foundation_v1\service_catalog_admin_core.py
+  • swap_client_portal() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • patch_show_mode() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • patch_language_gates() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • insert_active_router() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • insert_general_router() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • insert_mode_switch() → ...\Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py
+  • list_user_roles() → ...\access_control.py
+  • workspace_options() → ...\access_control.py
+  • format_charge_line() → ...\billing_reconciliation_report.py
+  • format_payment_line() → ...\billing_reconciliation_report.py
+  • sort_item() → ...\billing_reconciliation_report.py
+  • command_balance() → ...\cashier_journal.py
+  • command_income() → ...\cashier_journal.py
+  • command_expense() → ...\cashier_journal.py
+  • command_transfer() → ...\cashier_journal.py
+  • command_service_item_add() → ...\cashier_journal.py
+  • command_service_item_list() → ...\cashier_journal.py
+  • command_report() → ...\cashier_journal.py
+  • suggested_charge() → ...\cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py
+  • get_contract_items() → ...\commercial_contracts.py
+  ... и еще 103 функций
+
+🟡 НЕИСПОЛЬЗУЕМЫЕ ИМПОРТЫ: 1653
+----------------------------------------------------------------------
+  📄 ...\access_control.py
+    • __future__
+    • audit_logger
+  📄 ...\audit_logger.py
+    • argparse
+  📄 ...\audit_tbot_quarantine.py
+    • utils
+  📄 ...\billing_reconciliation_report.py
+    • argparse
+  📄 ...\billing_statement_excel.py
+    • openpyxl
+    • argparse
+  📄 ...\cashier_journal.py
+    • openpyxl
+    • argparse
+    • audit_logger
+  📄 ...\cashier_v2_core.py
+    • __future__
+    • audit_logger
+    • unit_resolver
+    • handlers
+  📄 ...\cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py
+    • __future__
+    • audit_logger
+    • unit_resolver
+    • handlers
+  📄 ...\cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py
+    • __future__
+    • audit_logger
+    • unit_resolver
+    • handlers
+  📄 ...\cashier_v2_preflight.py
+    • __future__
+    • importlib
+    • traceback
+  📄 ...\cashier_v2_preflight_compat.py
+    • __future__
+    • importlib
+    • traceback
+  📄 ...\CHECK_guard_sandbox_service_orders.py
+    • __future__
+    • importlib
+    • traceback
+  📄 ...\CHECK_guard_sandbox_service_orders_v2.py
+    • __future__
+    • importlib
+    • traceback
+  📄 ...\CHECK_phone_barrier_access_operational_sandbox.py
+    • __future__
+    • phone_barrier_access_core
+    • argparse
+  📄 ...\CHECK_phone_barrier_access_sandbox_schema.py
+    • __future__
+    • phone_barrier_access_core
+  📄 ...\CHECK_profile_button_early_route_fix.py
+    • __future__
+    • run_bot_live_services_sandbox_v1
+  📄 ...\CHECK_profile_parking_time_test_sandbox.py
+    • __future__
+    • profile_parking_time_test_core
+  📄 ...\CHECK_profile_test_candidate_apartment_40.py
+    • __future__
+    • argparse
+  📄 ...\CHECK_profile_verification_sandbox.py
+    • __future__
+    • profile_verification_core
+  📄 ...\CHECK_service_code_compatibility_phone_v2.py
+    • __future__
+  ... и еще 470 файлов
+
+📊 СТАТИСТИКА
+----------------------------------------------------------------------
+  Всего файлов проанализировано: 511
+  Всего функций определено: 1604
+  Всего уникальных вызовов: 10889
+  Всего импортов: 1662

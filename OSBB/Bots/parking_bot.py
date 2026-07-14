@@ -106,6 +106,15 @@ from Bots.handlers.agreement import (
     handle_agreement_menu_text,
 )
 
+# ==========================================
+# НОВАЯ АРХИТЕКТУРА (core_new)
+# ==========================================
+
+from core_new.domain.residents import Resident
+from core_new.domain.vehicles import Vehicle
+from core_new.domain.apartments import Apartment
+from core_new.domain.payments import Payment
+
 user_languages = {}
 user_modes = {}
 user_states = {}
@@ -354,11 +363,48 @@ async def show_mode_menu(update: Update, lang: str):
         reply_markup=kb(buttons),
     )
 
+# async def show_client_menu(update: Update, lang: str):
+#     await update.message.reply_text(
+#         client_welcome_text(lang),
+#         reply_markup=kb(client_menu_keyboard(lang)),
+#     )
+
+# async def show_client_menu(update: Update, lang: str):
+#     """Показать клиентское меню (новая версия на core_new)"""
+    
+#     user_id = update.effective_user.id
+    
+#     # Получаем жителя через новую модель (только чтение)
+#     resident = Resident.get_by_telegram_id(user_id)
+    
+#     if resident and resident.has_apartment:
+#         # Если квартира есть — показываем меню с приветствием
+#         await update.message.reply_text(
+#             f"👋 Добро пожаловать, {resident.display_name}!\n"
+#             f"🏠 Квартира: {resident.apartment_number}\n\n"
+#             f"{client_welcome_text(lang)}",
+#             reply_markup=kb(client_menu_keyboard(lang)),
+#         )
+#     else:
+#         # Если квартиры нет — показываем стандартное меню
+#         await update.message.reply_text(
+#             client_welcome_text(lang),
+#             reply_markup=kb(client_menu_keyboard(lang)),
+#         )
+
 async def show_client_menu(update: Update, lang: str):
+    """Показать клиентское меню (новая версия на core_new)"""
+    
+    user_id = update.effective_user.id
+    
+    # Передаём user_id в приветствие
+    welcome_text = client_welcome_text(lang, user_id)
+    
     await update.message.reply_text(
-        client_welcome_text(lang),
+        welcome_text,
         reply_markup=kb(client_menu_keyboard(lang)),
     )
+
 
 async def show_admin_menu(update: Update):
     await update.message.reply_text(
@@ -385,26 +431,87 @@ async def show_resident_list(update: Update, title: str, filter_name: str):
     )
 
 
-async def show_my_apartment(update: Update, user_id: int):
-    account = get_resident_account(user_id)
+# async def show_my_apartment(update: Update, user_id: int):
+#     account = get_resident_account(user_id)
 
-    if not account or not account[6]:
+#     if not account or not account[6]:
+#         user_states[user_id] = "waiting_apartment"
+#         await update.message.reply_text("Введите номер квартиры:")
+#         return
+
+#     apartment_number = account[6]
+
+#     await update.message.reply_text(
+#         f"🏠 Ваша квартира: {apartment_number}",
+#         reply_markup=kb(CLIENT_MENU_RU),
+#     )
+
+async def show_my_apartment(update: Update, user_id: int):
+    """Показать квартиру (новая версия на core_new)"""
+    
+    # Получаем жителя через новую модель
+    resident = Resident.get_by_telegram_id(user_id)
+
+    if not resident or not resident.has_apartment:
         user_states[user_id] = "waiting_apartment"
-        await update.message.reply_text("Введите номер квартиры:")
+        await update.message.reply_text(
+            "Квартира не привязана.\n\n"
+            "Введите номер квартиры:"
+        )
         return
 
-    apartment_number = account[6]
+    # Получаем квартиру через новую модель
+    apartment = Apartment.get_by_number(resident.apartment_number)
+    
+    if not apartment:
+        await update.message.reply_text(
+            f"❌ Квартира {resident.apartment_number} не найдена в БД.",
+            reply_markup=kb(CLIENT_MENU_RU),
+        )
+        return
 
+    # Отправляем карточку квартиры
     await update.message.reply_text(
-        f"🏠 Ваша квартира: {apartment_number}",
+        apartment.format_card(),
         reply_markup=kb(CLIENT_MENU_RU),
     )
 
+# async def show_my_vehicles(update: Update, user_id: int):
+#     account = get_resident_account(user_id)
 
+#     if not account or not account[6]:
+#         user_states[user_id] = "waiting_apartment"
+#         await update.message.reply_text(
+#             "Сначала нужно привязать квартиру.\n\n"
+#             "Введите номер квартиры:"
+#         )
+#         return
+
+#     apartment_number = account[6]
+#     vehicles = get_apartment_vehicles(apartment_number)
+
+#     await update.message.reply_text(
+#         f"🚗 Автомобили квартиры {apartment_number}\n\n"
+#         f"{format_vehicle_list(vehicles)}",
+#         reply_markup=kb(CLIENT_MENU_RU),
+#     )
+# 
+#  new_core
+# 
 async def show_my_vehicles(update: Update, user_id: int):
-    account = get_resident_account(user_id)
+    """Показать автомобили (новая версия на core_new)"""
+    
+    # Получаем жителя через новую модель
+    resident = Resident.get_by_telegram_id(user_id)
 
-    if not account or not account[6]:
+    if not resident:
+        user_states[user_id] = "waiting_apartment"
+        await update.message.reply_text(
+            "Пользователь не найден. Введите номер квартиры:"
+        )
+        return
+
+    if not resident.has_apartment:
         user_states[user_id] = "waiting_apartment"
         await update.message.reply_text(
             "Сначала нужно привязать квартиру.\n\n"
@@ -412,27 +519,72 @@ async def show_my_vehicles(update: Update, user_id: int):
         )
         return
 
-    apartment_number = account[6]
-    vehicles = get_apartment_vehicles(apartment_number)
+    apartment_number = resident.apartment_number
+    
+    # Получаем автомобили через новую модель
+    vehicles = Vehicle.get_by_apartment(apartment_number)
+
+    if not vehicles:
+        await update.message.reply_text(
+            f"🚗 Автомобили квартиры {apartment_number}\n\n"
+            "Автомобилей пока нет.",
+            reply_markup=kb(CLIENT_MENU_RU),
+        )
+        return
+
+    # Формируем красивый список (как в песочнице)
+    lines = [f"🚗 Автомобили квартиры {apartment_number}"]
+    lines.append("")
+    for v in vehicles:
+        lines.append(f"  • {v.display_name}")
+        lines.append(f"    Статус: {v.status_display}")
+        lines.append("")
 
     await update.message.reply_text(
-        f"🚗 Автомобили квартиры {apartment_number}\n\n"
-        f"{format_vehicle_list(vehicles)}",
+        "\n".join(lines),
         reply_markup=kb(CLIENT_MENU_RU),
     )
 
 
-async def handle_waiting_apartment(update: Update, user_id: int, text: str):
-    apartment_number = text.strip()
-    apt = find_apartment(apartment_number)
+# async def handle_waiting_apartment(update: Update, user_id: int, text: str):
+#     apartment_number = text.strip()
+#     apt = find_apartment(apartment_number)
 
-    if not apt:
+#     if not apt:
+#         await update.message.reply_text(
+#             "Квартира не найдена в базе.\n\n"
+#             "Проверьте номер и введите ещё раз:"
+#         )
+#         return
+
+#     vehicles = get_apartment_vehicles(apartment_number)
+
+#     user_states[user_id] = ("confirm_apartment", apartment_number)
+
+#     await update.message.reply_text(
+#         f"Квартира {apartment_number}\n\n"
+#         f"Автомобили в базе:\n"
+#         f"{format_vehicle_list(vehicles)}\n\n"
+#         f"Это ваша квартира?",
+#         reply_markup=kb(CONFIRM_APARTMENT_MENU),
+#     )
+
+async def handle_waiting_apartment(update: Update, user_id: int, text: str):
+    """Обработка ввода номера квартиры (новая версия на core_new)"""
+    
+    apartment_number = text.strip()
+    
+    # Проверяем через новую модель Apartment
+    apartment = Apartment.get_by_number(apartment_number)
+
+    if not apartment:
         await update.message.reply_text(
             "Квартира не найдена в базе.\n\n"
             "Проверьте номер и введите ещё раз:"
         )
         return
 
+    # Получаем автомобили (через старую функцию, пока оставляем)
     vehicles = get_apartment_vehicles(apartment_number)
 
     user_states[user_id] = ("confirm_apartment", apartment_number)
@@ -444,6 +596,7 @@ async def handle_waiting_apartment(update: Update, user_id: int, text: str):
         f"Это ваша квартира?",
         reply_markup=kb(CONFIRM_APARTMENT_MENU),
     )
+
 
 
 async def handle_confirm_apartment(update: Update, user_id: int, text: str, lang: str):
