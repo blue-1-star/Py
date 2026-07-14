@@ -4,7 +4,7 @@
 
 **Статус:** Принято
 
-**Автор:** San Tretiak
+**Автор:** San Tretiak при содействии DeepSeek
 
 **Связанные ADR:**
 - [ADR-2026-07-13-core-new-layer.md](ADR-2026-07-13-core-new-layer.md)

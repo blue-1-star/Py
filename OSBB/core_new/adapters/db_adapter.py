@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 from datetime import datetime
+import sqlite3
 
 OSBB_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(OSBB_ROOT))
@@ -648,3 +649,8 @@ class DBAdapter:
             conn.rollback()
             conn.close()
             return False, f"Ошибка: {e}"
+    @staticmethod
+    def get_connection() -> sqlite3.Connection:
+        """Возвращает соединение с БД"""
+        from Bots.db_access import get_conn
+        return get_conn()    

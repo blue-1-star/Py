@@ -4,7 +4,7 @@
 
 **Статус:** Принято
 
-**Автор:** San Tretiak
+**Автор:** San Tretiak - DeepSeek
 
 **Связанные ADR:**
 - [ADR-2026-07-01-resident-identity-refactor.md](ADR-2026-07-01-resident-identity-refactor.md)
