@@ -23,6 +23,12 @@ class DBAdapter:
     """Адаптер для работы с БД"""
     
     @staticmethod
+    def get_connection() -> sqlite3.Connection:
+        """Возвращает соединение с БД"""
+        from Bots.db_access import get_conn
+        return get_conn()
+    
+    @staticmethod
     def get_vehicle(vehicle_id: int) -> Optional[Dict[str, Any]]:
         result = get_vehicle_by_id(vehicle_id)
         if not result:
@@ -97,13 +103,57 @@ class DBAdapter:
             'apartment_number': result[1],
             'entrance': result[2] if len(result) > 2 else None,
         }
-        # ==========================================
-    # ЖИТЕЛИ (RESIDENT)
+    
+    # ==========================================
+    # ПОИСК АВТОМОБИЛЕЙ
+    # ==========================================
+    
+    @staticmethod
+    def find_vehicle_by_plate(plate: str) -> Optional[Dict[str, Any]]:
+        """
+        Находит автомобиль по номеру (точное совпадение).
+        """
+        from Bots.db_access import get_conn
+        conn = get_conn()
+        cur = conn.cursor()
+        
+        plate_norm = plate.upper().strip()
+        
+        cur.execute("""
+            SELECT 
+                id,
+                license_plate_normalized,
+                license_plate,
+                car_model_normalized,
+                car_model,
+                parking_time
+            FROM vehicles
+            WHERE license_plate_normalized = ? OR license_plate = ?
+            ORDER BY id
+            LIMIT 1
+        """, (plate_norm, plate_norm))
+        
+        row = cur.fetchone()
+        conn.close()
+        
+        if not row:
+            return None
+        
+        return {
+            'id': row[0],
+            'plate_norm': row[1],
+            'plate_raw': row[2],
+            'model_norm': row[3],
+            'model_raw': row[4],
+            'parking_time': row[5],
+        }
+    
+    # ==========================================
+    # ЖИТЕЛИ
     # ==========================================
     
     @staticmethod
     def get_resident(user_id: int) -> Optional[Dict[str, Any]]:
-        """Получить жителя по Telegram ID"""
         from Bots.db_access import get_resident_account
         result = get_resident_account(user_id)
         if not result:
@@ -128,13 +178,11 @@ class DBAdapter:
     
     @staticmethod
     def get_residents_summary(limit: int = 10) -> Dict[str, Any]:
-        """Получить сводку по жителям"""
         from Bots.db_access import get_resident_accounts_summary
         return get_resident_accounts_summary(limit)
     
     @staticmethod
     def get_residents_by_apartment(apartment_number: str) -> List[Dict[str, Any]]:
-        """Получить жителей квартиры"""
         from Bots.db_access import get_accounts_by_apartment
         rows = get_accounts_by_apartment(apartment_number)
         return [
@@ -152,79 +200,121 @@ class DBAdapter:
     
     @staticmethod
     def link_apartment(user_id: int, apartment: str) -> tuple:
-        """Привязать квартиру"""
         from Bots.db_access import link_resident_to_apartment
         return link_resident_to_apartment(user_id, apartment)
     
     @staticmethod
     def unlink_apartment(user_id: int) -> tuple:
-        """Отвязать квартиру"""
         from Bots.db_access import unlink_resident_account
         return unlink_resident_account(user_id)
     
     @staticmethod
     def mark_verified(user_id: int) -> tuple:
-        """Отметить как проверенного"""
         from Bots.db_access import mark_resident_operator_verified
         return mark_resident_operator_verified(user_id)
     
     @staticmethod
     def upsert_resident_from_telegram(user, language_code: str = "ru"):
-        """Создать/обновить жителя из Telegram"""
         from Bots.db_access import upsert_resident_account_from_telegram
         return upsert_resident_account_from_telegram(user, language_code)
-    # В db_adapter.py уже должно быть:
-    @staticmethod
-    def get_apartment_card(apartment_number: str) -> Optional[Dict[str, Any]]:
-        """Получить карточку квартиры"""
-        from Bots.db_access import get_apartment_card as _get_card
-        return _get_card(apartment_number)
     
-
-        # ==========================================
-    # ПЛАТЕЖИ (PAYMENT)
+    # ==========================================
+    # КВАРТИРЫ
     # ==========================================
     
     @staticmethod
-    def get_payment(payment_id: int) -> Optional[Dict[str, Any]]:
-        """Получить платеж по ID"""
+    def get_apartment_card(apartment_number: str) -> Optional[Dict[str, Any]]:
+        from Bots.db_access import get_apartment_card as _get_card
+        return _get_card(apartment_number)
+    
+    # ==========================================
+    # VEHICLE CANDIDATES
+    # ==========================================
+    
+    @staticmethod
+    def create_vehicle_candidate(
+        plate: str,
+        plate_norm: str,
+        model: Optional[str] = None,
+        apartment_number: Optional[str] = None,
+        created_by: Optional[int] = None,
+        comment: Optional[str] = None,
+        source: str = 'cashier',
+    ) -> int:
+        """Создаёт запись в vehicle_candidates"""
+        from Bots.db_access import get_conn
+        conn = get_conn()
+        cur = conn.cursor()
+        
+        apartment_id = None
+        if apartment_number:
+            apt = DBAdapter.find_apartment(apartment_number)
+            if apt:
+                apartment_id = apt['id']
+        
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        model_norm = model.upper().strip() if model else None
+        
+        cur.execute("""
+            INSERT INTO vehicle_candidates (
+                license_plate,
+                license_plate_normalized,
+                car_model,
+                car_model_normalized,
+                apartment_id,
+                apartment_number,
+                created_by,
+                created_at,
+                comment,
+                source,
+                status
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'PENDING')
+        """, (
+            plate,
+            plate_norm,
+            model,
+            model_norm,
+            apartment_id,
+            apartment_number,
+            created_by,
+            now,
+            comment,
+            source,
+        ))
+        
+        candidate_id = cur.lastrowid
+        conn.commit()
+        conn.close()
+        
+        return candidate_id
+    
+    @staticmethod
+    def get_vehicle_candidate(candidate_id: int) -> Optional[Dict[str, Any]]:
         from Bots.db_access import get_conn
         conn = get_conn()
         cur = conn.cursor()
         
         cur.execute("""
-            SELECT 
+            SELECT
                 id,
-                payment_date,
-                period_code,
-                apartment_number,
-                vehicle_id,
-                amount,
-                currency,
-                payment_method,
-                source,
-                created_by,
-                comment,
-                created_at,
-                cashbox_code,
-                cashbox_operation_id,
-                cashier_batch_id,
-                operator_id,
-                service_item_code,
-                base_service_code,
-                service_type,
-                commercial_contract_id,
-                commercial_unit_id,
-                cashier_receipt_id,
-                cashier_entry_status,
-                payment_notice_id,
-                bank_transaction_id,
-                payment_channel,
+                license_plate,
+                license_plate_normalized,
+                car_model,
+                car_model_normalized,
                 apartment_id,
-                source_ref
-            FROM payments
+                apartment_number,
+                status,
+                resolved_vehicle_id,
+                merged_vehicle_id,
+                created_by,
+                created_at,
+                updated_at,
+                comment,
+                source
+            FROM vehicle_candidates
             WHERE id = ?
-        """, (payment_id,))
+        """, (candidate_id,))
         
         row = cur.fetchone()
         conn.close()
@@ -234,423 +324,146 @@ class DBAdapter:
         
         return {
             'id': row[0],
-            'payment_date': row[1],
-            'period_code': row[2],
-            'apartment_number': row[3],
-            'vehicle_id': row[4],
-            'amount': row[5],
-            'currency': row[6],
-            'payment_method': row[7],
-            'source': row[8],
-            'created_by': row[9],
-            'comment': row[10],
+            'license_plate': row[1],
+            'license_plate_normalized': row[2],
+            'car_model': row[3],
+            'car_model_normalized': row[4],
+            'apartment_id': row[5],
+            'apartment_number': row[6],
+            'status': row[7],
+            'resolved_vehicle_id': row[8],
+            'merged_vehicle_id': row[9],
+            'created_by': row[10],
             'created_at': row[11],
-            'cashbox_code': row[12],
-            'cashbox_operation_id': row[13],
-            'cashier_batch_id': row[14],
-            'operator_id': row[15],
-            'service_item_code': row[16],
-            'base_service_code': row[17],
-            'service_type': row[18],
-            'commercial_contract_id': row[19],
-            'commercial_unit_id': row[20],
-            'cashier_receipt_id': row[21],
-            'cashier_entry_status': row[22],
-            'payment_notice_id': row[23],
-            'bank_transaction_id': row[24],
-            'payment_channel': row[25],
-            'apartment_id': row[26],
-            'source_ref': row[27],
+            'updated_at': row[12],
+            'comment': row[13],
+            'source': row[14],
         }
     
     @staticmethod
-    def get_payments_by_apartment(apartment_number: str, limit: int = 50) -> List[Dict[str, Any]]:
-        """Получить платежи по номеру квартиры"""
+    def find_vehicle_candidate_by_plate(plate: str) -> Optional[Dict[str, Any]]:
         from Bots.db_access import get_conn
         conn = get_conn()
         cur = conn.cursor()
         
-        cur.execute("""
-            SELECT 
-                id,
-                payment_date,
-                period_code,
-                apartment_number,
-                vehicle_id,
-                amount,
-                currency,
-                payment_method,
-                source,
-                created_by,
-                comment,
-                created_at,
-                cashbox_code,
-                cashbox_operation_id,
-                cashier_batch_id,
-                operator_id,
-                service_item_code,
-                base_service_code,
-                service_type,
-                commercial_contract_id,
-                commercial_unit_id,
-                cashier_receipt_id,
-                cashier_entry_status,
-                payment_notice_id,
-                bank_transaction_id,
-                payment_channel,
-                apartment_id,
-                source_ref
-            FROM payments
-            WHERE apartment_number = ?
-            ORDER BY payment_date DESC
-            LIMIT ?
-        """, (apartment_number, limit))
-        
-        rows = cur.fetchall()
-        conn.close()
-        
-        return [
-            {
-                'id': r[0],
-                'payment_date': r[1],
-                'period_code': r[2],
-                'apartment_number': r[3],
-                'vehicle_id': r[4],
-                'amount': r[5],
-                'currency': r[6],
-                'payment_method': r[7],
-                'source': r[8],
-                'created_by': r[9],
-                'comment': r[10],
-                'created_at': r[11],
-                'cashbox_code': r[12],
-                'cashbox_operation_id': r[13],
-                'cashier_batch_id': r[14],
-                'operator_id': r[15],
-                'service_item_code': r[16],
-                'base_service_code': r[17],
-                'service_type': r[18],
-                'commercial_contract_id': r[19],
-                'commercial_unit_id': r[20],
-                'cashier_receipt_id': r[21],
-                'cashier_entry_status': r[22],
-                'payment_notice_id': r[23],
-                'bank_transaction_id': r[24],
-                'payment_channel': r[25],
-                'apartment_id': r[26],
-                'source_ref': r[27],
-            }
-            for r in rows
-        ]
-    
-    @staticmethod
-    def get_payments_by_vehicle(vehicle_id: int, limit: int = 50) -> List[Dict[str, Any]]:
-        """Получить платежи по ID автомобиля"""
-        from Bots.db_access import get_conn
-        conn = get_conn()
-        cur = conn.cursor()
+        plate_norm = plate.upper().strip()
         
         cur.execute("""
-            SELECT 
+            SELECT
                 id,
-                payment_date,
-                period_code,
-                apartment_number,
-                vehicle_id,
-                amount,
-                currency,
-                payment_method,
-                source,
-                created_by,
-                comment,
-                created_at,
-                cashbox_code,
-                cashbox_operation_id,
-                cashier_batch_id,
-                operator_id,
-                service_item_code,
-                base_service_code,
-                service_type,
-                commercial_contract_id,
-                commercial_unit_id,
-                cashier_receipt_id,
-                cashier_entry_status,
-                payment_notice_id,
-                bank_transaction_id,
-                payment_channel,
+                license_plate,
+                license_plate_normalized,
+                car_model,
+                car_model_normalized,
                 apartment_id,
-                source_ref
-            FROM payments
-            WHERE vehicle_id = ?
-            ORDER BY payment_date DESC
-            LIMIT ?
-        """, (vehicle_id, limit))
+                apartment_number,
+                status,
+                resolved_vehicle_id,
+                merged_vehicle_id,
+                created_by,
+                created_at,
+                updated_at,
+                comment,
+                source
+            FROM vehicle_candidates
+            WHERE license_plate_normalized = ?
+              AND status = 'PENDING'
+            ORDER BY id DESC
+            LIMIT 1
+        """, (plate_norm,))
         
-        rows = cur.fetchall()
+        row = cur.fetchone()
         conn.close()
         
-        return [
-            {
-                'id': r[0],
-                'payment_date': r[1],
-                'period_code': r[2],
-                'apartment_number': r[3],
-                'vehicle_id': r[4],
-                'amount': r[5],
-                'currency': r[6],
-                'payment_method': r[7],
-                'source': r[8],
-                'created_by': r[9],
-                'comment': r[10],
-                'created_at': r[11],
-                'cashbox_code': r[12],
-                'cashbox_operation_id': r[13],
-                'cashier_batch_id': r[14],
-                'operator_id': r[15],
-                'service_item_code': r[16],
-                'base_service_code': r[17],
-                'service_type': r[18],
-                'commercial_contract_id': r[19],
-                'commercial_unit_id': r[20],
-                'cashier_receipt_id': r[21],
-                'cashier_entry_status': r[22],
-                'payment_notice_id': r[23],
-                'bank_transaction_id': r[24],
-                'payment_channel': r[25],
-                'apartment_id': r[26],
-                'source_ref': r[27],
-            }
-            for r in rows
-        ]
+        if not row:
+            return None
+        
+        return {
+            'id': row[0],
+            'license_plate': row[1],
+            'license_plate_normalized': row[2],
+            'car_model': row[3],
+            'car_model_normalized': row[4],
+            'apartment_id': row[5],
+            'apartment_number': row[6],
+            'status': row[7],
+            'resolved_vehicle_id': row[8],
+            'merged_vehicle_id': row[9],
+            'created_by': row[10],
+            'created_at': row[11],
+            'updated_at': row[12],
+            'comment': row[13],
+            'source': row[14],
+        }
     
     @staticmethod
-    def get_payments_by_service(service_code: str, limit: int = 50) -> List[Dict[str, Any]]:
-        """Получить платежи по коду услуги"""
+    def resolve_vehicle_candidate(candidate_id: int, vehicle_id: int) -> tuple:
         from Bots.db_access import get_conn
-        conn = get_conn()
-        cur = conn.cursor()
-        
-        cur.execute("""
-            SELECT 
-                id,
-                payment_date,
-                period_code,
-                apartment_number,
-                vehicle_id,
-                amount,
-                currency,
-                payment_method,
-                source,
-                created_by,
-                comment,
-                created_at,
-                cashbox_code,
-                cashbox_operation_id,
-                cashier_batch_id,
-                operator_id,
-                service_item_code,
-                base_service_code,
-                service_type,
-                commercial_contract_id,
-                commercial_unit_id,
-                cashier_receipt_id,
-                cashier_entry_status,
-                payment_notice_id,
-                bank_transaction_id,
-                payment_channel,
-                apartment_id,
-                source_ref
-            FROM payments
-            WHERE base_service_code = ? OR service_item_code = ?
-            ORDER BY payment_date DESC
-            LIMIT ?
-        """, (service_code, service_code, limit))
-        
-        rows = cur.fetchall()
-        conn.close()
-        
-        return [
-            {
-                'id': r[0],
-                'payment_date': r[1],
-                'period_code': r[2],
-                'apartment_number': r[3],
-                'vehicle_id': r[4],
-                'amount': r[5],
-                'currency': r[6],
-                'payment_method': r[7],
-                'source': r[8],
-                'created_by': r[9],
-                'comment': r[10],
-                'created_at': r[11],
-                'cashbox_code': r[12],
-                'cashbox_operation_id': r[13],
-                'cashier_batch_id': r[14],
-                'operator_id': r[15],
-                'service_item_code': r[16],
-                'base_service_code': r[17],
-                'service_type': r[18],
-                'commercial_contract_id': r[19],
-                'commercial_unit_id': r[20],
-                'cashier_receipt_id': r[21],
-                'cashier_entry_status': r[22],
-                'payment_notice_id': r[23],
-                'bank_transaction_id': r[24],
-                'payment_channel': r[25],
-                'apartment_id': r[26],
-                'source_ref': r[27],
-            }
-            for r in rows
-        ]
-    
-    @staticmethod
-    def get_payments_by_date_range(start_date: str, end_date: str, limit: int = 100) -> List[Dict[str, Any]]:
-        """Получить платежи за период"""
-        from Bots.db_access import get_conn
-        conn = get_conn()
-        cur = conn.cursor()
-        
-        cur.execute("""
-            SELECT 
-                id,
-                payment_date,
-                period_code,
-                apartment_number,
-                vehicle_id,
-                amount,
-                currency,
-                payment_method,
-                source,
-                created_by,
-                comment,
-                created_at,
-                cashbox_code,
-                cashbox_operation_id,
-                cashier_batch_id,
-                operator_id,
-                service_item_code,
-                base_service_code,
-                service_type,
-                commercial_contract_id,
-                commercial_unit_id,
-                cashier_receipt_id,
-                cashier_entry_status,
-                payment_notice_id,
-                bank_transaction_id,
-                payment_channel,
-                apartment_id,
-                source_ref
-            FROM payments
-            WHERE payment_date >= ? AND payment_date <= ?
-            ORDER BY payment_date DESC
-            LIMIT ?
-        """, (start_date, end_date, limit))
-        
-        rows = cur.fetchall()
-        conn.close()
-        
-        return [
-            {
-                'id': r[0],
-                'payment_date': r[1],
-                'period_code': r[2],
-                'apartment_number': r[3],
-                'vehicle_id': r[4],
-                'amount': r[5],
-                'currency': r[6],
-                'payment_method': r[7],
-                'source': r[8],
-                'created_by': r[9],
-                'comment': r[10],
-                'created_at': r[11],
-                'cashbox_code': r[12],
-                'cashbox_operation_id': r[13],
-                'cashier_batch_id': r[14],
-                'operator_id': r[15],
-                'service_item_code': r[16],
-                'base_service_code': r[17],
-                'service_type': r[18],
-                'commercial_contract_id': r[19],
-                'commercial_unit_id': r[20],
-                'cashier_receipt_id': r[21],
-                'cashier_entry_status': r[22],
-                'payment_notice_id': r[23],
-                'bank_transaction_id': r[24],
-                'payment_channel': r[25],
-                'apartment_id': r[26],
-                'source_ref': r[27],
-            }
-            for r in rows
-        ]
-    
-    @staticmethod
-    def create_payment(
-        amount: float,
-        apartment_number: str,
-        service_code: str,
-        payment_method: str = 'cash',
-        vehicle_id: Optional[int] = None,
-        period_code: Optional[str] = None,
-        comment: Optional[str] = None,
-        operator_id: Optional[str] = None,
-        cashbox_code: Optional[str] = None,
-    ) -> tuple:
-        """Создать платеж"""
-        from Bots.db_access import get_conn
-        from datetime import datetime
-        
         conn = get_conn()
         cur = conn.cursor()
         
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        period = period_code or now[:7]  # YYYY-MM
         
-        try:
-            cur.execute("""
-                INSERT INTO payments (
-                    payment_date,
-                    period_code,
-                    apartment_number,
-                    vehicle_id,
-                    amount,
-                    currency,
-                    payment_method,
-                    comment,
-                    created_at,
-                    operator_id,
-                    base_service_code,
-                    service_type,
-                    cashbox_code
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                now,
-                period,
-                apartment_number,
-                vehicle_id,
-                amount,
-                'UAH',
-                payment_method,
-                comment,
-                now,
-                operator_id,
-                service_code,
-                'parking',
-                cashbox_code,
-            ))
-            
-            payment_id = cur.lastrowid
-            conn.commit()
-            conn.close()
-            
-            return True, {'payment_id': payment_id}
-            
-        except Exception as e:
-            conn.rollback()
-            conn.close()
-            return False, f"Ошибка: {e}"
+        cur.execute("""
+            UPDATE vehicle_candidates
+            SET
+                status = 'RESOLVED',
+                resolved_vehicle_id = ?,
+                updated_at = ?
+            WHERE id = ?
+        """, (vehicle_id, now, candidate_id))
+        
+        changed = cur.rowcount
+        conn.commit()
+        conn.close()
+        
+        if changed:
+            return True, {'candidate_id': candidate_id, 'vehicle_id': vehicle_id}
+        return False, 'candidate_not_found'
+    
     @staticmethod
-    def get_connection() -> sqlite3.Connection:
-        """Возвращает соединение с БД"""
+    def update_candidate_status(candidate_id: int, status: str) -> tuple:
         from Bots.db_access import get_conn
-        return get_conn()    
+        conn = get_conn()
+        cur = conn.cursor()
+        
+        if status not in ['PENDING', 'RESOLVED', 'REJECTED', 'MERGED']:
+            return False, 'invalid_status'
+        
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        cur.execute("""
+            UPDATE vehicle_candidates
+            SET
+                status = ?,
+                updated_at = ?
+            WHERE id = ?
+        """, (status, now, candidate_id))
+        
+        changed = cur.rowcount
+        conn.commit()
+        conn.close()
+        
+        if changed:
+            return True, {'candidate_id': candidate_id, 'status': status}
+        return False, 'candidate_not_found'
+    
+    @staticmethod
+    def link_payment_to_candidate(payment_id: int, candidate_id: int) -> tuple:
+        from Bots.db_access import get_conn
+        conn = get_conn()
+        cur = conn.cursor()
+        
+        cur.execute("""
+            UPDATE payments
+            SET candidate_id = ?
+            WHERE id = ?
+        """, (candidate_id, payment_id))
+        
+        changed = cur.rowcount
+        conn.commit()
+        conn.close()
+        
+        if changed:
+            return True, {'payment_id': payment_id, 'candidate_id': candidate_id}
+        return False, 'payment_not_found'

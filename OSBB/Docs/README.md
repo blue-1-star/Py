@@ -1,24 +1,20 @@
-# Документация OSBB
+# Документация проекта OSBB
 
-Добро пожаловать в документацию проекта OSBB.
-
-
-## 📚 Разделы
+## Разделы
 
 | Раздел | Описание |
 |--------|----------|
-| [OSBB Project State.docx](OSBB%20Project%20State.docx) | 📜 **Исторический документ**. Миссия, философия, предпосылки создания. |
-| [ROADMAP.md](ROADMAP.md) | 🗺️ **План развития**. Текущие и будущие задачи. |
-| [Architecture/](Architecture/) | 🏛️ **Архитектура**. Общие принципы и ключевые архитектурные решения (ADR). |
-| [Domain/](Domain/) | 🧩 **Доменная модель**. Описание сущностей: Vehicle, Resident, Apartment, Payment. |
-| [Code/](Code/) | 💻 **Код**. Документация по новому ядру `core_new` и адаптерам. |
-| [Guide/](Guide/) | 📖 **Руководства**. Инструкции для пользователей и администраторов. |
-| [modules/](modules/) | 📦 **Модули**. Описание обработчиков Telegram-бота. |
-| [Changelog/](Changelog/) | 📝 **История изменений**. Логи обновлений и реализации новых фич. |
+| [OSBB Project State.docx](OSBB%20Project%20State.docx) | Исторический документ |
+| [ROADMAP.md](ROADMAP.md) | План развития |
+| [Architecture/](Architecture/) | Архитектура и ADR |
+| [Domain/](Domain/) | Доменная модель |
+| [Code/](Code/) | Код core_new |
+| [Guide/](Guide/) | Руководства |
+| [Changelog/](Changelog/) | История изменений |
+| [Database/](Database/) | Словарь данных |
 
----
+## Последние обновления
 
-## 🗓️ Последние обновления
-
-- **2026-07-13**: Реализовано новое ядро `core_new`. Добавлены модели Vehicle, Resident, Apartment, Payment. ([Changelog](Changelog/CHANGELOG_core_new.md))
-- **2026-07-01**: Принят ADR по рефакторингу идентичности жителя. ([ADR](Architecture/ADR-2026-07-01-resident-identity-refactor.md))
+- **2026-07-14**: Добавлена сущность vehicle_candidates. (ADR)
+- **2026-07-14**: Создан полный словарь данных.
+- **2026-07-13**: Реализовано новое ядро core_new.

@@ -1,26 +1,30 @@
 #!/usr/bin/env python
 """
 Главный скрипт для генерации всей архитектурной документации OSBB.
-Запуск: python OSBB_util/scripts/build_docs.py
+Запуск: python OSBB_util/scripts/build_docs1.py
 """
 
 import sys
 from pathlib import Path
 
+# Определяем корень проекта (папка Py/)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from local_config import local_config
+# Используем config.py вместо local_config
+from config import paths
 
 
 def ensure_dir(path: Path) -> None:
+    """Создает папку, если её нет."""
     path.mkdir(parents=True, exist_ok=True)
 
 
 def write_file(filepath: Path, content: str) -> None:
+    """Записывает содержимое в файл и выводит относительный путь."""
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"  ✅ {filepath.relative_to(local_config.py_root)}")
+    print(f"  ✅ {filepath.relative_to(paths.PROJECT_ROOT)}")
 
 
 def create_roadmap() -> None:
@@ -138,7 +142,7 @@ PENDING -> REJECTED
 
 <!-- CASHIER_VEHICLE_CANDIDATE_V1:END -->
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs"
     ensure_dir(docs_dir)
     write_file(docs_dir / "ROADMAP.md", content)
 
@@ -203,7 +207,7 @@ def create_changelog() -> None:
 - `Domain/vehicles.md`, `residents.md`, `apartments.md`, `payments.md`
 - `Code/core_new.md`
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs" / "Changelog"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Changelog"
     ensure_dir(docs_dir)
     write_file(docs_dir / "CHANGELOG_core_new.md", content)
 
@@ -274,7 +278,7 @@ def create_adr_core_new_analysis() -> None:
 - [Доменная модель](../Domain/README.md)
 - [ROADMAP.md](../ROADMAP.md) — секция P2
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs" / "Architecture"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Architecture"
     ensure_dir(docs_dir)
     write_file(docs_dir / "ADR-2026-07-14-core_new-analysis.md", content)
 
@@ -328,7 +332,7 @@ vehicle_candidates (черновик)
 - [Data Dictionary](../Database/Data_Dictionary.md)
 - [ROADMAP.md](../ROADMAP.md) — секция P3
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs" / "Architecture"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Architecture"
     ensure_dir(docs_dir)
     write_file(docs_dir / "ADR-2026-07-14-vehicle-candidate.md", content)
 
@@ -448,13 +452,13 @@ def create_data_dictionary() -> None:
 
 **Жизненный цикл:** PENDING -> RESOLVED / REJECTED
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs" / "Database"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Database"
     ensure_dir(docs_dir)
     write_file(docs_dir / "Data_Dictionary.md", content)
 
 
 def create_domain_models() -> None:
-    domain_dir = local_config.py_root / "OSBB" / "Docs" / "Domain"
+    domain_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Domain"
     ensure_dir(domain_dir)
 
     vehicles = '''# Vehicle — Модель автомобиля
@@ -717,7 +721,7 @@ python tests/test_resident.py
 python tests/test_apartment.py
 python tests/test_payment.py
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs" / "Domain"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs" / "Domain"
     ensure_dir(docs_dir)
     write_file(docs_dir / "README.md", content)
 
@@ -744,7 +748,7 @@ def create_readme() -> None:
 - **2026-07-14**: Создан полный словарь данных.
 - **2026-07-13**: Реализовано новое ядро core_new.
 '''
-    docs_dir = local_config.py_root / "OSBB" / "Docs"
+    docs_dir = paths.PROJECT_ROOT / "OSBB" / "Docs"
     ensure_dir(docs_dir)
     write_file(docs_dir / "README.md", content)
 
@@ -753,7 +757,8 @@ def main():
     print("=" * 70)
     print("📚 ГЕНЕРАЦИЯ ДОКУМЕНТАЦИИ OSBB")
     print("=" * 70)
-    print(f"📁 Путь: {local_config.py_root / 'OSBB' / 'Docs'}")
+    print(f"📁 Корень проекта: {paths.PROJECT_ROOT}")
+    print(f"📁 Папка Docs: {paths.PROJECT_ROOT / 'OSBB' / 'Docs'}")
     print("-" * 70)
 
     create_roadmap()
@@ -773,4 +778,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

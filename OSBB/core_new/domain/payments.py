@@ -121,18 +121,88 @@ class Payment:
         return [cls(data) for data in data_list]
     
     @classmethod
-    def create(cls, amount: float, apartment_number: str, service_code: str,
-               payment_method: str = 'cash', vehicle_id: Optional[int] = None,
-               comment: Optional[str] = None, operator_id: Optional[str] = None) -> tuple:
-        return DBAdapter.create_payment(
-            amount=amount,
-            apartment_number=apartment_number,
-            service_code=service_code,
-            payment_method=payment_method,
-            vehicle_id=vehicle_id,
-            comment=comment,
-            operator_id=operator_id,
-        )
+    def create(
+        cls,
+        amount: float,                          # обязательный
+        service_code: str,                      # обязательный
+        apartment_number: Optional[str] = None, # опциональный
+        payment_method: str = 'cash',           # опциональный
+        vehicle_id: Optional[int] = None,       # опциональный
+        candidate_id: Optional[int] = None,     # опциональный
+        comment: Optional[str] = None,          # опциональный
+        operator_id: Optional[int] = None,      # опциональный
+        period_code: Optional[str] = None,      # опциональный
+    ) -> tuple:
+        from Bots.db_access import get_conn
+        from datetime import datetime
+        from .service_catalog import ServiceCatalog
+        
+        if amount <= 0:
+            return False, "Сумма должна быть больше 0"
+        
+        if not service_code:
+            return False, "Не указан код услуги"
+        
+        # Получаем услугу из каталога
+        service = ServiceCatalog.get(service_code)
+        if not service:
+            return False, f"Услуга {service_code} не найдена в каталоге"
+        
+        service_type = service.service_type.value if hasattr(service.service_type, 'value') else str(service.service_type)
+        
+        if not apartment_number and not candidate_id:
+            return False, "Для платежа нужна либо квартира, либо кандидат"
+        
+        conn = get_conn()
+        cur = conn.cursor()
+        
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        period = period_code or now[:7]
+        
+        try:
+            cur.execute("""
+                INSERT INTO payments (
+                    payment_date,
+                    period_code,
+                    apartment_number,
+                    vehicle_id,
+                    amount,
+                    currency,
+                    payment_method,
+                    comment,
+                    created_at,
+                    operator_id,
+                    base_service_code,
+                    service_type,
+                    candidate_id
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                now,
+                period,
+                apartment_number,
+                vehicle_id,
+                amount,
+                'UAH',
+                payment_method,
+                comment,
+                now,
+                operator_id,
+                service_code,
+                service_type,      # ← теперь берём из каталога
+                candidate_id,
+            ))
+            
+            payment_id = cur.lastrowid
+            conn.commit()
+            conn.close()
+            
+            return True, {'payment_id': payment_id}
+            
+        except Exception as e:
+            conn.rollback()
+            conn.close()
+            return False, f"Ошибка создания платежа: {e}"
     
     def format_card(self) -> str:
         lines = []

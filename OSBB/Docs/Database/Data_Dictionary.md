@@ -2,123 +2,112 @@
 
 **Версия:** 1.0  
 **Дата обновления:** 2026-07-14  
-**Назначение:** Единый справочник по структуре базы данных проекта OSBB. Описывает таблицы, колонки, их назначение и связи.
+**Назначение:** Единый справочник по структуре базы данных проекта OSBB.
 
 ---
 
-## 1. Таблица `vehicles` (Автомобили)
-
-**Назначение:** Хранит информацию о **полноценных, подтвержденных автомобилях**, привязанных к конкретной квартире.
+## 1. Таблица `apartments`
 
 | Колонка | Тип | Обязательное | Описание |
 |---------|-----|--------------|----------|
-| `id` | INTEGER | ✅ | Уникальный идентификатор автомобиля (PK) |
-| `apartment_id` | INTEGER | ✅ | Ссылка на квартиру (`apartments.id`). Автомобиль всегда должен быть привязан к существующей квартире. |
-| `license_plate` | TEXT | ❌ | Номер автомобиля (сырой ввод пользователя) |
-| `license_plate_normalized` | TEXT | ❌ | Номер автомобиля в нормализованном виде (без пробелов, заглавные). Используется для поиска. |
-| `car_model` | TEXT | ❌ | Марка и модель автомобиля (сырой ввод) |
-| `car_model_normalized` | TEXT | ❌ | Марка и модель в нормализованном виде. |
-| `parking_time` | TEXT | ❌ | Тариф парковки: `Day`, `Night`, `Inactive`, `NULL` (не указан). |
-| `created_at` | TEXT | ❌ | Дата создания записи |
-| `updated_at` | TEXT | ❌ | Дата последнего обновления |
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `apartment_number` | TEXT | ✅ | Номер квартиры/помещения |
+| `entrance` | TEXT | ❌ | Номер подъезда |
+| `unit_type` | TEXT | ❌ | Тип: RESIDENTIAL, COMMERCIAL, PARKING |
+| `record_status` | TEXT | ❌ | ACTIVE, ARCHIVED, MERGED |
+| `display_name` | TEXT | ❌ | Отображаемое имя |
+| `created_at` | TEXT | ❌ | Дата создания |
 
-**Жизненный цикл:**  
-Автомобиль создается только после того, как известна его квартира.  
-
-**Связи:**
-- `vehicles.apartment_id` → `apartments.id`
-- `vehicles.id` → `payments.vehicle_id`
+**Связи:** apartments.id -> resident_accounts.apartment_id, vehicles.apartment_id
 
 ---
 
-## 2. Таблица `payments` (Платежи)
-
-**Назначение:** Фиксирует все финансовые операции (платежи за услуги).
+## 2. Таблица `resident_accounts`
 
 | Колонка | Тип | Обязательное | Описание |
 |---------|-----|--------------|----------|
-| `id` | INTEGER | ✅ | Уникальный идентификатор платежа (PK) |
-| `payment_date` | TEXT | ❌ | Дата и время проведения платежа |
-| `period_code` | TEXT | ❌ | Период начисления (например, `07-2026`) |
-| `apartment_number` | TEXT | ✅ | **Обязательное поле.** Номер квартиры, за которую вносится плата. Не может быть NULL. |
-| `vehicle_id` | INTEGER | ❌ | Ссылка на автомобиль (`vehicles.id`). Может быть NULL, если плата вносится за "Кандидата" (`vehicle_candidates`). |
-| `amount` | REAL | ✅ | Сумма платежа |
-| `currency` | TEXT | ✅ | Валюта (по умолчанию `UAH`) |
-| `payment_method` | TEXT | ❌ | Способ оплаты: `cash`, `card`, `bank` |
-| `source` | TEXT | ❌ | Источник платежа (например, `cashier`, `telegram`) |
-| `created_by` | TEXT | ❌ | Кто создал платеж |
-| `comment` | TEXT | ❌ | Комментарий к платежу |
-| `base_service_code` | TEXT | ❌ | Код услуги из каталога (`service_catalog.service_code`) |
-| `cashbox_code` | TEXT | ❌ | Код кассы (если платеж через кассу) |
-| `operator_id` | TEXT | ❌ | ID оператора, принявшего платеж |
-| `cashier_entry_status` | TEXT | ❌ | Статус записи в кассе |
-| `candidate_id` | INTEGER | ❌ | **НОВОЕ ПОЛЕ.** Ссылка на `vehicle_candidates.id`, если платеж внесен за еще не подтвержденный автомобиль. |
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `telegram_user_id` | INTEGER | ✅ | Telegram ID |
+| `telegram_username` | TEXT | ❌ | Username |
+| `telegram_first_name` | TEXT | ❌ | Имя |
+| `telegram_last_name` | TEXT | ❌ | Фамилия |
+| `language_code` | TEXT | ❌ | Язык: ru, uk, en |
+| `apartment_id` | INTEGER | ❌ | Ссылка на квартиру |
+| `role` | TEXT | ❌ | resident, admin, super_admin, guard, operator |
+| `status` | TEXT | ❌ | new, apartment_confirmed, operator_verified, blocked |
+| `verified_at` | TEXT | ❌ | Дата подтверждения |
+
+**Связи:** resident_accounts.apartment_id -> apartments.id
 
 ---
 
-## 3. Таблица `vehicle_candidates` (Кандидаты в автомобили) ⭐
-
-**Назначение:** Хранит информацию об автомобилях, которые **еще не подтверждены** и не привязаны к квартире (или привязаны временно). Это "черновики" автомобилей, созданные, например, кассиром при приеме оплаты от жителя, который не знает номер квартиры или чей автомобиль еще не зарегистрирован в системе.
-
-**Автор идеи:** San Tretiak  
-**Архитектурное решение:** [ADR-2026-07-14-vehicle-candidates.md](../Architecture/ADR-2026-07-14-vehicle-candidates.md)
+## 3. Таблица `service_catalog`
 
 | Колонка | Тип | Обязательное | Описание |
 |---------|-----|--------------|----------|
-| `id` | INTEGER | ✅ | Уникальный идентификатор кандидата (PK) |
-| `license_plate` | TEXT | ✅ | Номер автомобиля (введен оператором) |
-| `license_plate_normalized` | TEXT | ✅ | Нормализованный номер (для поиска) |
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `service_code` | TEXT | ✅ | Код услуги (например, PARKING_DAY) |
+| `service_name` | TEXT | ✅ | Название услуги |
+| `service_group` | TEXT | ❌ | MONTHLY, FUNDRAISING, COMMERCIAL, ACCESS_CONTROL |
+| `service_type` | TEXT | ❌ | MONTHLY, ONE_TIME, FUNDRAISING, COMMERCIAL |
+| `category` | TEXT | ❌ | PARKING, ACCESS, IMPROVEMENT, EQUIPMENT, BARRIER |
+| `is_active` | INTEGER | ❌ | Доступна (1 — да) |
+| `access_policy_enabled` | INTEGER | ❌ | Включена политика доступа |
+| `access_policy_mode` | TEXT | ❌ | BLOCK, ALLOW, WARN |
+
+**Связи:** service_catalog.service_code -> payments.base_service_code
+
+---
+
+## 4. Таблица `vehicles`
+
+| Колонка | Тип | Обязательное | Описание |
+|---------|-----|--------------|----------|
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `apartment_id` | INTEGER | ✅ | Ссылка на квартиру |
+| `license_plate` | TEXT | ❌ | Номер автомобиля |
+| `license_plate_normalized` | TEXT | ❌ | Нормализованный номер |
 | `car_model` | TEXT | ❌ | Марка и модель |
 | `car_model_normalized` | TEXT | ❌ | Нормализованная марка |
-| `apartment_id` | INTEGER | ❌ | Ссылка на квартиру (`apartments.id`). Может быть NULL, если квартира неизвестна. |
-| `apartment_number` | TEXT | ❌ | Номер квартиры (текстовое поле для отображения/поиска) |
-| `status` | TEXT | ✅ | **Состояние кандидата:**<br> • `PENDING` — создан, ожидает обработки.<br> • `RESOLVED` — подтвержден, создан автомобиль в `vehicles`.<br> • `REJECTED` — отклонен (дубликат, ошибка).<br> • `MERGED` — объединен с другим кандидатом. |
-| `resolved_vehicle_id` | INTEGER | ❌ | Ссылка на `vehicles.id`. Заполняется, когда кандидат переходит в статус `RESOLVED`. |
-| `merged_vehicle_id` | INTEGER | ❌ | Ссылка на `vehicles.id`. Заполняется при объединении с другим кандидатом. |
-| `created_by` | INTEGER | ❌ | ID пользователя (Telegram), создавшего кандидата (например, кассир). |
-| `created_at` | TEXT | ❌ | Дата и время создания. |
-| `updated_at` | TEXT | ❌ | Дата и время последнего обновления. |
-| `comment` | TEXT | ❌ | Комментарий оператора. |
-| `source` | TEXT | ❌ | Источник создания: `cashier` (касса), `telegram` (бот), `tbot` (импорт). |
+| `parking_time` | TEXT | ❌ | Day, Night, Inactive, NULL |
 
-**Принцип работы:**
-1. Если автомобиль не найден в `vehicles` при приеме платежа, создается запись в `vehicle_candidates`.
-2. Платеж (`payments`) привязывается к `candidate_id`.
-3. Когда оператор уточнит квартиру, кандидат переводится в статус `RESOLVED`, создается запись в `vehicles`, и платеж перепривязывается к новому `vehicle_id`.
+**Связи:** vehicles.apartment_id -> apartments.id, vehicles.id -> payments.vehicle_id
 
 ---
 
-## 4. Связи между таблицами
+## 5. Таблица `payments`
 
-
-┌─────────────────────────────────────────────────────────────────┐
-│ 1. КАНДИДАТ (vehicle_candidates) │
-│ - Номер автомобиля (известен) │
-│ - Квартира (может быть NULL) │
-│ - Статус: PENDING / RESOLVED / REJECTED │
-└─────────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────────┐
-│ 2. АВТОМОБИЛЬ (vehicles) │
-│ - Полноценная запись в БД │
-│ - Привязан к реальной квартире │
-│ - Статус: Day / Night / Inactive │
-└─────────────────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────────────────┐
-│ 3. ПЛАТЕЖ (payments) │
-│ - Связан с vehicle_id (если авто уже создан) │
-│ - ИЛИ с candidate_id (если платим за кандидата) │
-└─────────────────────────────────────────────────────────────────┘
-
-text
+| Колонка | Тип | Обязательное | Описание |
+|---------|-----|--------------|----------|
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `payment_date` | TEXT | ❌ | Дата платежа |
+| `apartment_number` | TEXT | ✅ | Номер квартиры |
+| `vehicle_id` | INTEGER | ❌ | Ссылка на автомобиль |
+| `amount` | REAL | ✅ | Сумма |
+| `currency` | TEXT | ✅ | UAH |
+| `payment_method` | TEXT | ❌ | cash, card, bank |
+| `base_service_code` | TEXT | ❌ | Код услуги из каталога |
+| `candidate_id` | INTEGER | ❌ | Ссылка на vehicle_candidates.id |
 
 ---
 
-## История изменений
+## 6. Таблица `vehicle_candidates`
 
-| Дата | Версия | Автор | Изменения |
-|------|--------|-------|-----------|
-| 2026-07-14 | 1.0 | San Tretiak | Создан документ. Добавлены `vehicles`, `payments`, `vehicle_candidates`. |
+**Назначение:** Хранит информацию об автомобилях, которые ещё не подтверждены.
+
+| Колонка | Тип | Обязательное | Описание |
+|---------|-----|--------------|----------|
+| `id` | INTEGER | ✅ | Уникальный идентификатор (PK) |
+| `license_plate` | TEXT | ✅ | Номер автомобиля |
+| `license_plate_normalized` | TEXT | ✅ | Нормализованный номер |
+| `car_model` | TEXT | ❌ | Марка и модель |
+| `apartment_id` | INTEGER | ❌ | Ссылка на квартиру (может быть NULL) |
+| `apartment_number` | TEXT | ❌ | Номер квартиры |
+| `status` | TEXT | ✅ | PENDING, RESOLVED, REJECTED, MERGED |
+| `resolved_vehicle_id` | INTEGER | ❌ | Ссылка на vehicles.id |
+| `created_by` | INTEGER | ❌ | ID создателя |
+| `created_at` | TEXT | ❌ | Дата создания |
+| `comment` | TEXT | ❌ | Комментарий оператора |
+| `source` | TEXT | ❌ | cashier, telegram, tbot |
+
+**Жизненный цикл:** PENDING -> RESOLVED / REJECTED

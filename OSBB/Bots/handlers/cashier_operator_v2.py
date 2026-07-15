@@ -14,7 +14,7 @@ v2 добавляет поверх v1:
 """
 
 from __future__ import annotations
-
+from core_new.domain.cashbox import Cashbox
 from pathlib import Path
 import sys
 from typing import Any
@@ -386,88 +386,51 @@ async def _create_entry(update: Update, state: dict, user_id: int) -> None:
     amount = parse_amount(state["amount"])
     source_text = text(state.get("source_text")) or "Оператор подтвердил поступление."
 
-    # Авторазнесение — только когда оплата оставлена ровно равной единственному
-    # открытому начислению, которое оператор видел на предпросмотре.
-    charge = state.get("suggested_charge")
-    charge_id = None
-    if charge and abs(amount - float(charge["outstanding_amount"])) < 0.00001:
-        charge_id = int(charge["charge_id"])
+    # ==========================================
+    # НОВАЯ ЛОГИКА: используем Cashbox.register_payment()
+    # ==========================================
 
-    conn = get_conn()
-    try:
-        cur = conn.cursor()
-        if kind == "cash":
-            result = create_cash_receipt(
-                cur,
-                apartment=unit,
-                cashbox_code=state["cashbox_code"],
-                receipt_date=state["receipt_date"],
-                period_code=state.get("period_code"),
-                service=service,
-                amount=amount,
-                source_text=source_text,
-                operator_id=user_id,
-                auto_allocate_charge_id=charge_id,
-            )
-            conn.commit()
-            await update.message.reply_text(
-                "✅ Наличные сохранены.\n\n"
-                f"Квитанция: {result['receipt_number']}\n"
-                f"Платёж: #{result['payment_id']}\n"
-                f"Касса {state['cashbox_code']}: {money(result['cashbox_balance'])} грн.\n"
-                + (
-                    "Начисление закрыто точной суммой."
-                    if result.get("allocation_id")
-                    else "Оплата ждёт ручного разнесения."
-                )
-            )
-        elif kind == "bank":
-            result = create_bank_payment(
-                cur,
-                apartment=unit,
-                transaction_ref=state["bank_ref"],
-                transaction_date=state["receipt_date"],
-                period_code=state.get("period_code"),
-                service=service,
-                amount=amount,
-                payer_text=source_text,
-                operator_id=user_id,
-                auto_allocate_charge_id=charge_id,
-            )
-            conn.commit()
-            await update.message.reply_text(
-                "✅ Банковская операция сохранена.\n\n"
-                f"Банк: #{result['bank_transaction_id']}\n"
-                f"Платёж: #{result['payment_id']}\n"
-                + (
-                    "Начисление закрыто точной суммой."
-                    if result.get("allocation_id")
-                    else "Оплата ждёт ручного разнесения."
-                )
-            )
-        else:
-            result = create_paper_note(
-                cur,
-                apartment=unit,
-                period_code=state.get("period_code"),
-                service=service,
-                amount=amount,
-                source_text=source_text,
-                operator_id=user_id,
-            )
-            conn.commit()
-            await update.message.reply_text(
-                "✅ Бумажка сохранена.\n\n"
-                f"Квитанция: {result['receipt_number']}\n"
-                "Платёж и касса не изменены."
-            )
-    except Exception as exc:
-        conn.rollback()
-        await update.message.reply_text(f"Не удалось сохранить: {exc}")
+    # Определяем номер квартиры
+    apartment_number = unit.get('apartment_number') if unit else None
+
+    # Получаем код услуги из service
+    service_code = service.get('service_code') or service.get('base_service_code')
+
+    result = Cashbox.register_payment(
+        amount=amount,
+        plate=source_text,  # источник/комментарий
+        apartment_number=apartment_number,
+        service_code=service_code,
+        payment_method='cash' if kind == 'cash' else 'bank' if kind == 'bank' else 'cash',
+        operator_id=user_id,
+        comment=f"{kind}: {source_text}",
+        period_code=state.get('period_code'),
+    )
+
+    if not result['success']:
+        await update.message.reply_text(f"⚠️ Ошибка сохранения: {result['error']}")
         return
-    finally:
-        conn.close()
 
+    # Формируем ответ
+    response_lines = [
+        "✅ Операция сохранена!",
+        "",
+    ]
+
+    if result.get('candidate_created'):
+        response_lines.append("🆕 Создан кандидат в автомобили.")
+    if result.get('vehicle_created'):
+        response_lines.append("🚗 Создан новый автомобиль.")
+
+    response_lines.append(f"💰 Сумма: {money(amount)} грн.")
+
+    if result.get('payment_id'):
+        response_lines.append(f"🧾 Платёж: #{result['payment_id']}")
+
+    if result.get('candidate_id'):
+        response_lines.append(f"📌 Кандидат: #{result['candidate_id']}")
+
+    await update.message.reply_text("\n".join(response_lines))
     await show_home(update, state)
 
 
