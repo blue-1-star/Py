@@ -1,0 +1,63 @@
+================================================================================
+📌 ТАБЛИЦА: vehicle_candidates
+================================================================================
+📅 Дата: 2026-07-16 15:24:08
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      license_plate                  TEXT                 ✅                 
+2      license_plate_normalized       TEXT                 ✅                 
+3      car_model                      TEXT                 ❌                 
+4      car_model_normalized           TEXT                 ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      status                         TEXT                 ❌                 
+8      resolved_vehicle_id            INTEGER              ❌                 
+9      merged_vehicle_id              INTEGER              ❌                 
+10     created_by                     INTEGER              ❌                 
+11     created_at                     TEXT                 ❌                 
+12     updated_at                     TEXT                 ❌                 
+13     comment                        TEXT                 ❌                 
+14     source                         TEXT                 ❌                 
+
+🔍 ИНДЕКСЫ
+--------------------------------------------------------------------------------
+  • idx_candidates_apartment 
+  • idx_candidates_status 
+  • idx_candidates_plate 
+
+🔗 ВНЕШНИЕ КЛЮЧИ
+--------------------------------------------------------------------------------
+  • merged_vehicle_id → vehicles.id
+  • resolved_vehicle_id → vehicles.id
+  • apartment_id → apartments.id
+
+📝 SQL СОЗДАНИЯ
+--------------------------------------------------------------------------------
+CREATE TABLE vehicle_candidates (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    license_plate TEXT NOT NULL,
+                    license_plate_normalized TEXT NOT NULL,
+                    car_model TEXT,
+                    car_model_normalized TEXT,
+                    apartment_id INTEGER,
+                    apartment_number TEXT,
+                    status TEXT DEFAULT 'PENDING',
+                    resolved_vehicle_id INTEGER,
+                    merged_vehicle_id INTEGER,
+                    created_by INTEGER,
+                    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TEXT,
+                    comment TEXT,
+                    source TEXT DEFAULT 'cashier',
+                    FOREIGN KEY (apartment_id) REFERENCES apartments(id),
+                    FOREIGN KEY (resolved_vehicle_id) REFERENCES vehicles(id),
+                    FOREIGN KEY (merged_vehicle_id) REFERENCES vehicles(id)
+                )
+
+================================================================================

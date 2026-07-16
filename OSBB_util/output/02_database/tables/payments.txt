@@ -1,8 +1,8 @@
 ================================================================================
 📌 ТАБЛИЦА: payments
 ================================================================================
-📅 Дата: 2026-07-12 18:27:49
-📊 Строк: 100
+📅 Дата: 2026-07-16 15:24:08
+📊 Строк: 104
 ================================================================================
 
 📐 СТРУКТУРА КОЛОНОК
@@ -12,7 +12,7 @@
 0      id                             INTEGER              ❌            ✅    
 1      payment_date                   TEXT                 ❌                 
 2      period_code                    TEXT                 ❌                 
-3      apartment_number               TEXT                 ✅                 
+3      apartment_number               TEXT                 ❌                 
 4      vehicle_id                     INTEGER              ❌                 
 5      amount                         REAL                 ✅                 
 6      currency                       TEXT                 ✅                 
@@ -37,26 +37,9 @@
 25     payment_channel                TEXT                 ❌                 
 26     apartment_id                   INTEGER              ❌                 
 27     source_ref                     TEXT                 ❌                 
+28     candidate_id                   INTEGER              ❌                 
 
-🔍 ИНДЕКСЫ
---------------------------------------------------------------------------------
-  • idx_payments_apartment_id 
-  • idx_payments_batch_v2 
-  • idx_payments_bank_v2 
-  • idx_payments_notice_v2 
-  • idx_payments_cashier_receipt 
-  • idx_payments_commercial_contract 
-  • idx_payments_service_type 
-  • idx_payments_base_service 
-  • idx_payments_service_item 
-  • idx_payments_operator 
-  • idx_payments_cashier_batch 
-  • idx_payments_cashbox_operation 
-  • idx_payments_cashbox_code 
-  • idx_payments_date 
-  • idx_payments_vehicle 
-  • idx_payments_apartment 
-  • idx_payments_period 
+🔍 ИНДЕКСЫ: нет
 
 🔗 ВНЕШНИЕ КЛЮЧИ
 --------------------------------------------------------------------------------
@@ -64,21 +47,37 @@
 
 📝 SQL СОЗДАНИЯ
 --------------------------------------------------------------------------------
-CREATE TABLE payments (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        payment_date TEXT,
-        period_code TEXT,
-        apartment_number TEXT NOT NULL,
-        vehicle_id INTEGER,
-        amount REAL NOT NULL,
-        currency TEXT NOT NULL DEFAULT 'UAH',
-        payment_method TEXT,
-        source TEXT,
-        created_by TEXT,
-        comment TEXT,
-        created_at TEXT DEFAULT CURRENT_TIMESTAMP, cashbox_code TEXT, cashbox_operation_id INTEGER, cashier_batch_id TEXT, operator_id TEXT, service_item_code TEXT, base_service_code TEXT, service_type TEXT, "commercial_contract_id" INTEGER, "commercial_unit_id" INTEGER, "cashier_receipt_id" INTEGER, "cashier_entry_status" TEXT, "payment_notice_id" INTEGER, "bank_transaction_id" INTEGER, "payment_channel" TEXT, "apartment_id" INTEGER, "source_ref" TEXT,
-        FOREIGN KEY(vehicle_id)
-            REFERENCES vehicles(id)
-    )
+CREATE TABLE "payments" (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                payment_date TEXT,
+                period_code TEXT,
+                apartment_number TEXT,
+                vehicle_id INTEGER,
+                amount REAL NOT NULL,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                payment_method TEXT,
+                source TEXT,
+                created_by TEXT,
+                comment TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                cashbox_code TEXT,
+                cashbox_operation_id INTEGER,
+                cashier_batch_id TEXT,
+                operator_id TEXT,
+                service_item_code TEXT,
+                base_service_code TEXT,
+                service_type TEXT,
+                commercial_contract_id INTEGER,
+                commercial_unit_id INTEGER,
+                cashier_receipt_id INTEGER,
+                cashier_entry_status TEXT,
+                payment_notice_id INTEGER,
+                bank_transaction_id INTEGER,
+                payment_channel TEXT,
+                apartment_id INTEGER,
+                source_ref TEXT,
+                candidate_id INTEGER,
+                FOREIGN KEY(vehicle_id) REFERENCES vehicles(id)
+            )
 
 ================================================================================

@@ -2,9 +2,9 @@
 📊 СВОДНАЯ ИНФОРМАЦИЯ О БАЗЕ ДАННЫХ
 ================================================================================
 Файл:    G:\Programming\Py\OSBB\Data\db\osbb_test.db
-Размер:  2.09 MB
-Таблиц:  110
-Строк:   2,145
+Размер:  2.14 MB
+Таблиц:  111
+Строк:   2,166
 ================================================================================
 
 📋 СПИСОК ТАБЛИЦ
@@ -35,11 +35,11 @@
 22   barrier_phone_access                    0  15         ✅     ❌    
 23   bot_admins                              2  14         ✅     ❌    
 24   bot_user_sessions                       0  5          ✅     ❌    
-25   cashbox_operations                    103  29         ✅     ✅    
+25   cashbox_operations                    105  29         ✅     ✅    
 26   cashboxes                              10  10         ✅     ❌    
 27   cashier_batch_items                     0  17         ✅     ✅    
 28   cashier_batches                         0  30         ✅     ✅    
-29   cashier_receipts                        8  37         ✅     ❌    
+29   cashier_receipts                       10  37         ✅     ❌    
 30   cashier_reconciliation_cases            0  21         ✅     ❌    
 31   cashier_settings                        0  5          ✅     ❌    
 32   charge_adjustments                      0  13         ✅     ✅    
@@ -55,12 +55,12 @@
 42   events                                  0  14         ✅     ✅    
 43   extracted_facts                         0  9          ✅     ✅    
 44   message_sources                         0  5          ✅     ❌    
-45   operator_audit_log                    163  21         ✅     ❌    
+45   operator_audit_log                    170  21         ✅     ❌    
 46   operator_task_queue                     0  18         ✅     ❌    
 47   parking_time_review_tasks              35  19         ✅     ❌    
 48   payment_allocations                    13  8          ✅     ✅    
 49   payment_notices                         3  27         ✅     ✅    
-50   payments                              100  28         ✅     ✅    
+50   payments                              104  29         ✅     ✅    
 51   persons                               343  12         ✅     ✅    
 52   phone_access_request_points             6  11         ✅     ❌    
 53   phone_access_requests                   3  21         ✅     ❌    
@@ -116,11 +116,12 @@
 103  unit_group_aliases                     13  9          ✅     ✅    
 104  unit_group_members                      8  8          ✅     ✅    
 105  unit_groups                             4  10         ✅     ❌    
-106  vehicles                              131  23         ✅     ✅    
-107  verification_candidates                46  17         ✅     ✅    
-108  verification_evidence                  80  12         ✅     ✅    
-109  verification_log                        0  10         ✅     ❌    
-110  verification_tasks                     37  24         ✅     ✅    
+106  vehicle_candidates                      1  15         ✅     ✅    
+107  vehicles                              136  23         ✅     ✅    
+108  verification_candidates                46  17         ✅     ✅    
+109  verification_evidence                  80  12         ✅     ✅    
+110  verification_log                        0  10         ✅     ❌    
+111  verification_tasks                     37  24         ✅     ✅    
 
 🔗 СВЯЗИ МЕЖДУ ТАБЛИЦАМИ
 --------------------------------------------------------------------------------
@@ -173,6 +174,9 @@
   • unit_group_aliases.group_id → unit_groups.id
   • unit_group_members.apartment_id → apartments.id
   • unit_group_members.group_id → unit_groups.id
+  • vehicle_candidates.merged_vehicle_id → vehicles.id
+  • vehicle_candidates.resolved_vehicle_id → vehicles.id
+  • vehicle_candidates.apartment_id → apartments.id
   • vehicles.apartment_id → apartments.id
   • verification_candidates.task_id → verification_tasks.id
   • verification_evidence.task_id → verification_tasks.id

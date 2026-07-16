@@ -727,15 +727,51 @@ async def handle_cashier_operator_v2_text(
         await _show_service_menu(update, state)
         return True
 
+    # if mode.endswith("_service"):
+    #     service = (state.get("service_buttons") or {}).get(message_text)
+    #     if not service:
+    #         await update.message.reply_text("Выберите услугу кнопкой.")
+    #         return True
+    #     state["service"] = service
+    #     state["mode"] = f"entry_{state['entry_kind']}_unit"
+    #     await _ask_unit(update)
+    #     return True
+
     if mode.endswith("_service"):
         service = (state.get("service_buttons") or {}).get(message_text)
         if not service:
             await update.message.reply_text("Выберите услугу кнопкой.")
             return True
         state["service"] = service
-        state["mode"] = f"entry_{state['entry_kind']}_unit"
-        await _ask_unit(update)
+
+        # ==================================================
+        # ВРЕМЕННАЯ ПОДСТАНОВКА СУММЫ (для Night и Day)
+        # ==================================================
+        service_code = service.get('service_code')
+        if service_code == 'PARKING_NIGHT':
+            state['amount'] = 500.00
+        elif service_code == 'PARKING_DAY':
+            state['amount'] = 200.00
+        else:
+            state['amount'] = None
+
+        # if state.get('amount'):
+        #     await _show_entry_review(update, state)
+        # else:
+        #     state["mode"] = f"entry_{state['entry_kind']}_unit"
+        #     await _ask_unit(update)
+        # Пропускаем вопрос о квартире — если она не указана, будет NULL
+        if not state.get('apartment_number'):
+            state['apartment_number'] = None
+
+        if state.get('amount'):
+            await _show_entry_review(update, state)
+        else:
+            # Если сумма не подставилась — запрашиваем вручную
+            state["mode"] = f"entry_{state['entry_kind']}_amount"
+            await update.message.reply_text("Введите сумму вручную:")
         return True
+
 
     if mode.endswith("_unit"):
         await _select_unit(update, state, message_text)

@@ -2,7 +2,7 @@
 -- ПОЛНАЯ СХЕМА БАЗЫ ДАННЫХ
 --============================================================================
 -- Файл: osbb_test.db
--- Дата: 2026-07-12 18:27:49
+-- Дата: 2026-07-16 15:24:07
 --============================================================================
 
 PRAGMA foreign_keys = OFF;
@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS verification_log;
 DROP TABLE IF EXISTS verification_evidence;
 DROP TABLE IF EXISTS verification_candidates;
 DROP TABLE IF EXISTS vehicles;
+DROP TABLE IF EXISTS vehicle_candidates;
 DROP TABLE IF EXISTS unit_groups;
 DROP TABLE IF EXISTS unit_group_members;
 DROP TABLE IF EXISTS unit_group_aliases;
@@ -1039,22 +1040,38 @@ CREATE TABLE payment_notices (
             FOREIGN KEY(apartment_id) REFERENCES apartments(id)
         );
 
-CREATE TABLE payments (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        payment_date TEXT,
-        period_code TEXT,
-        apartment_number TEXT NOT NULL,
-        vehicle_id INTEGER,
-        amount REAL NOT NULL,
-        currency TEXT NOT NULL DEFAULT 'UAH',
-        payment_method TEXT,
-        source TEXT,
-        created_by TEXT,
-        comment TEXT,
-        created_at TEXT DEFAULT CURRENT_TIMESTAMP, cashbox_code TEXT, cashbox_operation_id INTEGER, cashier_batch_id TEXT, operator_id TEXT, service_item_code TEXT, base_service_code TEXT, service_type TEXT, "commercial_contract_id" INTEGER, "commercial_unit_id" INTEGER, "cashier_receipt_id" INTEGER, "cashier_entry_status" TEXT, "payment_notice_id" INTEGER, "bank_transaction_id" INTEGER, "payment_channel" TEXT, "apartment_id" INTEGER, "source_ref" TEXT,
-        FOREIGN KEY(vehicle_id)
-            REFERENCES vehicles(id)
-    );
+CREATE TABLE "payments" (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                payment_date TEXT,
+                period_code TEXT,
+                apartment_number TEXT,
+                vehicle_id INTEGER,
+                amount REAL NOT NULL,
+                currency TEXT NOT NULL DEFAULT 'UAH',
+                payment_method TEXT,
+                source TEXT,
+                created_by TEXT,
+                comment TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                cashbox_code TEXT,
+                cashbox_operation_id INTEGER,
+                cashier_batch_id TEXT,
+                operator_id TEXT,
+                service_item_code TEXT,
+                base_service_code TEXT,
+                service_type TEXT,
+                commercial_contract_id INTEGER,
+                commercial_unit_id INTEGER,
+                cashier_receipt_id INTEGER,
+                cashier_entry_status TEXT,
+                payment_notice_id INTEGER,
+                bank_transaction_id INTEGER,
+                payment_channel TEXT,
+                apartment_id INTEGER,
+                source_ref TEXT,
+                candidate_id INTEGER,
+                FOREIGN KEY(vehicle_id) REFERENCES vehicles(id)
+            );
 
 CREATE TABLE persons (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -1979,6 +1996,27 @@ CREATE TABLE unit_groups (
             created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
             updated_at TEXT
         );
+
+CREATE TABLE vehicle_candidates (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    license_plate TEXT NOT NULL,
+                    license_plate_normalized TEXT NOT NULL,
+                    car_model TEXT,
+                    car_model_normalized TEXT,
+                    apartment_id INTEGER,
+                    apartment_number TEXT,
+                    status TEXT DEFAULT 'PENDING',
+                    resolved_vehicle_id INTEGER,
+                    merged_vehicle_id INTEGER,
+                    created_by INTEGER,
+                    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TEXT,
+                    comment TEXT,
+                    source TEXT DEFAULT 'cashier',
+                    FOREIGN KEY (apartment_id) REFERENCES apartments(id),
+                    FOREIGN KEY (resolved_vehicle_id) REFERENCES vehicles(id),
+                    FOREIGN KEY (merged_vehicle_id) REFERENCES vehicles(id)
+                );
 
 CREATE TABLE vehicles (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -99,6 +99,12 @@
       ON UPDATE: NO ACTION, ON DELETE: NO ACTION
   • unit_group_members.group_id → unit_groups.id
       ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • vehicle_candidates.merged_vehicle_id → vehicles.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • vehicle_candidates.resolved_vehicle_id → vehicles.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
+  • vehicle_candidates.apartment_id → apartments.id
+      ON UPDATE: NO ACTION, ON DELETE: NO ACTION
   • vehicles.apartment_id → apartments.id
       ON UPDATE: NO ACTION, ON DELETE: NO ACTION
   • verification_candidates.task_id → verification_tasks.id
