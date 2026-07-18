@@ -528,31 +528,77 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
             )
             return True
 
-        expanded = []
-        for item in items:
-            if item.get('kind') == 'apartment':
-                vehicle_items = payer_vehicle_choices(item)
-                expanded.extend(vehicle_items or [item])
-            else:
-                expanded.append(item)
+        # UI-019.1: when the query is an exact apartment number, collect all
+        # vehicles belonging to that apartment as one explicit search result.
+        # Payment is still created for one selected vehicle; grouped payment
+        # will be introduced in the following UI-019 steps.
+        exact_apartment = next(
+            (
+                item for item in items
+                if item.get('kind') == 'apartment'
+                and str(item.get('apartment_number') or '').strip() == text
+            ),
+            None,
+        )
 
-        # Deduplicate after expanding an apartment into its vehicles.
-        unique = []
-        seen = set()
-        for item in expanded:
-            key = (item.get('kind'), item.get('vehicle_id'), item.get('apartment_id'))
-            if key in seen:
-                continue
-            seen.add(key); unique.append(item)
-        items = unique
+        apartment_context = None
+        if exact_apartment:
+            apartment_vehicles = payer_vehicle_choices(exact_apartment)
+            unique_vehicles = []
+            seen_vehicle_ids = set()
+            for vehicle in apartment_vehicles:
+                vehicle_id = vehicle.get('vehicle_id')
+                key = vehicle_id if vehicle_id is not None else vehicle.get('label')
+                if key in seen_vehicle_ids:
+                    continue
+                seen_vehicle_ids.add(key)
+                unique_vehicles.append(vehicle)
+
+            if unique_vehicles:
+                items = unique_vehicles
+                apartment_context = {
+                    'apartment': exact_apartment,
+                    'apartment_number': str(exact_apartment.get('apartment_number') or text),
+                    'vehicles': unique_vehicles,
+                }
+        else:
+            expanded = []
+            for item in items:
+                if item.get('kind') == 'apartment':
+                    vehicle_items = payer_vehicle_choices(item)
+                    expanded.extend(vehicle_items or [item])
+                else:
+                    expanded.append(item)
+
+            # Deduplicate after expanding an apartment into its vehicles.
+            unique = []
+            seen = set()
+            for item in expanded:
+                key = (item.get('kind'), item.get('vehicle_id'), item.get('apartment_id'))
+                if key in seen:
+                    continue
+                seen.add(key)
+                unique.append(item)
+            items = unique
 
         if len(items) == 1:
             await prepare_parking_card(update, user_states, user_id, items[0]); return True
 
         user_states[user_id] = {
-            'mode':'cashier_v2', 'screen':'payer_select_first', 'payer_options':items, 'subject_mode':'resident'
+            'mode': 'cashier_v2',
+            'screen': 'payer_select_first',
+            'payer_options': items,
+            'subject_mode': 'resident',
+            'apartment_context': apartment_context,
         }
-        await update.message.reply_text("Найдено несколько вариантов. Выберите плательщика:", reply_markup=payer_kb(items)); return True
+        if apartment_context:
+            prompt = (
+                f"Квартира {apartment_context['apartment_number']}. "
+                f"Найдено автомобилей: {len(items)}. Выберите автомобиль:"
+            )
+        else:
+            prompt = "Найдено несколько вариантов. Выберите плательщика:"
+        await update.message.reply_text(prompt, reply_markup=payer_kb(items)); return True
 
     if state.get('screen') == 'payer_select_first':
         try:
