@@ -111,20 +111,3 @@ PENDING -> REJECTED
 3. Link payments to candidates via `candidate_id`
 
 <!-- CASHIER_VEHICLE_CANDIDATE_V1:END -->
-
-<!-- OSBB-DOCS:BEGIN finance-core -->
-## Finance Core
-
-**Architectural direction:** separate money movement from service accounting.
-
-Planned stages:
-
-1. Inventory current receipt, expense, allocation, and balance paths.
-2. Introduce explicit partial and unallocated receipt amounts.
-3. Store allocations independently from the original money transaction.
-4. Support auditable reallocation, advance, refund, and correction operations.
-5. Connect service balances to allocation history.
-6. Add reconciliation and audit reports.
-
-Implementation details will be recorded in separate ADRs.
-<!-- OSBB-DOCS:END finance-core -->
