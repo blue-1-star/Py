@@ -182,54 +182,30 @@ def last_payments(limit: int = 20):
     """
     Последние поступления в кассу.
 
-    Если операция не связана с автомобилем, но у квартиры в базе
-    ровно один автомобиль, он возвращается как подсказка кассиру.
-
     Возвращает:
         дата,
         квартира,
         номер,
-        авто_статус,
         режим,
         квитанция,
         сумма
     """
+
     conn = get_conn()
     cur = conn.cursor()
 
     cur.execute("""
-        WITH apartment_vehicles AS (
-            SELECT
-                apartment_id,
-                COUNT(*) AS vehicle_count,
-                MAX(id) AS single_vehicle_id
-            FROM vehicles
-            GROUP BY apartment_id
-        )
         SELECT
+
             o.operation_date AS дата,
+
             o.apartment_number AS квартира,
 
             COALESCE(
-                direct_vehicle.license_plate_normalized,
-                direct_vehicle.license_plate,
-                CASE
-                    WHEN av.vehicle_count = 1 THEN
-                        COALESCE(
-                            suggested_vehicle.license_plate_normalized,
-                            suggested_vehicle.license_plate,
-                            ''
-                        )
-                    ELSE ''
-                END
+                v.license_plate_normalized,
+                v.license_plate,
+                ''
             ) AS номер,
-
-            CASE
-                WHEN o.vehicle_id IS NOT NULL THEN 'УКАЗАНО'
-                WHEN av.vehicle_count = 1 THEN 'ПРЕДЛОЖИТЬ'
-                WHEN av.vehicle_count > 1 THEN 'НЕОДНОЗНАЧНО'
-                ELSE 'АВТО НЕ НАЙДЕНО'
-            END AS авто_статус,
 
             CASE o.base_service_code
                 WHEN 'PARKING_DAY'   THEN 'День'
@@ -237,23 +213,17 @@ def last_payments(limit: int = 20):
                 ELSE o.base_service_code
             END AS режим,
 
-            substr(COALESCE(o.cashier_receipt_id, ''), -8) AS квитанция,
+            substr(
+                COALESCE(o.cashier_receipt_id,''),
+                -8
+            ) AS квитанция,
+
             o.amount AS сумма
 
         FROM cashbox_operations o
 
-        LEFT JOIN vehicles direct_vehicle
-               ON direct_vehicle.id = o.vehicle_id
-
-        LEFT JOIN apartments a
-               ON a.apartment_number = o.apartment_number
-
-        LEFT JOIN apartment_vehicles av
-               ON av.apartment_id = a.id
-
-        LEFT JOIN vehicles suggested_vehicle
-               ON suggested_vehicle.id = av.single_vehicle_id
-              AND av.vehicle_count = 1
+        LEFT JOIN vehicles v
+               ON v.id = o.vehicle_id
 
         WHERE lower(o.direction) = 'in'
 
@@ -262,8 +232,10 @@ def last_payments(limit: int = 20):
             o.id DESC
 
         LIMIT ?
+
     """, (limit,))
 
     rows = cur.fetchall()
     conn.close()
+
     return rows

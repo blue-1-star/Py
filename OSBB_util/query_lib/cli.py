@@ -9,7 +9,9 @@
   python -m OSBB_util.query_lib.cli debtors
   python -m OSBB_util.query_lib.cli debtors 07-2026
   python -m OSBB_util.query_lib.cli non-standard
-  python -m OSBB_util.query_lib.cli apartment 167
+  python -m OSBB_util.query_lib.cli apartment 111
+  python -m OSBB_util.query_lib.cli last
+  python -m OSBB_util.query_lib.cli last 10
 """
 
 import sys
@@ -25,15 +27,29 @@ from OSBB_util.query_lib.queries import (
     parking_debtors,
     non_standard_plates,
     vehicles_by_apartment,
+    last_payments,
 )
 
 
 def print_table(rows, headers=None):
-    """Вывод таблицы (без tabulate)"""
+    """Универсальный вывод таблицы"""
     if not rows:
         print("Нет данных")
         return
 
+    # Если rows — список объектов sqlite3.Row
+    if hasattr(rows[0], 'keys'):
+        # Если заголовки не переданы — берём их из первой строки
+        if headers is None:
+            headers = list(rows[0].keys())
+        # Печатаем заголовки
+        print(" | ".join(str(h) for h in headers))
+        print("-" * 60)
+        for row in rows:
+            print(" | ".join(str(row[h]) for h in headers))
+        return
+
+    # Если rows — список словарей
     if isinstance(rows[0], dict):
         if headers is None:
             headers = list(rows[0].keys())
@@ -43,19 +59,19 @@ def print_table(rows, headers=None):
             print(" | ".join(str(row.get(h, "")) for h in headers))
         return
 
-    # Если rows — список кортежей или sqlite3.Row
-    if headers is None and hasattr(rows[0], 'keys'):
-        headers = list(rows[0].keys())
-
-    if headers:
+    # Если rows — список кортежей
+    if isinstance(rows[0], (tuple, list)):
+        if headers is None:
+            headers = [f"col_{i}" for i in range(len(rows[0]))]
         print(" | ".join(str(h) for h in headers))
         print("-" * 60)
-
-    for row in rows:
-        if hasattr(row, 'keys'):
-            print(" | ".join(str(row[h]) for h in headers))
-        else:
+        for row in rows:
             print(" | ".join(str(x) for x in row))
+        return
+
+    # fallback
+    for row in rows:
+        print(row)
 
 
 def main():
@@ -78,20 +94,20 @@ def main():
             if idx + 1 < len(args):
                 min_count = int(args[idx + 1])
         rows = apartments_with_multiple_cars(min_count)
-        print_table(rows, headers=["квартира", "количество_авто"])
+        print_table(rows)
 
     elif cmd == "missing-mode":
         rows = apartments_with_missing_parking_mode()
-        print_table(rows, headers=["квартира", "номер", "марка", "режим"])
+        print_table(rows)
 
     elif cmd == "debtors":
         period = args[1] if len(args) > 1 else None
         rows = parking_debtors(period)
-        print_table(rows, headers=["квартира", "фио", "начислено", "оплачено", "задолженность"])
+        print_table(rows)
 
     elif cmd == "non-standard":
         rows = non_standard_plates()
-        print_table(rows, headers=["квартира", "номер", "марка"])
+        print_table(rows)
 
     elif cmd == "apartment":
         if len(args) < 2:
@@ -99,11 +115,22 @@ def main():
             return
         apt = args[1]
         rows = vehicles_by_apartment(apt)
-        print_table(rows, headers=["номер", "марка", "режим"])
+        print_table(rows)
+
+    elif cmd == "last":
+        limit = 20
+        if len(args) > 1:
+            try:
+                limit = int(args[1])
+            except ValueError:
+                pass
+        rows = last_payments(limit)
+        print_table(rows)
 
     else:
         print(f"Неизвестная команда: {cmd}")
         print(__doc__)
+
 
 if __name__ == "__main__":
     main()

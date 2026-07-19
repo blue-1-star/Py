@@ -1,0 +1,6 @@
+1. Распаковать содержимое в G:\Programming\Py\OSBB_util\
+2. Открыть PowerShell в G:\Programming\Py
+3. Выполнить:
+   python .\OSBB_util\Scripts\Assistant.py export resolver
+4. Найти готовый отчёт в:
+   G:\Programming\Py\OSBB_util\Exports\
