@@ -1,0 +1,149 @@
+diff --git a/OSBB/tools/cashier_v2_telegram/cashier_state.py b/OSBB/tools/cashier_v2_telegram/cashier_state.py
+new file mode 100644
+--- /dev/null
++++ b/OSBB/tools/cashier_v2_telegram/cashier_state.py
+@@ -0,0 +1,125 @@
++#!/usr/bin/env python3
++# -*- coding: utf-8 -*-
++from __future__ import annotations
++
++from collections.abc import Mapping, Sequence
++from typing import Any
++
++from query_lib.queries import last_payments
++from tools.cashier_v2_telegram.cashier_card import success_card
++
++
++DEFAULT_LAST_PAYMENTS_LIMIT = 8
++
++
++def _value(row: Mapping[str, Any], key: str, default: Any = None) -> Any:
++    try:
++        value = row[key]
++    except (KeyError, TypeError, IndexError):
++        return default
++    return default if value is None else value
++
++
++def _short_receipt(value: Any) -> str:
++    text = str(value or "").strip()
++    if not text:
++        return "—"
++
++    tail = text.rsplit("-", 1)[-1]
++    if tail.isdigit():
++        return str(int(tail))
++
++    stripped = text.lstrip("0")
++    return stripped or "0"
++
++
++def _money(value: Any) -> str:
++    try:
++        return f"{float(value or 0):.2f}"
++    except (TypeError, ValueError):
++        return "0.00"
++
++
++def _payment_warning(row: Mapping[str, Any]) -> str | None:
++    status = str(_value(row, "авто_статус", "") or "").strip().upper()
++
++    if status == "ПРЕДЛОЖИТЬ":
++        return "авто предложено"
++    if status == "НЕОДНОЗНАЧНО":
++        return "несколько авто"
++    if status == "АВТО НЕ НАЙДЕНО":
++        return "авто не найдено"
++    return None
++
++
++def render_last_payments(
++    rows: Sequence[Mapping[str, Any]] | None = None,
++    *,
++    limit: int = DEFAULT_LAST_PAYMENTS_LIMIT,
++) -> list[str]:
++    payments = list(rows if rows is not None else last_payments(limit))
++
++    if not payments:
++        return ["Операций пока нет."]
++
++    lines: list[str] = []
++    for row in payments:
++        receipt = _short_receipt(_value(row, "квитанция"))
++        apartment = str(_value(row, "квартира", "—") or "—")
++        plate = str(_value(row, "номер", "") or "").strip()
++        mode = str(_value(row, "режим", "") or "").strip()
++        amount = _money(_value(row, "сумма", 0))
++        warning = _payment_warning(row)
++
++        subject = f"кв.{apartment}"
++        if plate:
++            subject += f" | {plate}"
++        if mode:
++            subject += f" | {mode}"
++
++        line = f"{receipt} | {subject} | {amount}"
++        if warning:
++            line += f" | ⚠ {warning}"
++        lines.append(line)
++
++    return lines
++
++
++def render_cashier_state(
++    *,
++    result: Mapping[str, Any],
++    draft: Mapping[str, Any],
++    warning: str | None = None,
++    last_rows: Sequence[Mapping[str, Any]] | None = None,
++    limit: int = DEFAULT_LAST_PAYMENTS_LIMIT,
++) -> str:
++    lines = [
++        success_card(dict(result), dict(draft)),
++        "",
++    ]
++
++    if warning:
++        lines.extend([
++            "⚠ Требует внимания",
++            warning,
++            "",
++        ])
++
++    lines.extend([
++        "📜 Последние операции",
++        *render_last_payments(last_rows, limit=limit),
++        "",
++        "Касса готова к следующей операции.",
++    ])
++
++    return "\n".join(lines)
+diff --git a/OSBB/tools/cashier_v2_telegram/cashier_v2_ui.py b/OSBB/tools/cashier_v2_telegram/cashier_v2_ui.py
+--- a/OSBB/tools/cashier_v2_telegram/cashier_v2_ui.py
++++ b/OSBB/tools/cashier_v2_telegram/cashier_v2_ui.py
+@@ -22,7 +22,8 @@ from tools.cashier_v2_telegram.cashier_search import (
+     search_payers,
+     search_commercial_subjects,
+ )
+-from tools.cashier_v2_telegram.cashier_card import payment_card, period_display, success_card
++from tools.cashier_v2_telegram.cashier_card import payment_card, period_display
++from tools.cashier_v2_telegram.cashier_state import render_cashier_state
+ from Bots.handlers.vehicle_card_editor import create_draft_vehicle, create_registry_vehicle
+ 
+ BTN_PAYMENTS = "💳 Платежи"
+@@ -637,7 +638,13 @@ async def handle_cashier_v2_text(update: Update, context: ContextTypes.DEFAULT_T
+                     'commercial' if (draft.get('payer') or {}).get('commercial_unit_id') else 'resident'
+                 ),
+             }
+-            await update.message.reply_text(success_card(result, draft), reply_markup=kb([[BTN_NEXT],[BTN_BACK, BTN_MAIN]])); return True
++            await update.message.reply_text(
++                render_cashier_state(
++                    result=result,
++                    draft=draft,
++                ),
++                reply_markup=kb([[BTN_NEXT], [BTN_BACK, BTN_MAIN]]),
++            )
++            return True
+         if text == BTN_EDIT_AMOUNT:
+             user_states[user_id] = {'mode':'cashier_v2','screen':'edit_amount','draft':draft}
+             await update.message.reply_text("Введите сумму больше нуля:"); return True

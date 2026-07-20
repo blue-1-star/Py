@@ -128,3 +128,18 @@ Planned stages:
 
 Implementation details will be recorded in separate ADRs.
 <!-- OSBB-DOCS:END finance-core -->
+
+<!-- BEGIN: DEVELOPMENT-DOCS-V1 -->
+## Development Docs v1
+
+- [x] Создать `Docs/Development`.
+- [x] Зафиксировать инженерные принципы.
+- [x] Создать Lessons Learned и Troubleshooting.
+- [x] Зафиксировать окружение.
+- [x] Описать Presentation Layer и Query Library.
+- [ ] Реализовать `assistant doctor`.
+- [ ] Реализовать `assistant env`.
+- [ ] Реализовать `assistant where`.
+- [ ] Реализовать `assistant verify`.
+- [ ] Научить Assistant сопровождать инженерную документацию.
+<!-- END: DEVELOPMENT-DOCS-V1 -->

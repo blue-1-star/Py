@@ -39,3 +39,15 @@ Created architecture documents:
 - `Docs/Architecture/Finance_Core.md`
 - `Docs/Architecture/ADR/ADR-2026-07-19-Finance-Core.md`
 <!-- OSBB-DOCS:END finance-core-decision-2026-07-19 -->
+
+<!-- BEGIN: DEVELOPMENT-DOCS-V1 -->
+## 2026-07-20 — Development Docs v1
+
+Создан пакет инженерной документации `Docs/Development`.
+
+Зафиксированы выводы из неудачных попыток запуска Assistant: ручной поиск причин
+должен быть заменен встроенной диагностикой.
+
+Принят принцип: каждая дорогая по времени ошибка должна превращаться в документ,
+проверку, тест или функцию Assistant.
+<!-- END: DEVELOPMENT-DOCS-V1 -->
