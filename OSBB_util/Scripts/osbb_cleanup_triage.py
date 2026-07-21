@@ -26,7 +26,7 @@ osbb_cleanup_triage.py
     py osbb_cleanup_triage.py --root "G:\\Programming\\Py\\OSBB" --apply
 
 По умолчанию файлы переносятся в:
-    G:\\Programming\\Py\\OSBB_util\\output\\docs_archive
+    G:\\Programming\\Py\\OSBB_util\\output\\triage_archive
 (служебный каталог рядом с проектом, не внутри самого OSBB).
 Можно переопределить через --archive-dir.
 
@@ -338,9 +338,9 @@ def main():
         default=None,
         help=(
             "Куда переносить. По умолчанию: "
-            r'"<родитель root>\OSBB_util\output\docs_archive" '
+            r'"<родитель root>\OSBB_util\output\triage_archive" '
             r'(например, для --root "G:\Programming\Py\OSBB" '
-            r'это будет "G:\Programming\Py\OSBB_util\output\docs_archive")'
+            r'это будет "G:\Programming\Py\OSBB_util\output\triage_archive")'
         ),
     )
     ap.add_argument("--report", default="osbb_triage_report.csv", help="Имя CSV-отчёта")
@@ -389,7 +389,7 @@ def main():
     if args.archive_dir:
         archive_root = Path(args.archive_dir).resolve()
     else:
-        archive_root = root.parent / "OSBB_util" / "output" / "docs_archive"
+        archive_root = root.parent / "OSBB_util" / "output" / "triage_archive"
     archive_root.mkdir(parents=True, exist_ok=True)
     log_path = archive_root / f"move_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 

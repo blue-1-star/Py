@@ -1,0 +1,427 @@
+# Перенос выполнен: 2026-07-21T14:50:32.197206
+# root=G:\Programming\Py\OSBB archive_root=G:\Programming\Py\OSBB_util\output\docs_archive
+
+MOVED  cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\db_access - Copy.py  <- categories: HIGH:manual_copy
+MOVED  Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\parking_bot_before_cashier_v2_2026-07-04_12-30-27.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\parking_bot_before_core_new.py  <- categories: HIGH:before_prefix
+MOVED  Bots\parking_bot_before_guard_workspace_2026-07-04_13-01-19.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Recovered\ADMIN_ACCESS_GRANT_2026-07-04_17-57-37.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.diff  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.diff  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.diff  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_admin_ui_2026-07-06_11-27-50.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_admin_ui_2026-07-06_11-30-34.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-20.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-51.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-54-28.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-55-02.patched.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_OPERATOR_TASK_CANDIDATES_2026-07-05_19-16-03.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_PAYMENTS_REPORT_2026-07-05_12-26-25.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_PAYMENTS_REPORT_2026-07-05_13-31-19.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_REGISTRY_AUDIT_2026-07-05_14-51-06.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_REGISTRY_REPORT_2026-07-05_14-50-49.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PARKING_REGISTRY_REPORT_2026-07-05_15-34-01.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Recovered\PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.patch  <- categories: HIGH:timestamped_name
+MOVED  Recovered\RESTORE_RELEASE_TREE_2026-07-03_13-55-38.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\RESTORE_ZIP_NAMED_SKELETONS_2026-07-03_10-22-01.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\ROUTE_WIRING_SEARCH_2026-07-03_22-05-21.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\SERVICE_ORDERS_WORKSPACE_RANKING_2026-07-03_21-15-47.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\TRACE_LAUNCH_CHAIN_2026-07-03_22-44-37.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered_Releases\RELEASE_CATALOG.md  <- categories: HIGH:recovered_report
+MOVED  tools\cashier_v2_telegram\cashier_v2_ui - Copy.py  <- categories: HIGH:manual_copy
+MOVED  tools\cashier_v2_telegram_p\cashier_card.py  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\cashier_search.py  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\cashier_v2_ui.py  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\CHANGELOG.md  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\INSTALL.md  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\MODULE.md  <- categories: HIGH:confirmed_duplicate
+MOVED  tools\cashier_v2_telegram_p\__init__.py  <- categories: HIGH:confirmed_duplicate
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\FILE_HISTORY.tsv  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\INDEX.json  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\PROJECT_ARCHAEOLOGY_REPORT.md  <- categories: HIGH:timestamped_name, HIGH:recovered_report
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_operational_sandbox\CHECK_phone_barrier_access_operational_sandbox__c22827184b78.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_sandbox_schema\CHECK_phone_barrier_access_sandbox_schema__8e4c82b70733.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_parking_time_test_sandbox\CHECK_profile_parking_time_test_sandbox__55c1f1aa3c66.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_sandbox\CHECK_profile_verification_sandbox__73286e2ac2f8.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_terminology\CHECK_profile_verification_terminology_v2__6229e2c0f296.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\client_portal\client_portal_v3__eebdc5458dfe.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__08ad806bb35a.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__1d430f6a292e.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_cashier_route_after_phone\INSTALL_cashier_route_after_phone_v2__f85eb4c5eadc.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v2__b43c774e9187.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v2__baeff943726f.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v3__2107d097d9bf.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v3__dfe63e8ed1b4.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX__3b67acce637d.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_phone_barrier_access\INSTALL_phone_barrier_access_v2__cc07112da7fb.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_parking_time_test\INSTALL_profile_parking_time_test_v1__352b2a9ffb0c.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_verification\INSTALL_profile_verification_v1__dfa078d4be84.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_verification_terminology\INSTALL_profile_verification_terminology_v2__8d84fd006bfe.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\install_service_orders_ui\install_service_orders_ui__84a6bab32e35.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_operational_sandbox\MIGRATE_phone_barrier_access_operational_sandbox__488cb403453d.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_sandbox\MIGRATE_phone_barrier_access_sandbox__81c26d447942.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_parking_time_test_sandbox\MIGRATE_profile_parking_time_test_sandbox__57324665edea.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_verification_sandbox\MIGRATE_profile_verification_sandbox__5a90e4cb254d.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\migrate_service_orders_and_fulfillment\migrate_service_orders_and_fulfillment__33ef6dda81b9.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_simplified_services_sandbox\MIGRATE_simplified_services_sandbox__cb84fbcee38c.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders\patch_parking_bot_service_orders_v1__07e623d30310.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_core\phone_barrier_access_core__15aedf505808.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_core\phone_barrier_access_core__d224426a533a.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_service\phone_barrier_access_service__de46014418bf.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_parking_time_test_core\profile_parking_time_test_core__45ab47b5a24a.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_parking_time_test_workspace\profile_parking_time_test_workspace__6b291a186d03.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_core\profile_verification_core__68b9c00f27e8.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_core\profile_verification_core__d06fa33f0c95.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__131afe386eac.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__1d8880a95510.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__82a3853cce89.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__da5c31503fef.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_CASHIER_ROUTE_FIX\README_CASHIER_ROUTE_FIX__93c2658e1982.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_CASHIER_ROUTE_REPAIR_AFTER_PHONE\README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2__2e84dd934a9a.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_LIVE_SERVICES_SANDBOX\README_LIVE_SERVICES_SANDBOX__a29d610189b8.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX_v2__d2903f91fd66.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX_v3__56063fdf0ea3.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX__ccb29bc2e542.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_BARRIER_ACCESS\README_PHONE_BARRIER_ACCESS_V2__4e43764d4444.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION\README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION__2a65e739ac00.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_PARKING_TIME_TEST\README_PROFILE_PARKING_TIME_TEST_V1__4bb8a3b9f380.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_VERIFICATION\README_PROFILE_VERIFICATION_V1__a47a609d98c1.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_VERIFICATION_TERMINOLOGY\README_PROFILE_VERIFICATION_TERMINOLOGY_V2__6330d6ee7b3c.txt  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RETIRE_legacy_new_remote_test_orders_sandbox\RETIRE_legacy_new_remote_test_orders_sandbox__3a3bab1d10c1.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__1fb99c606cdb.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__2c2db2c9c866.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__51e635b6958c.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__c79dc72c59c7.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__def3aac9ee8e.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__f7e5d56ecb68.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_service_sandbox\run_bot_live_service_sandbox_v4__49721c32f14f.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_cashier_route_after_phone\RUN_CHECK_cashier_route_after_phone_v2__f969577e0fd5.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_operational_sandbox\RUN_CHECK_phone_barrier_access_operational_sandbox__9b44a74f9213.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_sandbox_schema\RUN_CHECK_phone_barrier_access_sandbox_schema__a97fd4bbfe96.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_parking_time_test_sandbox\RUN_CHECK_profile_parking_time_test_sandbox__c31ddb4ad541.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_verification_sandbox\RUN_CHECK_profile_verification_sandbox__2cb134b9103d.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_verification_terminology\RUN_CHECK_profile_verification_terminology_v2__b418d7f618cf.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_cashier_route_after_phone\RUN_INSTALL_cashier_route_after_phone_v2__84a2067849fb.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_phone_barrier_access\RUN_INSTALL_phone_barrier_access_v2__a039f3f3cdad.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_parking_time_test\RUN_INSTALL_profile_parking_time_test_v1__2fd5130004bc.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_verification\RUN_INSTALL_profile_verification_v1__576f7f1c4a7a.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_verification_terminology\RUN_INSTALL_profile_verification_terminology_v2__2096a45300d3.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_operational_sandbox\RUN_MIGRATE_phone_barrier_access_operational_sandbox__2d3f6f793934.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_sandbox\RUN_MIGRATE_phone_barrier_access_sandbox__df227402f8eb.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_parking_time_test_sandbox\RUN_MIGRATE_profile_parking_time_test_sandbox__bd4f5fbc9d3f.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_verification_sandbox\RUN_MIGRATE_profile_verification_sandbox__a39817ad0ec1.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_simplified_services_sandbox\RUN_MIGRATE_simplified_services_sandbox__4cb3f9a902de.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_RETIRE_legacy_new_remote_test_orders_sandbox\RUN_RETIRE_legacy_new_remote_test_orders_sandbox__55c44a814cc2.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__40d5a376767b.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__534d0d3809d3.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__7c2d3ac6f66f.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__d425682f5c61.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_preflight\service_orders_preflight__311f47ab9d65.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__25edbb76c172.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__3f1176517adf.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__45de989af825.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__4a6c6966ebd8.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__4ffcfcc692e5.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__80a49da46892.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__9dda2d6de0d3.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__ee7c1929c0f2.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__f28aa0d210f7.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__687137f41aa7.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__85eb66d9c36f.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__a67ea947627b.py  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\Start_OSBB_Live_Services_Sandbox_Bot\Start_OSBB_Live_Services_Sandbox_Bot_v1__9d4301b438ef.bat  <- categories: HIGH:timestamped_name
+MOVED  Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\STOP_old_guard_sandbox_bots\STOP_old_guard_sandbox_bots__f3c5d6fed754.bat  <- categories: HIGH:timestamped_name
+MOVED  Data\db\osbb_telegram - Copy.db  <- categories: HIGH:manual_copy
+MOVED  Data\db\osbb_test - Copy (2).db  <- categories: HIGH:manual_copy
+MOVED  Data\db\osbb_test - Copy.db  <- categories: HIGH:manual_copy
+MOVED  Data\db\osbb_test_schema_20260710_112003.sql  <- categories: HIGH:timestamped_name
+MOVED  Data\db\osbb_test_schema_20260710_112003.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\reports\cashier_state\cashier_state_full_2026-07-09_17-14-49.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\raw\typed\OSBB_Final_Base - Copy.xlsx  <- categories: HIGH:manual_copy
+MOVED  Data\exports\audits\bot_admins_report_2026-06-12_19-36-42.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\normalization_audit_2026-06-08_22-08-18.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\normalization_audit_2026-06-08_22-37-22.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\normalization_audit_2026-06-09_10-40-26.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\normalization_audit_2026-06-09_10-48-13.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_hints_from_ohorona_2026-06-11_19-15-43.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_parse_from_ohorona_2026-06-17_23-18-04.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_13-52-15.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_18-18-34.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_18-20-15.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_review_tasks_2026-06-11_20-10-50.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\parking_time_with_hints_2026-06-11_21-34-42.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\plate_candidates_report_2026-06-10_22-24-30.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\plate_candidates_report_2026-06-11_11-02-53.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\registry_audit_2026-06-08_17-24-00.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\registry_audit_2026-06-23_17-18-21.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\tbot_quarantine_audit_2026-06-08_19-55-03.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\telegram_messages_audit_2026-06-10_13-30-15.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\telegram_remote_facts_report_2026-06-10_14-43-47.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\telegram_vehicle_facts_report_2026-06-10_20-22-27.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\verification_evidence_report_2026-06-10_21-04-35.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\verification_evidence_report_2026-06-10_21-29-11.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\verification_tasks_2026-06-09_11-50-55.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\verification_tasks_2026-06-09_12-26-46.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\audits\verification_tasks_enriched_2026-06-10_21-57-19.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\billing_reconciliation_report_2026-05_2026-06_2026-06-19_16-15-39.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\billing_statement_2026-05_2026-06_2026-06-20_21-50-05.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_apply_2026-06-19_13-39-16.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-18_22-27-14.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_10-25-19.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_11-38-22.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_13-23-40.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_billing_statement_2026-05_2026-06_2026-06-19_14-58-20.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_charges_2026-05_2026-06_apply_2026-06-18_18-29-41.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_charges_2026-05_2026-06_apply_2026-06-18_18-37-17.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-03.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-39.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-28-42.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-53-33.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-58-00.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_apply_2026-05_2026-06_dry_run_2026-06-20_13-56-20.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_10-32-56.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_11-06-58.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_11-34-47.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_13-29-26.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_14-54-33.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\plate_consensus_top_ties_2026-05_2026-06_2026-06-20_11-44-04.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\vehicle_data_quality_tasks_2026-05_2026-06_2026-06-19_17-06-59.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\billing\vehicle_verification_tasks_2026-05_2026-06_2026-06-19_17-52-55.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_operator_migration_2026-06-25_14-43-23.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_operator_migration_2026-06-25_14-43-41.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\cashier_v2_migration_2026-06-25_17-56-05.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_cashbox_backfill_apply_2026-06-22_20-55-57.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_cashbox_backfill_dry_run_2026-06-22_20-33-08.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_cashbox_backfill_dry_run_2026-06-22_20-41-34.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_list1_central_apply_2026-06-22_22-53-00.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-31-21.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-36-41.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-41-45.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-48-20.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\service_catalog_cleanup_2026-06-22_16-17-39.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\service_catalog_cleanup_2026-06-22_20-05-21.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\cashier\service_catalog_cleanup_2026-06-22_20-07-25.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code\code_search_2026-06-28_15-20-58.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code\service_access_policy_integration_points_2026-06-29_11-54-53.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code\service_access_policy_integration_points_2026-06-29_16-54-26.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_gate_sources_2026-06-28_16-59-59.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\commercial\commercial_contract_core_2026-06-24_12-27-30.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\commercial\commercial_contract_core_2026-06-24_12-30-30.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\commercial\commercial_notification_queue_2026-06-24_dry_run_2026-06-24_12-32-13.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_rank\after_promote_epoch_archaeology.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\db_rank\after_promote_release_candidate.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\db_rank\LOST_FEATURES_FROM_SANDBOXES.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\db_rank\project_epoch_archaeology.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\db_rank\PROMOTE_SANDBOX_TO_TRAINING_DB.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\db_rank\release_candidate_selection.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\debt_policy\debt_policy_matrix_preview_2026-06-28_20-23-44.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\debt_policy\debt_policy_matrix_preview_2026-06-28_20-23-44.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\diagnostics\audit_diagnostic_2026-06-24_20-17-19.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\git\RELEASE_NOTES_since_osbb_test_db.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\reflection\OSBB_SELF_REFLECTION_2026_H1.md  <- categories: HIGH:generated_doc_export
+MOVED  Data\exports\remotes\remote_requests_migration_2026-06-25_10-23-49.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\remotes\remote_requests_migration_2026-06-25_10-24-18.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\remotes\remote_requests_migration_2026-06-25_11-42-17.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\remotes\remote_requests_migration_2026-06-25_12-05-57.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\schema\schema_compare_2026-06-28_13-09-32.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\schema\schema_snapshot_test_2026-06-28_14-30-02.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.xlsx  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\telegram\osbb_included_peers_2026-06-10_13-11-22.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\telegram\telegram_dialogs_2026-06-10_12-18-25.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\commercial_unit_placeholders_2026-06-24_10-48-47.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\commercial_unit_placeholders_2026-06-24_10-49-12.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\composite_unit_inventory_2026-06-23_17-20-07.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\composite_unit_inventory_2026-06-23_17-20-07.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\unit_registry_aliases_2026-06-23_16-09-28.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\unit_registry_composite_groups_2026-06-23_17-36-23.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\units\unit_registry_composite_groups_2026-06-23_17-40-54.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\users\apartment_link_requests_migration_2026-06-25_11-42-33.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\users\apartment_link_requests_migration_2026-06-25_12-07-06.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\users\restore_resident_link_2026-06-25_12-51-41.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\users\restore_resident_link_2026-06-25_12-52-09.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\01_schema.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\02_columns.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\03_indexes.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\04_foreign_keys.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\05_code_references.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\06_service_code_usage.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\07_sample_rows.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\08_distinct_values.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\09_code_references_by_kind.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\10_architecture_notes.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\passport_summary.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\00_Project.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\01_File_System.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\02_Modules.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\03_Technical_Debt.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\04_DB_Table_References.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\summary.json  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\00_Project.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\01_File_System.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\02_Modules.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\03_Technical_Debt.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\04_DB_Table_References.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\summary.json  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\00_Project_v3.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\05_Entrypoints.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\06_Active_Candidates.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\07_Legacy_Backups.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\08_Bot_Handlers.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\09_Remote_Access_Service_Modules.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\10_Code_Risk_Summary.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\summary.json  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\00_Runtime_Schema_Audit.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\01_Strict_Entrypoints.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\02_Runtime_Import_Closure.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\03_Missing_Tables_From_Code.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\04_Remote_Access_Modules.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\05_Debt_Gate_Candidates.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\summary.json  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\00_Remote_Debt_Gate_Audit.md  <- categories: HIGH:timestamped_name, HIGH:generated_doc_export
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\summary.json  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\candidate_lines.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\db_status.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\files_scanned.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\functions_remote_debt_scan.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\db_table_refs.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\debt_gate_candidates.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\missing_tables_from_code.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\remote_access_modules.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\runtime_import_edges.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\runtime_import_nodes.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\strict_entrypoints.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\entrypoints.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\files_classified.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\functions.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\import_edges.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\python_modules_classified.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\classes.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\db_table_refs.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\files.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\functions.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\imports.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\modules.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\todos.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\classes.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\db_table_refs.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\files.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\functions.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\imports.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\modules.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\todos.csv  <- categories: HIGH:timestamped_name
+MOVED  Data\db\backups\osbb_test_before_cashier.db  <- categories: HIGH:backup_folder, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\logs\actual_service_order_state_20260627_115724.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\actual_service_order_state_20260704_142150.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\actual_service_order_state_20260704_142648.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114522.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114911.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\live_services_payment_schema_fix_20260627_122549.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\phone_barrier_access_operational_migration_2026-06-27_19-38-08.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\profile_parking_time_test_migration_2026-06-28_12-12-37.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\profile_verification_migration_2026-06-27_20-52-07.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\logs\simplified_services_migration_2026-06-27_14-10-45.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\cashier_v2_preflight_2026-06-25_18-53-50.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\cashier_v2_preflight_compat_2026-06-25_19-47-09.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\clean_live_sandbox_2026-06-26_20-13-26.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-39-50.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-56-09.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\service_orders_preflight_2026-06-26_19-42-50.txt  <- categories: HIGH:timestamped_name
+MOVED  Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.db  <- categories: HIGH:timestamped_name
+MOVED  Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.manifest.json  <- categories: HIGH:timestamped_name
+MOVED  Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.README.md  <- categories: HIGH:timestamped_name
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix, HIGH:db_backup
+MOVED  Data\backups\source_patches\phone_access_policy_ux_bridge_v1_2026-06-29_17-34-34\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_patches\phone_barrier_access_service_policy_v1_2026-06-29_23-12-24\phone_barrier_access_service.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_patches\service_orders_core_access_policy_v1_2026-06-29_13-48-47\service_orders_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_patches\service_orders_workspace_policy_ux_v1_2026-06-29_15-57-36\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\client_portal.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\guard_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\before_service_orders_ui_v2_2026-07-04_17-00-26\parking_bot.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\before_user_onboarding_admin_ui_2026-07-06_11-30-36\parking_bot.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\before_user_onboarding_admin_ui_v2_2026-07-06_12-29-51\parking_bot.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\before_user_onboarding_import_fix_2026-07-06_12-55-02\parking_bot.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\cashier_route_repair_2026-06-27_20-04-49\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\parking_time_test_v1_2026-06-28_12-12-01\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_orders_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_preorders_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_button_early_route_2026-06-27_21-33-50\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_confirmation_ready_visibility_2026-06-27_21-55-54\profile_verification_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_critical_codes_fix_2026-06-27_21-47-24\profile_verification_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_verification_2026-06-27_20-51-33\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\profile_verification_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\profile_verification_2026-06-27_20-51-33\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name
+MOVED  Bots\backups\parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py  <- categories: HIGH:backup_folder, HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\agreement - Copy.py  <- categories: HIGH:manual_copy
+MOVED  Bots\handlers\audit_viewer - Copy.py  <- categories: HIGH:manual_copy
+MOVED  Bots\handlers\guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40  <- categories: HIGH:timestamped_name, HIGH:before_prefix
+MOVED  Bots\handlers\unit_registry_editor - Copy.py  <- categories: HIGH:manual_copy
