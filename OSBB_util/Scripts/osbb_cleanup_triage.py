@@ -48,6 +48,12 @@ osbb_cleanup_triage.py
                                 разовый восстановительный/следственный отчёт
     - confirmed_duplicate    : путь явно подтверждён пользователем как дубль
                                 (см. EXPLICIT_DUPLICATE_DIRS в начале файла)
+    - patch_script            : корневой patch_*.py — одноразовый скрипт,
+                                 когда-то модифицировавший исходники (история)
+    - one_off_fix_bundle       : корневые INSTALL_*.py/.bat, заглавные MIGRATE_*.py,
+                                 RUN_*.bat, README_*.txt — связка одного фикса
+    - root_zip_bundle          : OSBB_*.zip в корне — готовый архив патча
+    - old_suffix                : явный суффикс _old при наличии файла без него
 
   REVIEW (только в отчёте, не переносятся без --include-review):
     - check_script          : имя начинается с CHECK_ (разовая диагностика)
@@ -60,6 +66,10 @@ osbb_cleanup_triage.py
                                  CHANGELOG.md/INSTALL.md) встречается в
                                  нескольких разных папках проекта — возможен
                                  конфликт содержимого, а не просто дубль
+    - data_pipeline_history    : корневые скрипты оцифровки/переноса данных
+                                 (Collect_sheets*, import_*, extract_telegram_*,
+                                 build_plate_*, plate_consensus_*, report_* и т.п.)
+                                 — историческая ценность, не рабочий код
 
 Ничего не удаляется. Худший случай ошибки — файл окажется в архиве,
 откуда его легко вернуть обратно.
@@ -82,6 +92,29 @@ CHECK_RE = re.compile(r"^CHECK_", re.IGNORECASE)
 SANDBOX_RE = re.compile(r"sandbox", re.IGNORECASE)
 VERSION_SUFFIX_RE = re.compile(r"^(?P<base>.+?)_v(?P<num>\d+)$", re.IGNORECASE)
 VARIANT_SUFFIX_RE = re.compile(r"^(?P<base>.+?)_(?:0|p|prev)$", re.IGNORECASE)
+OLD_SUFFIX_RE = re.compile(r"^(?P<base>.+?)_old$", re.IGNORECASE)
+
+# Разовые скрипты-патчи, применённые к исходникам один раз в прошлом —
+# ценны как история, но не рабочий код.
+PATCH_SCRIPT_RE = re.compile(r"^patch_\w+\.py$", re.IGNORECASE)
+
+# Связки одного точечного фикса: INSTALL_*, заглавные MIGRATE_*, RUN_*.bat,
+# README_*.txt — обычно расходятся по 3-5 файлов на один и тот же фикс.
+INSTALL_SCRIPT_RE = re.compile(r"^INSTALL_.+\.(py|bat)$")
+MIGRATE_UPPER_RE = re.compile(r"^MIGRATE_.+\.py$")  # заглавные — одноразовые, не путать с migrate_*.py (история миграций)
+RUN_SCRIPT_RE = re.compile(r"^RUN_.+\.bat$")
+FIX_README_RE = re.compile(r"^README_.+\.txt$")
+
+# Готовые бандлы точечных патчей, лежащие в корне.
+ROOT_ZIP_RE = re.compile(r"^OSBB_.+\.zip$")
+
+# Пайплайн оцифровки/переноса данных (бумага -> Word -> Excel -> БД) —
+# исторически ценно, но не часть работающего приложения. REVIEW, не HIGH.
+DATA_PIPELINE_RE = re.compile(
+    r"^(Collect_sheets\d*|Collect_word_tables|Word_table_to_Excel|Generate_Stetement|"
+    r"build_plate_\w+|plate_consensus_\w+|extract_telegram_\w+|import_\w+|report_\w+)\.py$",
+    re.IGNORECASE,
+)
 
 # .md-файлы внутри этих подпапок (относительно root) — авто-сгенерированные
 # отчёты/аудиты/раскопки, не "документация" в смысле "почитать человеку".
@@ -174,6 +207,37 @@ def classify(path: Path, root: Path, sibling_stems: set, protected: set, doc_nam
 
     if path.suffix.lower() == ".md" and rel_str.startswith(RECOVERED_DOC_DIR_PREFIXES):
         hits.append(("HIGH:recovered_report", "разовый восстановительный/следственный отчёт"))
+
+    is_at_root = len(rel.parts) == 1  # файл лежит прямо в корне root, без подпапок
+
+    if is_at_root and PATCH_SCRIPT_RE.match(name):
+        hits.append(("HIGH:patch_script", "одноразовый скрипт-патч исходников (история применения, не рабочий код)"))
+
+    if is_at_root and INSTALL_SCRIPT_RE.match(name):
+        hits.append(("HIGH:one_off_fix_bundle", "часть связки INSTALL_*/MIGRATE_*/RUN_*/README_* одного точечного фикса"))
+
+    if is_at_root and MIGRATE_UPPER_RE.match(name):
+        hits.append(("HIGH:one_off_fix_bundle", "одноразовый MIGRATE_* (заглавный) — часть связки точечного фикса, не история миграций БД"))
+
+    if is_at_root and RUN_SCRIPT_RE.match(name):
+        hits.append(("HIGH:one_off_fix_bundle", "RUN_*.bat — запускатель одноразового фикса"))
+
+    if is_at_root and FIX_README_RE.match(name):
+        hits.append(("HIGH:one_off_fix_bundle", "README_*.txt — описание одноразового фикса"))
+
+    if is_at_root and ROOT_ZIP_RE.match(name):
+        hits.append(("HIGH:root_zip_bundle", "готовый zip-бандл точечного патча в корне проекта"))
+
+    om = OLD_SUFFIX_RE.match(stem)
+    if om and om.group("base") in sibling_stems:
+        hits.append(("HIGH:old_suffix", f"явный суффикс _old при наличии файла без него: {om.group('base')}{path.suffix}"))
+
+    if DATA_PIPELINE_RE.match(name):
+        hits.append((
+            "REVIEW:data_pipeline_history",
+            "часть пайплайна оцифровки/переноса данных (бумага → Word → Excel → БД) — "
+            "исторически ценно, но не часть работающего приложения",
+        ))
 
     if any(rel_str.lower().startswith(d.lower() + "/") or rel_str.lower() == d.lower() for d in EXPLICIT_DUPLICATE_DIRS):
         hits.append(("HIGH:confirmed_duplicate", "подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"))
