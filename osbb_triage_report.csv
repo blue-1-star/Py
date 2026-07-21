@@ -1,0 +1,819 @@
+﻿path,size_kb,category,reason
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,55.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_23-17-38
+cashier_v2_core_before_period_schemafix_2026-06-25_23-17-38.py,55.2,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,53.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_22-19-22
+cashier_v2_core_before_schemafix_2026-06-25_22-19-22.py,53.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+CHECK_guard_sandbox_service_orders.py,15.3,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_guard_sandbox_service_orders.py,15.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_guard_sandbox_service_orders_v2.py,14.1,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_guard_sandbox_service_orders_v2.py,14.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_guard_sandbox_service_orders_v2.py,14.1,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: CHECK_guard_sandbox_service_orders.py"
+CHECK_phone_barrier_access_operational_sandbox.py,2.9,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_phone_barrier_access_operational_sandbox.py,2.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_phone_barrier_access_sandbox_schema.py,3.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_phone_barrier_access_sandbox_schema.py,3.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_profile_button_early_route_fix.py,1.9,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_confirmation_ready_visibility_fix.py,1.1,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_critical_codes_fix.py,1.1,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_parking_time_test_sandbox.py,2.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_parking_time_test_sandbox.py,2.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_profile_test_candidate_apartment_40.py,10.2,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_verification_sandbox.py,2.5,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_profile_verification_sandbox.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+CHECK_profile_verification_terminology_v2.py,2.2,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+CHECK_service_code_compatibility_phone_v2.py,3.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+create_clean_live_sandbox.py,15.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+create_isolated_live_sandbox_v2.py,15.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Development_Conventions.md,0.9,REVIEW:duplicate_doc_name,"файл с именем 'Development_Conventions.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+diagnose_sandbox_charges.py,7.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+find_sandbox_telegram_id.py,5.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+FIX_live_services_sandbox_payment_schema.py,11.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+guard_workspace_preflight_v2.py,13.0,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: guard_workspace_preflight.py"
+INSTALL_PHONE_ACCESS_UI_FIX_v2.bat,0.4,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: INSTALL_PHONE_ACCESS_UI_FIX.bat"
+INSTALL_PHONE_ACCESS_UI_FIX_v2.py,4.1,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: INSTALL_PHONE_ACCESS_UI_FIX.py"
+INSTALL_PHONE_ACCESS_UI_FIX_v3.bat,0.3,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: INSTALL_PHONE_ACCESS_UI_FIX.bat"
+INSTALL_PHONE_ACCESS_UI_FIX_v3.py,3.3,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: INSTALL_PHONE_ACCESS_UI_FIX.py"
+manage_staff_access_v2.py,15.0,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: manage_staff_access.py"
+migrate_operator_audit_log_v2.py,5.1,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: migrate_operator_audit_log.py"
+MIGRATE_phone_barrier_access_operational_sandbox.py,4.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+MIGRATE_phone_barrier_access_sandbox.py,4.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+MIGRATE_profile_parking_time_test_sandbox.py,3.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+MIGRATE_profile_verification_sandbox.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+MIGRATE_simplified_services_sandbox.py,4.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+OSBB_phone_access_ui_fix_v3.zip,16.4,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: OSBB_phone_access_ui_fix.zip"
+OSBB_phone_barrier_access_v2_working_sandbox.zip,57.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+OSBB_profile_parking_time_test_v1_sandbox.zip,25.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+OSBB_profile_verification_v1_sandbox_final.zip,47.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+plate_consensus_report_v3.py,22.0,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: plate_consensus_report.py"
+README_LIVE_SERVICES_SANDBOX.txt,2.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+README_PHONE_ACCESS_FIX_v2.txt,1.6,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: README_PHONE_ACCESS_FIX.txt"
+README_PHONE_ACCESS_FIX_v3.txt,1.8,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: README_PHONE_ACCESS_FIX.txt"
+RETIRE_legacy_new_remote_test_orders_sandbox.py,4.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_guard_sandbox.py,7.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_guard_sandbox_v2.py,7.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_guard_sandbox_v2.py,7.4,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: run_bot_guard_sandbox.py"
+run_bot_guard_sandbox_v3.py,7.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_guard_sandbox_v3.py,7.4,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: run_bot_guard_sandbox.py"
+run_bot_live_services_sandbox_v1.py,33.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_live_service_sandbox_v4.py,8.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+run_bot_sandbox_v2.py,9.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_guard_sandbox_service_orders.bat,0.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_guard_sandbox_service_orders_v2.bat,0.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_guard_sandbox_service_orders_v2.bat,0.8,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: RUN_CHECK_guard_sandbox_service_orders.bat"
+RUN_CHECK_phone_barrier_access_operational_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_phone_barrier_access_sandbox_schema.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_profile_parking_time_test_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_CHECK_profile_verification_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_FIX_live_services_sandbox_payment_schema.bat,1.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_MIGRATE_phone_barrier_access_sandbox.bat,0.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_MIGRATE_profile_parking_time_test_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_MIGRATE_profile_verification_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_MIGRATE_simplified_services_sandbox.bat,0.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat,0.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,33.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-50-39
+service_orders_core_before_safe_payment_policy_2026-06-26_20-50-39.py,33.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Start_OSBB_Guard_Sandbox_Bot_v2.bat,1.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Start_OSBB_Live_Services_Sandbox_Bot_v1.bat,1.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Start_OSBB_Live_Service_Sandbox_Bot.bat,1.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat,1.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-50-39
+Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat,1.1,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Start_OSBB_Live_Service_Sandbox_Bot_before_service_ui_2026-06-26_20-50-39.bat,1.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+STOP_old_guard_sandbox_bots.bat,0.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Bots\db_access - Copy.py,124.1,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,44.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_14-45-08
+Bots\parking_bot_before_cashier_editor_2026-06-25_14-45-08.py,44.8,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_cashier_v2_2026-07-04_12-30-27.py,47.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_12-30-27
+Bots\parking_bot_before_cashier_v2_2026-07-04_12-30-27.py,47.1,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py,42.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_10-25-49
+Bots\parking_bot_before_client_portal_2026-06-25_10-25-49.py,42.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_core_new.py,52.5,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_guard_workspace_2026-07-04_13-01-19.py,47.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_13-01-19
+Bots\parking_bot_before_guard_workspace_2026-07-04_13-01-19.py,47.1,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,44.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_10-45-39
+Bots\parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py,44.7,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,44.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_12-21-29
+Bots\parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py,44.7,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\sandbox_bot.py,15.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Bots\Start_OSBB_Guard_Sandbox_Bot.bat,1.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Bots\Start_OSBB_Guard_Sandbox_Bot_v2.bat,1.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Bots\Start_OSBB_Guard_Sandbox_Bot_v2.bat,1.2,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: Start_OSBB_Guard_Sandbox_Bot.bat"
+Bots\Start_Sandbox_Bot.bat,1.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py,24.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\24А ПОЛНЫЙ СПИСОК Сервис Житлобуд1 - Copy.xlsx,24.1,REVIEW:config_referenced,"путь явно упомянут в config.py (paths.*) — похоже на мусор по имени, но это активный файл проекта; исходное правило: HIGH:manual_copy (похоже на ручную копию (' - Copy' / '_copy'))"
+Data\check_passport_columns.py,1.6,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Docs\Project_Log.md,2.6,REVIEW:duplicate_doc_name,"файл с именем 'Project_Log.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Docs\ROADMAP.md,4.3,REVIEW:duplicate_doc_name,"файл с именем 'ROADMAP.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+KNOWLEDGE\Development_Conventions.md,1.2,REVIEW:duplicate_doc_name,"файл с именем 'Development_Conventions.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+parking_time_test_payload\run_bot_live_services_sandbox_v1.py,33.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py,30.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+profile_verification_payload\run_bot_live_services_sandbox_v1.py,29.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\ADMIN_ACCESS_GRANT_2026-07-04_17-57-37.md,1.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_17-57-37
+Recovered\ADMIN_ACCESS_GRANT_2026-07-04_17-57-37.md,1.1,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.diff,4.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-15-53
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.md,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-15-53
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.md,0.9,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-15-53.patched.py,50.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-15-53
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.diff,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-58-31
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.md,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-58-31
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.md,1.0,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_16-58-31.patched.py,50.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_16-58-31
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.diff,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_17-00-26
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.md,1.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_17-00-26
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.md,1.1,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\parking_bot_service_orders_ui_v2_2026-07-04_17-00-26.patched.py,50.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_17-00-26
+Recovered\parking_bot_user_onboarding_admin_ui_2026-07-06_11-27-50.patched.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_11-27-50
+Recovered\parking_bot_user_onboarding_admin_ui_2026-07-06_11-30-34.patched.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_11-30-34
+Recovered\parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-20.patched.py,52.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-29-20
+Recovered\parking_bot_user_onboarding_admin_ui_v2_2026-07-06_12-29-51.patched.py,52.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-29-51
+Recovered\parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-54-28.patched.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-54-28
+Recovered\parking_bot_user_onboarding_import_fix_v3_2026-07-06_12-55-02.patched.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-55-02
+Recovered\PARKING_OPERATOR_TASK_CANDIDATES_2026-07-05_19-16-03.xlsx,4.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_19-16-03
+Recovered\PARKING_PAYMENTS_REPORT_2026-07-05_12-26-25.xlsx,17.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_12-26-25
+Recovered\PARKING_PAYMENTS_REPORT_2026-07-05_13-31-19.xlsx,18.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_13-31-19
+Recovered\PARKING_REGISTRY_AUDIT_2026-07-05_14-51-06.xlsx,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_14-51-06
+Recovered\PARKING_REGISTRY_REPORT_2026-07-05_14-50-49.xlsx,22.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_14-50-49
+Recovered\PARKING_REGISTRY_REPORT_2026-07-05_15-34-01.xlsx,22.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_15-34-01
+Recovered\PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.md,1.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_21-39-41
+Recovered\PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.md,1.8,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\PROMOTE_PEAK_SERVICE_ORDERS_WORKSPACE_2026-07-03_21-39-41.patch,16.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_21-39-41
+Recovered\RESTORE_RELEASE_TREE_2026-07-03_13-55-38.md,1.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_13-55-38
+Recovered\RESTORE_RELEASE_TREE_2026-07-03_13-55-38.md,1.7,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\RESTORE_ZIP_NAMED_SKELETONS_2026-07-03_10-22-01.md,20.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_10-22-01
+Recovered\RESTORE_ZIP_NAMED_SKELETONS_2026-07-03_10-22-01.md,20.5,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\ROUTE_WIRING_SEARCH_2026-07-03_22-05-21.txt,16.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_22-05-21
+Recovered\SERVICE_ORDERS_WORKSPACE_RANKING_2026-07-03_21-15-47.md,27.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_21-15-47
+Recovered\SERVICE_ORDERS_WORKSPACE_RANKING_2026-07-03_21-15-47.md,27.5,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\TRACE_LAUNCH_CHAIN_2026-07-03_22-44-37.md,393.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-03_22-44-37
+Recovered\TRACE_LAUNCH_CHAIN_2026-07-03_22-44-37.md,393.1,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered_Releases\RELEASE_CATALOG.md,3.2,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+tools\cashier_unpaid_preview_v2.py,9.7,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: cashier_unpaid_preview.py"
+tools\cashier_unpaid_preview_v3.py,22.8,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: cashier_unpaid_preview.py"
+tools\check_service_policy_v1.py,11.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+tools\db_inspector_v3.py,12.5,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: db_inspector.py"
+tools\dump_service_codes_live_sandbox.py,3.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+tools\harvest_lost_features_from_sandboxes.py,17.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+tools\project_passport_v2.py,19.6,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: project_passport.py"
+tools\promote_sandbox_to_training_db.py,6.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+tools\sandbox_switch_admin_apartment.py,11.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+tools\cashier_v2_telegram\cashier_v2_ui - Copy.py,34.0,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+tools\cashier_v2_telegram_p\cashier_card.py,2.9,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\cashier_search.py,15.1,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\cashier_v2_ui.py,27.3,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\CHANGELOG.md,0.5,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\INSTALL.md,0.7,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\MODULE.md,0.3,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\cashier_v2_telegram_p\__init__.py,0.0,HIGH:confirmed_duplicate,"подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"
+tools\user_onboarding\ADMIN_UI_V2.md,0.3,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: ADMIN_UI.md"
+tools\user_onboarding\patch_parking_bot_admin_ui_v2.py,4.4,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: patch_parking_bot_admin_ui.py"
+Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\run_bot_live_service_sandbox_v4.py,8.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_cashier_route_fix\run_bot_live_services_sandbox_v1.py,24.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat,0.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py,5.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\patch_parking_bot_service_orders_v1.py,3.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\README_LIVE_SERVICES_SANDBOX.txt,2.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\run_bot_live_services_sandbox_v1.py,19.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\Start_OSBB_Live_Services_Sandbox_Bot_v1.bat,1.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\STOP_old_guard_sandbox_bots.bat,0.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\CHECK_phone_barrier_access_sandbox_schema.py,3.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\CHECK_phone_barrier_access_sandbox_schema.py,3.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\MIGRATE_phone_barrier_access_sandbox.py,4.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\RUN_CHECK_phone_barrier_access_sandbox_schema.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\RUN_MIGRATE_phone_barrier_access_sandbox.bat,0.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\CHECK_phone_barrier_access_operational_sandbox.py,2.9,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\CHECK_phone_barrier_access_operational_sandbox.py,2.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\INSTALL_phone_barrier_access_v2.py,4.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\MIGRATE_phone_barrier_access_operational_sandbox.py,4.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\README_PHONE_BARRIER_ACCESS_V2.txt,7.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_CHECK_phone_barrier_access_operational_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_INSTALL_phone_barrier_access_v2.bat,0.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\CHECK_profile_verification_terminology_v2.py,2.2,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\CHECK_profile_verification_terminology_v2.py,2.2,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\CHECK_profile_verification_sandbox.py,2.5,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\CHECK_profile_verification_sandbox.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\INSTALL_profile_verification_v1.py,2.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\MIGRATE_profile_verification_sandbox.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\README_PROFILE_VERIFICATION_V1.txt,3.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_CHECK_profile_verification_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_INSTALL_profile_verification_v1.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_MIGRATE_profile_verification_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\MIGRATE_simplified_services_sandbox.py,2.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RETIRE_legacy_new_remote_test_orders_sandbox.py,4.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RUN_MIGRATE_simplified_services_sandbox.bat,0.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat,0.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\CHECK_profile_parking_time_test_sandbox.py,2.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\CHECK_profile_parking_time_test_sandbox.py,2.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\INSTALL_profile_parking_time_test_v1.py,3.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\MIGRATE_profile_parking_time_test_sandbox.py,3.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\README_PROFILE_PARKING_TIME_TEST_V1.txt,4.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_CHECK_profile_parking_time_test_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_INSTALL_profile_parking_time_test_v1.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_MIGRATE_profile_parking_time_test_sandbox.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\profile_parking_time_test_core.py,24.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\run_bot_live_services_sandbox_v1.py,33.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\Bots\handlers\profile_parking_time_test_workspace.py,12.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\profile_verification_core.py,47.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\run_bot_live_services_sandbox_v1.py,29.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\Bots\handlers\profile_verification_workspace.py,27.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\Bots\handlers\service_orders_workspace.py,78.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_profile_button_early_route_fix_v2\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py,30.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\phone_barrier_access_core.py,71.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\phone_barrier_access_service.py,6.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\service_orders_core.py,41.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\service_preorders_core.py,43.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\Bots\handlers\service_orders_workspace.py,73.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\Bots\handlers\service_orders_workspace.py,60.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py,24.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\FILE_HISTORY.tsv,40.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\INDEX.json,134.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\PROJECT_ARCHAEOLOGY_REPORT.md,54.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\PROJECT_ARCHAEOLOGY_REPORT.md,54.7,HIGH:recovered_report,разовый восстановительный/следственный отчёт
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_operational_sandbox\CHECK_phone_barrier_access_operational_sandbox__c22827184b78.py,2.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_operational_sandbox\CHECK_phone_barrier_access_operational_sandbox__c22827184b78.py,2.9,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_operational_sandbox\CHECK_phone_barrier_access_operational_sandbox__c22827184b78.py,2.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_sandbox_schema\CHECK_phone_barrier_access_sandbox_schema__8e4c82b70733.py,3.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_sandbox_schema\CHECK_phone_barrier_access_sandbox_schema__8e4c82b70733.py,3.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_phone_barrier_access_sandbox_schema\CHECK_phone_barrier_access_sandbox_schema__8e4c82b70733.py,3.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_parking_time_test_sandbox\CHECK_profile_parking_time_test_sandbox__55c1f1aa3c66.py,2.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_parking_time_test_sandbox\CHECK_profile_parking_time_test_sandbox__55c1f1aa3c66.py,2.7,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_parking_time_test_sandbox\CHECK_profile_parking_time_test_sandbox__55c1f1aa3c66.py,2.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_sandbox\CHECK_profile_verification_sandbox__73286e2ac2f8.py,2.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_sandbox\CHECK_profile_verification_sandbox__73286e2ac2f8.py,2.5,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_sandbox\CHECK_profile_verification_sandbox__73286e2ac2f8.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_terminology\CHECK_profile_verification_terminology_v2__6229e2c0f296.py,2.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CHECK_profile_verification_terminology\CHECK_profile_verification_terminology_v2__6229e2c0f296.py,2.2,REVIEW:check_script,разовый диагностический скрипт CHECK_*
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\client_portal\client_portal_v3__eebdc5458dfe.py,2.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__08ad806bb35a.bat,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER__1d430f6a292e.py,5.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_cashier_route_after_phone\INSTALL_cashier_route_after_phone_v2__f85eb4c5eadc.py,2.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v2__b43c774e9187.py,4.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v2__baeff943726f.bat,0.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v3__2107d097d9bf.py,3.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX_v3__dfe63e8ed1b4.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_PHONE_ACCESS_UI_FIX\INSTALL_PHONE_ACCESS_UI_FIX__3b67acce637d.bat,1.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_phone_barrier_access\INSTALL_phone_barrier_access_v2__cc07112da7fb.py,4.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_parking_time_test\INSTALL_profile_parking_time_test_v1__352b2a9ffb0c.py,3.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_verification\INSTALL_profile_verification_v1__dfa078d4be84.py,2.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\INSTALL_profile_verification_terminology\INSTALL_profile_verification_terminology_v2__8d84fd006bfe.py,3.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\install_service_orders_ui\install_service_orders_ui__84a6bab32e35.py,12.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_operational_sandbox\MIGRATE_phone_barrier_access_operational_sandbox__488cb403453d.py,4.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_operational_sandbox\MIGRATE_phone_barrier_access_operational_sandbox__488cb403453d.py,4.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_sandbox\MIGRATE_phone_barrier_access_sandbox__81c26d447942.py,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_phone_barrier_access_sandbox\MIGRATE_phone_barrier_access_sandbox__81c26d447942.py,4.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_parking_time_test_sandbox\MIGRATE_profile_parking_time_test_sandbox__57324665edea.py,3.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_parking_time_test_sandbox\MIGRATE_profile_parking_time_test_sandbox__57324665edea.py,3.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_verification_sandbox\MIGRATE_profile_verification_sandbox__5a90e4cb254d.py,2.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_profile_verification_sandbox\MIGRATE_profile_verification_sandbox__5a90e4cb254d.py,2.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\migrate_service_orders_and_fulfillment\migrate_service_orders_and_fulfillment__33ef6dda81b9.py,29.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_simplified_services_sandbox\MIGRATE_simplified_services_sandbox__cb84fbcee38c.py,2.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\MIGRATE_simplified_services_sandbox\MIGRATE_simplified_services_sandbox__cb84fbcee38c.py,2.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders\patch_parking_bot_service_orders_v1__07e623d30310.py,3.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\patch_parking_bot_service_orders_ui\patch_parking_bot_service_orders_ui_v1__b14c6b81aa98.py,11.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_core\phone_barrier_access_core__15aedf505808.py,31.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_core\phone_barrier_access_core__d224426a533a.py,71.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\phone_barrier_access_service\phone_barrier_access_service__de46014418bf.py,6.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_parking_time_test_core\profile_parking_time_test_core__45ab47b5a24a.py,24.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_parking_time_test_workspace\profile_parking_time_test_workspace__6b291a186d03.py,12.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_core\profile_verification_core__68b9c00f27e8.py,47.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_core\profile_verification_core__d06fa33f0c95.py,48.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__131afe386eac.py,29.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__1d8880a95510.py,29.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__82a3853cce89.py,27.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\profile_verification_workspace\profile_verification_workspace__da5c31503fef.py,29.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_CASHIER_ROUTE_FIX\README_CASHIER_ROUTE_FIX__93c2658e1982.txt,1.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_CASHIER_ROUTE_REPAIR_AFTER_PHONE\README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2__2e84dd934a9a.txt,1.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_LIVE_SERVICES_SANDBOX\README_LIVE_SERVICES_SANDBOX__a29d610189b8.txt,2.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_LIVE_SERVICES_SANDBOX\README_LIVE_SERVICES_SANDBOX__a29d610189b8.txt,2.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX_v2__d2903f91fd66.txt,1.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX_v3__56063fdf0ea3.txt,1.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_ACCESS_FIX\README_PHONE_ACCESS_FIX__ccb29bc2e542.txt,3.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_BARRIER_ACCESS\README_PHONE_BARRIER_ACCESS_V2__4e43764d4444.txt,7.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION\README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION__2a65e739ac00.txt,3.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_PARKING_TIME_TEST\README_PROFILE_PARKING_TIME_TEST_V1__4bb8a3b9f380.txt,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_VERIFICATION\README_PROFILE_VERIFICATION_V1__a47a609d98c1.txt,3.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\README_PROFILE_VERIFICATION_TERMINOLOGY\README_PROFILE_VERIFICATION_TERMINOLOGY_V2__6330d6ee7b3c.txt,5.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RETIRE_legacy_new_remote_test_orders_sandbox\RETIRE_legacy_new_remote_test_orders_sandbox__3a3bab1d10c1.py,4.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RETIRE_legacy_new_remote_test_orders_sandbox\RETIRE_legacy_new_remote_test_orders_sandbox__3a3bab1d10c1.py,4.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__1fb99c606cdb.py,19.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__1fb99c606cdb.py,19.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__2c2db2c9c866.py,24.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__2c2db2c9c866.py,24.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__51e635b6958c.py,33.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__51e635b6958c.py,33.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__c79dc72c59c7.py,30.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__c79dc72c59c7.py,30.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__def3aac9ee8e.py,24.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__def3aac9ee8e.py,24.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__f7e5d56ecb68.py,29.6,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_services_sandbox\run_bot_live_services_sandbox_v1__f7e5d56ecb68.py,29.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_service_sandbox\run_bot_live_service_sandbox_v4__49721c32f14f.py,8.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\run_bot_live_service_sandbox\run_bot_live_service_sandbox_v4__49721c32f14f.py,8.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_cashier_route_after_phone\RUN_CHECK_cashier_route_after_phone_v2__f969577e0fd5.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_operational_sandbox\RUN_CHECK_phone_barrier_access_operational_sandbox__9b44a74f9213.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_operational_sandbox\RUN_CHECK_phone_barrier_access_operational_sandbox__9b44a74f9213.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_sandbox_schema\RUN_CHECK_phone_barrier_access_sandbox_schema__a97fd4bbfe96.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_phone_barrier_access_sandbox_schema\RUN_CHECK_phone_barrier_access_sandbox_schema__a97fd4bbfe96.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_parking_time_test_sandbox\RUN_CHECK_profile_parking_time_test_sandbox__c31ddb4ad541.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_parking_time_test_sandbox\RUN_CHECK_profile_parking_time_test_sandbox__c31ddb4ad541.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_verification_sandbox\RUN_CHECK_profile_verification_sandbox__2cb134b9103d.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_verification_sandbox\RUN_CHECK_profile_verification_sandbox__2cb134b9103d.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_CHECK_profile_verification_terminology\RUN_CHECK_profile_verification_terminology_v2__b418d7f618cf.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_cashier_route_after_phone\RUN_INSTALL_cashier_route_after_phone_v2__84a2067849fb.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_phone_barrier_access\RUN_INSTALL_phone_barrier_access_v2__a039f3f3cdad.bat,0.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_parking_time_test\RUN_INSTALL_profile_parking_time_test_v1__2fd5130004bc.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_verification\RUN_INSTALL_profile_verification_v1__576f7f1c4a7a.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_INSTALL_profile_verification_terminology\RUN_INSTALL_profile_verification_terminology_v2__2096a45300d3.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_operational_sandbox\RUN_MIGRATE_phone_barrier_access_operational_sandbox__2d3f6f793934.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_operational_sandbox\RUN_MIGRATE_phone_barrier_access_operational_sandbox__2d3f6f793934.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_sandbox\RUN_MIGRATE_phone_barrier_access_sandbox__df227402f8eb.bat,0.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_phone_barrier_access_sandbox\RUN_MIGRATE_phone_barrier_access_sandbox__df227402f8eb.bat,0.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_parking_time_test_sandbox\RUN_MIGRATE_profile_parking_time_test_sandbox__bd4f5fbc9d3f.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_parking_time_test_sandbox\RUN_MIGRATE_profile_parking_time_test_sandbox__bd4f5fbc9d3f.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_verification_sandbox\RUN_MIGRATE_profile_verification_sandbox__a39817ad0ec1.bat,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_profile_verification_sandbox\RUN_MIGRATE_profile_verification_sandbox__a39817ad0ec1.bat,0.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_simplified_services_sandbox\RUN_MIGRATE_simplified_services_sandbox__4cb3f9a902de.bat,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_MIGRATE_simplified_services_sandbox\RUN_MIGRATE_simplified_services_sandbox__4cb3f9a902de.bat,0.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_RETIRE_legacy_new_remote_test_orders_sandbox\RUN_RETIRE_legacy_new_remote_test_orders_sandbox__55c44a814cc2.bat,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\RUN_RETIRE_legacy_new_remote_test_orders_sandbox\RUN_RETIRE_legacy_new_remote_test_orders_sandbox__55c44a814cc2.bat,0.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__40d5a376767b.py,42.4,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__534d0d3809d3.py,41.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__7c2d3ac6f66f.py,43.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_core\service_orders_core__d425682f5c61.py,33.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_preflight\service_orders_preflight__311f47ab9d65.py,17.1,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__25edbb76c172.py,60.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__3f1176517adf.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__45de989af825.py,61.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__4a6c6966ebd8.py,73.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__4ffcfcc692e5.py,63.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__80a49da46892.py,58.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__9dda2d6de0d3.py,79.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__ee7c1929c0f2.py,78.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_orders_workspace\service_orders_workspace__f28aa0d210f7.py,73.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__687137f41aa7.py,43.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__85eb66d9c36f.py,40.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\service_preorders_core\service_preorders_core__a67ea947627b.py,43.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\Start_OSBB_Live_Services_Sandbox_Bot\Start_OSBB_Live_Services_Sandbox_Bot_v1__9d4301b438ef.bat,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\Start_OSBB_Live_Services_Sandbox_Bot\Start_OSBB_Live_Services_Sandbox_Bot_v1__9d4301b438ef.bat,1.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\STOP_old_guard_sandbox_bots\STOP_old_guard_sandbox_bots__f3c5d6fed754.bat,0.7,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_22-59-35
+Recovered\project_archaeology_2026-07-02_22-59-35\files_by_module\STOP_old_guard_sandbox_bots\STOP_old_guard_sandbox_bots__f3c5d6fed754.bat,0.7,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Docs\Architecture\Finance_Core.md,2.7,REVIEW:duplicate_doc_name,"файл с именем 'Finance_Core.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Docs\Architecture\ADR\ADR-2026-07-19-Finance-Core.md,1.9,REVIEW:duplicate_doc_name,"файл с именем 'ADR-2026-07-19-Finance-Core.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\db\osbb_telegram - Copy.db,36.0,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Data\db\osbb_test - Copy (2).db,2136.0,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Data\db\osbb_test - Copy.db,2108.0,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Data\db\osbb_test_schema_20260710_112003.sql,115.3,HIGH:timestamped_name,штамп времени в пути: 20260710_112003
+Data\db\osbb_test_schema_20260710_112003.txt,257.9,HIGH:timestamped_name,штамп времени в пути: 20260710_112003
+Data\reports\cashier_state\cashier_state_full_2026-07-09_17-14-49.txt,13.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-09_17-14-49
+Data\raw\typed\OSBB_Final_Base - Copy.xlsx,23.9,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Data\exports\audits\bot_admins_report_2026-06-12_19-36-42.txt,1.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-12_19-36-42
+Data\exports\audits\normalization_audit_2026-06-08_22-08-18.txt,4.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-08_22-08-18
+Data\exports\audits\normalization_audit_2026-06-08_22-37-22.txt,4.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-08_22-37-22
+Data\exports\audits\normalization_audit_2026-06-09_10-40-26.txt,4.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-09_10-40-26
+Data\exports\audits\normalization_audit_2026-06-09_10-48-13.txt,3.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-09_10-48-13
+Data\exports\audits\parking_time_hints_from_ohorona_2026-06-11_19-15-43.txt,12.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-11_19-15-43
+Data\exports\audits\parking_time_parse_from_ohorona_2026-06-17_23-18-04.txt,20.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-17_23-18-04
+Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_13-52-15.txt,21.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_13-52-15
+Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_18-18-34.txt,20.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-18-34
+Data\exports\audits\parking_time_parse_from_ohorona_2026-06-18_18-20-15.txt,20.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-20-15
+Data\exports\audits\parking_time_review_tasks_2026-06-11_20-10-50.txt,18.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-11_20-10-50
+Data\exports\audits\parking_time_with_hints_2026-06-11_21-34-42.txt,24.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-11_21-34-42
+Data\exports\audits\plate_candidates_report_2026-06-10_22-24-30.txt,20.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_22-24-30
+Data\exports\audits\plate_candidates_report_2026-06-11_11-02-53.txt,19.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-11_11-02-53
+Data\exports\audits\registry_audit_2026-06-08_17-24-00.txt,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-08_17-24-00
+Data\exports\audits\registry_audit_2026-06-23_17-18-21.txt,4.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_17-18-21
+Data\exports\audits\tbot_quarantine_audit_2026-06-08_19-55-03.txt,30.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-08_19-55-03
+Data\exports\audits\telegram_messages_audit_2026-06-10_13-30-15.txt,14.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_13-30-15
+Data\exports\audits\telegram_remote_facts_report_2026-06-10_14-43-47.txt,101.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_14-43-47
+Data\exports\audits\telegram_vehicle_facts_report_2026-06-10_20-22-27.txt,36.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_20-22-27
+Data\exports\audits\verification_evidence_report_2026-06-10_21-04-35.txt,9.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_21-04-35
+Data\exports\audits\verification_evidence_report_2026-06-10_21-29-11.txt,19.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_21-29-11
+Data\exports\audits\verification_tasks_2026-06-09_11-50-55.txt,18.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-09_11-50-55
+Data\exports\audits\verification_tasks_2026-06-09_12-26-46.txt,18.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-09_12-26-46
+Data\exports\audits\verification_tasks_enriched_2026-06-10_21-57-19.txt,28.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_21-57-19
+Data\exports\billing\billing_reconciliation_report_2026-05_2026-06_2026-06-19_16-15-39.txt,18.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_16-15-39
+Data\exports\billing\billing_statement_2026-05_2026-06_2026-06-20_21-50-05.xlsx,31.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_21-50-05
+Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_apply_2026-06-19_13-39-16.txt,13.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_13-39-16
+Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-18_22-27-14.txt,11.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_22-27-14
+Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_10-25-19.txt,11.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_10-25-19
+Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_11-38-22.txt,12.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_11-38-22
+Data\exports\billing\ohorona_sheet1_payments_2026-05_2026-06_dry_run_2026-06-19_13-23-40.txt,13.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_13-23-40
+Data\exports\billing\parking_billing_statement_2026-05_2026-06_2026-06-19_14-58-20.txt,33.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_14-58-20
+Data\exports\billing\parking_charges_2026-05_2026-06_apply_2026-06-18_18-29-41.txt,9.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-29-41
+Data\exports\billing\parking_charges_2026-05_2026-06_apply_2026-06-18_18-37-17.txt,8.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-37-17
+Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-03.txt,9.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-00-03
+Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-00-39.txt,9.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-00-39
+Data\exports\billing\parking_charges_2026-05_2026-06_dry_run_2026-06-18_18-28-42.txt,9.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-18_18-28-42
+Data\exports\billing\plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-53-33.txt,5.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_14-53-33
+Data\exports\billing\plate_consensus_apply_2026-05_2026-06_apply_2026-06-20_14-58-00.txt,2.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_14-58-00
+Data\exports\billing\plate_consensus_apply_2026-05_2026-06_dry_run_2026-06-20_13-56-20.txt,5.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_13-56-20
+Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_10-32-56.txt,19.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_10-32-56
+Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_11-06-58.txt,19.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_11-06-58
+Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_11-34-47.txt,23.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_11-34-47
+Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_13-29-26.txt,23.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_13-29-26
+Data\exports\billing\plate_consensus_report_2026-05_2026-06_2026-06-20_14-54-33.txt,12.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_14-54-33
+Data\exports\billing\plate_consensus_top_ties_2026-05_2026-06_2026-06-20_11-44-04.txt,4.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_11-44-04
+Data\exports\billing\vehicle_data_quality_tasks_2026-05_2026-06_2026-06-19_17-06-59.txt,4.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_17-06-59
+Data\exports\billing\vehicle_verification_tasks_2026-05_2026-06_2026-06-19_17-52-55.txt,41.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-19_17-52-55
+Data\exports\cashier\cashier_operator_migration_2026-06-25_14-43-23.txt,2.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_14-43-23
+Data\exports\cashier\cashier_operator_migration_2026-06-25_14-43-41.txt,2.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_14-43-41
+Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.csv,13.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-01-16
+Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.txt,4.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-01-16
+Data\exports\cashier\cashier_payments_audit_2026-05_2026-06_2026-06-28_15-01-16.xlsx,37.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-01-16
+Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.csv,6.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_14-46-09
+Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.txt,8.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_14-46-09
+Data\exports\cashier\cashier_unpaid_2026-05_2026-06_2026-06-28_14-46-09.xlsx,17.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_14-46-09
+Data\exports\cashier\cashier_v2_migration_2026-06-25_17-56-05.txt,1.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_17-56-05
+Data\exports\cashier\ohorona_cashbox_backfill_apply_2026-06-22_20-55-57.txt,8.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_20-55-57
+Data\exports\cashier\ohorona_cashbox_backfill_dry_run_2026-06-22_20-33-08.txt,10.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_20-33-08
+Data\exports\cashier\ohorona_cashbox_backfill_dry_run_2026-06-22_20-41-34.txt,8.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_20-41-34
+Data\exports\cashier\ohorona_list1_central_apply_2026-06-22_22-53-00.txt,9.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_22-53-00
+Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-31-21.txt,8.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_22-31-21
+Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-36-41.txt,8.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_22-36-41
+Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-41-45.txt,9.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_22-41-45
+Data\exports\cashier\ohorona_list1_central_dry_run_2026-06-22_22-48-20.txt,9.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_22-48-20
+Data\exports\cashier\service_catalog_cleanup_2026-06-22_16-17-39.txt,1.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_16-17-39
+Data\exports\cashier\service_catalog_cleanup_2026-06-22_20-05-21.txt,1.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_20-05-21
+Data\exports\cashier\service_catalog_cleanup_2026-06-22_20-07-25.txt,2.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-22_20-07-25
+Data\exports\code\code_search_2026-06-28_15-20-58.txt,1028.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-20-58
+Data\exports\code\service_access_policy_integration_points_2026-06-29_11-54-53.txt,50.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_11-54-53
+Data\exports\code\service_access_policy_integration_points_2026-06-29_16-54-26.txt,51.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_16-54-26
+Data\exports\code_passport\remote_gate_sources_2026-06-28_16-59-59.txt,119.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-59-59
+Data\exports\commercial\commercial_contract_core_2026-06-24_12-27-30.txt,2.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_12-27-30
+Data\exports\commercial\commercial_contract_core_2026-06-24_12-30-30.txt,2.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_12-30-30
+Data\exports\commercial\commercial_notification_queue_2026-06-24_dry_run_2026-06-24_12-32-13.txt,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_12-32-13
+Data\exports\db_rank\after_promote_epoch_archaeology.md,105.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_rank\after_promote_release_candidate.md,99.8,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_rank\LOST_FEATURES_FROM_SANDBOXES.md,7.1,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_rank\LOST_FEATURES_FROM_SANDBOXES.md,7.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\exports\db_rank\project_epoch_archaeology.md,99.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_rank\PROMOTE_SANDBOX_TO_TRAINING_DB.md,1.2,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_rank\PROMOTE_SANDBOX_TO_TRAINING_DB.md,1.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\exports\db_rank\release_candidate_selection.md,91.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\debt_policy\debt_policy_matrix_preview_2026-06-28_20-23-44.csv,2.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_20-23-44
+Data\exports\debt_policy\debt_policy_matrix_preview_2026-06-28_20-23-44.txt,3.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_20-23-44
+Data\exports\debt_policy\service_codes_live_sandbox.txt,22.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\exports\diagnostics\audit_diagnostic_2026-06-24_20-17-19.txt,3.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_20-17-19
+Data\exports\git\RELEASE_NOTES_since_osbb_test_db.md,115.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\reflection\OSBB_SELF_REFLECTION_2026_H1.md,9.1,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\remotes\remote_requests_migration_2026-06-25_10-23-49.txt,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_10-23-49
+Data\exports\remotes\remote_requests_migration_2026-06-25_10-24-18.txt,0.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_10-24-18
+Data\exports\remotes\remote_requests_migration_2026-06-25_11-42-17.txt,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_11-42-17
+Data\exports\remotes\remote_requests_migration_2026-06-25_12-05-57.txt,0.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_12-05-57
+Data\exports\schema\schema_compare_2026-06-28_13-09-32.txt,34.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_13-09-32
+Data\exports\schema\schema_snapshot_test_2026-06-28_14-30-02.txt,193.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_14-30-02
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_18-29-47.txt,3.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_18-29-47
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.txt,3.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_19-28-09
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_19-28-09.xlsx,7.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_19-28-09
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.txt,3.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-31-27
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-31-27.xlsx,7.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-31-27
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.txt,3.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-55-37
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-55-37.xlsx,8.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-55-37
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.txt,3.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-56-14
+Data\exports\supervisor\supervisor_dashboard_2026-05_2026-06_2026-06-20_20-56-14.xlsx,8.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-20_20-56-14
+Data\exports\telegram\osbb_included_peers_2026-06-10_13-11-22.txt,14.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_13-11-22
+Data\exports\telegram\telegram_dialogs_2026-06-10_12-18-25.txt,127.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-10_12-18-25
+Data\exports\units\commercial_unit_placeholders_2026-06-24_10-48-47.txt,1.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_10-48-47
+Data\exports\units\commercial_unit_placeholders_2026-06-24_10-49-12.txt,1.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-24_10-49-12
+Data\exports\units\composite_unit_inventory_2026-06-23_17-20-07.csv,1.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_17-20-07
+Data\exports\units\composite_unit_inventory_2026-06-23_17-20-07.txt,5.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_17-20-07
+Data\exports\units\unit_registry_aliases_2026-06-23_16-09-28.txt,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_16-09-28
+Data\exports\units\unit_registry_composite_groups_2026-06-23_17-36-23.txt,1.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_17-36-23
+Data\exports\units\unit_registry_composite_groups_2026-06-23_17-40-54.txt,1.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-23_17-40-54
+Data\exports\users\apartment_link_requests_migration_2026-06-25_11-42-33.txt,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_11-42-33
+Data\exports\users\apartment_link_requests_migration_2026-06-25_12-07-06.txt,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_12-07-06
+Data\exports\users\restore_resident_link_2026-06-25_12-51-41.txt,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_12-51-41
+Data\exports\users\restore_resident_link_2026-06-25_12-52-09.txt,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_12-52-09
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\01_schema.txt,1.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\02_columns.csv,0.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\03_indexes.csv,0.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\04_foreign_keys.csv,0.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\05_code_references.csv,243.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\06_service_code_usage.csv,3.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\07_sample_rows.csv,4.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\08_distinct_values.txt,3.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\09_code_references_by_kind.txt,128.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\10_architecture_notes.md,1.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\10_architecture_notes.md,1.4,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\db_passports\service_catalog\gold_2026-06-28_22-23-17\passport_summary.txt,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_22-23-17
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\00_Project.md,5.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\00_Project.md,5.6,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\00_Project.md,5.6,REVIEW:duplicate_doc_name,"файл с именем '00_Project.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\01_File_System.md,35.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\01_File_System.md,35.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\01_File_System.md,35.9,REVIEW:duplicate_doc_name,"файл с именем '01_File_System.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\02_Modules.md,77.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\02_Modules.md,77.8,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\02_Modules.md,77.8,REVIEW:duplicate_doc_name,"файл с именем '02_Modules.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\03_Technical_Debt.md,2.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\03_Technical_Debt.md,2.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\03_Technical_Debt.md,2.9,REVIEW:duplicate_doc_name,"файл с именем '03_Technical_Debt.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\04_DB_Table_References.md,841.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\04_DB_Table_References.md,841.3,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\04_DB_Table_References.md,841.3,REVIEW:duplicate_doc_name,"файл с именем '04_DB_Table_References.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\summary.json,0.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\00_Project.md,5.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\00_Project.md,5.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\00_Project.md,5.9,REVIEW:duplicate_doc_name,"файл с именем '00_Project.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\01_File_System.md,24.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\01_File_System.md,24.4,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\01_File_System.md,24.4,REVIEW:duplicate_doc_name,"файл с именем '01_File_System.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\02_Modules.md,70.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\02_Modules.md,70.5,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\02_Modules.md,70.5,REVIEW:duplicate_doc_name,"файл с именем '02_Modules.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\03_Technical_Debt.md,3.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\03_Technical_Debt.md,3.1,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\03_Technical_Debt.md,3.1,REVIEW:duplicate_doc_name,"файл с именем '03_Technical_Debt.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\04_DB_Table_References.md,445.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\04_DB_Table_References.md,445.5,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\04_DB_Table_References.md,445.5,REVIEW:duplicate_doc_name,"файл с именем '04_DB_Table_References.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\summary.json,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\00_Project_v3.md,5.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\00_Project_v3.md,5.8,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\05_Entrypoints.md,36.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\05_Entrypoints.md,36.2,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\06_Active_Candidates.md,16.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\06_Active_Candidates.md,16.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\07_Legacy_Backups.md,3.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\07_Legacy_Backups.md,3.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\08_Bot_Handlers.md,2.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\08_Bot_Handlers.md,2.6,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\09_Remote_Access_Service_Modules.md,27.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\09_Remote_Access_Service_Modules.md,27.8,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\10_Code_Risk_Summary.md,4.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\10_Code_Risk_Summary.md,4.6,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\summary.json,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\00_Runtime_Schema_Audit.md,0.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\00_Runtime_Schema_Audit.md,0.9,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\01_Strict_Entrypoints.md,16.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\01_Strict_Entrypoints.md,16.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\02_Runtime_Import_Closure.md,0.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\02_Runtime_Import_Closure.md,0.1,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\03_Missing_Tables_From_Code.md,62.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\03_Missing_Tables_From_Code.md,62.5,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\04_Remote_Access_Modules.md,15.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\04_Remote_Access_Modules.md,15.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\05_Debt_Gate_Candidates.md,131.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\05_Debt_Gate_Candidates.md,131.7,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\summary.json,0.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\00_Remote_Debt_Gate_Audit.md,32.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\00_Remote_Debt_Gate_Audit.md,32.3,HIGH:generated_doc_export,авто-сгенерированный отчёт в Data/exports/...
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\summary.json,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\candidate_lines.csv,110.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\db_status.csv,0.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\files_scanned.csv,4.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\remote_debt_gate_audit_2026-06-28_16-48-56\inventory\functions_remote_debt_scan.csv,66.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_16-48-56
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\db_table_refs.csv,840.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\debt_gate_candidates.csv,464.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\missing_tables_from_code.csv,56.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\remote_access_modules.csv,11.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\runtime_import_edges.csv,0.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\runtime_import_nodes.csv,0.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v4_2026-06-28_15-56-10\inventory\strict_entrypoints.csv,13.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-56-10
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\entrypoints.csv,26.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\files_classified.csv,59.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\functions.csv,262.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\import_edges.csv,217.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v3_2026-06-28_15-51-11\inventory\python_modules_classified.csv,50.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-51-11
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\classes.csv,1.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\db_table_refs.csv,796.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\files.csv,25.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\functions.csv,441.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\imports.csv,143.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\modules.csv,49.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_v2_2026-06-28_15-35-59\inventory\todos.csv,2.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-35-59
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\classes.csv,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\db_table_refs.csv,1761.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\files.csv,41.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\functions.csv,546.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\imports.csv,172.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\modules.csv,55.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\exports\code_passport\project_passport_2026-06-28_15-31-05\inventory\todos.csv,2.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_15-31-05
+Data\db\backups\osbb_test_before_cashier.db,2100.0,HIGH:backup_folder,внутри папки backups/: Data\db\backups\osbb_test_before_cashier.db
+Data\db\backups\osbb_test_before_cashier.db,2100.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\backups\osbb_test_before_cashier.db,2100.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db,2032.0,HIGH:backup_folder,внутри папки backups/: Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db
+Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db,2032.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-01_13-49-23
+Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db,2032.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\backups\osbb_test_before_grant_admin_2026-07-01_13-49-23.db,2032.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db,1300.0,HIGH:backup_folder,внутри папки backups/: Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db
+Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db,1300.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-01_12-41-42
+Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db,1300.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\backups\osbb_test_before_promote_live_services_2026-07-01_12-41-42.db,1300.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db,1300.0,HIGH:backup_folder,внутри папки backups/: Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db
+Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db,1300.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_18-32-29
+Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db,1300.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\backups\osbb_test_before_remote_debt_gate_fixture_2026-06-28_18-32-29.db,1300.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\logs\actual_service_order_state_20260627_115724.txt,9.5,HIGH:timestamped_name,штамп времени в пути: 20260627_115724
+Data\db\logs\actual_service_order_state_20260704_142150.txt,131.6,HIGH:timestamped_name,штамп времени в пути: 20260704_142150
+Data\db\logs\actual_service_order_state_20260704_142648.txt,131.6,HIGH:timestamped_name,штамп времени в пути: 20260704_142648
+Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114522.txt,1.1,HIGH:timestamped_name,штамп времени в пути: 20260627_114522
+Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114522.txt,1.1,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114911.txt,1.2,HIGH:timestamped_name,штамп времени в пути: 20260627_114911
+Data\db\logs\guard_sandbox_service_orders_diagnosis_20260627_114911.txt,1.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\logs\guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt,26.3,HIGH:timestamped_name,штамп времени в пути: 20260627_115123
+Data\db\logs\guard_sandbox_service_orders_diagnosis_v2_20260627_115123.txt,26.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\logs\live_services_payment_schema_fix_20260627_122549.txt,1.0,HIGH:timestamped_name,штамп времени в пути: 20260627_122549
+Data\db\logs\phone_barrier_access_operational_migration_2026-06-27_19-38-08.txt,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-38-08
+Data\db\logs\phone_barrier_access_schema_migration_2026-06-27_19-16-27.txt,1.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-16-27
+Data\db\logs\profile_parking_time_test_migration_2026-06-28_12-12-37.txt,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_12-12-37
+Data\db\logs\profile_verification_migration_2026-06-27_20-52-07.txt,1.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-52-07
+Data\db\logs\simplified_services_migration_2026-06-27_14-10-45.txt,0.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_14-10-45
+Data\db\sandbox\cashier_v2_preflight_2026-06-25_18-53-50.txt,2.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_18-53-50
+Data\db\sandbox\cashier_v2_preflight_2026-06-25_18-53-50.txt,2.4,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\cashier_v2_preflight_compat_2026-06-25_19-47-09.txt,2.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_19-47-09
+Data\db\sandbox\cashier_v2_preflight_compat_2026-06-25_19-47-09.txt,2.2,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\clean_live_sandbox_2026-06-26_20-13-26.txt,4.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\clean_live_sandbox_2026-06-26_20-13-26.txt,4.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-39-50.txt,2.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_12-39-50
+Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-39-50.txt,2.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-56-09.txt,2.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_12-56-09
+Data\db\sandbox\guard_workspace_preflight_2026-06-26_12-56-09.txt,2.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db,1300.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_18-53-50
+Data\db\sandbox\osbb_test_cashier_v2_check_2026-06-25_18-53-50.db,1300.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db,1316.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_19-47-09
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09.db,1316.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db,1400.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_19-47-09
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-39-50.db,1400.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db,1408.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_19-47-09
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09.db,1408.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db,1556.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-25_19-47-09
+Data\db\sandbox\osbb_test_cashier_v2_compat_check_2026-06-25_19-47-09_guard_check_2026-06-26_12-56-09_service_orders_check_2026-06-26_19-42-50.db,1556.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db,2032.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\osbb_test_live_services_2026-06-26_20-13-26.db,2032.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\service_orders_preflight_2026-06-26_19-42-50.txt,1.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_19-42-50
+Data\db\sandbox\service_orders_preflight_2026-06-26_19-42-50.txt,1.8,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.db,2032.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_17-18-39
+Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.manifest.json,1.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_17-18-39
+Data\db\working\osbb_working_pult_order_test_2026-07-02_17-18-39.README.md,0.8,HIGH:timestamped_name,штамп времени в пути: 2026-07-02_17-18-39
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db,1560.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db,1560.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db,1560.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db,1560.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_payment_schema_fix_20260627_122548.db,1560.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db,1976.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db,1976.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db,1976.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db,1976.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_access_foundation_v1_2026-06-29_19-11-48.db,1976.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db,1808.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db,1808.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db,1808.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db,1808.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_operational_2026-06-27_19-38-08.db,1808.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db,1640.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db,1640.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db,1640.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db,1640.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_phone_barrier_access_schema_2026-06-27_19-16-27.db,1640.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db,1936.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db,1936.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db,1936.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db,1936.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_parking_time_test_2026-06-28_12-12-37.db,1936.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db,1868.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db,1868.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db,1868.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db,1868.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_profile_verification_2026-06-27_20-52-07.db,1868.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db,1568.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db,1568.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db,1568.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db,1568.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_retire_legacy_new_remote_tests_2026-06-27_13-31-55.db,1568.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db,1976.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db,1976.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db,1976.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db,1976.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_catalog_v2_policy_2026-06-29_11-05-08.db,1976.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db,1556.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db,1556.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db,1556.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db,1556.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_service_operator_permissions_2026-06-27_12-18-22.db,1556.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db,1568.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db,1568.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db,1568.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db,1568.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_13-32-32.db,1568.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db,1568.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db,1568.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db,1568.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db,1568.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_services_2026-06-27_14-10-45.db,1568.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db,1624.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db,1624.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db,1624.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db,1624.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_simplified_service_permissions_2026-06-27_16-08-06.db,1624.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db,2032.0,HIGH:backup_folder,внутри папки backups/: Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db,2032.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_20-13-26
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db,2032.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db,2032.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\db\sandbox\backups\osbb_test_live_services_2026-06-26_20-13-26_before_switch_admin_apartment_2026-06-29_22-15-07.db,2032.0,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db,2080.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db
+Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db,2080.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_19-42-04
+Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db,2080.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_access_control_schema_2026-07-06_19-42-04.db,2080.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db,2088.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db
+Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db,2088.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_19-55-45
+Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db,2088.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_access_control_schema_v2_2026-07-06_19-55-45.db,2088.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db,2108.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db
+Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db,2108.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-10_17-04-32
+Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db,2108.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_payment_cleanup_2026-07-10_17-04-32.db,2108.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db,2116.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db
+Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db,2116.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-10_17-07-13
+Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db,2116.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_payment_cleanup_2026-07-10_17-07-13.db,2116.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db,2116.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db
+Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db,2116.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-10_21-46-19
+Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db,2116.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_payment_cleanup_2026-07-10_21-46-19.db,2116.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db,2032.0,HIGH:backup_folder,внутри папки backups/: Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db
+Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db,2032.0,HIGH:timestamped_name,штамп времени в пути: 2026-07-05_22-02-47
+Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db,2032.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Data\backups\db\before_user_onboarding_schema_2026-07-05_22-02-47.db,2032.0,HIGH:db_backup,снапшот базы данных внутри backups/
+Data\backups\source_patches\phone_access_policy_ux_bridge_v1_2026-06-29_17-34-34\service_orders_workspace.py,81.5,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\phone_access_policy_ux_bridge_v1_2026-06-29_17-34-34\service_orders_workspace.py
+Data\backups\source_patches\phone_access_policy_ux_bridge_v1_2026-06-29_17-34-34\service_orders_workspace.py,81.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_17-34-34
+Data\backups\source_patches\phone_barrier_access_service_policy_v1_2026-06-29_23-12-24\phone_barrier_access_service.py,6.4,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\phone_barrier_access_service_policy_v1_2026-06-29_23-12-24\phone_barrier_access_service.py
+Data\backups\source_patches\phone_barrier_access_service_policy_v1_2026-06-29_23-12-24\phone_barrier_access_service.py,6.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_23-12-24
+Data\backups\source_patches\service_orders_core_access_policy_v1_2026-06-29_13-48-47\service_orders_core.py,43.9,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\service_orders_core_access_policy_v1_2026-06-29_13-48-47\service_orders_core.py
+Data\backups\source_patches\service_orders_core_access_policy_v1_2026-06-29_13-48-47\service_orders_core.py,43.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_13-48-47
+Data\backups\source_patches\service_orders_workspace_policy_ux_v1_2026-06-29_15-57-36\service_orders_workspace.py,79.0,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\service_orders_workspace_policy_ux_v1_2026-06-29_15-57-36\service_orders_workspace.py
+Data\backups\source_patches\service_orders_workspace_policy_ux_v1_2026-06-29_15-57-36\service_orders_workspace.py,79.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-29_15-57-36
+Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\client_portal.py,90.6,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\client_portal.py
+Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\client_portal.py,90.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_17-41-41
+Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\guard_workspace.py,41.3,HIGH:backup_folder,внутри папки backups/: Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\guard_workspace.py
+Data\backups\source_patches\remote_debt_gate_v1_2026-06-28_17-41-41\Bots\handlers\guard_workspace.py,41.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_17-41-41
+Data\backups\source_code\before_service_orders_ui_v2_2026-07-04_17-00-26\parking_bot.py,48.9,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\before_service_orders_ui_v2_2026-07-04_17-00-26\parking_bot.py
+Data\backups\source_code\before_service_orders_ui_v2_2026-07-04_17-00-26\parking_bot.py,48.9,HIGH:timestamped_name,штамп времени в пути: 2026-07-04_17-00-26
+Data\backups\source_code\before_user_onboarding_admin_ui_2026-07-06_11-30-36\parking_bot.py,50.5,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\before_user_onboarding_admin_ui_2026-07-06_11-30-36\parking_bot.py
+Data\backups\source_code\before_user_onboarding_admin_ui_2026-07-06_11-30-36\parking_bot.py,50.5,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_11-30-36
+Data\backups\source_code\before_user_onboarding_admin_ui_v2_2026-07-06_12-29-51\parking_bot.py,52.3,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\before_user_onboarding_admin_ui_v2_2026-07-06_12-29-51\parking_bot.py
+Data\backups\source_code\before_user_onboarding_admin_ui_v2_2026-07-06_12-29-51\parking_bot.py,52.3,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-29-51
+Data\backups\source_code\before_user_onboarding_import_fix_2026-07-06_12-55-02\parking_bot.py,52.2,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\before_user_onboarding_import_fix_2026-07-06_12-55-02\parking_bot.py
+Data\backups\source_code\before_user_onboarding_import_fix_2026-07-06_12-55-02\parking_bot.py,52.2,HIGH:timestamped_name,штамп времени в пути: 2026-07-06_12-55-02
+Data\backups\source_code\cashier_route_repair_2026-06-27_20-04-49\run_bot_live_services_sandbox_v1.py,24.3,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\cashier_route_repair_2026-06-27_20-04-49\run_bot_live_services_sandbox_v1.py
+Data\backups\source_code\cashier_route_repair_2026-06-27_20-04-49\run_bot_live_services_sandbox_v1.py,24.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-04-49
+Data\backups\source_code\cashier_route_repair_2026-06-27_20-04-49\run_bot_live_services_sandbox_v1.py,24.3,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\backups\source_code\parking_time_test_v1_2026-06-28_12-12-01\run_bot_live_services_sandbox_v1.py,30.9,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\parking_time_test_v1_2026-06-28_12-12-01\run_bot_live_services_sandbox_v1.py
+Data\backups\source_code\parking_time_test_v1_2026-06-28_12-12-01\run_bot_live_services_sandbox_v1.py,30.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-28_12-12-01
+Data\backups\source_code\parking_time_test_v1_2026-06-28_12-12-01\run_bot_live_services_sandbox_v1.py,30.9,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py,31.7,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\phone_barrier_access_core.py,31.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-37-24
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_orders_core.py,42.4,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_orders_core.py
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_orders_core.py,42.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-37-24
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_preorders_core.py,40.3,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_preorders_core.py
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\service_preorders_core.py,40.3,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-37-24
+Data\backups\source_code\profile_button_early_route_2026-06-27_21-33-50\run_bot_live_services_sandbox_v1.py,29.6,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_button_early_route_2026-06-27_21-33-50\run_bot_live_services_sandbox_v1.py
+Data\backups\source_code\profile_button_early_route_2026-06-27_21-33-50\run_bot_live_services_sandbox_v1.py,29.6,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-33-50
+Data\backups\source_code\profile_button_early_route_2026-06-27_21-33-50\run_bot_live_services_sandbox_v1.py,29.6,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\backups\source_code\profile_confirmation_ready_visibility_2026-06-27_21-55-54\profile_verification_workspace.py,29.4,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_confirmation_ready_visibility_2026-06-27_21-55-54\profile_verification_workspace.py
+Data\backups\source_code\profile_confirmation_ready_visibility_2026-06-27_21-55-54\profile_verification_workspace.py,29.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-55-54
+Data\backups\source_code\profile_critical_codes_fix_2026-06-27_21-47-24\profile_verification_workspace.py,29.2,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_critical_codes_fix_2026-06-27_21-47-24\profile_verification_workspace.py
+Data\backups\source_code\profile_critical_codes_fix_2026-06-27_21-47-24\profile_verification_workspace.py,29.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-47-24
+Data\backups\source_code\profile_verification_2026-06-27_20-51-33\run_bot_live_services_sandbox_v1.py,24.5,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_verification_2026-06-27_20-51-33\run_bot_live_services_sandbox_v1.py
+Data\backups\source_code\profile_verification_2026-06-27_20-51-33\run_bot_live_services_sandbox_v1.py,24.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-51-33
+Data\backups\source_code\profile_verification_2026-06-27_20-51-33\run_bot_live_services_sandbox_v1.py,24.5,REVIEW:sandbox_name,в пути встречается 'sandbox'
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\profile_verification_core.py,47.2,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\profile_verification_core.py
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\profile_verification_core.py,47.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-23-44
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py,41.5,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_orders_core.py,41.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-20-03
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py,43.0,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\service_preorders_core.py,43.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-20-03
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\Bots\handlers\service_orders_workspace.py,73.2,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\Bots\handlers\service_orders_workspace.py
+Data\backups\source_code\service_code_compatibility_2026-06-27_20-20-03\Bots\handlers\service_orders_workspace.py,73.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-20-03
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\profile_verification_workspace.py,27.1,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\profile_verification_workspace.py
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\profile_verification_workspace.py,27.1,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-23-44
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\service_orders_workspace.py,78.7,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\service_orders_workspace.py
+Data\backups\source_code\profile_verification_terminology_v2_2026-06-27_21-23-44\Bots\handlers\service_orders_workspace.py,78.7,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_21-23-44
+Data\backups\source_code\profile_verification_2026-06-27_20-51-33\Bots\handlers\service_orders_workspace.py,73.9,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\profile_verification_2026-06-27_20-51-33\Bots\handlers\service_orders_workspace.py
+Data\backups\source_code\profile_verification_2026-06-27_20-51-33\Bots\handlers\service_orders_workspace.py,73.9,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_20-51-33
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\Bots\handlers\service_orders_workspace.py,63.5,HIGH:backup_folder,внутри папки backups/: Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\Bots\handlers\service_orders_workspace.py
+Data\backups\source_code\phone_barrier_access_v2_2026-06-27_19-37-24\Bots\handlers\service_orders_workspace.py,63.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_19-37-24
+Bots\backups\parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py,45.4,HIGH:backup_folder,внутри папки backups/: Bots\backups\parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py
+Bots\backups\parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py,45.4,HIGH:timestamped_name,штамп времени в пути: 2026-06-30_20-24-15
+Bots\backups\parking_bot_before_admin_access_v1_2026-06-30_20-24-15.py,45.4,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\agreement - Copy.py,17.0,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Bots\handlers\audit_viewer - Copy.py,6.4,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Bots\handlers\cashier_operator_v2.py,44.6,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: cashier_operator.py"
+Bots\handlers\client_portal_v2.py,28.5,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v2), и рядом существует файл без суффикса: client_portal.py"
+Bots\handlers\client_portal_v3.py,2.8,REVIEW:versioned_duplicate,"есть версия с суффиксом (_v3), и рядом существует файл без суффикса: client_portal.py"
+Bots\handlers\guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,39.2,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_16-25-02
+Bots\handlers\guard_workspace_before_default_cash_note_2026-06-26_16-25-02.py,39.2,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,40.8,HIGH:timestamped_name,штамп времени в пути: 2026-06-26_18-28-39
+Bots\handlers\guard_workspace_before_direct_notice_confirm_2026-06-26_18-28-39.py,40.8,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09,61.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_16-47-09
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-47-09,61.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29,61.0,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_16-52-29
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_2026-06-27_16-52-29,61.0,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40,63.5,HIGH:timestamped_name,штамп времени в пути: 2026-06-27_17-22-40
+Bots\handlers\service_orders_workspace.py.before_phone_access_ui_fix_v3_2026-06-27_17-22-40,63.5,HIGH:before_prefix,содержит 'before_' (снимок до правки)
+Bots\handlers\unit_registry_editor - Copy.py,34.8,HIGH:manual_copy,похоже на ручную копию (' - Copy' / '_copy')
+Bots\handlers\vehicle_card_editor_prev.py,18.9,REVIEW:variant_suffix,похоже на вариант/дубль базового модуля: vehicle_card_editor
+.doc_installer_backups\20260719-210858-990797\Docs\Project_Log.md,1.3,REVIEW:duplicate_doc_name,"файл с именем 'Project_Log.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+.doc_installer_backups\20260719-210858-984267\Docs\ROADMAP.md,3.1,REVIEW:duplicate_doc_name,"файл с именем 'ROADMAP.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+.doc_installer_backups\20260719-210858-976962\Docs\Architecture\ADR\ADR-2026-07-19-Finance-Core.md,5.2,REVIEW:duplicate_doc_name,"файл с именем 'ADR-2026-07-19-Finance-Core.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"
+.doc_installer_backups\20260719-210856-761970\Docs\Architecture\Finance_Core.md,2.2,REVIEW:duplicate_doc_name,"файл с именем 'Finance_Core.md' встречается в нескольких папках проекта — возможен конфликт содержимого, а не просто дубль (проверьте вручную)"

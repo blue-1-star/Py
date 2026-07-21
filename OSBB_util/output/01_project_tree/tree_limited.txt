@@ -67,19 +67,21 @@
 │   │   ├── vehicle_verification.MODULE.md
 │   │   └── vehicle_verification.py
 │   ├── hello.py
-│   ├── parking_bot - Copy.py
 │   ├── parking_bot.py
 │   ├── parking_bot_before_cashier_editor_2026-06-25_14-45-08.py
 │   ├── parking_bot_before_cashier_v2_2026-07-04_12-30-27.py
 │   ├── parking_bot_before_client_portal_2026-06-25_10-25-49.py
+│   ├── parking_bot_before_core_new.py
 │   ├── parking_bot_before_guard_workspace_2026-07-04_13-01-19.py
 │   ├── parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py
 │   ├── parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py
+│   ├── sandbox_bot.py
 │   ├── Start_OSBB_Bot.bat
 │   ├── Start_OSBB_Bot_training_vika.bat
 │   ├── Start_OSBB_Bot_working_pult_test.bat
 │   ├── Start_OSBB_Guard_Sandbox_Bot.bat
-│   └── Start_OSBB_Guard_Sandbox_Bot_v2.bat
+│   ├── Start_OSBB_Guard_Sandbox_Bot_v2.bat
+│   └── Start_Sandbox_Bot.bat
 ├── build_plate_candidates.py
 ├── build_plate_evidence_by_digits_and_apartment.py
 ├── build_plate_evidence_from_telegram.py
@@ -111,6 +113,21 @@
 ├── Collect_word_tables.py
 ├── commercial_contracts.py
 ├── commercial_notification_delivery.py
+├── core_new/
+│   ├── __init__.py
+│   ├── adapters/
+│   │   ├── __init__.py
+│   │   ├── cashier_adapter.py
+│   │   └── db_adapter.py
+│   └── domain/
+│       ├── __init__.py
+│       ├── apartments.py
+│       ├── cashbox.py
+│       ├── payments.py
+│       ├── residents.py
+│       ├── service_catalog.py
+│       ├── vehicle_candidate.py
+│       └── vehicles.py
 ├── create_clean_live_sandbox.py
 ├── create_isolated_live_sandbox_v2.py
 ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat
@@ -222,6 +239,7 @@
 │   │   ├── osbb_quarantine.db
 │   │   ├── osbb_telegram - Copy.db
 │   │   ├── osbb_telegram.db
+│   │   ├── osbb_test - Copy (2).db
 │   │   ├── osbb_test - Copy.db
 │   │   ├── osbb_test.db
 │   │   ├── osbb_test.sqbpro
@@ -556,17 +574,46 @@
 ├── diagnose_sandbox_charges.py
 ├── Docs/
 │   ├── Architecture/
+│   │   ├── ADR/
+│   │   │   └── ADR-2026-07-19-Finance-Core.md
 │   │   ├── ADR-2026-07-01-resident-identity-refactor.md
+│   │   ├── ADR-2026-07-13-core-new-layer.md
+│   │   ├── ADR-2026-07-13-domain-models.md
+│   │   ├── ADR-2026-07-14-core_new-analysis.md
+│   │   ├── ADR-2026-07-14-vehicle-candidate.md
+│   │   ├── Finance_Core.md
 │   │   └── Services/
 │   │       ├── business_policy_layer_v1_design.md
 │   │       ├── service_catalog_v2_design.md
 │   │       └── service_catalog_v2_design_approved_updates.md
+│   ├── Changelog/
+│   │   └── CHANGELOG_core_new.md
+│   ├── Code/
+│   ├── Database/
+│   │   └── Data_Dictionary.md
+│   ├── Development/
+│   │   ├── Assistant_Development.md
+│   │   ├── Engineering_Principles.md
+│   │   ├── Environment.md
+│   │   ├── Lessons_Learned.md
+│   │   ├── Presentation_Layer.md
+│   │   ├── Query_Library.md
+│   │   ├── README.md
+│   │   └── Troubleshooting.md
+│   ├── Domain/
+│   │   ├── apartments.md
+│   │   ├── payments.md
+│   │   ├── README.md
+│   │   ├── residents.md
+│   │   ├── vehicle_candidate.md
+│   │   └── vehicles.md
 │   ├── Guide/
 │   │   └── SECOND_ADMIN_GUIDE.docx
 │   ├── modules/
 │   │   └── HANDLERS_MODULE_REGISTRY.md
 │   ├── non_residential_unit_draft_template.xlsx
 │   ├── OSBB - Организация сбора данных.pdf
+│   ├── OSBB Project State.docx
 │   ├── OSBB_Business_Handoff_2026-06-27/
 │   │   ├── DO_NOT_UPLOAD_SECRETS.md
 │   │   ├── OSBB_BUSINESS_HANDOFF_2026-06-27.md
@@ -575,6 +622,9 @@
 │   │   ├── START_OSBB_BUSINESS_CHAT_2026-06-28.txt
 │   │   └── TRANSFER_CHECKLIST_2026-06-27.txt
 │   ├── OSBB_Business_Handoff_2026-06-27.zip
+│   ├── OSBB_Project_Overview.md
+│   ├── Project_Log.md
+│   ├── README.md
 │   ├── ROADMAP.md
 │   └── Second_Admin_Giude.md
 ├── extract_telegram_remote_facts.py
@@ -651,6 +701,9 @@
 ├── migrate_service_orders_and_fulfillment.py
 ├── MIGRATE_simplified_services_sandbox.py
 ├── migrate_unit_registry_composite_groups.py
+├── migrations/
+│   ├── 2026-07-14_001_create_vehicle_candidates.py
+│   └── 2026-07-15_002_allow_null_apartment_number_in_payments.py
 ├── normalize_registry_fields.py
 ├── OSBB_apartment_40_profile_test_preflight.zip
 ├── OSBB_cashier_route_fix/
@@ -1255,6 +1308,7 @@
 │   │   ├── __init__.py
 │   │   ├── cashier_card.py
 │   │   ├── cashier_search.py
+│   │   ├── cashier_v2_ui - Copy.py
 │   │   ├── cashier_v2_ui.py
 │   │   ├── CHANGELOG.md
 │   │   ├── INSTALL.md

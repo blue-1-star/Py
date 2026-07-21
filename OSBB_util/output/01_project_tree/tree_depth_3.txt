@@ -32,10 +32,10 @@
 │   │   ├── audit_viewer.py [10.5 KB] 2026-06-24 21:56
 │   │   ├── cashier_operator.MODULE.md [3.9 KB] 2026-07-05 11:32
 │   │   ├── cashier_operator.py [90.0 KB] 2026-06-25 14:39
-│   │   ├── cashier_operator_v2.py [44.6 KB] 2026-06-25 17:41
+│   │   ├── cashier_operator_v2.py [44.6 KB] 2026-07-16 13:45
 │   │   ├── CHANGELOG.md [1012 B] 2026-07-12 07:31
 │   │   ├── client_portal.MODULE.md [3.1 KB] 2026-07-02 19:54
-│   │   ├── client_portal.py [96.0 KB] 2026-06-28 17:41
+│   │   ├── client_portal.py [99.7 KB] 2026-07-13 20:23
 │   │   ├── client_portal_safe_linking.MODULE.md [2.9 KB] 2026-07-02 19:49
 │   │   ├── client_portal_safe_linking.py [90.6 KB] 2026-06-25 10:58
 │   │   ├── client_portal_v2.py [28.5 KB] 2026-06-25 17:42
@@ -67,19 +67,21 @@
 │   │   ├── vehicle_verification.MODULE.md [3.7 KB] 2026-07-05 11:32
 │   │   └── vehicle_verification.py [18.1 KB] 2026-06-20 16:39
 │   ├── hello.py [2.2 KB] 2026-06-07 10:51
-│   ├── parking_bot - Copy.py [52.4 KB] 2026-07-10 21:28
-│   ├── parking_bot.py [52.5 KB] 2026-07-12 07:11
+│   ├── parking_bot.py [58.3 KB] 2026-07-13 20:06
 │   ├── parking_bot_before_cashier_editor_2026-06-25_14-45-08.py [44.8 KB] 2026-06-25 12:21
 │   ├── parking_bot_before_cashier_v2_2026-07-04_12-30-27.py [47.1 KB] 2026-06-30 20:24
 │   ├── parking_bot_before_client_portal_2026-06-25_10-25-49.py [42.0 KB] 2026-06-23 21:29
+│   ├── parking_bot_before_core_new.py [52.5 KB] 2026-07-12 07:11
 │   ├── parking_bot_before_guard_workspace_2026-07-04_13-01-19.py [47.1 KB] 2026-07-04 12:30
 │   ├── parking_bot_before_language_gate_fix_2026-06-25_10-45-39.py [44.7 KB] 2026-06-25 10:25
 │   ├── parking_bot_before_launch_queues_menu_2026-06-25_12-21-29.py [44.7 KB] 2026-06-25 10:45
+│   ├── sandbox_bot.py [15.9 KB] 2026-07-13 18:27
 │   ├── Start_OSBB_Bot.bat [641 B] 2026-07-04 17:15
 │   ├── Start_OSBB_Bot_training_vika.bat [202 B] 2026-06-30 20:20
 │   ├── Start_OSBB_Bot_working_pult_test.bat [276 B] 2026-07-02 17:44
 │   ├── Start_OSBB_Guard_Sandbox_Bot.bat [1.4 KB] 2026-06-26 16:41
-│   └── Start_OSBB_Guard_Sandbox_Bot_v2.bat [1.2 KB] 2026-06-26 17:28
+│   ├── Start_OSBB_Guard_Sandbox_Bot_v2.bat [1.2 KB] 2026-06-26 17:28
+│   └── Start_Sandbox_Bot.bat [1.1 KB] 2026-07-13 17:48
 ├── build_plate_candidates.py [8.8 KB] 2026-06-10 22:19
 ├── build_plate_evidence_by_digits_and_apartment.py [9.7 KB] 2026-06-10 21:26
 ├── build_plate_evidence_from_telegram.py [4.3 KB] 2026-06-10 20:53
@@ -111,6 +113,21 @@
 ├── Collect_word_tables.py [4.7 KB] 2026-05-24 22:24
 ├── commercial_contracts.py [43.4 KB] 2026-06-24 12:20
 ├── commercial_notification_delivery.py [8.5 KB] 2026-06-24 12:20
+├── core_new/
+│   ├── __init__.py [268 B] 2026-07-13 14:10
+│   ├── adapters/
+│   │   ├── __init__.py [60 B] 2026-07-13 14:11
+│   │   ├── cashier_adapter.py [1.5 KB] 2026-07-14 13:29
+│   │   └── db_adapter.py [14.5 KB] 2026-07-15 20:22
+│   └── domain/
+│       ├── __init__.py [503 B] 2026-07-14 22:16
+│       ├── apartments.py [14.4 KB] 2026-07-13 14:56
+│       ├── cashbox.py [8.1 KB] 2026-07-15 19:41
+│       ├── payments.py [9.7 KB] 2026-07-15 14:48
+│       ├── residents.py [9.2 KB] 2026-07-13 14:20
+│       ├── service_catalog.py [7.1 KB] 2026-07-15 20:19
+│       ├── vehicle_candidate.py [4.3 KB] 2026-07-14 22:15
+│       └── vehicles.py [3.1 KB] 2026-07-14 22:16
 ├── create_clean_live_sandbox.py [15.4 KB] 2026-06-26 20:04
 ├── create_isolated_live_sandbox_v2.py [15.7 KB] 2026-06-26 20:12
 ├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat [866 B] 2026-06-27 12:15
@@ -185,9 +202,10 @@
 │   │   ├── osbb_quarantine.db [52.0 KB] 2026-06-09 10:48
 │   │   ├── osbb_telegram - Copy.db [36.0 KB] 2026-06-09 16:36
 │   │   ├── osbb_telegram.db [368.0 KB] 2026-06-10 20:22
+│   │   ├── osbb_test - Copy (2).db [2.09 MB] 2026-07-14 15:09
 │   │   ├── osbb_test - Copy.db [2.06 MB] 2026-07-09 22:07
-│   │   ├── osbb_test.db [2.09 MB] 2026-07-12 11:55
-│   │   ├── osbb_test.sqbpro [7.2 KB] 2026-07-09 23:04
+│   │   ├── osbb_test.db [2.14 MB] 2026-07-18 18:48
+│   │   ├── osbb_test.sqbpro [6.8 KB] 2026-07-19 22:25
 │   │   ├── osbb_test_schema_20260710_112003.sql [115.3 KB] 2026-07-11 10:51
 │   │   ├── osbb_test_schema_20260710_112003.txt [257.9 KB] 2026-07-10 11:20
 │   │   ├── sandbox/
@@ -429,17 +447,46 @@
 ├── diagnose_sandbox_charges.py [7.1 KB] 2026-06-25 22:20
 ├── Docs/
 │   ├── Architecture/
+│   │   ├── ADR/
+│   │   │   └── ADR-2026-07-19-Finance-Core.md [1.9 KB] 2026-07-19 21:08
 │   │   ├── ADR-2026-07-01-resident-identity-refactor.md [2.7 KB] 2026-07-02 16:44
+│   │   ├── ADR-2026-07-13-core-new-layer.md [2.3 KB] 2026-07-13 16:55
+│   │   ├── ADR-2026-07-13-domain-models.md [11.5 KB] 2026-07-14 10:23
+│   │   ├── ADR-2026-07-14-core_new-analysis.md [3.3 KB] 2026-07-15 21:36
+│   │   ├── ADR-2026-07-14-vehicle-candidate.md [1.9 KB] 2026-07-15 21:36
+│   │   ├── Finance_Core.md [2.7 KB] 2026-07-19 21:08
 │   │   └── Services/
 │   │       ├── business_policy_layer_v1_design.md [10.8 KB] 2026-06-29 16:11
 │   │       ├── service_catalog_v2_design.md [11.7 KB] 2026-06-28 22:51
 │   │       └── service_catalog_v2_design_approved_updates.md [4.1 KB] 2026-06-28 23:11
+│   ├── Changelog/
+│   │   └── CHANGELOG_core_new.md [2.2 KB] 2026-07-15 21:36
+│   ├── Code/
+│   ├── Database/
+│   │   └── Data_Dictionary.md [10.4 KB] 2026-07-16 16:30
+│   ├── Development/
+│   │   ├── Assistant_Development.md [2.1 KB] 2026-07-20 20:04
+│   │   ├── Engineering_Principles.md [2.2 KB] 2026-07-20 20:04
+│   │   ├── Environment.md [1.0 KB] 2026-07-20 20:04
+│   │   ├── Lessons_Learned.md [2.4 KB] 2026-07-20 20:04
+│   │   ├── Presentation_Layer.md [1.4 KB] 2026-07-20 20:04
+│   │   ├── Query_Library.md [1.7 KB] 2026-07-20 20:04
+│   │   ├── README.md [971 B] 2026-07-20 20:04
+│   │   └── Troubleshooting.md [1.8 KB] 2026-07-20 20:04
+│   ├── Domain/
+│   │   ├── apartments.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── payments.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── README.md [1.5 KB] 2026-07-15 21:36
+│   │   ├── residents.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── vehicle_candidate.md [1.5 KB] 2026-07-15 21:36
+│   │   └── vehicles.md [1.4 KB] 2026-07-15 21:36
 │   ├── Guide/
 │   │   └── SECOND_ADMIN_GUIDE.docx [2.18 MB] 2026-06-30 19:58
 │   ├── modules/
 │   │   └── HANDLERS_MODULE_REGISTRY.md [3.2 KB] 2026-07-02 19:52
 │   ├── non_residential_unit_draft_template.xlsx [8.6 KB] 2026-06-23 14:04
 │   ├── OSBB - Организация сбора данных.pdf [6.44 MB] 2026-06-17 22:27
+│   ├── OSBB Project State.docx [37.3 KB] 2026-07-13 10:45
 │   ├── OSBB_Business_Handoff_2026-06-27/
 │   │   ├── DO_NOT_UPLOAD_SECRETS.md [517 B] 2026-06-27 22:42
 │   │   ├── OSBB_BUSINESS_HANDOFF_2026-06-27.md [10.4 KB] 2026-06-27 22:42
@@ -448,7 +495,10 @@
 │   │   ├── START_OSBB_BUSINESS_CHAT_2026-06-28.txt [807 B] 2026-06-27 22:42
 │   │   └── TRANSFER_CHECKLIST_2026-06-27.txt [1.2 KB] 2026-06-27 22:42
 │   ├── OSBB_Business_Handoff_2026-06-27.zip [8.4 KB] 2026-06-27 22:40
-│   ├── ROADMAP.md [3.3 KB] 2026-07-02 16:44
+│   ├── OSBB_Project_Overview.md [7.2 KB] 2026-07-20 22:17
+│   ├── Project_Log.md [2.6 KB] 2026-07-20 20:04
+│   ├── README.md [901 B] 2026-07-15 21:36
+│   ├── ROADMAP.md [4.3 KB] 2026-07-20 20:04
 │   └── Second_Admin_Giude.md [3.4 KB] 2026-06-30 17:49
 ├── extract_telegram_remote_facts.py [7.7 KB] 2026-06-10 14:43
 ├── extract_telegram_vehicle_facts.py [11.9 KB] 2026-06-10 20:22
@@ -524,6 +574,9 @@
 ├── migrate_service_orders_and_fulfillment.py [29.5 KB] 2026-06-26 19:39
 ├── MIGRATE_simplified_services_sandbox.py [4.4 KB] 2026-06-27 14:09
 ├── migrate_unit_registry_composite_groups.py [26.1 KB] 2026-06-23 17:32
+├── migrations/
+│   ├── 2026-07-14_001_create_vehicle_candidates.py [4.2 KB] 2026-07-15 09:25
+│   └── 2026-07-15_002_allow_null_apartment_number_in_payments.py [3.8 KB] 2026-07-15 20:26
 ├── normalize_registry_fields.py [5.8 KB] 2026-06-08 21:59
 ├── OSBB_apartment_40_profile_test_preflight.zip [4.9 KB] 2026-06-27 22:22
 ├── OSBB_cashier_route_fix/
@@ -1005,9 +1058,10 @@
 │   ├── cashier_unpaid_preview_v3.py [22.8 KB] 2026-06-28 14:45
 │   ├── cashier_v2_telegram/
 │   │   ├── __init__.py [34 B] 2026-07-11 09:56
-│   │   ├── cashier_card.py [3.2 KB] 2026-07-11 09:56
+│   │   ├── cashier_card.py [2.9 KB] 2026-07-18 15:35
 │   │   ├── cashier_search.py [18.4 KB] 2026-07-11 09:56
-│   │   ├── cashier_v2_ui.py [35.0 KB] 2026-07-12 11:49
+│   │   ├── cashier_v2_ui - Copy.py [34.0 KB] 2026-07-18 15:35
+│   │   ├── cashier_v2_ui.py [36.9 KB] 2026-07-18 18:33
 │   │   ├── CHANGELOG.md [543 B] 2026-07-11 09:56
 │   │   ├── INSTALL.md [683 B] 2026-07-11 09:56
 │   │   └── MODULE.md [285 B] 2026-07-11 09:56
