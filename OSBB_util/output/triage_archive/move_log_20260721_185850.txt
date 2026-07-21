@@ -1,0 +1,156 @@
+# Перенос выполнен: 2026-07-21T18:58:50.522617
+# root=G:\Programming\Py\OSBB archive_root=G:\Programming\Py\OSBB_util\output\triage_archive
+
+MOVED  CHECK_guard_sandbox_service_orders.py  <- categories: HIGH:confirmed_archive
+MOVED  CHECK_guard_sandbox_service_orders_v2.py  <- categories: HIGH:confirmed_archive
+MOVED  CHECK_phone_barrier_access_operational_sandbox.py  <- categories: HIGH:confirmed_archive
+MOVED  CHECK_phone_barrier_access_sandbox_schema.py  <- categories: HIGH:confirmed_archive
+MOVED  CHECK_profile_parking_time_test_sandbox.py  <- categories: HIGH:confirmed_archive
+MOVED  CHECK_profile_verification_sandbox.py  <- categories: HIGH:confirmed_archive
+MOVED  create_clean_live_sandbox.py  <- categories: HIGH:confirmed_archive
+MOVED  create_isolated_live_sandbox_v2.py  <- categories: HIGH:confirmed_archive
+MOVED  diagnose_sandbox_charges.py  <- categories: HIGH:confirmed_archive
+MOVED  find_sandbox_telegram_id.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_guard_sandbox.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_guard_sandbox_v2.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_guard_sandbox_v3.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_live_services_sandbox_v1.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_live_service_sandbox_v4.py  <- categories: HIGH:confirmed_archive
+MOVED  run_bot_sandbox_v2.py  <- categories: HIGH:confirmed_archive
+MOVED  Start_OSBB_Guard_Sandbox_Bot_v2.bat  <- categories: HIGH:confirmed_archive
+MOVED  Start_OSBB_Live_Services_Sandbox_Bot_v1.bat  <- categories: HIGH:confirmed_archive
+MOVED  Start_OSBB_Live_Service_Sandbox_Bot.bat  <- categories: HIGH:confirmed_archive
+MOVED  STOP_old_guard_sandbox_bots.bat  <- categories: HIGH:confirmed_archive
+MOVED  Bots\sandbox_bot.py  <- categories: HIGH:confirmed_archive
+MOVED  Bots\Start_OSBB_Guard_Sandbox_Bot.bat  <- categories: HIGH:confirmed_archive
+MOVED  Bots\Start_OSBB_Guard_Sandbox_Bot_v2.bat  <- categories: HIGH:confirmed_archive
+MOVED  Bots\Start_Sandbox_Bot.bat  <- categories: HIGH:confirmed_archive
+MOVED  cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:release_payload_dir
+MOVED  parking_time_test_payload\profile_parking_time_test_core.py  <- categories: HIGH:release_payload_dir
+MOVED  parking_time_test_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:release_payload_dir
+MOVED  phone_barrier_access_v2_payload\phone_barrier_access_core.py  <- categories: HIGH:release_payload_dir
+MOVED  phone_barrier_access_v2_payload\phone_barrier_access_service.py  <- categories: HIGH:release_payload_dir
+MOVED  phone_barrier_access_v2_payload\service_orders_core.py  <- categories: HIGH:release_payload_dir
+MOVED  phone_barrier_access_v2_payload\service_preorders_core.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_payload\profile_verification_core.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_terminology_v2_payload\profile_verification_core.py  <- categories: HIGH:release_payload_dir
+MOVED  Recovered\REMOTE_BUTTON_ARCHAEOLOGY.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\RELEASE_CATALOG.json  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\RELEASE_CATALOG.tsv  <- categories: HIGH:recovered_content
+MOVED  service_code_compatibility_payload\service_orders_core.py  <- categories: HIGH:release_payload_dir
+MOVED  service_code_compatibility_payload\service_preorders_core.py  <- categories: HIGH:release_payload_dir
+MOVED  service_code_compatibility_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\install_service_orders_ui.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\patch_parking_bot_service_orders_ui_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\run_bot_live_service_sandbox_v4.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Service_Orders_Foundation_v1\migrate_service_orders_and_fulfillment.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Service_Orders_Foundation_v1\service_orders_core.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Service_Orders_Foundation_v1\service_orders_preflight.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_fix\README_CASHIER_ROUTE_FIX.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_fix\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\INSTALL_cashier_route_after_phone_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\README_CASHIER_ROUTE_REPAIR_AFTER_PHONE_V2.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\RUN_CHECK_cashier_route_after_phone_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\RUN_INSTALL_cashier_route_after_phone_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\patch_parking_bot_service_orders_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\README_LIVE_SERVICES_SANDBOX.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\Start_OSBB_Live_Services_Sandbox_Bot_v1.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\STOP_old_guard_sandbox_bots.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix\INSTALL_PHONE_ACCESS_UI_FIX.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix\README_PHONE_ACCESS_FIX.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v2\INSTALL_PHONE_ACCESS_UI_FIX_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v2\INSTALL_PHONE_ACCESS_UI_FIX_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v2\README_PHONE_ACCESS_FIX_v2.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v3\INSTALL_PHONE_ACCESS_UI_FIX_v3.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v3\INSTALL_PHONE_ACCESS_UI_FIX_v3.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v3\README_PHONE_ACCESS_FIX_v3.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\CHECK_phone_barrier_access_sandbox_schema.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\MIGRATE_phone_barrier_access_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\phone_barrier_access_core.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\README_PHONE_BARRIER_ACCESS_SCHEMA_MIGRATION.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\RUN_CHECK_phone_barrier_access_sandbox_schema.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_schema_migration\RUN_MIGRATE_phone_barrier_access_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\CHECK_phone_barrier_access_operational_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\INSTALL_phone_barrier_access_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\MIGRATE_phone_barrier_access_operational_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\README_PHONE_BARRIER_ACCESS_V2.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_CHECK_phone_barrier_access_operational_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_INSTALL_phone_barrier_access_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\RUN_MIGRATE_phone_barrier_access_operational_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\CHECK_profile_verification_terminology_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\INSTALL_profile_verification_terminology_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\RUN_CHECK_profile_verification_terminology_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\RUN_INSTALL_profile_verification_terminology_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\CHECK_profile_verification_terminology_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\INSTALL_profile_verification_terminology_v2.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\README_PROFILE_VERIFICATION_TERMINOLOGY_V2.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\RUN_CHECK_profile_verification_terminology_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\RUN_INSTALL_profile_verification_terminology_v2.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\CHECK_profile_verification_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\INSTALL_profile_verification_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\MIGRATE_profile_verification_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\README_PROFILE_VERIFICATION_V1.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_CHECK_profile_verification_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_INSTALL_profile_verification_v1.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\RUN_MIGRATE_profile_verification_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\MIGRATE_simplified_services_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RETIRE_legacy_new_remote_test_orders_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RUN_MIGRATE_simplified_services_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\RUN_RETIRE_legacy_new_remote_test_orders_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\service_orders_core.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\service_preorders_core.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\CHECK_profile_parking_time_test_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\INSTALL_profile_parking_time_test_v1.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\MIGRATE_profile_parking_time_test_sandbox.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\README_PROFILE_PARKING_TIME_TEST_V1.txt  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_CHECK_profile_parking_time_test_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_INSTALL_profile_parking_time_test_v1.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\RUN_MIGRATE_profile_parking_time_test_sandbox.bat  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\profile_parking_time_test_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-28__OSBB_profile_parking_time_test_v1_sandbox\parking_time_test_payload\Bots\handlers\profile_parking_time_test_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_simplified_services_preorders_bundle\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_service_code_compatibility_repair_phone_v2\service_code_compatibility_payload\service_orders_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_service_code_compatibility_repair_phone_v2\service_code_compatibility_payload\service_preorders_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_service_code_compatibility_repair_phone_v2\service_code_compatibility_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\profile_verification_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_v1_sandbox_final\profile_verification_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\profile_verification_terminology_v2_payload\profile_verification_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\profile_verification_terminology_v2_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2 (1)\profile_verification_terminology_v2_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\profile_verification_terminology_v2_payload\profile_verification_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\profile_verification_terminology_v2_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_verification_terminology_v2\profile_verification_terminology_v2_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_critical_codes_fix (1)\profile_verification_critical_codes_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_critical_codes_fix\profile_verification_critical_codes_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_confirmation_ready_visibility_fix\profile_confirmation_button_ready_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_profile_button_early_route_fix_v2\profile_button_early_route_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\phone_barrier_access_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\phone_barrier_access_service.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\service_orders_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\service_preorders_core.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_barrier_access_v2_working_sandbox\phone_barrier_access_v2_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v3\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix_v2\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_phone_access_ui_fix\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_live_services_sandbox_bundle\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-27__OSBB_cashier_route_repair_after_phone_v2\cashier_route_repair_payload\run_bot_live_services_sandbox_v1.py  <- categories: HIGH:recovered_content, HIGH:release_payload_dir
+MOVED  Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\Bots\handlers\client_portal_v3.py  <- categories: HIGH:recovered_content
+MOVED  Recovered_Releases\2026-06-26__OSBB_Live_Service_UI_v1\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:recovered_content
+MOVED  profile_verification_terminology_v2_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_terminology_v2_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_verification_critical_codes_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  profile_confirmation_button_ready_payload\Bots\handlers\profile_verification_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  phone_barrier_access_v2_payload\Bots\handlers\service_orders_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  parking_time_test_payload\Bots\handlers\profile_parking_time_test_workspace.py  <- categories: HIGH:release_payload_dir
+MOVED  Data\exports\debt_policy\service_codes_live_sandbox.txt  <- categories: HIGH:confirmed_archive

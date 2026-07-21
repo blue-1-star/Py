@@ -44,8 +44,11 @@ osbb_cleanup_triage.py
     - db_backup             : файл .db лежит в папке backups/
     - generated_doc_export  : .md внутри Data/exports/* — авто-сгенерированный
                                 отчёт/аудит, не документация для чтения людьми
-    - recovered_report       : .md внутри Recovered/ или Recovered_Releases/ —
-                                разовый восстановительный/следственный отчёт
+    - recovered_content        : внутри Recovered/ или Recovered_Releases/ —
+                                любой файл (не только .md), восстановительный
+                                материал/старые release-бандлы
+    - release_payload_dir       : лежит в распакованной _payload папке —
+                                 дубль уже заархивированного zip-бандла
     - confirmed_duplicate    : путь явно подтверждён пользователем как дубль
                                 (см. EXPLICIT_DUPLICATE_DIRS в начале файла)
     - patch_script            : корневой patch_*.py — одноразовый скрипт,
@@ -108,6 +111,10 @@ FIX_README_RE = re.compile(r"^README_.+\.txt$")
 # Готовые бандлы точечных патчей, лежащие в корне.
 ROOT_ZIP_RE = re.compile(r"^OSBB_.+\.zip$")
 
+# Отдельно распакованные (не в архиве) копии тех же release-бандлов —
+# папка с суффиксом _payload где-то по пути.
+PAYLOAD_DIR_RE = re.compile(r"_payload$", re.IGNORECASE)
+
 # Пайплайн оцифровки/переноса данных (бумага -> Word -> Excel -> БД) —
 # исторически ценно, но не часть работающего приложения. REVIEW, не HIGH.
 DATA_PIPELINE_RE = re.compile(
@@ -131,6 +138,38 @@ COMMON_MODULE_DOC_NAMES = {"MODULE.md", "README.md", "CHANGELOG.md", "INSTALL.md
 # разделитель "/", регистронезависимо.
 EXPLICIT_DUPLICATE_DIRS = (
     "tools/cashier_v2_telegram_p",
+)
+
+# Файлы/папки, явно подтверждённые пользователем как история разработки
+# (запускатели/раннеры sandbox-ботов, осиротевшие CHECK_-скрипты, разовые
+# вспомогательные утилиты) — переносятся в архив тем же способом, что и
+# EXPLICIT_DUPLICATE_DIRS, но по отдельному списку путей.
+EXPLICIT_ARCHIVE_PATHS = (
+    "Bots/Start_OSBB_Guard_Sandbox_Bot.bat",
+    "Bots/Start_OSBB_Guard_Sandbox_Bot_v2.bat",
+    "Bots/Start_Sandbox_Bot.bat",
+    "Bots/sandbox_bot.py",
+    "STOP_old_guard_sandbox_bots.bat",
+    "Start_OSBB_Guard_Sandbox_Bot_v2.bat",
+    "Start_OSBB_Live_Service_Sandbox_Bot.bat",
+    "Start_OSBB_Live_Services_Sandbox_Bot_v1.bat",
+    "run_bot_guard_sandbox.py",
+    "run_bot_guard_sandbox_v2.py",
+    "run_bot_guard_sandbox_v3.py",
+    "run_bot_live_service_sandbox_v4.py",
+    "run_bot_live_services_sandbox_v1.py",
+    "run_bot_sandbox_v2.py",
+    "CHECK_guard_sandbox_service_orders.py",
+    "CHECK_guard_sandbox_service_orders_v2.py",
+    "CHECK_phone_barrier_access_operational_sandbox.py",
+    "CHECK_phone_barrier_access_sandbox_schema.py",
+    "CHECK_profile_parking_time_test_sandbox.py",
+    "CHECK_profile_verification_sandbox.py",
+    "create_clean_live_sandbox.py",
+    "create_isolated_live_sandbox_v2.py",
+    "diagnose_sandbox_charges.py",
+    "find_sandbox_telegram_id.py",
+    "Data/exports/debt_policy/service_codes_live_sandbox.txt",
 )
 
 SKIP_DIR_NAMES = {".git", "__pycache__", ".venv", "venv", "node_modules"}
@@ -205,8 +244,11 @@ def classify(path: Path, root: Path, sibling_stems: set, protected: set, doc_nam
     if path.suffix.lower() == ".md" and rel_str.startswith(GENERATED_DOC_DIR_PREFIXES):
         hits.append(("HIGH:generated_doc_export", f"авто-сгенерированный отчёт в {rel.parts[0]}/{rel.parts[1]}/..."))
 
-    if path.suffix.lower() == ".md" and rel_str.startswith(RECOVERED_DOC_DIR_PREFIXES):
-        hits.append(("HIGH:recovered_report", "разовый восстановительный/следственный отчёт"))
+    if rel_str.startswith(RECOVERED_DOC_DIR_PREFIXES):
+        hits.append(("HIGH:recovered_content", "внутри Recovered/Recovered_Releases — восстановительный/следственный материал, независимо от типа файла"))
+
+    if any(PAYLOAD_DIR_RE.search(part) for part in rel.parts[:-1]):
+        hits.append(("HIGH:release_payload_dir", "лежит в распакованной _payload папке — дубль уже заархивированного zip-бандла"))
 
     is_at_root = len(rel.parts) == 1  # файл лежит прямо в корне root, без подпапок
 
@@ -241,6 +283,9 @@ def classify(path: Path, root: Path, sibling_stems: set, protected: set, doc_nam
 
     if any(rel_str.lower().startswith(d.lower() + "/") or rel_str.lower() == d.lower() for d in EXPLICIT_DUPLICATE_DIRS):
         hits.append(("HIGH:confirmed_duplicate", "подтверждено пользователем как дубль, см. EXPLICIT_DUPLICATE_DIRS"))
+
+    if any(rel_str.lower() == p.lower() for p in EXPLICIT_ARCHIVE_PATHS):
+        hits.append(("HIGH:confirmed_archive", "подтверждено пользователем к архивации, см. EXPLICIT_ARCHIVE_PATHS"))
 
     if CHECK_RE.match(name):
         hits.append(("REVIEW:check_script", "разовый диагностический скрипт CHECK_*"))
