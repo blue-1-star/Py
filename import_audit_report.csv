@@ -1,0 +1,15 @@
+﻿file,unresolved_module,first_segment
+CHECK_profile_button_early_route_fix.py,run_bot_live_services_sandbox_v1,run_bot_live_services_sandbox_v1
+import_osbb_telegram_messages.py,telegram_osbb,telegram_osbb
+inspect_osbb_folder_filter.py,telegram_osbb,telegram_osbb
+list_osbb_folder_dialogs.py,telegram_osbb,telegram_osbb
+list_osbb_included_peers.py,telegram_osbb,telegram_osbb
+list_telegram_dialogs.py,telegram_osbb,telegram_osbb
+list_telegram_folders.py,telegram_osbb,telegram_osbb
+seed_bot_admins.py,telegram_osbb,telegram_osbb
+telegram_test_login.py,telegram_osbb,telegram_osbb
+telegram_test_login_manual.py,telegram_osbb,telegram_osbb
+Bots\parking_bot.py,telegram_osbb,telegram_osbb
+test.py,SYNTAX_ERROR,"unexpected indent (<unknown>, line 1)"
+tools\db_inspector.py,SYNTAX_ERROR,"unexpected character after line continuation character (<unknown>, line 209)"
+tools\harvest_osbb_download_zips.py,SYNTAX_ERROR,"(unicode error) 'unicodeescape' codec can't decode bytes in position 409-410: truncated \UXXXXXXXX escape (<unknown>, line 3)"
