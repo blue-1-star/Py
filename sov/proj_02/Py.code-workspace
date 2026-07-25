@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../R"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "Py"
+	}
+}

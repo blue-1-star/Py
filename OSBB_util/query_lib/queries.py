@@ -267,3 +267,77 @@ def last_payments(limit: int = 20):
     rows = cur.fetchall()
     conn.close()
     return rows
+def set_tariff(
+    service_code: str,
+    amount: float = None,
+    valid_from: str = None,
+    comment: str = None,
+    currency: str = "UAH",
+):
+    """
+    Добавляет новую запись действующего тарифа в service_tariffs.
+
+    - Если amount не указан — берёт сумму из последнего (по valid_from)
+      тарифа для этого же service_code. Если истории вообще нет и сумма
+      не передана явно — бросает ValueError (лучше явная ошибка, чем
+      тихо создать тариф с NULL).
+    - Автоматически закрывает предыдущую открытую запись (valid_to)
+      днём раньше нового valid_from — чтобы периоды не перекрывались
+      и история оставалась чистой.
+    - valid_from по умолчанию — сегодня.
+
+    Возвращает id новой записи.
+    """
+    from datetime import date, datetime, timedelta
+
+    conn = get_conn()
+    cur = conn.cursor()
+
+    valid_from = valid_from or date.today().strftime("%Y-%m-%d")
+
+    cur.execute(
+        """
+        SELECT amount, valid_from FROM service_tariffs
+        WHERE service_code = ?
+        ORDER BY valid_from DESC LIMIT 1
+        """,
+        (service_code,),
+    )
+    prev = cur.fetchone()
+
+    if amount is None:
+        if prev is None:
+            conn.close()
+            raise ValueError(
+                f"Нет предыдущего тарифа для {service_code} — сумму нужно указать явно"
+            )
+        amount = prev["amount"]
+
+    if prev is not None:
+        prev_day = datetime.strptime(prev["valid_from"], "%Y-%m-%d").date()
+        new_day = datetime.strptime(valid_from, "%Y-%m-%d").date()
+        if new_day > prev_day:
+            close_day = (new_day - timedelta(days=1)).strftime("%Y-%m-%d")
+            cur.execute(
+                """
+                UPDATE service_tariffs
+                SET valid_to = ?
+                WHERE service_code = ? AND valid_from = ? AND valid_to IS NULL
+                """,
+                (close_day, service_code, prev["valid_from"]),
+            )
+
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    cur.execute(
+        """
+        INSERT INTO service_tariffs
+            (service_code, amount, currency, valid_from, valid_to, is_active, comment, created_at)
+        VALUES (?, ?, ?, ?, NULL, 1, ?, ?)
+        """,
+        (service_code, amount, currency, valid_from, comment or "", now),
+    )
+
+    conn.commit()
+    new_id = cur.lastrowid
+    conn.close()
+    return new_id
