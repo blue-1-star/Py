@@ -1,0 +1,30 @@
+================================================================================
+📌 ТАБЛИЦА: access_tariff_versions
+================================================================================
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      tariff_code                    TEXT                 ✅                 
+2      tariff_name_uk                 TEXT                 ✅                 
+3      tariff_name_ru                 TEXT                 ✅                 
+4      tariff_name_en                 TEXT                 ✅                 
+5      access_point_scope_code        TEXT                 ✅                 
+6      charge_kind                    TEXT                 ✅                 
+7      billing_period                 TEXT                 ✅                 
+8      unit_of_measure                TEXT                 ✅                 
+9      amount                         REAL                 ✅                 
+10     currency                       TEXT                 ✅                 
+11     effective_from                 TEXT                 ✅                 
+12     effective_to                   TEXT                 ❌                 
+13     version_status                 TEXT                 ✅                 
+14     approved_by                    TEXT                 ❌                 
+15     approval_reference             TEXT                 ❌                 
+16     change_reason                  TEXT                 ❌                 
+17     created_by                     TEXT                 ❌                 
+18     created_at                     TEXT                 ✅                 
+19     updated_at                     TEXT                 ✅                 

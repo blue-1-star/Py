@@ -1,0 +1,31 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_reconciliation_cases
+================================================================================
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      case_type                      TEXT                 ✅                 
+2      case_status                    TEXT                 ✅                 
+3      priority                       TEXT                 ✅                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ❌                 
+6      amount                         REAL                 ❌                 
+7      currency                       TEXT                 ✅                 
+8      period_code                    TEXT                 ❌                 
+9      service_code                   TEXT                 ❌                 
+10     related_payment_id             INTEGER              ❌                 
+11     related_receipt_id             INTEGER              ❌                 
+12     related_notice_id              INTEGER              ❌                 
+13     related_bank_transaction_id    INTEGER              ❌                 
+14     related_batch_id               INTEGER              ❌                 
+15     description                    TEXT                 ✅                 
+16     operator_id                    TEXT                 ❌                 
+17     resolution_note                TEXT                 ❌                 
+18     resolved_at                    TEXT                 ❌                 
+19     created_at                     TEXT                 ✅                 
+20     updated_at                     TEXT                 ❌                 

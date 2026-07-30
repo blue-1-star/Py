@@ -1,0 +1,27 @@
+================================================================================
+📌 ТАБЛИЦА: verification_candidates
+================================================================================
+📊 Строк: 46
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      task_id                        INTEGER              ❌                 
+2      candidate_type                 TEXT                 ❌                 
+3      candidate_value                TEXT                 ❌                 
+4      candidate_normalized           TEXT                 ❌                 
+5      confidence_label               TEXT                 ❌                 
+6      confidence_score               INTEGER              ❌                 
+7      source_names                   TEXT                 ❌                 
+8      match_types                    TEXT                 ❌                 
+9      reason                         TEXT                 ❌                 
+10     status                         TEXT                 ❌                 
+11     created_at                     TEXT                 ❌                 
+12     created_by                     TEXT                 ❌                 
+13     decided_at                     TEXT                 ❌                 
+14     decided_by                     TEXT                 ❌                 
+15     decision                       TEXT                 ❌                 
+16     decision_comment               TEXT                 ❌                 

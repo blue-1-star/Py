@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: vehicles
+================================================================================
+📊 Строк: 144
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      license_plate                  TEXT                 ❌                 
+3      car_model                      TEXT                 ❌                 
+4      car_color                      TEXT                 ❌                 
+5      parking_time                   TEXT                 ❌                 
+6      status                         TEXT                 ❌                 
+7      source                         TEXT                 ❌                 
+8      notes                          TEXT                 ❌                 
+9      created_at                     TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     updated_at                     TEXT                 ❌                 
+12     updated_by                     TEXT                 ❌                 
+13     license_plate_normalized       TEXT                 ❌                 
+14     plate_format_status            TEXT                 ❌                 
+15     car_model_normalized           TEXT                 ❌                 
+16     car_color_normalized           TEXT                 ❌                 
+17     lifecycle_status               TEXT                 ✅                 
+18     review_status                  TEXT                 ✅                 
+19     archived_at                    TEXT                 ❌                 
+20     archive_reason                 TEXT                 ❌                 
+21     archived_by                    TEXT                 ❌                 
+22     created_source                 TEXT                 ❌                 

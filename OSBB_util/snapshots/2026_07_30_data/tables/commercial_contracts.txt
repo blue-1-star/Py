@@ -1,0 +1,28 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_contracts
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      unit_id                        INTEGER              ✅                 
+2      contract_number                TEXT                 ❌                 
+3      counterparty_type              TEXT                 ✅                 
+4      counterparty_name              TEXT                 ❌                 
+5      status                         TEXT                 ✅                 
+6      valid_from                     TEXT                 ❌                 
+7      valid_to                       TEXT                 ❌                 
+8      payment_due_day                INTEGER              ✅                 
+9      grace_days                     INTEGER              ✅                 
+10     reminder_days_before_due       INTEGER              ✅                 
+11     warning_days_overdue           INTEGER              ✅                 
+12     suspension_candidate_days_overdue INTEGER              ✅                 
+13     internal_note                  TEXT                 ❌                 
+14     created_by                     TEXT                 ❌                 
+15     updated_by                     TEXT                 ❌                 
+16     created_at                     TEXT                 ✅                 
+17     updated_at                     TEXT                 ❌                 

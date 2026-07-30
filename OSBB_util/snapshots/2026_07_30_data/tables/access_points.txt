@@ -1,0 +1,25 @@
+================================================================================
+📌 ТАБЛИЦА: access_points
+================================================================================
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      access_point_code              TEXT                 ✅                 
+2      display_name_uk                TEXT                 ✅                 
+3      display_name_ru                TEXT                 ✅                 
+4      display_name_en                TEXT                 ✅                 
+5      point_status                   TEXT                 ✅                 
+6      controller_type                TEXT                 ❌                 
+7      controller_reference           TEXT                 ❌                 
+8      is_active                      INTEGER              ✅                 
+9      effective_from                 TEXT                 ✅                 
+10     effective_to                   TEXT                 ❌                 
+11     retired_at                     TEXT                 ❌                 
+12     retired_reason                 TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     updated_at                     TEXT                 ✅                 

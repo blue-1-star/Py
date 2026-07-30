@@ -1,0 +1,25 @@
+================================================================================
+📌 ТАБЛИЦА: resident_accounts
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      telegram_user_id               INTEGER              ❌                 
+2      telegram_username              TEXT                 ❌                 
+3      telegram_first_name            TEXT                 ❌                 
+4      telegram_last_name             TEXT                 ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      role                           TEXT                 ❌                 
+8      status                         TEXT                 ❌                 
+9      language_code                  TEXT                 ❌                 
+10     created_at                     TEXT                 ❌                 
+11     updated_at                     TEXT                 ❌                 
+12     verified_at                    TEXT                 ❌                 
+13     last_seen_at                   TEXT                 ❌                 
+14     notes                          TEXT                 ❌                 

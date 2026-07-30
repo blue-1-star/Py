@@ -1,0 +1,39 @@
+================================================================================
+📌 ТАБЛИЦА: payments
+================================================================================
+📊 Строк: 143
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      payment_date                   TEXT                 ❌                 
+2      period_code                    TEXT                 ❌                 
+3      apartment_number               TEXT                 ❌                 
+4      vehicle_id                     INTEGER              ❌                 
+5      amount                         REAL                 ✅                 
+6      currency                       TEXT                 ✅                 
+7      payment_method                 TEXT                 ❌                 
+8      source                         TEXT                 ❌                 
+9      created_by                     TEXT                 ❌                 
+10     comment                        TEXT                 ❌                 
+11     created_at                     TEXT                 ❌                 
+12     cashbox_code                   TEXT                 ❌                 
+13     cashbox_operation_id           INTEGER              ❌                 
+14     cashier_batch_id               TEXT                 ❌                 
+15     operator_id                    TEXT                 ❌                 
+16     service_item_code              TEXT                 ❌                 
+17     base_service_code              TEXT                 ❌                 
+18     service_type                   TEXT                 ❌                 
+19     commercial_contract_id         INTEGER              ❌                 
+20     commercial_unit_id             INTEGER              ❌                 
+21     cashier_receipt_id             INTEGER              ❌                 
+22     cashier_entry_status           TEXT                 ❌                 
+23     payment_notice_id              INTEGER              ❌                 
+24     bank_transaction_id            INTEGER              ❌                 
+25     payment_channel                TEXT                 ❌                 
+26     apartment_id                   INTEGER              ❌                 
+27     source_ref                     TEXT                 ❌                 
+28     candidate_id                   INTEGER              ❌                 

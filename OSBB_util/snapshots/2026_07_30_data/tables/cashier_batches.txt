@@ -1,0 +1,40 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_batches
+================================================================================
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      batch_id                       TEXT                 ✅                 
+2      batch_type                     TEXT                 ✅                 
+3      period_code                    TEXT                 ❌                 
+4      cashbox_code                   TEXT                 ❌                 
+5      service_code                   TEXT                 ❌                 
+6      default_amount                 REAL                 ❌                 
+7      default_tariff                 TEXT                 ❌                 
+8      operator_id                    TEXT                 ❌                 
+9      actor_type                     TEXT                 ❌                 
+10     total_rows                     INTEGER              ❌                 
+11     total_amount                   REAL                 ❌                 
+12     comment                        TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     applied_at                     TEXT                 ❌                 
+15     batch_status                   TEXT                 ❌                 
+16     batch_number                   TEXT                 ❌                 
+17     batch_kind                     TEXT                 ❌                 
+18     entry_status                   TEXT                 ✅                 
+19     entrance_number                TEXT                 ❌                 
+20     service_item_code              TEXT                 ❌                 
+21     receipt_date                   TEXT                 ❌                 
+22     included_count                 INTEGER              ✅                 
+23     excluded_count                 INTEGER              ✅                 
+24     currency                       TEXT                 ✅                 
+25     source_text                    TEXT                 ❌                 
+26     confirmed_at                   TEXT                 ❌                 
+27     voided_at                      TEXT                 ❌                 
+28     void_reason                    TEXT                 ❌                 
+29     updated_at                     TEXT                 ❌                 

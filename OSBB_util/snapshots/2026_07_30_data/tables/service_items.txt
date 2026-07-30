@@ -1,0 +1,27 @@
+================================================================================
+📌 ТАБЛИЦА: service_items
+================================================================================
+📊 Строк: 15
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_item_code              TEXT                 ✅                 
+2      service_code                   TEXT                 ✅                 
+3      service_item_name              TEXT                 ✅                 
+4      service_type                   TEXT                 ✅                 
+5      period_code                    TEXT                 ❌                 
+6      sequence_no                    INTEGER              ❌                 
+7      amount_default                 REAL                 ❌                 
+8      currency                       TEXT                 ✅                 
+9      date_from                      TEXT                 ❌                 
+10     date_to                        TEXT                 ❌                 
+11     status                         TEXT                 ✅                 
+12     is_active                      INTEGER              ✅                 
+13     description                    TEXT                 ❌                 
+14     comment                        TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 

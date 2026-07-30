@@ -1,0 +1,32 @@
+================================================================================
+📌 ТАБЛИЦА: profile_parking_time_test_sessions
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      session_number                 TEXT                 ✅                 
+2      test_scope                     TEXT                 ✅                 
+3      target_apartment_id            INTEGER              ❌                 
+4      target_apartment_number        TEXT                 ✅                 
+5      target_vehicle_id              INTEGER              ✅                 
+6      plate_snapshot                 TEXT                 ❌                 
+7      model_snapshot                 TEXT                 ❌                 
+8      color_snapshot                 TEXT                 ❌                 
+9      original_parking_time_snapshot TEXT                 ❌                 
+10     proposed_parking_time          TEXT                 ❌                 
+11     test_status                    TEXT                 ✅                 
+12     opened_by                      TEXT                 ✅                 
+13     opened_at                      TEXT                 ✅                 
+14     proposed_by                    TEXT                 ❌                 
+15     proposed_at                    TEXT                 ❌                 
+16     reviewed_by                    TEXT                 ❌                 
+17     reviewed_at                    TEXT                 ❌                 
+18     review_note                    TEXT                 ❌                 
+19     close_reason                   TEXT                 ❌                 
+20     created_at                     TEXT                 ✅                 
+21     updated_at                     TEXT                 ✅                 

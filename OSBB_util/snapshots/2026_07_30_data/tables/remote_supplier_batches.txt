@@ -1,0 +1,26 @@
+================================================================================
+📌 ТАБЛИЦА: remote_supplier_batches
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      batch_number                   TEXT                 ✅                 
+2      service_item_code              TEXT                 ✅                 
+3      service_name_snapshot          TEXT                 ✅                 
+4      quantity_requested             INTEGER              ✅                 
+5      quantity_received              INTEGER              ✅                 
+6      quantity_issued                INTEGER              ✅                 
+7      batch_status                   TEXT                 ✅                 
+8      supplier_name                  TEXT                 ❌                 
+9      supplier_reference             TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     ordered_at                     TEXT                 ❌                 
+12     received_at                    TEXT                 ❌                 
+13     created_at                     TEXT                 ✅                 
+14     updated_at                     TEXT                 ✅                 
+15     note                           TEXT                 ❌                 

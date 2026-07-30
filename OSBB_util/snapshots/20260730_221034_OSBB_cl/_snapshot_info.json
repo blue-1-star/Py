@@ -1,0 +1,20 @@
+{
+  "project": {
+    "name": "OSBB_cl",
+    "root": "G:\\Programming\\OSBB_cl"
+  },
+  "snapshot": {
+    "timestamp": "2026-07-30T22:10:35.651753",
+    "directory": "G:\\Programming\\Py\\OSBB_util\\snapshots\\20260730_221034_OSBB_cl"
+  },
+  "results": {
+    "tree": true,
+    "db": true,
+    "bot": true
+  },
+  "utilities": {
+    "export_tree": "export_tree.py",
+    "export_db_schema": "export_db_schema.py",
+    "export_bot_menu": "export_bot_menu.py"
+  }
+}

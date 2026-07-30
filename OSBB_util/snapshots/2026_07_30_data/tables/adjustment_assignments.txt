@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: adjustment_assignments
+================================================================================
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      adjustment_code                TEXT                 ✅                 
+2      adjustment_type                TEXT                 ✅                 
+3      apartment_id                   INTEGER              ❌                 
+4      apartment_number               TEXT                 ❌                 
+5      contact_id                     INTEGER              ❌                 
+6      vehicle_id                     INTEGER              ❌                 
+7      base_service_code              TEXT                 ❌                 
+8      service_item_code              TEXT                 ❌                 
+9      calculation_kind               TEXT                 ✅                 
+10     calculation_value              REAL                 ❌                 
+11     credit_total_amount            REAL                 ❌                 
+12     credit_remaining_amount        REAL                 ❌                 
+13     valid_from                     TEXT                 ❌                 
+14     valid_to                       TEXT                 ❌                 
+15     status                         TEXT                 ✅                 
+16     approval_reference             TEXT                 ❌                 
+17     public_note                    TEXT                 ❌                 
+18     internal_note                  TEXT                 ❌                 
+19     approved_by                    TEXT                 ❌                 
+20     created_by                     TEXT                 ❌                 
+21     created_at                     TEXT                 ✅                 
+22     updated_at                     TEXT                 ❌                 

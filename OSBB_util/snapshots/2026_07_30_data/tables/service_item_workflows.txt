@@ -1,0 +1,23 @@
+================================================================================
+📌 ТАБЛИЦА: service_item_workflows
+================================================================================
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      service_item_code              TEXT                 ❌            ✅    
+1      workflow_profile_code          TEXT                 ✅                 
+2      resident_request_enabled       INTEGER              ✅                 
+3      operator_create_enabled        INTEGER              ✅                 
+4      requires_charge                INTEGER              ✅                 
+5      payment_timing                 TEXT                 ✅                 
+6      inventory_mode                 TEXT                 ✅                 
+7      resident_asset_mode            TEXT                 ✅                 
+8      is_active                      INTEGER              ✅                 
+9      retired_at                     TEXT                 ❌                 
+10     retired_reason                 TEXT                 ❌                 
+11     created_at                     TEXT                 ✅                 
+12     updated_at                     TEXT                 ❌                 

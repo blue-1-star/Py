@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: service_order_interests
+================================================================================
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      interest_number                TEXT                 ✅                 
+2      resident_account_id            INTEGER              ❌                 
+3      telegram_user_id               TEXT                 ❌                 
+4      apartment_id                   INTEGER              ❌                 
+5      apartment_number               TEXT                 ✅                 
+6      service_code                   TEXT                 ❌                 
+7      service_item_code              TEXT                 ✅                 
+8      service_name_snapshot          TEXT                 ✅                 
+9      workflow_profile_code          TEXT                 ✅                 
+10     quantity                       INTEGER              ✅                 
+11     unit_price_snapshot            REAL                 ✅                 
+12     amount_due_snapshot            REAL                 ✅                 
+13     currency                       TEXT                 ✅                 
+14     interest_status                TEXT                 ✅                 
+15     payment_notice_id              INTEGER              ❌                 
+16     payment_notice_number          TEXT                 ❌                 
+17     payment_id                     INTEGER              ❌                 
+18     service_order_id               INTEGER              ❌                 
+19     resident_comment               TEXT                 ❌                 
+20     created_at                     TEXT                 ✅                 
+21     updated_at                     TEXT                 ✅                 
+22     paid_at                        TEXT                 ❌                 

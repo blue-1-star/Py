@@ -1,0 +1,23 @@
+================================================================================
+📌 ТАБЛИЦА: access_operation_journal
+================================================================================
+📊 Строк: 8
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      event_number                   TEXT                 ✅                 
+2      subscription_id                INTEGER              ❌                 
+3      subscription_point_id          INTEGER              ❌                 
+4      access_point_code              TEXT                 ❌                 
+5      event_type                     TEXT                 ✅                 
+6      old_status                     TEXT                 ❌                 
+7      new_status                     TEXT                 ❌                 
+8      actor_id                       TEXT                 ❌                 
+9      source_context                 TEXT                 ❌                 
+10     correlation_id                 TEXT                 ❌                 
+11     payload_json                   TEXT                 ❌                 
+12     created_at                     TEXT                 ✅                 

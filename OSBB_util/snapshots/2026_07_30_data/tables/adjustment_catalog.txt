@@ -1,0 +1,22 @@
+================================================================================
+📌 ТАБЛИЦА: adjustment_catalog
+================================================================================
+📊 Строк: 6
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      adjustment_code                TEXT                 ✅                 
+2      adjustment_name                TEXT                 ✅                 
+3      adjustment_type                TEXT                 ✅                 
+4      default_calculation_kind       TEXT                 ❌                 
+5      default_calculation_value      REAL                 ❌                 
+6      is_sensitive                   INTEGER              ✅                 
+7      is_active                      INTEGER              ✅                 
+8      public_note_template           TEXT                 ❌                 
+9      internal_description           TEXT                 ❌                 
+10     created_at                     TEXT                 ✅                 
+11     updated_at                     TEXT                 ❌                 

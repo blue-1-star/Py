@@ -1,0 +1,47 @@
+================================================================================
+📌 ТАБЛИЦА: cashier_receipts
+================================================================================
+📊 Строк: 44
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      receipt_number                 TEXT                 ✅                 
+2      receipt_kind                   TEXT                 ✅                 
+3      entry_status                   TEXT                 ✅                 
+4      cashbox_code                   TEXT                 ❌                 
+5      receipt_date                   TEXT                 ✅                 
+6      document_date                  TEXT                 ❌                 
+7      origin_kind                    TEXT                 ✅                 
+8      origin_cashbox_code            TEXT                 ❌                 
+9      payer_name                     TEXT                 ❌                 
+10     apartment_id                   INTEGER              ❌                 
+11     apartment_number               TEXT                 ❌                 
+12     service_hint                   TEXT                 ❌                 
+13     period_code                    TEXT                 ❌                 
+14     amount                         REAL                 ✅                 
+15     currency                       TEXT                 ✅                 
+16     evidence_type                  TEXT                 ✅                 
+17     paper_ref                      TEXT                 ❌                 
+18     source_text                    TEXT                 ❌                 
+19     designation_status             TEXT                 ✅                 
+20     allocation_status              TEXT                 ✅                 
+21     payment_id                     INTEGER              ❌                 
+22     cashbox_operation_id           INTEGER              ❌                 
+23     void_payment_id                INTEGER              ❌                 
+24     void_cashbox_operation_id      INTEGER              ❌                 
+25     operator_id                    TEXT                 ❌                 
+26     confirmed_by                   TEXT                 ❌                 
+27     confirmed_at                   TEXT                 ❌                 
+28     voided_by                      TEXT                 ❌                 
+29     voided_at                      TEXT                 ❌                 
+30     void_reason                    TEXT                 ❌                 
+31     created_at                     TEXT                 ✅                 
+32     updated_at                     TEXT                 ❌                 
+33     payment_notice_id              INTEGER              ❌                 
+34     cashier_batch_id               INTEGER              ❌                 
+35     service_item_code              TEXT                 ❌                 
+36     review_status                  TEXT                 ❌                 

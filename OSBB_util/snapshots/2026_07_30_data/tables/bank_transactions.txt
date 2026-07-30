@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: bank_transactions
+================================================================================
+📊 Строк: 5
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      transaction_ref                TEXT                 ❌                 
+2      entry_status                   TEXT                 ✅                 
+3      transaction_date               TEXT                 ✅                 
+4      value_date                     TEXT                 ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      period_code                    TEXT                 ❌                 
+8      service_code                   TEXT                 ❌                 
+9      service_item_code              TEXT                 ❌                 
+10     amount                         REAL                 ✅                 
+11     currency                       TEXT                 ✅                 
+12     payer_text                     TEXT                 ❌                 
+13     bank_name                      TEXT                 ❌                 
+14     source_type                    TEXT                 ✅                 
+15     source_ref                     TEXT                 ❌                 
+16     payment_notice_id              INTEGER              ❌                 
+17     payment_id                     INTEGER              ❌                 
+18     cashier_batch_id               INTEGER              ❌                 
+19     operator_id                    TEXT                 ❌                 
+20     operator_note                  TEXT                 ❌                 
+21     created_at                     TEXT                 ✅                 
+22     updated_at                     TEXT                 ❌                 

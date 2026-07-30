@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: service_catalog
+================================================================================
+📊 Строк: 18
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      service_code                   TEXT                 ✅                 
+2      service_group                  TEXT                 ✅                 
+3      service_name                   TEXT                 ✅                 
+4      unit                           TEXT                 ✅                 
+5      is_active                      INTEGER              ✅                 
+6      comment                        TEXT                 ❌                 
+7      created_at                     TEXT                 ❌                 
+8      updated_at                     TEXT                 ❌                 
+9      service_type                   TEXT                 ❌                 
+10     category                       TEXT                 ❌                 
+11     is_monthly                     INTEGER              ✅                 
+12     is_fundraising                 INTEGER              ✅                 
+13     is_commercial                  INTEGER              ✅                 
+14     is_access_control              INTEGER              ✅                 
+15     is_cash_collectable            INTEGER              ✅                 
+16     access_policy_enabled          INTEGER              ✅                 
+17     access_policy_scope            TEXT                 ✅                 
+18     access_policy_mode             TEXT                 ✅                 
+19     access_policy_message          TEXT                 ❌                 
+20     manual_review_required         INTEGER              ✅                 
+21     policy_updated_at              TEXT                 ❌                 
+22     policy_updated_by              TEXT                 ❌                 
