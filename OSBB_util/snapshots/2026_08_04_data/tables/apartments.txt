@@ -1,0 +1,33 @@
+================================================================================
+📌 ТАБЛИЦА: apartments
+================================================================================
+📊 Строк: 236
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_number               TEXT                 ✅                 
+2      entrance                       TEXT                 ❌                 
+3      entrance_source                TEXT                 ❌                 
+4      total_area                     REAL                 ❌                 
+5      object_type                    TEXT                 ❌                 
+6      status                         TEXT                 ❌                 
+7      source                         TEXT                 ❌                 
+8      notes                          TEXT                 ❌                 
+9      created_at                     TEXT                 ❌                 
+10     created_by                     TEXT                 ❌                 
+11     updated_at                     TEXT                 ❌                 
+12     updated_by                     TEXT                 ❌                 
+13     unit_type                      TEXT                 ❌                 
+14     unit_code                      TEXT                 ❌                 
+15     entrance_number                INTEGER              ❌                 
+16     official_number                TEXT                 ❌                 
+17     display_name                   TEXT                 ❌                 
+18     area_sqm                       REAL                 ❌                 
+19     record_status                  TEXT                 ❌                 
+20     source_note                    TEXT                 ❌                 
+21     internal_note                  TEXT                 ❌                 
+22     unit_updated_at                TEXT                 ❌                 

@@ -1,0 +1,27 @@
+================================================================================
+📌 ТАБЛИЦА: remote_requests
+================================================================================
+📊 Строк: 0
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      resident_account_id            INTEGER              ✅                 
+2      telegram_user_id               TEXT                 ✅                 
+3      apartment_id                   INTEGER              ✅                 
+4      apartment_number               TEXT                 ✅                 
+5      request_kind                   TEXT                 ✅                 
+6      quantity                       INTEGER              ✅                 
+7      resident_comment               TEXT                 ❌                 
+8      status                         TEXT                 ✅                 
+9      operator_id                    TEXT                 ❌                 
+10     operator_note                  TEXT                 ❌                 
+11     created_at                     TEXT                 ✅                 
+12     updated_at                     TEXT                 ❌                 
+13     reviewed_at                    TEXT                 ❌                 
+14     issued_at                      TEXT                 ❌                 
+15     closed_at                      TEXT                 ❌                 
+16     service_order_id               INTEGER              ❌                 

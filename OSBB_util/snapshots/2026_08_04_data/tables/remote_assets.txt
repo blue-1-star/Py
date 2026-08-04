@@ -1,0 +1,27 @@
+================================================================================
+📌 ТАБЛИЦА: remote_assets
+================================================================================
+📊 Строк: 7
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      asset_number                   TEXT                 ✅                 
+2      asset_type                     TEXT                 ✅                 
+3      ownership_type                 TEXT                 ✅                 
+4      inventory_status               TEXT                 ✅                 
+5      condition_status               TEXT                 ✅                 
+6      hardware_model                 TEXT                 ❌                 
+7      serial_number                  TEXT                 ❌                 
+8      programming_identifier         TEXT                 ❌                 
+9      apartment_id                   INTEGER              ❌                 
+10     apartment_number               TEXT                 ❌                 
+11     received_at                    TEXT                 ❌                 
+12     issued_at                      TEXT                 ❌                 
+13     retired_at                     TEXT                 ❌                 
+14     note                           TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 

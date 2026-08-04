@@ -1,0 +1,24 @@
+================================================================================
+📌 ТАБЛИЦА: bot_admins
+================================================================================
+📊 Строк: 2
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      telegram_user_id               INTEGER              ❌                 
+2      telegram_username              TEXT                 ❌                 
+3      display_name                   TEXT                 ❌                 
+4      role                           TEXT                 ❌                 
+5      can_read                       INTEGER              ❌                 
+6      can_write                      INTEGER              ❌                 
+7      can_manage_users               INTEGER              ❌                 
+8      can_manage_payments            INTEGER              ❌                 
+9      can_manage_bot                 INTEGER              ❌                 
+10     is_active                      INTEGER              ❌                 
+11     created_at                     TEXT                 ❌                 
+12     updated_at                     TEXT                 ❌                 
+13     notes                          TEXT                 ❌                 

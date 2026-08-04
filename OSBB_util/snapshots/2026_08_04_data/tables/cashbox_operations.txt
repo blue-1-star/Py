@@ -1,0 +1,39 @@
+================================================================================
+📌 ТАБЛИЦА: cashbox_operations
+================================================================================
+📊 Строк: 139
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      operation_date                 TEXT                 ✅                 
+2      cashbox_code                   TEXT                 ✅                 
+3      operation_type                 TEXT                 ✅                 
+4      direction                      TEXT                 ✅                 
+5      amount                         REAL                 ✅                 
+6      currency                       TEXT                 ✅                 
+7      period_code                    TEXT                 ❌                 
+8      apartment_number               TEXT                 ❌                 
+9      vehicle_id                     INTEGER              ❌                 
+10     service_code                   TEXT                 ❌                 
+11     payment_id                     INTEGER              ❌                 
+12     charge_id                      INTEGER              ❌                 
+13     batch_id                       TEXT                 ❌                 
+14     source_type                    TEXT                 ❌                 
+15     source_ref                     TEXT                 ❌                 
+16     operator_id                    TEXT                 ❌                 
+17     actor_type                     TEXT                 ❌                 
+18     comment                        TEXT                 ❌                 
+19     created_at                     TEXT                 ✅                 
+20     service_item_code              TEXT                 ❌                 
+21     base_service_code              TEXT                 ❌                 
+22     service_type                   TEXT                 ❌                 
+23     commercial_contract_id         INTEGER              ❌                 
+24     commercial_unit_id             INTEGER              ❌                 
+25     cashier_receipt_id             INTEGER              ❌                 
+26     transfer_group_ref             TEXT                 ❌                 
+27     payment_notice_id              INTEGER              ❌                 
+28     cashier_batch_id               INTEGER              ❌                 

@@ -1,0 +1,24 @@
+================================================================================
+📌 ТАБЛИЦА: verification_journal
+================================================================================
+📊 Строк: 17
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      created_at                     TEXT                 ✅                 
+2      apartment_number               TEXT                 ❌                 
+3      issue_type                     TEXT                 ✅                 
+4      description                    TEXT                 ❌                 
+5      related_payment_id             INTEGER              ❌                 
+6      related_receipt_id             INTEGER              ❌                 
+7      raised_by                      TEXT                 ❌                 
+8      assigned_role                  TEXT                 ❌                 
+9      status                         TEXT                 ✅                 
+10     resolved_at                    TEXT                 ❌                 
+11     resolved_by                    TEXT                 ❌                 
+12     resolution_note                TEXT                 ❌                 
+13     concerns_field                 TEXT                 ❌                 

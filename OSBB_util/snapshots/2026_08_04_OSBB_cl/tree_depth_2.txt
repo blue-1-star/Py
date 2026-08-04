@@ -1,0 +1,544 @@
+├── .gitignore [189 B] 2026-07-22 08:56
+├── access_control.py [11.1 KB] 2026-06-26 12:15
+├── arc_docs/
+│   ├── archive_20260726.zip [9.3 KB] 2026-07-26 12:55
+│   ├── archive_20260727.zip [7.1 KB] 2026-07-27 20:38
+│   ├── archive_20260730.zip [6.8 KB] 2026-07-30 19:13
+│   └── archive_20260802.zip [6.6 KB] 2026-08-02 22:24
+├── audit_composite_apartments.py [3.5 KB] 2026-06-16 12:38
+├── audit_logger.py [8.1 KB] 2026-06-21 11:50
+├── audit_osbb_telegram_messages.py [4.4 KB] 2026-06-10 13:29
+├── audit_registry.py [6.7 KB] 2026-06-08 17:23
+├── audit_tbot_quarantine.py [13.3 KB] 2026-06-08 19:51
+├── billing/
+│   ├── build_parking_time_review_tasks.py [4.1 KB] 2026-06-11 19:50
+│   ├── import_ohorona_parking_time.py [13.3 KB] 2026-06-17 23:17
+│   ├── import_ohorona_parking_time_simple_preview.py [14.2 KB] 2026-06-18 13:48
+│   ├── import_parking_time_hints_from_ohorona.py [9.8 KB] 2026-06-11 19:14
+│   ├── migrate_add_parking_billing.py [4.2 KB] 2026-06-11 16:45
+│   ├── report_missing_parking_time.py [0 B] 2026-06-11 16:46
+│   ├── report_parking_time_review_tasks.py [6.2 KB] 2026-06-11 20:10
+│   └── report_parking_time_with_hints.py [13.7 KB] 2026-06-11 21:34
+├── billing_reconciliation_report.py [14.8 KB] 2026-06-19 16:13
+├── billing_statement_excel.py [16.9 KB] 2026-06-20 21:47
+├── Bots/
+│   ├── data_park_bot.py [4.1 KB] 2026-06-06 18:08
+│   ├── db_access.py [157.9 KB] 2026-06-23 19:50
+│   ├── db_access.py.diff [55.3 KB] 2026-07-21 19:23
+│   ├── db_access_deduped.py [115.1 KB] 2026-07-21 19:23
+│   ├── handlers/
+│   │   ├── __init___.MODULE.md [1.6 KB] 2026-07-02 19:49
+│   │   ├── __init___.py [0 B] 2026-06-14 21:01
+│   │   ├── agreement.MODULE.md [2.7 KB] 2026-07-02 19:49
+│   │   ├── agreement.py [17.9 KB] 2026-08-02 16:47
+│   │   ├── agreement.py.bak [17.7 KB] 2026-08-02 16:47
+│   │   ├── apartment_link_review.py [8.4 KB] 2026-08-02 15:54
+│   │   ├── audit_viewer.MODULE.md [1.9 KB] 2026-07-02 19:49
+│   │   ├── audit_viewer.py [10.5 KB] 2026-06-24 21:56
+│   │   ├── cashier_operator.MODULE.md [3.9 KB] 2026-07-05 11:32
+│   │   ├── cashier_operator.py [90.0 KB] 2026-06-25 14:39
+│   │   ├── cashier_operator_v2.py [44.6 KB] 2026-07-16 13:45
+│   │   ├── CHANGELOG.md [1012 B] 2026-07-12 07:31
+│   │   ├── client_portal.MODULE.md [3.1 KB] 2026-07-02 19:54
+│   │   ├── client_portal.py [99.7 KB] 2026-07-13 20:23
+│   │   ├── client_portal_safe_linking.MODULE.md [2.9 KB] 2026-07-02 19:49
+│   │   ├── client_portal_safe_linking.py [90.6 KB] 2026-06-25 10:58
+│   │   ├── client_portal_v2.py [28.5 KB] 2026-06-25 17:42
+│   │   ├── client_portal_v3.py [2.9 KB] 2026-08-02 14:41
+│   │   ├── commercial_contract_editor.MODULE.md [3.5 KB] 2026-07-02 19:49
+│   │   ├── commercial_contract_editor.py [75.8 KB] 2026-06-24 12:58
+│   │   ├── guard_workspace.MODULE.md [3.1 KB] 2026-07-02 19:49
+│   │   ├── guard_workspace.py [47.0 KB] 2026-06-28 17:41
+│   │   ├── INSTALL.md [1.1 KB] 2026-07-12 07:31
+│   │   ├── profile_parking_time_test_workspace.MODULE.md [2.3 KB] 2026-07-02 19:49
+│   │   ├── profile_parking_time_test_workspace.py [12.2 KB] 2026-06-28 12:11
+│   │   ├── profile_verification_workspace.MODULE.md [3.2 KB] 2026-07-02 19:49
+│   │   ├── profile_verification_workspace.py [29.6 KB] 2026-06-27 21:55
+│   │   ├── service_orders_workspace.MODULE.md [4.1 KB] 2026-07-03 17:34
+│   │   ├── service_orders_workspace.py [81.9 KB] 2026-06-29 17:34
+│   │   ├── tariff_editor.py [7.3 KB] 2026-08-02 16:47
+│   │   ├── tariff_editor.py.bak [7.2 KB] 2026-08-02 16:47
+│   │   ├── unit_registry_editor.MODULE.md [3.1 KB] 2026-07-02 19:49
+│   │   ├── unit_registry_editor.py [36.6 KB] 2026-06-25 09:28
+│   │   ├── vehicle_card_editor.MODULE.md [3.2 KB] 2026-07-02 19:49
+│   │   ├── vehicle_card_editor.py [38.0 KB] 2026-07-12 11:49
+│   │   ├── vehicle_card_editor_prev.py [18.9 KB] 2026-06-21 14:44
+│   │   ├── vehicle_full_list.MODULE.md [1.9 KB] 2026-07-02 19:49
+│   │   ├── vehicle_full_list.py [3.2 KB] 2026-06-21 15:42
+│   │   ├── vehicle_verification.MODULE.md [3.7 KB] 2026-07-05 11:32
+│   │   ├── vehicle_verification.py [18.1 KB] 2026-06-20 16:39
+│   │   └── verification_review.py [6.7 KB] 2026-08-02 16:21
+│   ├── hello.py [2.2 KB] 2026-06-07 10:51
+│   ├── parking_bot.py [59.4 KB] 2026-08-03 21:33
+│   ├── Start_OSBB_Bot.bat [641 B] 2026-07-04 17:15
+│   ├── Start_OSBB_Bot_training_vika.bat [202 B] 2026-06-30 20:20
+│   ├── Start_OSBB_Bot_working_pult_test.bat [276 B] 2026-07-02 17:44
+│   └── Start_OSBB_cl_Bot.bat [952 B] 2026-07-24 12:53
+├── bots_tree.txt [2.9 KB] 2026-07-21 16:15
+├── build_plate_candidates.py [8.8 KB] 2026-06-10 22:19
+├── build_plate_evidence_by_digits_and_apartment.py [9.7 KB] 2026-06-10 21:26
+├── build_plate_evidence_from_telegram.py [4.3 KB] 2026-06-10 20:53
+├── build_verification_tasks.py [5.8 KB] 2026-06-09 11:34
+├── cashier_journal.py [58.4 KB] 2026-06-22 19:53
+├── cashier_v2_core.py [57.2 KB] 2026-08-01 13:50
+├── cashier_v2_preflight.py [16.6 KB] 2026-06-25 18:35
+├── cashier_v2_preflight_compat.py [11.2 KB] 2026-06-25 19:45
+├── CHANGELOG.md [389 B] 2026-07-11 09:57
+├── check_all_links.py [349 B] 2026-08-02 16:08
+├── check_now.py [313 B] 2026-08-02 16:06
+├── CHECK_profile_button_early_route_fix.py [1.9 KB] 2026-06-27 21:42
+├── CHECK_profile_confirmation_ready_visibility_fix.py [1.1 KB] 2026-06-27 21:55
+├── CHECK_profile_critical_codes_fix.py [1.1 KB] 2026-06-27 21:45
+├── CHECK_profile_test_candidate_apartment_40.py [10.2 KB] 2026-06-27 22:23
+├── CHECK_profile_verification_terminology_v2.py [2.2 KB] 2026-06-27 21:22
+├── CHECK_service_code_compatibility_phone_v2.py [3.7 KB] 2026-06-27 20:18
+├── CLAUDE.md [1.6 KB] 2026-07-23 10:54
+├── Collect_sheets.py [6.8 KB] 2026-05-25 00:13
+├── Collect_sheets1.py [7.6 KB] 2026-05-25 00:31
+├── Collect_word_tables.py [4.7 KB] 2026-05-24 22:24
+├── commercial_contracts.py [43.4 KB] 2026-06-24 12:20
+├── commercial_notification_delivery.py [8.5 KB] 2026-06-24 12:20
+├── config.py [5.5 KB] 2026-07-25 16:40
+├── core_new/
+│   ├── __init__.py [268 B] 2026-07-13 14:10
+│   ├── adapters/
+│   │   ├── __init__.py [60 B] 2026-07-13 14:11
+│   │   ├── cashier_adapter.py [1.5 KB] 2026-07-14 13:29
+│   │   └── db_adapter.py [14.5 KB] 2026-07-15 20:22
+│   ├── db_access.py [114.6 KB] 2026-07-21 21:39
+│   └── domain/
+│       ├── __init__.py [503 B] 2026-07-14 22:16
+│       ├── apartments.py [14.4 KB] 2026-07-13 14:56
+│       ├── cashbox.py [8.1 KB] 2026-07-15 19:41
+│       ├── payments.py [9.7 KB] 2026-07-15 14:48
+│       ├── residents.py [9.2 KB] 2026-07-13 14:20
+│       ├── service_catalog.py [7.1 KB] 2026-07-15 20:19
+│       ├── vehicle_candidate.py [4.3 KB] 2026-07-14 22:15
+│       └── vehicles.py [3.1 KB] 2026-07-14 22:16
+├── core_new_tree.txt [1.1 KB] 2026-07-21 16:15
+├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.bat [866 B] 2026-06-27 12:15
+├── CREATE_TEST_PAYMENT_FOR_OPEN_SERVICE_ORDER.py [5.7 KB] 2026-06-27 12:15
+├── data/
+│   ├── 1 під'їзд.docx [17.7 KB] 2026-05-17 20:16
+│   ├── 2 під'їзд.docx [18.9 KB] 2026-05-17 20:16
+│   ├── 24А ПОЛНЫЙ СПИСОК Сервис Житлобуд1 - Copy.xlsx [24.1 KB] 2026-05-18 09:55
+│   ├── 3 під'їзд.docx [15.7 KB] 2026-05-17 20:16
+│   ├── 4 під'їзд.docx [17.0 KB] 2026-05-17 20:16
+│   ├── 5 під'їзд.docx [16.5 KB] 2026-05-17 20:16
+│   ├── 6 під'їзд.docx [18.0 KB] 2026-05-17 20:16
+│   ├── audit_databases.py [2.8 KB] 2026-06-06 22:27
+│   ├── Audit_for_merge.py [1.8 KB] 2026-05-31 18:25
+│   ├── backups/
+│   │   └── db/
+│   ├── car_registry.py [2.4 KB] 2026-06-01 22:29
+│   ├── check_passport_columns.py [1.6 KB] 2026-05-30 20:22
+│   ├── Clean_Base.py [1.5 KB] 2026-05-31 16:39
+│   ├── clean_base_01.py [2.2 KB] 2026-06-06 20:40
+│   ├── clean_base_02.py [1.7 KB] 2026-06-06 21:05
+│   ├── Clean_Data.py [11.1 KB] 2026-05-25 22:21
+│   ├── conflicts.py [1.7 KB] 2026-05-31 21:58
+│   ├── create_payment_sheet.py [2.5 KB] 2026-06-08 14:51
+│   ├── db/
+│   │   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   │   ├── osbb.db [520.0 KB] 2026-07-22 14:17
+│   │   ├── osbb.sqbpro [2.9 KB] 2026-06-08 18:05
+│   │   ├── osbb_quarantine.db [52.0 KB] 2026-06-09 10:48
+│   │   ├── osbb_telegram.db [368.0 KB] 2026-06-10 20:22
+│   │   ├── osbb_test.db [2.14 MB] 2026-08-04 10:26
+│   │   ├── osbb_test.sqbpro [6.8 KB] 2026-07-19 22:25
+│   │   └── telegram_osbb_session.session [84.0 KB] 2026-06-10 13:18
+│   ├── debug_conflict.py [3.0 KB] 2026-06-01 21:29
+│   ├── exports/
+│   │   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   │   ├── code/
+│   │   ├── code_passport/
+│   │   ├── db_schema_osbb_test.txt [72.5 KB] 2026-06-30 09:28
+│   │   ├── payments_2026-07_20260801_160458.xlsx [10.5 KB] 2026-08-01 16:04
+│   │   └── payments_2026-07_20260801_210618.xlsx [17.8 KB] 2026-08-03 23:04
+│   ├── final_merge.py [3.3 KB] 2026-05-31 17:33
+│   ├── Full_list_GEK.xlsx [24.1 KB] 2026-05-18 09:55
+│   ├── img/
+│   │   └── car_24a_5.jpg [154.3 KB] 2026-05-18 10:39
+│   ├── logs/
+│   │   └── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── merge_all.py [3.4 KB] 2026-05-31 16:47
+│   ├── raw/
+│   │   ├── photos/
+│   │   └── typed/
+│   ├── reports/
+│   │   └── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── rub_flat_merge.py [2.4 KB] 2026-06-06 11:53
+│   ├── run_direct_merge.py [4.1 KB] 2026-05-31 15:34
+│   ├── run_flat_merge.py [3.0 KB] 2026-06-06 11:57
+│   ├── run_smart_merge.py [2.4 KB] 2026-06-04 22:44
+│   └── Попередній список авто.docx [22.5 KB] 2026-05-17 20:16
+├── dev_infrastructure/
+│   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── apply_state_guard.py [1.9 KB] 2026-08-02 16:46
+│   ├── backfill_single_vehicle.py [4.1 KB] 2026-08-01 12:59
+│   ├── check_apartment_174_case.py [2.8 KB] 2026-08-01 12:24
+│   ├── check_cashboxes.py [5.0 KB] 2026-08-02 14:29
+│   ├── check_duplicate_apartments.py [2.2 KB] 2026-08-01 15:26
+│   ├── check_missing_vehicle_bi.py [2.1 KB] 2026-08-03 20:34
+│   ├── check_operation_type_registry.py [2.0 KB] 2026-07-30 15:00
+│   ├── check_payments_cashbox_link.py [2.4 KB] 2026-07-30 12:59
+│   ├── check_period_duplication.py [2.7 KB] 2026-07-30 12:52
+│   ├── check_syntax.py [829 B] 2026-08-02 16:51
+│   ├── compare_db.py [7.1 KB] 2026-07-22 12:38
+│   ├── export_payments_report.py [13.1 KB] 2026-08-01 16:00
+│   ├── find_suspect_vehicles.py [3.5 KB] 2026-07-30 11:23
+│   ├── resolve_apartment_link.py [8.4 KB] 2026-08-02 15:42
+│   └── test_permission.py [3.8 KB] 2026-07-22 14:10
+├── Development_Conventions.md [2.2 KB] 2026-07-21 19:40
+├── diagnose_osbb_audit.py [11.5 KB] 2026-06-24 20:15
+├── docs/
+│   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── _incoming/
+│   ├── Architecture/
+│   │   ├── ADR/
+│   │   ├── ADR-2026-07-01-resident-identity-refactor.md [2.7 KB] 2026-07-02 16:44
+│   │   ├── ADR-2026-07-13-core-new-layer.md [2.3 KB] 2026-07-13 16:55
+│   │   ├── ADR-2026-07-13-domain-models.md [11.5 KB] 2026-07-14 10:23
+│   │   ├── ADR-2026-07-14-core_new-analysis.md [3.3 KB] 2026-07-15 21:36
+│   │   ├── ADR-2026-07-14-vehicle-candidate.md [1.9 KB] 2026-07-15 21:36
+│   │   ├── Finance_Core.md [2.7 KB] 2026-07-19 21:08
+│   │   ├── Services/
+│   │   └── Workflows/
+│   ├── Changelog/
+│   │   └── CHANGELOG_core_new.md [2.2 KB] 2026-07-15 21:36
+│   ├── Database/
+│   │   └── Data_Dictionary.md [10.4 KB] 2026-07-16 16:30
+│   ├── Development/
+│   │   ├── Assistant_Development.md [2.1 KB] 2026-07-20 20:04
+│   │   ├── Engineering_Principles.md [2.2 KB] 2026-07-20 20:04
+│   │   ├── Environment.md [1.0 KB] 2026-07-20 20:04
+│   │   ├── Lessons_Learned.md [2.4 KB] 2026-07-20 20:04
+│   │   ├── Presentation_Layer.md [1.4 KB] 2026-07-20 20:04
+│   │   ├── Query_Library.md [1.7 KB] 2026-07-20 20:04
+│   │   ├── README.md [971 B] 2026-07-20 20:04
+│   │   └── Troubleshooting.md [1.8 KB] 2026-07-20 20:04
+│   ├── Domain/
+│   │   ├── apartments.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── payments.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── README.md [1.5 KB] 2026-07-15 21:36
+│   │   ├── residents.md [1.4 KB] 2026-07-15 21:36
+│   │   ├── vehicle_candidate.md [1.5 KB] 2026-07-15 21:36
+│   │   └── vehicles.md [1.4 KB] 2026-07-15 21:36
+│   ├── Guide/
+│   │   └── SECOND_ADMIN_GUIDE.docx [2.18 MB] 2026-06-30 19:58
+│   ├── Implementation_Status.md [8.4 KB] 2026-07-26 16:57
+│   ├── modules/
+│   │   └── HANDLERS_MODULE_REGISTRY.md [3.2 KB] 2026-07-02 19:52
+│   ├── non_residential_unit_draft_template.xlsx [8.6 KB] 2026-06-23 14:04
+│   ├── OSBB - Организация сбора данных.pdf [6.44 MB] 2026-06-17 22:27
+│   ├── OSBB Project State.docx [37.3 KB] 2026-07-13 10:45
+│   ├── OSBB_Business_Handoff_2026-06-27/
+│   │   ├── DO_NOT_UPLOAD_SECRETS.md [517 B] 2026-06-27 22:42
+│   │   ├── OSBB_BUSINESS_HANDOFF_2026-06-27.md [10.4 KB] 2026-06-27 22:42
+│   │   ├── OSBB_PROJECT_INSTRUCTIONS.md [2.3 KB] 2026-06-27 22:42
+│   │   ├── SHA256SUMS.txt [494 B] 2026-06-27 22:42
+│   │   ├── START_OSBB_BUSINESS_CHAT_2026-06-28.txt [807 B] 2026-06-27 22:42
+│   │   └── TRANSFER_CHECKLIST_2026-06-27.txt [1.2 KB] 2026-06-27 22:42
+│   ├── OSBB_Business_Handoff_2026-06-27.zip [8.4 KB] 2026-06-27 22:40
+│   ├── OSBB_Project_Overview.md [7.2 KB] 2026-07-20 22:17
+│   ├── Project_Log.md [48.5 KB] 2026-08-02 22:24
+│   ├── README.md [901 B] 2026-07-15 21:36
+│   ├── ROADMAP.md [33.1 KB] 2026-08-02 22:24
+│   ├── Second_Admin_Giude.md [3.4 KB] 2026-06-30 17:49
+│   ├── Target_Vision_Gap.md [7.4 KB] 2026-07-26 16:57
+│   └── Technical_Specification.md [9.7 KB] 2026-07-26 16:57
+├── extract_telegram_remote_facts.py [7.7 KB] 2026-06-10 14:43
+├── extract_telegram_vehicle_facts.py [11.9 KB] 2026-06-10 20:22
+├── finance_core/
+│   └── __init__.py [0 B] 2026-07-22 08:56
+├── FIND_actual_service_order_state.py [13.8 KB] 2026-06-27 11:56
+├── FIX_live_services_sandbox_payment_schema.py [11.2 KB] 2026-06-27 12:24
+├── fix_parking_bot_language_gate.py [5.1 KB] 2026-06-25 10:43
+├── fix_source_ref_schema.py [10.3 KB] 2026-06-27 10:40
+├── generate_parking_charges.py [14.4 KB] 2026-06-18 18:26
+├── Generate_Stetement.py [6.2 KB] 2026-05-28 16:26
+├── guard_workspace_preflight.py [13.0 KB] 2026-06-26 12:37
+├── guard_workspace_preflight_v2.py [13.0 KB] 2026-06-26 12:53
+├── handler_chain.txt [10.8 KB] 2026-08-03 21:16
+├── import_house_registry.py [4.1 KB] 2026-06-08 16:45
+├── import_ohorona_list1_to_central_cashbox.py [33.2 KB] 2026-06-22 22:46
+├── import_ohorona_sheet1_payments.py [26.9 KB] 2026-06-19 13:21
+├── import_ohorona_to_cashbox.py [37.1 KB] 2026-06-22 20:40
+├── import_osbb_telegram_messages.py [5.0 KB] 2026-06-10 13:17
+├── import_paper_parking.py [8.1 KB] 2026-06-08 16:52
+├── import_tbot_quarantine.py [3.9 KB] 2026-06-08 19:42
+├── init_osbb_db.py [5.7 KB] 2026-06-07 21:48
+├── init_osbb_quarantine_db.py [1.5 KB] 2026-06-08 18:53
+├── init_osbb_telegram_db.py [2.9 KB] 2026-06-09 16:36
+├── inspect_osbb_folder_filter.py [1.4 KB] 2026-06-10 13:03
+├── INSTALL.md [292 B] 2026-07-11 09:57
+├── install_service_orders_ui.py [13.0 KB] 2026-07-04 17:41
+├── KNOWLEDGE/
+│   ├── Parking_Payment_To_Parking_Time_Workflow.md [2.5 KB] 2026-07-05 11:32
+│   └── Project_Documentator.md [1.0 KB] 2026-07-04 20:57
+├── list_osbb_folder_dialogs.py [2.7 KB] 2026-06-10 12:59
+├── list_osbb_included_peers.py [4.3 KB] 2026-06-10 13:11
+├── list_telegram_dialogs.py [2.7 KB] 2026-06-10 12:17
+├── list_telegram_folders.py [1.4 KB] 2026-06-10 12:54
+├── manage_staff_access.py [15.0 KB] 2026-06-26 12:32
+├── manage_staff_access_v2.py [15.0 KB] 2026-06-26 13:43
+├── mark_audit_enabled.py [392 B] 2026-06-21 12:26
+├── migrate_access_control_and_guard.py [20.5 KB] 2026-06-26 12:32
+├── migrate_add_normalized_fields.py [1.9 KB] 2026-06-08 20:28
+├── migrate_add_verification_evidence.py [1.1 KB] 2026-06-10 20:52
+├── migrate_add_verification_tasks.py [1.8 KB] 2026-06-09 11:10
+├── migrate_apartment_link_requests.py [6.9 KB] 2026-06-25 10:58
+├── migrate_apartment_verification.py [2.5 KB] 2026-06-14 15:11
+├── migrate_billing_core.py [6.1 KB] 2026-06-18 15:06
+├── migrate_bot_core.py [8.5 KB] 2026-06-12 16:34
+├── migrate_cashier_core.py [11.8 KB] 2026-06-21 10:17
+├── migrate_cashier_operator_editor.py [19.2 KB] 2026-06-25 14:38
+├── migrate_cashier_v2.py [17.6 KB] 2026-06-25 17:39
+├── migrate_cashier_v2_compat.py [23.5 KB] 2026-06-25 19:44
+├── migrate_charge_adjustments.py [15.9 KB] 2026-06-22 20:20
+├── migrate_commercial_contract_core.py [34.1 KB] 2026-06-24 12:19
+├── migrate_operator_audit_log.py [2.1 KB] 2026-06-16 22:17
+├── migrate_operator_audit_log_v2.py [5.1 KB] 2026-06-17 14:46
+├── migrate_remote_requests.py [7.5 KB] 2026-06-25 10:19
+├── migrate_service_items.py [17.4 KB] 2026-06-22 13:08
+├── migrate_service_orders_and_fulfillment.py [29.5 KB] 2026-06-26 19:39
+├── migrate_unit_registry_composite_groups.py [26.1 KB] 2026-06-23 17:32
+├── migrations/
+│   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── 2026-07-14_001_create_vehicle_candidates.py [4.2 KB] 2026-07-15 09:25
+│   ├── 2026-07-15_002_allow_null_apartment_number_in_payments.py [3.8 KB] 2026-07-15 20:26
+│   ├── 2026-07-26_003_add_parking_unspecified_service.py [4.6 KB] 2026-07-26 15:51
+│   ├── 2026-07-28_004_add_concerns_field.py [1.4 KB] 2026-07-28 15:17
+│   └── 2026-07-30_005_add_cashbox_operation_types.py [3.2 KB] 2026-07-30 16:07
+├── normalize_registry_fields.py [5.8 KB] 2026-06-08 21:59
+├── osbb_cl_root_current.txt [11.4 KB] 2026-07-23 08:44
+├── osbb_root_files.txt [20.7 KB] 2026-07-21 16:41
+├── osbb_root_report.csv [53.1 KB] 2026-07-21 18:30
+├── OSBB_Service_Orders_Foundation_v1/
+│   ├── migrate_service_orders_and_fulfillment.py [29.5 KB] 2026-06-26 19:39
+│   ├── service_catalog_admin_core.py [18.7 KB] 2026-06-26 19:39
+│   ├── service_orders_core.py [33.0 KB] 2026-06-26 19:39
+│   └── service_orders_preflight.py [17.1 KB] 2026-06-26 19:39
+├── osbb_triage_report.csv [83.3 KB] 2026-07-21 18:58
+├── parking_billing_statement.py [15.3 KB] 2026-06-19 14:57
+├── phone_barrier_access_core.py [71.6 KB] 2026-06-27 19:31
+├── phone_barrier_access_service.py [7.4 KB] 2026-06-29 23:12
+├── plate_consensus_apply.py [10.1 KB] 2026-06-20 13:55
+├── plate_consensus_report.py [23.8 KB] 2026-06-20 13:27
+├── plate_consensus_report_v3.py [22.0 KB] 2026-06-20 11:33
+├── plate_consensus_top6.py [2.7 KB] 2026-06-20 11:42
+├── prepare_live_service_test.py [12.4 KB] 2026-06-26 20:40
+├── presentation/
+│   ├── .gitkeep [0 B] 2026-07-22 08:56
+│   ├── cashier_v2_telegram/
+│   │   └── .gitkeep [0 B] 2026-07-22 08:56
+│   └── handlers/
+│       └── .gitkeep [0 B] 2026-07-22 08:56
+├── profile_parking_time_test_core.py [24.5 KB] 2026-06-28 12:11
+├── profile_verification_core.py [48.4 KB] 2026-06-27 21:22
+├── query_lib/
+│   ├── __init__.py [0 B] 2026-07-23 08:20
+│   ├── cli.py [12.1 KB] 2026-08-02 09:33
+│   ├── core.py [512 B] 2026-07-23 09:26
+│   └── queries.py [33.0 KB] 2026-08-02 16:32
+├── README.md [957 B] 2026-07-22 08:56
+├── repair_confirmed_unit_seed_notes.py [4.2 KB] 2026-06-24 20:37
+├── report_bot_admins.py [4.2 KB] 2026-06-12 19:36
+├── report_plate_candidates.py [6.2 KB] 2026-06-11 11:02
+├── report_verification_evidence.py [5.4 KB] 2026-06-10 21:04
+├── report_verification_tasks.py [3.7 KB] 2026-06-09 12:25
+├── report_verification_tasks_enriched.py [7.0 KB] 2026-06-10 21:57
+├── requirements.txt [1.1 KB] 2026-07-23 13:04
+├── reset_service_catalog.py [22.6 KB] 2026-06-22 19:53
+├── restore_resident_apartment_link.py [10.4 KB] 2026-06-25 12:49
+├── RETIRE_legacy_new_remote_test_orders_sandbox.py [4.3 KB] 2026-06-27 13:29
+├── Runner/
+│   ├── DB_DIFFS/
+│   │   └── .gitkeep [0 B] 2026-07-03 18:48
+│   ├── DB_SNAPSHOTS/
+│   │   └── .gitkeep [0 B] 2026-07-03 18:48
+│   ├── KNOWLEDGE/
+│   │   └── Remote_Order_Workflow.md [1.3 KB] 2026-07-03 18:48
+│   ├── LOGS/
+│   │   └── .gitkeep [0 B] 2026-07-03 18:48
+│   ├── MODULE.md [1.3 KB] 2026-07-03 18:48
+│   ├── README.md [628 B] 2026-07-03 18:48
+│   ├── REPORTS/
+│   │   └── .gitkeep [0 B] 2026-07-03 18:48
+│   ├── run_remote_debt_blocked_probe.py [18.8 KB] 2026-07-03 20:30
+│   ├── SCENARIOS/
+│   │   ├── INDEX.md [559 B] 2026-07-03 18:48
+│   │   └── TEST_REMOTE_NEW_FROM_STOCK.md [3.5 KB] 2026-07-03 18:48
+│   └── SCENARIOS_YAML/
+│       └── TEST_REMOTE_NEW_FROM_STOCK.yaml [2.8 KB] 2026-07-03 18:48
+├── scripts/
+│   ├── doc_processor.py [6.6 KB] 2026-07-27 20:38
+│   └── update_docs.bat [115 B] 2026-07-26 12:37
+├── search_vehicle_by_plate_fragment.py [6.5 KB] 2026-06-19 12:31
+├── seed_bot_admins.py [4.3 KB] 2026-06-12 19:25
+├── seed_commercial_unit_placeholders.py [13.1 KB] 2026-06-23 21:35
+├── seed_parking_tariffs.py [3.5 KB] 2026-06-18 16:40
+├── service_access_policy.py [12.9 KB] 2026-06-29 13:13
+├── service_catalog_admin_core.py [18.7 KB] 2026-06-26 19:39
+├── service_orders_core.py [43.9 KB] 2026-07-02 22:59
+├── service_orders_preflight.py [17.1 KB] 2026-06-26 19:39
+├── service_preorders_core.py [43.2 KB] 2026-07-02 22:59
+├── supervisor_dashboard.py [22.2 KB] 2026-06-20 20:53
+├── switch_parking_bot_to_cashier_v2.py [4.4 KB] 2026-06-25 17:44
+├── telegram_test_login.py [896 B] 2026-06-10 11:16
+├── telegram_test_login_manual.py [1.5 KB] 2026-06-10 12:01
+├── test.py [379 B] 2026-06-26 14:01
+├── test_db_access_unit_resolver.py [2.1 KB] 2026-06-23 19:52
+├── tools/
+│   ├── access_control/
+│   │   ├── __init__.py [37 B] 2026-07-06 22:33
+│   │   ├── access_control.py [8.4 KB] 2026-07-06 22:33
+│   │   ├── ACCESS_CONTROL_V2.md [791 B] 2026-07-06 22:33
+│   │   ├── create_permissions_schema.py [493 B] 2026-07-06 22:33
+│   │   ├── inspect_access_summary.py [1.5 KB] 2026-07-06 22:33
+│   │   └── seed_access_permissions_reference.py [6.6 KB] 2026-07-06 22:33
+│   ├── ACCESS_CONTROL_V2_INSTALL.md [1.4 KB] 2026-07-06 22:34
+│   ├── add_bot_admin.py [15.2 KB] 2026-06-30 13:42
+│   ├── admin_access_grant.py [15.8 KB] 2026-07-04 17:56
+│   ├── admin_manager.py [6.2 KB] 2026-07-01 13:41
+│   ├── audit_phone_acceptance_assumptions.py [11.9 KB] 2026-06-29 21:17
+│   ├── build_release_notes_from_git.py [8.4 KB] 2026-06-30 21:40
+│   ├── cashier_admin/
+│   │   ├── __init__.py [47 B] 2026-07-11 09:55
+│   │   ├── cashier_admin_ui.py [50.4 KB] 2026-08-01 20:38
+│   │   ├── CHANGELOG.md [214 B] 2026-07-11 09:55
+│   │   ├── INSTALL.md [294 B] 2026-07-11 09:55
+│   │   └── MODULE.md [359 B] 2026-07-11 09:55
+│   ├── cashier_audit/
+│   │   ├── cashier_surgical_cleanup.py [16.8 KB] 2026-07-09 18:15
+│   │   └── SURGICAL_CLEANUP.md [935 B] 2026-07-09 18:15
+│   ├── cashier_editor/
+│   │   ├── __init__.py [27 B] 2026-07-07 12:54
+│   │   ├── cashier_ui.py [11.0 KB] 2026-08-02 16:47
+│   │   ├── cashier_ui.py.bak [10.9 KB] 2026-08-02 16:47
+│   │   └── MODULE.md [243 B] 2026-07-07 12:54
+│   ├── cashier_parking_payments_audit_v4.py [24.8 KB] 2026-06-28 15:00
+│   ├── cashier_tables_schema.txt [6.3 KB] 2026-07-12 16:22
+│   ├── cashier_unpaid_preview.py [6.8 KB] 2026-06-28 14:33
+│   ├── cashier_unpaid_preview_v2.py [9.7 KB] 2026-06-28 14:40
+│   ├── cashier_unpaid_preview_v3.py [22.8 KB] 2026-06-28 14:45
+│   ├── cashier_v2_telegram/
+│   │   ├── __init__.py [34 B] 2026-07-11 09:56
+│   │   ├── cashier_card.py [2.9 KB] 2026-07-18 15:35
+│   │   ├── cashier_search.py [20.8 KB] 2026-07-29 20:57
+│   │   ├── cashier_v2_ui.py [83.2 KB] 2026-08-02 22:02
+│   │   ├── CHANGELOG.md [543 B] 2026-07-11 09:56
+│   │   ├── INSTALL.md [683 B] 2026-07-11 09:56
+│   │   └── MODULE.md [285 B] 2026-07-11 09:56
+│   ├── check_service_policy_v1.py [11.7 KB] 2026-06-29 11:21
+│   ├── db_inspector.MODULE.md [1.6 KB] 2026-07-05 11:32
+│   ├── db_inspector.py [23.3 KB] 2026-07-05 12:56
+│   ├── db_inspector_v2.MODULE.md [1.2 KB] 2026-07-05 09:27
+│   ├── db_inspector_v3.MODULE.md [1.6 KB] 2026-07-05 11:09
+│   ├── db_inspector_v3.py [12.5 KB] 2026-07-05 11:05
+│   ├── db_inspector_v4_parking_report.MODULE.md [1.6 KB] 2026-07-05 12:22
+│   ├── db_inspector_v5_parking_public.MODULE.md [871 B] 2026-07-05 12:56
+│   ├── db_schema_compare.py [14.8 KB] 2026-06-28 13:06
+│   ├── db_schema_snapshot.py [11.2 KB] 2026-06-28 14:12
+│   ├── db_schema_snapshot_full.py [12.1 KB] 2026-06-28 14:18
+│   ├── db_table_passport.py [22.1 KB] 2026-06-28 22:22
+│   ├── debt_policy_matrix_preview.py [9.1 KB] 2026-06-28 20:22
+│   ├── detect_project_epoch.py [22.9 KB] 2026-06-30 22:52
+│   ├── dump_service_codes_live_sandbox.py [3.4 KB] 2026-06-28 21:28
+│   ├── extract_remote_gate_sources.py [6.7 KB] 2026-06-28 16:59
+│   ├── find_service_access_policy_integration_points.py [6.9 KB] 2026-06-29 11:53
+│   ├── generators/
+│   │   └── runner_generator.py [12.9 KB] 2026-07-03 18:35
+│   ├── grant_admin.py [4.2 KB] 2026-07-01 13:40
+│   ├── harvest_lost_features_from_sandboxes.py [17.7 KB] 2026-07-02 18:35
+│   ├── harvest_osbb_download_zips.py [9.0 KB] 2026-07-02 22:21
+│   ├── inspect_operator_candidates.py [9.0 KB] 2026-06-30 10:54
+│   ├── inspect_phone_access_legacy.py [10.9 KB] 2026-06-29 19:37
+│   ├── INSTALL.md [677 B] 2026-07-06 19:28
+│   ├── INSTALL_remote_debt_gate_v1.py [24.9 KB] 2026-06-28 17:38
+│   ├── materialize_recovered_releases.py [7.5 KB] 2026-07-03 15:14
+│   ├── MIGRATE_debt_policy_rules_v1.py [10.6 KB] 2026-06-28 21:13
+│   ├── MIGRATE_phone_access_foundation_v1.py [11.9 KB] 2026-06-29 19:09
+│   ├── MIGRATE_service_catalog_v2_policy_fields.py [15.2 KB] 2026-06-29 10:54
+│   ├── module_registry_manager.py [11.3 KB] 2026-07-02 19:48
+│   ├── parking_registry/
+│   │   ├── __init__.py [52 B] 2026-07-05 19:13
+│   │   ├── _common.py [5.4 KB] 2026-07-05 19:13
+│   │   ├── debtors_report.py [3.0 KB] 2026-07-05 19:13
+│   │   ├── excel_export.py [3.2 KB] 2026-07-05 19:13
+│   │   ├── manual_task_design.md [430 B] 2026-07-05 19:13
+│   │   ├── MODULE.md [695 B] 2026-07-05 19:13
+│   │   ├── operator_task_candidates.py [4.3 KB] 2026-07-05 19:13
+│   │   ├── period_tools.py [433 B] 2026-07-05 19:13
+│   │   └── registry_report.py [3.4 KB] 2026-07-05 19:13
+│   ├── parking_registry_0/
+│   │   ├── __init__.py [47 B] 2026-07-05 15:33
+│   │   ├── _common.py [4.5 KB] 2026-07-05 15:33
+│   │   ├── excel_export.py [3.4 KB] 2026-07-05 15:33
+│   │   ├── MODULE.md [1.5 KB] 2026-07-05 15:33
+│   │   ├── period_tools.py [472 B] 2026-07-05 15:33
+│   │   ├── registry_audit.py [3.0 KB] 2026-07-05 15:33
+│   │   └── registry_report.py [4.5 KB] 2026-07-05 15:33
+│   ├── patch_parking_bot_admin_access_v1.py [6.1 KB] 2026-06-30 20:18
+│   ├── patch_phone_access_policy_ux_bridge_v1.py [4.4 KB] 2026-06-29 17:30
+│   ├── patch_phone_barrier_access_service_policy_v1.py [5.2 KB] 2026-06-29 23:10
+│   ├── patch_remove_extra_admin_ids_v1.py [2.7 KB] 2026-07-01 13:41
+│   ├── patch_resident_identity_decision_v1.py [8.5 KB] 2026-07-02 16:41
+│   ├── patch_self_reflection_project_memory_v1.py [2.2 KB] 2026-07-01 12:12
+│   ├── patch_service_orders_core_access_policy_v1.py [7.8 KB] 2026-06-29 13:45
+│   ├── patch_service_orders_workspace_policy_ux_v1.py [7.5 KB] 2026-06-29 15:53
+│   ├── project_archaeologist.py [18.2 KB] 2026-07-02 22:52
+│   ├── project_archaeologist_trace_launch_chain.py [12.7 KB] 2026-07-03 22:42
+│   ├── project_code_search.py [5.2 KB] 2026-06-28 15:20
+│   ├── project_passport.py [18.3 KB] 2026-06-28 15:29
+│   ├── project_passport_v2.py [19.6 KB] 2026-06-28 15:35
+│   ├── project_passport_v3_classifier.py [23.4 KB] 2026-06-28 15:50
+│   ├── project_passport_v4_runtime_schema_audit.py [24.2 KB] 2026-06-28 15:55
+│   ├── promote_peak_service_orders_workspace.py [9.0 KB] 2026-07-03 21:38
+│   ├── promote_sandbox_to_training_db.py [6.1 KB] 2026-07-01 12:30
+│   ├── rank_candidate_working_dbs.py [15.2 KB] 2026-06-30 22:22
+│   ├── rank_service_orders_workspace_versions.py [8.8 KB] 2026-07-03 21:13
+│   ├── remote_debt_gate_audit.py [19.5 KB] 2026-06-28 16:47
+│   ├── remote_debt_gate_test_fixture.py [25.5 KB] 2026-06-28 18:30
+│   ├── reports/
+│   │   ├── __init__.py [40 B] 2026-07-05 13:30
+│   │   ├── parking_payments_report.MODULE.md [1.5 KB] 2026-07-05 13:30
+│   │   └── parking_payments_report.py [17.6 KB] 2026-07-05 13:30
+│   ├── restore_empty_extraction_trees.py [9.5 KB] 2026-07-02 22:48
+│   ├── restore_release_tree_to_project.py [8.5 KB] 2026-07-03 12:28
+│   ├── restore_zip_named_skeletons.py [5.1 KB] 2026-07-03 10:19
+│   ├── sandbox_switch_admin_apartment.py [11.4 KB] 2026-06-29 22:06
+│   ├── select_release_candidate.py [17.1 KB] 2026-06-30 22:31
+│   ├── self_reflection.py [25.7 KB] 2026-07-01 09:25
+│   ├── show_cashier_tables.py [752 B] 2026-07-12 16:16
+│   ├── show_running_osbb_bots.py [5.0 KB] 2026-06-28 18:54
+│   ├── start_live_services_bot.py [1.9 KB] 2026-06-28 19:20
+│   ├── stop_live_services_bot.py [2.3 KB] 2026-06-28 19:19
+│   ├── test_phone_access_acceptance.py [10.8 KB] 2026-06-29 18:39
+│   ├── test_phone_access_legacy_create_request.py [12.9 KB] 2026-06-29 21:30
+│   ├── test_service_access_policy_import.py [1.2 KB] 2026-06-29 11:46
+│   ├── test_service_access_policy_v11.py [1.5 KB] 2026-06-29 13:20
+│   ├── trace_phone_interest_pipeline.py [4.7 KB] 2026-06-29 21:04
+│   ├── trace_phone_policy_path.py [9.7 KB] 2026-06-29 22:46
+│   ├── user_onboarding/
+│   │   ├── __init__.py [34 B] 2026-07-06 11:27
+│   │   ├── ADMIN_UI.md [1.0 KB] 2026-07-06 11:27
+│   │   ├── admin_ui.py [41.0 KB] 2026-08-02 16:47
+│   │   ├── admin_ui.py.bak [40.9 KB] 2026-08-02 16:47
+│   │   ├── ADMIN_UI_V2.md [355 B] 2026-07-06 12:25
+│   │   ├── create_onboarding_schema.py [4.2 KB] 2026-07-05 21:56
+│   │   ├── fix_user_onboarding_import_v3.py [3.1 KB] 2026-07-06 12:54
+│   │   ├── IMPORT_FIX_V3.md [321 B] 2026-07-06 12:54
+│   │   ├── MODULE.md [1.7 KB] 2026-07-06 12:28
+│   │   ├── patch_parking_bot_admin_ui.py [4.6 KB] 2026-07-06 11:27
+│   │   ├── patch_parking_bot_admin_ui_v2.py [4.4 KB] 2026-07-06 12:25
+│   │   └── write_import_order_rule.py [1.7 KB] 2026-07-06 12:25
+│   ├── working_bind_user_to_apartment.py [7.3 KB] 2026-07-02 18:12
+│   ├── working_db_session.py [10.8 KB] 2026-07-02 17:15
+│   ├── write_documentator_rules.py [3.4 KB] 2026-07-04 20:57
+│   └── write_parking_payment_workflow_docs.py [6.0 KB] 2026-07-05 11:31
+├── unit_resolver.py [17.6 KB] 2026-06-23 18:13
+├── utils.py [7.5 KB] 2026-06-09 12:13
+├── vehicle_data_quality_tasks.py [13.6 KB] 2026-06-19 17:05
+├── vehicle_verification_tasks.py [17.2 KB] 2026-06-19 17:48
+└── Word_table_to_Excel.py [2.6 KB] 2026-05-24 21:16

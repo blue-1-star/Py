@@ -1,0 +1,25 @@
+================================================================================
+📌 ТАБЛИЦА: vehicle_candidates
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      license_plate                  TEXT                 ✅                 
+2      license_plate_normalized       TEXT                 ✅                 
+3      car_model                      TEXT                 ❌                 
+4      car_model_normalized           TEXT                 ❌                 
+5      apartment_id                   INTEGER              ❌                 
+6      apartment_number               TEXT                 ❌                 
+7      status                         TEXT                 ❌                 
+8      resolved_vehicle_id            INTEGER              ❌                 
+9      merged_vehicle_id              INTEGER              ❌                 
+10     created_by                     INTEGER              ❌                 
+11     created_at                     TEXT                 ❌                 
+12     updated_at                     TEXT                 ❌                 
+13     comment                        TEXT                 ❌                 
+14     source                         TEXT                 ❌                 

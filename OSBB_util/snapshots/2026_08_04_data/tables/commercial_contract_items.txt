@@ -1,0 +1,27 @@
+================================================================================
+📌 ТАБЛИЦА: commercial_contract_items
+================================================================================
+📊 Строк: 1
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      contract_id                    INTEGER              ✅                 
+2      item_code                      TEXT                 ❌                 
+3      item_name                      TEXT                 ✅                 
+4      reference_service_code         TEXT                 ❌                 
+5      calculation_mode               TEXT                 ✅                 
+6      fixed_amount                   REAL                 ❌                 
+7      rate_amount                    REAL                 ❌                 
+8      quantity_default               REAL                 ✅                 
+9      currency                       TEXT                 ✅                 
+10     blocks_phone_access_on_debt    INTEGER              ✅                 
+11     is_active                      INTEGER              ✅                 
+12     valid_from                     TEXT                 ❌                 
+13     valid_to                       TEXT                 ❌                 
+14     note                           TEXT                 ❌                 
+15     created_at                     TEXT                 ✅                 
+16     updated_at                     TEXT                 ❌                 

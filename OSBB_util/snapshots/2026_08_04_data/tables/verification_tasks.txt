@@ -1,0 +1,34 @@
+================================================================================
+📌 ТАБЛИЦА: verification_tasks
+================================================================================
+📊 Строк: 37
+================================================================================
+
+📐 СТРУКТУРА КОЛОНОК
+--------------------------------------------------------------------------------
+#      Имя                            Тип                  NOT NULL     PK   
+--------------------------------------------------------------------------------
+0      id                             INTEGER              ❌            ✅    
+1      apartment_id                   INTEGER              ❌                 
+2      apartment_number               TEXT                 ❌                 
+3      task_group                     TEXT                 ❌                 
+4      task_type                      TEXT                 ❌                 
+5      priority                       INTEGER              ❌                 
+6      status                         TEXT                 ❌                 
+7      source_name                    TEXT                 ❌                 
+8      source_record_id               TEXT                 ❌                 
+9      object_table                   TEXT                 ❌                 
+10     object_id                      INTEGER              ❌                 
+11     field_name                     TEXT                 ❌                 
+12     main_value                     TEXT                 ❌                 
+13     candidate_value                TEXT                 ❌                 
+14     normalized_main_value          TEXT                 ❌                 
+15     normalized_candidate_value     TEXT                 ❌                 
+16     suggestion                     TEXT                 ❌                 
+17     comment                        TEXT                 ❌                 
+18     created_at                     TEXT                 ❌                 
+19     created_by                     TEXT                 ❌                 
+20     resolved_at                    TEXT                 ❌                 
+21     resolved_by                    TEXT                 ❌                 
+22     resolution                     TEXT                 ❌                 
+23     resolution_comment             TEXT                 ❌                 
