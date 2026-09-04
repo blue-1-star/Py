@@ -1,3 +1,4 @@
+
 # Простой тест GPG
 import subprocess
 import getpass
